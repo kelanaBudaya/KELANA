@@ -192,7 +192,7 @@ Catatan:
 Onboarding (termasuk pilih daerah) → Jelajah nasional → Peta daerah → Detail atraksi → Buat itinerary → Edit → Simpan (login) → Bagikan
 ```
 
-1. **Onboarding (4 langkah):** tipe traveler → minat budaya (kartu: keraton, museum, seni pertunjukan, kerajinan, candi) → daerah tujuan (Yogyakarta aktif; lainnya "Segera hadir" dengan "Kabari saya") → durasi; tanggal opsional. Indikator langkah dan ringkasan pilihan selalu terlihat.
+1. **Onboarding (4 langkah):** daerah tujuan (Yogyakarta aktif; lainnya "Segera hadir" dengan "Kabari saya") → tipe traveler → minat budaya (keraton & istana, museum, candi & situs, seni pertunjukan, kerajinan & wastra) → durasi; tanggal opsional. Indikator langkah dan ringkasan pilihan selalu terlihat.
 2. **Jelajah nasional:** peta Indonesia dengan penanda tiap daerah dan daftar daerah. Ketuk daerah aktif untuk masuk ke peta daerah; ketuk daerah "Segera hadir" untuk melihat statusnya. Tombol "Indonesia" di peta daerah kembali ke tampilan nasional.
 3. **Peta daerah:** pin terfilter sesuai minat; geser peta atau "cari di area ini".
 4. **Detail atraksi:** baca ringkasan, tonton video review, cek jadwal, lalu "Tambah ke rencana".
