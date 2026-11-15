@@ -3,7 +3,8 @@
 Aplikasi mobile perencana perjalanan wisata budaya.
 
 - **Konteks:** kompetisi / hackathon
-- **Wilayah MVP:** DI Yogyakarta
+- **Skala produk:** nasional (seluruh Indonesia), dibuka bertahap per daerah
+- **Wilayah dengan data (MVP):** DI Yogyakarta; daerah lain tampil sebagai "Segera hadir"
 - **Stack:** Flutter + Supabase
 - **Tim & waktu:** 2–4 orang, kurang dari 2 minggu
 - **Bentuk demo:** aplikasi berjalan di perangkat
@@ -66,6 +67,9 @@ Data atraksi diambil dari situs-situs resmi.
 | FR-11 | Kalender pertunjukan/event mingguan | Should |
 | FR-12 | Wishlist atraksi | Could |
 | FR-13 | Laporkan info/video yang salah | Could |
+| FR-14 | Jelajah tingkat nasional: peta Indonesia dengan penanda per daerah dan daftar daerah; daerah bertanda aktif/"Segera hadir" | Must |
+| FR-15 | Daerah "Segera hadir" tidak bisa dibuka; user bisa menekan "Kabari saya" untuk diingatkan saat daerah tersedia | Should |
+| FR-16 | Pemilihan daerah tujuan di onboarding; itinerary, peta, dan pencarian mengikuti daerah terpilih | Must |
 
 ## 4. Non-functional requirements
 
@@ -78,7 +82,7 @@ Data atraksi diambil dari situs-situs resmi.
 | NFR-5 | Keamanan | Row Level Security: itinerary hanya bisa diubah pemiliknya; link berbagi memakai token acak |
 | NFR-6 | Ketahanan | Atraksi dan itinerary terakhir di-cache; jika embed video gagal, tampil link keluar |
 | NFR-7 | Aksesibilitas | Kontras WCAG AA, target sentuh ≥ 48dp, mendukung pembesaran teks |
-| NFR-8 | Skalabilitas | Skema memakai `region_id` agar daerah lain bisa ditambah tanpa ubah struktur |
+| NFR-8 | Skalabilitas | Skema memakai `region_id`; tabel `regions` punya status (`active` / `coming_soon`) sehingga daerah baru dibuka tanpa merilis ulang app |
 
 ## 5. Rencana fitur
 
@@ -172,7 +176,7 @@ Catatan:
 
 | Tabel | Kolom utama |
 |---|---|
-| `regions` | id, nama |
+| `regions` | id, nama, status (`active` / `coming_soon`), koordinat pusat, jumlah atraksi |
 | `attractions` | id, region_id, type (`permanent` / `experience`), nama, kategori, ringkasan, isi, koordinat, host_place, jam buka, harga tiket, durasi kunjungan, source_url, last_verified_at |
 | `schedules` | id, attraction_id, hari, jam mulai, jam selesai, source_url, last_verified_at |
 | `videos` | id, attraction_id, platform, url, kreator, jumlah view, published_at, approved |
@@ -185,16 +189,17 @@ Catatan:
 ## 7. Alur pengguna
 
 ```
-Onboarding → Beranda peta → Detail atraksi → Buat itinerary → Edit → Simpan (login) → Bagikan
+Onboarding (termasuk pilih daerah) → Jelajah nasional → Peta daerah → Detail atraksi → Buat itinerary → Edit → Simpan (login) → Bagikan
 ```
 
-1. **Onboarding:** pilih tipe traveler, pilih minat lewat kartu (keraton, museum, seni pertunjukan, kerajinan, candi), lalu pilih durasi; tanggal opsional. Indikator langkah dan ringkasan pilihan selalu terlihat.
-2. **Beranda peta:** pin terfilter sesuai minat; geser peta atau "cari di area ini".
-3. **Detail atraksi:** baca ringkasan, tonton video review, cek jadwal, lalu "Tambah ke rencana".
-4. **Buat itinerary:** app menyusun draft per hari dengan estimasi waktu dan jarak.
-5. **Edit:** drag untuk ubah urutan, tambah/hapus, peringatan bentrok.
-6. **Simpan:** login Google diminta di titik ini.
-7. **Bagikan:** link dibuka teman, lalu disalin ke akun mereka.
+1. **Onboarding (4 langkah):** tipe traveler → minat budaya (kartu: keraton, museum, seni pertunjukan, kerajinan, candi) → daerah tujuan (Yogyakarta aktif; lainnya "Segera hadir" dengan "Kabari saya") → durasi; tanggal opsional. Indikator langkah dan ringkasan pilihan selalu terlihat.
+2. **Jelajah nasional:** peta Indonesia dengan penanda tiap daerah dan daftar daerah. Ketuk daerah aktif untuk masuk ke peta daerah; ketuk daerah "Segera hadir" untuk melihat statusnya. Tombol "Indonesia" di peta daerah kembali ke tampilan nasional.
+3. **Peta daerah:** pin terfilter sesuai minat; geser peta atau "cari di area ini".
+4. **Detail atraksi:** baca ringkasan, tonton video review, cek jadwal, lalu "Tambah ke rencana".
+5. **Buat itinerary:** app menyusun draft per hari dengan estimasi waktu dan jarak.
+6. **Edit:** drag untuk ubah urutan, tambah/hapus, peringatan bentrok.
+7. **Simpan:** login Google diminta di titik ini.
+8. **Bagikan:** link dibuka teman, lalu disalin ke akun mereka.
 
 ## 8. Rencana 2 minggu
 
