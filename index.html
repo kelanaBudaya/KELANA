@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BudayaGo — Prototipe</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --indigo-50:#EEF0FA;--indigo-100:#D8DCF3;--indigo-200:#B3BAE6;--indigo-500:#3F4BAA;--indigo-600:#2F3A8F;--indigo-700:#252E73;--indigo-900:#12173C;
+  --kunyit-50:#FFF7E5;--kunyit-100:#FEEBBF;--kunyit-300:#FBC552;--kunyit-400:#F7B02B;--kunyit-500:#EE9A0C;--kunyit-700:#9C5C08;
+  --sogan-100:#EEDDD0;--sogan-500:#975A33;--sogan-700:#5E361F;
+  --n0:#fff;--n50:#FBF8F3;--n100:#F4EFE7;--n200:#E7E0D4;--n300:#D2C9BA;--n500:#7F7667;--n600:#5E574B;--n900:#171512;
+  --green-100:#D9F2E4;--green-500:#1F9D63;--green-700:#14683F;--red-100:#FBE0DC;--red-500:#D6402F;--red-700:#9A2A1E;
+  --bg-canvas:var(--n50);--bg-surface:var(--n0);--bg-subtle:var(--n100);--bg-brand:var(--indigo-600);--bg-accent:var(--kunyit-400);
+  --text:var(--n900);--text-2:var(--n600);--text-3:var(--n500);--border:var(--n200);
+  --cat-keraton:var(--kunyit-500);--cat-museum:var(--indigo-500);--cat-candi:var(--sogan-500);--cat-pertunjukan:var(--red-500);--cat-kerajinan:var(--green-500);
+  --r-sm:8px;--r-md:12px;--r-lg:16px;--r-xl:24px;
+  --e1:0 1px 2px rgba(23,21,18,.08);--e2:0 4px 12px rgba(23,21,18,.10);--e3:0 8px 24px rgba(23,21,18,.14);--esheet:0 -4px 24px rgba(23,21,18,.12);
+  --kawung:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 48 48' fill='none' stroke='%23fff' stroke-opacity='.16' stroke-width='1.5'%3E%3Cellipse cx='12' cy='12' rx='5' ry='9' transform='rotate(0 12 12)'/%3E%3Cellipse cx='12' cy='12' rx='9' ry='5'/%3E%3Cellipse cx='36' cy='36' rx='5' ry='9'/%3E%3Cellipse cx='36' cy='36' rx='9' ry='5'/%3E%3Cellipse cx='36' cy='12' rx='5' ry='9'/%3E%3Cellipse cx='36' cy='12' rx='9' ry='5'/%3E%3Cellipse cx='12' cy='36' rx='5' ry='9'/%3E%3Cellipse cx='12' cy='36' rx='9' ry='5'/%3E%3C/svg%3E");
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font:400 14px/20px 'Plus Jakarta Sans',system-ui,sans-serif;color:var(--text);background:#e9e3d8;min-height:100vh;display:flex;align-items:center;justify-content:center}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+svg.i{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
+#phone{width:360px;height:800px;background:var(--bg-canvas);position:relative;overflow:hidden;border-radius:32px;box-shadow:0 0 0 8px var(--n900),var(--e3)}
+@media(max-width:420px){body{display:block}#phone{width:100vw;height:100dvh;border-radius:0;box-shadow:none}}
+.screen{position:absolute;inset:0;display:flex;flex-direction:column}
+.scroll{flex:1;overflow-y:auto;scrollbar-width:none}.scroll::-webkit-scrollbar{display:none}
+.h-disp{font:600 28px/36px Fraunces,serif}.h-lg{font:600 24px/32px Fraunces,serif}.h-md{font:600 20px/28px Fraunces,serif}
+.t-lg{font:700 18px/26px 'Plus Jakarta Sans'}.t-md{font:600 16px/24px 'Plus Jakarta Sans'}.t-sm{font:600 14px/20px 'Plus Jakarta Sans'}
+.b-sm{font-size:12px;line-height:16px}.lbl{font:600 12px/16px 'Plus Jakarta Sans'}
+.sec{color:var(--text-2)}.ter{color:var(--text-3)}
+.btn{height:48px;padding:0 20px;border-radius:var(--r-xl);font-weight:700;display:inline-flex;align-items:center;justify-content:center;gap:8px;transition:transform .1s}
+.btn:active{transform:scale(.97)}.btn.p{background:var(--bg-brand);color:#fff}.btn.s{background:var(--indigo-50);color:var(--indigo-600)}.btn.t{color:var(--indigo-600)}.btn.a{background:var(--bg-accent);color:var(--n900)}.btn.w{width:100%}.btn[disabled]{background:var(--n200);color:var(--n500);cursor:not-allowed}
+.ib{width:48px;height:48px;border-radius:50%;display:grid;place-items:center}.ib.f{background:var(--bg-surface);box-shadow:var(--e2)}
+.chip{height:36px;padding:0 14px;border-radius:999px;border:1px solid var(--border);background:var(--bg-surface);font-weight:600;font-size:13px;display:inline-flex;align-items:center;gap:6px;white-space:nowrap}
+.chip.on{background:var(--indigo-600);border-color:var(--indigo-600);color:#fff}
+.badge{display:inline-flex;align-items:center;gap:4px;height:22px;padding:0 8px;border-radius:999px;font:600 11px/16px 'Plus Jakarta Sans';white-space:nowrap}
+.badge .dot{width:6px;height:6px;border-radius:50%;background:currentColor}
+.card{background:var(--bg-surface);border-radius:var(--r-lg);box-shadow:var(--e1);border:1px solid var(--border)}
+.hero{background:var(--indigo-600) var(--kawung);color:#fff;position:relative}
+.cover{position:relative;overflow:hidden;color:#fff;display:grid;place-items:center}
+.cover::after{content:"";position:absolute;inset:0;background:var(--kawung);z-index:1}
+.cover svg{width:44px;height:44px;stroke-width:1.5;position:relative;z-index:1;opacity:.9}
+/* onboarding */
+.onb{padding:0 16px 24px;display:flex;flex-direction:column;flex:1}
+.prog{display:flex;gap:6px;padding:16px 0}.prog i{flex:1;height:4px;border-radius:2px;background:var(--n200)}.prog i.on{background:var(--indigo-600)}
+.sel{border:2px solid var(--border);border-radius:var(--r-lg);background:var(--bg-surface);padding:14px;text-align:left;display:flex;flex-direction:column;gap:10px;min-height:112px}
+.sel.on{border-color:var(--indigo-600);background:var(--indigo-50)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.mini{background:var(--bg-subtle);border-radius:var(--r-md);padding:12px 14px;margin-top:16px}
+/* nav */
+.nav{height:72px;background:var(--bg-surface);border-top:1px solid var(--border);display:flex;padding-bottom:8px}
+.nav button{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;color:var(--text-3);font:600 11px/16px 'Plus Jakarta Sans'}
+.nav button.on{color:var(--indigo-600)}.nav button.on .pill{background:var(--indigo-100)}
+.nav .pill{width:56px;height:30px;border-radius:15px;display:grid;place-items:center}
+/* map */
+.map{flex:1;position:relative;background:#F4EFE7;overflow:hidden}
+.map svg.bg{position:absolute;inset:0;width:100%;height:100%}
+.pin{position:absolute;transform:translate(-50%,-100%);width:36px;height:44px;display:grid;place-items:start center;transition:transform .15s}
+.pin i{width:34px;height:34px;border-radius:50% 50% 50% 4px;transform:rotate(-45deg);display:grid;place-items:center;box-shadow:var(--e2);border:2px solid #fff}
+.pin i svg{transform:rotate(45deg);width:16px;height:16px;color:#fff}
+.pin.sel2{transform:translate(-50%,-100%) scale(1.25);z-index:5}
+.mtop{position:absolute;top:0;left:0;right:0;padding:12px 16px 0;display:flex;flex-direction:column;gap:10px;z-index:6}
+.search{height:48px;border-radius:24px;background:var(--bg-surface);box-shadow:var(--e2);display:flex;align-items:center;gap:10px;padding:0 16px;color:var(--text-3)}
+.search input{flex:1;border:0;outline:0;font:inherit;color:var(--text);background:none;min-width:0}
+.chips{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}
+.mcard{position:absolute;left:12px;right:12px;bottom:12px;z-index:7;padding:10px;display:flex;gap:12px;box-shadow:var(--e3);text-align:left;width:calc(100% - 24px)}
+.mcard .cover{width:84px;border-radius:var(--r-md);flex:none}
+.mbtn{position:absolute;top:122px;left:50%;transform:translateX(-50%);z-index:6;height:36px;padding:0 14px;border-radius:18px;background:var(--bg-surface);box-shadow:var(--e2);font-weight:600;font-size:13px;color:var(--indigo-600);display:flex;align-items:center;gap:6px}
+/* detail */
+.dhead{height:260px;flex:none;position:relative}
+.dhead .cover{position:absolute;inset:0}.dhead .cover svg{width:72px;height:72px}
+.dbar{position:absolute;top:0;left:0;right:0;padding:12px;display:flex;justify-content:space-between;z-index:3}
+.dsheet{margin-top:-24px;background:var(--bg-canvas);border-radius:24px 24px 0 0;padding:20px 16px 24px;position:relative;z-index:2}
+.inforow{display:flex;gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid var(--border)}
+.inforow .ic{width:36px;height:36px;border-radius:10px;background:var(--indigo-50);color:var(--indigo-600);display:grid;place-items:center;flex:none}
+.hs{display:flex;gap:12px;overflow-x:auto;scrollbar-width:none;margin:0 -16px;padding:0 16px}
+.vid{width:128px;flex:none;text-align:left}
+.vid .th{height:208px;border-radius:var(--r-lg);position:relative;overflow:hidden;color:#fff;display:flex;flex-direction:column;justify-content:space-between;padding:8px}
+.vid .th::after{content:"";position:absolute;inset:0;background:var(--kawung);pointer-events:none}
+.vid .play{position:absolute;inset:0;display:grid;place-items:center;z-index:1}
+.vid .play span{width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.9);color:var(--n900);display:grid;place-items:center}
+.src{background:var(--green-100);color:var(--green-700);border-radius:var(--r-md);padding:12px;display:flex;gap:10px;align-items:flex-start}
+.cta{padding:12px 16px 16px;background:var(--bg-surface);border-top:1px solid var(--border);display:flex;gap:12px}
+/* itinerary */
+.days{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding:0 16px 12px}
+.stop{display:flex;gap:12px}
+.stop .rail{display:flex;flex-direction:column;align-items:center;width:32px;flex:none}
+.stop .num{width:32px;height:32px;border-radius:50%;background:var(--indigo-600);color:#fff;font-weight:700;display:grid;place-items:center;flex:none}
+.stop .line{flex:1;width:2px;background:repeating-linear-gradient(var(--indigo-200) 0 4px,transparent 4px 8px);margin:4px 0}
+.stop .body{flex:1;padding:12px;margin-bottom:8px}
+.leg{font-size:12px;color:var(--text-3);padding:2px 0 10px;display:flex;align-items:center;gap:6px}
+.warn{background:var(--kunyit-50);color:var(--kunyit-700);border:1px solid var(--kunyit-100);border-radius:var(--r-md);padding:10px 12px;display:flex;gap:8px;font-size:12px;line-height:16px;font-weight:600;margin-top:8px}
+.empty{padding:48px 32px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:12px}
+.empty .art{width:120px;height:120px;border-radius:50%;background:var(--indigo-600) var(--kawung);display:grid;place-items:center;color:#fff}
+.empty .art svg{width:44px;height:44px}
+/* events */
+.cal{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;padding:0 16px 12px}
+.cal button{height:64px;border-radius:var(--r-md);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;background:var(--bg-surface);border:1px solid var(--border)}
+.cal button.on{background:var(--indigo-600);color:#fff;border-color:var(--indigo-600)}
+.cal .d{width:5px;height:5px;border-radius:50%;background:var(--kunyit-500)}
+/* sheet/dialog/snack */
+.scrim{position:absolute;inset:0;background:rgba(23,21,18,.5);z-index:40;display:flex;align-items:flex-end}
+.sheet{width:100%;background:var(--bg-surface);border-radius:24px 24px 0 0;padding:12px 16px 24px;box-shadow:var(--esheet);display:flex;flex-direction:column;gap:12px}
+.sheet .grab{width:40px;height:4px;border-radius:2px;background:var(--n300);margin:0 auto 4px}
+.snack{position:absolute;left:16px;right:16px;bottom:88px;background:var(--n900);color:#fff;border-radius:var(--r-md);padding:12px 16px;z-index:50;font-weight:600;animation:up .2s}
+@keyframes up{from{opacity:0;transform:translateY(8px)}}
+.field{display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-bottom:1px solid var(--border)}
+.hdr{padding:12px 16px 8px}
+.row{display:flex;align-items:center;gap:8px}.sp{flex:1}.gap8{display:flex;flex-direction:column;gap:8px}
+</style>
+</head>
+<body>
+<div id="phone"><div id="app"></div></div>
+<script>
+const IC={
+pin:'<path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/>',
+search:'<circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/>',
+clock:'<circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>',
+ticket:'<path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M13 5v2M13 17v2M13 11v2"/>',
+route:'<circle cx="6" cy="19" r="3"/><path d="M9 19h8.5a3.5 3.5 0 0 0 0-7h-11a3.5 3.5 0 0 1 0-7H15"/><circle cx="18" cy="5" r="3"/>',
+cal:'<rect width="18" height="18" x="3" y="4" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/>',
+user:'<path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>',
+compass:'<circle cx="12" cy="12" r="10"/><path d="m16.2 7.8-2 6.3-6.4 2.1 2-6.3z"/>',
+plus:'<path d="M5 12h14M12 5v14"/>',x:'<path d="M18 6 6 18M6 6l12 12"/>',
+back:'<path d="m15 18-6-6 6-6"/>',next:'<path d="m9 18 6-6-6-6"/>',
+share:'<circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.6 13.5 6.8 4M15.4 6.5l-6.8 4"/>',
+play:'<path d="m6 3 14 9-14 9z"/>',check:'<path d="M20 6 9 17l-5-5"/>',
+up:'<path d="m5 12 7-7 7 7M12 19V5"/>',down:'<path d="M12 5v14m7-7-7 7-7-7"/>',
+trash:'<path d="M3 6h18M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>',
+landmark:'<path d="M3 22h18M6 18v-7M10 18v-7M14 18v-7M18 18v-7M12 2 3 7h18z"/>',
+shield:'<path d="M20 13c0 5-3.5 7.5-7.7 8.97a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/>',
+trend:'<path d="m22 7-8.5 8.5-5-5L2 17"/><path d="M16 7h6v6"/>',
+drama:'<path d="M10 11h.01M14 6h.01M18 6h.01M6.5 13.1h.01M22 5c0 9-4 12-6 12s-6-3-6-12c0-2 2-3 6-3s6 1 6 3"/><path d="M17.4 9.9c-.8.8-2 .8-2.8 0M10.1 7.1C9 7.2 7.7 7.7 6 8.6c-3.5 2-4.7 3.9-3.7 5.6 4.5 7.8 9.5 8.4 11.2 7.4.9-.5 1.9-2.1 1.9-4.7M9.1 16.5c.8-.5 1.6-.4 2.5.4"/>',
+palette:'<circle cx="13.5" cy="6.5" r=".5"/><circle cx="17.5" cy="10.5" r=".5"/><circle cx="8.5" cy="7.5" r=".5"/><circle cx="6.5" cy="12.5" r=".5"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.9 0 1.7-.7 1.7-1.6 0-.4-.2-.8-.5-1.1-.3-.3-.5-.7-.5-1.1 0-.9.7-1.7 1.7-1.7H16c3.1 0 5.6-2.5 5.6-5.6C22 6 17.5 2 12 2z"/>',
+castle:'<path d="M22 20v-9H2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2zM2 11V4h4v3h4V4h4v3h4V4h4v7M10 22v-4a2 2 0 0 1 4 0v4"/>',
+wifi:'<path d="M12 20h.01M8.5 16.4a5 5 0 0 1 7 0M5 12.9a10 10 0 0 1 5-2.7M2 8.8a15 15 0 0 1 4.2-2.7M2 2l20 20"/>',
+heart:'<path d="M19 14c1.5-1.5 3-3.2 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.8 0-3 .5-4.5 2-1.5-1.5-2.7-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4 3 5.5l7 7z"/>',
+link:'<path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/>',
+alert:'<path d="m21.7 18-8-14a2 2 0 0 0-3.4 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.7-3zM12 9v4M12 17h.01"/>',
+logout:'<path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/>'};
+const ic=(n,s)=>`<svg class="i" viewBox="0 0 24 24"${s?` style="width:${s}px;height:${s}px"`:''}>${IC[n]}</svg>`;
+const CAT={keraton:{n:'Keraton',c:'var(--cat-keraton)',i:'castle'},museum:{n:'Museum',c:'var(--cat-museum)',i:'landmark'},candi:{n:'Candi',c:'var(--cat-candi)',i:'landmark'},pertunjukan:{n:'Seni Pertunjukan',c:'var(--cat-pertunjukan)',i:'drama'},kerajinan:{n:'Kerajinan',c:'var(--cat-kerajinan)',i:'palette'}};
+const TRAV=[['solo','Solo traveler','Bebas atur ritme sendiri','user'],['couple','Pasangan','Spot romantis & tenang','heart'],['family','Keluarga','Ramah anak, tidak terburu-buru','castle'],['friends','Teman','Seru dan bisa patungan','compass']];
+const rp=n=>n?'Rp'+n.toLocaleString('id-ID'):'Gratis';
+const A=[
+{id:1,name:'Keraton Yogyakarta',cat:'keraton',type:'permanen',x:46,y:50,o:'08:30',c:'14:00',p:25000,d:120,desc:'Istana resmi Kesultanan Yogyakarta yang masih berfungsi. Kunjungan dipandu abdi dalem.',inside:['Bangsal Kencono','Museum Kereta','Pertunjukan gamelan pagi hari'],src:'kratonjogja.id',ver:'12 Nov 2026',v:[['TikTok','@jalanjogja','1,2 jt',1],['Instagram','@ceritabudaya','340 rb',0],['YouTube','@jogjawalk','88 rb',0]],g:['#2F3A8F','#F7B02B']},
+{id:2,name:'Museum Sonobudoyo',cat:'museum',type:'permanen',x:43,y:44,o:'08:00',c:'15:30',p:15000,d:90,desc:'Museum koleksi budaya Jawa: keris, topeng, wayang, dan batik, dalam bangunan joglo.',inside:['Koleksi wayang & topeng','Galeri keris','Pendopo joglo'],src:'sonobudoyo.id',ver:'10 Nov 2026',v:[['TikTok','@ceritabudaya','610 rb',1],['YouTube','@jogjawalk','52 rb',0]],g:['#3F4BAA','#8A94D6']},
+{id:3,name:'Candi Prambanan',cat:'candi',type:'permanen',x:88,y:28,o:'06:30',c:'17:00',p:50000,d:150,desc:'Kompleks candi Hindu abad ke-9 dengan relief Ramayana pada dinding Candi Siwa.',inside:['Candi Siwa, Wisnu, Brahma','Relief Ramayana','Museum Prambanan'],src:'borobudurpark.com',ver:'11 Nov 2026',v:[['TikTok','@jalanjogja','2,4 jt',1],['Instagram','@ceritabudaya','510 rb',0]],g:['#975A33','#FDD98A']},
+{id:4,name:'Taman Sari',cat:'keraton',type:'permanen',x:41,y:57,o:'09:00',c:'15:00',p:15000,d:90,desc:'Bekas taman istana dengan kolam pemandian, lorong bawah tanah, dan Sumur Gumuling.',inside:['Pemandian Umbul Binangun','Sumur Gumuling','Lorong bawah tanah'],src:'jogjakota.go.id',ver:'9 Nov 2026',v:[['TikTok','@jalanjogja','980 rb',0],['YouTube','@jogjawalk','120 rb',0]],g:['#2F3A8F','#5F6BC2']},
+{id:5,name:'Museum Ullen Sentalu',cat:'museum',type:'permanen',x:46,y:7,o:'08:30',c:'16:00',p:100000,d:120,desc:'Museum budaya Jawa di lereng Merapi; kunjungan wajib dengan pemandu.',inside:['Galeri batik','Kisah putri keraton','Kopi Beukenhof'],src:'ullensentalu.com',ver:'8 Nov 2026',v:[['Instagram','@ceritabudaya','275 rb',1],['TikTok','@jalanjogja','430 rb',0]],g:['#5E361F','#DDBBA2']},
+{id:6,name:'Kotagede',cat:'kerajinan',type:'permanen',x:60,y:70,o:'09:00',c:'17:00',p:0,d:120,desc:'Kawasan kota tua pusat kerajinan perak, dengan lorong rumah joglo dan pasar tradisional.',inside:['Bengkel perak','Masjid Gedhe Mataram','Rumah joglo'],src:'jogjakota.go.id',ver:'9 Nov 2026',v:[['TikTok','@jalanjogja','350 rb',0],['YouTube','@jogjawalk','41 rb',0]],g:['#7F7667','#E7E0D4']},
+{id:7,name:'Kampung Batik Giriloyo',cat:'kerajinan',type:'permanen',x:38,y:90,o:'09:00',c:'16:00',p:20000,d:90,desc:'Sentra batik tulis di perbukitan Imogiri; pengunjung bisa melihat proses membatik.',inside:['Sentra batik tulis','Galeri kain','Pemandangan perbukitan'],src:'giriloyobatik.id',ver:'7 Nov 2026',v:[['Instagram','@ceritabudaya','150 rb',0],['TikTok','@jalanjogja','210 rb',0]],g:['#2F3A8F','#FEEBBF']},
+{id:8,name:'Sendratari Ramayana',cat:'pertunjukan',type:'pertunjukan',host:'Candi Prambanan',x:84,y:33,at:'19:30',o:'19:30',c:'22:00',p:150000,d:120,sched:'Selasa · Kamis · Sabtu',days:[2,4,6],desc:'Tari drama tanpa dialog yang menceritakan Ramayana, dipentaskan di panggung terbuka dengan latar candi.',inside:['Tari klasik Jawa','Orkestra gamelan','Panggung terbuka'],src:'borobudurpark.com',ver:'11 Nov 2026',v:[['TikTok','@jalanjogja','1,8 jt',1],['YouTube','@jogjawalk','96 rb',0]],g:['#9A2A1E','#F7B02B']},
+{id:9,name:'Wayang Kulit Malam',cat:'pertunjukan',type:'pertunjukan',host:'Museum Sonobudoyo',x:47,y:42,at:'20:00',o:'20:00',c:'22:00',p:20000,d:120,sched:'Setiap malam kecuali Minggu',days:[1,2,3,4,5,6],desc:'Pertunjukan wayang kulit ringkas dengan narasi yang mudah diikuti pengunjung umum.',inside:['Dalang & gamelan','Penjelasan lakon','Sesi foto dengan wayang'],src:'sonobudoyo.id',ver:'10 Nov 2026',v:[['TikTok','@ceritabudaya','720 rb',1],['Instagram','@jalanjogja','130 rb',0]],g:['#171512','#EE9A0C']},
+{id:10,name:'Workshop Membatik',cat:'kerajinan',type:'pertunjukan',host:'Kampung Batik Giriloyo',x:41,y:86,at:'10:00',o:'10:00',c:'14:00',p:150000,d:120,sched:'Senin – Sabtu',days:[1,2,3,4,5,6],desc:'Belajar membatik tulis langsung dari pembatik; hasil karya boleh dibawa pulang.',inside:['Pengenalan canting & malam','Praktik membatik','Kain dibawa pulang'],src:'giriloyobatik.id',ver:'7 Nov 2026',v:[['Instagram','@ceritabudaya','260 rb',1]],g:['#3F4BAA','#FDD98A']}];
+const byId=id=>A.find(a=>a.id===id);
+const mins=t=>{const[h,m]=t.split(':');return +h*60+ +m};
+const hm=m=>String(Math.floor(m/60)%24).padStart(2,'0')+':'+String(m%60).padStart(2,'0');
+const dist=(a,b)=>Math.hypot(a.x-b.x,(a.y-b.y)*1.2)*0.28;
+const travel=(a,b)=>{const k=dist(a,b);return{km:k,min:Math.round(k*3.2+4)}};
+let st={scr:'onb',step:0,trav:'',ints:[],days:2,tab:'jelajah',det:null,filter:'semua',q:'',sel:null,plan:[],day:0,saved:false,sheet:null,snack:'',evDay:new Date().getDay()};
+// itinerary generator: filter by interest, nearest-neighbour per day, fixed-time shows last
+function gen(){
+  let pool=A.filter(a=>!st.ints.length||st.ints.includes(a.cat));
+  const per=st.trav==='family'?2:3,days=[];
+  const fixed=pool.filter(a=>a.at),free=pool.filter(a=>!a.at);
+  if(free.length<st.days*per)A.filter(a=>!a.at&&!free.includes(a)).forEach(a=>free.length<st.days*per&&free.push(a)); // pad with nearby picks outside chosen interests
+  let cur=free[0],left=free.slice();
+  for(let d=0;d<st.days;d++){const day=[];while(day.length<per&&left.length){const n=cur?left.reduce((b,a)=>dist(cur,a)<dist(cur,b)?a:b):left[0];day.push(n.id);left=left.filter(a=>a!==n);cur=n}
+    const f=fixed[d];if(f)day.push(f.id);days.push(day);cur=null;if(left.length)cur=left[0]}
+  st.plan=days;st.day=0}
+function timeline(ids){let t=540,out=[],prev=null;
+  ids.forEach(id=>{const a=byId(id);let leg=null;if(prev){leg=travel(prev,a);t+=leg.min}
+    if(a.at)t=Math.max(t,mins(a.at));const arr=t;t+=a.d;out.push({a,arr,end:t,leg,bad:arr>mins(a.c)-30||arr<mins(a.o)-0&&!a.at});t+=0;prev=a});return out}
+const go=(o)=>{Object.assign(st,o);render()};
+const snack=m=>{st.snack=m;render();setTimeout(()=>{st.snack='';render()},2200)};
+const SLUG={1:'keraton-yogyakarta',2:'museum-sonobudoyo',3:'candi-prambanan',4:'taman-sari',5:'ullen-sentalu',6:'kotagede',7:'batik-giriloyo',8:'sendratari-ramayana',9:'wayang-kulit',10:'workshop-membatik'};
+function cover(a,cls=''){return `<div class="cover ${cls}" style="background:linear-gradient(150deg,${a.g[0]},${a.g[1]})"><img src="assets/illustrations/cover/${SLUG[a.id]}.svg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:2" onerror="this.remove()"></div>`}
+function status(a){const n=new Date(),m=n.getHours()*60+n.getMinutes();const open=m>=mins(a.o)&&m<mins(a.c);const soon=open&&mins(a.c)-m<60;
+  return soon?`<span class="badge" style="background:var(--kunyit-100);color:var(--kunyit-700)"><i class="dot"></i>Segera tutup</span>`:open?`<span class="badge" style="background:var(--green-100);color:var(--green-700)"><i class="dot"></i>Buka</span>`:`<span class="badge" style="background:var(--red-100);color:var(--red-700)"><i class="dot"></i>Tutup</span>`}
+const catBadge=a=>`<span class="badge" style="background:color-mix(in srgb,${CAT[a.cat].c} 14%,white);color:${CAT[a.cat].c}">${CAT[a.cat].n}</span>`;
+const nav=()=>`<div class="nav">${[['jelajah','compass','Jelajah'],['rencana','route','Rencana'],['acara','cal','Acara'],['profil','user','Profil']].map(([k,i,l])=>`<button data-a="tab" data-v="${k}" class="${st.tab===k?'on':''}"><span class="pill">${ic(i)}</span>${l}</button>`).join('')}</div>`;
+/* ---------- screens ---------- */
+function onb(){
+  const s=st.step,steps=[
+  `<div class="hero" style="margin:0 -16px;padding:48px 24px 40px;border-radius:0 0 32px 32px"><div class="row" style="gap:10px;margin-bottom:56px"><svg width="36" height="36" viewBox="0 0 48 48" fill="none" stroke="#FBC552" stroke-width="2.5"><ellipse cx="24" cy="24" rx="9" ry="19"/><ellipse cx="24" cy="24" rx="19" ry="9"/><circle cx="24" cy="24" r="3" fill="#FBC552"/></svg><b class="t-lg">BudayaGo</b></div>
+   <h1 class="h-disp">Jelajahi budaya Jogja, tanpa bingung mulai dari mana.</h1><p style="margin-top:12px;opacity:.85">Satu rencana perjalanan: tempat budaya terverifikasi, ringkasan isi, dan video review dari pengunjung asli.</p></div>
+   <div class="gap8" style="margin-top:24px">${[['shield','Info dari sumber resmi, lengkap dengan tanggal verifikasi'],['play','Video TikTok, Instagram & YouTube dari orang sungguhan'],['route','Itinerary otomatis yang bisa kamu atur sendiri']].map(([i,t])=>`<div class="row" style="gap:12px"><span class="ib" style="width:40px;height:40px;background:var(--indigo-50);color:var(--indigo-600)">${ic(i)}</span><span class="t-sm" style="font-weight:600">${t}</span></div>`).join('')}</div>`,
+  `<h2 class="h-lg" style="margin-top:8px">Kamu pergi dengan siapa?</h2><p class="sec" style="margin:4px 0 16px">Kami sesuaikan jumlah tempat per hari.</p><div class="grid2">${TRAV.map(([k,n,d,i])=>`<button class="sel ${st.trav===k?'on':''}" data-a="trav" data-v="${k}"><span style="color:var(--indigo-600)">${ic(i,28)}</span><span><b class="t-sm">${n}</b><br><span class="b-sm sec">${d}</span></span></button>`).join('')}</div>`,
+  `<h2 class="h-lg" style="margin-top:8px">Budaya apa yang menarik buatmu?</h2><p class="sec" style="margin:4px 0 16px">Pilih satu atau lebih.</p><div class="grid2">${Object.entries(CAT).map(([k,c])=>`<button class="sel ${st.ints.includes(k)?'on':''}" data-a="int" data-v="${k}" style="min-height:96px"><span style="color:${c.c}">${ic(c.i,28)}</span><b class="t-sm">${c.n}</b></button>`).join('')}</div>`,
+  `<h2 class="h-lg" style="margin-top:8px">Berapa hari di Yogyakarta?</h2><p class="sec" style="margin:4px 0 24px">Tanggal bisa menyusul nanti.</p>
+   <div class="card" style="padding:24px;display:flex;align-items:center;justify-content:space-between"><button class="ib f" data-a="days" data-v="-1">${ic('x',0).replace(IC.x,'<path d="M5 12h14"/>')}</button><div style="text-align:center"><div class="h-disp" style="font-size:48px;line-height:52px">${st.days}</div><div class="sec">hari</div></div><button class="ib f" data-a="days" data-v="1">${ic('plus')}</button></div>
+   <div class="mini"><b class="t-sm">Rencanamu sejauh ini</b><div class="b-sm sec" style="margin-top:4px">${TRAV.find(t=>t[0]===st.trav)?.[1]||'—'} · ${st.ints.length?st.ints.map(i=>CAT[i].n).join(', '):'Semua jenis budaya'} · ${st.days} hari</div></div>`];
+  const ok=s===1?!!st.trav:true;
+  return `<div class="screen"><div class="onb scroll" style="display:flex;flex-direction:column"><div class="prog" style="${s===0?'display:none':''}">${[1,2,3].map(i=>`<i class="${i<=s?'on':''}"></i>`).join('')}</div>${steps[s]}
+  <div class="sp"></div><div class="row" style="margin-top:24px;gap:12px">${s>0?`<button class="btn s" data-a="obk">Kembali</button>`:''}<button class="btn p ${s?'':'w'}" style="flex:${s?1:'initial'}" ${ok?'':'disabled'} data-a="onx">${s===0?'Mulai':s===3?'Buat rencanaku':'Lanjut'}</button></div>
+  ${s===0?'':`<button class="btn t w" data-a="skip">Lewati, lihat peta dulu</button>`}</div></div>`}
+function pins(list){return list.map(a=>`<button class="pin ${st.sel===a.id?'sel2':''}" style="left:${8+a.x*.84}%;top:${22+a.y*.62}%" data-a="pin" data-v="${a.id}"><i style="background:${CAT[a.cat].c}">${ic(CAT[a.cat].i)}</i></button>`).join('')}
+function jelajah(){
+  const list=A.filter(a=>(st.filter==='semua'||a.cat===st.filter)&&a.name.toLowerCase().includes(st.q.toLowerCase()));const s=st.sel&&byId(st.sel);
+  return `<div class="map"><svg class="bg" viewBox="0 0 360 640" preserveAspectRatio="none"><rect width="360" height="640" fill="#F4EFE7"/><path d="M0 330C80 300 130 360 210 330S320 290 360 320V360C320 330 250 350 210 365S80 335 0 365Z" fill="#D8DCF3"/><rect x="150" y="60" width="70" height="50" rx="12" fill="#D9F2E4"/><rect x="40" y="420" width="90" height="60" rx="12" fill="#D9F2E4"/><rect x="250" y="440" width="70" height="80" rx="12" fill="#D9F2E4"/><g stroke="#fff" fill="none" stroke-linecap="round"><path d="M0 200H360M0 470H360M120 0V640M240 0V640" stroke-width="9"/><path d="M0 120H360M0 280H360M0 560H360M60 0V640M180 0V640M300 0V640M0 80L360 220M0 520L360 400" stroke-width="4"/></g></svg>
+  <div class="mtop"><label class="search">${ic('search')}<input placeholder="Cari keraton, museum, pertunjukan…" value="${st.q}" data-a="q"></label><div class="chips"><button class="chip ${st.filter==='semua'?'on':''}" data-a="flt" data-v="semua">Semua</button>${Object.entries(CAT).map(([k,c])=>`<button class="chip ${st.filter===k?'on':''}" data-a="flt" data-v="${k}"><span style="width:8px;height:8px;border-radius:50%;background:${c.c}"></span>${c.n}</button>`).join('')}</div></div>
+  <button class="mbtn" data-a="area">${ic('search',16)} Cari di area ini</button>${pins(list)}
+  ${s?`<button class="card mcard" data-a="det" data-v="${s.id}">${cover(s)}<div style="flex:1;min-width:0" class="gap8"><div class="row" style="gap:6px">${catBadge(s)}${status(s)}</div><b class="t-md" style="line-height:20px">${s.name}</b><span class="b-sm sec">${s.type==='pertunjukan'?`Di ${s.host} · ${s.at}`:`${s.o}–${s.c} · ${rp(s.p)}`}</span></div></button>`:`<div class="mcard card" style="justify-content:space-between;align-items:center"><span class="sec b-sm">${list.length} tempat budaya di sekitar Yogyakarta. Ketuk pin untuk ringkasan.</span></div>`}</div>`}
+function detail(){const a=byId(st.det),inP=st.plan.flat().includes(a.id);
+  return `<div class="screen" style="z-index:20;background:var(--bg-canvas)"><div class="scroll"><div class="dhead">${cover(a)}<div class="dbar"><button class="ib f" data-a="back">${ic('back')}</button><button class="ib f" data-a="snk" data-v="Disimpan ke wishlist">${ic('heart')}</button></div></div>
+  <div class="dsheet"><div class="row" style="gap:6px;flex-wrap:wrap">${catBadge(a)}${status(a)}${a.type==='pertunjukan'?'<span class="badge" style="background:var(--kunyit-100);color:var(--kunyit-700)">Pengalaman</span>':''}</div>
+  <h1 class="h-lg" style="margin:10px 0 4px">${a.name}</h1>${a.host?`<div class="row sec" style="gap:6px">${ic('pin',16)}<span class="b-sm">Di ${a.host}</span></div>`:''}
+  <p style="margin-top:12px" class="sec">${a.desc}</p>
+  <div style="margin-top:8px">${[['clock','Jam buka',a.type==='pertunjukan'?`${a.sched} · mulai ${a.at}`:`${a.o} – ${a.c}`],['ticket','Tiket',rp(a.p)],['route','Durasi kunjungan',`± ${a.d/60>=1?(a.d/60)+' jam':a.d+' mnt'}`]].map(([i,l,v])=>`<div class="inforow"><span class="ic">${ic(i)}</span><div><div class="b-sm ter">${l}</div><b class="t-sm">${v}</b></div></div>`).join('')}</div>
+  <h3 class="t-lg" style="margin:20px 0 8px">Apa yang ada di dalam</h3><div class="gap8">${a.inside.map(x=>`<div class="row" style="gap:10px"><span style="color:var(--green-500)">${ic('check',18)}</span>${x}</div>`).join('')}</div>
+  <div class="row" style="margin:24px 0 8px"><h3 class="t-lg">Review orang asli</h3><div class="sp"></div><span class="b-sm ter">${a.v.length} video</span></div>
+  <div class="hs">${a.v.map(([p,h,vw,t],i)=>`<button class="vid" data-a="snk" data-v="Embed ${p} resmi dimuat di app"><div class="th" style="background:linear-gradient(${160+i*30}deg,${a.g[i%2]},${a.g[(i+1)%2]})"><div class="row" style="z-index:1"><span class="badge" style="background:rgba(0,0,0,.55);color:#fff">${p}</span></div><div class="play"><span>${ic('play',18)}</span></div>${t?`<span class="badge" style="background:var(--kunyit-400);color:var(--n900);z-index:1;align-self:flex-start">${ic('trend',12)} Tren 30 hari</span>`:'<span></span>'}</div><b class="b-sm" style="display:block;margin-top:6px">${h}</b><span class="b-sm ter">${vw} tayangan</span></button>`).join('')}</div>
+  <div class="src" style="margin-top:24px">${ic('shield')}<div><b class="t-sm">Sumber resmi · diverifikasi ${a.ver}</b><div class="b-sm">${a.src}. Jadwal dan harga bisa berubah; cek sumber sebelum berangkat.</div></div></div></div></div>
+  <div class="cta"><button class="btn s" style="flex:none" data-a="snk" data-v="Laporan terkirim, terima kasih">${ic('alert')}</button><button class="btn p w" ${inP?'disabled':''} data-a="add" data-v="${a.id}">${inP?'Sudah di rencana':'Tambah ke rencana'}</button></div></div>`}
+function rencana(){
+  if(!st.plan.length||!st.plan.flat().length)return `<div class="scroll"><div class="empty"><div class="art">${ic('route')}</div><h2 class="h-md">Belum ada rencana</h2><p class="sec">Jawab 3 pertanyaan singkat dan kami susun itinerary budaya untukmu.</p><button class="btn p" data-a="redo">Buat rencana</button></div></div>`;
+  const tl=timeline(st.plan[st.day]||[]),tot=st.plan[st.day].reduce((s,id)=>s+byId(id).p,0);
+  return `<div class="hdr"><div class="row"><h1 class="h-lg">Rencana ${st.days} hari</h1><div class="sp"></div><button class="ib f" style="width:40px;height:40px" data-a="share">${ic('share')}</button></div><div class="b-sm sec">${TRAV.find(t=>t[0]===st.trav)?.[1]||'Traveler'} · Yogyakarta${st.saved?' · <b style="color:var(--green-700)">Tersimpan</b>':''}</div></div>
+  <div class="days">${st.plan.map((_,i)=>`<button class="chip ${st.day===i?'on':''}" data-a="day" data-v="${i}">Hari ${i+1}</button>`).join('')}<button class="chip" data-a="addday">${ic('plus',16)}</button></div>
+  <div class="scroll" style="padding:0 16px 16px">${tl.length?tl.map((r,i)=>`${r.leg?`<div class="leg" style="margin-left:44px">${ic('route',14)}${r.leg.km.toFixed(1)} km · ${r.leg.min} mnt perjalanan</div>`:''}
+  <div class="stop"><div class="rail"><span class="num" style="${r.a.at?'background:var(--cat-pertunjukan)':''}">${i+1}</span>${i<tl.length-1?'<i class="line"></i>':''}</div><div class="card body"><div class="row" style="align-items:flex-start"><div style="flex:1;min-width:0"><div class="lbl" style="color:var(--indigo-600)">${hm(r.arr)} – ${hm(r.end)}${r.a.at?' · jadwal tetap':''}</div><button data-a="det" data-v="${r.a.id}" class="t-md" style="text-align:left;margin-top:2px">${r.a.name}</button><div class="b-sm sec" style="margin-top:2px">${CAT[r.a.cat].n} · ${rp(r.a.p)}</div></div>
+  <div class="gap8" style="gap:0"><button data-a="mv" data-v="${i}:-1" style="padding:4px;color:var(--text-3)">${ic('up',16)}</button><button data-a="mv" data-v="${i}:1" style="padding:4px;color:var(--text-3)">${ic('down',16)}</button></div><button data-a="rm" data-v="${i}" style="padding:4px;color:var(--red-500)">${ic('trash',18)}</button></div>
+  ${r.bad?`<div class="warn">${ic('alert',16)}<span>Tiba pukul ${hm(r.arr)}, mendekati jam tutup (${r.a.c}). Pindahkan ke urutan lebih awal.</span></div>`:''}</div></div>`).join(''):`<div class="empty"><p class="sec">Hari ini masih kosong. Tambahkan dari peta atau halaman detail.</p></div>`}
+  <div class="card" style="padding:12px 16px;display:flex;justify-content:space-between;margin-top:8px"><span class="sec">Perkiraan tiket hari ini</span><b>${rp(tot)}</b></div>
+  <div class="row" style="margin-top:12px;gap:8px"><button class="btn s" style="flex:1" data-a="tab" data-v="jelajah">${ic('plus')}Tambah tempat</button><button class="btn p" style="flex:1" data-a="save">${st.saved?'Tersimpan':'Simpan'}</button></div></div>`}
+function acara(){const names=['Min','Sen','Sel','Rab','Kam','Jum','Sab'],now=new Date();
+  const ev=A.filter(a=>a.days&&a.days.includes(st.evDay));
+  return `<div class="hdr"><h1 class="h-lg">Acara & pertunjukan</h1><p class="sec b-sm">Jadwal pertunjukan budaya minggu ini.</p></div>
+  <div class="cal">${[...Array(7)].map((_,i)=>{const d=new Date(now.getTime()+i*864e5),w=d.getDay();return `<button class="${st.evDay===w?'on':''}" data-a="evd" data-v="${w}"><span class="b-sm" style="opacity:.8">${names[w]}</span><b>${d.getDate()}</b>${A.some(a=>a.days&&a.days.includes(w))?'<i class="d"></i>':'<i style="height:5px"></i>'}</button>`}).join('')}</div>
+  <div class="scroll" style="padding:0 16px 16px"><div class="gap8" style="gap:12px">${ev.length?ev.map(a=>`<button class="card" style="display:flex;gap:12px;padding:10px;text-align:left" data-a="det" data-v="${a.id}">${cover(a).replace('class="cover "','class="cover " ').replace('<div class="cover','<div style="width:84px;border-radius:12px;flex:none" class="cover')}<div style="flex:1;min-width:0" class="gap8"><span class="lbl" style="color:var(--cat-pertunjukan)">Mulai ${a.at}</span><b class="t-md" style="line-height:20px">${a.name}</b><span class="b-sm sec">Di ${a.host}</span><span class="b-sm ter">${a.sched} · ${rp(a.p)}</span></div></button>`).join(''):`<div class="empty"><div class="art">${ic('cal')}</div><b class="t-md">Tidak ada pertunjukan hari ini</b><span class="sec">Coba pilih tanggal lain.</span></div>`}</div></div>`}
+function profil(){return `<div class="hdr"><h1 class="h-lg">Profil</h1></div><div class="scroll" style="padding:0 16px 16px"><div class="card" style="padding:16px;display:flex;gap:12px;align-items:center"><span class="ib" style="background:var(--indigo-100);color:var(--indigo-600)">${ic('user')}</span><div style="flex:1"><b class="t-md">${st.saved?'Rahma P.':'Tamu'}</b><div class="b-sm sec">${st.saved?'Masuk dengan Google':'Masuk untuk menyimpan rencanamu'}</div></div>${st.saved?'':`<button class="btn s" style="height:40px" data-a="login">Masuk</button>`}</div>
+  <h3 class="t-lg" style="margin:20px 0 4px">Rencana tersimpan</h3>${st.saved&&st.plan.flat().length?`<div class="card" style="padding:14px;margin-top:8px"><b class="t-md">Rencana ${st.days} hari · Yogyakarta</b><div class="b-sm sec">${st.plan.flat().length} tempat budaya</div></div>`:`<p class="sec" style="padding:12px 0">Belum ada rencana tersimpan.</p>`}
+  <h3 class="t-lg" style="margin:20px 0 4px">Preferensi</h3><div class="field"><span>Tipe traveler</span><b>${TRAV.find(t=>t[0]===st.trav)?.[1]||'—'}</b></div><div class="field"><span>Minat</span><b>${st.ints.map(i=>CAT[i].n).join(', ')||'Semua'}</b></div><button class="btn s w" style="margin-top:16px" data-a="redo">Ulangi onboarding</button></div>`}
+function main(){const t=st.tab;return `<div class="screen">${t==='jelajah'?jelajah():t==='rencana'?rencana():t==='acara'?acara():profil()}${nav()}</div>`}
+function overlays(){
+  if(st.sheet==='login')return `<div class="scrim" data-a="close"><div class="sheet" data-stop><div class="grab"></div><h3 class="h-md">Simpan rencanamu</h3><p class="sec">Masuk agar rencana tersimpan dan bisa dibuka di perangkat lain.</p><button class="btn p w" data-a="dologin">Lanjut dengan Google</button><button class="btn t w" data-a="close">Nanti saja</button></div></div>`;
+  if(st.sheet==='share')return `<div class="scrim" data-a="close"><div class="sheet" data-stop><div class="grab"></div><h3 class="h-md">Bagikan rencana</h3><p class="sec">Penerima bisa melihat rencanamu dan menyalinnya ke akun mereka.</p><div class="card" style="padding:12px;display:flex;gap:8px;align-items:center;color:var(--indigo-600)">${ic('link')}<span class="b-sm" style="flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">budayago.app/r/k7x2m9qa</span></div><button class="btn p w" data-a="copy">Salin link</button></div></div>`;return ''}
+function render(){const app=document.getElementById('app'),q=document.activeElement&&document.activeElement.dataset.a==='q';
+  app.innerHTML=(st.scr==='onb'?onb():main())+(st.det?detail():'')+overlays()+(st.snack?`<div class="snack">${st.snack}</div>`:'');
+  if(q){const i=app.querySelector('input');i.focus();i.setSelectionRange(i.value.length,i.value.length)}}
+document.addEventListener('click',e=>{const t=e.target.closest('[data-a]');if(!t||t.dataset.a==='q')return;if(e.target.closest('[data-stop]')&&t.classList.contains('scrim'))return;
+  const a=t.dataset.a,v=t.dataset.v;
+  const F={tab:()=>go({tab:v,det:null,sel:null}),trav:()=>go({trav:v}),int:()=>go({ints:st.ints.includes(v)?st.ints.filter(x=>x!==v):[...st.ints,v]}),days:()=>go({days:Math.min(7,Math.max(1,st.days+ +v))}),
+  onx:()=>{if(st.step<3)go({step:st.step+1});else{gen();go({scr:'main',tab:'rencana'})}},obk:()=>go({step:st.step-1}),skip:()=>go({scr:'main',tab:'jelajah'}),
+  flt:()=>go({filter:v,sel:null}),pin:()=>go({sel:+v}),area:()=>snack('Menampilkan tempat di area peta ini'),det:()=>go({det:+v}),back:()=>go({det:null}),snk:()=>snack(v),
+  add:()=>{if(!st.plan.length)st.plan=[[]];st.plan[st.day].push(+v);go({det:null,tab:'rencana'});snack('Ditambahkan ke Hari '+(st.day+1))},
+  day:()=>go({day:+v}),addday:()=>{st.plan.push([]);go({days:st.plan.length,day:st.plan.length-1})},
+  mv:()=>{const[i,d]=v.split(':').map(Number),p=st.plan[st.day],j=i+d;if(j<0||j>=p.length)return;[p[i],p[j]]=[p[j],p[i]];render()},
+  rm:()=>{st.plan[st.day].splice(+v,1);render()},save:()=>st.saved?snack('Rencana sudah tersimpan'):go({sheet:'login'}),login:()=>go({sheet:'login'}),dologin:()=>{go({saved:true,sheet:null});snack('Rencana tersimpan')},
+  share:()=>go({sheet:'share'}),copy:()=>{try{navigator.clipboard.writeText('budayago.app/r/k7x2m9qa')}catch(_){}go({sheet:null});snack('Link disalin')},close:()=>go({sheet:null}),
+  evd:()=>go({evDay:+v}),redo:()=>go({scr:'onb',step:1,det:null})};
+  F[a]&&F[a]()});
+document.addEventListener('input',e=>{if(e.target.dataset.a==='q'){st.q=e.target.value;st.sel=null;render()}});
+render();
+</script>
+</body>
+</html>

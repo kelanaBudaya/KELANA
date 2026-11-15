@@ -1,0 +1,210 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="180" height="320" viewBox="0 0 180 320" fill="none">
+  <rect x="0" y="0" width="180" height="320" fill="#FDD98A"/>
+
+  <g id="kelir-screen-glow">
+    <circle cx="96" cy="96" r="78" fill="#FFF7E5" opacity="0.28"/>
+    <circle cx="96" cy="96" r="56" fill="#FFF7E5" opacity="0.55"/>
+    <circle cx="96" cy="96" r="36" fill="#FFF7E5"/>
+    <circle cx="96" cy="96" r="18" fill="#FFFFFF" opacity="0.55"/>
+    <path d="M0 198 L180 214 L180 320 L0 320 Z" fill="#F7B02B" opacity="0.35"/>
+    <path d="M0 218 L180 230 L180 320 L0 320 Z" fill="#975A33" opacity="0.45"/>
+  </g>
+
+  <g id="puppet-soft-shadow">
+    <path d="M0 74 C18 58 56 56 74 78 C56 74 34 86 38 104 C42 118 62 114 78 108 C86 112 92 120 96 128 L122 137 L104 141 L101 147 L86 151 L74 168 L98 180 L114 214 L94 224 L88 250 L0 250 Z" fill="#975A33" opacity="0.22"/>
+    <path d="M88 180 L126 210 L160 142 L172 126 L164 118 L150 134 L122 192 L92 168 Z" fill="#975A33" opacity="0.18"/>
+  </g>
+
+  <g id="wayang-silhouette">
+    <!-- Praba / Back wing and waist torso cropped at left edge -->
+    <path d="M0 148 C14 144 28 150 38 164 L56 166 C74 166 92 174 102 188 L84 236 L78 256 L0 256 Z" fill="#171512"/>
+
+    <!-- Rear shoulder wing flare (cropped at left) -->
+    <path d="M0 132 C12 128 24 134 32 146 C38 154 46 162 54 166 L28 176 L0 168 Z" fill="#171512"/>
+
+    <!-- Slender neck and noble head in strict right-facing profile -->
+    <path d="M50 168 L60 140 L48 132 L58 96 L82 102 C88 106 92 112 95 119 L121 129 C123 130 123 132 120 133 L101 135 L103 138 L97 140 L99 144 C99 146 95 148 89 147 L78 145 L70 170 Z" fill="#171512"/>
+
+    <!-- Supit Urang (tall backward-curving lobster-claw headdress) -->
+    <path d="M54 108 C36 106 16 94 10 74 C4 54 18 38 42 40 C64 42 82 56 82 74 C82 84 74 90 66 86 C60 83 60 74 66 70 C70 67 68 58 56 54 C42 50 28 58 30 72 C32 84 46 92 64 92 L78 102 Z" fill="#171512"/>
+
+    <!-- Inner decorative crest inside the headdress coil -->
+    <path d="M24 94 C12 84 8 66 16 52 C22 42 36 38 50 40 C36 42 24 54 24 68 C24 80 34 90 48 94 Z" fill="#171512"/>
+
+    <!-- Forehead crown peak (jamang) and garuda mungkur back-head boss -->
+    <path d="M64 94 L82 82 L86 92 L94 88 L92 100 L98 100 L94 110 L76 106 Z" fill="#171512"/>
+    <path d="M48 104 C36 102 24 108 18 118 C14 126 20 136 32 136 C42 136 50 130 54 122 Z" fill="#171512"/>
+    <path d="M18 116 C10 114 4 118 0 124 L0 136 C8 138 18 136 24 130 Z" fill="#171512"/>
+
+    <!-- Sumping (sweeping ear ornament) and flowing neck lock -->
+    <path d="M58 128 L34 114 L30 124 L42 134 L32 142 L52 146 Z" fill="#171512"/>
+
+    <!-- Chest necklace contour and ornate shoulder arch -->
+    <path d="M68 164 C82 166 96 174 104 186 C108 192 106 202 98 206 L82 212 Z" fill="#171512"/>
+  </g>
+
+  <g id="wayang-painted-accents">
+    <!-- Kunyit gold crown band (jamang) and sumping ear leaf -->
+    <path d="M64 98 L91 104 L89 110 L62 104 Z" fill="#F7B02B"/>
+    <path d="M68 94 L82 86 L84 93 L91 90 L90 99 L66 95 Z" fill="#F7B02B"/>
+    <path d="M58 127 L37 116 L35 123 L47 132 L38 139 L53 142 Z" fill="#F7B02B"/>
+
+    <!-- Red accents inside crown, garuda mungkur, and chest -->
+    <path d="M72 100 L88 104 L87 107 L71 103 Z" fill="#D6402F"/>
+    <circle cx="34" cy="121" r="4.5" fill="#D6402F"/>
+    <circle cx="34" cy="121" r="2" fill="#FFF7E5"/>
+
+    <!-- Necklace (kalung) and shoulder ornament (kelat bahu) in kunyit & red -->
+    <path d="M54 164 C66 172 82 178 96 184 C92 194 80 198 66 192 C56 188 50 178 48 168 Z" fill="#F7B02B"/>
+    <path d="M58 169 C68 175 80 180 90 184 C87 190 78 192 68 188 C60 184 56 176 58 169 Z" fill="#D6402F"/>
+    <path d="M16 142 C28 142 40 150 48 162 L36 166 C28 156 18 150 6 150 Z" fill="#F7B02B"/>
+
+    <!-- Waist belt (sabuk / pending) -->
+    <path d="M36 220 L86 226 L83 236 L32 230 Z" fill="#F7B02B"/>
+    <path d="M42 223 L80 228 L78 233 L40 228 Z" fill="#D6402F"/>
+    <polygon points="62,218 72,226 62,234 52,226" fill="#F7B02B"/>
+    <polygon points="62,221 68,226 62,231 56,226" fill="#1F9D63"/>
+  </g>
+
+  <g id="wayang-cutout-perforations">
+    <!-- Noble narrow slit eye and brow line -->
+    <path d="M84 117 L96 121 L87 122 L82 119 Z" fill="#FFF7E5"/>
+    <circle cx="89" cy="120" r="1.3" fill="#171512"/>
+    <path d="M82 113 C87 113 92 115 95 118 L93 119 C90 116 86 115 81 115 Z" fill="#FFF7E5"/>
+
+    <!-- Delicate mouth line and chin curl -->
+    <path d="M92 139 L99 140 L95 142 Z" fill="#FFF7E5"/>
+
+    <!-- Headdress (Supit Urang) filigree perforations (tatahan) -->
+    <circle cx="48" cy="44" r="1.8" fill="#FFF7E5"/>
+    <circle cx="38" cy="45" r="1.8" fill="#FFF7E5"/>
+    <circle cx="28" cy="50" r="1.8" fill="#FFF7E5"/>
+    <circle cx="21" cy="58" r="1.8" fill="#FFF7E5"/>
+    <circle cx="18" cy="68" r="1.8" fill="#FFF7E5"/>
+    <circle cx="20" cy="78" r="1.8" fill="#FFF7E5"/>
+    <circle cx="26" cy="87" r="1.8" fill="#FFF7E5"/>
+    <circle cx="35" cy="94" r="1.8" fill="#FFF7E5"/>
+    <circle cx="45" cy="98" r="1.8" fill="#FFF7E5"/>
+    <circle cx="55" cy="99" r="1.6" fill="#FFF7E5"/>
+    <circle cx="58" cy="47" r="1.6" fill="#FFF7E5"/>
+    <circle cx="67" cy="53" r="1.6" fill="#FFF7E5"/>
+    <circle cx="74" cy="61" r="1.6" fill="#FFF7E5"/>
+    <circle cx="76" cy="71" r="1.6" fill="#FFF7E5"/>
+    <circle cx="72" cy="80" r="1.4" fill="#FFF7E5"/>
+
+    <!-- Small triangle cutouts along the headdress inner curve -->
+    <polygon points="44,48 48,51 43,52" fill="#FFF7E5"/>
+    <polygon points="33,52 37,55 32,57" fill="#FFF7E5"/>
+    <polygon points="25,61 29,64 25,66" fill="#FFF7E5"/>
+    <polygon points="24,72 28,74 25,77" fill="#FFF7E5"/>
+    <polygon points="29,82 34,83 31,87" fill="#FFF7E5"/>
+    <polygon points="39,89 44,90 41,94" fill="#FFF7E5"/>
+    <polygon points="50,93 55,93 52,97" fill="#FFF7E5"/>
+
+    <!-- Garuda Mungkur (back head ornament) spiral & teeth cutouts -->
+    <path d="M24 112 C28 108 36 108 42 112 C38 110 30 111 26 115 Z" fill="#FDD98A"/>
+    <polygon points="22,122 26,120 25,125" fill="#FDD98A"/>
+    <polygon points="27,128 31,125 31,130" fill="#FDD98A"/>
+    <polygon points="34,131 37,127 38,132" fill="#FDD98A"/>
+    <polygon points="41,130 43,126 45,130" fill="#FDD98A"/>
+    <circle cx="14" cy="125" r="1.6" fill="#FDD98A"/>
+    <circle cx="8" cy="129" r="1.6" fill="#FDD98A"/>
+
+    <!-- Sumping & neck perforations -->
+    <circle cx="43" cy="122" r="1.3" fill="#FFF7E5"/>
+    <circle cx="48" cy="127" r="1.3" fill="#FFF7E5"/>
+    <circle cx="46" cy="136" r="1.3" fill="#FFF7E5"/>
+    <circle cx="62" cy="146" r="1.4" fill="#FFF7E5"/>
+    <circle cx="60" cy="154" r="1.4" fill="#FFF7E5"/>
+    <circle cx="58" cy="161" r="1.4" fill="#FFF7E5"/>
+
+    <!-- Necklace & chest filigree cutouts -->
+    <circle cx="62" cy="174" r="1.5" fill="#FFF7E5"/>
+    <circle cx="69" cy="178" r="1.5" fill="#FFF7E5"/>
+    <circle cx="77" cy="181" r="1.5" fill="#FFF7E5"/>
+    <circle cx="85" cy="183" r="1.5" fill="#FFF7E5"/>
+    <polygon points="64,182 68,184 65,188" fill="#FFF7E5"/>
+    <polygon points="73,185 77,186 74,190" fill="#FFF7E5"/>
+    <polygon points="82,186 86,187 83,191" fill="#FFF7E5"/>
+
+    <!-- Shoulder wing (praba) cutouts -->
+    <circle cx="12" cy="138" r="1.6" fill="#FDD98A"/>
+    <circle cx="20" cy="140" r="1.6" fill="#FDD98A"/>
+    <circle cx="28" cy="145" r="1.6" fill="#FDD98A"/>
+    <circle cx="35" cy="152" r="1.6" fill="#FDD98A"/>
+    <polygon points="10,156 16,158 12,163" fill="#FDD98A"/>
+    <polygon points="20,159 26,161 22,166" fill="#FDD98A"/>
+    <polygon points="30,163 36,165 32,170" fill="#FDD98A"/>
+
+    <!-- Torso & batik kain dodot geometric cutouts -->
+    <circle cx="46" cy="196" r="1.5" fill="#FDD98A"/>
+    <circle cx="56" cy="200" r="1.5" fill="#FDD98A"/>
+    <circle cx="66" cy="203" r="1.5" fill="#FDD98A"/>
+    <circle cx="76" cy="206" r="1.5" fill="#FDD98A"/>
+    <polygon points="24,186 30,189 24,193" fill="#FDD98A"/>
+    <polygon points="36,192 42,195 36,199" fill="#FDD98A"/>
+    <polygon points="22,202 28,205 22,209" fill="#FDD98A"/>
+    <polygon points="34,206 40,209 34,213" fill="#FDD98A"/>
+    <polygon points="46,210 52,213 46,217" fill="#FDD98A"/>
+    <polygon points="58,213 64,216 58,220" fill="#FDD98A"/>
+    <circle cx="46" cy="226" r="1.4" fill="#FFF7E5"/>
+    <circle cx="74" cy="229" r="1.4" fill="#FFF7E5"/>
+  </g>
+
+  <g id="jointed-arm-and-rod">
+    <!-- Thin horn control rod (cempurit) running from raised hand down to dalang's hand -->
+    <line x1="154" y1="124" x2="128" y2="274" stroke="#975A33" stroke-width="2" stroke-linecap="round"/>
+    <line x1="153" y1="124" x2="127" y2="274" stroke="#171512" stroke-width="1" stroke-linecap="round"/>
+
+    <!-- Central body horn rod (cempurit pokok) -->
+    <line x1="68" y1="230" x2="62" y2="288" stroke="#171512" stroke-width="2" stroke-linecap="round"/>
+
+    <!-- Upper arm (very thin, elongated wayang proportion, angled down from shoulder to elbow) -->
+    <path d="M72 170 L118 208 L124 202 L78 164 Z" fill="#171512"/>
+    <!-- Upper arm decorative bicep band (kelat bahu) -->
+    <path d="M84 168 L96 179 L90 187 L78 176 Z" fill="#F7B02B"/>
+    <circle cx="87" cy="177" r="2" fill="#D6402F"/>
+
+    <!-- Forearm (very thin, rising sharply from elbow to raised graceful hand) -->
+    <path d="M116 206 L146 130 L152 133 L123 209 Z" fill="#171512"/>
+
+    <!-- Wrist bracelets (gelang kana) -->
+    <path d="M141 140 L150 144 L148 149 L139 145 Z" fill="#F7B02B"/>
+    <path d="M144 133 L153 137 L151 141 L142 137 Z" fill="#D6402F"/>
+
+    <!-- Stylized wayang hand (nyempurit mudra: curved fingers meeting thumb, high-arch fingertips) -->
+    <path d="M145 132 C147 122 153 114 162 110 C164 109 165 111 163 113 C157 117 154 123 154 128 L166 117 C168 116 169 118 167 120 L156 131 L167 125 C169 124 170 126 168 128 L154 135 C158 136 163 134 166 131 C167 133 164 138 158 139 C153 140 148 137 145 132 Z" fill="#171512"/>
+
+    <!-- Articulated joint pins (gegel) at shoulder, elbow, and hand rod tie -->
+    <circle cx="75" cy="167" r="3" fill="#F7B02B"/>
+    <circle cx="75" cy="167" r="1.2" fill="#171512"/>
+    <circle cx="120" cy="205" r="3.2" fill="#F7B02B"/>
+    <circle cx="120" cy="205" r="1.3" fill="#171512"/>
+    <circle cx="154" cy="124" r="2.2" fill="#F7B02B"/>
+    <circle cx="154" cy="124" r="0.9" fill="#171512"/>
+  </g>
+
+  <g id="bottom-stage-and-dalang-hand">
+    <!-- Banana-trunk stage rail (gedebog) and calm dark lower foreground (bottom 90px: y=230..320) -->
+    <path d="M0 236 C54 232 122 238 180 246 L180 320 L0 320 Z" fill="#975A33"/>
+    <path d="M0 244 C56 240 124 246 180 254 L180 262 C124 254 56 248 0 252 Z" fill="#C99673" opacity="0.35"/>
+    <path d="M0 252 C58 248 124 254 180 262 L180 320 L0 320 Z" fill="#171512"/>
+
+    <!-- Subtle horizontal fiber lines on the gedebog banana trunk -->
+    <path d="M12 241 L64 241" stroke="#171512" stroke-width="1" opacity="0.35"/>
+    <path d="M84 244 L156 249" stroke="#171512" stroke-width="1" opacity="0.35"/>
+
+    <!-- Turned wooden/horn handle grip around the control rod -->
+    <path d="M132 234 C135 235 136 240 134 246 L126 286 C124 290 120 290 119 285 L127 245 C128 239 130 234 132 234 Z" fill="#975A33"/>
+    <path d="M130 234 C132 235 133 240 131 246 L123 286 C122 288 120 288 119 285 L127 245 C128 239 129 234 130 234 Z" fill="#171512"/>
+
+    <!-- Dalang's hand silhouette rising at bottom-right holding the control rod -->
+    <!-- Warm sogan rim-light along upper edge of fingers and thumb -->
+    <path d="M108 320 L114 274 C115 264 121 258 128 258 L136 258 C139 252 146 250 151 255 C154 258 154 264 151 268 C155 270 157 275 154 280 C156 283 156 288 152 292 L158 320 Z" fill="#975A33"/>
+    <!-- Deep silhouette core of the dalang's hand and wrist -->
+    <path d="M110 320 L116 277 C117 268 122 262 129 262 L137 262 C140 256 146 255 150 259 C152 262 151 267 147 270 L135 271 L149 272 C153 274 154 278 151 282 L136 283 L150 284 C153 286 153 291 149 294 L155 320 Z" fill="#171512"/>
+    <!-- Thumb pressing against the control rod -->
+    <path d="M115 276 C117 264 123 254 130 252 C133 251 135 254 133 258 C130 264 127 270 126 278 Z" fill="#975A33"/>
+    <path d="M116 278 C118 267 123 257 129 255 C132 254 133 257 131 260 C128 265 126 271 125 278 Z" fill="#171512"/>
+  </g>
+</svg>

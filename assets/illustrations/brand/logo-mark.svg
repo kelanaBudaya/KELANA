@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 96 96" fill="none">
+  <g id="background">
+    <rect x="0" y="0" width="96" height="96" rx="22" fill="#2F3A8F"/>
+  </g>
+  <g id="kawung-petals">
+    <path d="M 48 48 C 34 34 34 24 48 10 C 62 24 62 34 48 48 Z" fill="#F7B02B"/>
+    <path d="M 48 48 C 62 34 72 34 86 48 C 72 62 62 62 48 48 Z" fill="#F7B02B"/>
+    <path d="M 48 48 C 62 62 62 72 48 86 C 34 72 34 62 48 48 Z" fill="#F7B02B"/>
+    <path d="M 48 48 C 34 62 24 62 10 48 C 24 34 34 34 48 48 Z" fill="#F7B02B"/>
+  </g>
+  <g id="kawung-inner-almonds">
+    <path d="M 48 39 C 41 32 41 26 48 19 C 55 26 55 32 48 39 Z" fill="#FDD98A"/>
+    <path d="M 57 48 C 64 41 70 41 77 48 C 70 55 64 55 57 48 Z" fill="#FDD98A"/>
+    <path d="M 48 57 C 55 64 55 70 48 77 C 41 70 41 64 48 57 Z" fill="#FDD98A"/>
+    <path d="M 39 48 C 32 55 26 55 19 48 C 26 41 32 41 39 48 Z" fill="#FDD98A"/>
+  </g>
+  <g id="kawung-isen-dots">
+    <circle cx="48" cy="27" r="3" fill="#2F3A8F"/>
+    <circle cx="69" cy="48" r="3" fill="#2F3A8F"/>
+    <circle cx="48" cy="69" r="3" fill="#2F3A8F"/>
+    <circle cx="27" cy="48" r="3" fill="#2F3A8F"/>
+  </g>
+  <g id="kawung-centre">
+    <polygon points="48,39 57,48 48,57 39,48" fill="#2F3A8F"/>
+    <polygon points="48,42 54,48 48,54 42,48" fill="#FFF7E5"/>
+  </g>
+</svg>

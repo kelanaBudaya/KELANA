@@ -1,0 +1,183 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120" fill="none">
+  <g id="backdrop">
+    <circle cx="60" cy="60" r="54" fill="#DDBBA2"/>
+    <ellipse cx="60" cy="99" rx="38" ry="5.5" fill="#F8F1EC"/>
+    <ellipse cx="60" cy="100" rx="33" ry="3.5" fill="#E7E0D4"/>
+  </g>
+
+  <g id="adult-left-father">
+    <!-- Subtle F8F1EC outline-free contrast rim around head & neck -->
+    <circle cx="42" cy="30" r="10.5" fill="#F8F1EC"/>
+    <!-- Backpack -->
+    <rect x="26" y="43" width="32" height="28" rx="7" fill="#975A33"/>
+    <rect x="24" y="49" width="4" height="16" rx="2" fill="#2F3A8F"/>
+    <!-- Legs -->
+    <rect x="33" y="70" width="8.5" height="27" rx="3" fill="#2F3A8F"/>
+    <rect x="44" y="70" width="8.5" height="27" rx="3" fill="#2F3A8F"/>
+    <rect x="33" y="92" width="8.5" height="3" fill="#5F6BC2"/>
+    <rect x="44" y="92" width="8.5" height="3" fill="#5F6BC2"/>
+    <!-- Shoes -->
+    <path d="M30 98C30 95.8 31.8 94 34 94H41.5V100H30V98Z" fill="#171512"/>
+    <path d="M44 94H50.5C52.7 94 54.5 95.8 54.5 98V100H44V94Z" fill="#171512"/>
+    <rect x="30" y="99" width="11.5" height="1.5" rx="0.75" fill="#FBF8F3"/>
+    <rect x="44" y="99" width="10.5" height="1.5" rx="0.75" fill="#FBF8F3"/>
+    <!-- Torso / Shirt -->
+    <path d="M27 52C27 45.4 32.4 40 39 40H46C52.6 40 58 45.4 58 52V74H27V52Z" fill="#5F6BC2"/>
+    <!-- Outer Jacket Panels -->
+    <path d="M27 52C27 45.4 32.4 40 39 40H39.5V74H27V52Z" fill="#2F3A8F"/>
+    <path d="M45.5 40H46C52.6 40 58 45.4 58 52V74H45.5V40Z" fill="#2F3A8F"/>
+    <!-- Center shirt & batik geometric accent -->
+    <rect x="39.5" y="42" width="6" height="32" fill="#FBF8F3"/>
+    <circle cx="42.5" cy="49" r="1.5" fill="#F7B02B"/>
+    <circle cx="42.5" cy="55" r="1.5" fill="#F7B02B"/>
+    <circle cx="42.5" cy="61" r="1.5" fill="#F7B02B"/>
+    <!-- Backpack Straps -->
+    <rect x="32.5" y="41" width="3.5" height="22" rx="1.75" fill="#975A33"/>
+    <rect x="49" y="41" width="3.5" height="22" rx="1.75" fill="#975A33"/>
+    <!-- Left Arm & Hand -->
+    <path d="M28 46C24.5 49 23 55 23 63C23 65.2 24.8 67 27 67C29.2 67 31 65.2 31 63V48L28 46Z" fill="#2F3A8F"/>
+    <circle cx="27" cy="67" r="3.5" fill="#975A33"/>
+    <!-- Neck & F8F1EC Contrast Collar -->
+    <polygon points="36,39 49,39 46,46 39,46" fill="#F8F1EC"/>
+    <rect x="39.5" y="35.5" width="6" height="6.5" rx="3" fill="#975A33"/>
+    <!-- Head (skin #975A33, no facial features) -->
+    <circle cx="42.5" cy="30" r="8.5" fill="#975A33"/>
+    <circle cx="34" cy="30.5" r="2" fill="#975A33"/>
+    <circle cx="51" cy="30.5" r="2" fill="#975A33"/>
+    <!-- Hair -->
+    <path d="M34 29C34 23.5 37.7 20 42.5 20C47.3 20 51 23.5 51 29C49.7 26.2 46.7 25 42.5 25C38.3 25 35.3 26.2 34 29Z" fill="#171512"/>
+    <path d="M36.5 21.5C39 19.5 45 19.5 48 21.5C46.5 23.5 38.5 23.5 36.5 21.5Z" fill="#171512"/>
+  </g>
+
+  <g id="adult-right-mother">
+    <!-- Sun hat brim provides crisp contrast against DDBBA2 backdrop -->
+    <ellipse cx="78" cy="27" rx="15" ry="5.5" fill="#FBF8F3"/>
+    <ellipse cx="78" cy="27" rx="13" ry="4" fill="#FDD98A"/>
+    <!-- Hair bun / back hair -->
+    <circle cx="78" cy="32" r="10.5" fill="#171512"/>
+    <!-- High F8F1EC contrast collar behind neck -->
+    <rect x="72" y="35" width="12" height="9" rx="4" fill="#F8F1EC"/>
+    <!-- Long Skirt / Culottes -->
+    <path d="M65 68H90L93 94H62L65 68Z" fill="#2F3A8F"/>
+    <!-- Batik border on skirt hem -->
+    <rect x="62.5" y="89" width="30" height="5" fill="#975A33"/>
+    <circle cx="67.5" cy="91.5" r="1.2" fill="#FDD98A"/>
+    <circle cx="72.5" cy="91.5" r="1.2" fill="#FDD98A"/>
+    <circle cx="77.5" cy="91.5" r="1.2" fill="#FDD98A"/>
+    <circle cx="82.5" cy="91.5" r="1.2" fill="#FDD98A"/>
+    <circle cx="87.5" cy="91.5" r="1.2" fill="#FDD98A"/>
+    <!-- Ankles & Shoes -->
+    <rect x="70" y="94" width="5" height="4" fill="#975A33"/>
+    <rect x="81" y="94" width="5" height="4" fill="#975A33"/>
+    <path d="M68 98C68 96.3 69.3 95 71 95H75V100H68V98Z" fill="#171512"/>
+    <path d="M81 95H85C86.7 95 88 96.3 88 98V100H81V95Z" fill="#171512"/>
+    <rect x="68" y="99" width="7" height="1.2" rx="0.6" fill="#FBF8F3"/>
+    <rect x="81" y="99" width="7" height="1.2" rx="0.6" fill="#FBF8F3"/>
+    <!-- Tunic / Blouse -->
+    <path d="M62 53C62 46.4 67.4 41 74 41H81C87.6 41 93 46.4 93 53V72C93 73.1 92.1 74 91 74H64C62.9 74 62 73.1 62 72V53Z" fill="#F7B02B"/>
+    <!-- Cream Scarf / Collar -->
+    <path d="M70 41H86L82 51H74L70 41Z" fill="#FBF8F3"/>
+    <path d="M74 41H82L80 48H76L74 41Z" fill="#FFF7E5"/>
+    <!-- Crossbody Bag & Strap (sits behind right hand for contrast) -->
+    <line x1="71" y1="42" x2="89" y2="66" stroke="#975A33" stroke-width="2" stroke-linecap="round"/>
+    <rect x="85" y="62" width="11" height="9" rx="2.5" fill="#975A33"/>
+    <rect x="87.5" y="64.5" width="5" height="2" rx="1" fill="#FDD98A"/>
+    <!-- Right Arm, F8F1EC Cuff & Hand -->
+    <path d="M91 47C94.5 50 96 56 96 63V64H88V49L91 47Z" fill="#F7B02B"/>
+    <rect x="87.5" y="62.5" width="9" height="3" rx="1.5" fill="#F8F1EC"/>
+    <circle cx="92" cy="67" r="3" fill="#DDBBA2"/>
+    <!-- Neck -->
+    <rect x="75.5" y="36.5" width="5" height="6" rx="2.5" fill="#DDBBA2"/>
+    <!-- Head (skin #DDBBA2 framed inside dark hair #171512) -->
+    <circle cx="78" cy="31" r="8" fill="#DDBBA2"/>
+    <!-- Hair framing top & sides -->
+    <path d="M70 30C70 25 73.5 22 78 22C82.5 22 86 25 86 30C84.5 27.5 81.8 26.2 78 26.2C74.2 26.2 71.5 27.5 70 30Z" fill="#171512"/>
+    <!-- Sun Hat Crown -->
+    <path d="M71 25C71 21.1 74.1 18 78 18C81.9 18 85 21.1 85 25H71Z" fill="#FBF8F3"/>
+    <rect x="71" y="23.5" width="14" height="2" fill="#D6402F"/>
+  </g>
+
+  <g id="child-left-older">
+    <!-- Contrast Hair Silhouette -->
+    <circle cx="49" cy="56" r="8.5" fill="#171512"/>
+    <!-- F8F1EC contrast backing behind child's neck & right sleeve -->
+    <rect x="44" y="58" width="10" height="6" rx="3" fill="#F8F1EC"/>
+    <circle cx="57.5" cy="77" r="3.5" fill="#F8F1EC"/>
+    <circle cx="40.5" cy="77" r="3.5" fill="#F8F1EC"/>
+    <!-- Legs -->
+    <rect x="43.5" y="81" width="5" height="16" rx="2.5" fill="#975A33"/>
+    <rect x="50.5" y="81" width="5" height="16" rx="2.5" fill="#975A33"/>
+    <!-- Shorts -->
+    <rect x="42.5" y="77" width="6.5" height="9" rx="2" fill="#2F3A8F"/>
+    <rect x="50" y="77" width="6.5" height="9" rx="2" fill="#2F3A8F"/>
+    <!-- Shoes -->
+    <rect x="41.5" y="95.5" width="7.5" height="4.5" rx="2" fill="#F7B02B"/>
+    <rect x="50.5" y="95.5" width="7.5" height="4.5" rx="2" fill="#F7B02B"/>
+    <rect x="41.5" y="98.8" width="7.5" height="1.2" rx="0.6" fill="#FBF8F3"/>
+    <rect x="50.5" y="98.8" width="7.5" height="1.2" rx="0.6" fill="#FBF8F3"/>
+    <!-- Torso / Cream Tee -->
+    <path d="M40.5 70C40.5 65.6 44.1 62 48.5 62H50.5C54.9 62 58.5 65.6 58.5 70V80H40.5V70Z" fill="#FBF8F3"/>
+    <!-- Stripes on Tee -->
+    <rect x="40.5" y="71" width="18" height="2.5" fill="#5F6BC2"/>
+    <rect x="40.5" y="75.5" width="18" height="2.5" fill="#F7B02B"/>
+    <!-- Arms -->
+    <rect x="38.5" y="64" width="4" height="12.5" rx="2" fill="#FBF8F3"/>
+    <circle cx="40.5" cy="77" r="2.2" fill="#DDBBA2"/>
+    <rect x="55.5" y="64" width="4" height="12.5" rx="2" fill="#FBF8F3"/>
+    <circle cx="57.5" cy="77" r="2.2" fill="#DDBBA2"/>
+    <!-- Neck -->
+    <rect x="47" y="59.5" width="4" height="4" rx="2" fill="#DDBBA2"/>
+    <!-- Head (skin #DDBBA2 framed against dark hair #171512) -->
+    <circle cx="49" cy="56" r="6.5" fill="#DDBBA2"/>
+    <!-- Hair Cap / Bangs -->
+    <path d="M42.5 55.5C42.5 51.4 45.4 48.5 49 48.5C52.6 48.5 55.5 51.4 55.5 55.5C54.2 53.3 51.8 52.2 49 52.2C46.2 52.2 43.8 53.3 42.5 55.5Z" fill="#171512"/>
+    <!-- Toy Camera around neck -->
+    <line x1="46" y1="62" x2="46" y2="69" stroke="#2F3A8F" stroke-width="1.2"/>
+    <line x1="52" y1="62" x2="52" y2="69" stroke="#2F3A8F" stroke-width="1.2"/>
+    <rect x="44.5" y="68" width="9" height="6.5" rx="1.5" fill="#2F3A8F"/>
+    <circle cx="49" cy="71.25" r="2" fill="#FDD98A"/>
+    <circle cx="52" cy="69.5" r="0.7" fill="#D6402F"/>
+  </g>
+
+  <g id="child-right-younger">
+    <!-- Pigtails / Hair Silhouette -->
+    <circle cx="63" cy="59" r="3" fill="#171512"/>
+    <circle cx="79" cy="59" r="3" fill="#171512"/>
+    <circle cx="71" cy="60" r="7.5" fill="#171512"/>
+    <!-- Hair ties -->
+    <circle cx="65" cy="59" r="1.2" fill="#F7B02B"/>
+    <circle cx="77" cy="59" r="1.2" fill="#F7B02B"/>
+    <!-- Legs -->
+    <rect x="66.5" y="84" width="4" height="13" rx="2" fill="#975A33"/>
+    <rect x="72.5" y="84" width="4" height="13" rx="2" fill="#975A33"/>
+    <!-- Shoes -->
+    <rect x="65" y="96" width="6" height="4" rx="2" fill="#2F3A8F"/>
+    <rect x="72" y="96" width="6" height="4" rx="2" fill="#2F3A8F"/>
+    <rect x="65" y="98.8" width="6" height="1.2" rx="0.6" fill="#FBF8F3"/>
+    <rect x="72" y="98.8" width="6" height="1.2" rx="0.6" fill="#FBF8F3"/>
+    <!-- A-line Dress / Overall -->
+    <path d="M64 68C64 66.3 65.3 65 67 65H75C76.7 65 78 66.3 78 68L80 86H62L64 68Z" fill="#5F6BC2"/>
+    <!-- Kunyit Pocket & Collar Trim -->
+    <path d="M67 65H75L73.5 69H68.5L67 65Z" fill="#FBF8F3"/>
+    <path d="M68 75H74V79C74 80.7 72.7 82 71 82C69.3 82 68 80.7 68 79V75Z" fill="#F7B02B"/>
+    <rect x="62.5" y="83.5" width="17" height="2.5" fill="#FDD98A"/>
+    <!-- Arms -->
+    <path d="M64.5 66.5L61 76C60.5 77.2 61.2 78.5 62.4 78.8C63.5 79 64.6 78.3 65 77.2L67 68.5L64.5 66.5Z" fill="#FBF8F3"/>
+    <circle cx="62.5" cy="78" r="2" fill="#975A33"/>
+    <path d="M77.5 66.5L81 76C81.5 77.2 80.8 78.5 79.6 78.8C78.5 79 77.4 78.3 77 77.2L75 68.5L77.5 66.5Z" fill="#FBF8F3"/>
+    <circle cx="79.5" cy="78" r="2" fill="#975A33"/>
+    <!-- Neck -->
+    <rect x="69.25" y="63" width="3.5" height="3.5" rx="1.75" fill="#975A33"/>
+    <!-- Head (skin #975A33, no facial features) -->
+    <circle cx="71" cy="59.5" r="6" fill="#975A33"/>
+    <!-- Hair Bangs -->
+    <path d="M65 59C65 55.2 67.7 52.8 71 52.8C74.3 52.8 77 55.2 77 59C75.7 57 73.5 56 71 56C68.5 56 66.3 57 65 59Z" fill="#171512"/>
+  </g>
+
+  <g id="embracing-hands">
+    <!-- Father's hand resting warmly on older child's shoulder -->
+    <rect x="35" y="60.5" width="6" height="3.5" rx="1.75" fill="#975A33"/>
+    <!-- Mother's hand resting warmly on younger child's shoulder -->
+    <rect x="76.5" y="64" width="5.5" height="3.2" rx="1.6" fill="#DDBBA2"/>
+  </g>
+</svg>

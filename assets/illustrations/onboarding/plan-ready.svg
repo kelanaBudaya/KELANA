@@ -1,0 +1,288 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="320" viewBox="0 0 360 320" fill="none">
+  <!-- Background Backdrop, Sun & Kawung Motifs -->
+  <g id="background">
+    <!-- Large soft rounded blob in pale lavender-indigo -->
+    <rect x="34" y="28" width="292" height="236" rx="118" fill="#D8DCF3" opacity="0.45" />
+    <!-- Warm kunyit sun disc in top-right -->
+    <circle cx="268" cy="82" r="44" fill="#FDD98A" />
+    <circle cx="268" cy="82" r="32" fill="#FFF7E5" opacity="0.6" />
+
+    <!-- Soft stylized clouds -->
+    <path d="M56 76 C56 69 62 64 69 64 C71 57 78 52 86 52 C96 52 104 59 105 68 C111 69 115 74 115 80 C115 83 112 86 108 86 L62 86 C58 86 56 82 56 76 Z" fill="#FFFFFF" opacity="0.85" />
+    <path d="M282 126 C282 121 286 118 291 118 C293 113 298 110 304 110 C311 110 317 115 318 121 C322 122 325 125 325 129 C325 132 323 134 320 134 L287 134 C284 134 282 131 282 126 Z" fill="#FFFFFF" opacity="0.85" />
+
+    <!-- Kawung Motif 1 (top left,cx=44,cy=108) -->
+    <g id="kawung-1">
+      <ellipse cx="44" cy="101" rx="2.5" ry="5" fill="#C99673" opacity="0.55" />
+      <ellipse cx="44" cy="115" rx="2.5" ry="5" fill="#C99673" opacity="0.55" />
+      <ellipse cx="37" cy="108" rx="5" ry="2.5" fill="#C99673" opacity="0.55" />
+      <ellipse cx="51" cy="108" rx="5" ry="2.5" fill="#C99673" opacity="0.55" />
+      <circle cx="44" cy="108" r="2" fill="#F7B02B" />
+    </g>
+
+    <!-- Kawung Motif 2 (top center-left, cx=138, cy=38) -->
+    <g id="kawung-2">
+      <ellipse cx="138" cy="31" rx="2.5" ry="5" fill="#5F6BC2" opacity="0.45" />
+      <ellipse cx="138" cy="45" rx="2.5" ry="5" fill="#5F6BC2" opacity="0.45" />
+      <ellipse cx="131" cy="38" rx="5" ry="2.5" fill="#5F6BC2" opacity="0.45" />
+      <ellipse cx="145" cy="38" rx="5" ry="2.5" fill="#5F6BC2" opacity="0.45" />
+      <circle cx="138" cy="38" r="2" fill="#F7B02B" />
+    </g>
+
+    <!-- Kawung Motif 3 (top right, cx=316, cy=68) -->
+    <g id="kawung-3">
+      <ellipse cx="316" cy="61" rx="2.5" ry="5" fill="#C99673" opacity="0.55" />
+      <ellipse cx="316" cy="75" rx="2.5" ry="5" fill="#C99673" opacity="0.55" />
+      <ellipse cx="309" cy="68" rx="5" ry="2.5" fill="#C99673" opacity="0.55" />
+      <ellipse cx="323" cy="68" rx="5" ry="2.5" fill="#C99673" opacity="0.55" />
+      <circle cx="316" cy="68" r="2" fill="#F7B02B" />
+    </g>
+
+    <!-- Kawung Motif 4 (mid right, cx=330, cy=178) -->
+    <g id="kawung-4">
+      <ellipse cx="330" cy="171" rx="2.5" ry="5" fill="#5F6BC2" opacity="0.45" />
+      <ellipse cx="330" cy="185" rx="2.5" ry="5" fill="#5F6BC2" opacity="0.45" />
+      <ellipse cx="323" cy="178" rx="5" ry="2.5" fill="#5F6BC2" opacity="0.45" />
+      <ellipse cx="337" cy="178" rx="5" ry="2.5" fill="#5F6BC2" opacity="0.45" />
+      <circle cx="330" cy="178" r="2" fill="#F7B02B" />
+    </g>
+
+    <!-- Kawung Motif 5 (mid left, cx=30, cy=188) -->
+    <g id="kawung-5">
+      <ellipse cx="30" cy="181" rx="2.5" ry="5" fill="#5F6BC2" opacity="0.45" />
+      <ellipse cx="30" cy="195" rx="2.5" ry="5" fill="#5F6BC2" opacity="0.45" />
+      <ellipse cx="23" cy="188" rx="5" ry="2.5" fill="#5F6BC2" opacity="0.45" />
+      <ellipse cx="37" cy="188" rx="5" ry="2.5" fill="#5F6BC2" opacity="0.45" />
+      <circle cx="30" cy="188" r="2" fill="#F7B02B" />
+    </g>
+  </g>
+
+  <!-- Ground & Stylized Indigo/Lavender Foliage -->
+  <g id="ground-and-foliage">
+    <!-- Main warm ground platform -->
+    <ellipse cx="180" cy="278" rx="154" ry="18" fill="#E7E0D4" />
+    <ellipse cx="180" cy="275" rx="134" ry="13" fill="#F4EFE7" />
+
+    <!-- Left background tree (indigo palette foliage + sogan trunk) -->
+    <rect x="47" y="246" width="4" height="24" rx="2" fill="#975A33" />
+    <path d="M49 258 L43 252" stroke="#975A33" stroke-width="2" stroke-linecap="round" />
+    <circle cx="43" cy="246" r="8" fill="#D8DCF3" />
+    <circle cx="55" cy="244" r="9" fill="#2F3A8F" />
+    <circle cx="49" cy="236" r="11" fill="#5F6BC2" />
+
+    <!-- Left small bush -->
+    <path d="M62 272 C62 265 67 261 73 261 C76 261 79 263 81 266 C83 264 85 263 88 263 C93 263 97 267 97 272 Z" fill="#D8DCF3" />
+
+    <!-- Right background tree (indigo palette foliage + sogan trunk) -->
+    <rect x="307" y="248" width="4" height="22" rx="2" fill="#975A33" />
+    <circle cx="303" cy="246" r="8" fill="#5F6BC2" />
+    <circle cx="315" cy="245" r="8" fill="#D8DCF3" />
+    <circle cx="309" cy="237" r="10" fill="#2F3A8F" />
+
+    <!-- Right small bush -->
+    <path d="M272 273 C272 267 277 263 282 263 C285 263 288 265 289 267 C291 265 294 264 297 264 C301 264 305 268 305 273 Z" fill="#5F6BC2" opacity="0.6" />
+  </g>
+
+  <!-- Folded 3-Panel Paper Map -->
+  <g id="folded-map">
+    <!-- Map drop shadow on the ground -->
+    <polygon points="48,266 128,284 218,264 308,280 318,268 232,250 144,268 62,250" fill="#2F3A8F" opacity="0.12" />
+
+    <!-- Outer sogan border/backing of the map -->
+    <polygon points="62,90 146,108 232,88 316,106 302,268 218,250 132,270 48,252" fill="#C99673" />
+
+    <!-- Panel 1 (Left, sunlit cream) -->
+    <polygon points="66,94 146,112 132,266 52,248" fill="#FBF8F3" />
+    <!-- Panel 2 (Center, shaded fold) -->
+    <polygon points="146,112 232,92 218,246 132,266" fill="#E7E0D4" />
+    <!-- Panel 3 (Right, sunlit cream) -->
+    <polygon points="232,92 312,110 298,264 218,246" fill="#FBF8F3" />
+
+    <!-- Subtle inner map frame patches -->
+    <polygon points="73,104 140,119 128,254 61,239" fill="#F4EFE7" opacity="0.55" />
+    <polygon points="152,119 225,102 213,235 140,252" fill="#F4EFE7" opacity="0.35" />
+    <polygon points="238,102 304,117 292,252 225,237" fill="#F4EFE7" opacity="0.55" />
+
+    <!-- Map Terrain Patches (soft sogan and kunyit tints) -->
+    <polygon points="78,118 118,127 114,158 74,149" fill="#F8F1EC" />
+    <polygon points="156,192 204,180 200,224 152,236" fill="#FFF7E5" opacity="0.65" />
+    <polygon points="244,122 292,132 288,168 240,158" fill="#F8F1EC" />
+
+    <!-- Winding River in Pale Indigo #D8DCF3 across the 3 panels -->
+    <!-- Panel 1 river segment -->
+    <polygon points="59,174 98,182 141,164 140,178 96,196 57,188" fill="#D8DCF3" />
+    <!-- Panel 2 river segment -->
+    <polygon points="141,164 182,150 225,168 224,182 180,164 140,178" fill="#D8DCF3" />
+    <polygon points="141,164 182,150 225,168 224,182 180,164 140,178" fill="#5F6BC2" opacity="0.12" />
+    <!-- Panel 3 river segment -->
+    <polygon points="225,168 266,184 303,174 301,188 264,198 224,182" fill="#D8DCF3" />
+
+    <!-- Pale Map Roads / Grid Network -->
+    <!-- Panel 1 roads -->
+    <polyline points="74,114 96,162 82,240" stroke="#E7E0D4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+    <polyline points="62,144 114,154 139,144" stroke="#E7E0D4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+    <line x1="60" y1="216" x2="134" y2="232" stroke="#E7E0D4" stroke-width="2" stroke-linecap="round" />
+
+    <!-- Panel 2 roads -->
+    <polyline points="139,144 176,134 198,194 192,242" stroke="#FBF8F3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+    <polyline points="136,216 178,202 221,212" stroke="#FBF8F3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+
+    <!-- Panel 3 roads -->
+    <polyline points="221,212 258,220 288,196" stroke="#E7E0D4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+    <polyline points="228,136 268,146 254,242" stroke="#E7E0D4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+
+    <!-- Map Fold Crease Lines -->
+    <line x1="146" y1="112" x2="132" y2="266" stroke="#C99673" stroke-width="1.5" opacity="0.5" />
+    <line x1="232" y1="92" x2="218" y2="246" stroke="#C99673" stroke-width="1.5" opacity="0.5" />
+  </g>
+
+  <!-- Compass Rose (Bottom Left of Map) -->
+  <g id="compass-rose">
+    <circle cx="80" cy="126" r="13" fill="#F4EFE7" stroke="#C99673" stroke-width="1" />
+    <circle cx="80" cy="126" r="9" fill="#FBF8F3" />
+    <!-- East-West points -->
+    <polygon points="65,126 80,123 95,126 80,129" fill="#DDBBA2" />
+    <!-- North point (accent red #D6402F) -->
+    <polygon points="80,110 83.5,126 76.5,126" fill="#D6402F" />
+    <!-- South point (indigo #2F3A8F) -->
+    <polygon points="80,142 83.5,126 76.5,126" fill="#2F3A8F" />
+    <circle cx="80" cy="126" r="2" fill="#F7B02B" />
+  </g>
+
+  <!-- Cultural Landmarks Next to Pins -->
+  <g id="landmarks">
+    <!-- Landmark 1: Javanese Joglo Roof House (on Panel 1, near Stop 1) -->
+    <g id="landmark-joglo">
+      <!-- Base plinth -->
+      <rect x="86" y="213" width="36" height="3" rx="1" fill="#975A33" />
+      <!-- Four symmetric columns (soko guru) -->
+      <rect x="91" y="202" width="2.5" height="11" fill="#975A33" />
+      <rect x="99" y="202" width="2.5" height="11" fill="#975A33" />
+      <rect x="106.5" y="202" width="2.5" height="11" fill="#975A33" />
+      <rect x="114.5" y="202" width="2.5" height="11" fill="#975A33" />
+      <!-- Inner shaded wall -->
+      <rect x="93.5" y="203" width="21" height="10" fill="#DDBBA2" />
+      <!-- Lower wide veranda roof (tanggapan) -->
+      <polygon points="83,203 92,195 116,195 125,203" fill="#C99673" />
+      <!-- Upper steep trapezoidal roof (brunjung) -->
+      <polygon points="92,195 99,185 109,185 116,195" fill="#975A33" />
+      <!-- Top ridge ornament -->
+      <rect x="98" y="183.5" width="12" height="2" rx="1" fill="#F7B02B" />
+    </g>
+
+    <!-- Landmark 2: Candi Spire Silhouette (on Panel 2, near Stop 2) -->
+    <g id="landmark-candi">
+      <!-- Base platform -->
+      <rect x="176" y="151" width="28" height="3.5" rx="1" fill="#2F3A8F" />
+      <!-- Tier 1 body with niche -->
+      <rect x="179" y="143" width="22" height="8" fill="#5F6BC2" />
+      <rect x="188" y="145" width="4" height="6" rx="2" fill="#2F3A8F" />
+      <!-- Tier 1 cornice & antefixes -->
+      <rect x="177" y="140.5" width="26" height="2.5" fill="#2F3A8F" />
+      <polygon points="177,140.5 179,137.5 181,140.5" fill="#2F3A8F" />
+      <polygon points="199,140.5 201,137.5 203,140.5" fill="#2F3A8F" />
+      <!-- Tier 2 body -->
+      <rect x="182" y="133" width="16" height="7.5" fill="#5F6BC2" />
+      <!-- Tier 2 cornice & antefixes -->
+      <rect x="180.5" y="130.5" width="19" height="2.5" fill="#2F3A8F" />
+      <polygon points="180.5,130.5 182.5,127.5 184.5,130.5" fill="#2F3A8F" />
+      <polygon points="195.5,130.5 197.5,127.5 199.5,130.5" fill="#2F3A8F" />
+      <!-- Tier 3 spire base -->
+      <rect x="185.5" y="124.5" width="9" height="6" fill="#5F6BC2" />
+      <!-- Ratna / Kemuncak pinnacle -->
+      <polygon points="187,124.5 190,115 193,124.5" fill="#2F3A8F" />
+      <circle cx="190" cy="114" r="1.8" fill="#F7B02B" />
+    </g>
+
+    <!-- Landmark 3: Stylized Wayang Crowned Head Icon (on Panel 2/3, near Stop 3) -->
+    <g id="landmark-wayang">
+      <!-- Decorative golden halo disk behind wayang icon -->
+      <circle cx="222" cy="214" r="13" fill="#FFF7E5" stroke="#FDD98A" stroke-width="1.5" />
+      <!-- Neck/collar base -->
+      <path d="M215 223 Q222 226 229 223 L227 219 L217 219 Z" fill="#F7B02B" />
+      <!-- Backward-curling gelung supit urang (headdress curl) -->
+      <path d="M225 216 C232 215 233 204 226 202 C223 201 222 205 225 206 C228 207 228 212 224 213 Z" fill="#2F3A8F" />
+      <!-- Head and distinct elongated Javanese wayang profile nose (facing left) -->
+      <path d="M225 208 L217 208 L211 212 L216 213.5 L215 217 L218 219 L225 219 Z" fill="#975A33" />
+      <!-- Tall pointed crown (mahkota) -->
+      <polygon points="217,209 219,200 222,204 225,198 226,209" fill="#F7B02B" />
+      <!-- Sumping (ear ornament) & eye dot -->
+      <polygon points="222,213 227,210 225,217" fill="#FDD98A" />
+      <circle cx="218" cy="211.5" r="1" fill="#FFFFFF" />
+    </g>
+
+    <!-- Landmark 4: Destination Tugu / Meru Monument (on Panel 3, near Stop 4) -->
+    <g id="landmark-destination">
+      <rect x="242" y="159" width="22" height="3" rx="1" fill="#975A33" />
+      <polygon points="245,159 248,149 258,149 261,159" fill="#C99673" />
+      <rect x="244" y="147" width="18" height="2.5" rx="1" fill="#975A33" />
+      <polygon points="247,147 250,139 256,139 259,147" fill="#C99673" />
+      <polygon points="251,139 253,129 255,139" fill="#F7B02B" />
+    </g>
+  </g>
+
+  <!-- Bold Winding Dashed Itinerary Route Line -->
+  <g id="itinerary-route">
+    <!-- Soft highlight underneath route -->
+    <path d="M72 220 C112 224 128 158 158 148 C186 138 170 218 196 218 C228 218 244 166 280 156" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" opacity="0.7" />
+    <!-- Bold dashed indigo route -->
+    <path d="M72 220 C112 224 128 158 158 148 C186 138 170 218 196 218 C228 218 244 166 280 156" stroke="#2F3A8F" stroke-width="2" stroke-dasharray="5 5" stroke-linecap="round" />
+
+    <!-- Route node rings at each pin tip -->
+    <circle cx="72" cy="220" r="4" fill="#FBF8F3" stroke="#2F3A8F" stroke-width="2" />
+    <circle cx="158" cy="148" r="4" fill="#FBF8F3" stroke="#975A33" stroke-width="2" />
+    <circle cx="196" cy="218" r="4" fill="#FBF8F3" stroke="#5F6BC2" stroke-width="2" />
+    <circle cx="280" cy="156" r="5.5" fill="#FFF7E5" stroke="#F7B02B" stroke-width="2" />
+  </g>
+
+  <!-- 4 Classic Teardrop Map Pins -->
+  <g id="map-pins">
+    <!-- Pin 1: Indigo #2F3A8F (tip at 72, 220) -->
+    <g id="pin-1">
+      <path d="M72 220 C66 211 61 205 61 198 C61 191.9 65.9 187 72 187 C78.1 187 83 191.9 83 198 C83 205 78 211 72 220 Z" fill="#2F3A8F" />
+      <circle cx="72" cy="198" r="4.5" fill="#FBF8F3" />
+    </g>
+
+    <!-- Pin 2: Sogan #975A33 (tip at 158, 148) -->
+    <g id="pin-2">
+      <path d="M158 148 C152 139 147 133 147 126 C147 119.9 151.9 115 158 115 C164.1 115 169 119.9 169 126 C169 133 164 139 158 148 Z" fill="#975A33" />
+      <circle cx="158" cy="126" r="4.5" fill="#FBF8F3" />
+    </g>
+
+    <!-- Pin 3: Mid-Indigo #5F6BC2 (tip at 196, 218) -->
+    <g id="pin-3">
+      <path d="M196 218 C190 209 185 203 185 196 C185 189.9 189.9 185 196 185 C202.1 185 207 189.9 207 196 C207 203 202 209 196 218 Z" fill="#5F6BC2" />
+      <circle cx="196" cy="196" r="4.5" fill="#FBF8F3" />
+    </g>
+
+    <!-- Pin 4 (Destination): Large Kunyit Gold #F7B02B Pin with Green Check Badge (tip at 280, 156) -->
+    <g id="pin-4-destination">
+      <!-- Subtle glow ring around the destination pin head -->
+      <circle cx="280" cy="120" r="24" fill="#FDD98A" opacity="0.35" />
+      <!-- Large teardrop body -->
+      <path d="M280 156 C270 141 262 131 262 120 C262 110.1 270.1 102 280 102 C289.9 102 298 110.1 298 120 C298 131 290 141 280 156 Z" fill="#F7B02B" />
+      <!-- Inner highlight arc on pin -->
+      <path d="M266 120 C266 112.3 272.3 106 280 106" stroke="#FFF7E5" stroke-width="2" stroke-linecap="round" opacity="0.7" />
+      <!-- Classic round hole -->
+      <circle cx="280" cy="120" r="7.5" fill="#FBF8F3" />
+      <circle cx="280" cy="120" r="3.5" fill="#2F3A8F" />
+
+      <!-- Green Check Badge (#1F9D63 with #D9F2E4 rim) -->
+      <circle cx="295" cy="107" r="10.5" fill="#D9F2E4" />
+      <circle cx="295" cy="107" r="8.5" fill="#1F9D63" />
+      <polyline points="291,107 294,110 299.5,104" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+    </g>
+  </g>
+
+  <!-- Optimistic Sparkles & Foreground Details -->
+  <g id="sparkles">
+    <!-- Four-point star sparkle near destination pin -->
+    <path d="M250 96 L252 101 L257 103 L252 105 L250 110 L248 105 L243 103 L248 101 Z" fill="#F7B02B" />
+    <!-- Small four-point sparkle bottom-right of destination -->
+    <path d="M316 132 L317.2 135.5 L320.5 136.8 L317.2 138 L316 141.5 L314.8 138 L311.5 136.8 L314.8 135.5 Z" fill="#F7B02B" />
+    <!-- Small decorative dots on ground -->
+    <circle cx="115" cy="276" r="2" fill="#C99673" opacity="0.6" />
+    <circle cx="248" cy="274" r="2.5" fill="#C99673" opacity="0.6" />
+    <circle cx="256" cy="277" r="1.5" fill="#C99673" opacity="0.6" />
+  </g>
+</svg>

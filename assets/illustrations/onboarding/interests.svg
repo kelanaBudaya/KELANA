@@ -1,0 +1,393 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="320" viewBox="0 0 360 320" fill="none">
+  <!-- Background Backdrop & Ground -->
+  <g id="background-scene">
+    <!-- Large soft kunyit-cream backdrop blob -->
+    <rect x="34" y="22" width="292" height="258" rx="120" fill="#FFF7E5" />
+
+    <!-- Ground shadow & base platform -->
+    <ellipse cx="180" cy="286" rx="148" ry="14" fill="#E7E0D4" />
+    <ellipse cx="180" cy="284" rx="124" ry="9" fill="#DDBBA2" opacity="0.55" />
+
+    <!-- Decorative stylized foliage (indigo palette with sogan stems) -->
+    <g id="foliage-left">
+      <path d="M44 278 C30 258 22 234 26 212 C38 222 46 246 44 278 Z" fill="#D8DCF3" />
+      <path d="M52 280 C34 264 26 244 34 226 C46 234 54 254 52 280 Z" fill="#5F6BC2" />
+      <path d="M35 232 L48 278" stroke="#975A33" stroke-width="1.5" stroke-linecap="round" />
+    </g>
+    <g id="foliage-right">
+      <path d="M316 278 C330 258 338 234 334 212 C322 222 314 246 316 278 Z" fill="#D8DCF3" />
+      <path d="M308 280 C326 264 334 244 326 226 C314 234 306 254 308 280 Z" fill="#5F6BC2" />
+      <path d="M325 232 L312 278" stroke="#975A33" stroke-width="1.5" stroke-linecap="round" />
+    </g>
+
+    <!-- 5 Floating Tiny Kawung Motifs (four small ovals around a centre dot) -->
+    <g id="floating-kawung-1">
+      <ellipse cx="180" cy="21" rx="2.2" ry="4.2" fill="#F7B02B" />
+      <ellipse cx="180" cy="33" rx="2.2" ry="4.2" fill="#F7B02B" />
+      <ellipse cx="174" cy="27" rx="4.2" ry="2.2" fill="#F7B02B" />
+      <ellipse cx="186" cy="27" rx="4.2" ry="2.2" fill="#F7B02B" />
+      <circle cx="180" cy="27" r="1.6" fill="#975A33" />
+    </g>
+    <g id="floating-kawung-2">
+      <ellipse cx="26" cy="112" rx="2" ry="3.8" fill="#5F6BC2" opacity="0.7" />
+      <ellipse cx="26" cy="122" rx="2" ry="3.8" fill="#5F6BC2" opacity="0.7" />
+      <ellipse cx="21" cy="117" rx="3.8" ry="2" fill="#5F6BC2" opacity="0.7" />
+      <ellipse cx="31" cy="117" rx="3.8" ry="2" fill="#5F6BC2" opacity="0.7" />
+      <circle cx="26" cy="117" r="1.4" fill="#F7B02B" />
+    </g>
+    <g id="floating-kawung-3">
+      <ellipse cx="334" cy="104" rx="2" ry="3.8" fill="#5F6BC2" opacity="0.7" />
+      <ellipse cx="334" cy="114" rx="2" ry="3.8" fill="#5F6BC2" opacity="0.7" />
+      <ellipse cx="329" cy="109" rx="3.8" ry="2" fill="#5F6BC2" opacity="0.7" />
+      <ellipse cx="339" cy="109" rx="3.8" ry="2" fill="#5F6BC2" opacity="0.7" />
+      <circle cx="334" cy="109" r="1.4" fill="#F7B02B" />
+    </g>
+    <g id="floating-kawung-4">
+      <ellipse cx="56" cy="30" rx="1.8" ry="3.4" fill="#C99673" />
+      <ellipse cx="56" cy="38" rx="1.8" ry="3.4" fill="#C99673" />
+      <ellipse cx="52" cy="34" rx="3.4" ry="1.8" fill="#C99673" />
+      <ellipse cx="60" cy="34" rx="3.4" ry="1.8" fill="#C99673" />
+      <circle cx="56" cy="34" r="1.3" fill="#2F3A8F" />
+    </g>
+    <g id="floating-kawung-5">
+      <ellipse cx="304" cy="32" rx="1.8" ry="3.4" fill="#C99673" />
+      <ellipse cx="304" cy="40" rx="1.8" ry="3.4" fill="#C99673" />
+      <ellipse cx="300" cy="36" rx="3.4" ry="1.8" fill="#C99673" />
+      <ellipse cx="308" cy="36" rx="3.4" ry="1.8" fill="#C99673" />
+      <circle cx="304" cy="36" r="1.3" fill="#2F3A8F" />
+    </g>
+  </g>
+
+  <!-- CARD 1: WAYANG KULIT (Top-Left Cluster Card) -->
+  <g id="interest-wayang-kulit">
+    <!-- Card drop shadow -->
+    <rect x="34" y="46" width="142" height="166" rx="22" fill="#E7E0D4" />
+    <!-- Card body -->
+    <rect x="30" y="42" width="142" height="166" rx="22" fill="#2F3A8F" />
+    <!-- Inner decorative frame -->
+    <rect x="36" y="48" width="130" height="154" rx="17" stroke="#5F6BC2" stroke-width="1.5" />
+    <!-- Corner ornament dots -->
+    <circle cx="44" cy="56" r="2" fill="#FDD98A" />
+    <circle cx="158" cy="56" r="2" fill="#FDD98A" />
+
+    <!-- Glowing Kelir (Shadow Screen Circle) -->
+    <circle cx="101" cy="118" r="52" fill="#FFF7E5" opacity="0.2" />
+    <circle cx="101" cy="118" r="46" fill="#FDD98A" />
+    <circle cx="101" cy="118" r="38" fill="#FFF7E5" opacity="0.45" />
+
+    <!-- Banana trunk stage base (debog) inside card bottom -->
+    <path d="M44 186 C44 180 158 180 158 186 L158 194 C158 198 44 198 44 194 Z" fill="#975A33" />
+    <rect x="52" y="182" width="98" height="4" rx="2" fill="#DDBBA2" />
+
+    <!-- Wayang Central Supporting Rod (Cempurit) -->
+    <line x1="101" y1="158" x2="101" y2="192" stroke="#975A33" stroke-width="2" stroke-linecap="round" />
+
+    <!-- Wayang Puppet Silhouette in Profile (Facing Right) -->
+    <!-- Ornate Lower Skirt / Dodot & Kain -->
+    <path d="M82 166 C83 148 90 136 96 130 L107 130 C112 138 119 150 122 166 C113 170 90 170 82 166 Z" fill="#171512" />
+    <!-- Skirt curved train (kampuh) -->
+    <path d="M75 162 C78 150 86 140 94 134 L90 165 C84 166 78 165 75 162 Z" fill="#2F3A8F" />
+    <!-- Gold ornament cut-ins on skirt -->
+    <path d="M88 162 C90 152 94 144 98 138 L104 138 C108 144 111 152 114 162 Z" fill="#F7B02B" />
+    <path d="M93 162 C95 154 97 148 101 143 C105 148 107 154 109 162 Z" fill="#171512" />
+    <circle cx="101" cy="155" r="2.2" fill="#FDD98A" />
+    <circle cx="90" cy="158" r="1.5" fill="#FDD98A" />
+    <circle cx="112" cy="158" r="1.5" fill="#FDD98A" />
+    <circle cx="82" cy="157" r="1.4" fill="#F7B02B" />
+
+    <!-- Slim Waist & Broad Ornate Shoulders -->
+    <path d="M84 112 L118 112 L107 131 L95 131 Z" fill="#171512" />
+    <!-- Shoulder Wing / Praba & Collar Ornament in Kunyit Gold -->
+    <path d="M82 111 C82 107 90 105 101 105 C112 105 120 107 120 111 C116 115 86 115 82 111 Z" fill="#F7B02B" />
+    <path d="M95 115 L107 115 L104 126 L98 126 Z" fill="#F7B02B" />
+    <circle cx="101" cy="119" r="1.8" fill="#171512" />
+    <!-- Waist belt (pending) -->
+    <rect x="94" y="128" width="14" height="4" rx="2" fill="#F7B02B" />
+    <circle cx="101" cy="130" r="1.4" fill="#D6402F" />
+
+    <!-- Long Thin Neck (slanted slightly forward gracefully) -->
+    <path d="M99 98 L104 98 L103 107 L98 107 Z" fill="#171512" />
+
+    <!-- Head in Profile with Elongated Pointed Nose & Chin -->
+    <path d="M96 84 C102 84 107 86 109 89 L123 93 L111 95 C111 98 108 100 103 100 L96 99 Z" fill="#171512" />
+    <!-- Slanted almond eye & face detail -->
+    <ellipse cx="106" cy="91" rx="2" ry="1" fill="#FDD98A" />
+    <!-- Sumping (ear ornament sweeping back) -->
+    <path d="M96 92 C91 90 88 86 90 82 C93 84 95 87 97 90 Z" fill="#F7B02B" />
+
+    <!-- Tall Curved Headdress (Gelung Supit Urang) -->
+    <path d="M94 94 C82 90 77 74 86 62 C93 53 107 55 110 66 C112 72 106 77 102 74 C99 72 101 66 105 66 C103 61 95 61 91 67 C86 75 89 85 97 88 Z" fill="#171512" />
+    <!-- Gold crown diadem (jamang) & coiled headdress trim -->
+    <path d="M95 85 C95 80 101 78 108 82 L106 86 C101 84 97 84 95 85 Z" fill="#F7B02B" />
+    <path d="M88 78 C84 71 87 62 94 58 C91 63 89 71 92 77 Z" fill="#F7B02B" />
+    <circle cx="104" cy="83" r="1.4" fill="#FFF7E5" />
+    <circle cx="98" cy="82" r="1.2" fill="#D6402F" />
+
+    <!-- Very Thin Long Arms with Elbow Joints -->
+    <!-- Front Arm (Right side, raised gracefully with bent elbow) -->
+    <line x1="118" y1="112" x2="128" y2="132" stroke="#171512" stroke-width="2" stroke-linecap="round" />
+    <line x1="128" y1="132" x2="142" y2="116" stroke="#171512" stroke-width="1.8" stroke-linecap="round" />
+    <!-- Articulated hand -->
+    <path d="M142 116 L147 113 L145 118 Z" fill="#171512" />
+    <!-- Gold bracelets & elbow joint pin -->
+    <circle cx="118" cy="112" r="2.2" fill="#F7B02B" />
+    <circle cx="128" cy="132" r="2" fill="#F7B02B" />
+    <circle cx="139" cy="119" r="1.8" fill="#F7B02B" />
+    <!-- Thin Control Rod (Tuding) attached to front hand -->
+    <line x1="144" y1="116" x2="136" y2="188" stroke="#975A33" stroke-width="1.3" stroke-linecap="round" />
+
+    <!-- Back Arm (Left side, angled down with bent elbow forward) -->
+    <line x1="84" y1="112" x2="70" y2="134" stroke="#171512" stroke-width="2" stroke-linecap="round" />
+    <line x1="70" y1="134" x2="58" y2="124" stroke="#171512" stroke-width="1.8" stroke-linecap="round" />
+    <!-- Articulated hand -->
+    <path d="M58 124 L53 121 L55 126 Z" fill="#171512" />
+    <!-- Gold bracelets & elbow joint pin -->
+    <circle cx="84" cy="112" r="2.2" fill="#F7B02B" />
+    <circle cx="70" cy="134" r="2" fill="#F7B02B" />
+    <circle cx="61" cy="126" r="1.8" fill="#F7B02B" />
+    <!-- Thin Control Rod (Tuding) attached to back hand -->
+    <line x1="56" y1="124" x2="66" y2="188" stroke="#975A33" stroke-width="1.3" stroke-linecap="round" />
+  </g>
+
+  <!-- CARD 2: BATIK & CANTING (Top-Right Cluster Card) -->
+  <g id="interest-batik">
+    <!-- Card drop shadow -->
+    <rect x="190" y="52" width="140" height="162" rx="22" fill="#E7E0D4" />
+    <!-- Card body -->
+    <rect x="186" y="48" width="140" height="162" rx="22" fill="#F8F1EC" />
+    <rect x="192" y="54" width="128" height="150" rx="17" stroke="#DDBBA2" stroke-width="1.5" />
+
+    <!-- Wooden hanging dowel for draped batik cloth -->
+    <line x1="202" y1="68" x2="310" y2="68" stroke="#975A33" stroke-width="2" stroke-linecap="round" />
+    <circle cx="202" cy="68" r="3" fill="#F7B02B" />
+    <circle cx="310" cy="68" r="3" fill="#F7B02B" />
+
+    <!-- Draped Batik Cloth Shadow -->
+    <path d="M210 72 L306 72 L306 184 C290 188 274 180 258 184 C242 188 226 182 210 185 Z" fill="#E7E0D4" />
+
+    <!-- Draped Batik Cloth Base (Warm Sogan Tan #DDBBA2) -->
+    <path d="M208 68 L304 68 L304 180 C288 184 272 176 256 180 C240 184 224 178 208 181 Z" fill="#DDBBA2" />
+
+    <!-- Indigo & Gold Decorative Tumpal / Selvedge Borders -->
+    <rect x="208" y="68" width="96" height="7" fill="#2F3A8F" />
+    <path d="M208 173 L304 173 L304 180 C288 184 272 176 256 180 C240 184 224 178 208 181 Z" fill="#2F3A8F" />
+    <line x1="208" y1="75" x2="304" y2="75" stroke="#F7B02B" stroke-width="1.5" />
+    <line x1="208" y1="173" x2="304" y2="173" stroke="#F7B02B" stroke-width="1.5" />
+
+    <!-- Kawung Pattern Grid (3 columns x 3 rows of 4-petal motifs in #975A33 on #DDBBA2) -->
+    <!-- Grid centers: X = 226, 256, 286 | Y = 94, 124, 154 -->
+    <g id="kawung-grid">
+      <!-- Subtle diamond lattice lines -->
+      <line x1="241" y1="78" x2="241" y2="170" stroke="#C99673" stroke-width="1" />
+      <line x1="271" y1="78" x2="271" y2="170" stroke="#C99673" stroke-width="1" />
+      <line x1="211" y1="109" x2="301" y2="109" stroke="#C99673" stroke-width="1" />
+      <line x1="211" y1="139" x2="301" y2="139" stroke="#C99673" stroke-width="1" />
+
+      <!-- Row 1, Col 1 (226, 94) -->
+      <path d="M226 93 C221 93 215 87 215 82 C220 82 226 88 226 93 Z" fill="#975A33" />
+      <path d="M226 93 C231 93 237 87 237 82 C232 82 226 88 226 93 Z" fill="#975A33" />
+      <path d="M226 95 C221 95 215 101 215 106 C220 106 226 100 226 95 Z" fill="#975A33" />
+      <path d="M226 95 C231 95 237 101 237 106 C232 106 226 100 226 95 Z" fill="#975A33" />
+      <circle cx="226" cy="94" r="2" fill="#FFF7E5" />
+
+      <!-- Row 1, Col 2 (256, 94) -->
+      <path d="M256 93 C251 93 245 87 245 82 C250 82 256 88 256 93 Z" fill="#975A33" />
+      <path d="M256 93 C261 93 267 87 267 82 C262 82 256 88 256 93 Z" fill="#975A33" />
+      <path d="M256 95 C251 95 245 101 245 106 C250 106 256 100 256 95 Z" fill="#975A33" />
+      <path d="M256 95 C261 95 267 101 267 106 C262 106 256 100 256 95 Z" fill="#975A33" />
+      <circle cx="256" cy="94" r="2" fill="#FFF7E5" />
+
+      <!-- Row 1, Col 3 (286, 94) -->
+      <path d="M286 93 C281 93 275 87 275 82 C280 82 286 88 286 93 Z" fill="#975A33" />
+      <path d="M286 93 C291 93 297 87 297 82 C292 82 286 88 286 93 Z" fill="#975A33" />
+      <path d="M286 95 C281 95 275 101 275 106 C280 106 286 100 286 95 Z" fill="#975A33" />
+      <path d="M286 95 C291 95 297 101 297 106 C292 106 286 100 286 95 Z" fill="#975A33" />
+      <circle cx="286" cy="94" r="2" fill="#FFF7E5" />
+
+      <!-- Row 2, Col 1 (226, 124) -->
+      <path d="M226 123 C221 123 215 117 215 112 C220 112 226 118 226 123 Z" fill="#975A33" />
+      <path d="M226 123 C231 123 237 117 237 112 C232 112 226 118 226 123 Z" fill="#975A33" />
+      <path d="M226 125 C221 125 215 131 215 136 C220 136 226 130 226 125 Z" fill="#975A33" />
+      <path d="M226 125 C231 125 237 131 237 136 C232 136 226 130 226 125 Z" fill="#975A33" />
+      <circle cx="226" cy="124" r="2" fill="#FFF7E5" />
+
+      <!-- Row 2, Col 2 (256, 124) - highlighted with fresh golden malam wax outline -->
+      <path d="M256 123 C251 123 245 117 245 112 C250 112 256 118 256 123 Z" fill="#975A33" />
+      <path d="M256 123 C261 123 267 117 267 112 C262 112 256 118 256 123 Z" fill="#975A33" />
+      <path d="M256 125 C251 125 245 131 245 136 C250 136 256 130 256 125 Z" fill="#975A33" />
+      <path d="M256 125 C261 125 267 131 267 136 C262 136 256 130 256 125 Z" fill="#F7B02B" />
+      <circle cx="256" cy="124" r="2.2" fill="#FDD98A" />
+
+      <!-- Row 2, Col 3 (286, 124) -->
+      <path d="M286 123 C281 123 275 117 275 112 C280 112 286 118 286 123 Z" fill="#975A33" />
+      <path d="M286 123 C291 123 297 117 297 112 C292 112 286 118 286 123 Z" fill="#975A33" />
+      <path d="M286 125 C281 125 275 131 275 136 C280 136 286 130 286 125 Z" fill="#975A33" />
+      <path d="M286 125 C291 125 297 131 297 136 C292 136 286 130 286 125 Z" fill="#975A33" />
+      <circle cx="286" cy="124" r="2" fill="#FFF7E5" />
+
+      <!-- Row 3, Col 1 (226, 154) -->
+      <path d="M226 153 C221 153 215 147 215 142 C220 142 226 148 226 153 Z" fill="#975A33" />
+      <path d="M226 153 C231 153 237 147 237 142 C232 142 226 148 226 153 Z" fill="#975A33" />
+      <path d="M226 155 C221 155 215 161 215 166 C220 166 226 160 226 155 Z" fill="#975A33" />
+      <path d="M226 155 C231 155 237 161 237 166 C232 166 226 160 226 155 Z" fill="#975A33" />
+      <circle cx="226" cy="154" r="2" fill="#FFF7E5" />
+
+      <!-- Row 3, Col 2 (256, 154) -->
+      <path d="M256 153 C251 153 245 147 245 142 C250 142 256 148 256 153 Z" fill="#975A33" />
+      <path d="M256 153 C261 153 267 147 267 142 C262 142 256 148 256 153 Z" fill="#975A33" />
+      <path d="M256 155 C251 155 245 161 245 166 C250 166 256 160 256 155 Z" fill="#975A33" />
+      <path d="M256 155 C261 155 267 161 267 166 C262 166 256 160 256 155 Z" fill="#975A33" />
+      <circle cx="256" cy="154" r="2" fill="#FFF7E5" />
+
+      <!-- Row 3, Col 3 (286, 154) -->
+      <path d="M286 153 C281 153 275 147 275 142 C280 142 286 148 286 153 Z" fill="#975A33" />
+      <path d="M286 153 C291 153 297 147 297 142 C292 142 286 148 286 153 Z" fill="#975A33" />
+      <path d="M286 155 C281 155 275 161 275 166 C280 166 286 160 286 155 Z" fill="#975A33" />
+      <path d="M286 155 C291 155 297 161 297 166 C292 166 286 160 286 155 Z" fill="#975A33" />
+      <circle cx="286" cy="154" r="2" fill="#FFF7E5" />
+
+      <!-- Intersecting diamond accent dots -->
+      <circle cx="241" cy="109" r="1.6" fill="#2F3A8F" />
+      <circle cx="271" cy="109" r="1.6" fill="#2F3A8F" />
+      <circle cx="241" cy="139" r="1.6" fill="#2F3A8F" />
+      <circle cx="271" cy="139" r="1.6" fill="#2F3A8F" />
+    </g>
+
+    <!-- Canting (Traditional Copper Wax Pen with Wooden Handle & Tiny Spout) -->
+    <g id="canting-tool">
+      <!-- Subtle shadow on cloth -->
+      <path d="M265 135 L320 103 L323 108 L269 140 Z" fill="#171512" opacity="0.14" />
+      <!-- Tiny curved copper spout (cucuk) drawing wax onto petal (264, 132) -->
+      <path d="M276 126 C270 128 266 130 264 133" stroke="#F7B02B" stroke-width="2" stroke-linecap="round" />
+      <circle cx="263" cy="134" r="1.8" fill="#FDD98A" />
+      <!-- Copper wax reservoir bowl (nyamplung) -->
+      <path d="M274 123 C273 116 281 111 289 114 L293 121 C287 128 277 129 274 123 Z" fill="#F7B02B" />
+      <!-- Reservoir open rim & warm liquid wax inside -->
+      <ellipse cx="282" cy="116" rx="6.5" ry="2.8" fill="#975A33" />
+      <ellipse cx="282" cy="116.5" rx="4.5" ry="1.6" fill="#FDD98A" />
+      <!-- Reservoir metallic highlight -->
+      <path d="M277 122 C280 124 285 123 289 120" stroke="#FFF7E5" stroke-width="1.2" stroke-linecap="round" />
+      <!-- Reed/metal stem connector -->
+      <path d="M290 116 L298 111 L300 115 L292 120 Z" fill="#DDBBA2" />
+      <!-- Tapered wooden handle (gagang) -->
+      <path d="M297 110 L321 96 C324 95 327 99 324 102 L301 116 Z" fill="#975A33" />
+      <!-- Decorative rings on wooden handle -->
+      <line x1="303" y1="107" x2="306" y2="112" stroke="#FDD98A" stroke-width="1.5" />
+      <line x1="307" y1="105" x2="310" y2="110" stroke="#FDD98A" stroke-width="1.5" />
+    </g>
+  </g>
+
+  <!-- CARD 3: GAMELAN (Front Center Overlapping Card on Ground) -->
+  <g id="interest-gamelan">
+    <!-- Card drop shadow on ground -->
+    <rect x="68" y="168" width="224" height="118" rx="24" fill="#171512" opacity="0.12" />
+    <!-- Card body -->
+    <rect x="64" y="164" width="224" height="118" rx="24" fill="#FFFFFF" />
+    <!-- Inner warm cream panel -->
+    <rect x="70" y="170" width="212" height="106" rx="19" fill="#F4EFE7" />
+    <rect x="70" y="170" width="212" height="106" rx="19" stroke="#DDBBA2" stroke-width="1.5" />
+
+    <!-- Soft decorative arch behind instruments -->
+    <path d="M84 264 L84 206 C84 188 100 180 120 180 L236 180 C256 180 268 188 268 206 L268 264 Z" fill="#FFF7E5" />
+
+    <!-- PART A: HANGING GONG IN CARVED FRAME (Left side of Gamelan Card, x: 82..152) -->
+    <g id="hanging-gong">
+      <!-- Carved Top Crossbar (Gayor) in Sogan Brown with Gold Finials -->
+      <path d="M82 188 C86 182 96 182 102 185 L132 185 C138 182 148 182 152 188 L148 194 L86 194 Z" fill="#975A33" />
+      <rect x="92" y="188" width="50" height="4" rx="2" fill="#C99673" />
+      <!-- Gold crown ornament at center of gayor -->
+      <path d="M111 185 L117 177 L123 185 Z" fill="#F7B02B" />
+      <circle cx="117" cy="184" r="2" fill="#FDD98A" />
+      <circle cx="86" cy="189" r="2.2" fill="#F7B02B" />
+      <circle cx="148" cy="189" r="2.2" fill="#F7B02B" />
+
+      <!-- Vertical Wooden Columns -->
+      <rect x="91" y="194" width="5" height="66" fill="#975A33" />
+      <rect x="138" y="194" width="5" height="66" fill="#975A33" />
+      <!-- Column stepped bases sitting on the floor -->
+      <rect x="87" y="258" width="13" height="5" rx="1.5" fill="#975A33" />
+      <rect x="134" y="258" width="13" height="5" rx="1.5" fill="#975A33" />
+
+      <!-- Red Suspension Cords (Tali Gong) -->
+      <line x1="107" y1="194" x2="111" y2="206" stroke="#D6402F" stroke-width="2" stroke-linecap="round" />
+      <line x1="127" y1="194" x2="123" y2="206" stroke="#D6402F" stroke-width="2" stroke-linecap="round" />
+
+      <!-- Hanging Bronze Gong (Gong Ageng) -->
+      <circle cx="117" cy="227" r="22" fill="#975A33" opacity="0.25" />
+      <circle cx="117" cy="225" r="21" fill="#F7B02B" />
+      <circle cx="117" cy="225" r="16" fill="#FDD98A" />
+      <circle cx="117" cy="225" r="14" stroke="#C99673" stroke-width="1" />
+      <!-- Central Raised Boss (Pencu) -->
+      <circle cx="117" cy="225" r="6.5" fill="#975A33" />
+      <circle cx="117" cy="225" r="5" fill="#F7B02B" />
+      <circle cx="115.5" cy="223.5" r="1.8" fill="#FFF7E5" />
+    </g>
+
+    <!-- PART B: BONANG / SARON IN LOW WOODEN FRAME (Right side of Gamelan Card, x: 150..268, symmetric around x=209) -->
+    <g id="bonang-rack">
+      <!-- Row of 4 Bronze Kettle-Gongs (Pencon) with Round Bosses sitting on frame -->
+      <!-- Kettle 1 (x=173) -->
+      <path d="M163 226 C163 217 183 217 183 226 Z" fill="#F7B02B" />
+      <ellipse cx="173" cy="221" rx="7" ry="2.5" fill="#FDD98A" />
+      <circle cx="173" cy="218" r="3" fill="#975A33" />
+      <circle cx="173" cy="218" r="2.2" fill="#FFF7E5" />
+
+      <!-- Kettle 2 (x=197) -->
+      <path d="M187 226 C187 217 207 217 207 226 Z" fill="#F7B02B" />
+      <ellipse cx="197" cy="221" rx="7" ry="2.5" fill="#FDD98A" />
+      <circle cx="197" cy="218" r="3" fill="#975A33" />
+      <circle cx="197" cy="218" r="2.2" fill="#FFF7E5" />
+
+      <!-- Kettle 3 (x=221) -->
+      <path d="M211 226 C211 217 231 217 231 226 Z" fill="#F7B02B" />
+      <ellipse cx="221" cy="221" rx="7" ry="2.5" fill="#FDD98A" />
+      <circle cx="221" cy="218" r="3" fill="#975A33" />
+      <circle cx="221" cy="218" r="2.2" fill="#FFF7E5" />
+
+      <!-- Kettle 4 (x=245) -->
+      <path d="M235 226 C235 217 255 217 255 226 Z" fill="#F7B02B" />
+      <ellipse cx="245" cy="221" rx="7" ry="2.5" fill="#FDD98A" />
+      <circle cx="245" cy="218" r="3" fill="#975A33" />
+      <circle cx="245" cy="218" r="2.2" fill="#FFF7E5" />
+
+      <!-- Resonator rail & cords -->
+      <rect x="156" y="225" width="106" height="4" rx="2" fill="#DDBBA2" />
+
+      <!-- Low Carved Wooden Frame (Rancakan) in Sogan #975A33 -->
+      <!-- Swooping side wings (ukiran) -->
+      <path d="M150 222 C150 232 154 242 158 246 L260 246 C264 242 268 232 268 222 L261 227 L157 227 Z" fill="#975A33" />
+      <!-- Gold carved scroll panel inside frame -->
+      <rect x="164" y="232" width="90" height="8" rx="4" fill="#C99673" />
+      <circle cx="173" cy="236" r="2" fill="#FDD98A" />
+      <circle cx="197" cy="236" r="2.5" fill="#F7B02B" />
+      <circle cx="221" cy="236" r="2.5" fill="#F7B02B" />
+      <circle cx="245" cy="236" r="2" fill="#FDD98A" />
+
+      <!-- Curved Wooden Legs resting squarely on the floor line (y=263) -->
+      <path d="M158 245 L168 245 L165 263 L154 263 Z" fill="#975A33" />
+      <path d="M250 245 L260 245 L264 263 L253 263 Z" fill="#975A33" />
+      <!-- Gold foot caps -->
+      <rect x="153" y="260" width="13" height="3" rx="1" fill="#F7B02B" />
+      <rect x="252" y="260" width="13" height="3" rx="1" fill="#F7B02B" />
+    </g>
+
+    <!-- Shared Interior Floor Line under Gong & Bonang -->
+    <line x1="80" y1="263" x2="272" y2="263" stroke="#C99673" stroke-width="1.5" stroke-linecap="round" />
+
+    <!-- PART C: PADDED MALLET (Tabuh) resting in foreground -->
+    <g id="padded-mallet">
+      <!-- Mallet shadow -->
+      <ellipse cx="204" cy="267" rx="28" ry="3.5" fill="#E7E0D4" />
+      <!-- Wooden handle shaft -->
+      <path d="M178 262 L218 254 L219 258 L179 266 Z" fill="#975A33" />
+      <!-- Handle end knob -->
+      <circle cx="178" cy="264" r="3" fill="#C99673" />
+      <!-- Gold collar ring -->
+      <rect x="215" y="252" width="4" height="8" rx="1.5" fill="#F7B02B" />
+      <!-- Padded Mallet Head (Red #D6402F cushion with cream cord binding) -->
+      <circle cx="225" cy="255" r="7.5" fill="#D6402F" />
+      <circle cx="225" cy="255" r="4.5" fill="#FFF7E5" />
+      <circle cx="225" cy="255" r="2" fill="#F7B02B" />
+    </g>
+  </g>
+</svg>

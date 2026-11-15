@@ -1,0 +1,150 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120" fill="none">
+  <g id="backdrop">
+    <circle cx="60" cy="60" r="54" fill="#D8DCF3"/>
+    <ellipse cx="60" cy="104" rx="26" ry="5" fill="#5F6BC2" opacity="0.22"/>
+  </g>
+
+  <g id="backpack-behind">
+    <!-- Sleeping mat roll on top of backpack -->
+    <rect x="38" y="34" width="44" height="10" rx="5" fill="#975A33"/>
+    <rect x="44" y="34" width="4" height="10" fill="#FBF8F3"/>
+    <rect x="72" y="34" width="4" height="10" fill="#FBF8F3"/>
+    <circle cx="38" cy="39" r="5" fill="#C99673"/>
+    <circle cx="38" cy="39" r="2.5" fill="#975A33"/>
+    <circle cx="82" cy="39" r="5" fill="#C99673"/>
+    <circle cx="82" cy="39" r="2.5" fill="#975A33"/>
+
+    <!-- Main backpack body peeking from behind shoulders and torso -->
+    <rect x="33" y="42" width="54" height="40" rx="10" fill="#F7B02B"/>
+    <!-- Backpack top flap highlight -->
+    <rect x="36" y="42" width="48" height="16" rx="7" fill="#FDD98A"/>
+    <!-- Side pockets -->
+    <rect x="29" y="58" width="7" height="18" rx="3.5" fill="#975A33"/>
+    <rect x="84" y="58" width="7" height="18" rx="3.5" fill="#975A33"/>
+    <!-- Small green water bottle peeking out of left pocket -->
+    <rect x="30.5" y="52" width="4" height="8" rx="2" fill="#1F9D63"/>
+    <rect x="31.5" y="50" width="2" height="2.5" rx="0.8" fill="#171512"/>
+  </g>
+
+  <g id="legs-and-footwear">
+    <!-- Left leg -->
+    <rect x="48" y="88" width="8" height="13" rx="3" fill="#DDBBA2"/>
+    <rect x="48" y="88" width="8" height="4" fill="#C99673"/>
+    <!-- Right leg -->
+    <rect x="64" y="88" width="8" height="13" rx="3" fill="#DDBBA2"/>
+    <rect x="64" y="88" width="8" height="4" fill="#C99673"/>
+
+    <!-- Shorts / travel trousers -->
+    <path d="M44 74 H76 L75 91 H62 L60 83 L58 91 H45 Z" fill="#975A33"/>
+    <!-- Shorts center seam and cuffs -->
+    <rect x="44.5" y="88" width="14" height="3.5" rx="1.5" fill="#C99673"/>
+    <rect x="61.5" y="88" width="14" height="3.5" rx="1.5" fill="#C99673"/>
+
+    <!-- Socks -->
+    <rect x="48" y="95" width="8" height="5" fill="#FBF8F3"/>
+    <rect x="48" y="96" width="8" height="1.5" fill="#D6402F"/>
+    <rect x="64" y="95" width="8" height="5" fill="#FBF8F3"/>
+    <rect x="64" y="96" width="8" height="1.5" fill="#D6402F"/>
+
+    <!-- Left hiking boot -->
+    <path d="M43 101 C43 98.5 46 98 48 98 H56 C57.2 98 58 99 58 100.5 V104 H42 C42 102.5 42.3 101.6 43 101 Z" fill="#171512"/>
+    <rect x="42" y="103" width="16" height="2.5" rx="1.2" fill="#F4EFE7"/>
+
+    <!-- Right hiking boot -->
+    <path d="M77 101 C77 98.5 74 98 72 98 H64 C62.8 98 62 99 62 100.5 V104 H78 C78 102.5 77.7 101.6 77 101 Z" fill="#171512"/>
+    <rect x="62" y="103" width="16" height="2.5" rx="1.2" fill="#F4EFE7"/>
+  </g>
+
+  <g id="torso-and-arms">
+    <!-- Left arm (curved to hold camera) -->
+    <path d="M42 49 C34 51 31 59 35 66 C37 70 43 70 48 67 L49 61 C45 62 41 62 40 59 C39 56 41 53 44 52 Z" fill="#DDBBA2"/>
+    <!-- Right arm (curved to hold camera) -->
+    <path d="M78 49 C86 51 89 59 85 66 C83 70 77 70 72 67 L71 61 C75 62 79 62 80 59 C81 56 79 53 76 52 Z" fill="#DDBBA2"/>
+
+    <!-- Indigo top / shirt -->
+    <path d="M43 46 C43 43.8 44.8 42 47 42 H73 C75.2 42 77 43.8 77 46 L76 76 H44 Z" fill="#2F3A8F"/>
+
+    <!-- Left sleeve -->
+    <path d="M44 43 L34 52 L39 58 L45 53 Z" fill="#2F3A8F"/>
+    <polygon points="34,52 39,58 40.5,56.7 35.5,50.7" fill="#5F6BC2"/>
+
+    <!-- Right sleeve -->
+    <path d="M76 43 L86 52 L81 58 L75 53 Z" fill="#2F3A8F"/>
+    <polygon points="86,52 81,58 79.5,56.7 84.5,50.7" fill="#5F6BC2"/>
+
+    <!-- Neck & collar -->
+    <path d="M53 42 H67 L60 49 Z" fill="#5F6BC2"/>
+    <rect x="56" y="36" width="8" height="9" rx="4" fill="#C99673"/>
+    <rect x="56" y="36" width="8" height="6" rx="3" fill="#DDBBA2"/>
+
+    <!-- Scarf / bandana around neck -->
+    <path d="M51 41 C54 44 66 44 69 41 L71 45 C66 49 54 49 49 45 Z" fill="#D6402F"/>
+    <polygon points="57,46 63,46 60,52" fill="#D6402F"/>
+  </g>
+
+  <g id="backpack-straps">
+    <!-- Left shoulder strap -->
+    <path d="M45 42 H51 L50 71 H44 Z" fill="#F7B02B"/>
+    <rect x="45" y="42" width="6" height="4" fill="#FDD98A"/>
+    <rect x="44" y="61" width="6.5" height="3" rx="1" fill="#975A33"/>
+
+    <!-- Right shoulder strap -->
+    <path d="M69 42 H75 L76 71 H70 Z" fill="#F7B02B"/>
+    <rect x="69" y="42" width="6" height="4" fill="#FDD98A"/>
+    <rect x="69.5" y="61" width="6.5" height="3" rx="1" fill="#975A33"/>
+
+    <!-- Chest strap & buckle -->
+    <rect x="45" y="54" width="30" height="3" fill="#975A33"/>
+    <rect x="57" y="53" width="6" height="5" rx="1.2" fill="#171512"/>
+    <rect x="59" y="54" width="2" height="3" rx="0.5" fill="#F7B02B"/>
+  </g>
+
+  <g id="camera-and-hands">
+    <!-- Camera neck strap -->
+    <polyline points="54,46 52,61 68,61 66,46" stroke="#FBF8F3" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <!-- Camera body -->
+    <rect x="52" y="57" width="10" height="3" rx="1" fill="#E7E0D4"/>
+    <rect x="63" y="57.5" width="3" height="2" rx="0.6" fill="#D6402F"/>
+    <rect x="50" y="59" width="20" height="13" rx="2.5" fill="#171512"/>
+    <rect x="50" y="60.5" width="20" height="2" fill="#E7E0D4"/>
+
+    <!-- Camera lens -->
+    <circle cx="60" cy="66" r="5" fill="#F4EFE7"/>
+    <circle cx="60" cy="66" r="3.6" fill="#2F3A8F"/>
+    <circle cx="60" cy="66" r="1.8" fill="#171512"/>
+    <circle cx="61.3" cy="64.7" r="1" fill="#FFFFFF"/>
+
+    <!-- Hands holding camera sides -->
+    <circle cx="49.5" cy="65.5" r="3.5" fill="#DDBBA2"/>
+    <circle cx="70.5" cy="65.5" r="3.5" fill="#DDBBA2"/>
+  </g>
+
+  <g id="head-and-sunhat">
+    <!-- Sun hat back brim -->
+    <ellipse cx="60" cy="22" rx="24" ry="7" fill="#C99673"/>
+    <ellipse cx="60" cy="21" rx="24" ry="6.5" fill="#FDD98A"/>
+
+    <!-- Hair framing head -->
+    <circle cx="60" cy="27" r="11.5" fill="#171512"/>
+
+    <!-- Ears -->
+    <circle cx="49" cy="29" r="2.5" fill="#C99673"/>
+    <circle cx="71" cy="29" r="2.5" fill="#C99673"/>
+
+    <!-- Round head (no facial features) -->
+    <circle cx="60" cy="28" r="10" fill="#DDBBA2"/>
+
+    <!-- Hair fringe / bangs under hat -->
+    <path d="M50 26 C50 20 54 18 60 18 C66 18 70 20 70 26 C68 23 64 22 60 22 C56 22 52 23 50 26 Z" fill="#171512"/>
+
+    <!-- Sun hat crown -->
+    <path d="M47 21 C47 13 51 11 60 11 C69 11 73 13 73 21 Z" fill="#F7B02B"/>
+    <!-- Hat crown top highlight -->
+    <ellipse cx="60" cy="12.5" rx="9" ry="2" fill="#FDD98A"/>
+    <!-- Indigo hat ribbon -->
+    <path d="M47.2 18.5 H72.8 L73 21 H47 Z" fill="#2F3A8F"/>
+    <!-- Front brim curve -->
+    <path d="M36 21 C44 24.5 76 24.5 84 21 C78 26 42 26 36 21 Z" fill="#FFF7E5"/>
+  </g>
+</svg>

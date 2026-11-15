@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="160" viewBox="0 0 200 160" fill="none">
+  <g id="background-blob">
+    <path d="M46 30C68 18 118 16 148 28C174 38 184 64 178 92C172 120 146 138 110 142C72 146 34 136 22 110C10 84 24 42 46 30Z" fill="#D8DCF3" />
+    <path d="M56 38C76 28 118 27 142 37C163 46 170 68 164 91C158 114 136 129 106 132C74 135 43 126 34 104C25 82 36 48 56 38Z" fill="#F4EFE7" fill-opacity="0.55" />
+    <ellipse cx="98" cy="130" rx="54" ry="7" fill="#E7E0D4" />
+    <ellipse cx="94" cy="130" rx="36" ry="4.5" fill="#D8DCF3" />
+  </g>
+
+  <g id="kawung-decorations">
+    <g id="kawung-top-left">
+      <path d="M40 31C42.2 34 42.2 38 40 41C37.8 38 37.8 34 40 31Z" fill="#5F6BC2" fill-opacity="0.45" />
+      <path d="M40 43C42.2 46 42.2 50 40 53C37.8 50 37.8 46 40 43Z" fill="#5F6BC2" fill-opacity="0.45" />
+      <path d="M29 42C32 39.8 36 39.8 39 42C36 44.2 32 44.2 29 42Z" fill="#5F6BC2" fill-opacity="0.45" />
+      <path d="M41 42C44 39.8 48 39.8 51 42C48 44.2 44 44.2 41 42Z" fill="#5F6BC2" fill-opacity="0.45" />
+      <circle cx="40" cy="42" r="1.6" fill="#F7B02B" />
+      <circle cx="35" cy="37" r="0.9" fill="#FBF8F3" />
+      <circle cx="45" cy="37" r="0.9" fill="#FBF8F3" />
+      <circle cx="35" cy="47" r="0.9" fill="#FBF8F3" />
+      <circle cx="45" cy="47" r="0.9" fill="#FBF8F3" />
+    </g>
+
+    <g id="kawung-top-right">
+      <path d="M156 32C157.8 34.5 157.8 37.5 156 40C154.2 37.5 154.2 34.5 156 32Z" fill="#C99673" fill-opacity="0.55" />
+      <path d="M156 42C157.8 44.5 157.8 47.5 156 50C154.2 47.5 154.2 44.5 156 42Z" fill="#C99673" fill-opacity="0.55" />
+      <path d="M147 41C149.5 39.2 152.5 39.2 155 41C152.5 42.8 149.5 42.8 147 41Z" fill="#C99673" fill-opacity="0.55" />
+      <path d="M157 41C159.5 39.2 162.5 39.2 165 41C162.5 42.8 159.5 42.8 157 41Z" fill="#C99673" fill-opacity="0.55" />
+      <circle cx="156" cy="41" r="1.4" fill="#FFF7E5" />
+    </g>
+
+    <g id="kawung-bottom-left">
+      <path d="M36 99C37.5 101.2 37.5 103.8 36 106C34.5 103.8 34.5 101.2 36 99Z" fill="#5F6BC2" fill-opacity="0.35" />
+      <path d="M36 108C37.5 110.2 37.5 112.8 36 115C34.5 112.8 34.5 110.2 36 108Z" fill="#5F6BC2" fill-opacity="0.35" />
+      <path d="M28 107C30.2 105.5 32.8 105.5 35 107C32.8 108.5 30.2 108.5 28 107Z" fill="#5F6BC2" fill-opacity="0.35" />
+      <path d="M37 107C39.2 105.5 41.8 105.5 44 107C41.8 108.5 39.2 108.5 37 107Z" fill="#5F6BC2" fill-opacity="0.35" />
+      <circle cx="36" cy="107" r="1.3" fill="#FDD98A" />
+    </g>
+
+    <circle cx="62" cy="29" r="2" fill="#FFF7E5" />
+    <circle cx="128" cy="27" r="1.8" fill="#E7E0D4" />
+    <circle cx="168" cy="68" r="2.2" fill="#FFF7E5" />
+    <circle cx="48" cy="120" r="1.8" fill="#E7E0D4" />
+  </g>
+
+  <g id="cloud-illustration">
+    <g id="small-drift-cloud">
+      <path d="M36 80C31.6 80 28 76.4 28 72C28 68.1 30.8 64.8 34.5 64.1C35.8 59.4 40.1 56 45.2 56C50.7 56 55.3 59.9 56.1 65.2C59.5 65.7 62 68.5 62 72C62 76.4 58.4 80 54 80H36Z" fill="#E7E0D4" />
+      <path d="M35 78C30.6 78 27 74.4 27 70C27 66.1 29.8 62.8 33.5 62.1C34.8 57.4 39.1 54 44.2 54C49.7 54 54.3 57.9 55.1 63.2C58.5 63.7 61 66.5 61 70C61 74.4 57.4 78 53 78H35Z" fill="#FBF8F3" />
+    </g>
+
+    <path d="M60 100C49 100 40 91 40 80C40 70.3 46.9 62.2 56.1 60.4C59.5 47.5 71.2 38 85.2 38C99.7 38 111.9 48.2 114.7 61.8C116.4 61.3 118.2 61 120 61C131 61 140 70 140 81C140 91.5 131.9 100 121.5 100H60Z" fill="#E7E0D4" />
+    <path d="M58 96C47 96 38 87 38 76C38 66.3 44.9 58.2 54.1 56.4C57.5 43.5 69.2 34 83.2 34C97.7 34 109.9 44.2 112.7 57.8C114.4 57.3 116.2 57 118 57C129 57 138 66 138 77C138 87.5 129.9 96 119.5 96H58Z" fill="#FBF8F3" />
+    <path d="M56.2 56.2C59.8 44.2 70.8 36 83.2 36C96.2 36 107.2 44.6 110.6 56.6C106.5 46.8 96.8 40 85.2 40C72.2 40 61.1 46.8 56.2 56.2Z" fill="#FFFFFF" />
+    <path d="M46 88H126C131.5 88 136 83.5 136 78C136 86.8 128.8 94 120 94H56C47.2 94 40 86.8 40 78C40 83.5 42.5 88 46 88Z" fill="#F4EFE7" />
+    <path d="M64 64C64 56.3 70.3 50 78 50" stroke="#E7E0D4" stroke-width="1.5" stroke-linecap="round" />
+    <path d="M106 68C111.5 68 116 72.5 116 78" stroke="#E7E0D4" stroke-width="1.5" stroke-linecap="round" />
+  </g>
+
+  <g id="wifi-offline-symbol">
+    <circle cx="88" cy="97" r="27" fill="#E7E0D4" />
+    <circle cx="88" cy="95" r="27" fill="#FFFFFF" />
+    <circle cx="88" cy="95" r="24.5" fill="#FBF8F3" stroke="#E7E0D4" stroke-width="1.2" />
+
+    <path d="M71.03 90.03A24 24 0 0 1 104.97 90.03" stroke="#E7E0D4" stroke-width="2" stroke-linecap="round" />
+    <path d="M71.03 88.53A24 24 0 0 1 104.97 88.53" stroke="#5F6BC2" stroke-width="2" stroke-linecap="round" />
+
+    <path d="M76.33 95.33A16.5 16.5 0 0 1 99.67 95.33" stroke="#E7E0D4" stroke-width="2" stroke-linecap="round" />
+    <path d="M76.33 93.83A16.5 16.5 0 0 1 99.67 93.83" stroke="#5F6BC2" stroke-width="2" stroke-linecap="round" />
+
+    <path d="M81.64 100.64A9 9 0 0 1 94.36 100.64" stroke="#E7E0D4" stroke-width="2" stroke-linecap="round" />
+    <path d="M81.64 99.14A9 9 0 0 1 94.36 99.14" stroke="#5F6BC2" stroke-width="2" stroke-linecap="round" />
+
+    <circle cx="88" cy="107" r="2.8" fill="#E7E0D4" />
+    <circle cx="88" cy="105.5" r="2.8" fill="#2F3A8F" />
+
+    <path d="M71.45 81.55L74.55 78.45L104.55 108.45L101.45 111.55Z" fill="#FBF8F3" />
+    <line x1="73" y1="80" x2="103" y2="110" stroke="#2F3A8F" stroke-width="2" stroke-linecap="round" />
+  </g>
+
+  <g id="phone-and-kunyit-accent">
+    <g id="kunyit-signal-accent">
+      <circle cx="135" cy="52" r="9" fill="#FFF7E5" />
+      <circle cx="135" cy="52" r="6.5" fill="#FDD98A" />
+      <circle cx="135" cy="52" r="4" fill="#F7B02B" />
+      <circle cx="122" cy="44" r="2" fill="#F7B02B" />
+      <circle cx="148" cy="46" r="1.5" fill="#FDD98A" />
+    </g>
+
+    <g id="small-phone">
+      <rect x="129" y="70" width="28" height="46" rx="6" fill="#E7E0D4" />
+      <rect x="127" y="68" width="28" height="46" rx="6" fill="#FBF8F3" stroke="#2F3A8F" stroke-width="1.8" />
+      <rect x="130.5" y="74" width="21" height="33" rx="3" fill="#F4EFE7" />
+      <line x1="138" y1="71.2" x2="144" y2="71.2" stroke="#5F6BC2" stroke-width="1.5" stroke-linecap="round" />
+      <line x1="137" y1="110.5" x2="145" y2="110.5" stroke="#E7E0D4" stroke-width="1.5" stroke-linecap="round" />
+
+      <circle cx="141" cy="85" r="4.5" fill="#FFF7E5" />
+      <circle cx="141" cy="85" r="2.6" fill="#F7B02B" />
+      <rect x="134" y="93" width="14" height="2.5" rx="1.25" fill="#D8DCF3" />
+      <rect x="136.5" y="98" width="9" height="2.5" rx="1.25" fill="#E7E0D4" />
+    </g>
+  </g>
+</svg>

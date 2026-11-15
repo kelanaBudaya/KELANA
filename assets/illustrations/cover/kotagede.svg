@@ -1,0 +1,251 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="240" viewBox="0 0 360 240" fill="none">
+  <rect x="0" y="0" width="360" height="240" fill="#FFF7E5"/>
+
+  <g id="background-sky-merapi">
+    <circle cx="205" cy="54" r="28" fill="#FDD98A"/>
+    <circle cx="205" cy="54" r="19" fill="#F7B02B" opacity="0.45"/>
+
+    <path d="M96 28 H144 C149 28 153 32 153 37 C153 42 149 46 144 46 H96 C91 46 87 42 87 37 C87 32 91 28 96 28 Z" fill="#FBF8F3"/>
+    <circle cx="110" cy="27" r="11" fill="#FBF8F3"/>
+    <circle cx="128" cy="24" r="14" fill="#FBF8F3"/>
+
+    <path d="M262 22 H316 C321 22 325 26 325 31 C325 36 321 40 316 40 H262 C257 40 253 36 253 31 C253 26 257 22 262 22 Z" fill="#FBF8F3"/>
+    <circle cx="280" cy="21" r="12" fill="#FBF8F3"/>
+    <circle cx="299" cy="23" r="9" fill="#FBF8F3"/>
+
+    <polygon points="108,184 166,94 176,94 234,184" fill="#D8DCF3"/>
+    <polygon points="166,94 176,94 198,184 171,184" fill="#5F6BC2" opacity="0.22"/>
+    <path d="M168 90 C168 84 174 80 182 80 C188 80 192 83 192 87 C192 91 187 93 176 94 H168 Z" fill="#FBF8F3"/>
+
+    <rect x="0" y="156" width="360" height="28" fill="#F8F1EC"/>
+    <rect x="130" y="146" width="90" height="38" fill="#F4EFE7"/>
+    <polygon points="126,146 175,124 224,146" fill="#DDBBA2"/>
+  </g>
+
+  <g id="foliage-trees">
+    <rect x="143" y="114" width="6" height="70" fill="#975A33"/>
+    <path d="M146 132 L134 118 L137 116 L146 126 Z" fill="#975A33"/>
+    <path d="M146 128 L158 115 L155 113 L146 123 Z" fill="#975A33"/>
+    <circle cx="146" cy="102" r="22" fill="#D8DCF3"/>
+    <circle cx="131" cy="110" r="16" fill="#5F6BC2"/>
+    <circle cx="160" cy="112" r="15" fill="#5F6BC2"/>
+    <circle cx="146" cy="108" r="17" fill="#2F3A8F"/>
+
+    <rect x="336" y="108" width="5" height="76" fill="#975A33"/>
+    <circle cx="338" cy="96" r="18" fill="#5F6BC2"/>
+    <circle cx="326" cy="106" r="14" fill="#2F3A8F"/>
+    <circle cx="346" cy="104" r="12" fill="#D8DCF3"/>
+
+    <circle cx="14" cy="148" r="16" fill="#5F6BC2"/>
+    <circle cx="24" cy="158" r="13" fill="#2F3A8F"/>
+    <rect x="14" y="156" width="4" height="28" fill="#975A33"/>
+  </g>
+
+  <g id="kotagede-paduraksa-gate">
+    <rect x="14" y="120" width="22" height="64" fill="#C99673"/>
+    <rect x="12" y="116" width="24" height="6" fill="#975A33"/>
+    <rect x="16" y="130" width="14" height="5" fill="#DDBBA2"/>
+    <rect x="18" y="148" width="14" height="5" fill="#975A33"/>
+    <rect x="15" y="166" width="14" height="5" fill="#DDBBA2"/>
+
+    <rect x="120" y="120" width="22" height="64" fill="#C99673"/>
+    <rect x="120" y="116" width="24" height="6" fill="#975A33"/>
+    <rect x="126" y="136" width="14" height="5" fill="#DDBBA2"/>
+    <rect x="124" y="154" width="14" height="5" fill="#975A33"/>
+
+    <rect x="30" y="176" width="96" height="8" fill="#975A33"/>
+    <rect x="34" y="170" width="88" height="6" fill="#C99673"/>
+
+    <rect x="36" y="96" width="84" height="74" fill="#975A33"/>
+    <rect x="40" y="100" width="76" height="66" fill="#C99673"/>
+
+    <rect x="38" y="108" width="12" height="5" fill="#DDBBA2"/>
+    <rect x="36" y="120" width="14" height="5" fill="#975A33"/>
+    <rect x="40" y="132" width="10" height="5" fill="#DDBBA2"/>
+    <rect x="36" y="144" width="14" height="5" fill="#975A33"/>
+    <rect x="38" y="156" width="12" height="5" fill="#DDBBA2"/>
+
+    <rect x="106" y="108" width="12" height="5" fill="#DDBBA2"/>
+    <rect x="106" y="120" width="14" height="5" fill="#975A33"/>
+    <rect x="106" y="132" width="10" height="5" fill="#DDBBA2"/>
+    <rect x="106" y="144" width="14" height="5" fill="#975A33"/>
+    <rect x="106" y="156" width="12" height="5" fill="#DDBBA2"/>
+
+    <polygon points="24,126 36,104 36,144 24,144" fill="#DDBBA2"/>
+    <polygon points="132,126 120,104 120,144 132,144" fill="#DDBBA2"/>
+    <polygon points="26,126 36,108 36,120" fill="#975A33"/>
+    <polygon points="130,126 120,108 120,120" fill="#975A33"/>
+
+    <rect x="30" y="90" width="96" height="6" fill="#975A33"/>
+    <rect x="34" y="84" width="88" height="6" fill="#DDBBA2"/>
+    <polygon points="28,84 128,84 120,74 36,74" fill="#975A33"/>
+    <rect x="42" y="68" width="72" height="6" fill="#C99673"/>
+    <polygon points="38,68 118,68 110,58 46,58" fill="#975A33"/>
+    <rect x="52" y="52" width="52" height="6" fill="#DDBBA2"/>
+    <polygon points="48,52 108,52 100,44 56,44" fill="#975A33"/>
+    <polygon points="72,44 84,44 80,36 76,36" fill="#C99673"/>
+    <polygon points="75,36 81,36 78,30" fill="#975A33"/>
+
+    <rect x="64" y="82" width="28" height="10" fill="#C99673"/>
+    <polygon points="78,78 86,86 78,94 70,86" fill="#DDBBA2"/>
+    <circle cx="78" cy="86" r="2.5" fill="#975A33"/>
+
+    <path d="M52 170 V124 C52 110 63 102 78 102 C93 102 104 110 104 124 V170 Z" fill="#171512"/>
+    <path d="M55 170 V125 C55 113 65 105 78 105 V170 Z" fill="#975A33"/>
+    <path d="M78 105 C91 105 101 113 101 125 V170 H78 Z" fill="#C99673"/>
+    <line x1="78" y1="105" x2="78" y2="170" stroke="#171512" stroke-width="1.5"/>
+
+    <rect x="60" y="122" width="13" height="20" fill="#DDBBA2"/>
+    <rect x="83" y="122" width="13" height="20" fill="#975A33"/>
+    <rect x="60" y="146" width="13" height="18" fill="#DDBBA2"/>
+    <rect x="83" y="146" width="13" height="18" fill="#975A33"/>
+    <circle cx="73" cy="142" r="2.2" fill="#F7B02B"/>
+    <circle cx="83" cy="142" r="2.2" fill="#F7B02B"/>
+
+    <rect x="44" y="178" width="68" height="6" fill="#DDBBA2"/>
+  </g>
+
+  <g id="joglo-house-right">
+    <rect x="206" y="174" width="142" height="10" fill="#975A33"/>
+    <rect x="210" y="168" width="134" height="6" fill="#C99673"/>
+
+    <rect x="214" y="106" width="126" height="62" fill="#FBF8F3"/>
+    <rect x="214" y="106" width="126" height="7" fill="#E7E0D4"/>
+    <rect x="214" y="156" width="126" height="12" fill="#DDBBA2"/>
+
+    <polygon points="244,50 310,50 328,78 226,78" fill="#975A33"/>
+    <polygon points="247,50 307,50 322,74 232,74" fill="#C99673"/>
+    <rect x="242" y="47" width="70" height="4" fill="#DDBBA2"/>
+    <polygon points="242,47 248,41 248,47" fill="#975A33"/>
+    <polygon points="312,47 306,41 306,47" fill="#975A33"/>
+    <polygon points="274,47 277,40 280,47" fill="#975A33"/>
+
+    <polygon points="226,78 328,78 352,106 198,106" fill="#975A33"/>
+    <polygon points="230,80 324,80 344,102 206,102" fill="#C99673"/>
+    <line x1="212" y1="92" x2="338" y2="92" stroke="#975A33" stroke-width="1.5"/>
+    <rect x="198" y="104" width="154" height="4" fill="#DDBBA2"/>
+
+    <rect x="216" y="108" width="5" height="60" fill="#975A33"/>
+    <rect x="252" y="108" width="5" height="60" fill="#975A33"/>
+    <rect x="297" y="108" width="5" height="60" fill="#975A33"/>
+    <rect x="333" y="108" width="5" height="60" fill="#975A33"/>
+
+    <rect x="259" y="114" width="36" height="54" fill="#2F3A8F"/>
+    <rect x="262" y="117" width="30" height="10" fill="#171512"/>
+    <rect x="263" y="118" width="8" height="8" fill="#F7B02B"/>
+    <rect x="273" y="118" width="8" height="8" fill="#D6402F"/>
+    <rect x="283" y="118" width="8" height="8" fill="#1F9D63"/>
+
+    <rect x="262" y="129" width="14" height="39" fill="#5F6BC2"/>
+    <rect x="278" y="129" width="14" height="39" fill="#2F3A8F"/>
+    <rect x="265" y="133" width="8" height="14" fill="#2F3A8F"/>
+    <rect x="281" y="133" width="8" height="14" fill="#5F6BC2"/>
+    <rect x="265" y="151" width="8" height="12" fill="#2F3A8F"/>
+    <rect x="281" y="151" width="8" height="12" fill="#5F6BC2"/>
+    <circle cx="274" cy="149" r="1.8" fill="#F7B02B"/>
+    <circle cx="280" cy="149" r="1.8" fill="#F7B02B"/>
+
+    <rect x="225" y="120" width="23" height="28" fill="#2F3A8F"/>
+    <rect x="228" y="123" width="8" height="22" fill="#5F6BC2"/>
+    <rect x="237" y="123" width="8" height="22" fill="#D8DCF3"/>
+    <line x1="228" y1="130" x2="236" y2="130" stroke="#2F3A8F" stroke-width="1.5"/>
+    <line x1="228" y1="137" x2="236" y2="137" stroke="#2F3A8F" stroke-width="1.5"/>
+
+    <rect x="306" y="120" width="23" height="28" fill="#2F3A8F"/>
+    <rect x="309" y="123" width="8" height="22" fill="#D8DCF3"/>
+    <rect x="318" y="123" width="8" height="22" fill="#5F6BC2"/>
+    <line x1="318" y1="130" x2="326" y2="130" stroke="#2F3A8F" stroke-width="1.5"/>
+    <line x1="318" y1="137" x2="326" y2="137" stroke="#2F3A8F" stroke-width="1.5"/>
+  </g>
+
+  <g id="cobbled-street-ground">
+    <rect x="0" y="184" width="360" height="56" fill="#E7E0D4"/>
+    <rect x="0" y="184" width="360" height="4" fill="#DDBBA2"/>
+
+    <rect x="12" y="190" width="26" height="5" rx="2.5" fill="#F4EFE7"/>
+    <rect x="44" y="190" width="20" height="5" rx="2.5" fill="#FBF8F3"/>
+    <rect x="70" y="190" width="28" height="5" rx="2.5" fill="#F4EFE7"/>
+    <rect x="258" y="190" width="26" height="5" rx="2.5" fill="#F4EFE7"/>
+    <rect x="290" y="190" width="22" height="5" rx="2.5" fill="#FBF8F3"/>
+    <rect x="318" y="190" width="28" height="5" rx="2.5" fill="#F4EFE7"/>
+
+    <rect x="88" y="198" width="24" height="4" rx="2" fill="#F4EFE7"/>
+    <rect x="242" y="198" width="24" height="4" rx="2" fill="#F4EFE7"/>
+  </g>
+
+  <g id="silversmith-foreground-display">
+    <rect x="104" y="176" width="152" height="16" rx="2" fill="#975A33"/>
+    <rect x="108" y="180" width="144" height="8" fill="#C99673"/>
+    <rect x="100" y="172" width="160" height="6" rx="2" fill="#2F3A8F"/>
+    <polygon points="118,172 242,172 234,186 126,186" fill="#2F3A8F"/>
+    <polygon points="122,172 238,172 231,183 129,183" fill="#5F6BC2"/>
+    <line x1="130" y1="180" x2="230" y2="180" stroke="#F7B02B" stroke-width="1.5"/>
+
+    <g id="silver-filigree-teapot">
+      <path d="M126 140 C115 140 112 126 122 122 C127 120 131 124 128 128 C126 130 122 128 122 132 C122 136 126 137 129 137 Z" fill="#D8DCF3"/>
+      <path d="M167 138 C176 136 181 124 186 122 L189 125 C183 130 179 144 167 146 Z" fill="#E7E0D4"/>
+
+      <rect x="139" y="166" width="18" height="6" rx="2" fill="#D8DCF3"/>
+      <rect x="135" y="169" width="26" height="3" rx="1.5" fill="#E7E0D4"/>
+
+      <ellipse cx="148" cy="145" rx="22" ry="21" fill="#FBF8F3"/>
+      <path d="M148 124 C160 124 170 133 170 145 C170 157 160 166 148 166 Z" fill="#E7E0D4"/>
+      <path d="M154 126 C163 129 170 136 170 145 C170 154 163 161 154 164 C160 159 163 152 163 145 C163 138 160 131 154 126 Z" fill="#D8DCF3"/>
+
+      <ellipse cx="148" cy="145" rx="15" ry="12" fill="#D8DCF3"/>
+      <ellipse cx="148" cy="145" rx="12" ry="9" fill="#FBF8F3"/>
+      <polygon points="148,137 155,145 148,153 141,145" fill="#5F6BC2"/>
+      <polygon points="148,140 152,145 148,150 144,145" fill="#FBF8F3"/>
+      <circle cx="137" cy="145" r="2" fill="#5F6BC2"/>
+      <circle cx="159" cy="145" r="2" fill="#5F6BC2"/>
+      <circle cx="148" cy="133" r="1.5" fill="#5F6BC2"/>
+      <circle cx="148" cy="157" r="1.5" fill="#5F6BC2"/>
+
+      <rect x="138" y="121" width="20" height="4" rx="2" fill="#D8DCF3"/>
+      <path d="M139 121 C139 113 157 113 157 121 Z" fill="#FBF8F3"/>
+      <path d="M148 115 C153 115 157 117 157 121 H148 Z" fill="#D8DCF3"/>
+      <circle cx="148" cy="111" r="3.5" fill="#E7E0D4"/>
+      <circle cx="147" cy="110" r="1.5" fill="#FFFFFF"/>
+    </g>
+
+    <g id="silver-lotus-bowl">
+      <rect x="178" y="168" width="24" height="4" rx="2" fill="#D8DCF3"/>
+      <path d="M168 148 H212 C212 161 203 169 190 169 C177 169 168 161 168 148 Z" fill="#FBF8F3"/>
+      <path d="M190 148 H212 C212 161 203 169 190 169 Z" fill="#E7E0D4"/>
+      <ellipse cx="190" cy="148" rx="22" ry="4.5" fill="#D8DCF3"/>
+      <ellipse cx="190" cy="148" rx="18" ry="2.8" fill="#5F6BC2"/>
+
+      <path d="M173 152 C173 160 177 164 181 165 C181 159 178 154 173 152 Z" fill="#D8DCF3"/>
+      <path d="M190 153 C186 158 186 164 190 167 C194 164 194 158 190 153 Z" fill="#D8DCF3"/>
+      <path d="M207 152 C207 160 203 164 199 165 C199 159 202 154 207 152 Z" fill="#5F6BC2" opacity="0.45"/>
+      <circle cx="182" cy="156" r="1.5" fill="#5F6BC2"/>
+      <circle cx="198" cy="156" r="1.5" fill="#5F6BC2"/>
+    </g>
+
+    <g id="silver-kris-brooch-and-bracelet">
+      <ellipse cx="231" cy="160" rx="15" ry="9" fill="#D8DCF3"/>
+      <ellipse cx="231" cy="159" rx="14" ry="8" fill="#FBF8F3"/>
+      <ellipse cx="231" cy="159" rx="9" ry="4.5" fill="#2F3A8F"/>
+      <circle cx="220" cy="162" r="2.2" fill="#E7E0D4"/>
+      <circle cx="226" cy="165" r="2.2" fill="#D6402F"/>
+      <circle cx="231" cy="166" r="2.2" fill="#FBF8F3"/>
+      <circle cx="236" cy="165" r="2.2" fill="#1F9D63"/>
+      <circle cx="242" cy="162" r="2.2" fill="#E7E0D4"/>
+
+      <path d="M214 143 C218 139 222 145 226 141 C230 137 234 143 238 139 C242 135 245 138 248 137 C245 142 242 143 238 145 C234 147 230 143 226 146 C222 149 218 145 214 147 Z" fill="#FBF8F3"/>
+      <path d="M214 145 C218 143 222 147 226 144 C230 141 234 145 238 142 C242 139 245 140 248 137 C245 142 242 143 238 145 C234 147 230 143 226 146 C222 149 218 145 214 147 Z" fill="#D8DCF3"/>
+      <ellipse cx="214" cy="145" rx="6" ry="5" fill="#E7E0D4"/>
+      <ellipse cx="214" cy="145" rx="4" ry="3" fill="#FBF8F3"/>
+      <circle cx="214" cy="145" r="1.8" fill="#D6402F"/>
+    </g>
+
+    <g id="kunyit-sparkles">
+      <path d="M164 114 L166 120 L172 122 L166 124 L164 130 L162 124 L156 122 L162 120 Z" fill="#F7B02B"/>
+      <circle cx="164" cy="122" r="2" fill="#FFF7E5"/>
+
+      <path d="M206 126 L207.5 130.5 L212 132 L207.5 133.5 L206 138 L204.5 133.5 L200 132 L204.5 130.5 Z" fill="#F7B02B"/>
+      <path d="M245 122 L246.2 125.5 L249.5 126.8 L246.2 128 L245 131.5 L243.8 128 L240.5 126.8 L243.8 125.5 Z" fill="#FDD98A"/>
+      <circle cx="122" cy="154" r="2" fill="#F7B02B"/>
+    </g>
+  </g>
+</svg>

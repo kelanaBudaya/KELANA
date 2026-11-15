@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="180" height="320" viewBox="0 0 180 320" fill="none">
+<rect x="0" y="0" width="180" height="320" fill="#2F3A8F"/>
+<rect x="0" y="240" width="180" height="80" fill="#12173C"/>
+<g id="niche">
+<rect x="24" y="40" width="132" height="220" rx="66" fill="#FFF7E5"/>
+<rect x="36" y="52" width="108" height="208" rx="54" fill="#FDD98A"/>
+<circle cx="90" cy="120" r="60" fill="#FFF7E5" opacity="0.6"/>
+</g>
+<g id="topeng">
+<path d="M52 110 Q90 40 128 110 Q128 190 90 220 Q52 190 52 110Z" fill="#975A33"/>
+<path d="M60 112 Q90 60 120 112 Q120 176 90 206 Q60 176 60 112Z" fill="#DDBBA2"/>
+<path d="M68 112 Q78 102 88 112 Q78 118 68 112Z" fill="#171512"/>
+<path d="M92 112 Q102 102 112 112 Q102 118 92 112Z" fill="#171512"/>
+<path d="M82 146 Q90 142 98 146 Q98 166 90 170 Q82 166 82 146Z" fill="#975A33"/>
+<path d="M76 186 Q90 196 104 186" fill="none" stroke="#D6402F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<polygon points="90,54 80,76 100,76" fill="#F7B02B"/>
+<circle cx="90" cy="66" r="3" fill="#D6402F"/>
+</g>
+<g id="gongs">
+<circle cx="30" cy="290" r="34" fill="#F7B02B"/>
+<circle cx="30" cy="290" r="22" fill="#C97A06"/>
+<circle cx="30" cy="290" r="8" fill="#FDD98A"/>
+<circle cx="130" cy="300" r="40" fill="#F7B02B"/>
+<circle cx="130" cy="300" r="26" fill="#C97A06"/>
+<circle cx="130" cy="300" r="9" fill="#FDD98A"/>
+<rect x="0" y="312" width="180" height="8" fill="#975A33"/>
+</g>
+<path d="M150 320 Q160 270 180 262 L180 320Z" fill="#171512"/>
+</svg>

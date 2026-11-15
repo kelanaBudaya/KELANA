@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="180" height="320" viewBox="0 0 180 320" fill="none">
+<rect x="0" y="0" width="180" height="320" fill="#2F3A8F"/>
+<polygon points="70,0 110,0 190,290 -10,290" fill="#FDD98A" opacity="0.28"/>
+<polygon points="80,0 100,0 140,290 40,290" fill="#FFF7E5" opacity="0.25"/>
+<g id="spires">
+<polygon points="10.0,240 50.0,240 46.0,226 14.0,226" fill="#5F6BC2"/>
+<rect x="8.0" y="237" width="44" height="3" fill="#8A94D6"/>
+<polygon points="14.0,226 46.0,226 42.8,212 17.2,212" fill="#8A94D6"/>
+<rect x="12.0" y="223" width="36.0" height="3" fill="#5F6BC2"/>
+<polygon points="17.2,212 42.8,212 40.24,198 19.759999999999998,198" fill="#5F6BC2"/>
+<rect x="15.2" y="209" width="29.6" height="3" fill="#8A94D6"/>
+<polygon points="19.759999999999998,198 40.24,198 38.192,184 21.808,184" fill="#8A94D6"/>
+<rect x="17.759999999999998" y="195" width="24.480000000000004" height="3" fill="#5F6BC2"/>
+<polygon points="21.808,184 38.192,184 36.5536,170 23.446399999999997,170" fill="#5F6BC2"/>
+<rect x="19.808" y="181" width="20.384000000000004" height="3" fill="#8A94D6"/>
+<polygon points="23.446399999999997,170 36.5536,170 30,147.6" fill="#5F6BC2"/>
+<circle cx="30" cy="146.2" r="3" fill="#F7B02B"/>
+<polygon points="130.0,240 170.0,240 166.0,226 134.0,226" fill="#5F6BC2"/>
+<rect x="128.0" y="237" width="44" height="3" fill="#8A94D6"/>
+<polygon points="134.0,226 166.0,226 162.8,212 137.2,212" fill="#8A94D6"/>
+<rect x="132.0" y="223" width="36.0" height="3" fill="#5F6BC2"/>
+<polygon points="137.2,212 162.8,212 160.24,198 139.76,198" fill="#5F6BC2"/>
+<rect x="135.2" y="209" width="29.6" height="3" fill="#8A94D6"/>
+<polygon points="139.76,198 160.24,198 158.192,184 141.808,184" fill="#8A94D6"/>
+<rect x="137.76" y="195" width="24.480000000000004" height="3" fill="#5F6BC2"/>
+<polygon points="141.808,184 158.192,184 156.5536,170 143.4464,170" fill="#5F6BC2"/>
+<rect x="139.808" y="181" width="20.384000000000004" height="3" fill="#8A94D6"/>
+<polygon points="143.4464,170 156.5536,170 150,147.6" fill="#5F6BC2"/>
+<circle cx="150" cy="146.2" r="3" fill="#F7B02B"/>
+</g>
+<rect x="0" y="262" width="180" height="58" fill="#171512"/>
+<rect x="0" y="262" width="180" height="4" fill="#F7B02B"/>
+<g id="sash">
+<path d="M120 130 C170 120 175 170 130 190 C90 205 70 230 60 262" fill="none" stroke="#D6402F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M118 134 C170 126 172 168 128 186 C92 200 74 228 64 262 L76 262 C84 236 100 214 138 198 C186 178 178 120 120 134Z" fill="#D6402F" opacity="0.9"/>
+</g>
+<g id="dancer">
+<polygon points="78,190 104,190 118,262 64,262" fill="#975A33"/>
+<polygon points="84,190 98,190 104,262 78,262" fill="#F7B02B" opacity="0.9"/>
+<rect x="78" y="150" width="28" height="46" rx="10" fill="#DDBBA2"/>
+<rect x="80" y="168" width="24" height="6" fill="#F7B02B"/>
+<rect x="80" y="150" width="24" height="4" fill="#F7B02B"/>
+<rect x="87" y="136" width="10" height="16" fill="#DDBBA2"/>
+<circle cx="92" cy="122" r="16" fill="#DDBBA2"/>
+<path d="M78 118 Q92 98 106 118 Q106 108 92 104 Q78 108 78 118Z" fill="#171512"/>
+<polygon points="78,108 92,70 106,108" fill="#F7B02B"/>
+<polygon points="84,108 92,84 100,108" fill="#FDD98A"/>
+<circle cx="92" cy="74" r="3" fill="#D6402F"/>
+<path d="M82 122 Q86 124 90 122 M94 122 Q98 124 102 122" fill="none" stroke="#171512" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M104 156 L140 124 L152 96" fill="none" stroke="#DDBBA2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="100" y="154" width="8" height="14" rx="3" fill="#F7B02B"/>
+<path d="M80 156 L50 170 L40 192" fill="none" stroke="#DDBBA2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<path d="M104 156 L140 124 L152 96 M80 156 L50 170 L40 192" fill="none" stroke="#DDBBA2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

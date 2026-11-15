@@ -1,0 +1,228 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="320" viewBox="0 0 360 320" fill="none">
+  <g id="backdrop">
+    <path d="M 30 264 C 24 188 38 78 106 50 C 156 30 226 32 276 58 C 328 84 338 184 330 264 Z" fill="#FFF7E5"/>
+    <circle cx="114" cy="112" r="42" fill="#FDD98A" opacity="0.65"/>
+    <path d="M 36 264 C 76 236 134 232 184 244 C 232 254 282 238 324 264 Z" fill="#F8F1EC"/>
+  </g>
+
+  <g id="kawung-motifs">
+    <g id="kawung-top-left" fill="#FDD98A">
+      <ellipse cx="64" cy="70" rx="2.4" ry="4.5"/>
+      <ellipse cx="64" cy="82" rx="2.4" ry="4.5"/>
+      <ellipse cx="58" cy="76" rx="4.5" ry="2.4"/>
+      <ellipse cx="70" cy="76" rx="4.5" ry="2.4"/>
+      <circle cx="64" cy="76" r="1.6" fill="#C99673"/>
+    </g>
+    <g id="kawung-top-center" fill="#D8DCF3">
+      <ellipse cx="182" cy="52" rx="2.4" ry="4.5"/>
+      <ellipse cx="182" cy="64" rx="2.4" ry="4.5"/>
+      <ellipse cx="176" cy="58" rx="4.5" ry="2.4"/>
+      <ellipse cx="188" cy="58" rx="4.5" ry="2.4"/>
+      <circle cx="182" cy="58" r="1.6" fill="#5F6BC2"/>
+    </g>
+    <g id="kawung-top-right" fill="#FDD98A">
+      <ellipse cx="292" cy="84" rx="2.4" ry="4.5"/>
+      <ellipse cx="292" cy="96" rx="2.4" ry="4.5"/>
+      <ellipse cx="286" cy="90" rx="4.5" ry="2.4"/>
+      <ellipse cx="298" cy="90" rx="4.5" ry="2.4"/>
+      <circle cx="292" cy="90" r="1.6" fill="#C99673"/>
+    </g>
+    <g id="kawung-mid-left" fill="#D8DCF3">
+      <ellipse cx="44" cy="148" rx="2" ry="3.8"/>
+      <ellipse cx="44" cy="158" rx="2" ry="3.8"/>
+      <ellipse cx="39" cy="153" rx="3.8" ry="2"/>
+      <ellipse cx="49" cy="153" rx="3.8" ry="2"/>
+      <circle cx="44" cy="153" r="1.4" fill="#5F6BC2"/>
+    </g>
+    <g id="kawung-mid-right" fill="#D8DCF3">
+      <ellipse cx="316" cy="150" rx="2" ry="3.8"/>
+      <ellipse cx="316" cy="160" rx="2" ry="3.8"/>
+      <ellipse cx="311" cy="155" rx="3.8" ry="2"/>
+      <ellipse cx="321" cy="155" rx="3.8" ry="2"/>
+      <circle cx="316" cy="155" r="1.4" fill="#5F6BC2"/>
+    </g>
+  </g>
+
+  <g id="background-landmarks">
+    <g id="candi-silhouette">
+      <polygon points="114,94 117,104 111,104" fill="#DDBBA2"/>
+      <rect x="110" y="104" width="8" height="6" rx="1" fill="#C99673"/>
+      <polygon points="106,110 122,110 125,120 103,120" fill="#DDBBA2"/>
+      <rect x="108" y="106" width="2" height="4" fill="#DDBBA2"/>
+      <rect x="118" y="106" width="2" height="4" fill="#DDBBA2"/>
+      <rect x="101" y="120" width="26" height="10" rx="1" fill="#C99673"/>
+      <rect x="102" y="116" width="3" height="4" fill="#DDBBA2"/>
+      <rect x="123" y="116" width="3" height="4" fill="#DDBBA2"/>
+      <polygon points="97,130 131,130 135,144 93,144" fill="#DDBBA2"/>
+      <rect x="91" y="144" width="46" height="16" rx="1" fill="#C99673"/>
+      <rect x="94" y="140" width="3" height="4" fill="#DDBBA2"/>
+      <rect x="131" y="140" width="3" height="4" fill="#DDBBA2"/>
+      <rect x="87" y="160" width="54" height="104" fill="#DDBBA2"/>
+      <path d="M 108 264 L 108 150 L 114 142 L 120 150 L 120 264 Z" fill="#C99673"/>
+    </g>
+
+    <g id="joglo-pavilion">
+      <polygon points="236,120 260,120 272,140 224,140" fill="#D8DCF3"/>
+      <polygon points="224,140 272,140 292,154 204,154" fill="#5F6BC2" opacity="0.45"/>
+      <rect x="200" y="154" width="96" height="4" rx="2" fill="#D8DCF3"/>
+      <rect x="212" y="158" width="4" height="98" fill="#D8DCF3"/>
+      <rect x="234" y="158" width="4" height="98" fill="#D8DCF3"/>
+      <rect x="258" y="158" width="4" height="98" fill="#D8DCF3"/>
+      <rect x="280" y="158" width="4" height="98" fill="#D8DCF3"/>
+      <rect x="204" y="256" width="88" height="8" rx="2" fill="#D8DCF3"/>
+    </g>
+
+    <g id="indigo-foliage">
+      <circle cx="52" cy="224" r="18" fill="#D8DCF3"/>
+      <circle cx="68" cy="232" r="14" fill="#5F6BC2" opacity="0.5"/>
+      <rect x="51" y="232" width="2.5" height="32" rx="1" fill="#975A33"/>
+      <circle cx="308" cy="218" r="20" fill="#D8DCF3"/>
+      <circle cx="294" cy="228" r="14" fill="#5F6BC2" opacity="0.5"/>
+      <rect x="307" y="226" width="2.5" height="38" rx="1" fill="#975A33"/>
+    </g>
+
+    <g id="background-becak" opacity="0.85">
+      <path d="M 294 246 L 312 246 L 316 258 L 290 258 Z" fill="#5F6BC2"/>
+      <path d="M 292 234 Q 304 228 312 238 L 312 246 L 294 246 Z" fill="#D8DCF3"/>
+      <line x1="282" y1="258" x2="294" y2="258" stroke="#2F3A8F" stroke-width="2" stroke-linecap="round"/>
+      <line x1="286" y1="248" x2="282" y2="258" stroke="#2F3A8F" stroke-width="2" stroke-linecap="round"/>
+      <circle cx="304" cy="260" r="7" fill="#FBF8F3" stroke="#2F3A8F" stroke-width="2"/>
+      <circle cx="304" cy="260" r="2" fill="#F7B02B"/>
+      <circle cx="280" cy="261" r="6" fill="#FBF8F3" stroke="#2F3A8F" stroke-width="2"/>
+      <circle cx="280" cy="261" r="1.5" fill="#F7B02B"/>
+    </g>
+  </g>
+
+  <g id="ground-path">
+    <rect x="18" y="264" width="324" height="30" rx="15" fill="#F4EFE7"/>
+    <ellipse cx="180" cy="278" rx="146" ry="8" fill="#E7E0D4"/>
+    <ellipse cx="82" cy="278" rx="22" ry="4" fill="#DDBBA2" opacity="0.55"/>
+    <ellipse cx="152" cy="278" rx="22" ry="4" fill="#DDBBA2" opacity="0.55"/>
+    <ellipse cx="204" cy="278" rx="22" ry="4" fill="#DDBBA2" opacity="0.55"/>
+    <ellipse cx="258" cy="278" rx="18" ry="3.5" fill="#DDBBA2" opacity="0.55"/>
+    <circle cx="42" cy="274" r="2.5" fill="#DDBBA2"/>
+    <circle cx="318" cy="275" r="2" fill="#DDBBA2"/>
+  </g>
+
+  <g id="figure-1-solo-backpacker">
+    <rect x="52" y="182" width="22" height="38" rx="8" fill="#2F3A8F"/>
+    <path d="M 52 190 Q 63 196 74 190 L 74 186 Q 63 178 52 186 Z" fill="#5F6BC2"/>
+    <rect x="55" y="202" width="10" height="12" rx="3" fill="#5F6BC2"/>
+    <circle cx="60" cy="193" r="1.8" fill="#F7B02B"/>
+
+    <path d="M 76 226 L 68 272 L 76 272 L 84 226 Z" fill="#171512"/>
+    <path d="M 84 226 L 92 272 L 100 272 L 92 226 Z" fill="#2F3A8F"/>
+
+    <path d="M 65 272 L 79 272 C 82 272 84 275 84 278 L 65 278 Z" fill="#975A33"/>
+    <rect x="65" y="276" width="19" height="2" fill="#FBF8F3"/>
+    <path d="M 89 272 L 103 272 C 106 272 108 275 108 278 L 89 278 Z" fill="#975A33"/>
+    <rect x="89" y="276" width="19" height="2" fill="#FBF8F3"/>
+
+    <rect x="78" y="174" width="6" height="8" rx="2" fill="#C99673"/>
+    <path d="M 68 180 C 68 177 72 175 81 175 C 90 175 94 177 94 180 L 96 228 L 66 228 Z" fill="#F7B02B"/>
+    <path d="M 71 180 C 74 194 74 210 72 224" stroke="#2F3A8F" stroke-width="2" stroke-linecap="round"/>
+
+    <path d="M 78 158 C 72 158 68 163 68 169 C 68 173 71 176 75 176 L 78 164 Z" fill="#171512"/>
+    <circle cx="82" cy="166" r="10" fill="#DDBBA2"/>
+    <path d="M 73 163 C 74 156 83 154 90 158 C 92 159 93 162 92 164 C 87 161 79 161 73 163 Z" fill="#171512"/>
+
+    <line x1="78" y1="178" x2="98" y2="204" stroke="#975A33" stroke-width="1.8"/>
+    <path d="M 75 182 L 82 180 L 93 200 L 101 199 L 101 205 L 89 206 Z" fill="#F7B02B"/>
+    <circle cx="101" cy="202" r="3.5" fill="#DDBBA2"/>
+
+    <rect x="94" y="197" width="12" height="9" rx="2" fill="#171512"/>
+    <circle cx="101" cy="201.5" r="2.8" fill="#D8DCF3"/>
+    <rect x="96" y="195" width="4" height="2" rx="0.5" fill="#D6402F"/>
+  </g>
+
+  <g id="figure-2-couple-partner-left">
+    <path d="M 146 232 L 140 272 L 147 272 L 152 232 Z" fill="#975A33"/>
+    <path d="M 154 232 L 160 272 L 167 272 L 160 232 Z" fill="#975A33"/>
+
+    <path d="M 138 272 L 151 272 C 154 272 155 275 155 278 L 138 278 Z" fill="#2F3A8F"/>
+    <rect x="138" y="276" width="17" height="2" fill="#FBF8F3"/>
+    <path d="M 158 272 L 171 272 C 174 272 175 275 175 278 L 158 278 Z" fill="#2F3A8F"/>
+    <rect x="158" y="276" width="17" height="2" fill="#FBF8F3"/>
+
+    <path d="M 140 216 L 164 216 L 168 258 L 136 258 Z" fill="#975A33"/>
+    <path d="M 152 216 L 160 216 L 163 258 L 154 258 Z" fill="#2F3A8F"/>
+    <circle cx="144" cy="226" r="1.4" fill="#FFF7E5"/>
+    <circle cx="148" cy="230" r="1.4" fill="#FFF7E5"/>
+    <circle cx="144" cy="234" r="1.4" fill="#FFF7E5"/>
+    <circle cx="148" cy="242" r="1.4" fill="#FFF7E5"/>
+    <circle cx="144" cy="246" r="1.4" fill="#FFF7E5"/>
+    <circle cx="148" cy="250" r="1.4" fill="#FFF7E5"/>
+    <circle cx="158" cy="224" r="1.3" fill="#FDD98A"/>
+    <circle cx="158" cy="236" r="1.3" fill="#FDD98A"/>
+    <circle cx="158" cy="248" r="1.3" fill="#FDD98A"/>
+
+    <rect x="149" y="173" width="6" height="8" rx="2" fill="#975A33"/>
+    <path d="M 139 180 C 139 177 144 175 152 175 C 160 175 165 177 165 180 L 166 218 L 138 218 Z" fill="#FBF8F3"/>
+    <path d="M 142 176 C 148 184 156 184 162 176 L 165 183 C 157 192 147 192 139 183 Z" fill="#D6402F"/>
+    <circle cx="147" cy="184" r="1.1" fill="#FFF7E5"/>
+    <circle cx="152" cy="186" r="1.1" fill="#FFF7E5"/>
+    <circle cx="157" cy="184" r="1.1" fill="#FFF7E5"/>
+
+    <path d="M 140 183 L 132 208 L 138 212 L 144 188 Z" fill="#FBF8F3"/>
+    <circle cx="135" cy="212" r="3.5" fill="#975A33"/>
+
+    <path d="M 162 183 L 176 208 L 180 206 L 165 180 Z" fill="#FBF8F3"/>
+    <circle cx="141" cy="164" r="6" fill="#171512"/>
+    <circle cx="152" cy="165" r="10" fill="#975A33"/>
+    <path d="M 142 164 C 142 156 150 153 158 156 C 161 157 162 160 162 163 C 156 160 148 160 142 164 Z" fill="#171512"/>
+  </g>
+
+  <g id="figure-3-couple-partner-right-and-parent">
+    <path d="M 196 224 L 190 272 L 198 272 L 204 224 Z" fill="#F4EFE7"/>
+    <path d="M 204 224 L 212 272 L 220 272 L 214 224 Z" fill="#E7E0D4"/>
+
+    <path d="M 188 272 L 202 272 C 205 272 207 275 207 278 L 188 278 Z" fill="#171512"/>
+    <rect x="188" y="276" width="19" height="2" fill="#FBF8F3"/>
+    <path d="M 210 272 L 224 272 C 227 272 229 275 229 278 L 210 278 Z" fill="#171512"/>
+    <rect x="210" y="276" width="19" height="2" fill="#FBF8F3"/>
+
+    <rect x="201" y="171" width="6" height="8" rx="2" fill="#C99673"/>
+    <path d="M 190 178 C 190 175 195 173 204 173 C 213 173 218 175 218 178 L 220 226 L 188 226 Z" fill="#2F3A8F"/>
+    <path d="M 202 173 L 206 173 L 206 226 L 202 226 Z" fill="#5F6BC2"/>
+    <rect x="209" y="188" width="6" height="7" rx="1.5" fill="#5F6BC2"/>
+    <rect x="210" y="186" width="4" height="2" rx="1" fill="#1F9D63"/>
+
+    <path d="M 191 179 L 177 206 L 182 209 L 196 184 Z" fill="#2F3A8F"/>
+    <circle cx="178" cy="208" r="3.8" fill="#DDBBA2"/>
+
+    <path d="M 216 179 L 234 216 L 228 219 L 212 184 Z" fill="#2F3A8F"/>
+
+    <circle cx="204" cy="163" r="10" fill="#DDBBA2"/>
+    <path d="M 194 162 C 194 153 204 150 212 154 C 215 156 215 160 214 162 C 209 158 200 158 194 162 Z" fill="#171512"/>
+    <path d="M 194 160 L 198 160 L 196 167 L 194 165 Z" fill="#171512"/>
+  </g>
+
+  <g id="figure-4-child">
+    <path d="M 252 246 L 248 272 L 254 272 L 257 246 Z" fill="#975A33"/>
+    <path d="M 259 246 L 264 272 L 270 272 L 264 246 Z" fill="#975A33"/>
+
+    <path d="M 246 250 L 266 250 L 264 236 L 248 236 Z" fill="#5F6BC2"/>
+
+    <path d="M 246 272 L 257 272 C 259 272 260 275 260 278 L 246 278 Z" fill="#F7B02B"/>
+    <rect x="246" y="276" width="14" height="2" fill="#FBF8F3"/>
+    <path d="M 262 272 L 273 272 C 275 272 276 275 276 278 L 262 278 Z" fill="#F7B02B"/>
+    <rect x="262" y="276" width="14" height="2" fill="#FBF8F3"/>
+
+    <rect x="254" y="206" width="5" height="6" rx="2" fill="#975A33"/>
+    <rect x="262" y="212" width="11" height="18" rx="4" fill="#1F9D63"/>
+    <circle cx="268" cy="218" r="1.5" fill="#D9F2E4"/>
+    <path d="M 246 212 C 246 209 250 208 256 208 C 262 208 266 209 266 212 L 268 240 L 244 240 Z" fill="#F7B02B"/>
+    <rect x="245" y="232" width="22" height="4" fill="#FFF7E5"/>
+
+    <path d="M 247 213 L 231 218 L 233 223 L 249 219 Z" fill="#F7B02B"/>
+    <circle cx="231" cy="218" r="3.8" fill="#DDBBA2"/>
+    <circle cx="233" cy="220" r="3.2" fill="#975A33"/>
+
+    <path d="M 265 213 L 276 228 L 272 232 L 262 218 Z" fill="#F7B02B"/>
+    <circle cx="275" cy="230" r="3.2" fill="#975A33"/>
+
+    <circle cx="256" cy="199" r="8.5" fill="#975A33"/>
+    <path d="M 247.5 198 C 248 190 256 188 263 192 C 265 193 265 196 264 198 C 259 195 252 195 247.5 198 Z" fill="#171512"/>
+    <circle cx="248" cy="193" r="3.5" fill="#171512"/>
+  </g>
+</svg>

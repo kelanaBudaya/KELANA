@@ -1,0 +1,207 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="240" viewBox="0 0 360 240" fill="none">
+  <rect x="0" y="0" width="360" height="240" fill="#FBF8F3"/>
+
+  <g id="room-background">
+    <rect x="0" y="156" width="360" height="32" fill="#F4EFE7"/>
+    <line x1="0" y1="156" x2="360" y2="156" stroke="#E7E0D4" stroke-width="1.5"/>
+
+    <g id="arched-window">
+      <path d="M126 30 C126 16 144 10 162 10 C180 10 198 16 198 30 L198 108 L126 108 Z" fill="#E7E0D4"/>
+      <path d="M130 31 C130 19 146 14 162 14 C178 14 194 19 194 31 L194 104 L130 104 Z" fill="#D8DCF3"/>
+      <circle cx="148" cy="36" r="10" fill="#FDD98A"/>
+      <rect x="136" y="44" width="22" height="5" rx="2.5" fill="#FFFFFF"/>
+      <rect x="168" y="30" width="18" height="4" rx="2" fill="#FFFFFF"/>
+      <polygon points="130,104 154,60 164,60 188,104" fill="#5F6BC2"/>
+      <polygon points="154,60 159,54 164,60" fill="#FBF8F3"/>
+      <polygon points="158,104 176,72 194,104" fill="#2F3A8F"/>
+      <rect x="137" y="88" width="2.5" height="16" fill="#975A33"/>
+      <circle cx="138" cy="84" r="7" fill="#2F3A8F"/>
+      <circle cx="143" cy="87" r="5" fill="#5F6BC2"/>
+      <line x1="162" y1="14" x2="162" y2="104" stroke="#FBF8F3" stroke-width="2"/>
+      <line x1="130" y1="62" x2="194" y2="62" stroke="#FBF8F3" stroke-width="2"/>
+      <rect x="123" y="104" width="78" height="5" rx="2" fill="#C99673"/>
+    </g>
+
+    <g id="hanging-batik-cloths">
+      <line x1="214" y1="22" x2="342" y2="22" stroke="#975A33" stroke-width="2"/>
+      <circle cx="214" cy="22" r="2.5" fill="#975A33"/>
+      <circle cx="342" cy="22" r="2.5" fill="#975A33"/>
+
+      <g id="hanging-batik-indigo">
+        <rect x="224" y="22" width="44" height="78" rx="2" fill="#2F3A8F"/>
+        <rect x="228" y="26" width="36" height="70" fill="#5F6BC2"/>
+        <ellipse cx="246" cy="39" rx="5" ry="9" fill="#FFF7E5"/>
+        <ellipse cx="246" cy="39" rx="9" ry="5" fill="#FFF7E5"/>
+        <circle cx="246" cy="39" r="2.5" fill="#F7B02B"/>
+        <ellipse cx="246" cy="61" rx="5" ry="9" fill="#FFF7E5"/>
+        <ellipse cx="246" cy="61" rx="9" ry="5" fill="#FFF7E5"/>
+        <circle cx="246" cy="61" r="2.5" fill="#F7B02B"/>
+        <ellipse cx="246" cy="83" rx="5" ry="9" fill="#FFF7E5"/>
+        <ellipse cx="246" cy="83" rx="9" ry="5" fill="#FFF7E5"/>
+        <circle cx="246" cy="83" r="2.5" fill="#F7B02B"/>
+        <line x1="224" y1="95" x2="268" y2="95" stroke="#FDD98A" stroke-width="1.5"/>
+      </g>
+
+      <g id="hanging-batik-sogan">
+        <rect x="282" y="22" width="46" height="68" rx="2" fill="#FFF7E5"/>
+        <rect x="285" y="25" width="40" height="62" stroke="#975A33" stroke-width="1.2"/>
+        <line x1="285" y1="40" x2="325" y2="25" stroke="#C99673" stroke-width="2"/>
+        <line x1="285" y1="56" x2="325" y2="41" stroke="#975A33" stroke-width="2"/>
+        <line x1="285" y1="72" x2="325" y2="57" stroke="#C99673" stroke-width="2"/>
+        <line x1="285" y1="87" x2="325" y2="72" stroke="#975A33" stroke-width="2"/>
+        <circle cx="298" cy="48" r="2.5" fill="#F7B02B"/>
+        <circle cx="312" cy="43" r="2.5" fill="#F7B02B"/>
+        <circle cx="298" cy="64" r="2.5" fill="#F7B02B"/>
+        <circle cx="312" cy="59" r="2.5" fill="#F7B02B"/>
+      </g>
+    </g>
+  </g>
+
+  <g id="participant-left">
+    <ellipse cx="82" cy="96" rx="13" ry="11" fill="#171512"/>
+    <circle cx="67" cy="96" r="6" fill="#171512"/>
+    <circle cx="72" cy="94" r="2" fill="#F7B02B"/>
+    <ellipse cx="84" cy="100" rx="11" ry="12" fill="#DDBBA2"/>
+    <rect x="78" y="109" width="10" height="9" fill="#DDBBA2"/>
+    <path d="M48 168 C48 132 62 115 84 115 C104 115 116 130 118 168 Z" fill="#2F3A8F"/>
+    <path d="M75 115 L84 130 L93 115 Z" fill="#DDBBA2"/>
+    <path d="M73 115 L84 133 L95 115" stroke="#F7B02B" stroke-width="2"/>
+    <circle cx="64" cy="136" r="2" fill="#5F6BC2"/>
+    <circle cx="72" cy="144" r="2" fill="#5F6BC2"/>
+    <circle cx="60" cy="150" r="2" fill="#5F6BC2"/>
+  </g>
+
+  <g id="participant-right">
+    <path d="M264 94 C264 83 292 83 292 94 L294 98 L262 98 Z" fill="#975A33"/>
+    <path d="M263 95 L293 95" stroke="#2F3A8F" stroke-width="2"/>
+    <ellipse cx="277" cy="101" rx="11" ry="12" fill="#975A33"/>
+    <rect x="272" y="110" width="10" height="9" fill="#975A33"/>
+    <path d="M242 168 C244 130 256 116 277 116 C298 116 312 132 312 168 Z" fill="#F7B02B"/>
+    <path d="M269 116 L277 129 L285 116 Z" fill="#975A33"/>
+    <path d="M267 116 L277 132 L287 116" stroke="#975A33" stroke-width="2"/>
+    <circle cx="294" cy="136" r="2" fill="#FDD98A"/>
+    <circle cx="286" cy="145" r="2" fill="#FDD98A"/>
+    <circle cx="298" cy="151" r="2" fill="#FDD98A"/>
+  </g>
+
+  <g id="workbench-and-calm-bottom-band">
+    <rect x="0" y="164" width="360" height="76" fill="#E7E0D4"/>
+    <rect x="0" y="188" width="360" height="52" fill="#F4EFE7"/>
+    <line x1="0" y1="164" x2="360" y2="164" stroke="#C99673" stroke-width="1.5"/>
+    <line x1="0" y1="188" x2="360" y2="188" stroke="#E7E0D4" stroke-width="1.5"/>
+  </g>
+
+  <g id="center-wajan-and-dye-bowls">
+    <g id="dye-bowl-indigo">
+      <path d="M132 146 L154 146 C153 155 149 159 143 159 C137 159 133 155 132 146 Z" fill="#975A33"/>
+      <ellipse cx="143" cy="146" rx="11" ry="3.5" fill="#C99673"/>
+      <ellipse cx="143" cy="146" rx="9" ry="2.2" fill="#2F3A8F"/>
+    </g>
+
+    <g id="dye-bowl-kunyit">
+      <path d="M206 146 L228 146 C227 155 223 159 217 159 C211 159 207 155 206 146 Z" fill="#975A33"/>
+      <ellipse cx="217" cy="146" rx="11" ry="3.5" fill="#C99673"/>
+      <ellipse cx="217" cy="146" rx="9" ry="2.2" fill="#F7B02B"/>
+    </g>
+
+    <g id="small-stove-and-wajan">
+      <ellipse cx="180" cy="166" rx="22" ry="4" fill="#C99673" opacity="0.45"/>
+      <path d="M165 147 L195 147 L192 165 L168 165 Z" fill="#975A33"/>
+      <rect x="164" y="145" width="32" height="3" rx="1.5" fill="#C99673"/>
+      <path d="M174 165 C174 157 186 157 186 165 Z" fill="#171512"/>
+      <path d="M177 165 C177 160 183 160 183 165 Z" fill="#D6402F"/>
+      <circle cx="180" cy="163" r="1.8" fill="#F7B02B"/>
+      <circle cx="170" cy="153" r="1.6" fill="#171512"/>
+      <circle cx="190" cy="153" r="1.6" fill="#171512"/>
+      <path d="M156 135 L204 135 C201 146 191 149 180 149 C169 149 159 146 156 135 Z" fill="#171512"/>
+      <path d="M153 134 C151 131 155 129 157 133" stroke="#171512" stroke-width="1.8" stroke-linecap="round"/>
+      <path d="M207 134 C209 131 205 129 203 133" stroke="#171512" stroke-width="1.8" stroke-linecap="round"/>
+      <ellipse cx="180" cy="135" rx="23" ry="4.5" fill="#975A33"/>
+      <ellipse cx="180" cy="135.5" rx="19" ry="3" fill="#F7B02B"/>
+      <path d="M176 127 C174 122 179 119 177 114" stroke="#FFFFFF" stroke-width="1.6" stroke-linecap="round"/>
+      <path d="M184 129 C182 124 187 121 185 116" stroke="#F4EFE7" stroke-width="1.5" stroke-linecap="round"/>
+    </g>
+  </g>
+
+  <g id="left-batik-frame-and-cloth">
+    <polygon points="34,180 44,186 44,191 34,185" fill="#975A33"/>
+    <polygon points="154,180 164,186 164,191 154,185" fill="#975A33"/>
+    <polygon points="48,148 148,148 164,182 32,182" fill="#975A33"/>
+    <polygon points="51,150 145,150 159,179 37,179" fill="#C99673"/>
+    <polygon points="55,152 141,152 153,176 43,176" fill="#FFFFFF"/>
+
+    <g id="left-cloth-kawung-and-floral-motifs">
+      <rect x="59" y="154" width="78" height="20" stroke="#DDBBA2" stroke-width="0.8"/>
+      <ellipse cx="76" cy="164" rx="4" ry="8" stroke="#975A33" stroke-width="1.3"/>
+      <ellipse cx="76" cy="164" rx="8" ry="4" stroke="#975A33" stroke-width="1.3"/>
+      <circle cx="76" cy="164" r="2" fill="#975A33"/>
+      <circle cx="70" cy="159" r="1" fill="#C99673"/>
+      <circle cx="82" cy="159" r="1" fill="#C99673"/>
+      <circle cx="70" cy="169" r="1" fill="#C99673"/>
+      <circle cx="82" cy="169" r="1" fill="#C99673"/>
+
+      <ellipse cx="98" cy="164" rx="4" ry="8" stroke="#975A33" stroke-width="1.3"/>
+      <ellipse cx="98" cy="164" rx="8" ry="4" stroke="#975A33" stroke-width="1.3"/>
+      <circle cx="98" cy="164" r="2" fill="#975A33"/>
+      <circle cx="92" cy="159" r="1" fill="#C99673"/>
+      <circle cx="104" cy="159" r="1" fill="#C99673"/>
+      <circle cx="92" cy="169" r="1" fill="#C99673"/>
+      <circle cx="104" cy="169" r="1" fill="#C99673"/>
+
+      <path d="M114 164 C114 159 118 156 122 156 C126 156 130 159 130 164" stroke="#975A33" stroke-width="1.3"/>
+      <path d="M114 164 C118 161 122 161 126 164" stroke="#C99673" stroke-width="1.1"/>
+      <circle cx="122" cy="164" r="1.8" fill="#F7B02B"/>
+    </g>
+  </g>
+
+  <g id="right-batik-frame-and-cloth">
+    <polygon points="196,186 206,180 206,185 196,191" fill="#975A33"/>
+    <polygon points="316,186 326,180 326,185 316,191" fill="#975A33"/>
+    <polygon points="212,148 312,148 328,182 196,182" fill="#975A33"/>
+    <polygon points="215,150 309,150 323,179 201,179" fill="#C99673"/>
+    <polygon points="219,152 305,152 317,176 207,176" fill="#FFFFFF"/>
+
+    <g id="right-cloth-floral-and-kawung-motifs">
+      <rect x="223" y="154" width="78" height="20" stroke="#DDBBA2" stroke-width="0.8"/>
+      <path d="M228 170 C236 158 246 158 254 166 C262 172 272 168 278 160" stroke="#975A33" stroke-width="1.4" stroke-linecap="round"/>
+      <circle cx="242" cy="162" r="4.5" fill="#F8F1EC" stroke="#975A33" stroke-width="1.3"/>
+      <circle cx="242" cy="162" r="1.8" fill="#975A33"/>
+      <ellipse cx="235" cy="167" rx="3.5" ry="1.8" fill="#C99673"/>
+      <ellipse cx="250" cy="167" rx="3.5" ry="1.8" fill="#C99673"/>
+      <circle cx="264" cy="166" r="4" stroke="#975A33" stroke-width="1.3"/>
+      <circle cx="264" cy="166" r="1.5" fill="#F7B02B"/>
+      <ellipse cx="286" cy="164" rx="4" ry="7.5" stroke="#975A33" stroke-width="1.3"/>
+      <ellipse cx="286" cy="164" rx="7.5" ry="4" stroke="#C99673" stroke-width="1.1"/>
+      <circle cx="286" cy="164" r="1.6" fill="#975A33"/>
+    </g>
+  </g>
+
+  <g id="left-arms-hands-and-canting">
+    <path d="M52 132 L38 154 L54 166 L64 148 Z" fill="#2F3A8F"/>
+    <ellipse cx="56" cy="165" rx="6.5" ry="4" fill="#DDBBA2"/>
+    <path d="M104 128 L122 146 L108 156 L94 140 Z" fill="#2F3A8F"/>
+    <ellipse cx="110" cy="153" rx="7" ry="4.5" fill="#DDBBA2"/>
+    <line x1="98" y1="145" x2="117" y2="157" stroke="#975A33" stroke-width="2" stroke-linecap="round"/>
+    <path d="M115 155 L122 156 L120 161 L114 159 Z" fill="#F7B02B"/>
+    <path d="M122 158 L125 162" stroke="#975A33" stroke-width="1.4" stroke-linecap="round"/>
+  </g>
+
+  <g id="right-arms-hands-and-canting">
+    <path d="M308 132 L322 154 L306 166 L296 148 Z" fill="#F7B02B"/>
+    <ellipse cx="304" cy="165" rx="6.5" ry="4" fill="#975A33"/>
+    <path d="M256 128 L238 146 L252 156 L266 140 Z" fill="#F7B02B"/>
+    <ellipse cx="250" cy="153" rx="7" ry="4.5" fill="#975A33"/>
+    <line x1="262" y1="145" x2="243" y2="157" stroke="#975A33" stroke-width="2" stroke-linecap="round"/>
+    <path d="M245 155 L238 156 L240 161 L246 159 Z" fill="#F7B02B"/>
+    <path d="M238 158 L235 161" stroke="#975A33" stroke-width="1.4" stroke-linecap="round"/>
+  </g>
+
+  <g id="tabletop-details">
+    <ellipse cx="180" cy="179" rx="14" ry="4" fill="#FFF7E5"/>
+    <ellipse cx="180" cy="179" rx="11" ry="2.5" fill="#FDD98A"/>
+    <line x1="168" y1="175" x2="184" y2="181" stroke="#975A33" stroke-width="1.8" stroke-linecap="round"/>
+    <polygon points="183,179 188,180 186,183 182,182" fill="#F7B02B"/>
+    <circle cx="198" cy="177" r="3" fill="#1F9D63"/>
+    <circle cx="202" cy="179" r="2" fill="#D9F2E4"/>
+  </g>
+</svg>

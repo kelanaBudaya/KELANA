@@ -1,0 +1,373 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="320" viewBox="0 0 360 320" fill="none">
+  <!-- Background: Sun Disc, Distant Merapi, Clouds & Kawung Motifs -->
+  <g id="background-backdrop">
+    <!-- Large Kunyit Sun Disc -->
+    <circle cx="180" cy="158" r="118" fill="#FDD98A" />
+    <circle cx="180" cy="158" r="92" fill="#FFF7E5" opacity="0.45" />
+
+    <!-- Distant Mount Merapi Silhouette -->
+    <path d="M82 276 L154 114 C159 104 167 104 172 114 L244 276 Z" fill="#D8DCF3" />
+    <!-- Merapi Crater & Eastern Ridge -->
+    <path d="M153 114 Q163 119 173 114 L169 107 Q163 110 157 107 Z" fill="#FFF7E5" />
+    <path d="M163 109 L172 114 L244 276 L186 276 Z" fill="#5F6BC2" opacity="0.18" />
+    <!-- Subtle Volcano Plume Wisp -->
+    <path d="M163 102 C163 95 170 92 178 92 C184 92 188 88 188 84 C188 80 183 78 176 79 C166 80 157 88 159 102 Z" fill="#FFF7E5" opacity="0.85" />
+
+    <!-- Soft Editorial Clouds -->
+    <path d="M44 126 H90 C94.4 126 98 122.4 98 118 C98 113.6 94.4 110 90 110 H83 C81 102 74 96 65 96 C55 96 47 104 47 114 H44 C39.6 114 36 117.6 36 122 C36 124.2 39.6 126 44 126 Z" fill="#FFF7E5" />
+    <path d="M266 106 H314 C318.4 106 322 102.4 322 98 C322 93.6 318.4 90 314 90 H305 C303 82 296 77 288 77 C279 77 271 84 271 93 H266 C261.6 93 258 96.6 258 101 C258 103.8 261.6 106 266 106 Z" fill="#FFF7E5" />
+  </g>
+
+  <!-- Floating Decorative Kawung Motifs (5 sets of 4 ovals + centre dot) -->
+  <g id="kawung-motifs">
+    <!-- Kawung 1: Top Left -->
+    <g id="kawung-top-left">
+      <ellipse cx="52" cy="64" rx="3" ry="5.5" fill="#F7B02B" opacity="0.7" />
+      <ellipse cx="52" cy="78" rx="3" ry="5.5" fill="#F7B02B" opacity="0.7" />
+      <ellipse cx="45" cy="71" rx="5.5" ry="3" fill="#F7B02B" opacity="0.7" />
+      <ellipse cx="59" cy="71" rx="5.5" ry="3" fill="#F7B02B" opacity="0.7" />
+      <circle cx="52" cy="71" r="1.8" fill="#975A33" />
+    </g>
+    <!-- Kawung 2: Upper Left Inner -->
+    <g id="kawung-mid-left">
+      <ellipse cx="114" cy="48" rx="2.6" ry="4.8" fill="#DDBBA2" />
+      <ellipse cx="114" cy="60" rx="2.6" ry="4.8" fill="#DDBBA2" />
+      <ellipse cx="108" cy="54" rx="4.8" ry="2.6" fill="#DDBBA2" />
+      <ellipse cx="120" cy="54" rx="4.8" ry="2.6" fill="#DDBBA2" />
+      <circle cx="114" cy="54" r="1.6" fill="#F7B02B" />
+    </g>
+    <!-- Kawung 3: Top Centre-Right -->
+    <g id="kawung-top-center">
+      <ellipse cx="226" cy="44" rx="2.6" ry="4.8" fill="#D8DCF3" />
+      <ellipse cx="226" cy="56" rx="2.6" ry="4.8" fill="#D8DCF3" />
+      <ellipse cx="220" cy="50" rx="4.8" ry="2.6" fill="#D8DCF3" />
+      <ellipse cx="232" cy="50" rx="4.8" ry="2.6" fill="#D8DCF3" />
+      <circle cx="226" cy="50" r="1.6" fill="#5F6BC2" />
+    </g>
+    <!-- Kawung 4: Top Right -->
+    <g id="kawung-top-right">
+      <ellipse cx="308" cy="60" rx="3" ry="5.5" fill="#F7B02B" opacity="0.7" />
+      <ellipse cx="308" cy="74" rx="3" ry="5.5" fill="#F7B02B" opacity="0.7" />
+      <ellipse cx="301" cy="67" rx="5.5" ry="3" fill="#F7B02B" opacity="0.7" />
+      <ellipse cx="315" cy="67" rx="5.5" ry="3" fill="#F7B02B" opacity="0.7" />
+      <circle cx="308" cy="67" r="1.8" fill="#2F3A8F" />
+    </g>
+    <!-- Kawung 5: Mid Left Edge -->
+    <g id="kawung-lower-left">
+      <ellipse cx="30" cy="160" rx="2.4" ry="4.4" fill="#DDBBA2" opacity="0.8" />
+      <ellipse cx="30" cy="170" rx="2.4" ry="4.4" fill="#DDBBA2" opacity="0.8" />
+      <ellipse cx="25" cy="165" rx="4.4" ry="2.4" fill="#DDBBA2" opacity="0.8" />
+      <ellipse cx="35" cy="165" rx="4.4" ry="2.4" fill="#DDBBA2" opacity="0.8" />
+      <circle cx="30" cy="165" r="1.4" fill="#975A33" />
+    </g>
+  </g>
+
+  <!-- Foliage & Rounded Trees Behind Landmarks -->
+  <g id="background-foliage">
+    <!-- Far Left Bush -->
+    <circle cx="30" cy="264" r="12" fill="#D9F2E4" />
+    <circle cx="24" cy="267" r="9" fill="#1F9D63" />
+    <rect x="23" y="268" width="2" height="8" fill="#975A33" />
+
+    <!-- Left-Centre Tree (between Pendopo & Tugu) -->
+    <circle cx="143" cy="250" r="15" fill="#D9F2E4" />
+    <circle cx="137" cy="255" r="13" fill="#1F9D63" />
+    <circle cx="148" cy="259" r="10" fill="#1F9D63" />
+    <rect x="140" y="260" width="3" height="16" rx="1" fill="#975A33" />
+
+    <!-- Right-Centre Tree (between Tugu & Prambanan) -->
+    <circle cx="215" cy="252" r="14" fill="#D9F2E4" />
+    <circle cx="221" cy="256" r="12" fill="#1F9D63" />
+    <circle cx="211" cy="260" r="9" fill="#1F9D63" />
+    <rect x="216" y="261" width="3" height="15" rx="1" fill="#975A33" />
+
+    <!-- Far Right Bush -->
+    <circle cx="330" cy="263" r="11" fill="#D9F2E4" />
+    <circle cx="335" cy="266" r="8" fill="#1F9D63" />
+    <rect x="333" y="268" width="2" height="8" fill="#975A33" />
+  </g>
+
+  <!-- LEFT LANDMARK: Keraton Pendopo with Two-Tiered Joglo Roof (Centered at x=80) -->
+  <g id="landmark-keraton-pendopo">
+    <!-- Interior Back Shadow -->
+    <rect x="44" y="232" width="72" height="34" fill="#F8F1EC" />
+    <rect x="58" y="232" width="44" height="34" fill="#E7E0D4" />
+
+    <!-- Ornate Indigo & Gold Pelipit Beam Under Eaves -->
+    <rect x="36" y="228" width="88" height="4" fill="#2F3A8F" />
+    <rect x="36" y="232" width="88" height="2" fill="#F7B02B" />
+
+    <!-- Inner Saka Guru (4 Main Central Columns) & Outer Columns -->
+    <!-- Outer Left Column -->
+    <rect x="42" y="234" width="4" height="32" fill="#975A33" />
+    <rect x="41" y="234" width="6" height="3" fill="#F7B02B" />
+    <rect x="40" y="263" width="8" height="3" fill="#C99673" />
+
+    <!-- Inner Left Saka Guru Column -->
+    <rect x="61" y="234" width="5" height="32" fill="#975A33" />
+    <rect x="60" y="234" width="7" height="4" fill="#F7B02B" />
+    <rect x="60" y="238" width="7" height="2" fill="#D6402F" />
+    <rect x="59" y="263" width="9" height="3" fill="#C99673" />
+
+    <!-- Central Hanging Praba / Lantern Ornament -->
+    <line x1="80" y1="234" x2="80" y2="242" stroke="#F7B02B" stroke-width="1.5" />
+    <polygon points="80,240 85,245 80,250 75,245" fill="#F7B02B" />
+    <circle cx="80" cy="245" r="1.5" fill="#D6402F" />
+
+    <!-- Inner Right Saka Guru Column -->
+    <rect x="94" y="234" width="5" height="32" fill="#975A33" />
+    <rect x="93" y="234" width="7" height="4" fill="#F7B02B" />
+    <rect x="93" y="238" width="7" height="2" fill="#D6402F" />
+    <rect x="92" y="263" width="9" height="3" fill="#C99673" />
+
+    <!-- Outer Right Column -->
+    <rect x="114" y="234" width="4" height="32" fill="#975A33" />
+    <rect x="113" y="234" width="6" height="3" fill="#F7B02B" />
+    <rect x="112" y="263" width="8" height="3" fill="#C99673" />
+
+    <!-- Stepped Low Plinth (Pendopo Floor Base) -->
+    <rect x="34" y="266" width="92" height="5" rx="1" fill="#975A33" />
+    <rect x="30" y="271" width="100" height="5" rx="1" fill="#2F3A8F" />
+    <rect x="38" y="267" width="84" height="1.5" fill="#F7B02B" />
+    <!-- Center Stairs -->
+    <rect x="68" y="266" width="24" height="5" fill="#DDBBA2" />
+    <rect x="65" y="271" width="30" height="5" fill="#C99673" />
+
+    <!-- JOGLO ROOF TIER 1: Wide, Shallow Lower Hip Roof (Penanggap) -->
+    <polygon points="24,228 54,205 106,205 136,228" fill="#DDBBA2" />
+    <!-- Right side subtle shading for dimension -->
+    <polygon points="80,205 106,205 136,228 80,228" fill="#C99673" opacity="0.45" />
+    <!-- Eave Gold & Sogan Trim -->
+    <rect x="22" y="226" width="116" height="3" rx="1.5" fill="#975A33" />
+    <rect x="26" y="224" width="108" height="2" fill="#F7B02B" />
+
+    <!-- Tier Transition Collar -->
+    <rect x="53" y="203" width="54" height="3" rx="1" fill="#2F3A8F" />
+    <rect x="55" y="202" width="50" height="1.5" fill="#F7B02B" />
+
+    <!-- JOGLO ROOF TIER 2: Steep, Tall Central Trapezoid Peak (Brunjung) -->
+    <polygon points="54,203 69,168 91,168 106,203" fill="#975A33" />
+    <!-- Right half shadow on steep peak -->
+    <polygon points="80,168 91,168 106,203 80,203" fill="#171512" opacity="0.16" />
+    <!-- Decorative Vertical Roof Ribs -->
+    <line x1="69" y1="168" x2="54" y2="203" stroke="#C99673" stroke-width="1.5" />
+    <line x1="91" y1="168" x2="106" y2="203" stroke="#C99673" stroke-width="1.5" />
+
+    <!-- Roof Ridge Crown (Wuwungan) & Finials -->
+    <rect x="66" y="165" width="28" height="4" rx="2" fill="#F7B02B" />
+    <polygon points="66,167 62,163 66,165" fill="#F7B02B" />
+    <polygon points="94,167 98,163 94,165" fill="#F7B02B" />
+    <polygon points="80,157 84,165 76,165" fill="#F7B02B" />
+    <circle cx="80" cy="156" r="2" fill="#D6402F" />
+  </g>
+
+  <!-- RIGHT LANDMARK: Prambanan Temple - Three Tiered Candi Spires (Centered at x=276) -->
+  <g id="landmark-prambanan-temple">
+    <!-- Shared Stepped Temple Platform Base -->
+    <rect x="220" y="269" width="112" height="7" rx="1" fill="#2F3A8F" />
+    <rect x="225" y="262" width="102" height="7" rx="1" fill="#5F6BC2" />
+    <rect x="230" y="256" width="92" height="6" fill="#2F3A8F" />
+    <rect x="225" y="268" width="102" height="1.5" fill="#D8DCF3" />
+
+    <!-- LEFT CANDI SPIRE (Candi Brahma, x=244) -->
+    <g id="candi-left">
+      <!-- Body & Chamber -->
+      <rect x="232" y="222" width="24" height="34" fill="#5F6BC2" />
+      <rect x="244" y="222" width="12" height="34" fill="#2F3A8F" opacity="0.35" />
+      <!-- Moldings -->
+      <rect x="230" y="220" width="28" height="4" fill="#2F3A8F" />
+      <rect x="230" y="252" width="28" height="4" fill="#2F3A8F" />
+      <!-- Portal Niche -->
+      <path d="M240 256 V236 L244 231 L248 236 V256 Z" fill="#171512" />
+      <!-- Stacked Narrowing Tiers -->
+      <rect x="232" y="212" width="24" height="8" fill="#5F6BC2" />
+      <rect x="234" y="204" width="20" height="8" fill="#2F3A8F" />
+      <rect x="236" y="196" width="16" height="8" fill="#5F6BC2" />
+      <rect x="238" y="189" width="12" height="7" fill="#2F3A8F" />
+      <rect x="240" y="182" width="8" height="7" fill="#5F6BC2" />
+      <!-- Corner Amalaka Dentils -->
+      <rect x="231" y="210" width="3" height="3" fill="#D8DCF3" />
+      <rect x="254" y="210" width="3" height="3" fill="#D8DCF3" />
+      <rect x="233" y="202" width="3" height="3" fill="#D8DCF3" />
+      <rect x="252" y="202" width="3" height="3" fill="#D8DCF3" />
+      <rect x="235" y="194" width="3" height="3" fill="#D8DCF3" />
+      <rect x="250" y="194" width="3" height="3" fill="#D8DCF3" />
+      <!-- Ratna Finial -->
+      <polygon points="244,167 248,182 240,182" fill="#2F3A8F" />
+      <circle cx="244" cy="179" r="2.2" fill="#F7B02B" />
+      <circle cx="244" cy="166" r="1.5" fill="#F7B02B" />
+    </g>
+
+    <!-- RIGHT CANDI SPIRE (Candi Wisnu, x=308) -->
+    <g id="candi-right">
+      <!-- Body & Chamber -->
+      <rect x="296" y="222" width="24" height="34" fill="#5F6BC2" />
+      <rect x="308" y="222" width="12" height="34" fill="#2F3A8F" opacity="0.35" />
+      <!-- Moldings -->
+      <rect x="294" y="220" width="28" height="4" fill="#2F3A8F" />
+      <rect x="294" y="252" width="28" height="4" fill="#2F3A8F" />
+      <!-- Portal Niche -->
+      <path d="M304 256 V236 L308 231 L312 236 V256 Z" fill="#171512" />
+      <!-- Stacked Narrowing Tiers -->
+      <rect x="296" y="212" width="24" height="8" fill="#5F6BC2" />
+      <rect x="298" y="204" width="20" height="8" fill="#2F3A8F" />
+      <rect x="300" y="196" width="16" height="8" fill="#5F6BC2" />
+      <rect x="302" y="189" width="12" height="7" fill="#2F3A8F" />
+      <rect x="304" y="182" width="8" height="7" fill="#5F6BC2" />
+      <!-- Corner Amalaka Dentils -->
+      <rect x="295" y="210" width="3" height="3" fill="#D8DCF3" />
+      <rect x="318" y="210" width="3" height="3" fill="#D8DCF3" />
+      <rect x="297" y="202" width="3" height="3" fill="#D8DCF3" />
+      <rect x="316" y="202" width="3" height="3" fill="#D8DCF3" />
+      <rect x="299" y="194" width="3" height="3" fill="#D8DCF3" />
+      <rect x="314" y="194" width="3" height="3" fill="#D8DCF3" />
+      <!-- Ratna Finial -->
+      <polygon points="308,167 312,182 304,182" fill="#2F3A8F" />
+      <circle cx="308" cy="179" r="2.2" fill="#F7B02B" />
+      <circle cx="308" cy="166" r="1.5" fill="#F7B02B" />
+    </g>
+
+    <!-- CENTRE TALLEST CANDI SPIRE (Candi Siwa, x=276) -->
+    <g id="candi-center-tall">
+      <!-- Main Temple Body -->
+      <rect x="256" y="196" width="40" height="60" fill="#2F3A8F" />
+      <!-- Lit Left Facet -->
+      <rect x="256" y="196" width="20" height="60" fill="#5F6BC2" />
+      <!-- Horizontal Cornice Moldings -->
+      <rect x="252" y="194" width="48" height="5" fill="#2F3A8F" />
+      <rect x="254" y="220" width="44" height="3" fill="#D8DCF3" opacity="0.4" />
+      <rect x="253" y="251" width="46" height="5" fill="#2F3A8F" />
+      <!-- Kala Makara Arch & Inner Sanctum Doorway -->
+      <polygon points="266,256 266,225 276,214 286,225 286,256" fill="#5F6BC2" />
+      <polygon points="276,210 284,220 268,220" fill="#F7B02B" />
+      <path d="M270 256 V228 L276 221 L282 228 V256 Z" fill="#171512" />
+      <rect x="272" y="256" width="8" height="16" fill="#171512" opacity="0.4" />
+
+      <!-- Stacked Narrowing Roof Tiers (7 levels) -->
+      <!-- Tier 1 -->
+      <rect x="256" y="184" width="40" height="10" fill="#2F3A8F" />
+      <rect x="256" y="184" width="20" height="10" fill="#5F6BC2" />
+      <!-- Tier 2 -->
+      <rect x="259" y="174" width="34" height="10" fill="#2F3A8F" />
+      <rect x="259" y="174" width="17" height="10" fill="#5F6BC2" />
+      <!-- Tier 3 -->
+      <rect x="262" y="164" width="28" height="10" fill="#2F3A8F" />
+      <rect x="262" y="164" width="14" height="10" fill="#5F6BC2" />
+      <!-- Tier 4 -->
+      <rect x="265" y="155" width="22" height="9" fill="#2F3A8F" />
+      <rect x="265" y="155" width="11" height="9" fill="#5F6BC2" />
+      <!-- Tier 5 -->
+      <rect x="268" y="146" width="16" height="9" fill="#2F3A8F" />
+      <rect x="268" y="146" width="8" height="9" fill="#5F6BC2" />
+      <!-- Tier 6 -->
+      <rect x="271" y="138" width="10" height="8" fill="#2F3A8F" />
+      <rect x="271" y="138" width="5" height="8" fill="#5F6BC2" />
+
+      <!-- Rhythmic Stupa/Ratna Dentils Along Tier Edges -->
+      <rect x="254" y="182" width="3" height="4" fill="#D8DCF3" />
+      <rect x="295" y="182" width="3" height="4" fill="#D8DCF3" />
+      <rect x="257" y="172" width="3" height="4" fill="#D8DCF3" />
+      <rect x="292" y="172" width="3" height="4" fill="#D8DCF3" />
+      <rect x="260" y="162" width="3" height="4" fill="#D8DCF3" />
+      <rect x="289" y="162" width="3" height="4" fill="#D8DCF3" />
+      <rect x="263" y="153" width="3" height="4" fill="#D8DCF3" />
+      <rect x="286" y="153" width="3" height="4" fill="#D8DCF3" />
+      <rect x="266" y="144" width="3" height="4" fill="#D8DCF3" />
+      <rect x="283" y="144" width="3" height="4" fill="#D8DCF3" />
+      <!-- Center Vertical Spine Relief -->
+      <rect x="274.5" y="138" width="3" height="56" fill="#D8DCF3" opacity="0.55" />
+
+      <!-- Tall Ratna Finial Crown -->
+      <polygon points="276,114 281,138 271,138" fill="#2F3A8F" />
+      <polygon points="276,114 276,138 271,138" fill="#5F6BC2" />
+      <ellipse cx="276" cy="134" rx="4.5" ry="2.5" fill="#F7B02B" />
+      <circle cx="276" cy="126" r="2.5" fill="#F7B02B" />
+      <circle cx="276" cy="113" r="2" fill="#F7B02B" />
+    </g>
+  </g>
+
+  <!-- CENTRE LANDMARK: Tugu Yogyakarta / Tugu Pal Putih (Exactly Symmetric at x=180) -->
+  <g id="landmark-tugu-yogyakarta">
+    <!-- Stepped Square Base Plinth -->
+    <!-- Bottom Step -->
+    <rect x="150" y="266" width="60" height="10" rx="1" fill="#FBF8F3" stroke="#2F3A8F" stroke-width="1.2" />
+    <rect x="180" y="267" width="29" height="8" fill="#F4EFE7" />
+    <rect x="150" y="266" width="60" height="2.5" fill="#F7B02B" />
+
+    <!-- Second Pedestal Tier -->
+    <rect x="157" y="250" width="46" height="16" fill="#FBF8F3" stroke="#2F3A8F" stroke-width="1.2" />
+    <rect x="180" y="251" width="22" height="14" fill="#F4EFE7" />
+    <!-- Gold & Indigo Pedestal Plaque Frame -->
+    <rect x="164" y="254" width="32" height="8" rx="1" fill="#F7B02B" />
+    <rect x="166" y="255.5" width="28" height="5" fill="#FFF7E5" />
+
+    <!-- Third Molded Collar Tier -->
+    <rect x="162" y="238" width="36" height="12" fill="#FBF8F3" stroke="#2F3A8F" stroke-width="1.2" />
+    <rect x="180" y="239" width="17" height="10" fill="#F4EFE7" />
+    <rect x="160" y="236" width="40" height="3.5" rx="1" fill="#F7B02B" />
+
+    <!-- Tall Tapering Square Shaft (Pal Putih) -->
+    <!-- Main Cream Body -->
+    <polygon points="166,236 171,108 189,108 194,236" fill="#FBF8F3" />
+    <!-- Subtle Warm Right Facet Shading -->
+    <polygon points="180,236 180,108 189,108 194,236" fill="#F4EFE7" />
+    <!-- Crisp Architectural Outline -->
+    <polygon points="166,236 171,108 189,108 194,236" stroke="#2F3A8F" stroke-width="1.2" />
+
+    <!-- Vertical Golden Fluted Panel Detail on Shaft -->
+    <polygon points="176.5,220 178,128 182,128 183.5,220" fill="#F7B02B" opacity="0.85" />
+    <!-- Small Diamond Medallion inside Shaft -->
+    <polygon points="180,154 184,160 180,166 176,160" fill="#2F3A8F" />
+    <polygon points="180,156 182.5,160 180,164 177.5,160" fill="#F7B02B" />
+
+    <!-- Kunyit Gold Horizontal Ring Bands Along Shaft -->
+    <!-- Lower Band -->
+    <rect x="164" y="224" width="32" height="4.5" rx="1" fill="#F7B02B" />
+    <rect x="165" y="228.5" width="30" height="1.5" fill="#2F3A8F" />
+    <!-- Mid Band -->
+    <rect x="167" y="182" width="26" height="3.5" rx="1" fill="#F7B02B" />
+    <!-- Upper Neck Band -->
+    <rect x="169" y="120" width="22" height="4" rx="1" fill="#F7B02B" />
+    <rect x="170" y="118" width="20" height="2" fill="#2F3A8F" />
+
+    <!-- Stepped Capital / Crown Ledge at Top of Shaft -->
+    <polygon points="166,108 168,101 192,101 194,108" fill="#FBF8F3" stroke="#2F3A8F" stroke-width="1.2" />
+    <rect x="165" y="99" width="30" height="3.5" rx="1.5" fill="#F7B02B" />
+    <rect x="170" y="95" width="20" height="4" rx="1" fill="#2F3A8F" />
+
+    <!-- Golden Pointed Spiral Finial (Mustaka Tugu) -->
+    <!-- Lotus Base Cushion -->
+    <ellipse cx="180" cy="93.5" rx="8" ry="2.8" fill="#F7B02B" />
+    <!-- Spiral Tier 1 -->
+    <ellipse cx="180" cy="89" rx="6.5" ry="2.4" fill="#F7B02B" />
+    <ellipse cx="180" cy="87.8" rx="6" ry="1.2" fill="#FFF7E5" opacity="0.6" />
+    <!-- Spiral Tier 2 -->
+    <ellipse cx="180" cy="84.5" rx="5" ry="2.2" fill="#F7B02B" />
+    <!-- Spiral Tier 3 -->
+    <ellipse cx="180" cy="80.5" rx="3.6" ry="1.8" fill="#F7B02B" />
+    <!-- Pointed Golden Spire Tip -->
+    <polygon points="180,64 183,80 177,80" fill="#F7B02B" />
+    <circle cx="180" cy="64" r="2" fill="#F7B02B" />
+    <circle cx="180" cy="64" r="1" fill="#FFF7E5" />
+    <!-- Tiny Red Accent Gem at Finial Collar -->
+    <circle cx="180" cy="93.5" r="1.5" fill="#D6402F" />
+  </g>
+
+  <!-- Foreground Shrubs & Ground Band -->
+  <g id="foreground-ground">
+    <!-- Small Foreground Accent Tufts -->
+    <path d="M126 276 C126 270 131 267 136 267 C140 267 143 269 144 272 C146 270 150 271 150 276 Z" fill="#1F9D63" />
+    <path d="M208 276 C208 271 212 269 216 269 C219 269 222 271 223 276 Z" fill="#1F9D63" />
+
+    <!-- Main Ground Band (y=276 to 290, 16px side margins) -->
+    <rect x="16" y="276" width="328" height="12" rx="6" fill="#E7E0D4" />
+    <!-- Crisp Top Ground Line in Sogan & Indigo -->
+    <rect x="24" y="275" width="312" height="2" rx="1" fill="#975A33" />
+
+    <!-- Subtle Decorative Lower Terrace Line & Dots -->
+    <rect x="64" y="294" width="232" height="3" rx="1.5" fill="#E7E0D4" />
+    <circle cx="180" cy="295.5" r="2.5" fill="#F7B02B" />
+    <circle cx="136" cy="295.5" r="2" fill="#DDBBA2" />
+    <circle cx="224" cy="295.5" r="2" fill="#DDBBA2" />
+  </g>
+</svg>

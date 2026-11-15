@@ -1,0 +1,183 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="1200" viewBox="0 0 720 1200" fill="none">
+  <rect id="land-background" x="0" y="0" width="720" height="1200" fill="#F4EFE7"/>
+
+  <g id="city-blocks">
+    <!-- Outer North row (y: 16..96) - 6 blocks -->
+    <rect x="14" y="16" width="48" height="80" rx="6" fill="#E7E0D4" opacity="0.6"/>
+    <rect x="88" y="16" width="124" height="80" rx="6" fill="#E7E0D4"/>
+    <rect x="228" y="16" width="118" height="80" rx="6" fill="#E7E0D4" opacity="0.6"/>
+    <rect x="374" y="16" width="118" height="80" rx="6" fill="#E7E0D4"/>
+    <rect x="508" y="16" width="124" height="80" rx="6" fill="#E7E0D4" opacity="0.6"/>
+    <rect x="658" y="16" width="48" height="80" rx="6" fill="#E7E0D4"/>
+
+    <!-- Row 1: North of Sudirman (y: 124..176) - 7 blocks -->
+    <rect x="14" y="124" width="48" height="52" rx="5" fill="#E7E0D4"/>
+    <path d="M 93 124 H 137 Q 142 124 142 129 V 171 Q 142 176 137 176 H 93 Q 88 176 88 171 V 129 Q 88 124 93 124 Z" fill="#E7E0D4" opacity="0.6"/>
+    <rect x="158" y="124" width="124" height="52" rx="5" fill="#E7E0D4"/>
+    <rect x="298" y="124" width="50" height="52" rx="5" fill="#E7E0D4" opacity="0.6"/>
+    <rect x="372" y="124" width="120" height="52" rx="5" fill="#E7E0D4"/>
+    <rect x="508" y="124" width="124" height="52" rx="5" fill="#E7E0D4" opacity="0.6"/>
+    <rect x="658" y="124" width="48" height="52" rx="5" fill="#E7E0D4"/>
+
+    <!-- Row 2: Upper-Mid (y: 194..246) - 7 blocks (+1 park at 372,194) -->
+    <rect x="88" y="194" width="54" height="52" rx="5" fill="#E7E0D4"/>
+    <rect x="158" y="194" width="54" height="52" rx="5" fill="#E7E0D4" opacity="0.6"/>
+    <rect x="228" y="194" width="54" height="52" rx="5" fill="#E7E0D4" opacity="0.6"/>
+    <rect x="298" y="194" width="50" height="52" rx="5" fill="#E7E0D4"/>
+    <rect x="438" y="194" width="54" height="52" rx="5" fill="#E7E0D4"/>
+    <rect x="508" y="194" width="58" height="52" rx="5" fill="#E7E0D4" opacity="0.6"/>
+    <rect x="582" y="194" width="50" height="52" rx="5" fill="#E7E0D4"/>
+
+    <!-- Row 3: Railway Corridor (y: 274..340) - 9 blocks -->
+    <rect x="14" y="274" width="48" height="68" rx="5" fill="#E7E0D4" opacity="0.6"/>
+    <path d="M 93 274 H 137 Q 142 274 142 279 V 339 Q 142 344 137 344 L 93 346 Q 88 346 88 341 V 279 Q 88 274 93 274 Z" fill="#E7E0D4"/>
+    <rect x="158" y="274" width="54" height="66" rx="5" fill="#E7E0D4"/>
+    <rect x="228" y="274" width="54" height="66" rx="5" fill="#E7E0D4" opacity="0.6"/>
+    <rect x="330" y="274" width="20" height="66" rx="4" fill="#E7E0D4"/>
+    <rect x="370" y="274" width="22" height="66" rx="4" fill="#E7E0D4" opacity="0.6"/>
+    <rect x="438" y="274" width="54" height="66" rx="5" fill="#E7E0D4"/>
+    <rect x="508" y="274" width="58" height="64" rx="5" fill="#E7E0D4"/>
+    <path d="M 587 274 H 627 Q 632 274 632 279 V 332 Q 632 337 627 337 L 587 339 Q 582 339 582 334 V 279 Q 582 274 587 274 Z" fill="#E7E0D4" opacity="0.6"/>
+
+    <!-- Row 4: Dense Central Malioboro North (y: 358..422) - 9 blocks (+1 park at 508,358) -->
+    <rect x="88" y="358" width="54" height="64" rx="5" fill="#E7E0D4" opacity="0.6"/>
+    <rect x="158" y="358" width="54" height="64" rx="5" fill="#E7E0D4"/>
+    <rect x="228" y="358" width="54" height="64" rx="5" fill="#E7E0D4"/>
+    <rect x="298" y="358" width="20" height="64" rx="4" fill="#E7E0D4" opacity="0.6"/>
+    <rect x="330" y="358" width="20" height="64" rx="4" fill="#E7E0D4"/>
+    <rect x="370" y="358" width="22" height="64" rx="4" fill="#E7E0D4"/>
+    <rect x="404" y="358" width="20" height="64" rx="4" fill="#E7E0D4" opacity="0.6"/>
+    <rect x="438" y="358" width="54" height="64" rx="5" fill="#E7E0D4" opacity="0.6"/>
+    <rect x="582" y="356" width="50" height="66" rx="5" fill="#E7E0D4"/>
+
+    <!-- Row 5: Dense Central Malioboro Mid (y: 438..502) - 12 blocks -->
+    <rect x="14" y="438" width="48" height="64" rx="5" fill="#E7E0D4"/>
+    <rect x="88" y="438" width="54" height="64" rx="5" fill="#E7E0D4"/>
+    <rect x="158" y="438" width="54" height="64" rx="5" fill="#E7E0D4" opacity="0.6"/>
+    <path d="M 233 438 H 277 Q 282 438 282 443 V 497 Q 282 502 277 502 H 233 Q 228 502 228 497 V 443 Q 228 438 233 438 Z" fill="#E7E0D4" opacity="0.6"/>
+    <rect x="298" y="438" width="20" height="64" rx="4" fill="#E7E0D4"/>
+    <rect x="330" y="438" width="20" height="64" rx="4" fill="#E7E0D4" opacity="0.6"/>
+    <rect x="370" y="438" width="22" height="64" rx="4" fill="#E7E0D4" opacity="0.6"/>
+    <rect x="404" y="438" width="20" height="64" rx="4" fill="#E7E0D4"/>
+    <rect x="438" y="438" width="54" height="64" rx="5" fill="#E7E0D4"/>
+    <rect x="508" y="438" width="58" height="64" rx="5" fill="#E7E0D4"/>
+    <rect x="582" y="438" width="50" height="64" rx="5" fill="#E7E0D4" opacity="0.6"/>
+    <rect x="658" y="438" width="48" height="64" rx="5" fill="#E7E0D4" opacity="0.6"/>
+
+    <!-- Row 6: Dense Central Malioboro South (y: 518..576) - 9 blocks (+1 park at 158,518) -->
+    <rect x="88" y="518" width="54" height="58" rx="5" fill="#E7E0D4" opacity="0.6"/>
+    <rect x="228" y="518" width="54" height="58" rx="5" fill="#E7E0D4"/>
+    <rect x="298" y="518" width="20" height="58" rx="4" fill="#E7E0D4" opacity="0.6"/>
+    <rect x="330" y="518" width="20" height="58" rx="4" fill="#E7E0D4"/>
+    <rect x="370" y="518" width="22" height="58" rx="4" fill="#E7E0D4"/>
+    <rect x="404" y="518" width="20" height="58" rx="4" fill="#E7E0D4" opacity="0.6"/>
+    <rect x="438" y="518" width="54" height="58" rx="5" fill="#E7E0D4"/>
+    <rect x="508" y="518" width="58" height="58" rx="5" fill="#E7E0D4" opacity="0.6"/>
+    <rect x="582" y="518" width="50" height="58" rx="5" fill="#E7E0D4"/>
+
+    <!-- Row 7: North of Senopati / Dahlan (y: 592..646) - 8 blocks -->
+    <rect x="88" y="592" width="54" height="54" rx="5" fill="#E7E0D4"/>
+    <rect x="158" y="592" width="54" height="54" rx="5" fill="#E7E0D4"/>
+    <rect x="228" y="592" width="54" height="54" rx="5" fill="#E7E0D4" opacity="0.6"/>
+    <rect x="330" y="592" width="20" height="54" rx="4" fill="#E7E0D4"/>
+    <rect x="370" y="592" width="22" height="54" rx="4" fill="#E7E0D4"/>
+    <rect x="438" y="592" width="54" height="54" rx="5" fill="#E7E0D4" opacity="0.6"/>
+    <rect x="508" y="592" width="58" height="54" rx="5" fill="#E7E0D4"/>
+    <rect x="582" y="592" width="50" height="54" rx="5" fill="#E7E0D4" opacity="0.6"/>
+
+    <!-- Row 8: South of Senopati / Zero Km (y: 674..732) - 8 blocks -->
+    <rect x="88" y="674" width="54" height="58" rx="5" fill="#E7E0D4" opacity="0.6"/>
+    <rect x="158" y="674" width="54" height="58" rx="5" fill="#E7E0D4" opacity="0.6"/>
+    <rect x="228" y="674" width="54" height="58" rx="5" fill="#E7E0D4"/>
+    <rect x="298" y="674" width="50" height="58" rx="5" fill="#E7E0D4" opacity="0.6"/>
+    <rect x="372" y="674" width="50" height="58" rx="5" fill="#E7E0D4"/>
+    <rect x="438" y="674" width="54" height="58" rx="5" fill="#E7E0D4"/>
+    <rect x="508" y="674" width="58" height="58" rx="5" fill="#E7E0D4" opacity="0.6"/>
+    <rect x="582" y="674" width="50" height="58" rx="5" fill="#E7E0D4"/>
+
+    <!-- Row 9 & 10: Kraton & Alun-Alun Flanks (y: 748..946) - 10 blocks (+2 palace square parks) -->
+    <rect x="14" y="748" width="48" height="94" rx="5" fill="#E7E0D4" opacity="0.6"/>
+    <rect x="88" y="748" width="54" height="94" rx="5" fill="#E7E0D4"/>
+    <rect x="158" y="748" width="124" height="94" rx="5" fill="#E7E0D4" opacity="0.6"/>
+    <rect x="438" y="748" width="128" height="94" rx="5" fill="#E7E0D4"/>
+    <rect x="582" y="748" width="50" height="94" rx="5" fill="#E7E0D4" opacity="0.6"/>
+    <rect x="88" y="858" width="124" height="88" rx="5" fill="#E7E0D4" opacity="0.6"/>
+    <rect x="228" y="858" width="54" height="88" rx="5" fill="#E7E0D4"/>
+    <rect x="438" y="858" width="54" height="88" rx="5" fill="#E7E0D4" opacity="0.6"/>
+    <rect x="508" y="858" width="124" height="88" rx="5" fill="#E7E0D4"/>
+    <rect x="658" y="748" width="48" height="94" rx="5" fill="#E7E0D4"/>
+
+    <!-- Row 11 & 12: South of Kraton & Outer South (y: 974..1184) - 8 blocks (+1 park at 228,974) -->
+    <rect x="88" y="974" width="124" height="44" rx="5" fill="#E7E0D4"/>
+    <rect x="298" y="974" width="50" height="44" rx="5" fill="#E7E0D4" opacity="0.6"/>
+    <rect x="372" y="974" width="120" height="44" rx="5" fill="#E7E0D4"/>
+    <rect x="508" y="974" width="124" height="44" rx="5" fill="#E7E0D4" opacity="0.6"/>
+    <rect x="88" y="1034" width="194" height="42" rx="5" fill="#E7E0D4" opacity="0.6"/>
+    <rect x="438" y="1034" width="194" height="42" rx="5" fill="#E7E0D4"/>
+    <rect x="88" y="1104" width="258" height="80" rx="6" fill="#E7E0D4" opacity="0.6"/>
+    <rect x="374" y="1104" width="258" height="80" rx="6" fill="#E7E0D4"/>
+  </g>
+
+  <g id="parks">
+    <!-- Alun-Alun Utara (large palace square in lower-centre) -->
+    <rect x="298" y="748" width="124" height="94" rx="8" fill="#D9F2E4"/>
+    <!-- Alun-Alun Selatan (paired southern palace square) -->
+    <rect x="304" y="858" width="112" height="88" rx="8" fill="#D9F2E4"/>
+    <!-- Northern park block near Tugu / Sudirman -->
+    <rect x="372" y="194" width="50" height="52" rx="6" fill="#D9F2E4"/>
+    <!-- Eastern park block in Kotabaru -->
+    <rect x="508" y="358" width="58" height="64" rx="6" fill="#D9F2E4"/>
+    <!-- Western riverside park block near Kali Winongo -->
+    <rect x="158" y="518" width="54" height="58" rx="6" fill="#D9F2E4"/>
+    <!-- Southern garden block -->
+    <rect x="228" y="974" width="54" height="44" rx="6" fill="#D9F2E4"/>
+  </g>
+
+  <g id="rivers">
+    <!-- Kali Winongo: smooth meandering band 22px wide on the left third -->
+    <path d="M 192 -20 C 198 110 165 210 176 340 C 188 470 218 560 202 690 C 186 820 148 930 162 1060 C 170 1130 158 1180 152 1220" stroke="#D8DCF3" stroke-width="22" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- Kali Code: thinner meandering band 14px wide on the right third -->
+    <path d="M 488 -20 C 476 120 512 240 496 380 C 480 520 520 640 502 790 C 486 920 518 1050 504 1220" stroke="#D8DCF3" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <g id="minor-roads" stroke="#FFFFFF" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Horizontal minor streets running edge to edge (mostly straight with gentle bends) -->
+    <path d="M -10 185 L 730 185"/>
+    <path d="M -10 352 L 150 350 L 500 350 L 730 345"/>
+    <path d="M -10 430 L 730 430"/>
+    <path d="M -10 510 L 730 510"/>
+    <path d="M -10 584 L 730 584"/>
+    <path d="M -10 740 L 730 740"/>
+    <path d="M -10 850 L 730 850"/>
+    <path d="M -10 1026 L 290 1026 L 360 1030 L 430 1026 L 730 1026"/>
+
+    <!-- Vertical minor streets running edge to edge (mostly straight with gentle bends) -->
+    <path d="M 150 -10 L 150 740 L 146 960 L 150 1210"/>
+    <path d="M 220 -10 L 220 740 L 218 960 L 220 1210"/>
+    <path d="M 290 -10 L 290 740 L 288 960 L 290 1210"/>
+    <path d="M 323 -10 L 323 260 L 323 584 L 290 660 L 288 960 L 290 1210"/>
+    <path d="M 397 -10 L 397 185 L 430 260 L 397 350 L 397 584 L 430 660 L 432 960 L 430 1210"/>
+    <path d="M 430 -10 L 430 740 L 432 960 L 430 1210"/>
+    <path d="M 500 -10 L 500 1210"/>
+    <path d="M 574 -10 L 574 740 L 578 960 L 574 1210"/>
+  </g>
+
+  <g id="major-roads" stroke="#FFFFFF" stroke-width="14" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Rounded ring road near the edges -->
+    <path d="M 123 110 H 597 A 48 48 0 0 1 645 158 V 1042 A 48 48 0 0 1 597 1090 H 123 A 48 48 0 0 1 75 1042 V 158 A 48 48 0 0 1 123 110 Z"/>
+
+    <!-- Strong straight North-South axis (Jalan Malioboro) from top to palace square, plus southern continuation -->
+    <path d="M 360 -10 L 360 740"/>
+    <path d="M 360 960 L 360 1210"/>
+
+    <!-- East-West arterials running edge to edge -->
+    <path d="M -10 260 L 730 260"/>
+    <path d="M -10 660 L 730 660"/>
+    <path d="M -10 960 L 730 960"/>
+  </g>
+
+  <g id="railway">
+    <!-- Faint railway line across the upper third -->
+    <path d="M -10 344 Q 180 332 360 332 T 730 320" stroke="#D2C9BA" stroke-width="2" stroke-dasharray="8 6" stroke-linecap="round"/>
+  </g>
+</svg>

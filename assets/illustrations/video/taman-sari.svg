@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="180" height="320" viewBox="0 0 180 320" fill="none">
+<rect x="0" y="0" width="180" height="320" fill="#FFF7E5"/>
+<g id="tower">
+<rect x="46" y="70" width="88" height="110" fill="#FBF8F3"/>
+<rect x="46" y="70" width="88" height="6" fill="#DDBBA2"/>
+<polygon points="40,70 140,70 120,40 60,40" fill="#975A33"/>
+<rect x="86" y="22" width="8" height="18" fill="#F7B02B"/>
+</g>
+<path d="M56 160 V120 Q64 106 72 120 V160Z" fill="#2F3A8F"/>
+<path d="M84 160 V120 Q92 106 100 120 V160Z" fill="#2F3A8F"/>
+<path d="M112 160 V120 Q120 106 128 120 V160Z" fill="#2F3A8F"/>
+<path d="M56 100 V86 Q64 76 72 86 V100Z" fill="#2F3A8F"/>
+<path d="M112 100 V86 Q120 76 128 86 V100Z" fill="#2F3A8F"/>
+<rect x="0" y="180" width="180" height="80" fill="#D8DCF3"/>
+<rect x="0" y="180" width="180" height="5" fill="#E7E0D4"/>
+<path d="M20 196 H70 M90 202 H160" fill="none" stroke="#5F6BC2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M20 214 H70 M90 220 H160" fill="none" stroke="#5F6BC2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M20 234 H70 M90 240 H160" fill="none" stroke="#5F6BC2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M60 180 V260 M120 180 V260" fill="none" stroke="#FBF8F3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<g id="tower-reflection">
+<rect x="46" y="190" width="88" height="60" fill="#FBF8F3" opacity="0.25"/>
+</g>
+<path d="M-10 320 V120 Q-10 -20 90 -20 Q190 -20 190 120 V320 H150 V120 Q150 20 90 20 Q30 20 30 120 V320Z" fill="#432616"/>
+<path d="M0 320 V130 Q0 0 90 0 Q180 0 180 130 V320 H152 V130 Q152 22 90 22 Q28 22 28 130 V320Z" fill="#975A33"/>
+<rect x="0" y="262" width="180" height="58" fill="#432616"/>
+<rect x="30" y="268" width="120" height="8" fill="#DDBBA2"/>
+<rect x="38" y="284" width="104" height="8" fill="#DDBBA2"/>
+<rect x="46" y="300" width="88" height="8" fill="#DDBBA2"/>
+<g id="plants">
+<rect x="10" y="242" width="22" height="20" fill="#975A33"/>
+<circle cx="21" cy="232" r="12" fill="#5F6BC2"/>
+<rect x="148" y="242" width="22" height="20" fill="#975A33"/>
+<circle cx="159" cy="232" r="12" fill="#5F6BC2"/>
+</g>
+</svg>

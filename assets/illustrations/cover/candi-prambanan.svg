@@ -1,0 +1,508 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="240" viewBox="0 0 360 240" fill="none">
+  <rect x="0" y="0" width="360" height="240" fill="#FDD98A"/>
+
+  <g id="sky-and-sun">
+    <rect x="0" y="136" width="360" height="56" fill="#F7B02B" opacity="0.28"/>
+    <circle cx="180" cy="116" r="82" fill="#FFF7E5" opacity="0.45"/>
+    <circle cx="180" cy="116" r="64" fill="#FFF7E5"/>
+
+    <g id="clouds" fill="#FFF7E5">
+      <rect x="252" y="28" width="66" height="10" rx="5" opacity="0.85"/>
+      <rect x="268" y="22" width="38" height="10" rx="5" opacity="0.85"/>
+      <rect x="86" y="44" width="52" height="8" rx="4" opacity="0.75"/>
+      <rect x="98" y="39" width="28" height="8" rx="4" opacity="0.75"/>
+      <rect x="284" y="66" width="56" height="8" rx="4" opacity="0.65"/>
+    </g>
+  </g>
+
+  <g id="distant-merapi-and-haze">
+    <polygon points="10,184 78,118 148,184" fill="#E7E0D4"/>
+    <polygon points="78,118 148,184 96,184" fill="#DDBBA2" opacity="0.65"/>
+    <polygon points="73,123 83,123 88,132 68,132" fill="#FFF7E5" opacity="0.7"/>
+    <path d="M76 118 C78 108 86 104 94 102 C88 108 83 112 80 118 Z" fill="#FFF7E5" opacity="0.65"/>
+    <polygon points="220,184 286,134 352,184" fill="#E7E0D4" opacity="0.85"/>
+    <polygon points="286,134 352,184 300,184" fill="#DDBBA2" opacity="0.5"/>
+    <rect x="0" y="174" width="360" height="14" fill="#F8F1EC" opacity="0.55"/>
+  </g>
+
+  <g id="far-perwara-temples">
+    <!-- Far Left Outer Perwara (x=36) -->
+    <g id="perwara-far-left">
+      <polygon points="35,122 36,115 37,122" fill="#C99673"/>
+      <rect x="33" y="122" width="6" height="4" fill="#DDBBA2"/>
+      <rect x="30" y="126" width="12" height="5" fill="#C99673"/>
+      <rect x="27" y="131" width="18" height="6" fill="#DDBBA2"/>
+      <rect x="25" y="137" width="22" height="6" fill="#C99673"/>
+      <rect x="27" y="143" width="18" height="18" fill="#DDBBA2"/>
+      <rect x="36" y="143" width="9" height="18" fill="#C99673"/>
+      <rect x="24" y="161" width="24" height="15" fill="#C99673"/>
+    </g>
+
+    <!-- Far Right Outer Perwara (x=324) -->
+    <g id="perwara-far-right">
+      <polygon points="323,122 324,115 325,122" fill="#C99673"/>
+      <rect x="321" y="122" width="6" height="4" fill="#DDBBA2"/>
+      <rect x="318" y="126" width="12" height="5" fill="#C99673"/>
+      <rect x="315" y="131" width="18" height="6" fill="#DDBBA2"/>
+      <rect x="313" y="137" width="22" height="6" fill="#C99673"/>
+      <rect x="315" y="143" width="18" height="18" fill="#DDBBA2"/>
+      <rect x="324" y="143" width="9" height="18" fill="#C99673"/>
+      <rect x="312" y="161" width="24" height="15" fill="#C99673"/>
+    </g>
+
+    <!-- Mid-Left Shrine (x=70) -->
+    <g id="candi-apit-left">
+      <polygon points="69,92 70,83 71,92" fill="#975A33"/>
+      <ellipse cx="70" cy="92" rx="2" ry="3" fill="#C99673"/>
+      <rect x="66" y="95" width="8" height="5" fill="#C99673"/>
+      <polygon points="63,100 64,96 65,100" fill="#C99673"/>
+      <polygon points="75,100 76,96 77,100" fill="#975A33"/>
+      <rect x="62" y="100" width="16" height="6" fill="#DDBBA2"/>
+      <rect x="70" y="100" width="8" height="6" fill="#C99673"/>
+      <polygon points="59,106 60,101 61,106" fill="#C99673"/>
+      <polygon points="79,106 80,101 81,106" fill="#975A33"/>
+      <rect x="58" y="106" width="24" height="6" fill="#C99673"/>
+      <rect x="70" y="106" width="12" height="6" fill="#975A33"/>
+      <polygon points="55,112 56,107 57,112" fill="#C99673"/>
+      <polygon points="83,112 84,107 85,112" fill="#975A33"/>
+      <rect x="54" y="112" width="32" height="7" fill="#DDBBA2"/>
+      <rect x="70" y="112" width="16" height="7" fill="#C99673"/>
+      <rect x="52" y="119" width="36" height="5" fill="#975A33"/>
+      <!-- Body -->
+      <rect x="55" y="124" width="30" height="26" fill="#DDBBA2"/>
+      <rect x="70" y="124" width="15" height="26" fill="#C99673"/>
+      <rect x="61" y="124" width="18" height="26" fill="#C99673"/>
+      <rect x="70" y="124" width="9" height="26" fill="#975A33"/>
+      <polygon points="64,134 70,128 76,134" fill="#975A33"/>
+      <rect x="66" y="134" width="8" height="16" fill="#171512"/>
+      <!-- Stepped Base -->
+      <rect x="51" y="150" width="38" height="6" fill="#DDBBA2"/>
+      <rect x="70" y="150" width="19" height="6" fill="#975A33"/>
+      <rect x="48" y="156" width="44" height="16" fill="#C99673"/>
+      <rect x="70" y="156" width="22" height="16" fill="#975A33"/>
+    </g>
+
+    <!-- Mid-Right Shrine (x=290) -->
+    <g id="candi-apit-right">
+      <polygon points="289,92 290,83 291,92" fill="#975A33"/>
+      <ellipse cx="290" cy="92" rx="2" ry="3" fill="#C99673"/>
+      <rect x="286" y="95" width="8" height="5" fill="#C99673"/>
+      <polygon points="283,100 284,96 285,100" fill="#C99673"/>
+      <polygon points="295,100 296,96 297,100" fill="#975A33"/>
+      <rect x="282" y="100" width="16" height="6" fill="#DDBBA2"/>
+      <rect x="290" y="100" width="8" height="6" fill="#C99673"/>
+      <polygon points="279,106 280,101 281,106" fill="#C99673"/>
+      <polygon points="299,106 300,101 301,106" fill="#975A33"/>
+      <rect x="278" y="106" width="24" height="6" fill="#C99673"/>
+      <rect x="290" y="106" width="12" height="6" fill="#975A33"/>
+      <polygon points="275,112 276,107 277,112" fill="#C99673"/>
+      <polygon points="303,112 304,107 305,112" fill="#975A33"/>
+      <rect x="274" y="112" width="32" height="7" fill="#DDBBA2"/>
+      <rect x="290" y="112" width="16" height="7" fill="#C99673"/>
+      <rect x="272" y="119" width="36" height="5" fill="#975A33"/>
+      <!-- Body -->
+      <rect x="275" y="124" width="30" height="26" fill="#DDBBA2"/>
+      <rect x="290" y="124" width="15" height="26" fill="#C99673"/>
+      <rect x="281" y="124" width="18" height="26" fill="#C99673"/>
+      <rect x="290" y="124" width="9" height="26" fill="#975A33"/>
+      <polygon points="284,134 290,128 296,134" fill="#975A33"/>
+      <rect x="286" y="134" width="8" height="16" fill="#171512"/>
+      <!-- Stepped Base -->
+      <rect x="271" y="150" width="38" height="6" fill="#DDBBA2"/>
+      <rect x="290" y="150" width="19" height="6" fill="#975A33"/>
+      <rect x="268" y="156" width="44" height="16" fill="#C99673"/>
+      <rect x="290" y="156" width="22" height="16" fill="#975A33"/>
+    </g>
+  </g>
+
+  <g id="flanking-main-temples">
+    <!-- Left Flanking Temple: Candi Brahma (center x=116) -->
+    <g id="candi-brahma">
+      <!-- Finial (Ratna) -->
+      <polygon points="114,56 116,44 118,56" fill="#975A33"/>
+      <ellipse cx="116" cy="57" rx="3" ry="4" fill="#DDBBA2"/>
+      <rect x="112" y="60" width="8" height="3" fill="#975A33"/>
+      <!-- Tier 1 -->
+      <polygon points="107,63 108,58 109,63" fill="#DDBBA2"/>
+      <polygon points="123,63 124,58 125,63" fill="#975A33"/>
+      <rect x="108" y="63" width="16" height="6" fill="#DDBBA2"/>
+      <rect x="116" y="63" width="8" height="6" fill="#975A33"/>
+      <!-- Tier 2 -->
+      <polygon points="103,69 104,63 106,69" fill="#DDBBA2"/>
+      <polygon points="126,69 128,63 129,69" fill="#975A33"/>
+      <polygon points="115,69 116,64 117,69" fill="#C99673"/>
+      <rect x="104" y="69" width="24" height="6" fill="#C99673"/>
+      <rect x="116" y="69" width="12" height="6" fill="#975A33"/>
+      <rect x="102" y="73" width="28" height="2" fill="#171512" opacity="0.22"/>
+      <!-- Tier 3 -->
+      <polygon points="99,75 100,69 102,75" fill="#DDBBA2"/>
+      <polygon points="130,75 132,69 133,75" fill="#975A33"/>
+      <polygon points="109,75 110,70 111,75" fill="#DDBBA2"/>
+      <polygon points="121,75 122,70 123,75" fill="#975A33"/>
+      <rect x="100" y="75" width="32" height="7" fill="#DDBBA2"/>
+      <rect x="116" y="75" width="16" height="7" fill="#975A33"/>
+      <rect x="98" y="80" width="36" height="2" fill="#171512" opacity="0.22"/>
+      <!-- Tier 4 -->
+      <polygon points="95,82 96,76 98,82" fill="#DDBBA2"/>
+      <polygon points="134,82 136,76 137,82" fill="#975A33"/>
+      <polygon points="105,82 106,77 107,82" fill="#DDBBA2"/>
+      <polygon points="125,82 126,77 127,82" fill="#975A33"/>
+      <rect x="96" y="82" width="40" height="7" fill="#C99673"/>
+      <rect x="116" y="82" width="20" height="7" fill="#975A33"/>
+      <rect x="94" y="87" width="44" height="2" fill="#171512" opacity="0.22"/>
+      <!-- Tier 5 -->
+      <polygon points="91,89 92,83 94,89" fill="#DDBBA2"/>
+      <polygon points="138,89 140,83 141,89" fill="#975A33"/>
+      <polygon points="101,89 102,84 103,89" fill="#DDBBA2"/>
+      <polygon points="129,89 130,84 131,89" fill="#975A33"/>
+      <rect x="92" y="89" width="48" height="8" fill="#DDBBA2"/>
+      <rect x="116" y="89" width="24" height="8" fill="#975A33"/>
+      <!-- Cornice Band -->
+      <rect x="89" y="97" width="54" height="4" fill="#975A33"/>
+      <rect x="89" y="99" width="54" height="2" fill="#171512" opacity="0.28"/>
+      <!-- Temple Body -->
+      <rect x="93" y="101" width="46" height="33" fill="#DDBBA2"/>
+      <rect x="116" y="101" width="23" height="33" fill="#975A33"/>
+      <rect x="102" y="101" width="28" height="33" fill="#C99673"/>
+      <rect x="116" y="101" width="14" height="33" fill="#975A33"/>
+      <rect x="122" y="101" width="8" height="33" fill="#171512" opacity="0.16"/>
+      <!-- Side Wall Niches -->
+      <rect x="96" y="110" width="4" height="14" fill="#975A33"/>
+      <rect x="132" y="110" width="4" height="14" fill="#171512" opacity="0.4"/>
+      <!-- Central Doorway Niche with Kala Arch -->
+      <polygon points="105,112 116,102 127,112" fill="#DDBBA2"/>
+      <polygon points="116,102 127,112 116,112" fill="#975A33"/>
+      <rect x="107" y="112" width="18" height="22" fill="#975A33"/>
+      <rect x="110" y="114" width="12" height="20" fill="#171512"/>
+      <rect x="114" y="108" width="4" height="3" fill="#FDD98A"/>
+      <!-- Stepped Base -->
+      <rect x="89" y="134" width="54" height="5" fill="#DDBBA2"/>
+      <rect x="116" y="134" width="27" height="5" fill="#975A33"/>
+      <rect x="86" y="139" width="60" height="8" fill="#C99673"/>
+      <rect x="116" y="139" width="30" height="8" fill="#975A33"/>
+      <rect x="86" y="145" width="60" height="2" fill="#171512" opacity="0.22"/>
+      <rect x="83" y="147" width="66" height="17" fill="#DDBBA2"/>
+      <rect x="116" y="147" width="33" height="17" fill="#975A33"/>
+      <rect x="116" y="147" width="33" height="17" fill="#171512" opacity="0.12"/>
+      <!-- Entry Stairs on Base -->
+      <polygon points="108,134 124,134 127,164 105,164" fill="#975A33"/>
+      <rect x="109" y="138" width="14" height="2" fill="#DDBBA2"/>
+      <rect x="109" y="143" width="14" height="2" fill="#DDBBA2"/>
+      <rect x="108" y="148" width="16" height="2" fill="#DDBBA2"/>
+      <rect x="108" y="153" width="16" height="2" fill="#DDBBA2"/>
+      <rect x="107" y="158" width="18" height="2" fill="#DDBBA2"/>
+    </g>
+
+    <!-- Right Flanking Temple: Candi Vishnu (center x=244) -->
+    <g id="candi-vishnu">
+      <!-- Finial (Ratna) -->
+      <polygon points="242,56 244,44 246,56" fill="#975A33"/>
+      <ellipse cx="244" cy="57" rx="3" ry="4" fill="#DDBBA2"/>
+      <rect x="240" y="60" width="8" height="3" fill="#975A33"/>
+      <!-- Tier 1 -->
+      <polygon points="235,63 236,58 237,63" fill="#DDBBA2"/>
+      <polygon points="251,63 252,58 253,63" fill="#975A33"/>
+      <rect x="236" y="63" width="16" height="6" fill="#DDBBA2"/>
+      <rect x="244" y="63" width="8" height="6" fill="#975A33"/>
+      <!-- Tier 2 -->
+      <polygon points="231,69 232,63 234,69" fill="#DDBBA2"/>
+      <polygon points="254,69 256,63 257,69" fill="#975A33"/>
+      <polygon points="243,69 244,64 245,69" fill="#C99673"/>
+      <rect x="232" y="69" width="24" height="6" fill="#C99673"/>
+      <rect x="244" y="69" width="12" height="6" fill="#975A33"/>
+      <rect x="230" y="73" width="28" height="2" fill="#171512" opacity="0.22"/>
+      <!-- Tier 3 -->
+      <polygon points="227,75 228,69 230,75" fill="#DDBBA2"/>
+      <polygon points="258,75 260,69 261,75" fill="#975A33"/>
+      <polygon points="237,75 238,70 239,75" fill="#DDBBA2"/>
+      <polygon points="249,75 250,70 251,75" fill="#975A33"/>
+      <rect x="228" y="75" width="32" height="7" fill="#DDBBA2"/>
+      <rect x="244" y="75" width="16" height="7" fill="#975A33"/>
+      <rect x="226" y="80" width="36" height="2" fill="#171512" opacity="0.22"/>
+      <!-- Tier 4 -->
+      <polygon points="223,82 224,76 226,82" fill="#DDBBA2"/>
+      <polygon points="262,82 264,76 265,82" fill="#975A33"/>
+      <polygon points="233,82 234,77 235,82" fill="#DDBBA2"/>
+      <polygon points="253,82 254,77 255,82" fill="#975A33"/>
+      <rect x="224" y="82" width="40" height="7" fill="#C99673"/>
+      <rect x="244" y="82" width="20" height="7" fill="#975A33"/>
+      <rect x="222" y="87" width="44" height="2" fill="#171512" opacity="0.22"/>
+      <!-- Tier 5 -->
+      <polygon points="219,89 220,83 222,89" fill="#DDBBA2"/>
+      <polygon points="266,89 268,83 269,89" fill="#975A33"/>
+      <polygon points="229,89 230,84 231,89" fill="#DDBBA2"/>
+      <polygon points="257,89 258,84 259,89" fill="#975A33"/>
+      <rect x="220" y="89" width="48" height="8" fill="#DDBBA2"/>
+      <rect x="244" y="89" width="24" height="8" fill="#975A33"/>
+      <!-- Cornice Band -->
+      <rect x="217" y="97" width="54" height="4" fill="#975A33"/>
+      <rect x="217" y="99" width="54" height="2" fill="#171512" opacity="0.28"/>
+      <!-- Temple Body -->
+      <rect x="221" y="101" width="46" height="33" fill="#DDBBA2"/>
+      <rect x="244" y="101" width="23" height="33" fill="#975A33"/>
+      <rect x="230" y="101" width="28" height="33" fill="#C99673"/>
+      <rect x="244" y="101" width="14" height="33" fill="#975A33"/>
+      <rect x="250" y="101" width="8" height="33" fill="#171512" opacity="0.16"/>
+      <!-- Side Wall Niches -->
+      <rect x="224" y="110" width="4" height="14" fill="#975A33"/>
+      <rect x="260" y="110" width="4" height="14" fill="#171512" opacity="0.4"/>
+      <!-- Central Doorway Niche with Kala Arch -->
+      <polygon points="233,112 244,102 255,112" fill="#DDBBA2"/>
+      <polygon points="244,102 255,112 244,112" fill="#975A33"/>
+      <rect x="235" y="112" width="18" height="22" fill="#975A33"/>
+      <rect x="238" y="114" width="12" height="20" fill="#171512"/>
+      <rect x="242" y="108" width="4" height="3" fill="#FDD98A"/>
+      <!-- Stepped Base -->
+      <rect x="217" y="134" width="54" height="5" fill="#DDBBA2"/>
+      <rect x="244" y="134" width="27" height="5" fill="#975A33"/>
+      <rect x="214" y="139" width="60" height="8" fill="#C99673"/>
+      <rect x="244" y="139" width="30" height="8" fill="#975A33"/>
+      <rect x="214" y="145" width="60" height="2" fill="#171512" opacity="0.22"/>
+      <rect x="211" y="147" width="66" height="17" fill="#DDBBA2"/>
+      <rect x="244" y="147" width="33" height="17" fill="#975A33"/>
+      <rect x="244" y="147" width="33" height="17" fill="#171512" opacity="0.12"/>
+      <!-- Entry Stairs on Base -->
+      <polygon points="236,134 252,134 255,164 233,164" fill="#975A33"/>
+      <rect x="237" y="138" width="14" height="2" fill="#DDBBA2"/>
+      <rect x="237" y="143" width="14" height="2" fill="#DDBBA2"/>
+      <rect x="236" y="148" width="16" height="2" fill="#DDBBA2"/>
+      <rect x="236" y="153" width="16" height="2" fill="#DDBBA2"/>
+      <rect x="235" y="158" width="18" height="2" fill="#DDBBA2"/>
+    </g>
+  </g>
+
+  <g id="central-candi-shiva">
+    <!-- Crown Finial (Ratna Agung) -->
+    <polygon points="178,26 180,14 182,26" fill="#975A33"/>
+    <polygon points="178,26 180,14 180,26" fill="#DDBBA2"/>
+    <ellipse cx="180" cy="28" rx="4" ry="5" fill="#DDBBA2"/>
+    <path d="M180 23 A4 5 0 0 1 180 33 Z" fill="#975A33"/>
+    <rect x="175" y="32" width="10" height="3" fill="#975A33"/>
+    <rect x="175" y="32" width="5" height="3" fill="#DDBBA2"/>
+
+    <!-- Tier 1 (y=35..41) -->
+    <polygon points="170,35 171,29 173,35" fill="#DDBBA2"/>
+    <polygon points="187,35 189,29 190,35" fill="#975A33"/>
+    <rect x="171" y="35" width="18" height="6" fill="#DDBBA2"/>
+    <rect x="180" y="35" width="9" height="6" fill="#975A33"/>
+    <rect x="169" y="39" width="22" height="2" fill="#171512" opacity="0.22"/>
+
+    <!-- Tier 2 (y=41..47) -->
+    <polygon points="165,41 167,35 169,41" fill="#DDBBA2"/>
+    <polygon points="191,41 193,35 195,41" fill="#975A33"/>
+    <polygon points="178,41 180,36 182,41" fill="#C99673"/>
+    <rect x="167" y="41" width="26" height="6" fill="#C99673"/>
+    <rect x="180" y="41" width="13" height="6" fill="#975A33"/>
+    <rect x="165" y="45" width="30" height="2" fill="#171512" opacity="0.22"/>
+
+    <!-- Tier 3 (y=47..54) -->
+    <polygon points="160,47 162,40 164,47" fill="#DDBBA2"/>
+    <polygon points="196,47 198,40 200,47" fill="#975A33"/>
+    <polygon points="171,47 172,42 174,47" fill="#DDBBA2"/>
+    <polygon points="186,47 188,42 189,47" fill="#975A33"/>
+    <rect x="162" y="47" width="36" height="7" fill="#DDBBA2"/>
+    <rect x="180" y="47" width="18" height="7" fill="#975A33"/>
+    <rect x="172" y="47" width="16" height="7" fill="#C99673"/>
+    <rect x="180" y="47" width="8" height="7" fill="#975A33"/>
+    <rect x="160" y="52" width="40" height="2" fill="#171512" opacity="0.22"/>
+
+    <!-- Tier 4 (y=54..61) -->
+    <polygon points="155,54 157,47 159,54" fill="#DDBBA2"/>
+    <polygon points="201,54 203,47 205,54" fill="#975A33"/>
+    <polygon points="166,54 168,48 170,54" fill="#DDBBA2"/>
+    <polygon points="190,54 192,48 194,54" fill="#975A33"/>
+    <polygon points="178,54 180,49 182,54" fill="#C99673"/>
+    <rect x="157" y="54" width="46" height="7" fill="#C99673"/>
+    <rect x="180" y="54" width="23" height="7" fill="#975A33"/>
+    <rect x="169" y="54" width="22" height="7" fill="#DDBBA2"/>
+    <rect x="180" y="54" width="11" height="7" fill="#975A33"/>
+    <rect x="155" y="59" width="50" height="2" fill="#171512" opacity="0.22"/>
+
+    <!-- Tier 5 (y=61..69) -->
+    <polygon points="150,61 152,54 154,61" fill="#DDBBA2"/>
+    <polygon points="206,61 208,54 210,61" fill="#975A33"/>
+    <polygon points="161,61 163,55 165,61" fill="#DDBBA2"/>
+    <polygon points="195,61 197,55 199,61" fill="#975A33"/>
+    <polygon points="173,61 175,56 177,61" fill="#DDBBA2"/>
+    <polygon points="183,61 185,56 187,61" fill="#975A33"/>
+    <rect x="152" y="61" width="56" height="8" fill="#DDBBA2"/>
+    <rect x="180" y="61" width="28" height="8" fill="#975A33"/>
+    <rect x="166" y="61" width="28" height="8" fill="#C99673"/>
+    <rect x="180" y="61" width="14" height="8" fill="#975A33"/>
+    <rect x="150" y="67" width="60" height="2" fill="#171512" opacity="0.24"/>
+
+    <!-- Tier 6 (y=69..77) -->
+    <polygon points="145,69 147,62 149,69" fill="#DDBBA2"/>
+    <polygon points="211,69 213,62 215,69" fill="#975A33"/>
+    <polygon points="156,69 158,63 160,69" fill="#DDBBA2"/>
+    <polygon points="200,69 202,63 204,69" fill="#975A33"/>
+    <polygon points="168,69 170,64 172,69" fill="#DDBBA2"/>
+    <polygon points="188,69 190,64 192,69" fill="#975A33"/>
+    <rect x="147" y="69" width="66" height="8" fill="#C99673"/>
+    <rect x="180" y="69" width="33" height="8" fill="#975A33"/>
+    <rect x="163" y="69" width="34" height="8" fill="#DDBBA2"/>
+    <rect x="180" y="69" width="17" height="8" fill="#975A33"/>
+    <rect x="145" y="75" width="70" height="2" fill="#171512" opacity="0.24"/>
+
+    <!-- Tier 7 (y=77..86) -->
+    <polygon points="140,77 142,70 144,77" fill="#DDBBA2"/>
+    <polygon points="216,77 218,70 220,77" fill="#975A33"/>
+    <polygon points="151,77 153,71 155,77" fill="#DDBBA2"/>
+    <polygon points="205,77 207,71 209,77" fill="#975A33"/>
+    <polygon points="163,77 165,72 167,77" fill="#DDBBA2"/>
+    <polygon points="193,77 195,72 197,77" fill="#975A33"/>
+    <rect x="142" y="77" width="76" height="9" fill="#DDBBA2"/>
+    <rect x="180" y="77" width="38" height="9" fill="#975A33"/>
+    <rect x="160" y="77" width="40" height="9" fill="#C99673"/>
+    <rect x="180" y="77" width="20" height="9" fill="#975A33"/>
+    <rect x="180" y="77" width="38" height="9" fill="#171512" opacity="0.12"/>
+
+    <!-- Heavy Entablature Cornice (y=86..92) -->
+    <rect x="138" y="86" width="84" height="4" fill="#975A33"/>
+    <rect x="138" y="86" width="42" height="4" fill="#C99673"/>
+    <rect x="136" y="90" width="88" height="3" fill="#171512" opacity="0.32"/>
+
+    <!-- Temple Body (y=93..134) -->
+    <rect x="142" y="93" width="76" height="41" fill="#DDBBA2"/>
+    <rect x="180" y="93" width="38" height="41" fill="#975A33"/>
+    <!-- Inner Stepped Projection -->
+    <rect x="152" y="93" width="56" height="41" fill="#C99673"/>
+    <rect x="180" y="93" width="28" height="41" fill="#975A33"/>
+    <rect x="196" y="93" width="12" height="41" fill="#171512" opacity="0.18"/>
+    <!-- Central Porch Projection -->
+    <rect x="162" y="93" width="36" height="41" fill="#DDBBA2"/>
+    <rect x="180" y="93" width="18" height="41" fill="#975A33"/>
+    <!-- Horizontal Body Moulding Bands -->
+    <rect x="142" y="103" width="76" height="2" fill="#975A33"/>
+    <rect x="142" y="124" width="76" height="2" fill="#975A33"/>
+    <!-- Side Decorative Pilaster Niches -->
+    <polygon points="145,109 148,105 151,109" fill="#975A33"/>
+    <rect x="146" y="109" width="4" height="13" fill="#975A33"/>
+    <polygon points="154,109 157,105 160,109" fill="#975A33"/>
+    <rect x="155" y="109" width="4" height="13" fill="#975A33"/>
+    <polygon points="200,109 203,105 206,109" fill="#171512" opacity="0.35"/>
+    <rect x="201" y="109" width="4" height="13" fill="#171512" opacity="0.45"/>
+    <polygon points="209,109 212,105 215,109" fill="#171512" opacity="0.35"/>
+    <rect x="210" y="109" width="4" height="13" fill="#171512" opacity="0.45"/>
+
+    <!-- Central Portal & Kala-Makara Arch -->
+    <polygon points="163,108 180,91 197,108" fill="#DDBBA2"/>
+    <polygon points="180,91 197,108 180,108" fill="#975A33"/>
+    <polygon points="166,108 180,95 194,108" fill="#975A33"/>
+    <!-- Kala Head Motif at Arch Peak -->
+    <rect x="176" y="99" width="8" height="5" rx="1" fill="#FDD98A"/>
+    <rect x="178" y="101" width="4" height="2" fill="#D6402F"/>
+    <!-- Tall Dark Doorway Niche -->
+    <rect x="168" y="108" width="24" height="26" fill="#975A33"/>
+    <rect x="171" y="108" width="18" height="26" fill="#171512"/>
+    <!-- Subtle Inner Sanctuary Silhouette -->
+    <polygon points="177,120 180,114 183,120" fill="#975A33" opacity="0.7"/>
+    <rect x="178" y="120" width="4" height="10" fill="#975A33" opacity="0.7"/>
+
+    <!-- High Stepped Base of Candi Shiva (y=134..166) -->
+    <rect x="138" y="134" width="84" height="6" fill="#DDBBA2"/>
+    <rect x="180" y="134" width="42" height="6" fill="#975A33"/>
+    <rect x="138" y="138" width="84" height="2" fill="#171512" opacity="0.22"/>
+
+    <rect x="134" y="140" width="92" height="10" fill="#C99673"/>
+    <rect x="180" y="140" width="46" height="10" fill="#975A33"/>
+    <!-- Ramayana Relief Panel Accents -->
+    <rect x="140" y="143" width="18" height="4" fill="#DDBBA2"/>
+    <rect x="202" y="143" width="18" height="4" fill="#171512" opacity="0.28"/>
+    <rect x="134" y="148" width="92" height="2" fill="#171512" opacity="0.25"/>
+
+    <rect x="130" y="150" width="100" height="16" fill="#DDBBA2"/>
+    <rect x="180" y="150" width="50" height="16" fill="#975A33"/>
+    <rect x="180" y="150" width="50" height="16" fill="#171512" opacity="0.14"/>
+    <rect x="138" y="154" width="22" height="8" fill="#C99673"/>
+    <rect x="200" y="154" width="22" height="8" fill="#171512" opacity="0.22"/>
+
+    <!-- Grand Central Stairway with Makara Balustrades -->
+    <polygon points="164,134 196,134 202,168 158,168" fill="#975A33"/>
+    <polygon points="164,134 168,134 163,168 158,168" fill="#DDBBA2"/>
+    <polygon points="192,134 196,134 202,168 197,168" fill="#171512" opacity="0.3"/>
+    <rect x="168" y="137" width="24" height="2" fill="#DDBBA2"/>
+    <rect x="167" y="142" width="26" height="2" fill="#DDBBA2"/>
+    <rect x="166" y="147" width="28" height="2" fill="#DDBBA2"/>
+    <rect x="165" y="152" width="30" height="2" fill="#DDBBA2"/>
+    <rect x="164" y="157" width="32" height="2" fill="#DDBBA2"/>
+    <rect x="163" y="162" width="34" height="2" fill="#DDBBA2"/>
+  </g>
+
+  <g id="main-stone-terrace">
+    <!-- Upper Terrace Moulding (y=164..172) -->
+    <rect x="16" y="164" width="328" height="4" fill="#DDBBA2"/>
+    <rect x="180" y="164" width="164" height="4" fill="#C99673"/>
+    <rect x="16" y="168" width="328" height="10" fill="#C99673"/>
+    <rect x="180" y="168" width="164" height="10" fill="#975A33"/>
+    <rect x="16" y="176" width="328" height="2" fill="#171512" opacity="0.25"/>
+
+    <!-- Terrace Wall Blocks & Turrets -->
+    <polygon points="44,164 46,158 48,164" fill="#DDBBA2"/>
+    <polygon points="80,164 82,158 84,164" fill="#DDBBA2"/>
+    <polygon points="150,164 152,158 154,164" fill="#DDBBA2"/>
+    <polygon points="206,164 208,158 210,164" fill="#975A33"/>
+    <polygon points="276,164 278,158 280,164" fill="#975A33"/>
+    <polygon points="312,164 314,158 316,164" fill="#975A33"/>
+
+    <!-- Lower Terrace Platform (y=178..192) -->
+    <rect x="6" y="178" width="348" height="6" fill="#DDBBA2"/>
+    <rect x="180" y="178" width="174" height="6" fill="#C99673"/>
+    <rect x="6" y="184" width="348" height="8" fill="#975A33"/>
+    <rect x="180" y="184" width="174" height="8" fill="#171512" opacity="0.22"/>
+
+    <!-- Terrace Central Stairs (x=154..206, y=164..192) -->
+    <polygon points="158,164 202,164 208,192 152,192" fill="#975A33"/>
+    <polygon points="158,164 162,164 157,192 152,192" fill="#DDBBA2"/>
+    <polygon points="198,164 202,164 208,192 203,192" fill="#171512" opacity="0.32"/>
+    <rect x="162" y="168" width="36" height="2" fill="#F8F1EC"/>
+    <rect x="161" y="173" width="38" height="2" fill="#F8F1EC"/>
+    <rect x="160" y="178" width="40" height="2" fill="#F8F1EC"/>
+    <rect x="159" y="183" width="42" height="2" fill="#F8F1EC"/>
+    <rect x="158" y="188" width="44" height="2" fill="#F8F1EC"/>
+
+    <!-- Side Terrace Stairs -->
+    <polygon points="106,164 126,164 129,192 103,192" fill="#975A33"/>
+    <rect x="108" y="170" width="16" height="2" fill="#DDBBA2"/>
+    <rect x="107" y="176" width="18" height="2" fill="#DDBBA2"/>
+    <rect x="106" y="182" width="20" height="2" fill="#DDBBA2"/>
+    <rect x="105" y="188" width="22" height="2" fill="#DDBBA2"/>
+
+    <polygon points="234,164 254,164 257,192 231,192" fill="#975A33"/>
+    <rect x="236" y="170" width="16" height="2" fill="#DDBBA2"/>
+    <rect x="235" y="176" width="18" height="2" fill="#DDBBA2"/>
+    <rect x="234" y="182" width="20" height="2" fill="#DDBBA2"/>
+    <rect x="233" y="188" width="22" height="2" fill="#DDBBA2"/>
+  </g>
+
+  <g id="trees-and-foliage">
+    <!-- Park Trees along Terrace Base -->
+    <circle cx="24" cy="182" r="9" fill="#1F9D63"/>
+    <circle cx="34" cy="184" r="7" fill="#1F9D63"/>
+    <circle cx="336" cy="182" r="9" fill="#1F9D63"/>
+    <circle cx="326" cy="184" r="7" fill="#1F9D63"/>
+
+    <!-- Left Tropical Palm -->
+    <path d="M18 188 Q21 158 14 132 L17 132 Q24 158 22 188 Z" fill="#975A33"/>
+    <path d="M15 133 Q4 127 0 135 Q8 134 15 135 Z" fill="#1F9D63"/>
+    <path d="M15 133 Q5 119 2 123 Q9 126 15 133 Z" fill="#1F9D63"/>
+    <path d="M16 132 Q18 118 26 121 Q21 126 16 133 Z" fill="#1F9D63"/>
+    <path d="M16 133 Q28 126 32 133 Q24 133 16 135 Z" fill="#1F9D63"/>
+    <path d="M16 134 Q24 137 27 144 Q20 139 15 135 Z" fill="#1F9D63"/>
+
+    <!-- Right Tropical Palm -->
+    <path d="M342 188 Q339 154 346 126 L343 126 Q336 154 338 188 Z" fill="#975A33"/>
+    <path d="M345 127 Q356 121 360 129 Q352 128 345 129 Z" fill="#1F9D63"/>
+    <path d="M345 127 Q355 113 358 117 Q351 120 345 127 Z" fill="#1F9D63"/>
+    <path d="M344 126 Q342 112 334 115 Q339 120 344 127 Z" fill="#1F9D63"/>
+    <path d="M344 127 Q332 120 328 127 Q336 127 344 129 Z" fill="#1F9D63"/>
+    <path d="M344 128 Q336 131 333 138 Q340 133 345 129 Z" fill="#1F9D63"/>
+  </g>
+
+  <g id="calm-foreground-ground">
+    <rect x="0" y="192" width="360" height="48" fill="#E7E0D4"/>
+    <rect x="0" y="192" width="360" height="4" fill="#DDBBA2" opacity="0.65"/>
+    <polygon points="152,192 208,192 224,240 136,240" fill="#F4EFE7" opacity="0.65"/>
+    <rect x="0" y="206" width="360" height="2" fill="#DDBBA2" opacity="0.35"/>
+  </g>
+</svg>

@@ -1,0 +1,241 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="240" viewBox="0 0 360 240" fill="none">
+  <rect x="0" y="0" width="360" height="240" fill="#FFF7E5"/>
+
+  <g id="sky-and-backdrop">
+    <circle cx="276" cy="54" r="28" fill="#FDD98A"/>
+    <circle cx="276" cy="54" r="19" fill="#F7B02B" opacity="0.35"/>
+
+    <path d="M92 34 H134 C139 34 143 30 143 25 C143 20 139 16 134 16 C132 10 126 6 118 6 C109 6 102 12 101 20 H92 C87 20 83 24 83 27 C83 31 87 34 92 34 Z" fill="#FFFFFF"/>
+    <path d="M292 38 H332 C336 38 340 35 340 31 C340 27 336 24 332 24 C330 19 325 16 319 16 C312 16 306 20 305 26 H292 C288 26 285 29 285 32 C285 35 288 38 292 38 Z" fill="#FFFFFF"/>
+
+    <polygon points="18,142 82,78 146,142" fill="#D8DCF3" opacity="0.65"/>
+    <polygon points="82,78 98,94 74,94" fill="#FBF8F3" opacity="0.6"/>
+    <polygon points="218,142 284,82 348,142" fill="#D8DCF3" opacity="0.5"/>
+  </g>
+
+  <g id="background-foliage">
+    <rect x="33" y="108" width="4" height="36" fill="#975A33"/>
+    <circle cx="35" cy="96" r="18" fill="#2F3A8F"/>
+    <circle cx="22" cy="108" r="14" fill="#5F6BC2"/>
+    <circle cx="48" cy="106" r="14" fill="#5F6BC2"/>
+    <circle cx="35" cy="82" r="11" fill="#D8DCF3"/>
+
+    <rect x="65" y="114" width="3" height="30" fill="#975A33"/>
+    <circle cx="66" cy="104" r="14" fill="#5F6BC2"/>
+    <circle cx="56" cy="112" r="11" fill="#2F3A8F"/>
+    <circle cx="77" cy="112" r="11" fill="#D8DCF3"/>
+
+    <rect x="321" y="106" width="4" height="38" fill="#975A33"/>
+    <circle cx="323" cy="94" r="19" fill="#2F3A8F"/>
+    <circle cx="309" cy="106" r="14" fill="#5F6BC2"/>
+    <circle cx="336" cy="106" r="14" fill="#5F6BC2"/>
+    <circle cx="323" cy="80" r="11" fill="#D8DCF3"/>
+
+    <rect x="291" y="114" width="3" height="30" fill="#975A33"/>
+    <circle cx="292" cy="104" r="14" fill="#5F6BC2"/>
+    <circle cx="282" cy="112" r="11" fill="#D8DCF3"/>
+    <circle cx="302" cy="112" r="11" fill="#2F3A8F"/>
+  </g>
+
+  <g id="side-walls-and-wings">
+    <rect x="16" y="116" width="328" height="40" fill="#F4EFE7"/>
+    <rect x="16" y="113" width="328" height="4" fill="#975A33"/>
+    <rect x="16" y="117" width="328" height="2" fill="#E7E0D4"/>
+
+    <rect x="22" y="104" width="12" height="52" fill="#FBF8F3"/>
+    <polygon points="20,104 28,95 36,104" fill="#975A33"/>
+    <circle cx="28" cy="94" r="2" fill="#F7B02B"/>
+
+    <rect x="326" y="104" width="12" height="52" fill="#FBF8F3"/>
+    <polygon points="324,104 332,95 340,104" fill="#975A33"/>
+    <circle cx="332" cy="94" r="2" fill="#F7B02B"/>
+
+    <path d="M44 152 V130 A8 8 0 0 1 60 130 V152 Z" fill="#E7E0D4"/>
+    <path d="M46 152 V131 A6 6 0 0 1 58 131 V152 Z" fill="#2F3A8F"/>
+    <path d="M68 152 V130 A8 8 0 0 1 84 130 V152 Z" fill="#E7E0D4"/>
+    <path d="M70 152 V131 A6 6 0 0 1 82 131 V152 Z" fill="#2F3A8F"/>
+
+    <path d="M276 152 V130 A8 8 0 0 1 292 130 V152 Z" fill="#E7E0D4"/>
+    <path d="M278 152 V131 A6 6 0 0 1 290 131 V152 Z" fill="#2F3A8F"/>
+    <path d="M300 152 V130 A8 8 0 0 1 316 130 V152 Z" fill="#E7E0D4"/>
+    <path d="M302 152 V131 A6 6 0 0 1 314 131 V152 Z" fill="#2F3A8F"/>
+
+    <rect x="90" y="96" width="180" height="60" fill="#F4EFE7"/>
+    <polygon points="84,96 102,84 258,84 276,96" fill="#975A33"/>
+    <polygon points="88,96 104,87 256,87 272,96" fill="#C99673"/>
+    <rect x="88" y="96" width="184" height="3" fill="#E7E0D4"/>
+
+    <rect x="98" y="105" width="14" height="18" rx="2" fill="#E7E0D4"/>
+    <rect x="100" y="107" width="10" height="14" fill="#2F3A8F"/>
+    <line x1="105" y1="107" x2="105" y2="121" stroke="#FBF8F3" stroke-width="1"/>
+
+    <rect x="248" y="105" width="14" height="18" rx="2" fill="#E7E0D4"/>
+    <rect x="250" y="107" width="10" height="14" fill="#2F3A8F"/>
+    <line x1="255" y1="107" x2="255" y2="121" stroke="#FBF8F3" stroke-width="1"/>
+
+    <path d="M98 152 V134 A7 7 0 0 1 112 134 V152 Z" fill="#2F3A8F"/>
+    <path d="M248 152 V134 A7 7 0 0 1 262 134 V152 Z" fill="#2F3A8F"/>
+  </g>
+
+  <g id="main-tower-building">
+    <rect x="118" y="64" width="124" height="92" fill="#FBF8F3"/>
+    <rect x="118" y="64" width="6" height="92" fill="#E7E0D4"/>
+    <rect x="236" y="64" width="6" height="92" fill="#E7E0D4"/>
+
+    <polygon points="110,64 132,48 228,48 250,64" fill="#975A33"/>
+    <polygon points="115,64 134,51 226,51 245,64" fill="#C99673"/>
+    <line x1="110" y1="64" x2="250" y2="64" stroke="#975A33" stroke-width="2"/>
+
+    <rect x="142" y="34" width="76" height="32" fill="#FBF8F3"/>
+    <rect x="142" y="34" width="4" height="32" fill="#E7E0D4"/>
+    <rect x="214" y="34" width="4" height="32" fill="#E7E0D4"/>
+
+    <polygon points="134,34 156,19 204,19 226,34" fill="#975A33"/>
+    <polygon points="140,34 158,22 202,22 220,34" fill="#C99673"/>
+    <rect x="156" y="17" width="48" height="3" fill="#DDBBA2"/>
+    <polygon points="177,17 180,10 183,17" fill="#F7B02B"/>
+    <circle cx="160" cy="17" r="2" fill="#F7B02B"/>
+    <circle cx="200" cy="17" r="2" fill="#F7B02B"/>
+
+    <path d="M156 49 V41 A6 6 0 0 1 168 41 V49 Z" fill="#2F3A8F"/>
+    <path d="M174 49 V39 A6 6 0 0 1 186 39 V49 Z" fill="#2F3A8F"/>
+    <path d="M192 49 V41 A6 6 0 0 1 204 41 V49 Z" fill="#2F3A8F"/>
+
+    <path d="M138 66 C146 66 152 50 180 50 C208 50 214 66 222 66 Z" fill="#F4EFE7"/>
+    <path d="M142 66 C149 66 155 53 180 53 C205 53 211 66 218 66 Z" fill="#FBF8F3"/>
+    <circle cx="180" cy="59" r="3.5" fill="#F7B02B"/>
+    <circle cx="171" cy="61" r="2" fill="#DDBBA2"/>
+    <circle cx="189" cy="61" r="2" fill="#DDBBA2"/>
+    <circle cx="164" cy="63" r="1.5" fill="#975A33"/>
+    <circle cx="196" cy="63" r="1.5" fill="#975A33"/>
+    <polygon points="177,50 180,45 183,50" fill="#F7B02B"/>
+
+    <rect x="118" y="66" width="124" height="3" fill="#E7E0D4"/>
+    <rect x="118" y="96" width="124" height="3" fill="#E7E0D4"/>
+    <rect x="118" y="122" width="124" height="3" fill="#E7E0D4"/>
+
+    <g id="second-storey-windows">
+      <rect x="130" y="74" width="16" height="18" fill="#DDBBA2"/>
+      <path d="M133 92 V80 A5 5 0 0 1 143 80 V92 Z" fill="#2F3A8F"/>
+      <circle cx="138" cy="79" r="1.5" fill="#F7B02B"/>
+
+      <rect x="154" y="72" width="18" height="20" fill="#DDBBA2"/>
+      <path d="M157 92 V79 A6 6 0 0 1 169 79 V92 Z" fill="#2F3A8F"/>
+      <line x1="163" y1="73" x2="163" y2="92" stroke="#FBF8F3" stroke-width="1"/>
+
+      <rect x="188" y="72" width="18" height="20" fill="#DDBBA2"/>
+      <path d="M191 92 V79 A6 6 0 0 1 203 79 V92 Z" fill="#2F3A8F"/>
+      <line x1="197" y1="73" x2="197" y2="92" stroke="#FBF8F3" stroke-width="1"/>
+
+      <rect x="214" y="74" width="16" height="18" fill="#DDBBA2"/>
+      <path d="M217 92 V80 A5 5 0 0 1 227 80 V92 Z" fill="#2F3A8F"/>
+      <circle cx="222" cy="79" r="1.5" fill="#F7B02B"/>
+
+      <polygon points="176,82 180,76 184,82 180,88" fill="#F7B02B"/>
+      <circle cx="180" cy="82" r="2" fill="#975A33"/>
+    </g>
+
+    <g id="middle-terrace-and-balustrade">
+      <path d="M132 120 V106 A6 6 0 0 1 144 106 V120 Z" fill="#2F3A8F"/>
+      <path d="M154 120 V105 A7 7 0 0 1 168 105 V120 Z" fill="#2F3A8F"/>
+      <path d="M173 120 V104 A7 7 0 0 1 187 104 V120 Z" fill="#2F3A8F"/>
+      <path d="M192 120 V105 A7 7 0 0 1 206 105 V120 Z" fill="#2F3A8F"/>
+      <path d="M216 120 V106 A6 6 0 0 1 228 106 V120 Z" fill="#2F3A8F"/>
+      <rect x="124" y="117" width="112" height="5" fill="#F4EFE7"/>
+      <line x1="124" y1="117" x2="236" y2="117" stroke="#975A33" stroke-width="1.5"/>
+    </g>
+
+    <g id="ground-storey-arches">
+      <rect x="136" y="125" width="4" height="27" fill="#E7E0D4"/>
+      <rect x="164" y="125" width="4" height="27" fill="#E7E0D4"/>
+      <rect x="192" y="125" width="4" height="27" fill="#E7E0D4"/>
+      <rect x="220" y="125" width="4" height="27" fill="#E7E0D4"/>
+
+      <path d="M124 152 V134 A5 5 0 0 1 134 134 V152 Z" fill="#2F3A8F"/>
+      <path d="M142 152 V132 A9 9 0 0 1 160 132 V152 Z" fill="#E7E0D4"/>
+      <path d="M144 152 V133 A7 7 0 0 1 158 133 V152 Z" fill="#2F3A8F"/>
+
+      <path d="M168 152 V130 A12 12 0 0 1 192 130 V152 Z" fill="#DDBBA2"/>
+      <path d="M171 152 V131 A9 9 0 0 1 189 131 V152 Z" fill="#2F3A8F"/>
+      <line x1="180" y1="122" x2="180" y2="152" stroke="#5F6BC2" stroke-width="1"/>
+      <circle cx="180" cy="126" r="2" fill="#F7B02B"/>
+
+      <path d="M200 152 V132 A9 9 0 0 1 218 132 V152 Z" fill="#E7E0D4"/>
+      <path d="M202 152 V133 A7 7 0 0 1 216 133 V152 Z" fill="#2F3A8F"/>
+      <path d="M226 152 V134 A5 5 0 0 1 236 134 V152 Z" fill="#2F3A8F"/>
+    </g>
+  </g>
+
+  <g id="pool-deck-and-steps">
+    <rect x="0" y="150" width="360" height="90" fill="#E7E0D4"/>
+    <rect x="0" y="150" width="360" height="6" fill="#FBF8F3"/>
+    <line x1="0" y1="150" x2="360" y2="150" stroke="#C99673" stroke-width="1"/>
+
+    <rect x="158" y="150" width="44" height="3" fill="#F4EFE7"/>
+    <rect x="162" y="153" width="36" height="3" fill="#E7E0D4"/>
+    <rect x="166" y="156" width="28" height="3" fill="#DDBBA2"/>
+  </g>
+
+  <g id="umbul-binangun-pool">
+    <polygon points="44,158 316,158 344,228 16,228" fill="#FBF8F3"/>
+    <polygon points="52,162 308,162 332,222 28,222" fill="#975A33"/>
+    <polygon points="54,165 306,165 329,220 31,220" fill="#5F6BC2"/>
+    <polygon points="56,168 304,168 326,220 34,220" fill="#D8DCF3"/>
+
+    <rect x="152" y="168" width="56" height="52" fill="#FBF8F3" opacity="0.35"/>
+    <rect x="168" y="168" width="24" height="52" fill="#FDD98A" opacity="0.3"/>
+
+    <line x1="78" y1="176" x2="132" y2="176" stroke="#5F6BC2" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="226" y1="178" x2="282" y2="178" stroke="#5F6BC2" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="146" y1="184" x2="214" y2="184" stroke="#5F6BC2" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="64" y1="191" x2="124" y2="191" stroke="#5F6BC2" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="238" y1="192" x2="296" y2="192" stroke="#5F6BC2" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="112" y1="202" x2="172" y2="202" stroke="#5F6BC2" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="198" y1="208" x2="262" y2="208" stroke="#5F6BC2" stroke-width="1.5" stroke-linecap="round"/>
+
+    <ellipse cx="96" cy="184" rx="5" ry="2" fill="#1F9D63"/>
+    <circle cx="96" cy="183" r="1.5" fill="#D6402F"/>
+    <ellipse cx="264" cy="186" rx="5" ry="2" fill="#1F9D63"/>
+    <circle cx="264" cy="185" r="1.5" fill="#F7B02B"/>
+  </g>
+
+  <g id="fountain-and-potted-plants">
+    <rect x="172" y="156" width="16" height="12" fill="#FBF8F3"/>
+    <rect x="170" y="154" width="20" height="3" fill="#975A33"/>
+    <polygon points="175,154 180,147 185,154" fill="#DDBBA2"/>
+    <circle cx="180" cy="146" r="2.5" fill="#F7B02B"/>
+    <circle cx="180" cy="161" r="2.5" fill="#975A33"/>
+    <path d="M180 161 Q175 167 173 173" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round"/>
+    <path d="M180 161 Q185 167 187 173" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="180" y1="161" x2="180" y2="174" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round"/>
+    <ellipse cx="180" cy="174" rx="12" ry="2.5" fill="#FFFFFF" opacity="0.8"/>
+
+    <rect x="44" y="151" width="14" height="11" fill="#FBF8F3"/>
+    <rect x="43" y="149" width="16" height="2" fill="#E7E0D4"/>
+    <polygon points="46,149 56,149 54,142 48,142" fill="#975A33"/>
+    <circle cx="51" cy="138" r="5" fill="#2F3A8F"/>
+    <circle cx="47" cy="140" r="3.5" fill="#5F6BC2"/>
+    <circle cx="55" cy="140" r="3.5" fill="#1F9D63"/>
+    <circle cx="51" cy="135" r="1.5" fill="#F7B02B"/>
+
+    <rect x="114" y="151" width="12" height="10" fill="#FBF8F3"/>
+    <polygon points="116,151 124,151 123,145 117,145" fill="#975A33"/>
+    <circle cx="120" cy="142" r="4" fill="#5F6BC2"/>
+    <circle cx="117" cy="143" r="2.5" fill="#2F3A8F"/>
+    <circle cx="123" cy="143" r="2.5" fill="#1F9D63"/>
+
+    <rect x="234" y="151" width="12" height="10" fill="#FBF8F3"/>
+    <polygon points="236,151 244,151 243,145 237,145" fill="#975A33"/>
+    <circle cx="240" cy="142" r="4" fill="#5F6BC2"/>
+    <circle cx="237" cy="143" r="2.5" fill="#1F9D63"/>
+    <circle cx="243" cy="143" r="2.5" fill="#2F3A8F"/>
+
+    <rect x="302" y="151" width="14" height="11" fill="#FBF8F3"/>
+    <rect x="301" y="149" width="16" height="2" fill="#E7E0D4"/>
+    <polygon points="304,149 314,149 312,142 306,142" fill="#975A33"/>
+    <circle cx="309" cy="138" r="5" fill="#2F3A8F"/>
+    <circle cx="305" cy="140" r="3.5" fill="#1F9D63"/>
+    <circle cx="313" cy="140" r="3.5" fill="#5F6BC2"/>
+    <circle cx="309" cy="135" r="1.5" fill="#D6402F"/>
+  </g>
+</svg>

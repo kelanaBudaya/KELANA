@@ -1,0 +1,108 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120" fill="none">
+  <g id="backdrop">
+    <circle cx="60" cy="60" r="54" fill="#FDD98A"/>
+    <ellipse cx="60" cy="95" rx="46" ry="5" fill="#F7B02B" opacity="0.45"/>
+  </g>
+
+  <g id="background-foliage">
+    <circle cx="21" cy="78" r="9" fill="#5F6BC2"/>
+    <circle cx="29" cy="82" r="7" fill="#D8DCF3"/>
+    <circle cx="99" cy="78" r="9" fill="#5F6BC2"/>
+    <circle cx="91" cy="82" r="7" fill="#D8DCF3"/>
+  </g>
+
+  <g id="pavilion-interior">
+    <rect x="25" y="60" width="70" height="26" fill="#FFF7E5"/>
+    <rect x="44" y="60" width="32" height="26" fill="#F4EFE7"/>
+    <path d="M53 86V71C53 67.5 56 65 60 65C64 65 67 67.5 67 71V86H53Z" fill="#2F3A8F"/>
+    <path d="M55 86V72C55 69.5 57.2 67.5 60 67.5C62.8 67.5 65 69.5 65 72V86H55Z" fill="#171512"/>
+    <polygon points="60,69 63,74 60,79 57,74" fill="#F7B02B"/>
+    <circle cx="60" cy="74" r="1.2" fill="#FFF7E5"/>
+    <rect x="25" y="60" width="70" height="3" fill="#DDBBA2"/>
+  </g>
+
+  <g id="columns">
+    <!-- Outer Left Column (x=27) -->
+    <rect x="25.5" y="60" width="3" height="26" fill="#2F3A8F"/>
+    <rect x="24" y="60" width="6" height="2.5" rx="0.5" fill="#F7B02B"/>
+    <rect x="24.5" y="62.5" width="5" height="1.5" fill="#5F6BC2"/>
+    <rect x="24.5" y="83" width="5" height="1.5" fill="#5F6BC2"/>
+    <rect x="23.5" y="84.5" width="7" height="2" rx="0.5" fill="#F7B02B"/>
+
+    <!-- Inner Left Column (x=44) -->
+    <rect x="42.25" y="60" width="3.5" height="26" fill="#2F3A8F"/>
+    <rect x="40.5" y="60" width="7" height="2.5" rx="0.5" fill="#F7B02B"/>
+    <rect x="41.25" y="62.5" width="5.5" height="1.5" fill="#5F6BC2"/>
+    <rect x="41.25" y="83" width="5.5" height="1.5" fill="#5F6BC2"/>
+    <rect x="40" y="84.5" width="8" height="2" rx="0.5" fill="#F7B02B"/>
+
+    <!-- Inner Right Column (x=76) -->
+    <rect x="74.25" y="60" width="3.5" height="26" fill="#2F3A8F"/>
+    <rect x="72.5" y="60" width="7" height="2.5" rx="0.5" fill="#F7B02B"/>
+    <rect x="73.25" y="62.5" width="5.5" height="1.5" fill="#5F6BC2"/>
+    <rect x="73.25" y="83" width="5.5" height="1.5" fill="#5F6BC2"/>
+    <rect x="72" y="84.5" width="8" height="2" rx="0.5" fill="#F7B02B"/>
+
+    <!-- Outer Right Column (x=93) -->
+    <rect x="91.5" y="60" width="3" height="26" fill="#2F3A8F"/>
+    <rect x="90" y="60" width="6" height="2.5" rx="0.5" fill="#F7B02B"/>
+    <rect x="90.5" y="62.5" width="5" height="1.5" fill="#5F6BC2"/>
+    <rect x="90.5" y="83" width="5" height="1.5" fill="#5F6BC2"/>
+    <rect x="89.5" y="84.5" width="7" height="2" rx="0.5" fill="#F7B02B"/>
+  </g>
+
+  <g id="joglo-roof">
+    <!-- Finial (Mustoko) -->
+    <polygon points="60,16 62.5,22 60,26 57.5,22" fill="#F7B02B"/>
+    <polygon points="60,19 64.5,23 60,25 55.5,23" fill="#F7B02B"/>
+    <rect x="53" y="25" width="14" height="2.5" rx="1.25" fill="#F7B02B"/>
+    <circle cx="60" cy="22" r="1.2" fill="#D6402F"/>
+
+    <!-- Upper Steep Trapezoid Peak (Brunjung) -->
+    <path d="M47 27H73L84 44H36L47 27Z" fill="#975A33"/>
+    <!-- Left highlight plane for depth -->
+    <path d="M47 27H60L57 44H36L47 27Z" fill="#C99673" opacity="0.28"/>
+    <!-- Roof Ridge Beam -->
+    <rect x="46" y="26.5" width="28" height="2" rx="1" fill="#F7B02B"/>
+    <!-- Subtle tile texture lines on upper peak -->
+    <line x1="44" y1="32" x2="76" y2="32" stroke="#DDBBA2" stroke-width="1" opacity="0.45"/>
+    <line x1="40.5" y1="37.5" x2="79.5" y2="37.5" stroke="#DDBBA2" stroke-width="1" opacity="0.45"/>
+    <!-- Tier Transition Shadow & Gold Trim -->
+    <rect x="35" y="43" width="50" height="2" rx="1" fill="#F7B02B"/>
+    <polygon points="36,45 84,45 86,47 34,47" fill="#975A33"/>
+
+    <!-- Lower Wide Shallower Roof Tier (Penanggap) -->
+    <path d="M36 45H84L106 57H14L36 45Z" fill="#C99673"/>
+    <!-- Left highlight plane on lower roof -->
+    <path d="M36 45H60L55 57H14L36 45Z" fill="#DDBBA2" opacity="0.45"/>
+    <!-- Subtle tile texture lines on lower tier -->
+    <line x1="29" y1="49" x2="91" y2="49" stroke="#F8F1EC" stroke-width="1" opacity="0.5"/>
+    <line x1="22" y1="53" x2="98" y2="53" stroke="#F8F1EC" stroke-width="1" opacity="0.5"/>
+
+    <!-- Eave Fascias & Carved Soffit -->
+    <rect x="13" y="56.5" width="94" height="2.5" rx="1" fill="#975A33"/>
+    <rect x="17" y="59" width="86" height="2" fill="#F7B02B"/>
+    <!-- Upturned Javanese Eave Finials -->
+    <polygon points="13,57.5 10,54.5 15,56.5" fill="#F7B02B"/>
+    <polygon points="107,57.5 110,54.5 105,56.5" fill="#F7B02B"/>
+
+    <!-- Central Ornate Gable Medallion (Tebeng) -->
+    <polygon points="60,54 66,58 60,62 54,58" fill="#F7B02B"/>
+    <polygon points="60,55.5 63.5,58 60,60.5 56.5,58" fill="#D6402F"/>
+    <circle cx="60" cy="58" r="1" fill="#FFF7E5"/>
+  </g>
+
+  <g id="stepped-plinth">
+    <!-- Top Plinth Step -->
+    <rect x="19" y="86" width="82" height="4" rx="1" fill="#FBF8F3"/>
+    <rect x="19" y="89" width="82" height="1" fill="#E7E0D4"/>
+    <!-- Bottom Plinth Step -->
+    <rect x="13" y="90" width="94" height="5" rx="1" fill="#F4EFE7"/>
+    <rect x="13" y="93.5" width="94" height="1.5" rx="0.5" fill="#E7E0D4"/>
+    <!-- Central Royal Carpet Stairs -->
+    <rect x="49" y="86" width="22" height="9" fill="#E7E0D4"/>
+    <rect x="51" y="86" width="18" height="9" fill="#D6402F"/>
+    <line x1="51" y1="89" x2="69" y2="89" stroke="#F7B02B" stroke-width="1"/>
+    <line x1="51" y1="92" x2="69" y2="92" stroke="#F7B02B" stroke-width="1"/>
+  </g>
+</svg>
