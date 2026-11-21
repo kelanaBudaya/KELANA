@@ -14,6 +14,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import id.kelana.core.designsystem.R
 import id.kelana.core.designsystem.theme.KelanaShapes
+import id.kelana.core.designsystem.theme.KelanaSpacing
 import id.kelana.core.designsystem.theme.KelanaTheme
 
 @Composable
@@ -28,7 +29,7 @@ fun KelanaCard(
         colors = CardDefaults.cardColors(containerColor = colors.white, contentColor = colors.ink),
         border = BorderStroke(1.dp, colors.outline),
     ) {
-        Column(Modifier.padding(16.dp), content = content)
+        Column(Modifier.padding(KelanaSpacing.md), content = content)
     }
 }
 

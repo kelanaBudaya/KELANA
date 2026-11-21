@@ -1,23 +1,38 @@
 package id.kelana.core.designsystem.theme
 
 import androidx.compose.material3.Typography
+import androidx.compose.ui.text.ExperimentalTextApi
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontStyle
+import androidx.compose.ui.text.font.FontVariation
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 import id.kelana.core.designsystem.R
 
-/** Inter (OFL), Regular 400 and Bold 700, for UI. Licence: core/designsystem/INTER-LICENSE-OFL.txt. */
-val InterFontFamily = FontFamily(
-    Font(R.font.inter_regular, FontWeight.Normal),
-    Font(R.font.inter_bold, FontWeight.Bold),
+@OptIn(ExperimentalTextApi::class)
+private fun jakarta(weight: FontWeight) = Font(
+    resId = R.font.plusjakartasans_variable,
+    weight = weight,
+    variationSettings = FontVariation.Settings(FontVariation.weight(weight.weight)),
+)
+
+/**
+ * Plus Jakarta Sans (OFL), variable font with a wght axis (200..800), used at 400, 500, 600, 700 and 800 for all UI.
+ * Licence: core/designsystem/PLUSJAKARTASANS-LICENSE-OFL.txt.
+ */
+val JakartaFontFamily = FontFamily(
+    jakarta(FontWeight.Normal),
+    jakarta(FontWeight.Medium),
+    jakarta(FontWeight.SemiBold),
+    jakarta(FontWeight.Bold),
+    jakarta(FontWeight.ExtraBold),
 )
 
 /**
  * Fraunces (OFL), static 72pt optical size: Regular, Bold and Italic.
- * For headlines, titles on dark screens, the postcard and the KELANA wordmark.
+ * Only for the postcard and highlight headlines, never for UI text.
  * Licence: core/designsystem/FRAUNCES-LICENSE-OFL.txt.
  */
 val FrauncesFontFamily = FontFamily(
@@ -26,37 +41,67 @@ val FrauncesFontFamily = FontFamily(
     Font(R.font.fraunces_italic, FontWeight.Normal, FontStyle.Italic),
 )
 
-/**
- * Text sizes in use in Figma: 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 22, 26, 30.
- * Line heights and which size maps to which role are PROVISIONAL: confirm against Figma.
- */
-val KelanaTypography = Typography(
-    // Serif headlines (Fraunces)
-    headlineLarge = TextStyle(fontFamily = FrauncesFontFamily, fontWeight = FontWeight.Bold, fontSize = 30.sp, lineHeight = 36.sp),
-    headlineMedium = TextStyle(fontFamily = FrauncesFontFamily, fontWeight = FontWeight.Bold, fontSize = 22.sp, lineHeight = 28.sp),
-    headlineSmall = TextStyle(fontFamily = FrauncesFontFamily, fontWeight = FontWeight.Bold, fontSize = 18.sp, lineHeight = 24.sp),
-    // header value, 17 Bold
-    titleMedium = TextStyle(fontFamily = InterFontFamily, fontWeight = FontWeight.Bold, fontSize = 17.sp, lineHeight = 24.sp),
-    // card title, 14 Bold
-    titleSmall = TextStyle(fontFamily = InterFontFamily, fontWeight = FontWeight.Bold, fontSize = 14.sp, lineHeight = 20.sp),
-    bodyMedium = TextStyle(fontFamily = InterFontFamily, fontWeight = FontWeight.Normal, fontSize = 14.sp, lineHeight = 20.sp),
-    // body small, caption and tab label, 12
-    bodySmall = TextStyle(fontFamily = InterFontFamily, fontWeight = FontWeight.Normal, fontSize = 12.sp, lineHeight = 16.sp),
-    labelMedium = TextStyle(fontFamily = InterFontFamily, fontWeight = FontWeight.Normal, fontSize = 12.sp, lineHeight = 16.sp),
-    // button label, 11
-    labelSmall = TextStyle(fontFamily = InterFontFamily, fontWeight = FontWeight.Normal, fontSize = 11.sp, lineHeight = 14.sp),
+private fun ui(size: Int, line: Int, weight: FontWeight, letterSpacing: Float = 0f) = TextStyle(
+    fontFamily = JakartaFontFamily,
+    fontWeight = weight,
+    fontSize = size.sp,
+    lineHeight = line.sp,
+    letterSpacing = letterSpacing.sp,
 )
 
-/** Italic serif accent line (Fraunces Italic), for postcard and quote text. */
+/**
+ * Sizes, weights and line heights taken from JelajahIlustratif, Kenalan1, MasukIlustratif, DetailIlustratif and
+ * KatMuseum (docs/design/artifact). Mapping to Material roles:
+ *
+ * - headlineLarge  28/34 w800, letter-spacing -0.4: screen title (Kenalan1 h1, KatMuseum h1 28/32)
+ * - headlineMedium 26/32 w800, letter-spacing -0.4: Detail h1, Masuk h1 (26/32)
+ * - headlineSmall  22/28 w800: PROVISIONAL weight and line height (22 is only seen in Fraunces)
+ * - titleLarge     18/24 w800: section heading (Detail h2 18/800); line height PROVISIONAL
+ * - titleMedium    16/21 w800: card title (KatMuseum 16/800/21), also top bar and empty state titles
+ * - titleSmall     14/20 w700: small link or label (Lewati 14/700); line height PROVISIONAL
+ * - bodyLarge      16/24 w400: body (Kenalan1)
+ * - bodyMedium     14/21 w400: 14 text with 1.5 line height
+ * - bodySmall      13/18 w400: subtitle and caption under a title (KatMuseum 13/18)
+ * - labelLarge     16/20 w800: button label (52 dp button 16/800); line height PROVISIONAL
+ * - labelMedium    12/16 w600: badge (12/600/16)
+ * - labelSmall     11/13 w700: small tile caption (11/700/13)
+ *
+ * Extra styles below: [Caption], [ChipLabel], [TabLabelActive], [TabLabelInactive], [SerifHeadline], [SerifItalic].
+ */
+val KelanaTypography = Typography(
+    headlineLarge = ui(28, 34, FontWeight.ExtraBold, -0.4f),
+    headlineMedium = ui(26, 32, FontWeight.ExtraBold, -0.4f),
+    headlineSmall = ui(22, 28, FontWeight.ExtraBold),
+    titleLarge = ui(18, 24, FontWeight.ExtraBold),
+    titleMedium = ui(16, 21, FontWeight.ExtraBold),
+    titleSmall = ui(14, 20, FontWeight.Bold),
+    bodyLarge = ui(16, 24, FontWeight.Normal),
+    bodyMedium = ui(14, 21, FontWeight.Normal),
+    bodySmall = ui(13, 18, FontWeight.Normal),
+    labelLarge = ui(16, 20, FontWeight.ExtraBold),
+    labelMedium = ui(12, 16, FontWeight.SemiBold),
+    labelSmall = ui(11, 13, FontWeight.Bold),
+)
+
+/** Caption 12/18 w400. */
+val Caption = ui(12, 18, FontWeight.Normal)
+
+/** Chip label 13/16 w700 (KatMuseum filter chips). Line height PROVISIONAL. */
+val ChipLabel = ui(13, 16, FontWeight.Bold)
+
+/** Serif highlight headline, Fraunces 22/25 (Jelajah; the artifact uses w600, the static Bold file is the closest). */
+val SerifHeadline = TextStyle(fontFamily = FrauncesFontFamily, fontWeight = FontWeight.Bold, fontSize = 22.sp, lineHeight = 25.sp)
+
+/** Italic serif accent line (Fraunces Italic 13/17, DetailIlustratif). */
 val SerifItalic = TextStyle(
     fontFamily = FrauncesFontFamily,
     fontStyle = FontStyle.Italic,
-    fontSize = 18.sp,
-    lineHeight = 26.sp,
+    fontSize = 13.sp,
+    lineHeight = 17.sp,
 )
 
-/** Bold 12 tab label for the active bottom bar item. */
-val TabLabelActive = TextStyle(fontFamily = InterFontFamily, fontWeight = FontWeight.Bold, fontSize = 12.sp, lineHeight = 16.sp)
+/** Active bottom bar label, 12 w700 (KatMuseum nav). */
+val TabLabelActive = ui(12, 16, FontWeight.Bold)
 
-/** Regular 12 tab label for inactive bottom bar items. */
-val TabLabelInactive = TextStyle(fontFamily = InterFontFamily, fontWeight = FontWeight.Normal, fontSize = 12.sp, lineHeight = 16.sp)
+/** Inactive bottom bar label, 12 w500 (KatMuseum nav). */
+val TabLabelInactive = ui(12, 16, FontWeight.Medium)

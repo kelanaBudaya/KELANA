@@ -20,14 +20,14 @@ import id.kelana.core.designsystem.theme.KelanaTheme
 
 enum class BannerTone { Info, Success, Warning }
 
-/** Background and text colour of a tone. Colours come from the Figma tokens; the Info pairing is PROVISIONAL. */
+/** Background and text colour of a tone. Colours from the artifact (cream #FFF0C8 with #8A5A00 in KatMuseum badges, green #E3F1EA with #35745A); text uses the deep variants for body-size contrast; the Info pairing is PROVISIONAL. */
 internal fun bannerColors(tone: BannerTone, colors: KelanaColors): Pair<Color, Color> = when (tone) {
     BannerTone.Info -> colors.skyText to colors.navy
     BannerTone.Success -> colors.successSurface to colors.successTextDeep
     BannerTone.Warning -> colors.creamYellow to colors.warnTextDeep
 }
 
-/** Inline notice (frames use cream "sedang dicek" notes, green "Kamu ada di area"). Padding 12 dp, radius 12 dp PROVISIONAL. */
+/** Inline notice (frames use cream "sedang dicek" notes, green "Kamu ada di area"). Padding 12 dp, radius 12 dp (input radius), title 16/800, text 13/18. */
 @Composable
 fun InfoBanner(
     text: String,
@@ -39,11 +39,11 @@ fun InfoBanner(
     Column(
         modifier = modifier
             .fillMaxWidth()
-            .background(background, KelanaShapes.button)
+            .background(background, KelanaShapes.input)
             .padding(KelanaSpacing.md),
     ) {
         if (title != null) {
-            Text(text = title, style = MaterialTheme.typography.titleSmall, color = content)
+            Text(text = title, style = MaterialTheme.typography.titleMedium, color = content)
         }
         Text(
             text = text,

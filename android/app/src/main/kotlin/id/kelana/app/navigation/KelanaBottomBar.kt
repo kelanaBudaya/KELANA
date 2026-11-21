@@ -33,16 +33,16 @@ import id.kelana.core.designsystem.theme.KelanaTheme
 import id.kelana.core.designsystem.theme.TabLabelActive
 import id.kelana.core.designsystem.theme.TabLabelInactive
 
-private val PillWidth = 64.dp
-private val PillHeight = 32.dp
+private val PillWidth = KelanaSizes.tabPillWidth
+private val PillHeight = KelanaSizes.tabPillHeight
 private val IconSize = 24.dp
-private val TopPadding = 10.dp
-private val PillToLabel = 8.dp
+private val TopPadding = 6.dp
+private val PillToLabel = 3.dp
 
 /**
- * Bottom bar, 84 dp tall. Active tab: colour icon on a light-blue pill (about 64 x 32 dp) with a Bold navy label.
- * Inactive tab: grey icon and Regular muted label (docs/design/FIGMA-FRAMES.md).
- * The vertical offsets (10 dp above the pill, 8 dp pill to label) are PROVISIONAL, measured by eye from the reference image.
+ * Bottom bar, 84 dp tall, white with a 1 dp #E7E0D2 top border (KatMuseum.dc.html nav). Active tab: colour icon on a
+ * 58 x 32 pill filled #DCE6F7 with a 12/700 navy label. Inactive tab: grey icon and a 12/500 muted label.
+ * Padding 6 dp above the pill and 3 dp between pill and label come from the file; the icon size (24) is PROVISIONAL.
  */
 @Composable
 fun KelanaBottomBar(

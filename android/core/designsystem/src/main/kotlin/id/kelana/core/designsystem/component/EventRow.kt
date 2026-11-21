@@ -24,6 +24,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import id.kelana.core.designsystem.R
 import id.kelana.core.designsystem.theme.KelanaShapes
+import id.kelana.core.designsystem.theme.KelanaSizes
 import id.kelana.core.designsystem.theme.KelanaSpacing
 import id.kelana.core.designsystem.theme.KelanaTheme
 import java.time.LocalDate
@@ -31,7 +32,7 @@ import java.time.LocalDate
 /**
  * One performance in the agenda or in search results (frame 02.01, "Wayang kulit" row).
  * [place] is the venue, [whenText] the already formatted time such as "Kamis 09.00-11.00".
- * Sizes PROVISIONAL, estimated from frame 02.01: card radius 16 dp, 12 dp padding, 56 dp leading tile.
+ * Sizes follow the KatMuseum list row: radius 20, 12 dp padding, 60 dp leading tile with radius 16, title 16/800.
  * [badge] sits under the time, for example a [VerifiedBadge].
  */
 @Composable
@@ -47,7 +48,7 @@ fun EventRow(
     val colors = KelanaTheme.colors
     Surface(
         modifier = modifier.fillMaxWidth(),
-        shape = KelanaShapes.card,
+        shape = KelanaShapes.listCard,
         color = colors.surface,
         border = BorderStroke(1.dp, colors.outline),
         onClick = onClick,
@@ -58,8 +59,8 @@ fun EventRow(
         ) {
             Box(
                 modifier = Modifier
-                    .size(56.dp)
-                    .clip(KelanaShapes.button)
+                    .size(KelanaSizes.listThumb)
+                    .clip(KelanaShapes.card)
                     .background(colors.backgroundWarm),
                 content = leading,
             )
@@ -70,7 +71,7 @@ fun EventRow(
             ) {
                 Text(
                     text = title,
-                    style = MaterialTheme.typography.titleSmall,
+                    style = MaterialTheme.typography.titleMedium,
                     color = colors.ink,
                     maxLines = 2,
                     overflow = TextOverflow.Ellipsis,

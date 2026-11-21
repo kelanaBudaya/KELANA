@@ -1,7 +1,7 @@
 package id.kelana.core.designsystem.component
 
-import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.FilterChip
 import androidx.compose.material3.FilterChipDefaults
@@ -12,7 +12,9 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import id.kelana.core.designsystem.R
+import id.kelana.core.designsystem.theme.ChipLabel
 import id.kelana.core.designsystem.theme.KelanaShapes
+import id.kelana.core.designsystem.theme.KelanaSizes
 import id.kelana.core.designsystem.theme.KelanaTheme
 
 @Composable
@@ -26,22 +28,22 @@ fun KelanaChip(
     FilterChip(
         selected = selected,
         onClick = onClick,
-        label = { Text(label) },
-        modifier = modifier,
+        label = { Text(label, style = ChipLabel) },
+        modifier = modifier.height(KelanaSizes.chipHeight),
         shape = KelanaShapes.chip,
         colors = FilterChipDefaults.filterChipColors(
             containerColor = colors.white,
-            labelColor = colors.muted,
-            selectedContainerColor = colors.navy,
+            labelColor = colors.ink,
+            selectedContainerColor = colors.primary,
             selectedLabelColor = colors.white,
         ),
         border = FilterChipDefaults.filterChipBorder(
             enabled = true,
             selected = selected,
             borderColor = colors.outline,
-            selectedBorderColor = colors.navy,
-            borderWidth = 1.dp,
-            selectedBorderWidth = 1.dp,
+            selectedBorderColor = colors.primary,
+            borderWidth = 1.5.dp,
+            selectedBorderWidth = 1.5.dp,
         ),
     )
 }

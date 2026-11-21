@@ -21,7 +21,7 @@ import id.kelana.core.designsystem.theme.KelanaTheme
 
 /**
  * Centered empty, offline or "no results" state: illustration slot, title, body and an optional action.
- * The caller draws the illustration (about 160 dp tall, PROVISIONAL) in [illustration].
+ * The caller draws the illustration (about 160 dp tall, PROVISIONAL; title 16/800, body 14/21 muted, pill action button) in [illustration].
  */
 @Composable
 fun EmptyState(
