@@ -118,7 +118,19 @@ fun KelanaAppContent(appViewModel: AppViewModel = hiltViewModel()) {
                     navController.navigate(route)
                 }
             }
-            akunScreen(onSignedIn = finishMasuk, onGuest = finishMasuk, navigate = navigateAkun, onBack = onBack)
+            // Keluar on Profil: the user is a guest now, so restart at Jelajah with a clean back stack.
+            val finishSignOut: () -> Unit = {
+                navController.navigate(JelajahRoute) {
+                    popUpTo(navController.graph.findStartDestination().id) { inclusive = true }
+                }
+            }
+            akunScreen(
+                onSignedIn = finishMasuk,
+                onGuest = finishMasuk,
+                navigate = navigateAkun,
+                onBack = onBack,
+                onSignedOut = finishSignOut,
+            )
 
             // "Ke situs tiket resmi" confirm sheet (Figma 03.04); "Buka situs" opens a Custom Tab.
             dialog<OfficialSiteRoute>(dialogProperties = DialogProperties(usePlatformDefaultWidth = false)) { entry ->

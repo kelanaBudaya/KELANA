@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="akun_placeholder">Akun (segera hadir)</string>
     <string name="masuk_title">Simpan paspor dan rencanamu</string>
     <string name="masuk_subtitle">Masuk supaya cap dan rencanamu tidak hilang saat ganti ponsel.</string>
     <string name="masuk_google">Lanjut dengan Google</string>
@@ -15,13 +14,11 @@
     <string name="masuk_email">Lanjut dengan email</string>
     <string name="masuk_daftar_prompt">Belum punya akun?</string>
     <string name="masuk_daftar_link">Daftar</string>
-    <string name="email_masuk_topbar">Masuk dengan email</string>
     <string name="email_masuk_title">Masuk dengan email</string>
     <string name="email_masuk_subtitle">Pakai email dan password yang kamu daftarkan.</string>
     <string name="email_masuk_button">Masuk</string>
     <string name="email_masuk_to_daftar_prompt">Belum punya akun?</string>
     <string name="email_masuk_to_daftar_link">Daftar</string>
-    <string name="email_daftar_topbar">Daftar</string>
     <string name="email_daftar_title">Buat akun baru</string>
     <string name="email_daftar_subtitle">Daftar dengan email dan password. Akunmu langsung aktif.</string>
     <string name="email_daftar_button">Daftar</string>
@@ -46,4 +43,21 @@
     <string name="email_error_network">Tidak ada koneksi. Periksa internet kamu, lalu coba lagi.</string>
     <string name="email_error_not_configured">Masuk belum tersedia karena layanan akun belum disiapkan. Coba lagi nanti.</string>
     <string name="email_error_generic">Terjadi kesalahan. Coba lagi.</string>
+    <string name="profil_back">Kembali</string>
+    <string name="profil_section_perjalanan">PERJALANAN</string>
+    <string name="profil_section_bantuan">BANTUAN</string>
+    <string name="profil_row_paspor">Paspor</string>
+    <string name="profil_row_daerah">Daerah</string>
+    <string name="profil_row_daerah_value">DI Yogyakarta</string>
+    <string name="profil_row_kebutuhan">Kebutuhan perjalanan</string>
+    <string name="profil_row_kebutuhan_sub">Kursi roda, jeda istirahat</string>
+    <string name="profil_row_notifikasi">Notifikasi</string>
+    <string name="profil_row_notifikasi_sub">Pengingat pentas, perubahan jadwal</string>
+    <string name="profil_row_cara">Cara KELANA memeriksa info</string>
+    <string name="profil_row_cara_sub">Sumber resmi dan tanggal periksa</string>
+    <string name="profil_row_laporan">Laporan saya</string>
+    <string name="profil_row_hapus">Hapus akun</string>
+    <string name="profil_row_hapus_sub">Paspor dan postcardmu ikut terhapus</string>
+    <string name="profil_keluar">Keluar</string>
+    <string name="profil_guest_masuk">Masuk</string>
 </resources>
