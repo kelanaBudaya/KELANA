@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="jelajah_placeholder">Explore (coming soon)</string>
+    <string name="cari_placeholder">Search (coming soon)</string>
+    <string name="kategori_placeholder">Category %1$s (coming soon)</string>
+    <string name="semua_tempat_placeholder">All places (coming soon)</string>
 </resources>

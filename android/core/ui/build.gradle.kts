@@ -10,6 +10,7 @@ dependencies {
     implementation(project(":core:navigation"))
     implementation(libs.androidx.hilt.navigation.compose)
     implementation(libs.androidx.lifecycle.viewmodel.compose)
+    implementation(libs.androidx.browser)
 
     testImplementation(libs.kotlinx.coroutines.test)
     testImplementation(libs.turbine)

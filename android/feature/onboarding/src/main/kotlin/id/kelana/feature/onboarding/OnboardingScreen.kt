@@ -13,23 +13,65 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
+import androidx.navigation.toRoute
 import id.kelana.core.designsystem.component.KelanaButton
 import id.kelana.core.designsystem.component.KelanaButtonVariant
 import id.kelana.core.designsystem.theme.KelanaSpacing
 import id.kelana.core.designsystem.theme.KelanaTheme
-import id.kelana.core.navigation.OnboardingRoute
+import id.kelana.core.navigation.IntroRoute
+import id.kelana.core.navigation.MasukRoute
+import id.kelana.core.navigation.PilihDaerahRoute
+
+/** Number of intro pages (frames 01.02 to 01.04 follow the Mulai page: the flow is Intro 0, 1, 2). */
+internal const val IntroPageCount = 3
 
 /**
- * Registers this feature's destination. Called by :app only.
- * [onContinue] ends the intro and goes on to Jelajah; [onLogin] opens Masuk.
+ * Registers this feature's destinations: Intro (3 pages) and Pilih daerah. Called by :app only.
+ * This signature is stable. [navigate] takes a route object from :core:navigation; [onFinished] ends onboarding
+ * (the app stores the flag and opens Jelajah).
  */
-fun NavGraphBuilder.onboardingScreen(onContinue: () -> Unit, onLogin: () -> Unit) {
-    composable<OnboardingRoute> { OnboardingScreen(onContinue = onContinue, onLogin = onLogin) }
+fun NavGraphBuilder.onboardingScreens(navigate: (Any) -> Unit, onFinished: () -> Unit) {
+    composable<IntroRoute> { entry -> IntroScreen(route = entry.toRoute(), navigate = navigate) }
+    composable<PilihDaerahRoute> { PilihDaerahScreen(navigate = navigate, onFinished = onFinished) }
 }
 
-// Placeholder for frames 01.01 Mulai to 01.05 Pilih daerah. Real screens come later; do not build them here.
+// Stub screens until the real ones are built from frames 01.01 to 01.05 (feature agent replaces these).
 @Composable
-internal fun OnboardingScreen(onContinue: () -> Unit, onLogin: () -> Unit) {
+internal fun IntroScreen(route: IntroRoute, navigate: (Any) -> Unit) {
+    val isLast = route.page >= IntroPageCount - 1
+    StubColumn(text = stringResource(R.string.intro_placeholder, route.page + 1, IntroPageCount)) {
+        KelanaButton(
+            text = stringResource(R.string.onboarding_continue),
+            onClick = { navigate(if (isLast) PilihDaerahRoute else IntroRoute(route.page + 1)) },
+            modifier = Modifier.padding(top = KelanaSpacing.lg),
+        )
+        HaveAccountButton(navigate)
+    }
+}
+
+@Composable
+internal fun PilihDaerahScreen(navigate: (Any) -> Unit, onFinished: () -> Unit) {
+    StubColumn(text = stringResource(R.string.pilih_daerah_placeholder)) {
+        KelanaButton(
+            text = stringResource(R.string.onboarding_start),
+            onClick = onFinished,
+            modifier = Modifier.padding(top = KelanaSpacing.lg),
+        )
+        HaveAccountButton(navigate)
+    }
+}
+
+@Composable
+private fun HaveAccountButton(navigate: (Any) -> Unit) {
+    KelanaButton(
+        text = stringResource(R.string.onboarding_have_account),
+        onClick = { navigate(MasukRoute) },
+        variant = KelanaButtonVariant.Text,
+    )
+}
+
+@Composable
+private fun StubColumn(text: String, content: @Composable () -> Unit) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -38,22 +80,11 @@ internal fun OnboardingScreen(onContinue: () -> Unit, onLogin: () -> Unit) {
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         Text(
-            text = stringResource(R.string.onboarding_placeholder),
+            text = text,
             style = MaterialTheme.typography.titleMedium,
             color = KelanaTheme.colors.ink,
             textAlign = TextAlign.Center,
         )
-        KelanaButton(
-            text = stringResource(R.string.onboarding_continue),
-            onClick = onContinue,
-            modifier = Modifier.padding(top = KelanaLg),
-        )
-        KelanaButton(
-            text = stringResource(R.string.onboarding_have_account),
-            onClick = onLogin,
-            variant = KelanaButtonVariant.Text,
-        )
+        content()
     }
 }
-
-private val KelanaLg = KelanaSpacing.lg

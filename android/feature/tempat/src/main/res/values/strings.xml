@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="tempat_placeholder">Detail tempat (segera hadir)</string>
+    <string name="tempat_placeholder">Detail tempat %1$s (segera hadir)</string>
+    <string name="foto_resmi_placeholder">Foto resmi %1$s (segera hadir)</string>
+    <string name="laporkan_placeholder">Laporkan %1$s (segera hadir)</string>
 </resources>

@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="onboarding_placeholder">Selamat datang (segera hadir)</string>
+    <string name="intro_placeholder">Selamat datang, halaman %1$d dari %2$d (segera hadir)</string>
+    <string name="pilih_daerah_placeholder">Pilih daerah (segera hadir)</string>
     <string name="onboarding_continue">Lanjut</string>
+    <string name="onboarding_start">Mulai</string>
     <string name="onboarding_have_account">Sudah punya akun? Masuk</string>
 </resources>
