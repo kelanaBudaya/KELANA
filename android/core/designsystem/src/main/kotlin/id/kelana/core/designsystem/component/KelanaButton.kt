@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
@@ -33,6 +34,7 @@ fun KelanaButton(
 ) {
     val colors = KelanaTheme.colors
     val sizing = modifier.heightIn(min = KelanaSizes.buttonHeight)
+    val label = MaterialTheme.typography.labelLarge
     when (variant) {
         KelanaButtonVariant.Primary -> Button(
             onClick = onClick,
@@ -40,7 +42,7 @@ fun KelanaButton(
             enabled = enabled,
             shape = KelanaShapes.button,
             colors = ButtonDefaults.buttonColors(containerColor = colors.primary, contentColor = colors.white),
-        ) { Text(text) }
+        ) { Text(text, style = label) }
 
         KelanaButtonVariant.Secondary -> Button(
             onClick = onClick,
@@ -48,23 +50,23 @@ fun KelanaButton(
             enabled = enabled,
             shape = KelanaShapes.button,
             colors = ButtonDefaults.buttonColors(containerColor = colors.accentOrange, contentColor = colors.white),
-        ) { Text(text) }
+        ) { Text(text, style = label) }
 
         KelanaButtonVariant.Outline -> OutlinedButton(
             onClick = onClick,
             modifier = sizing,
             enabled = enabled,
             shape = KelanaShapes.button,
-            border = BorderStroke(1.dp, if (enabled) colors.navy else colors.outline),
-            colors = ButtonDefaults.outlinedButtonColors(contentColor = colors.navy),
-        ) { Text(text) }
+            border = BorderStroke(1.5.dp, colors.outline),
+            colors = ButtonDefaults.outlinedButtonColors(containerColor = colors.white, contentColor = colors.ink),
+        ) { Text(text, style = label) }
 
         KelanaButtonVariant.Text -> TextButton(
             onClick = onClick,
             modifier = sizing,
             enabled = enabled,
             colors = ButtonDefaults.textButtonColors(contentColor = colors.navy),
-        ) { Text(text) }
+        ) { Text(text, style = label) }
     }
 }
 

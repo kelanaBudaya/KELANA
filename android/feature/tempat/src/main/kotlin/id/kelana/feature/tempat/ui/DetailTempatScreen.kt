@@ -305,7 +305,7 @@ private fun InfoResmiCard(place: Place, today: DayOfWeek, onTicketSite: (String)
         Box(
             Modifier
                 .fillMaxWidth()
-                .clip(KelanaShapes.button)
+                .clip(KelanaShapes.card)
                 .background(colors.creamYellowAlt)
                 .padding(KelanaSpacing.md),
         ) {

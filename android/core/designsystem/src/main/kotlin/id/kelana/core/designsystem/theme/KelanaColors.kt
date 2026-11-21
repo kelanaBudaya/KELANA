@@ -5,8 +5,9 @@ import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.graphics.Color
 
 /**
- * Colour tokens from docs/design/FIGMA-FRAMES.md.
- * All values are read from Figma fills except those marked PROVISIONAL.
+ * Colour tokens, verified against the Claude Design artifact (docs/design/artifact/README.md and the screen files
+ * JelajahIlustratif, Kenalan1, MasukIlustratif, DetailIlustratif, KatMuseum, Galeri). Values not seen in those files
+ * are marked PROVISIONAL. Illustration-only colours (primaryDeep, primaryBright, ...) come from the inline SVG art.
  */
 @Immutable
 data class KelanaColors(
@@ -21,6 +22,12 @@ data class KelanaColors(
     val surface: Color = Color(0xFFFFFFFF),
     val background: Color = Color(0xFFFFFCF6),
     val backgroundWarm: Color = Color(0xFFF8F3E8),
+    /** Peach tile and panel background (KatMuseum, Jelajah category tiles). */
+    val peach: Color = Color(0xFFFCE1D2),
+    /** Dark gallery background (Galeri.dc.html). */
+    val galleryDark: Color = Color(0xFF14213D),
+    /** Deep ink used on dark panels (KatMuseum, Jelajah). */
+    val inkDeep: Color = Color(0xFF1B2A4A),
 
     // Blues
     val primary: Color = Color(0xFF24458F),
@@ -49,13 +56,20 @@ data class KelanaColors(
 
     // Icons and bottom bar
     val iconMuted: Color = Color(0xFF8C93A0),
-    /** Pill behind the active tab icon, about 64 x 32 dp. Approximate (~#DCE6F7), same as [skyText]. */
+    /** Pill behind the active tab icon, 58 x 32 dp pill filled `#DCE6F7` (KatMuseum bottom nav), same as [skyText]. */
     val tabActivePill: Color = Color(0xFFDCE6F7),
 
-    // PROVISIONAL: confirm against Figma (danger red is not readable from fills)
+    // PROVISIONAL: no red appears in the five reference files
     val danger: Color = Color(0xFFC0392B),
-    // PROVISIONAL: confirm against Figma (hairline for cards, outlines and the bar divider)
-    val outline: Color = Color(0xFFD9DEE8),
+    /** Hairline of cards, chips, outline buttons and the bottom bar top border (`#E7E0D2` in every screen file). */
+    val outline: Color = Color(0xFFE7E0D2),
+    /** Divider and inactive pager dot (`#D5DBE6`, Kenalan1 and Jelajah). */
+    val divider: Color = Color(0xFFD5DBE6),
+
+    // [ISI] marker colours: for previews only, never shown in production UI (the app shows "sedang dicek").
+    val markerBackground: Color = Color(0xFFFFF6DC),
+    val markerBorder: Color = Color(0xFFC9A14A),
+    val markerText: Color = Color(0xFF8A5A00),
 )
 
 val LocalKelanaColors = staticCompositionLocalOf { KelanaColors() }

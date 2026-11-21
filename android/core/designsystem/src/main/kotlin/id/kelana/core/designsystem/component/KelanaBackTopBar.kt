@@ -26,7 +26,8 @@ import id.kelana.core.designsystem.theme.KelanaTheme
 
 /**
  * Top bar with an arrow back button and a title, for detail screens.
- * Arrow tap target 48 dp (accessibility minimum), bar 56 dp: PROVISIONAL, matches the search frame's back arrow row.
+ * Arrow tap target 48 dp (accessibility minimum; the artifact's round back button is 44 dp, white), bar 56 dp PROVISIONAL.
+ * Title 16/800 (titleMedium).
  */
 @Composable
 fun KelanaBackTopBar(

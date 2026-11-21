@@ -14,7 +14,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -29,6 +28,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import id.kelana.core.designsystem.R
 import id.kelana.core.designsystem.theme.KelanaShapes
+import id.kelana.core.designsystem.theme.KelanaSizes
 import id.kelana.core.designsystem.theme.KelanaSpacing
 import id.kelana.core.designsystem.theme.KelanaTheme
 
@@ -42,8 +42,8 @@ enum class PlaceCardSize {
 
 /**
  * Place card with a cover slot. The caller draws the cover (illustration or image) in [cover].
- * Sizes are estimated from frames 01.06 Jelajah and 02.01 Cari, all PROVISIONAL: grid cover aspect 156:110,
- * cover corner 12 dp; list card radius 16 dp with a 64 dp cover tile; title 14 Bold, subtitle 12 Regular.
+ * Sizes from JelajahIlustratif (grid cover 156 x 112, radius 16) and KatMuseum (list row: padding 12, radius 20,
+ * 1 dp hairline, 60 dp thumb with radius 16, title 16/800, subtitle 13/18 muted). Grid cover aspect 156:112.
  * [badge] sits under the subtitle, for example a [VerifiedBadge].
  */
 @Composable
@@ -62,7 +62,7 @@ fun PlaceCard(
     }
 }
 
-private val CoverShape = RoundedCornerShape(12.dp)
+private val CoverShape = KelanaShapes.card
 
 @Composable
 private fun GridPlaceCard(
@@ -78,7 +78,7 @@ private fun GridPlaceCard(
         Box(
             modifier = Modifier
                 .fillMaxWidth()
-                .aspectRatio(156f / 110f)
+                .aspectRatio(156f / 112f)
                 .clip(CoverShape)
                 .background(colors.backgroundWarm),
             content = cover,
@@ -86,7 +86,7 @@ private fun GridPlaceCard(
         Text(
             text = title,
             modifier = Modifier.padding(top = KelanaSpacing.sm),
-            style = MaterialTheme.typography.titleSmall,
+            style = MaterialTheme.typography.titleMedium,
             color = colors.ink,
             maxLines = 2,
             overflow = TextOverflow.Ellipsis,
@@ -115,7 +115,7 @@ private fun ListPlaceCard(
     val colors = KelanaTheme.colors
     Surface(
         modifier = modifier.fillMaxWidth(),
-        shape = KelanaShapes.card,
+        shape = KelanaShapes.listCard,
         color = colors.surface,
         border = BorderStroke(1.dp, colors.outline),
         onClick = onClick,
@@ -126,7 +126,7 @@ private fun ListPlaceCard(
         ) {
             Box(
                 modifier = Modifier
-                    .size(64.dp)
+                    .size(KelanaSizes.listThumb)
                     .clip(CoverShape)
                     .background(colors.backgroundWarm),
                 content = cover,
@@ -138,7 +138,7 @@ private fun ListPlaceCard(
             ) {
                 Text(
                     text = title,
-                    style = MaterialTheme.typography.titleSmall,
+                    style = MaterialTheme.typography.titleMedium,
                     color = colors.ink,
                     maxLines = 2,
                     overflow = TextOverflow.Ellipsis,

@@ -221,7 +221,7 @@ private fun PassportCard(state: JelajahUiState, callbacks: HomeCallbacks) {
                 verticalAlignment = Alignment.CenterVertically,
             ) {
                 // PLACEHOLDER for the stamp illustration "YK".
-                Box(Modifier.size(56.dp).clip(KelanaShapes.button).background(colors.stampYellow))
+                Box(Modifier.size(56.dp).clip(KelanaShapes.card).background(colors.stampYellow))
                 Column(Modifier.weight(1f).padding(horizontal = KelanaSpacing.md)) {
                     Text(
                         stringResource(R.string.home_passport_title),
@@ -253,7 +253,7 @@ private fun PassportCard(state: JelajahUiState, callbacks: HomeCallbacks) {
                         verticalArrangement = Arrangement.spacedBy(KelanaSpacing.xs),
                     ) {
                         // PLACEHOLDER icon tile (white rounded square, 48 dp).
-                        Box(Modifier.size(48.dp).clip(KelanaShapes.button).background(colors.white))
+                        Box(Modifier.size(48.dp).clip(KelanaShapes.input).background(colors.white))
                         Text(
                             stringResource(action.label),
                             style = MaterialTheme.typography.bodySmall.copy(fontWeight = FontWeight.Bold),
@@ -398,7 +398,7 @@ private fun ChallengeCard(modifier: Modifier = Modifier) {
     val colors = KelanaTheme.colors
     KelanaCard(modifier.fillMaxWidth()) {
         Row(verticalAlignment = Alignment.CenterVertically) {
-            Box(Modifier.size(72.dp).clip(KelanaShapes.button).background(colors.creamYellow))
+            Box(Modifier.size(72.dp).clip(KelanaShapes.card).background(colors.creamYellow))
             Column(Modifier.weight(1f).padding(start = KelanaSpacing.md)) {
                 Text(
                     stringResource(R.string.challenge_label).uppercase(IdLocale),
