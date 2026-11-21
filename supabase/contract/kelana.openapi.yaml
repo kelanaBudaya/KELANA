@@ -5,7 +5,7 @@ info:
   description: |
     Contract for the Android app. Two surfaces:
     - PostgREST (`/rest/v1`), generated from the Postgres schema in `supabase/migrations`.
-    - Edge Function `POST /functions/v1/verify-stamp` (defined here, NOT implemented yet).
+    - Edge Function `POST /functions/v1/verify-stamp` (implemented in `supabase/functions/verify-stamp`).
 
     Every request needs `apikey: <anon key>`. Guests (no login, Postgres role `anon`)
     may browse: GET regions, places, opening_hours, closures, ticket_prices, events and
@@ -255,31 +255,26 @@ paths:
   /functions/v1/verify-stamp:
     post:
       operationId: verifyStamp
-      summary: Server-side stamp verification (NOT YET IMPLEMENTED; service role writes the stamp)
+      summary: Server-side stamp verification (implemented in supabase/functions/verify-stamp; the server decides)
       description: |
-        The client calls this from "Ambil cap" with the single location fix. The
-        server decides; the client never decides a stamp was earned.
+        The client calls this from "Ambil cap" with the single location fix. The user id comes
+        from the JWT, never from the body. Every decision is HTTP 200 with a `status`; a refusal
+        is `status: rejected` plus a `reason`. 400 is only for a malformed body, 401 for a missing
+        or invalid JWT, 500 for a server fault. Provisional limits (30 min window, 2 min future
+        skew, 100 m accuracy) live in constants in `verify.ts` and are listed in `supabase/README.md`.
 
-        Rules for the implementation:
-        - Reject with `expired_request` when `captured_at` is older than **30 minutes**
-          (queued offline requests; the client also drops them after 30 minutes).
-          Also reject a `captured_at` in the future beyond a small clock skew.
-        - Verify `integrity_token` (Play Integrity, nonce bound to a hash of the request
-          payload, requested at send time, never stored in the queue). Failure -> `integrity_failed`.
-        - Distance check with PostGIS (`public.stamp_distance`) against the place's
-          `cap_radius_m`; outside -> `out_of_area`. The radius is still open in the design
-          (nullable column); the function must not stamp while it is null unless it owns a default.
-        - If the user already has a stamp for the place -> `already_stamped`.
-        - On success insert into `stamps` with the service role. Store no location, only the result.
-        - `location_denied` is returned by the client flow when permission is refused; the
-          server variant applies when the request carries no usable fix (accuracy_m too poor).
+        Order of checks: body shape, `isMock`, accuracy, time window, Play Integrity (nonce must
+        equal base64url(sha256(canonical string)), see README), existing stamp, place and radius
+        (`public.stamp_distance`), then insert. A null `cap_radius_m` yields `radius_not_set` and
+        never a stamp. Location is never logged or stored; only the `stamps` row is written.
       requestBody:
         required: true
         content: { application/json: { schema: { $ref: '#/components/schemas/VerifyStampRequest' } } }
       responses:
-        '200': { description: Stamp granted, content: { application/json: { schema: { $ref: '#/components/schemas/VerifyStampSuccess' } } } }
-        '422': { description: Stamp refused, content: { application/json: { schema: { $ref: '#/components/schemas/VerifyStampFailure' } } } }
+        '200': { description: Decision, content: { application/json: { schema: { $ref: '#/components/schemas/VerifyStampResponse' } } } }
+        '400': { description: 'Malformed body', content: { application/json: { schema: { $ref: '#/components/schemas/VerifyStampResponse' } } } }
         '401': { description: Missing or invalid user JWT }
+        '500': { description: Server fault }
 components:
   securitySchemes:
     anonKey: { type: apiKey, in: header, name: apikey }
@@ -497,23 +492,19 @@ components:
         place_id: { type: string, format: uuid }
     VerifyStampRequest:
       type: object
-      required: [place_id, lat, lng, accuracy_m, captured_at, integrity_token]
+      required: [placeId, lat, lng, accuracyM, capturedAt, isMock, integrityToken]
       properties:
-        place_id: { type: string, format: uuid }
-        lat: { type: number }
-        lng: { type: number }
-        accuracy_m: { type: number }
-        captured_at: { type: string, format: date-time, description: 'Time of the location fix. Rejected when older than 30 minutes.' }
-        integrity_token: { type: string, description: 'Play Integrity token, nonce bound to a hash of this payload' }
-    VerifyStampSuccess:
+        placeId: { type: string, format: uuid, description: 'Lowercase UUID' }
+        lat: { type: number, minimum: -90, maximum: 90 }
+        lng: { type: number, minimum: -180, maximum: 180 }
+        accuracyM: { type: number, description: 'Metres. Greater than 100 or negative is rejected as low_accuracy.' }
+        capturedAt: { type: string, pattern: '^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{3}Z$', examples: ['2026-11-21T10:15:30.123Z'], description: 'Time of the fix, UTC with exactly 3 millisecond digits. Older than 30 minutes is rejected.' }
+        isMock: { type: boolean, description: 'Client mock-location flag. true is rejected; defense in depth only.' }
+        integrityToken: { type: string, description: 'Play Integrity token whose nonce is base64url(sha256(placeId|lat 6dp|lng 6dp|accuracyM 1dp|capturedAt)), no padding' }
+    VerifyStampResponse:
       type: object
-      required: [status, stamp]
+      required: [status]
       properties:
-        status: { type: string, const: success }
-        stamp: { $ref: '#/components/schemas/Stamp' }
-    VerifyStampFailure:
-      type: object
-      required: [status, reason]
-      properties:
-        status: { type: string, const: failure }
-        reason: { type: string, enum: [out_of_area, location_denied, expired_request, integrity_failed, already_stamped] }
+        status: { type: string, enum: [stamped, already_stamped, rejected] }
+        reason: { type: string, enum: [too_far, expired, future_timestamp, low_accuracy, mock_location, integrity_failed, place_unknown, radius_not_set, bad_request] }
+        distanceM: { type: integer, description: 'Only with reason too_far' }
