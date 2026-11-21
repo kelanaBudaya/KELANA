@@ -1,8 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="intro_placeholder">Selamat datang, halaman %1$d dari %2$d (segera hadir)</string>
-    <string name="pilih_daerah_placeholder">Pilih daerah (segera hadir)</string>
-    <string name="onboarding_continue">Lanjut</string>
-    <string name="onboarding_start">Mulai</string>
+    <!-- Mulai (01.01) -->
+    <string name="mulai_wordmark">kelana</string>
+    <string name="mulai_tagline">Kawan Eksplorasi Budaya Nusantara</string>
+    <string name="mulai_start">Ayo berkelana!</string>
     <string name="onboarding_have_account">Sudah punya akun? Masuk</string>
+    <string name="mulai_logo_description">Logo kelana</string>
+
+    <!-- Kenalan (01.02 to 01.04) -->
+    <string name="intro_skip">Lewati</string>
+    <string name="intro_next">Lanjut</string>
+    <string name="intro_progress">Langkah %1$d dari %2$d</string>
+    <string name="intro1_title">Info dari pengelolanya langsung</string>
+    <string name="intro1_body">Jam buka, harga tiket, dan aturan berkunjung kami ambil dari sumber resmi. Kamu juga lihat kapan terakhir kami memeriksanya.</string>
+    <string name="intro2_title">Tahu jadwal pentas sebelum berangkat</string>
+    <string name="intro2_body">Sendratari, wayang, dan gamelan, lengkap dengan tata krama menontonnya. Upacara sakral hanya tampil kalau pemiliknya mengizinkan.</string>
+    <string name="intro3_title">Datang, ambil cap, isi paspormu</string>
+    <string name="intro3_body">Cap hanya terbuka saat kamu benar-benar ada di lokasi. Kumpulkan capnya, lalu ceritakan kunjunganmu lewat postcard.</string>
+    <string name="intro3_start_jogja">Mulai dari Jogja</string>
+    <string name="intro3_other_region">Pilih daerah lain</string>
+    <string name="intro1_illustration">Gambar: bangunan museum dengan tanda info resmi dan tiket</string>
+    <string name="intro2_illustration">Gambar: kalender, penari, dan gong</string>
+    <string name="intro3_illustration">Gambar: jejak kaki, peta rute, dan cap Sonobudoyo</string>
+
+    <!-- Pilih daerah (01.05) -->
+    <string name="pilih_title">Pilih wilayah</string>
+    <string name="pilih_intro">KELANA membuka wilayah satu per satu, setelah tim memeriksa sumber resmi setiap tempatnya.</string>
+    <string name="pilih_all_indonesia">Lihat seluruh Indonesia</string>
+    <string name="pilih_zoom_in">Perbesar peta</string>
+    <string name="pilih_zoom_out">Perkecil peta</string>
+    <string name="pilih_map_description">Peta ilustrasi Indonesia dengan titik wilayah</string>
+    <string name="pilih_legend_available">Tersedia</string>
+    <string name="pilih_legend_upcoming">Menyusul</string>
+    <string name="pilih_legend_not_open">Belum dibuka</string>
+    <string name="pilih_map_hint">Arahkan kursor atau ketuk titik untuk melihat keterangan wilayah. Peta: Natural Earth.</string>
+    <string name="pilih_available_heading">SUDAH BISA DIJELAJAHI</string>
+    <string name="pilih_choose_here">Berkelana di sini</string>
+    <string name="pilih_choose_region">Berkelana di %1$s</string>
+    <string name="pilih_footer">%1$d wilayah menyusul dan %2$d wilayah belum dibuka. Lihat titiknya di peta.</string>
+    <string name="pilih_suggest_title">Usulkan daerahmu</string>
+    <string name="pilih_suggest_body">Ceritakan tempat budaya yang layak dibuka berikutnya.</string>
+    <string name="pilih_loading">Memuat wilayah</string>
+    <string name="pilih_empty">Belum ada wilayah yang bisa ditampilkan.</string>
+    <string name="status_available">Tersedia</string>
+    <string name="status_upcoming">Menyusul</string>
+    <string name="status_not_open">Belum dibuka</string>
+    <string name="status_upcoming_text">Sedang kami siapkan. Sumber resminya masih diperiksa tim.</string>
+    <string name="status_not_open_text">Belum dibuka. Kami baru membuka wilayah setelah sumber resminya diperiksa.</string>
+    <string name="pin_description">%1$s, %2$s</string>
+    <string name="island_java">Pulau Jawa</string>
+    <string name="region_places_meta">%1$s · %2$d tempat</string>
+    <string name="region_places_list">%1$s, dan %2$d tempat lainnya.</string>
+    <string name="region_places_list_all">%1$s.</string>
 </resources>

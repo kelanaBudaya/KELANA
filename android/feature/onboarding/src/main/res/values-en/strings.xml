@@ -1,8 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="intro_placeholder">Welcome, page %1$d of %2$d (coming soon)</string>
-    <string name="pilih_daerah_placeholder">Choose a region (coming soon)</string>
-    <string name="onboarding_continue">Continue</string>
-    <string name="onboarding_start">Start</string>
+    <!-- Mulai (01.01) -->
+    <string name="mulai_wordmark">kelana</string>
+    <string name="mulai_tagline">Your friend for exploring Nusantara culture</string>
+    <string name="mulai_start">Let\'s explore!</string>
     <string name="onboarding_have_account">Already have an account? Sign in</string>
+    <string name="mulai_logo_description">kelana logo</string>
+
+    <!-- Kenalan (01.02 to 01.04) -->
+    <string name="intro_skip">Skip</string>
+    <string name="intro_next">Next</string>
+    <string name="intro_progress">Step %1$d of %2$d</string>
+    <string name="intro1_title">Info straight from the operators</string>
+    <string name="intro1_body">Opening hours, ticket prices and visiting rules come from official sources. You also see when we last checked them.</string>
+    <string name="intro2_title">Know the show schedule before you go</string>
+    <string name="intro2_body">Sendratari, wayang and gamelan, with the etiquette for watching them. Sacred ceremonies only appear when their owners allow it.</string>
+    <string name="intro3_title">Arrive, take a stamp, fill your passport</string>
+    <string name="intro3_body">A stamp only unlocks when you are really at the place. Collect stamps, then tell the story of your visit with a postcard.</string>
+    <string name="intro3_start_jogja">Start from Jogja</string>
+    <string name="intro3_other_region">Choose another region</string>
+    <string name="intro1_illustration">Illustration: a museum building with an official info badge and a ticket</string>
+    <string name="intro2_illustration">Illustration: a calendar, a dancer and a gong</string>
+    <string name="intro3_illustration">Illustration: footprints, a route map and the Sonobudoyo stamp</string>
+
+    <!-- Pilih daerah (01.05) -->
+    <string name="pilih_title">Choose a region</string>
+    <string name="pilih_intro">KELANA opens regions one at a time, after the team has checked the official sources of each place.</string>
+    <string name="pilih_all_indonesia">See all of Indonesia</string>
+    <string name="pilih_zoom_in">Zoom in</string>
+    <string name="pilih_zoom_out">Zoom out</string>
+    <string name="pilih_map_description">Illustrated map of Indonesia with region dots</string>
+    <string name="pilih_legend_available">Available</string>
+    <string name="pilih_legend_upcoming">Coming soon</string>
+    <string name="pilih_legend_not_open">Not open yet</string>
+    <string name="pilih_map_hint">Hover or tap a dot to see details about the region. Map: Natural Earth.</string>
+    <string name="pilih_available_heading">READY TO EXPLORE</string>
+    <string name="pilih_choose_here">Explore here</string>
+    <string name="pilih_choose_region">Explore %1$s</string>
+    <string name="pilih_footer">%1$d regions coming soon and %2$d regions not open yet. See the dots on the map.</string>
+    <string name="pilih_suggest_title">Suggest your region</string>
+    <string name="pilih_suggest_body">Tell us about a cultural place that deserves to open next.</string>
+    <string name="pilih_loading">Loading regions</string>
+    <string name="pilih_empty">No regions to show yet.</string>
+    <string name="status_available">Available</string>
+    <string name="status_upcoming">Coming soon</string>
+    <string name="status_not_open">Not open yet</string>
+    <string name="status_upcoming_text">We are preparing it. The team is still checking its official sources.</string>
+    <string name="status_not_open_text">Not open yet. We only open a region after its official sources are checked.</string>
+    <string name="pin_description">%1$s, %2$s</string>
+    <string name="island_java">Java Island</string>
+    <string name="region_places_meta">%1$s · %2$d places</string>
+    <string name="region_places_list">%1$s, and %2$d more places.</string>
+    <string name="region_places_list_all">%1$s.</string>
 </resources>
