@@ -1,5 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="agenda_placeholder">Agenda (segera hadir)</string>
-    <string name="detail_pentas_placeholder">Detail pentas %1$s (segera hadir)</string>
+    <string name="agenda_title">Agenda budaya</string>
+    <string name="agenda_subtitle">%1$s · %2$s</string>
+    <string name="agenda_filter_all">Semua</string>
+    <string name="agenda_day_has_events_cd">%1$s, ada acara</string>
+    <string name="agenda_tonight">Malam ini</string>
+    <string name="agenda_tonight_other_day">Malam hari</string>
+    <string name="agenda_see_detail">Lihat detail</string>
+    <string name="agenda_also_today">Juga hari ini</string>
+    <string name="agenda_also_other_day">Juga pada hari itu</string>
+    <string name="agenda_today">Hari ini</string>
+    <string name="agenda_other_day">Pada hari itu</string>
+    <string name="agenda_empty_title">Belum ada acara di tanggal ini</string>
+    <string name="agenda_empty_body">Coba pilih tanggal lain atau pilih filter Semua.</string>
+    <string name="agenda_loading">Memuat agenda</string>
+    <string name="agenda_event_when">%1$s %2$s</string>
+    <string name="agenda_illustration_placeholder_cd">Ilustrasi acara (sementara)</string>
+
+    <string name="detail_title">Detail pentas</string>
+    <string name="detail_not_found_title">Pentas tidak ditemukan</string>
+    <string name="detail_not_found_body">Pentas ini mungkin sudah tidak ada dalam agenda.</string>
+    <string name="detail_place_and_duration">%1$s · %2$s</string>
+    <string name="detail_duration_hours">%1$d jam</string>
+    <string name="detail_duration_minutes">%1$d menit</string>
+    <string name="detail_duration_hours_minutes">%1$d jam %2$d menit</string>
+    <string name="detail_schedule_label">Jadwal</string>
+    <string name="detail_price_label">Harga</string>
+    <string name="detail_schedule_weekly">Setiap %1$s, %2$s sampai %3$s</string>
+    <string name="detail_schedule_weekly_no_end">Setiap %1$s, pukul %2$s</string>
+    <string name="detail_schedule_daily">Setiap hari, %1$s sampai %2$s</string>
+    <string name="detail_schedule_daily_no_end">Setiap hari, pukul %1$s</string>
+    <string name="detail_schedule_once">%1$s, %2$s sampai %3$s</string>
+    <string name="detail_schedule_once_no_end">%1$s, pukul %2$s</string>
+    <string name="detail_price_from">Mulai %1$s</string>
+    <string name="detail_price_free">Gratis atau tanpa tiket</string>
+    <string name="detail_source_note">Sumber: %1$s, dibuka %2$s</string>
+    <string name="detail_story_heading">Kisahnya</string>
+    <string name="detail_buy_ticket">Beli tiket</string>
+    <string name="detail_no_payment">KELANA tidak menerima pembayaran. Tiket dibeli di situs resmi penyelenggara.</string>
+    <string name="detail_illustration_placeholder_cd">Ilustrasi pentas (sementara)</string>
 </resources>

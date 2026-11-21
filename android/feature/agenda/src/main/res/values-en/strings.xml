@@ -1,5 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="agenda_placeholder">Agenda (coming soon)</string>
-    <string name="detail_pentas_placeholder">Show detail %1$s (coming soon)</string>
+    <string name="agenda_title">Cultural agenda</string>
+    <string name="agenda_subtitle">%1$s · %2$s</string>
+    <string name="agenda_filter_all">All</string>
+    <string name="agenda_day_has_events_cd">%1$s, has events</string>
+    <string name="agenda_tonight">Tonight</string>
+    <string name="agenda_tonight_other_day">That evening</string>
+    <string name="agenda_see_detail">See details</string>
+    <string name="agenda_also_today">Also today</string>
+    <string name="agenda_also_other_day">Also on that day</string>
+    <string name="agenda_today">Today</string>
+    <string name="agenda_other_day">On that day</string>
+    <string name="agenda_empty_title">No events on this date yet</string>
+    <string name="agenda_empty_body">Try another date or pick the All filter.</string>
+    <string name="agenda_loading">Loading agenda</string>
+    <string name="agenda_event_when">%1$s %2$s</string>
+    <string name="agenda_illustration_placeholder_cd">Event illustration (placeholder)</string>
+
+    <string name="detail_title">Show details</string>
+    <string name="detail_not_found_title">Show not found</string>
+    <string name="detail_not_found_body">This show may no longer be in the agenda.</string>
+    <string name="detail_place_and_duration">%1$s · %2$s</string>
+    <string name="detail_duration_hours">%1$d hr</string>
+    <string name="detail_duration_minutes">%1$d min</string>
+    <string name="detail_duration_hours_minutes">%1$d hr %2$d min</string>
+    <string name="detail_schedule_label">Schedule</string>
+    <string name="detail_price_label">Price</string>
+    <string name="detail_schedule_weekly">Every %1$s, %2$s to %3$s</string>
+    <string name="detail_schedule_weekly_no_end">Every %1$s, at %2$s</string>
+    <string name="detail_schedule_daily">Every day, %1$s to %2$s</string>
+    <string name="detail_schedule_daily_no_end">Every day, at %1$s</string>
+    <string name="detail_schedule_once">%1$s, %2$s to %3$s</string>
+    <string name="detail_schedule_once_no_end">%1$s, at %2$s</string>
+    <string name="detail_price_from">From %1$s</string>
+    <string name="detail_price_free">Free or no ticket</string>
+    <string name="detail_source_note">Source: %1$s, opened %2$s</string>
+    <string name="detail_story_heading">The story</string>
+    <string name="detail_buy_ticket">Buy tickets</string>
+    <string name="detail_no_payment">KELANA does not take payments. Tickets are bought on the organiser\'s official site.</string>
+    <string name="detail_illustration_placeholder_cd">Show illustration (placeholder)</string>
 </resources>
