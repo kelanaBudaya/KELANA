@@ -25,10 +25,12 @@ Times are Asia/Jakarta wall-clock. Cancelled dates go in `closures`.
 
 ## RLS rules (plain language)
 
-- Login is required for everything except reading `regions`.
+- Guests (no login, role `anon`) can browse: read `regions`, `places` (with `lat`/`lng`), published `opening_hours`, `closures`, `ticket_prices`, `events`, and call `place_facts`. Pending facts stay hidden from guests too.
+- Guests cannot read postcards, videos, profiles, stamps, reports or subscriptions, and cannot write anything. Those need login.
 - Only `published` facts (hours, closures, prices, events) are visible; a fact with `checked_at` null must be shown as "Harga sedang dicek".
 - Stamps: clients can only read their own; nobody on the client side can insert, update or delete (a service-role Edge Function will).
 - Postcards and videos: any logged-in user can read them immediately; inserting needs `user_id = self` and a stamp for the same place.
+- Visitor stories are for logged-in users only; the guest browse set above is the whole guest surface.
 - Own rows only for editing/deleting postcards, videos, reports, subscriptions, profile.
 
 ## Windows note
@@ -43,19 +45,19 @@ The same function is covered by `tests/rls.test.sql`.
 
 ## Android feature module -> endpoints
 
-| Module | Endpoints |
+| Module | Endpoints (guest = no login needed) |
 |---|---|
-| onboarding | GET regions, PATCH profiles (home_region_id) |
-| akun | Supabase Auth (Google / phone OTP), GET/PATCH/DELETE profiles |
-| jelajah | GET places, GET events, GET stamps (header card) |
-| tempat | GET places, RPC place_facts, GET postcards/videos (by place), POST reports |
-| cerita | GET/POST/PATCH/DELETE postcards and videos, Realtime on both tables, POST reports |
-| agenda | GET events, POST subscriptions |
-| paspor | GET stamps, GET places, POST functions/v1/verify-stamp |
-| postcard | POST postcards, Storage upload (photo_path) |
-| notifikasi | GET/POST/DELETE subscriptions |
-| tiket | GET ticket_prices, events.seller_url (opened in Custom Tab) |
-| rencana | GET places, opening_hours, closures, events (planner Edge Function later) |
-| peta | GET places |
+| onboarding | GET regions (guest), PATCH profiles (home_region_id, login) |
+| akun | Supabase Auth (Google / phone OTP), GET/PATCH/DELETE profiles (login) |
+| jelajah | GET places (guest), GET events (guest), GET stamps (login, header card; hide for guests) |
+| tempat | GET places (guest), RPC place_facts (guest), GET postcards/videos by place (login), POST reports (login) |
+| cerita | login only: GET/POST/PATCH/DELETE postcards and videos, Realtime on both tables, POST reports |
+| agenda | GET events (guest), POST subscriptions (login) |
+| paspor | login only: GET stamps, POST functions/v1/verify-stamp; GET places (guest) |
+| postcard | login only: POST postcards, Storage upload (photo_path) |
+| notifikasi | login only: GET/POST/DELETE subscriptions |
+| tiket | GET ticket_prices (guest), events.seller_url (opened in Custom Tab) |
+| rencana | GET places, opening_hours, closures, events (all guest; planner Edge Function later) |
+| peta | GET places (guest) |
 
 Full request/response shapes: `contract/kelana.openapi.yaml`.

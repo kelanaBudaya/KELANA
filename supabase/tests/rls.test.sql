@@ -1,6 +1,6 @@
 begin;
 create extension if not exists pgtap with schema extensions;
-select plan(72);
+select plan(91);
 
 -- ---- fixtures (as postgres) -------------------------------------------------
 -- A holds a stamp for Tamansari only. B holds no stamps.
@@ -61,21 +61,44 @@ select throws_ok($$insert into public.events (place_id, title, recurrence, start
   select id, 'x', 'weekly', '10:00' from public.places limit 1$$,
   '23514', null, 'weekly event requires weekday');
 
--- ---- anonymous: only regions ---------------------------------------------------
+-- ---- anonymous (guest): may browse official data, nothing personal -------------
 set local role anon;
 select cmp_ok((select count(*)::int from public.regions), '>', 0, 'anon can read regions');
-select throws_ok('select * from public.places', '42501', null, 'anon cannot read places');
-select throws_ok('select * from public.opening_hours', '42501', null, 'anon cannot read opening_hours');
-select throws_ok('select * from public.closures', '42501', null, 'anon cannot read closures');
-select throws_ok('select * from public.ticket_prices', '42501', null, 'anon cannot read ticket_prices');
-select throws_ok('select * from public.events', '42501', null, 'anon cannot read events');
+select is((select count(*)::int from public.places), 10, 'anon can read places');
+select cmp_ok((select count(*)::int from public.places where lat is not null and lng is not null), '=', 10,
+              'anon can read places.lat/lng');
+select cmp_ok((select count(*)::int from public.opening_hours), '>', 0, 'anon can read published opening_hours');
+select cmp_ok((select count(*)::int from public.ticket_prices), '>', 0, 'anon can read published ticket_prices');
+select cmp_ok((select count(*)::int from public.events), '>', 0, 'anon can read published events');
+select is((select count(*)::int from public.closures), (select count(*)::int from public.closures where review_status = 'published'),
+          'anon closures are published only');
+select is((select count(*)::int from public.opening_hours where review_status <> 'published'), 0, 'anon cannot see pending opening_hours');
+select is((select count(*)::int from public.closures where review_status <> 'published'), 0, 'anon cannot see pending closures');
+select is((select count(*)::int from public.ticket_prices where review_status <> 'published'), 0, 'anon cannot see pending ticket_prices');
+select is((select count(*)::int from public.events where review_status <> 'published'), 0, 'anon cannot see pending events');
+select is((select jsonb_array_length(public.place_facts((select id from public.places where slug = 'candi-prambanan'))->'ticket_prices')), 2,
+          'anon place_facts works and omits the pending Prambanan price');
 select throws_ok('select * from public.profiles', '42501', null, 'anon cannot read profiles');
 select throws_ok('select * from public.stamps', '42501', null, 'anon cannot read stamps');
 select throws_ok('select * from public.postcards', '42501', null, 'anon cannot read postcards');
 select throws_ok('select * from public.videos', '42501', null, 'anon cannot read videos');
 select throws_ok('select * from public.reports', '42501', null, 'anon cannot read reports');
 select throws_ok('select * from public.subscriptions', '42501', null, 'anon cannot read subscriptions');
-select throws_ok($$insert into public.regions (code, name) values ('X','X')$$, '42501', null, 'anon cannot write regions');
+select throws_ok($$insert into public.regions (code, name) values ('X','X')$$, '42501', null, 'anon cannot insert regions');
+select throws_ok($$insert into public.places (region_id, slug, name, category, cap_code, location)
+  values (1,'x','x','museum','X-1', 'SRID=4326;POINT(110 -7)')$$, '42501', null, 'anon cannot insert places');
+select throws_ok($$insert into public.opening_hours (place_id, weekday, is_closed) values (gen_random_uuid(),1,true)$$, '42501', null, 'anon cannot insert opening_hours');
+select throws_ok($$insert into public.closures (place_id, starts_on, ends_on) values (gen_random_uuid(),'2026-01-01','2026-01-02')$$, '42501', null, 'anon cannot insert closures');
+select throws_ok($$insert into public.ticket_prices (place_id, label) values (gen_random_uuid(),'x')$$, '42501', null, 'anon cannot insert ticket_prices');
+select throws_ok($$insert into public.events (place_id, title, recurrence, start_time) values (gen_random_uuid(),'x','daily','10:00')$$, '42501', null, 'anon cannot insert events');
+select throws_ok($$insert into public.profiles (id) values (gen_random_uuid())$$, '42501', null, 'anon cannot insert profiles');
+select throws_ok($$insert into public.stamps (user_id, place_id) values (gen_random_uuid(), gen_random_uuid())$$, '42501', null, 'anon cannot insert stamps');
+select throws_ok($$insert into public.postcards (user_id, place_id, message) values (gen_random_uuid(), gen_random_uuid(),'x')$$, '42501', null, 'anon cannot insert postcards');
+select throws_ok($$insert into public.videos (user_id, place_id) values (gen_random_uuid(), gen_random_uuid())$$, '42501', null, 'anon cannot insert videos');
+select throws_ok($$insert into public.reports (user_id, reason, place_id) values (gen_random_uuid(),'other', gen_random_uuid())$$, '42501', null, 'anon cannot insert reports');
+select throws_ok($$insert into public.subscriptions (user_id, category) values (gen_random_uuid(),'museum')$$, '42501', null, 'anon cannot insert subscriptions');
+select throws_ok($$update public.places set name = name$$, '42501', null, 'anon cannot update places');
+select throws_ok($$delete from public.events$$, '42501', null, 'anon cannot delete events');
 reset role;
 
 -- ---- stamps: no client write ----------------------------------------------------

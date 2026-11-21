@@ -7,8 +7,12 @@ info:
     - PostgREST (`/rest/v1`), generated from the Postgres schema in `supabase/migrations`.
     - Edge Function `POST /functions/v1/verify-stamp` (defined here, NOT implemented yet).
 
-    Every request needs `apikey: <anon key>` and, except `GET /regions`, an
-    `Authorization: Bearer <user JWT>` (login is required; there is no anonymous browsing).
+    Every request needs `apikey: <anon key>`. Guests (no login, Postgres role `anon`)
+    may browse: GET regions, places, opening_hours, closures, ticket_prices, events and
+    RPC place_facts accept the anon key alone (marked `security: anonKey | userJwt`).
+    Everything else (profiles, stamps, postcards, videos, reports, subscriptions,
+    verify-stamp) requires `Authorization: Bearer <user JWT>`; guests get 401/403 there.
+    Visitor stories (postcards, videos) are NOT readable by guests. Anon can never write.
     Row Level Security enforces the rules below. Official facts (hours, closures,
     prices, events) are returned only when `review_status = published`; render a fact
     only when `checked_at` is non-null, otherwise show "Harga sedang dicek".
@@ -22,7 +26,7 @@ paths:
   /rest/v1/regions:
     get:
       operationId: listRegions
-      summary: Region picker (the only endpoint readable without login)
+      summary: Region picker (guest allowed)
       security: [{ anonKey: [] }, { userJwt: [] }]
       parameters: [{ $ref: '#/components/parameters/order' }]
       responses:
@@ -30,6 +34,7 @@ paths:
   /rest/v1/places:
     get:
       operationId: listPlaces
+      security: [{ anonKey: [] }, { userJwt: [] }]
       summary: Places with numeric lat/lng, filterable by category, region, id or slug (PostgREST filters, e.g. category=eq.museum). Use select= to omit the internal location column.
       parameters:
         - { $ref: '#/components/parameters/select' }
@@ -43,6 +48,7 @@ paths:
   /rest/v1/opening_hours:
     get:
       operationId: listOpeningHours
+      security: [{ anonKey: [] }, { userJwt: [] }]
       summary: Published opening hours (filter place_id=eq.<uuid>)
       parameters: [{ $ref: '#/components/parameters/placeIdFilter' }]
       responses:
@@ -50,6 +56,7 @@ paths:
   /rest/v1/closures:
     get:
       operationId: listClosures
+      security: [{ anonKey: [] }, { userJwt: [] }]
       summary: Published closures (filter place_id=eq.<uuid>)
       parameters: [{ $ref: '#/components/parameters/placeIdFilter' }]
       responses:
@@ -57,6 +64,7 @@ paths:
   /rest/v1/ticket_prices:
     get:
       operationId: listTicketPrices
+      security: [{ anonKey: [] }, { userJwt: [] }]
       summary: Published ticket prices (information only; seller_url opens in a Custom Tab, no checkout)
       parameters: [{ $ref: '#/components/parameters/placeIdFilter' }]
       responses:
@@ -64,6 +72,7 @@ paths:
   /rest/v1/events:
     get:
       operationId: listEvents
+      security: [{ anonKey: [] }, { userJwt: [] }]
       summary: Published events. Recurrence 'once' uses event_date, 'weekly' uses ISO weekday (1=Senin..7=Minggu), 'daily' neither.
       parameters:
         - { $ref: '#/components/parameters/placeIdFilter' }
@@ -73,6 +82,7 @@ paths:
   /rest/v1/rpc/place_facts:
     post:
       operationId: placeFacts
+      security: [{ anonKey: [] }, { userJwt: [] }]
       summary: All published facts of one place in one call (RLS still applies)
       requestBody:
         required: true
