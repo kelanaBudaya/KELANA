@@ -1,23 +1,29 @@
 package id.kelana.feature.agenda
 
+import androidx.annotation.DrawableRes
 import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.statusBarsPadding
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.selection.selectable
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -27,35 +33,39 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.selected
 import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 import id.kelana.core.designsystem.component.EmptyState
-import id.kelana.core.designsystem.component.EventRow
-import id.kelana.core.designsystem.component.KelanaButton
-import id.kelana.core.designsystem.component.KelanaButtonVariant
-import id.kelana.core.designsystem.component.KelanaChip
-import id.kelana.core.designsystem.component.VerifiedBadge
+import id.kelana.core.designsystem.theme.ChipLabel
+import id.kelana.core.designsystem.theme.FrauncesFontFamily
 import id.kelana.core.designsystem.theme.KelanaShapes
+import id.kelana.core.designsystem.theme.KelanaSizes
 import id.kelana.core.designsystem.theme.KelanaSpacing
 import id.kelana.core.designsystem.theme.KelanaTheme
 import id.kelana.core.model.EventOccurrence
 import id.kelana.core.model.EventTag
-import id.kelana.core.model.PlaceCategory
 import id.kelana.core.navigation.AgendaRoute
 import id.kelana.core.navigation.DetailPentasRoute
+import id.kelana.core.navigation.PetaRoute
+import id.kelana.core.ui.formatClock
 import id.kelana.core.ui.formatTimeRange
-import id.kelana.core.ui.label
 import java.time.LocalDate
 
 /**
@@ -76,16 +86,18 @@ internal fun AgendaScreen(navigate: (Any) -> Unit, viewModel: AgendaViewModel = 
         onSelectDate = viewModel::selectDate,
         onSelectFilter = viewModel::selectFilter,
         onOpenEvent = { navigate(DetailPentasRoute(it)) },
+        onOpenMap = { navigate(PetaRoute) },
     )
 }
 
-// Layout from overview slide conv 4 (left phone), not the Figma frame 03.01 (not exported): PROVISIONAL.
+// Layout from docs/design/artifact/AgendaIlustratif.dc.html (screen 3.1), compared as code, not as a render.
 @Composable
 internal fun AgendaContent(
     state: AgendaUiState,
     onSelectDate: (LocalDate) -> Unit,
     onSelectFilter: (EventTag?) -> Unit,
     onOpenEvent: (String) -> Unit,
+    onOpenMap: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
     val colors = KelanaTheme.colors
@@ -95,23 +107,8 @@ internal fun AgendaContent(
             .background(colors.background)
             .statusBarsPadding(),
         contentPadding = PaddingValues(bottom = KelanaSpacing.lg),
-        verticalArrangement = Arrangement.spacedBy(KelanaSpacing.md),
     ) {
-        item {
-            Column(Modifier.padding(horizontal = KelanaSpacing.gutter, vertical = KelanaSpacing.md)) {
-                Text(
-                    text = stringResource(R.string.agenda_title),
-                    style = MaterialTheme.typography.headlineMedium,
-                    color = colors.ink,
-                )
-                val month = formatMonthYear(state.selectedDate)
-                Text(
-                    text = state.regionName?.let { stringResource(R.string.agenda_subtitle, it, month) } ?: month,
-                    style = MaterialTheme.typography.bodyMedium,
-                    color = colors.muted,
-                )
-            }
-        }
+        item { AgendaHeader(state, onOpenMap) }
         item { DateStrip(state.days, state.selectedDate, onSelectDate) }
         if (state.filters.isNotEmpty()) {
             item { FilterRow(state.filters, state.selectedFilter, onSelectFilter) }
@@ -125,16 +122,19 @@ internal fun AgendaContent(
             }
         } else {
             val isToday = state.selectedDate == state.today
+            val rowModifier = Modifier.padding(horizontal = KelanaSpacing.gutter).padding(top = 10.dp)
             state.tonight?.let { tonight ->
                 item {
                     TonightCard(
                         occurrence = tonight,
                         isToday = isToday,
                         onOpen = { onOpenEvent(tonight.event.id) },
-                        modifier = Modifier.padding(horizontal = KelanaSpacing.gutter),
+                        modifier = Modifier.padding(start = KelanaSpacing.gutter, end = KelanaSpacing.gutter, top = 16.dp),
                     )
                 }
             }
+            // The first heading of the list sits 20 dp below what is above it, every later item 10 dp.
+            var firstHeading = true
             if (state.alsoToday.isNotEmpty()) {
                 item {
                     val heading = when {
@@ -143,10 +143,11 @@ internal fun AgendaContent(
                         isToday -> R.string.agenda_today
                         else -> R.string.agenda_other_day
                     }
-                    SectionHeading(stringResource(heading))
+                    SectionHeading(stringResource(heading), first = true)
                 }
+                firstHeading = false
                 items(state.alsoToday, key = { "${it.event.id}-${it.date}" }) { occurrence ->
-                    OccurrenceRow(occurrence, onOpenEvent, Modifier.padding(horizontal = KelanaSpacing.gutter))
+                    OccurrenceRow(occurrence, onOpenEvent, rowModifier)
                 }
             }
             if (state.isSelectedDayEmpty) {
@@ -158,9 +159,11 @@ internal fun AgendaContent(
                 }
             }
             state.upcoming.forEach { section ->
-                item(key = "heading-${section.date}") { SectionHeading(formatDayLong(section.date)) }
+                val first = firstHeading
+                firstHeading = false
+                item(key = "heading-${section.date}") { SectionHeading(formatDayLong(section.date), first) }
                 items(section.items, key = { "${it.event.id}-${it.date}" }) { occurrence ->
-                    OccurrenceRow(occurrence, onOpenEvent, Modifier.padding(horizontal = KelanaSpacing.gutter))
+                    OccurrenceRow(occurrence, onOpenEvent, rowModifier)
                 }
             }
         }
@@ -168,20 +171,75 @@ internal fun AgendaContent(
 }
 
 @Composable
-private fun SectionHeading(text: String) {
+private fun AgendaHeader(state: AgendaUiState, onOpenMap: () -> Unit) {
+    val colors = KelanaTheme.colors
+    Row(
+        modifier = Modifier.fillMaxWidth().padding(start = 20.dp, end = 20.dp, top = 18.dp),
+        horizontalArrangement = Arrangement.SpaceBetween,
+        verticalAlignment = Alignment.Top,
+    ) {
+        Column(Modifier.weight(1f)) {
+            Text(
+                text = stringResource(R.string.agenda_title),
+                style = MaterialTheme.typography.headlineMedium,
+                color = colors.ink,
+            )
+            val month = formatMonthYear(state.selectedDate)
+            Text(
+                text = state.regionName?.let { stringResource(R.string.agenda_subtitle, it, month) } ?: month,
+                modifier = Modifier.padding(top = 4.dp),
+                style = MaterialTheme.typography.bodyMedium.copy(lineHeight = 20.sp),
+                color = colors.muted,
+            )
+        }
+        val mapDescription = stringResource(R.string.agenda_map_cd)
+        Box(
+            modifier = Modifier
+                .padding(start = 12.dp)
+                .size(KelanaSizes.inputHeight)
+                .clip(CircleShape)
+                .background(colors.backgroundWarm)
+                .clickable(role = Role.Button, onClick = onOpenMap)
+                .semantics { contentDescription = mapDescription },
+            contentAlignment = Alignment.Center,
+        ) {
+            Image(painterResource(R.drawable.agenda_ic_map), contentDescription = null, modifier = Modifier.size(24.dp))
+        }
+    }
+}
+
+@Composable
+private fun SectionHeading(text: String, first: Boolean) {
     Text(
         text = text,
-        modifier = Modifier.padding(horizontal = KelanaSpacing.gutter).padding(top = KelanaSpacing.sm),
-        style = MaterialTheme.typography.titleMedium,
+        modifier = Modifier
+            .padding(horizontal = KelanaSpacing.gutter)
+            .padding(top = if (first) 20.dp else 10.dp),
+        style = MaterialTheme.typography.titleLarge,
         color = KelanaTheme.colors.ink,
     )
 }
+
+// PROVISIONAL: the 18 dp radius of the day tiles has no token (artifact: 54 x 74, radius 18).
+private val DayTileShape = RoundedCornerShape(18.dp)
+
+// PROVISIONAL: the 24 dp radius of the hero card has no token (artifact: border-radius 24).
+private val HeroShape = RoundedCornerShape(24.dp)
+
+/** Fraunces 22/26 w600 in the artifact; the bundled static Fraunces has Regular and Bold, Bold is the closest. */
+private val HeroTitle = TextStyle(
+    fontFamily = FrauncesFontFamily,
+    fontWeight = FontWeight.Bold,
+    fontSize = 22.sp,
+    lineHeight = 26.sp,
+)
 
 @Composable
 private fun DateStrip(days: List<AgendaDay>, selected: LocalDate, onSelect: (LocalDate) -> Unit) {
     val colors = KelanaTheme.colors
     LazyRow(
-        contentPadding = PaddingValues(horizontal = KelanaSpacing.gutter),
+        modifier = Modifier.padding(top = 14.dp),
+        contentPadding = PaddingValues(horizontal = KelanaSpacing.gutterWide),
         horizontalArrangement = Arrangement.spacedBy(KelanaSpacing.sm),
     ) {
         items(days, key = { it.date.toString() }) { day ->
@@ -193,30 +251,31 @@ private fun DateStrip(days: List<AgendaDay>, selected: LocalDate, onSelect: (Loc
             }
             Column(
                 modifier = Modifier
-                    .width(48.dp)
-                    .heightIn(min = 72.dp)
-                    .background(if (isSelected) colors.navy else colors.surface, KelanaShapes.button)
+                    .size(width = 54.dp, height = 74.dp)
+                    .clip(DayTileShape)
+                    .background(if (isSelected) colors.primary else colors.surface)
+                    .then(if (isSelected) Modifier else Modifier.border(1.dp, colors.outline, DayTileShape))
                     .clickable(role = Role.Tab) { onSelect(day.date) }
                     .semantics {
                         this.selected = isSelected
                         contentDescription = description
-                    }
-                    .padding(vertical = KelanaSpacing.sm),
+                    },
                 horizontalAlignment = Alignment.CenterHorizontally,
-                verticalArrangement = Arrangement.spacedBy(KelanaSpacing.xs, Alignment.CenterVertically),
+                verticalArrangement = Arrangement.spacedBy(3.dp, Alignment.CenterVertically),
             ) {
                 val textColor = if (isSelected) colors.white else colors.ink
-                Text(formatDayShort(day.date), style = MaterialTheme.typography.bodySmall, color = textColor)
+                Text(formatDayShort(day.date), style = MaterialTheme.typography.labelMedium, color = textColor)
                 Text(
                     day.date.dayOfMonth.toString(),
-                    style = MaterialTheme.typography.titleMedium,
+                    style = MaterialTheme.typography.headlineSmall.copy(fontSize = 20.sp, lineHeight = 24.sp),
                     color = textColor,
                 )
-                Box(
-                    Modifier
-                        .size(6.dp)
-                        .background(if (day.hasEvents) colors.accentOrange else Color.Transparent, CircleShape),
-                )
+                val dot = when {
+                    !day.hasEvents -> Color.Transparent
+                    isSelected -> colors.stampYellow
+                    else -> colors.accentOrange
+                }
+                Box(Modifier.size(6.dp).background(dot, CircleShape))
             }
         }
     }
@@ -225,18 +284,45 @@ private fun DateStrip(days: List<AgendaDay>, selected: LocalDate, onSelect: (Loc
 @Composable
 private fun FilterRow(filters: List<EventTag>, selected: EventTag?, onSelect: (EventTag?) -> Unit) {
     LazyRow(
-        contentPadding = PaddingValues(horizontal = KelanaSpacing.gutter),
+        modifier = Modifier.padding(top = 14.dp),
+        contentPadding = PaddingValues(horizontal = KelanaSpacing.gutterWide),
         horizontalArrangement = Arrangement.spacedBy(KelanaSpacing.sm),
     ) {
         item {
-            KelanaChip(stringResource(R.string.agenda_filter_all), selected == null, onClick = { onSelect(null) })
+            AgendaChip(stringResource(R.string.agenda_filter_all), selected == null, null) { onSelect(null) }
         }
         items(filters, key = { it.key }) { tag ->
-            KelanaChip(tag.label(), selected == tag, onClick = { onSelect(tag) })
+            val icon = when (tag) {
+                EventTag.Tari -> R.drawable.agenda_art_tari
+                EventTag.Wayang -> R.drawable.agenda_art_wayang
+                EventTag.RamahAnak -> null
+            }
+            AgendaChip(tag.label(), selected == tag, icon) { onSelect(tag) }
         }
     }
 }
 
+/** Filter chip with an optional 16 dp mark before the label (the shared KelanaChip has no icon slot). */
+@Composable
+private fun AgendaChip(label: String, selected: Boolean, @DrawableRes icon: Int?, onClick: () -> Unit) {
+    val colors = KelanaTheme.colors
+    Row(
+        modifier = Modifier
+            .height(KelanaSizes.chipHeight)
+            .clip(KelanaShapes.chip)
+            .background(if (selected) colors.primary else colors.surface)
+            .border(1.5.dp, if (selected) colors.primary else colors.outline, KelanaShapes.chip)
+            .selectable(selected = selected, role = Role.Tab, onClick = onClick)
+            .padding(horizontal = 14.dp),
+        horizontalArrangement = Arrangement.spacedBy(6.dp, Alignment.CenterHorizontally),
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        if (icon != null) Image(painterResource(icon), contentDescription = null, modifier = Modifier.size(16.dp))
+        Text(label, style = ChipLabel, color = if (selected) colors.white else colors.ink)
+    }
+}
+
+/** "Malam ini" hero card, 358 x 190 (AgendaIlustratif): primary panel, radius 24, illustration on the right. */
 @Composable
 private fun TonightCard(
     occurrence: EventOccurrence,
@@ -246,85 +332,134 @@ private fun TonightCard(
 ) {
     val colors = KelanaTheme.colors
     val event = occurrence.event
-    Surface(
-        modifier = modifier.fillMaxWidth(),
-        shape = KelanaShapes.card,
-        color = colors.creamYellowAlt,
-        border = BorderStroke(1.dp, colors.outline),
+    val schedule = event.schedule.value
+    val label = stringResource(
+        R.string.agenda_tonight_label,
+        stringResource(if (isToday) R.string.agenda_tonight else R.string.agenda_tonight_other_day),
+        formatClock(schedule.start),
+    ).uppercase(IdLocale)
+    val placeLine = schedule.end?.let { stringResource(R.string.agenda_ends_at, event.placeName, formatClock(it)) }
+        ?: event.placeName
+    Box(
+        modifier = modifier
+            .fillMaxWidth()
+            .heightIn(min = 190.dp)
+            .clip(HeroShape)
+            .background(colors.primary)
+            .clickable(role = Role.Button, onClick = onOpen),
     ) {
-        Column(Modifier.padding(KelanaSpacing.gutter), verticalArrangement = Arrangement.spacedBy(KelanaSpacing.xs)) {
+        Image(
+            painter = painterResource(R.drawable.agenda_hero_bg),
+            contentDescription = null,
+            modifier = Modifier.matchParentSize(),
+            contentScale = ContentScale.Crop,
+        )
+        // Offsets are measured from the right edge of the 358 dp card; the marks' drop shadows are skipped.
+        Image(
+            painter = painterResource(R.drawable.agenda_art_tari),
+            contentDescription = null,
+            modifier = Modifier.align(Alignment.TopEnd).padding(end = 24.dp, top = 40.dp).size(110.dp).rotate(-6f),
+        )
+        Image(
+            painter = painterResource(R.drawable.agenda_art_stamp),
+            contentDescription = null,
+            modifier = Modifier.align(Alignment.TopEnd).padding(end = 128.dp, top = 120.dp).size(50.dp).rotate(6f),
+        )
+        Column(Modifier.padding(start = 18.dp, top = 18.dp, end = 160.dp, bottom = 18.dp)) {
             Text(
-                text = stringResource(if (isToday) R.string.agenda_tonight else R.string.agenda_tonight_other_day),
-                style = MaterialTheme.typography.bodySmall.copy(fontWeight = FontWeight.Bold),
-                color = colors.accentOrange,
+                text = label,
+                style = MaterialTheme.typography.labelMedium.copy(fontWeight = FontWeight.ExtraBold, letterSpacing = 0.6.sp),
+                color = colors.stampYellow,
             )
-            Text(event.title, style = MaterialTheme.typography.headlineSmall, color = colors.ink)
-            Text(event.placeName, style = MaterialTheme.typography.bodyMedium, color = colors.muted)
-            Text(whenText(occurrence), style = MaterialTheme.typography.bodyMedium, color = colors.muted)
-            event.schedule.checkedAt?.let {
-                VerifiedBadge(checkedAt = it, modifier = Modifier.padding(top = KelanaSpacing.xs))
+            Text(
+                text = event.title,
+                modifier = Modifier.padding(top = 6.dp),
+                style = HeroTitle,
+                color = colors.white,
+            )
+            Text(
+                text = placeLine,
+                modifier = Modifier.padding(top = 4.dp),
+                style = MaterialTheme.typography.bodySmall,
+                color = colors.skyText,
+            )
+            Box(
+                modifier = Modifier
+                    .padding(top = 12.dp)
+                    .height(32.dp)
+                    .background(colors.stampYellow, KelanaShapes.button)
+                    .padding(horizontal = 12.dp),
+                contentAlignment = Alignment.Center,
+            ) {
+                Text(
+                    text = stringResource(R.string.agenda_see_detail),
+                    style = MaterialTheme.typography.bodySmall.copy(fontWeight = FontWeight.ExtraBold),
+                    color = colors.navy,
+                )
             }
-            KelanaButton(
-                text = stringResource(R.string.agenda_see_detail),
-                onClick = onOpen,
-                modifier = Modifier.padding(top = KelanaSpacing.sm),
-                variant = KelanaButtonVariant.Secondary,
-            )
         }
     }
 }
 
+/** Event row of AgendaIlustratif: radius 20, 12 dp padding, 60 dp tile with a 40 dp mark, badge and chevron. */
 @Composable
 private fun OccurrenceRow(occurrence: EventOccurrence, onOpen: (String) -> Unit, modifier: Modifier = Modifier) {
-    val event = occurrence.event
-    EventRow(
-        title = event.title,
-        place = event.placeName,
-        whenText = whenText(occurrence),
-        onClick = { onOpen(event.id) },
-        modifier = modifier,
-        badge = event.schedule.checkedAt?.let { checked -> { VerifiedBadge(checkedAt = checked) } },
-        leading = { CoverPlaceholder(event.category, Modifier.fillMaxSize()) },
-    )
-}
-
-@Composable
-private fun whenText(occurrence: EventOccurrence): String {
-    val schedule = occurrence.event.schedule.value
-    return stringResource(
-        R.string.agenda_event_when,
-        weekdayName(occurrence.date.dayOfWeek),
-        formatTimeRange(schedule.start, schedule.end),
-    )
-}
-
-/**
- * PROVISIONAL placeholder for the illustrated event cover: the cover SVGs are not in :core:designsystem yet.
- * Shows the category initial on a warm tile; replace with the real cover drawable when it exists.
- */
-@Composable
-internal fun CoverPlaceholder(category: PlaceCategory, modifier: Modifier = Modifier) {
     val colors = KelanaTheme.colors
-    val description = stringResource(R.string.agenda_illustration_placeholder_cd)
-    Box(
-        modifier = modifier
-            .background(colors.creamYellow)
-            .semantics { contentDescription = description },
-        contentAlignment = Alignment.Center,
+    val event = occurrence.event
+    val art = eventArt(event)
+    val schedule = event.schedule.value
+    Surface(
+        modifier = modifier.fillMaxWidth(),
+        shape = KelanaShapes.listCard,
+        color = colors.surface,
+        border = BorderStroke(1.dp, colors.outline),
+        onClick = { onOpen(event.id) },
     ) {
-        Text(
-            text = category.label().take(1),
-            style = MaterialTheme.typography.headlineSmall,
-            color = colors.accentOrange,
-            textAlign = TextAlign.Center,
-        )
+        Row(
+            modifier = Modifier.padding(KelanaSpacing.md),
+            horizontalArrangement = Arrangement.spacedBy(KelanaSpacing.md),
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            Box(
+                modifier = Modifier.size(KelanaSizes.listThumb).background(art.tile, KelanaShapes.card),
+                contentAlignment = Alignment.Center,
+            ) {
+                Image(painterResource(art.icon), contentDescription = null, modifier = Modifier.size(40.dp))
+            }
+            Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(3.dp)) {
+                Text(
+                    text = event.title,
+                    style = MaterialTheme.typography.titleMedium,
+                    color = colors.ink,
+                    maxLines = 2,
+                    overflow = TextOverflow.Ellipsis,
+                )
+                Text(
+                    text = stringResource(
+                        R.string.agenda_place_when,
+                        event.placeName,
+                        formatTimeRange(schedule.start, schedule.end),
+                    ),
+                    style = MaterialTheme.typography.bodySmall,
+                    color = colors.muted,
+                )
+                event.schedule.checkedAt?.let { CheckedBadge(it, Modifier.padding(top = 2.dp)) }
+            }
+            Image(painterResource(R.drawable.agenda_ic_chevron), contentDescription = null, modifier = Modifier.size(18.dp))
+        }
     }
 }
 
 @Preview(showBackground = true, widthDp = 390, heightDp = 900)
 @Composable
 private fun AgendaPreview() {
-    KelanaTheme { AgendaContent(PreviewData.agendaState, {}, {}, {}) }
+    KelanaTheme { AgendaContent(PreviewData.agendaState, {}, {}, {}, {}) }
+}
+
+@Preview(showBackground = true, widthDp = 390, heightDp = 900)
+@Composable
+private fun AgendaSelectedFilterPreview() {
+    KelanaTheme { AgendaContent(PreviewData.agendaState.copy(selectedFilter = EventTag.Tari), {}, {}, {}, {}) }
 }
 
 @Preview(showBackground = true, widthDp = 390, heightDp = 500)
@@ -336,6 +471,7 @@ private fun AgendaEmptyPreview() {
             {},
             {},
             {},
+            {},
         )
     }
 }
@@ -344,6 +480,6 @@ private fun AgendaEmptyPreview() {
 @Composable
 private fun AgendaLoadingPreview() {
     KelanaTheme {
-        AgendaContent(AgendaUiState(today = PreviewData.today, selectedDate = PreviewData.today), {}, {}, {})
+        AgendaContent(AgendaUiState(today = PreviewData.today, selectedDate = PreviewData.today), {}, {}, {}, {})
     }
 }
