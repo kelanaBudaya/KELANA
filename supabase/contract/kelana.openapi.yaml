@@ -12,7 +12,7 @@ info:
     RPC place_facts accept the anon key alone (marked `security: anonKey | userJwt`).
     Everything else (profiles, stamps, postcards, videos, reports, subscriptions,
     verify-stamp) requires `Authorization: Bearer <user JWT>`; guests get 401/403 there.
-    Visitor stories (postcards, videos) are NOT readable by guests. Anon can never write.
+    Visitor stories (postcards, videos, and the postcard photo files in Storage) are NOT readable by guests. Video files live in Cloudflare Stream/Mux, not Supabase Storage. Anon can never write.
     Row Level Security enforces the rules below. Official facts (hours, closures,
     prices, events) are returned only when `review_status = published`; render a fact
     only when `checked_at` is non-null, otherwise show "Harga sedang dicek".
@@ -191,6 +191,62 @@ paths:
     delete:
       operationId: deleteOwnSubscription
       responses: { '204': { description: Deleted } }
+  /storage/v1/object/postcards/{user_id}/{place_id}/{filename}:
+    parameters:
+      - { name: user_id, in: path, required: true, schema: { type: string, format: uuid }, description: must equal the caller's uid }
+      - { name: place_id, in: path, required: true, schema: { type: string, format: uuid }, description: a place the caller holds a stamp for }
+      - { name: filename, in: path, required: true, schema: { type: string } }
+    post:
+      operationId: uploadPostcardPhoto
+      summary: Upload a postcard photo (login required)
+      description: |
+        Bucket `postcards` (private, max 5 MB, image/jpeg, image/png, image/webp).
+        Allowed only when the first path segment is the caller's uid AND the caller holds a
+        stamp for the place in the second segment. Otherwise 403 (RLS). Then store the object
+        path (`<user_id>/<place_id>/<filename>`) in `postcards.photo_path`.
+        Update: `PUT` on the same path (own folder, stamp rule still applies). Delete: `DELETE`.
+      security: [{ userJwt: [] }]
+      requestBody: { required: true, content: { image/jpeg: {}, image/png: {}, image/webp: {} } }
+      responses:
+        '200': { description: Uploaded }
+        '400': { description: File too large or mime type not allowed }
+        '403': { description: Not own folder, or no stamp for that place }
+    get:
+      operationId: downloadPostcardPhoto
+      summary: Download a postcard photo (any logged-in user; guests get 400/404)
+      description: Bucket is private, so use this authenticated endpoint (or a signed URL via `POST /storage/v1/object/sign/postcards/...`), not the /public/ path.
+      security: [{ userJwt: [] }]
+      responses:
+        '200': { description: Image bytes }
+        '400': { description: Not found or not allowed (also for guests) }
+    delete:
+      operationId: deletePostcardPhoto
+      summary: Delete own postcard photo only
+      security: [{ userJwt: [] }]
+      responses: { '200': { description: Deleted } }
+  /storage/v1/object/report-photos/{user_id}/{filename}:
+    parameters:
+      - { name: user_id, in: path, required: true, schema: { type: string, format: uuid }, description: must equal the caller's uid }
+      - { name: filename, in: path, required: true, schema: { type: string } }
+    post:
+      operationId: uploadReportPhoto
+      summary: Upload a report photo (login required)
+      description: Bucket `report-photos` (private, max 5 MB, jpeg/png/webp). Own folder only. Store the path in `reports.photo_path`.
+      security: [{ userJwt: [] }]
+      requestBody: { required: true, content: { image/jpeg: {}, image/png: {}, image/webp: {} } }
+      responses:
+        '200': { description: Uploaded }
+        '403': { description: Not own folder }
+    get:
+      operationId: downloadReportPhoto
+      summary: Download own report photo only (nobody else can read it)
+      security: [{ userJwt: [] }]
+      responses: { '200': { description: Image bytes }, '400': { description: Not found or not yours } }
+    delete:
+      operationId: deleteReportPhoto
+      summary: Delete own report photo only
+      security: [{ userJwt: [] }]
+      responses: { '200': { description: Deleted } }
   /functions/v1/verify-stamp:
     post:
       operationId: verifyStamp
