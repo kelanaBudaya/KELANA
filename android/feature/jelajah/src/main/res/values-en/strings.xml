@@ -42,11 +42,11 @@
     <string name="cari_empty_body">Try another keyword or browse by category.</string>
     <string name="event_when">%1$s %2$s</string>
     <string name="event_checking">Schedule being checked</string>
-    <string name="kategori_subtitle_museum">Collections and cultural exhibitions</string>
-    <string name="kategori_subtitle_candi">Temples and historic sites</string>
-    <string name="kategori_subtitle_tari">Dance and sendratari performances</string>
+    <string name="kategori_subtitle_museum">%1$d museums in Yogyakarta</string>
+    <string name="kategori_subtitle_candi">Sites, reliefs and their stories</string>
+    <string name="kategori_subtitle_tari">Performances with official schedules</string>
     <string name="kategori_subtitle_topeng">Mask performances and collections</string>
-    <string name="kategori_subtitle_gamelan">Gamelan and karawitan</string>
+    <string name="kategori_subtitle_gamelan">Wayang, karawitan and stage music</string>
     <string name="kategori_subtitle_other">Selected cultural places</string>
     <string name="kategori_unknown">Category</string>
     <string name="filter_open_today">Open today</string>
@@ -57,6 +57,11 @@
     <string name="filter_empty_title">No matching places yet</string>
     <string name="filter_empty_body">Try turning off a filter or picking another category.</string>
     <string name="semua_title">All places</string>
-    <string name="semua_subtitle">Cultural places in DI Yogyakarta</string>
+    <string name="semua_subtitle">%1$d places in DI Yogyakarta</string>
     <string name="back_cd">Back</string>
+    <string name="home_stamp_code">YK</string>
+    <string name="home_stamp_cd">YK sticker</string>
+    <string name="challenge_progress_cd">Challenge progress</string>
+    <string name="badge_checked">Checked %1$s</string>
+    <string name="badge_cap">Stamp %1$s</string>
 </resources>

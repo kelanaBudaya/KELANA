@@ -42,11 +42,11 @@
     <string name="cari_empty_body">Coba kata kunci lain atau jelajahi lewat kategori.</string>
     <string name="event_when">%1$s %2$s</string>
     <string name="event_checking">Jadwal sedang dicek</string>
-    <string name="kategori_subtitle_museum">Koleksi dan pameran budaya</string>
-    <string name="kategori_subtitle_candi">Candi dan situs bersejarah</string>
-    <string name="kategori_subtitle_tari">Pentas tari dan sendratari</string>
+    <string name="kategori_subtitle_museum">%1$d museum di Yogyakarta</string>
+    <string name="kategori_subtitle_candi">Situs, relief, dan kisahnya</string>
+    <string name="kategori_subtitle_tari">Pentas dengan jadwal resmi</string>
     <string name="kategori_subtitle_topeng">Pentas dan koleksi topeng</string>
-    <string name="kategori_subtitle_gamelan">Gamelan dan karawitan</string>
+    <string name="kategori_subtitle_gamelan">Wayang, karawitan, dan iringan pentas</string>
     <string name="kategori_subtitle_other">Tempat budaya pilihan</string>
     <string name="kategori_unknown">Kategori</string>
     <string name="filter_open_today">Buka hari ini</string>
@@ -57,6 +57,11 @@
     <string name="filter_empty_title">Belum ada tempat yang cocok</string>
     <string name="filter_empty_body">Coba matikan filter atau pilih kategori lain.</string>
     <string name="semua_title">Semua tempat</string>
-    <string name="semua_subtitle">Tempat budaya di DI Yogyakarta</string>
+    <string name="semua_subtitle">%1$d tempat di DI Yogyakarta</string>
     <string name="back_cd">Kembali</string>
+    <string name="home_stamp_code">YK</string>
+    <string name="home_stamp_cd">Stiker YK</string>
+    <string name="challenge_progress_cd">Progres tantangan</string>
+    <string name="badge_checked">Diperiksa %1$s</string>
+    <string name="badge_cap">Cap %1$s</string>
 </resources>
