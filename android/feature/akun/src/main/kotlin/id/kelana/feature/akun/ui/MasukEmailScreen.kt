@@ -70,7 +70,8 @@ internal fun MasukEmailContent(
             .navigationBarsPadding()
             .imePadding(),
     ) {
-        KelanaBackTopBar(title = stringResource(R.string.email_masuk_topbar), onBack = onBack)
+        // Back arrow only: the heading below carries the title (no duplicate text).
+        KelanaBackTopBar(title = "", onBack = onBack)
         Column(
             modifier = Modifier
                 .verticalScroll(rememberScrollState())

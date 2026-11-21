@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="akun_placeholder">Account (coming soon)</string>
     <string name="masuk_title">Save your passport and plans</string>
     <string name="masuk_subtitle">Sign in so your stamps and plans are not lost when you change phones.</string>
     <string name="masuk_google">Continue with Google</string>
@@ -15,13 +14,11 @@
     <string name="masuk_email">Continue with email</string>
     <string name="masuk_daftar_prompt">No account yet?</string>
     <string name="masuk_daftar_link">Sign up</string>
-    <string name="email_masuk_topbar">Sign in with email</string>
     <string name="email_masuk_title">Sign in with email</string>
     <string name="email_masuk_subtitle">Use the email and password you signed up with.</string>
     <string name="email_masuk_button">Sign in</string>
     <string name="email_masuk_to_daftar_prompt">No account yet?</string>
     <string name="email_masuk_to_daftar_link">Sign up</string>
-    <string name="email_daftar_topbar">Sign up</string>
     <string name="email_daftar_title">Create an account</string>
     <string name="email_daftar_subtitle">Sign up with an email and password. Your account is active right away.</string>
     <string name="email_daftar_button">Sign up</string>
@@ -46,4 +43,21 @@
     <string name="email_error_network">No connection. Check your internet, then try again.</string>
     <string name="email_error_not_configured">Sign-in is not available because the account service is not set up. Try again later.</string>
     <string name="email_error_generic">Something went wrong. Try again.</string>
+    <string name="profil_back">Back</string>
+    <string name="profil_section_perjalanan">JOURNEY</string>
+    <string name="profil_section_bantuan">HELP</string>
+    <string name="profil_row_paspor">Passport</string>
+    <string name="profil_row_daerah">Region</string>
+    <string name="profil_row_daerah_value">DI Yogyakarta</string>
+    <string name="profil_row_kebutuhan">Travel needs</string>
+    <string name="profil_row_kebutuhan_sub">Wheelchair, rest breaks</string>
+    <string name="profil_row_notifikasi">Notifications</string>
+    <string name="profil_row_notifikasi_sub">Show reminders, schedule changes</string>
+    <string name="profil_row_cara">How KELANA checks info</string>
+    <string name="profil_row_cara_sub">Official sources and check dates</string>
+    <string name="profil_row_laporan">My reports</string>
+    <string name="profil_row_hapus">Delete account</string>
+    <string name="profil_row_hapus_sub">Your passport and postcards are deleted too</string>
+    <string name="profil_keluar">Sign out</string>
+    <string name="profil_guest_masuk">Sign in</string>
 </resources>
