@@ -62,6 +62,43 @@ On this machine `supabase start` fails with exit 139 (the CLI's Realtime init co
 `select public.release_check();` (e.g. `supabase db query` or psql). It raises an error while any sample row remains.
 The same function is covered by `tests/rls.test.sql`.
 
+## Edge Function verify-stamp
+
+`functions/verify-stamp/` (Deno). `POST /functions/v1/verify-stamp`, `verify_jwt = true` in `config.toml`; the user id comes from the JWT. Contract in `contract/kelana.openapi.yaml`. Pure logic in `verify.ts`, HTTP in `handler.ts`, Play Integrity in `integrity.ts`, wiring (Supabase client, env) in `index.ts`.
+
+Check order: body shape (400 `bad_request`), `isMock`, accuracy, time window, Play Integrity, existing stamp (`already_stamped`), place and radius via `stamp_distance`, insert. Every decision is HTTP 200 with `status` (`stamped` | `already_stamped` | `rejected`) and an optional `reason`; `distanceM` only with `too_far`. A null `cap_radius_m` gives `radius_not_set` and never a stamp. Idempotent through the unique `(user_id, place_id)`.
+
+PROVISIONAL constants (all in `verify.ts`, change only there):
+
+| Constant | Value | Meaning |
+|---|---|---|
+| `MAX_CAPTURE_AGE_MS` | 30 min | older fix is `expired` (exactly 30 min is accepted) |
+| `MAX_FUTURE_SKEW_MS` | 2 min | later capture time is `future_timestamp` |
+| `MAX_ACCURACY_M` | 100 | worse accuracy, or negative/non-finite, is `low_accuracy` |
+| `EXPECTED_PACKAGE_NAME` | `id.kelana.app` | package the integrity token must belong to |
+
+The cap radius is not a constant: it is `places.cap_radius_m`, still to be decided per place.
+
+Nonce the Android client must send to Play Integrity (`setNonce`):
+`nonce = base64url_no_padding(sha256_utf8(canonical))`, `canonical = placeId|lat|lng|accuracyM|capturedAt` where
+`placeId` is the lowercase UUID, `lat` and `lng` are fixed 6 decimals (`-7.805000`), `accuracyM` is fixed 1 decimal (`20.0`), and `capturedAt` is the exact string sent in the body: UTC with exactly 3 millisecond digits (`2026-11-21T10:15:30.123Z`). Use `.` as the decimal separator regardless of locale, and send `lat`/`lng` already rounded to 6 decimals so client and server formatting agree. A negative zero prints as `0.000000`. The nonce is 43 characters (`A-Z a-z 0-9 - _`).
+
+Play Integrity: `IntegrityVerifier` interface. The real verifier calls Google `decodeIntegrityToken` and checks nonce, package name, `PLAY_RECOGNIZED` and `MEETS_DEVICE_INTEGRITY`. It is NOT exercised without a Google Cloud setup. Without `PLAY_INTEGRITY_SERVICE_ACCOUNT_JSON` the function fails closed (`integrity_failed`), unless `KELANA_ENV=dev`, where a stub accepts only the token `dev-token` (never set `KELANA_ENV=dev` in production).
+
+Env (never commit values): `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY` (both provided by the platform), `PLAY_INTEGRITY_SERVICE_ACCOUNT_JSON`, `PLAY_INTEGRITY_PACKAGE_NAME` (optional), `KELANA_ENV`.
+
+Privacy: lat, lng and accuracy are never logged or stored. Logs hold only `status` and `reason`. Only the existing `stamps` row is written.
+
+Tests (no network, injected fakes). Deno is portable on this machine; keep its cache on D:.
+
+```
+cd supabase/functions/verify-stamp
+DENO_DIR=D:/deno-cache D:/Devtools/deno/deno.exe test verify_test.ts
+DENO_DIR=D:/deno-cache D:/Devtools/deno/deno.exe check index.ts
+```
+
+Deploy (needs the user): `supabase functions deploy verify-stamp`, then `supabase secrets set ...`.
+
 ## Android feature module -> endpoints
 
 | Module | Endpoints (guest = no login needed) |
