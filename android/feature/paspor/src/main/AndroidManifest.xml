@@ -1,2 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest />
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--
+      Foreground location only, read once when the user taps "Cap sekarang". Never ACCESS_BACKGROUND_LOCATION.
+      Android 12+ requires COARSE to be requested together with FINE in one runtime request; the app still
+      needs FINE (precise) to take a stamp and treats an approximate-only grant as "not granted".
+    -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+</manifest>

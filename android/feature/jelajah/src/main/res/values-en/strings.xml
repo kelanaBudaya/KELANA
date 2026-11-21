@@ -8,6 +8,7 @@
     <string name="home_date_line">%1$s · %2$s</string>
     <string name="home_passport_title">Your cultural passport</string>
     <string name="home_passport_count">%1$d of %2$d stamps in Jogja</string>
+    <string name="home_passport_empty">Collect your stamps in Jogja</string>
     <string name="action_stamp">Get stamp</string>
     <string name="action_plan">Plan</string>
     <string name="action_agenda">Agenda</string>

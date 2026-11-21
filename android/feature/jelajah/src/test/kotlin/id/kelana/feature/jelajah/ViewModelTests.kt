@@ -5,6 +5,8 @@ import app.cash.turbine.test
 import id.kelana.core.data.repository.FakeEventRepository
 import id.kelana.core.data.repository.FakePlaceRepository
 import id.kelana.core.data.repository.FakeRegionRepository
+import id.kelana.core.data.stamp.FakeStampRepository
+import id.kelana.core.model.Stamp
 import id.kelana.core.model.PlaceCategory
 import id.kelana.core.navigation.KategoriRoute
 import id.kelana.core.navigation.PasporRoute
@@ -51,19 +53,40 @@ class ViewModelTests {
     // Home
 
     @Test fun homeShowsFeaturedPlacesAndTonightEvent() = runTest {
-        val vm = JelajahViewModel(places, events, regions) { LocalDateTime.of(friday, java.time.LocalTime.of(18, 0)) }
+        val vm = JelajahViewModel(places, events, regions, FakeStampRepository()) { LocalDateTime.of(friday, java.time.LocalTime.of(18, 0)) }
         vm.state.test {
             val s = awaitUntil { !it.isLoading }
             assertEquals(10, s.featuredPlaces.size)
             assertEquals("roro-jonggrang-jumat", s.tonightEvent?.event?.id)
             assertEquals(friday, s.date)
-            assertEquals(PLACEHOLDER_STAMP_COUNT, s.stampCount)
+            // No stamp: the passport card shows a real 0 of the passport places, never an invented number.
+            assertEquals(0, s.stampCount)
+            assertEquals(10, s.stampTotal)
+            cancelAndIgnoreRemainingEvents()
+        }
+    }
+
+    @Test fun homeCountsOnlyConfirmedStampsAtPassportPlaces() = runTest {
+        val at = java.time.Instant.parse("2026-11-20T03:00:00Z")
+        val stamps = FakeStampRepository(
+            initialStamps = listOf(
+                Stamp("museum-sonobudoyo", at),
+                Stamp("MUSEUM-SONOBUDOYO", at), // same place, counted once
+                Stamp("tamansari", at),
+                Stamp("somewhere-else", at), // not a passport place
+            ),
+        )
+        val vm = JelajahViewModel(places, events, regions, stamps) { LocalDateTime.of(friday, java.time.LocalTime.of(18, 0)) }
+        vm.state.test {
+            val s = awaitUntil { !it.isLoading }
+            assertEquals(2, s.stampCount)
+            assertEquals(10, s.stampTotal)
             cancelAndIgnoreRemainingEvents()
         }
     }
 
     @Test fun homeHidesBannerWhenEventAlreadyStarted() = runTest {
-        val vm = JelajahViewModel(places, events, regions) { LocalDateTime.of(friday, java.time.LocalTime.of(21, 0)) }
+        val vm = JelajahViewModel(places, events, regions, FakeStampRepository()) { LocalDateTime.of(friday, java.time.LocalTime.of(21, 0)) }
         vm.state.test {
             assertNull(awaitUntil { !it.isLoading }.tonightEvent)
             cancelAndIgnoreRemainingEvents()
@@ -73,7 +96,7 @@ class ViewModelTests {
     @Test fun homeHidesBannerWhenNoEventToday() = runTest {
         // Wednesday has no sample event.
         val wednesday = LocalDate.of(2026, 11, 25)
-        val vm = JelajahViewModel(places, events, regions) { LocalDateTime.of(wednesday, java.time.LocalTime.of(8, 0)) }
+        val vm = JelajahViewModel(places, events, regions, FakeStampRepository()) { LocalDateTime.of(wednesday, java.time.LocalTime.of(8, 0)) }
         vm.state.test {
             val s = awaitUntil { !it.isLoading }
             assertNull(s.tonightEvent)

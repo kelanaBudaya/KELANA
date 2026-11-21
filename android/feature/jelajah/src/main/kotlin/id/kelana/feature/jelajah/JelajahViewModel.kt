@@ -9,6 +9,7 @@ import id.kelana.core.model.FactDisplay
 import id.kelana.core.model.Place
 import id.kelana.core.model.PlaceRepository
 import id.kelana.core.model.RegionRepository
+import id.kelana.core.model.StampRepository
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.combine
@@ -17,9 +18,7 @@ import java.time.LocalDate
 import java.time.LocalDateTime
 import javax.inject.Inject
 
-/** PROVISIONAL: real stamp data arrives in Phase 3. The Paspor card and the weekly challenge show these numbers. */
-internal const val PLACEHOLDER_STAMP_COUNT = 3
-internal const val PASSPORT_TOTAL = 10
+/** PROVISIONAL: the weekly challenge still shows these numbers (the Paspor card shows real counts). */
 internal const val PLACEHOLDER_CHALLENGE_DONE = 1
 internal const val PLACEHOLDER_CHALLENGE_GOAL = 3
 
@@ -30,8 +29,10 @@ data class JelajahUiState(
     /** Next checked event today that has not started yet; null hides the banner. */
     val tonightEvent: EventOccurrence? = null,
     val featuredPlaces: List<Place> = emptyList(),
-    val stampCount: Int = PLACEHOLDER_STAMP_COUNT,
-    val stampTotal: Int = PASSPORT_TOTAL,
+    /** The user's confirmed stamps at places of the passport: 0 for a guest or without stamps. */
+    val stampCount: Int = 0,
+    /** Places in the passport; 0 until the places are loaded (the card then shows no number). */
+    val stampTotal: Int = 0,
 )
 
 @HiltViewModel
@@ -39,12 +40,13 @@ class JelajahViewModel internal constructor(
     places: PlaceRepository,
     events: EventRepository,
     regions: RegionRepository,
+    stamps: StampRepository,
     now: () -> LocalDateTime,
 ) : ViewModel() {
 
     @Inject
-    constructor(places: PlaceRepository, events: EventRepository, regions: RegionRepository) :
-        this(places, events, regions, { LocalDateTime.now() })
+    constructor(places: PlaceRepository, events: EventRepository, regions: RegionRepository, stamps: StampRepository) :
+        this(places, events, regions, stamps, { LocalDateTime.now() })
 
     private val start = now()
 
@@ -53,13 +55,17 @@ class JelajahViewModel internal constructor(
         events.eventsOn(start.toLocalDate()),
         regions.regions(),
         regions.selectedRegionId,
-    ) { allPlaces, todays, allRegions, selectedId ->
+        stamps.stamps(),
+    ) { allPlaces, todays, allRegions, selectedId, ownStamps ->
+        val placeIds = allPlaces.map { it.id.lowercase() }.toSet()
         JelajahUiState(
             isLoading = false,
             date = start.toLocalDate(),
             regionName = allRegions.firstOrNull { it.id == selectedId }?.name,
             tonightEvent = todays.firstOrNull { it.startsAfter(start) },
             featuredPlaces = allPlaces,
+            stampCount = ownStamps.map { it.placeId.lowercase() }.distinct().count { it in placeIds },
+            stampTotal = allPlaces.size,
         )
     }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), JelajahUiState())
 }

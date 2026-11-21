@@ -91,10 +91,13 @@ internal fun JelajahScreen(navigate: (Any) -> Unit) {
                 onBell = {}, // visual-only for now
                 // Guest goes to Masuk; signed-in is a no-op for now (profile entry comes later).
                 onAvatar = { requireLogin {} },
-                onPassport = { navigate(passportRoute) }, // stub screen in :feature:paspor
+                // The passport needs an account: a guest goes to Masuk first.
+                onPassport = { requireLogin { navigate(passportRoute) } },
                 onQuickAction = { action ->
                     when (action) {
                         QuickAction.Agenda -> navigate(AgendaRoute)
+                        // "Ambil cap" starts from a place; the passport lists the places (Detail tempat has the button).
+                        QuickAction.AmbilCap -> requireLogin { navigate(passportRoute) }
                         // Phase 3 (PROVISIONAL): guests are routed to login first, then "segera hadir".
                         else -> if (action.needsAccount) requireLogin(showComingSoon) else showComingSoon()
                     }

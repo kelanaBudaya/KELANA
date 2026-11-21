@@ -257,9 +257,13 @@ private fun PassportCard(state: JelajahUiState, callbacks: HomeCallbacks, modifi
                     style = MaterialTheme.typography.labelMedium.copy(fontWeight = FontWeight.Normal),
                     color = colors.skyText,
                 )
-                // PROVISIONAL count: real stamp data comes with the Paspor feature.
+                // Real counts from the user's confirmed stamps; no number until the places are loaded.
                 Text(
-                    stringResource(R.string.home_passport_count, state.stampCount, state.stampTotal),
+                    if (state.stampTotal > 0) {
+                        stringResource(R.string.home_passport_count, state.stampCount, state.stampTotal)
+                    } else {
+                        stringResource(R.string.home_passport_empty)
+                    },
                     style = MaterialTheme.typography.titleMedium.copy(fontSize = 17.sp),
                     color = colors.white,
                 )
@@ -326,7 +330,7 @@ private fun StampSticker(count: Int, total: Int, modifier: Modifier = Modifier) 
                 color = colors.navy,
             )
             Text(
-                "$count/$total",
+                if (total > 0) "$count/$total" else "$count",
                 style = MaterialTheme.typography.labelSmall.copy(fontSize = 9.sp, lineHeight = 11.sp),
                 color = colors.navy,
             )

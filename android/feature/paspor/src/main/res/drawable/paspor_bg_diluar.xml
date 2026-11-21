@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Converted from docs/design/artifact (inline SVG, viewBox 0 0 358 300). Original colours kept. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="358dp"
+    android:height="300dp"
+    android:viewportWidth="358"
+    android:viewportHeight="300">
+    <path
+        android:fillColor="#FBE3A5"
+        android:pathData="M28.64 126.0 C 21.48 36.0, 121.72000000000001 6.0, 196.9 24.0 C 286.40000000000003 42.00000000000001, 347.26 90.0, 332.94 174.0 C 322.2 258.0, 221.96 294.0, 143.20000000000002 276.0 C 57.28 258.0, 35.800000000000004 210.0, 28.64 126.0 Z" />
+    <path
+        android:fillColor="#E65D22"
+        android:pathData="M60 43 L61.96 48.04 L67 50 L61.96 51.96 L60 57 L58.04 51.96 L53 50 L58.04 48.04 Z" />
+    <path
+        android:fillColor="#24458F"
+        android:pathData="M320 244 L321.68 248.32 L326 250 L321.68 251.68 L320 256 L318.32 251.68 L314 250 L318.32 248.32 Z" />
+</vector>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Converted from docs/design/artifact (inline SVG, viewBox 0 0 390 360). Original colours kept. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="390dp"
+    android:height="360dp"
+    android:viewportWidth="390"
+    android:viewportHeight="360">
+    <path
+        android:fillColor="#B85E39"
+        android:pathData="M46.8 108.0 C 93.6 14.4, 241.8 0.0, 319.79999999999995 57.6 C 382.2 108.0, 366.59999999999997 251.99999999999997, 288.6 309.6 C 202.8 360.0, 70.2 338.4, 31.2 251.99999999999997 C 7.8 194.4, 15.6 151.2, 46.8 108.0 Z" />
+    <path
+        android:fillColor="#F4B52B"
+        android:pathData="M110 21 L112.52 27.48 L119 30 L112.52 32.52 L110 39 L107.48 32.52 L101 30 L107.48 27.48 Z" />
+    <path
+        android:fillColor="#FFF0C8"
+        android:pathData="M290 13 L291.96 18.04 L297 20 L291.96 21.96 L290 27 L288.04 21.96 L283 20 L288.04 18.04 Z" />
+    <path
+        android:fillColor="#FFF0C8"
+        android:pathData="M60 174 L61.68 178.32 L66 180 L61.68 181.68 L60 186 L58.32 181.68 L54 180 L58.32 178.32 Z" />
+    <path
+        android:fillColor="#F4B52B"
+        android:pathData="M350 182 L352.24 187.76 L358 190 L352.24 192.24 L350 198 L347.76 192.24 L342 190 L347.76 187.76 Z" />
+    <path
+        android:fillColor="#FFF0C8"
+        android:pathData="M200 334 L201.68 338.32 L206 340 L201.68 341.68 L200 346 L198.32 341.68 L194 340 L198.32 338.32 Z" />
+</vector>

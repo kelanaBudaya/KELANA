@@ -1,4 +1,110 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="paspor_placeholder">Paspor budaya (segera hadir)</string>
+    <!-- Paspor budaya (7.4) -->
+    <string name="paspor_screen_title">Paspor budaya</string>
+    <string name="paspor_kicker">PASPOR BUDAYA · %1$s</string>
+    <string name="paspor_kicker_plain">PASPOR BUDAYA</string>
+    <string name="paspor_profile_cd">Profil</string>
+    <string name="paspor_seal_name">KELANA</string>
+    <string name="paspor_count_title">%1$d dari %2$d cap</string>
+    <string name="paspor_remaining">Tinggal %1$d tempat lagi untuk melengkapi Jogja.</string>
+    <string name="paspor_complete">Semua cap Jogja sudah terkumpul.</string>
+    <string name="paspor_progress_cd">Cap terkumpul: %1$d dari %2$d</string>
+    <string name="paspor_section_title">Cap terkumpul</string>
+    <string name="paspor_section_hint">Ketuk cap untuk melihat tempatnya.</string>
+    <string name="paspor_section_empty">Belum ada cap. Kunjungi tempatnya, lalu ambil cap di sana.</string>
+    <string name="paspor_stamp_collected_cd">Cap %1$s, sudah terkumpul</string>
+    <string name="paspor_stamp_missing_cd">%1$s, cap belum terkumpul</string>
+    <string name="paspor_postcard_title">Buat postcard dari capmu</string>
+    <string name="paspor_postcard_subtitle">Ceritakan kunjunganmu ke %1$s</string>
+    <string name="paspor_guest_title">Masuk untuk melihat paspormu</string>
+    <string name="paspor_guest_body">Cap tersimpan di akunmu. Masuk untuk melihat dan mengumpulkan cap.</string>
+    <string name="paspor_no_places_title">Daftar tempat belum tersedia</string>
+    <string name="paspor_no_places_body">Periksa sambunganmu, lalu buka paspor lagi.</string>
+    <string name="paspor_login">Masuk</string>
+
+    <!-- Ambil cap: common -->
+    <string name="paspor_ambil_title">Ambil cap</string>
+    <string name="paspor_retry">Coba lagi</string>
+    <string name="paspor_close">Tutup</string>
+    <string name="paspor_sticker_word">CAP</string>
+    <string name="paspor_place_missing_title">Tempat tidak ditemukan</string>
+    <string name="paspor_place_missing_body">Tempat ini tidak ada di daftar. Kembali dan pilih tempat lain.</string>
+
+    <!-- 6.1 Izin lokasi -->
+    <string name="paspor_izin_title">Boleh KELANA tahu lokasimu?</string>
+    <string name="paspor_izin_body">Kami membacanya sekali, saat kamu mengambil cap di tempat wisata. Lokasimu tidak dilacak dan tidak dibagikan.</string>
+    <string name="paspor_izin_later">Nanti saja</string>
+    <string name="paspor_izin_allow">Boleh</string>
+
+    <!-- 6.2 Ambil cap -->
+    <string name="paspor_ambil_area_badge">Area cap</string>
+    <string name="paspor_ambil_banner_title">Ambil cap di %1$s</string>
+    <string name="paspor_ambil_banner_accuracy">Akurasi ±%1$d m</string>
+    <string name="paspor_ambil_sticker_title">Cap %1$s</string>
+    <string name="paspor_ambil_sticker_body">Cap ini jadi tanda bahwa postcard dan videomu direkam langsung di sini.</string>
+    <string name="paspor_ambil_privacy">KELANA membaca lokasimu sekali, saat kamu menekan tombol di bawah. Tidak dilacak, tidak dibagikan.</string>
+    <string name="paspor_ambil_button">Cap sekarang!</string>
+    <string name="paspor_ambil_locating">Membaca lokasi…</string>
+    <string name="paspor_ambil_sending">Memeriksa ke server…</string>
+
+    <!-- 6.4 Di luar area -->
+    <string name="paspor_diluar_title">Sedikit lagi!</string>
+    <string name="paspor_diluar_body_distance">Kamu sekitar %1$s m dari area cap %2$s. Masuk ke area tempatnya, lalu coba lagi.</string>
+    <string name="paspor_diluar_body_unknown">Kamu belum berada di area cap %1$s. Masuk ke area tempatnya, lalu coba lagi.</string>
+    <string name="paspor_diluar_directions">Petunjuk arah</string>
+
+    <!-- 6.5 Lokasi ditolak (adapted from "lewat browser" to Android app settings) -->
+    <string name="paspor_ditolak_title">Cap butuh izin lokasimu</string>
+    <string name="paspor_ditolak_body">Izin lokasi yang tepat belum aktif. Nyalakan lewat setelan aplikasi:</string>
+    <string name="paspor_ditolak_step1"><![CDATA[Ketuk <b>Buka setelan aplikasi</b> di bawah.]]></string>
+    <string name="paspor_ditolak_step2"><![CDATA[Pilih <b>Izin</b>, lalu <b>Lokasi</b>.]]></string>
+    <string name="paspor_ditolak_step3"><![CDATA[Pilih <b>Izinkan hanya saat aplikasi digunakan</b> dan nyalakan <b>Gunakan lokasi tepat</b>, lalu kembali ke sini.]]></string>
+    <string name="paspor_open_settings">Buka setelan aplikasi</string>
+
+    <!-- PROVISIONAL: Menunggu sinyal (not in the artifact) -->
+    <string name="paspor_pending_title">Menunggu sinyal</string>
+    <string name="paspor_pending_body">Lokasimu sudah dicatat satu kali. Cap dikirim otomatis begitu ada sinyal. Kalau belum terkirim dalam 30 menit, ambil cap lagi.</string>
+    <string name="paspor_pending_less_than_minute">Sisa waktu kurang dari 1 menit</string>
+    <plurals name="paspor_pending_remaining">
+        <item quantity="other">Sisa waktu sekitar %1$d menit</item>
+    </plurals>
+    <string name="paspor_pending_cancel">Batalkan</string>
+
+    <!-- Errors (no artifact screen) -->
+    <string name="paspor_err_accuracy_title">Sinyal lokasi kurang akurat</string>
+    <string name="paspor_err_accuracy_body">Pindah ke tempat yang lebih terbuka, tunggu sebentar, lalu coba lagi.</string>
+    <string name="paspor_err_expired_title">Permintaan capmu kedaluwarsa</string>
+    <string name="paspor_err_expired_body">Lokasimu dibaca lebih dari 30 menit lalu. Ambil cap lagi.</string>
+    <string name="paspor_err_clock_title">Jam ponselmu belum tepat</string>
+    <string name="paspor_err_clock_body">Nyalakan tanggal dan waktu otomatis di ponselmu, lalu coba lagi.</string>
+    <string name="paspor_err_integrity_title">Aplikasi belum bisa diverifikasi</string>
+    <string name="paspor_err_integrity_body">KELANA belum bisa memastikan aplikasi ini asli. Pasang dari Google Play, lalu coba lagi.</string>
+    <string name="paspor_err_radius_title">Cap tempat ini belum dibuka</string>
+    <string name="paspor_err_radius_body">Area cap untuk tempat ini belum ditetapkan. Coba lagi nanti.</string>
+    <string name="paspor_err_mock_title">Lokasi palsu terdeteksi</string>
+    <string name="paspor_err_mock_body">Matikan aplikasi lokasi palsu di ponselmu, lalu coba lagi.</string>
+    <string name="paspor_err_place_title">Tempat tidak dikenali</string>
+    <string name="paspor_err_place_body">Tempat ini belum ada di daftar cap. Kembali dan pilih tempat lain.</string>
+    <string name="paspor_err_request_title">Permintaan tidak bisa diproses</string>
+    <string name="paspor_err_request_body">Ada yang tidak beres dengan permintaan capmu. Coba ambil cap lagi.</string>
+    <string name="paspor_err_config_title">Layanan cap belum tersedia</string>
+    <string name="paspor_err_config_body">Versi aplikasi ini belum terhubung ke layanan cap.</string>
+    <string name="paspor_err_nofix_title">Lokasimu belum terbaca</string>
+    <string name="paspor_err_nofix_body">Pastikan lokasi (GPS) di ponselmu menyala, lalu coba lagi.</string>
+    <string name="paspor_err_login_title">Masuk dulu untuk ambil cap</string>
+    <string name="paspor_err_login_body">Cap tersimpan di akunmu. Masuk, lalu coba lagi.</string>
+    <string name="paspor_err_unconfirmed_title">Cap belum terkonfirmasi</string>
+    <string name="paspor_err_unconfirmed_body">Server sudah menjawab, tetapi capmu belum tercatat. Ambil cap lagi.</string>
+
+    <!-- 6.3 Cap berhasil -->
+    <string name="paspor_berhasil_kicker">CAP KE-%1$d · TINGGAL %2$d LAGI DI JOGJA</string>
+    <string name="paspor_berhasil_kicker_complete">CAP KE-%1$d · PASPOR JOGJA LENGKAP</string>
+    <string name="paspor_berhasil_kicker_plain">CAP BARU</string>
+    <string name="paspor_berhasil_title">Kamu sudah berkelana ke %1$s!</string>
+    <string name="paspor_berhasil_title_plain">Capmu sudah tercatat!</string>
+    <string name="paspor_berhasil_body">Capnya sudah menempel di paspormu. Sekarang ceritakan kunjunganmu.</string>
+    <string name="paspor_berhasil_postcard">Buat postcard</string>
+    <string name="paspor_berhasil_passport">Intip paspormu</string>
+    <string name="paspor_seal_visited">DIKUNJUNGI</string>
 </resources>

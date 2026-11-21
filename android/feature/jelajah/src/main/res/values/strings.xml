@@ -8,6 +8,7 @@
     <string name="home_date_line">%1$s · %2$s</string>
     <string name="home_passport_title">Paspor budayamu</string>
     <string name="home_passport_count">%1$d cap dari %2$d di Jogja</string>
+    <string name="home_passport_empty">Kumpulkan capmu di Jogja</string>
     <string name="action_stamp">Ambil cap</string>
     <string name="action_plan">Rencana</string>
     <string name="action_agenda">Agenda</string>
