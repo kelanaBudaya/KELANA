@@ -88,17 +88,18 @@ select p.id, 'Dewasa (usulan baru)', 60000, 'https://example.org/sample/prambana
 from public.places p where p.slug = 'candi-prambanan';
 
 -- Events (recurrence: weekly uses ISO weekday).
-insert into public.events (place_id, title, description, category, recurrence, weekday, start_time, end_time, price_from_idr, seller_url, source_url, checked_at, review_status, is_sample)
+insert into public.events (place_id, title, description, category, recurrence, weekday, start_time, end_time, price_from_idr, seller_url, source_url, checked_at, review_status, is_sample, performers, arrival_advice_min, arrival_advice_max, tags)
 select p.id, v.title, v.descr, v.cat::public.place_category, 'weekly', v.wd, v.st::time, v.et::time, v.price, v.url,
-       'https://example.org/sample/events/' || p.slug, '2026-11-20T09:00:00+07', 'published', true
+       'https://example.org/sample/events/' || p.slug, '2026-11-20T09:00:00+07', 'published', true,
+       v.performers::text[], v.amin::int, v.amax::int, v.tags::text[]
 from public.places p
 join (values
-  ('candi-prambanan',    'Sendratari Roro Jonggrang', 'Pentas sendratari kisah Roro Jonggrang. (figma)', 'tari', 5, '19:30', '20:30', 150000, 'https://example.org/sample/tiket/roro-jonggrang'),
-  ('candi-prambanan',    'Sendratari Ramayana',       'Pentas sendratari Ramayana. Hari tayang invented.', 'tari', 2, '19:30', '21:00', 150000, 'https://example.org/sample/tiket/ramayana'),
-  ('candi-prambanan',    'Sendratari Ramayana',       'Pentas sendratari Ramayana. Hari tayang invented.', 'tari', 4, '19:30', '21:00', 150000, 'https://example.org/sample/tiket/ramayana'),
-  ('keraton-yogyakarta', 'Macapat, Bangsal Srimanganti', 'Tembang macapat di Bangsal Srimanganti. Hari invented.', 'gamelan', 6, '09:00', '11:00', null, null),
-  ('keraton-yogyakarta', 'Fragmen wayang wong, Bangsal Srimanganti', 'Fragmen wayang wong di Bangsal Srimanganti. Hari invented.', 'tari', 7, '09:00', '11:00', null, null)
-) as v(slug, title, descr, cat, wd, st, et, price, url) on v.slug = p.slug;
+  ('candi-prambanan',    'Sendratari Roro Jonggrang', 'Pentas sendratari kisah Roro Jonggrang. (figma)', 'tari', 5, '19:30', '20:30', 150000, 'https://example.org/sample/tiket/roro-jonggrang', '{Lebih dari 200 penari dan pemusik lokal}', 30, 45, '{tari}'),
+  ('candi-prambanan',    'Sendratari Ramayana',       'Pentas sendratari Ramayana. Hari tayang invented.', 'tari', 2, '19:30', '21:00', 150000, 'https://example.org/sample/tiket/ramayana', '{}', null, null, '{tari}'),
+  ('candi-prambanan',    'Sendratari Ramayana',       'Pentas sendratari Ramayana. Hari tayang invented.', 'tari', 4, '19:30', '21:00', 150000, 'https://example.org/sample/tiket/ramayana', '{}', null, null, '{tari}'),
+  ('keraton-yogyakarta', 'Macapat, Bangsal Srimanganti', 'Tembang macapat di Bangsal Srimanganti. Hari invented.', 'gamelan', 6, '09:00', '11:00', null, null, '{}', null, null, '{}'),
+  ('keraton-yogyakarta', 'Fragmen wayang wong, Bangsal Srimanganti', 'Fragmen wayang wong di Bangsal Srimanganti. Hari invented.', 'tari', 7, '09:00', '11:00', null, null, '{}', null, null, '{wayang}')
+) as v(slug, title, descr, cat, wd, st, et, price, url, performers, amin, amax, tags) on v.slug = p.slug;
 
 -- Sample user, stamp, and two postcards so story screens have data.
 insert into auth.users (instance_id, id, aud, role, email, encrypted_password, email_confirmed_at,

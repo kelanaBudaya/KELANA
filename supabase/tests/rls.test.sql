@@ -1,6 +1,6 @@
 begin;
 create extension if not exists pgtap with schema extensions;
-select plan(91);
+select plan(101);
 
 -- ---- fixtures (as postgres) -------------------------------------------------
 -- A holds a stamp for Tamansari only. B holds no stamps.
@@ -60,6 +60,18 @@ select throws_ok($$insert into public.subscriptions (user_id, category, place_id
 select throws_ok($$insert into public.events (place_id, title, recurrence, start_time)
   select id, 'x', 'weekly', '10:00' from public.places limit 1$$,
   '23514', null, 'weekly event requires weekday');
+select throws_ok($$insert into public.events (place_id, title, recurrence, start_time, arrival_advice_min) select id, 'x', 'daily', '10:00', 30 from public.places limit 1$$,
+  '23514', null, 'arrival advice needs both min and max (min only)');
+select throws_ok($$insert into public.events (place_id, title, recurrence, start_time, arrival_advice_max) select id, 'x', 'daily', '10:00', 45 from public.places limit 1$$,
+  '23514', null, 'arrival advice needs both min and max (max only)');
+select throws_ok($$insert into public.events (place_id, title, recurrence, start_time, arrival_advice_min, arrival_advice_max) select id, 'x', 'daily', '10:00', 45, 30 from public.places limit 1$$,
+  '23514', null, 'arrival advice min must be <= max');
+select lives_ok($$insert into public.events (place_id, title, recurrence, start_time, arrival_advice_min, arrival_advice_max, performers, tags) select id, 'ok', 'daily', '10:00', 30, 30, '{A,B}', '{tari,wayang,ramah_anak}' from public.places limit 1$$,
+  'valid advice, performers and all three tags are accepted');
+select throws_ok($$insert into public.events (place_id, title, recurrence, start_time, tags) select id, 'x', 'daily', '10:00', '{tari,musik}' from public.places limit 1$$,
+  '23514', null, 'unknown event tag is rejected');
+select throws_ok($$insert into public.events (place_id, title, recurrence, start_time, performers) select id, 'x', 'daily', '10:00', null from public.places limit 1$$,
+  '23502', null, 'performers cannot be null');
 
 -- ---- anonymous (guest): may browse official data, nothing personal -------------
 set local role anon;
@@ -70,6 +82,10 @@ select cmp_ok((select count(*)::int from public.places where lat is not null and
 select cmp_ok((select count(*)::int from public.opening_hours), '>', 0, 'anon can read published opening_hours');
 select cmp_ok((select count(*)::int from public.ticket_prices), '>', 0, 'anon can read published ticket_prices');
 select cmp_ok((select count(*)::int from public.events), '>', 0, 'anon can read published events');
+select is((select performers from public.events where title = 'Sendratari Roro Jonggrang'), array['Lebih dari 200 penari dan pemusik lokal'], 'anon can read performers of a published event');
+select is((select arrival_advice_min || '-' || arrival_advice_max from public.events where title = 'Sendratari Roro Jonggrang'), '30-45', 'anon can read arrival advice of a published event');
+select is((select tags from public.events where title = 'Sendratari Roro Jonggrang'), array['tari'], 'anon can read tags of a published event');
+select is((select tags from public.events where title like 'Fragmen wayang wong%'), array['wayang'], 'Fragmen wayang wong is tagged wayang');
 select is((select count(*)::int from public.closures), (select count(*)::int from public.closures where review_status = 'published'),
           'anon closures are published only');
 select is((select count(*)::int from public.opening_hours where review_status <> 'published'), 0, 'anon cannot see pending opening_hours');

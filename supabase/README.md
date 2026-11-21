@@ -23,6 +23,8 @@ stamps, postcards, videos, reports, subscriptions. RPCs: `place_facts(place_id)`
 `stamp_distance(place_id, lat, lng)` (service role only, for verify-stamp), `release_check()`.
 
 Event recurrence: `once` (event_date), `weekly` (ISO weekday 1=Senin..7=Minggu), `daily` (neither).
+
+Event detail facts (migration 000007): `performers text[]` (default empty), `arrival_advice_min` and `arrival_advice_max` (minutes before the show; both null or both set, min <= max), and `tags text[]` (default empty; each element one of `tari`, `wayang`, `ramah_anak`). Guests read them like any other published event column.
 Times are Asia/Jakarta wall-clock. Cancelled dates go in `closures`.
 
 ## RLS rules (plain language)
