@@ -24,6 +24,9 @@ Each `*.dc.html` is one 390 px wide screen as HTML with inline styles. Read the 
 | 3.4 | Ke situs tiket resmi | `KeSitusResmi.dc.html` |
 | 8.1, 8.2 | Masuk, Profil | `MasukIlustratif`, `ProfilIlustratif` |
 | 9.1 to 9.7 | Candi, Tari, Topeng kosong, Gamelan, Tiket resmi, Peta, Semua tempat | `KatCandi`, `KatTari`, `KatTopeng`, `KatGamelan`, `KatTiket`, `KatPeta`, `KatSemua` |
+| (no. not checked) | Cerita pengunjung (feed) | `UlasanPengunjung.dc.html` |
+| (no. not checked) | Video pengunjung | `VideoPengunjung.dc.html` |
+| (no. not checked) | Postcard (Jurnal card, as viewed) | `Postcard.dc.html` |
 | 6.1 | Izin lokasi | `IzinLokasiIlustratif.dc.html` |
 | 6.2 | Ambil cap | `AmbilCapIlustratif.dc.html` |
 | 6.3 | Cap berhasil | `CapBerhasilIlustratif.dc.html` |
@@ -32,6 +35,23 @@ Each `*.dc.html` is one 390 px wide screen as HTML with inline styles. Read the 
 | 7.4 | Paspor budaya | `PasporIlustratif.dc.html` |
 
 Screens not copied yet (fetch from the artifact when a phase needs them): 2.4, 2.6, 3.3, 4.x planner, 5.x, 6.x, 7.x, 10.1.
+
+Rencana tab and planner (Phase 6, feature `rencana`; screen numbers are not mapped here, see `project/canvas.json` in the artifact):
+| Screen | File |
+|---|---|
+| Rencana hari ini | `RencanaHariIniIlustratif.dc.html` |
+| Rencana kosong | `RencanaKosongIlustratif.dc.html` |
+| Susun 1/6 Tanggal | `SusunTanggal.dc.html` |
+| Susun 2/6 Teman (hub, "Kamu berkelana bersama siapa?") | `SusunRencanaIlustratif.dc.html` |
+| Susun 3/6 Minat | `SusunMinat.dc.html` |
+| Susun 4/6 Waktu dan tempo | `SusunWaktu.dc.html` |
+| Susun 5/6 Kendaraan | `SusunKendaraan.dc.html` |
+| Susun 6/6 Kebutuhan | `SusunKebutuhan.dc.html` |
+| Menyusun (loading) | `Menyusun.dc.html` |
+| Pengingat | `Pengingat.dc.html` |
+| Tempat tutup (live re-plan) | `TempatTutupIlustratif.dc.html` |
+| Tanpa internet | `TanpaInternetIlustratif.dc.html` |
+| Peta rute | `PetaRuteIlustratif.dc.html` |
 
 ## Design tokens (from the artifact's own notes and styles; they override FIGMA-FRAMES.md)
 - **Fonts:** Plus Jakarta Sans 400/500/600/700/800 for all UI; Fraunces (500/600, italic) only for the postcard and highlight headlines. Figma reported Inter, but every screen in the artifact uses Plus Jakarta Sans, so the app's Inter must be replaced.

@@ -19,6 +19,7 @@ import androidx.navigation.toRoute
 import id.kelana.core.model.PlaceCategory
 import id.kelana.core.model.SessionState
 import id.kelana.core.navigation.AgendaRoute
+import id.kelana.core.navigation.AkunRoute
 import id.kelana.core.navigation.CariRoute
 import id.kelana.core.navigation.DetailPentasRoute
 import id.kelana.core.navigation.DetailTempatRoute
@@ -89,8 +90,8 @@ internal fun JelajahScreen(navigate: (Any) -> Unit) {
             callbacks = HomeCallbacks(
                 onSearch = { navigate(CariRoute) },
                 onBell = {}, // visual-only for now
-                // Guest goes to Masuk; signed-in is a no-op for now (profile entry comes later).
-                onAvatar = { requireLogin {} },
+                // Artifact: the avatar opens Profil (AkunRoute). A guest goes to Masuk.
+                onAvatar = { requireLogin { navigate(AkunRoute) } },
                 // The passport needs an account: a guest goes to Masuk first.
                 onPassport = { requireLogin { navigate(passportRoute) } },
                 onQuickAction = { action ->

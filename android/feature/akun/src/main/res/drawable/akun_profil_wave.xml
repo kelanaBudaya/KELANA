@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Decorative wave in the Profil header (390 x 220 in the artifact), stroke #2E519E width 22. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="390dp"
+    android:height="220dp"
+    android:viewportWidth="390"
+    android:viewportHeight="220">
+    <path
+        android:pathData="M -10 180.4 C 70.2 180.4 109.2 136.4 156 92.4 C 195 48.4 273 44 273 92.4 C 273 136.4 187.2 145.2 195 101.2 C 206.7 48.4 312 57.2 400 30.8"
+        android:strokeColor="#FF2E519E"
+        android:strokeLineCap="round"
+        android:strokeWidth="22" />
+</vector>

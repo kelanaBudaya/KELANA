@@ -76,6 +76,7 @@ internal fun AuthTextField(
     trailing: @Composable (() -> Unit)? = null,
 ) {
     val colors = KelanaTheme.colors
+    val message = error?.let { stringResource(it.messageRes()) } ?: supportingText
     OutlinedTextField(
         value = value,
         onValueChange = onValueChange,
@@ -92,11 +93,9 @@ internal fun AuthTextField(
         keyboardOptions = KeyboardOptions(keyboardType = keyboardType, imeAction = imeAction),
         visualTransformation = visualTransformation,
         trailingIcon = trailing,
-        supportingText = {
-            val message = error?.let { stringResource(it.messageRes()) } ?: supportingText
-            if (message != null) {
-                Text(message, color = if (error != null) colors.danger else colors.muted)
-            }
+        // Only composed when there is something to say, so no empty line is reserved under the field.
+        supportingText = message?.let { text ->
+            { Text(text, color = if (error != null) colors.danger else colors.muted) }
         },
     )
 }

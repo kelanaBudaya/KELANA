@@ -30,14 +30,14 @@ import id.kelana.core.ui.OfficialSiteSheet
 import id.kelana.core.ui.openCustomTab
 import id.kelana.feature.agenda.agendaScreens
 import id.kelana.feature.akun.akunScreen
-import id.kelana.feature.cerita.ceritaScreen
+import id.kelana.feature.cerita.ceritaScreens
 import id.kelana.feature.jelajah.jelajahScreens
 import id.kelana.feature.notifikasi.notifikasiScreen
 import id.kelana.feature.onboarding.onboardingScreens
 import id.kelana.feature.paspor.pasporScreens
 import id.kelana.feature.peta.petaScreen
 import id.kelana.feature.postcard.postcardScreen
-import id.kelana.feature.rencana.rencanaScreen
+import id.kelana.feature.rencana.rencanaScreens
 import id.kelana.feature.tempat.tempatScreens
 import id.kelana.feature.tiket.tiketScreen
 
@@ -84,8 +84,8 @@ fun KelanaAppContent(appViewModel: AppViewModel = hiltViewModel()) {
 
             jelajahScreens(navigate = navigate, onBack = onBack)
             agendaScreens(navigate = navigate, onBack = onBack)
-            rencanaScreen()
-            ceritaScreen()
+            rencanaScreens(navController = navController, navigate = navigate, onBack = onBack)
+            ceritaScreens(navigate = navigate, onBack = onBack)
 
             // First launch: Intro(0) Mulai -> Intro(1..3) Kenalan -> PilihDaerah -> Jelajah. Whichever way the flow ends
             // (Pilih daerah, or Masuk reached from it), mark onboarding done and drop the whole flow from the back stack.
@@ -118,7 +118,19 @@ fun KelanaAppContent(appViewModel: AppViewModel = hiltViewModel()) {
                     navController.navigate(route)
                 }
             }
-            akunScreen(onSignedIn = finishMasuk, onGuest = finishMasuk, navigate = navigateAkun, onBack = onBack)
+            // Keluar on Profil: the user is a guest now, so restart at Jelajah with a clean back stack.
+            val finishSignOut: () -> Unit = {
+                navController.navigate(JelajahRoute) {
+                    popUpTo(navController.graph.findStartDestination().id) { inclusive = true }
+                }
+            }
+            akunScreen(
+                onSignedIn = finishMasuk,
+                onGuest = finishMasuk,
+                navigate = navigateAkun,
+                onBack = onBack,
+                onSignedOut = finishSignOut,
+            )
 
             // "Ke situs tiket resmi" confirm sheet (Figma 03.04); "Buka situs" opens a Custom Tab.
             dialog<OfficialSiteRoute>(dialogProperties = DialogProperties(usePlatformDefaultWidth = false)) { entry ->
