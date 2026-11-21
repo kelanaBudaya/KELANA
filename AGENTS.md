@@ -2,9 +2,7 @@
 
 KELANA ("Kawan Eksplorasi Budaya Nusantara") is a native Android travel guide for cultural tourism across Indonesia. It launches with DI Yogyakarta only; other regions show as "coming soon" and open one at a time after the team has checked their official sources.
 
-Design source of truth: the Figma file `UI Design` page
-https://www.figma.com/design/S740rinPV6M9cUYpHzALtv/KELANA?node-id=42-2
-The PNGs in `docs/design/` are overview slides for context only. Do not use them as the pixel reference.
+Design source of truth: the Claude Design artifact https://claude.ai/artifact/9CFY5pcyzvTJi9rVu49FN8 (same design as the Figma file, same screen numbers). Local copies and the screen map are in `docs/design/artifact/` (read its README first). Tokens there override `docs/design/FIGMA-FRAMES.md`: font is Plus Jakarta Sans (+ Fraunces for postcard and highlights), not Inter. Figma (`UI Design` page, node `42:2`) is a fallback only; its MCP exports are rate-limited. The PNGs in `docs/design/` are overview slides for context only.
 
 ## Product rules (never break)
 
@@ -65,9 +63,9 @@ A screen or feature is done only when all three hold:
 
 1. It **builds** (`./gradlew assembleDebug`).
 2. Tests **pass** (`./gradlew test`, plus relevant instrumented/Compose tests).
-3. The screen **matches its Figma frame** in the `UI Design` page: layout, spacing, type, colors, states (empty, loading, error, offline).
+3. The screen **matches its artifact screen** (`docs/design/artifact/`, same numbering as Figma): copy, layout, spacing, type, colors, states (empty, loading, error, offline). Where the artifact shows `[ISI]`, the app shows real data with its check date or "sedang dicek".
 
-Report which of the three were actually run. If Figma was not reachable or the app was not run on a device/emulator, say that plainly. Do not claim a visual match you did not check.
+Report which of the three were actually run. If the artifact screen was not compared or the app was not run on a device/emulator, say that plainly. Do not claim a visual match you did not check.
 
 ## Build order
 

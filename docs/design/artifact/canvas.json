@@ -1,0 +1,1202 @@
+{
+  "v": 3,
+  "attachments": {},
+  "boards": {
+    "Agenda.dc.html": {
+      "h": 1400,
+      "is_interactive": true,
+      "page": "awal",
+      "radius": 28,
+      "title": "Agenda budaya",
+      "w": 390,
+      "x": 0,
+      "y": 3500
+    },
+    "AgendaIlustratif.dc.html": {
+      "h": 1180,
+      "is_interactive": true,
+      "page": "lengkap",
+      "radius": 28,
+      "title": "3.1 · Agenda",
+      "w": 390,
+      "x": 0,
+      "y": 4280
+    },
+    "AmbilCap.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "page": "awal",
+      "radius": 28,
+      "title": "Ambil cap · cek lokasi",
+      "w": 390,
+      "x": 0,
+      "y": 5320
+    },
+    "AmbilCapIlustratif.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "page": "lengkap",
+      "radius": 28,
+      "title": "6.2 · Ambil cap",
+      "w": 390,
+      "x": 470,
+      "y": 9020
+    },
+    "BagikanPostcardIlustratif.dc.html": {
+      "h": 900,
+      "is_interactive": true,
+      "page": "lengkap",
+      "radius": 28,
+      "title": "7.2 · Bagikan postcard",
+      "w": 390,
+      "x": 470,
+      "y": 10284
+    },
+    "BuatRencana.dc.html": {
+      "h": 2060,
+      "is_interactive": true,
+      "page": "awal",
+      "radius": 28,
+      "title": "Susun rencana baru · form",
+      "w": 390,
+      "x": 0,
+      "y": 8940
+    },
+    "CapBerhasil.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "page": "awal",
+      "radius": 28,
+      "title": "Cap berhasil",
+      "w": 390,
+      "x": 470,
+      "y": 5320
+    },
+    "CapBerhasilIlustratif.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "page": "lengkap",
+      "radius": 28,
+      "title": "6.3 · Cap berhasil",
+      "w": 390,
+      "x": 940,
+      "y": 9020
+    },
+    "Cari.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "page": "lengkap",
+      "radius": 28,
+      "title": "2.1 · Cari",
+      "w": 390,
+      "x": 0,
+      "y": 2140
+    },
+    "Detail.dc.html": {
+      "h": 3060,
+      "is_interactive": true,
+      "page": "awal",
+      "radius": 28,
+      "title": "Detail tempat · Sonobudoyo",
+      "w": 390,
+      "x": 1880,
+      "y": 0
+    },
+    "DetailIlustratif.dc.html": {
+      "h": 1720,
+      "is_interactive": true,
+      "page": "lengkap",
+      "radius": 28,
+      "title": "2.3 · Detail tempat",
+      "w": 390,
+      "x": 940,
+      "y": 2140
+    },
+    "DetailPentasIlustratif.dc.html": {
+      "h": 1500,
+      "is_interactive": true,
+      "page": "lengkap",
+      "radius": 28,
+      "title": "3.2 · Detail pentas",
+      "w": 390,
+      "x": 470,
+      "y": 4280
+    },
+    "DetailPertunjukan.dc.html": {
+      "h": 2150,
+      "is_interactive": true,
+      "page": "awal",
+      "radius": 28,
+      "title": "Detail pertunjukan + kisah",
+      "w": 390,
+      "x": 470,
+      "y": 8940
+    },
+    "DiLuarArea.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "page": "awal",
+      "radius": 28,
+      "title": "Ambil cap · di luar area",
+      "w": 390,
+      "x": 2820,
+      "y": 11510
+    },
+    "DiLuarAreaIlustratif.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "page": "lengkap",
+      "radius": 28,
+      "title": "6.4 · Gagal · di luar area",
+      "w": 390,
+      "x": 1410,
+      "y": 9020
+    },
+    "Galeri.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "page": "lengkap",
+      "radius": 28,
+      "title": "2.5 · Foto resmi",
+      "w": 390,
+      "x": 1880,
+      "y": 2140
+    },
+    "HapusAkun.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "page": "awal",
+      "radius": 28,
+      "title": "Hapus akun · konfirmasi",
+      "w": 390,
+      "x": 940,
+      "y": 13430
+    },
+    "IzinLokasiIlustratif.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "page": "lengkap",
+      "radius": 28,
+      "title": "6.1 · Izin lokasi",
+      "w": 390,
+      "x": 0,
+      "y": 9020
+    },
+    "IzinNotif.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "page": "awal",
+      "radius": 28,
+      "title": "Izin notifikasi",
+      "w": 390,
+      "x": 0,
+      "y": 7160
+    },
+    "IzinNotifIlustratif.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "page": "lengkap",
+      "radius": 28,
+      "title": "4.9 · Izin notifikasi",
+      "w": 390,
+      "x": 3760,
+      "y": 6200
+    },
+    "JelajahIlustratif.dc.html": {
+      "h": 1420,
+      "is_interactive": true,
+      "page": "lengkap",
+      "radius": 28,
+      "title": "1.6 · Jelajah",
+      "w": 390,
+      "x": 2350,
+      "y": 300
+    },
+    "KatCandi.dc.html": {
+      "h": 1000,
+      "is_interactive": true,
+      "page": "lengkap",
+      "radius": 28,
+      "title": "9.1 · Candi",
+      "w": 390,
+      "x": 0,
+      "y": 13424
+    },
+    "KatGamelan.dc.html": {
+      "h": 1120,
+      "is_interactive": true,
+      "page": "lengkap",
+      "radius": 28,
+      "title": "9.4 · Gamelan",
+      "w": 390,
+      "x": 1410,
+      "y": 13424
+    },
+    "KatMuseum.dc.html": {
+      "h": 1300,
+      "is_interactive": true,
+      "page": "lengkap",
+      "radius": 28,
+      "title": "2.2 · Kategori Museum",
+      "w": 390,
+      "x": 470,
+      "y": 2140
+    },
+    "KatPeta.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "page": "lengkap",
+      "radius": 28,
+      "title": "9.6 · Peta",
+      "w": 390,
+      "x": 2350,
+      "y": 13424
+    },
+    "KatSemua.dc.html": {
+      "h": 1700,
+      "is_interactive": true,
+      "page": "lengkap",
+      "radius": 28,
+      "title": "9.7 · Semua tempat",
+      "w": 390,
+      "x": 2820,
+      "y": 13424
+    },
+    "KatTari.dc.html": {
+      "h": 1180,
+      "is_interactive": true,
+      "page": "lengkap",
+      "radius": 28,
+      "title": "9.2 · Tari",
+      "w": 390,
+      "x": 470,
+      "y": 13424
+    },
+    "KatTiket.dc.html": {
+      "h": 1240,
+      "is_interactive": true,
+      "page": "lengkap",
+      "radius": 28,
+      "title": "9.5 · Tiket resmi",
+      "w": 390,
+      "x": 1880,
+      "y": 13424
+    },
+    "KatTopeng.dc.html": {
+      "h": 1000,
+      "is_interactive": true,
+      "page": "lengkap",
+      "radius": 28,
+      "title": "9.3 · Topeng · kosong",
+      "w": 390,
+      "x": 940,
+      "y": 13424
+    },
+    "KeSitusResmi.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "page": "lengkap",
+      "radius": 28,
+      "title": "3.4 · Ke situs tiket resmi",
+      "w": 390,
+      "x": 1410,
+      "y": 4280
+    },
+    "Kenalan1.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "page": "lengkap",
+      "radius": 28,
+      "title": "1.2 · Kenalan 1",
+      "w": 390,
+      "x": 470,
+      "y": 300
+    },
+    "Kenalan2.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "page": "lengkap",
+      "radius": 28,
+      "title": "1.3 · Kenalan 2",
+      "w": 390,
+      "x": 940,
+      "y": 300
+    },
+    "Kenalan3.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "page": "lengkap",
+      "radius": 28,
+      "title": "1.4 · Kenalan 3",
+      "w": 390,
+      "x": 1410,
+      "y": 300
+    },
+    "Lapor.dc.html": {
+      "h": 1240,
+      "is_interactive": true,
+      "page": "awal",
+      "radius": 28,
+      "title": "Laporkan · form",
+      "w": 390,
+      "x": 470,
+      "y": 11510
+    },
+    "LaporIlustratif.dc.html": {
+      "h": 900,
+      "is_interactive": true,
+      "page": "lengkap",
+      "radius": 28,
+      "title": "2.7 · Laporkan",
+      "w": 390,
+      "x": 2820,
+      "y": 2140
+    },
+    "LaporTerkirim.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "page": "awal",
+      "radius": 28,
+      "title": "Laporkan · terkirim",
+      "w": 390,
+      "x": 940,
+      "y": 11510
+    },
+    "LaporTerkirimIlustratif.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "page": "lengkap",
+      "radius": 28,
+      "title": "2.8 · Laporan terkirim",
+      "w": 390,
+      "x": 3290,
+      "y": 2140
+    },
+    "LayarKunci.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "page": "awal",
+      "radius": 28,
+      "title": "Contoh layar kunci",
+      "w": 390,
+      "x": 1410,
+      "y": 7160
+    },
+    "LokasiDitolak.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "page": "awal",
+      "radius": 28,
+      "title": "Ambil cap · izin ditolak",
+      "w": 390,
+      "x": 2350,
+      "y": 11510
+    },
+    "LokasiDitolakIlustratif.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "page": "lengkap",
+      "radius": 28,
+      "title": "6.5 · Gagal · lokasi ditolak",
+      "w": 390,
+      "x": 1880,
+      "y": 9020
+    },
+    "Main.dc.html": {
+      "h": 1330,
+      "is_interactive": true,
+      "page": "awal",
+      "radius": 28,
+      "title": "Jelajah",
+      "w": 390,
+      "x": 940,
+      "y": 0
+    },
+    "Masuk.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "page": "awal",
+      "radius": 28,
+      "title": "Masuk",
+      "w": 390,
+      "x": 0,
+      "y": 13430
+    },
+    "MasukIlustratif.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "page": "lengkap",
+      "radius": 28,
+      "title": "8.1 · Masuk",
+      "w": 390,
+      "x": 0,
+      "y": 11924
+    },
+    "Menyusun.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "page": "lengkap",
+      "radius": 28,
+      "title": "4.8 · Menyusun",
+      "w": 390,
+      "x": 3290,
+      "y": 6200
+    },
+    "MulaiIlustratif.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "page": "lengkap",
+      "radius": 28,
+      "title": "1.1 · Mulai",
+      "w": 390,
+      "x": 0,
+      "y": 300
+    },
+    "Notifikasi.dc.html": {
+      "h": 1180,
+      "is_interactive": true,
+      "page": "awal",
+      "radius": 28,
+      "title": "Pusat notifikasi",
+      "w": 390,
+      "x": 470,
+      "y": 7160
+    },
+    "NotifikasiIlustratif.dc.html": {
+      "h": 980,
+      "is_interactive": true,
+      "page": "lengkap",
+      "radius": 28,
+      "title": "5.1 · Notifikasi",
+      "w": 390,
+      "x": 0,
+      "y": 7620
+    },
+    "PanelPengelola.dc.html": {
+      "expand": "fill",
+      "h": 1220,
+      "is_interactive": true,
+      "page": "lengkap",
+      "title": "Panel verifikasi · web pengelola",
+      "w": 1280,
+      "x": 0,
+      "y": 15664
+    },
+    "PanelVerifikasi.dc.html": {
+      "expand": "fill",
+      "h": 1220,
+      "is_interactive": true,
+      "page": "awal",
+      "title": "Panel verifikasi · web tim",
+      "w": 1280,
+      "x": 940,
+      "y": 8940
+    },
+    "Paspor.dc.html": {
+      "h": 1330,
+      "is_interactive": true,
+      "page": "awal",
+      "radius": 28,
+      "title": "Cerita & Paspor",
+      "w": 390,
+      "x": 2350,
+      "y": 5320
+    },
+    "PasporIlustratif.dc.html": {
+      "h": 1220,
+      "is_interactive": true,
+      "page": "lengkap",
+      "radius": 28,
+      "title": "7.4 · Paspor budaya",
+      "w": 390,
+      "x": 1410,
+      "y": 10284
+    },
+    "Pembuka.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "page": "awal",
+      "radius": 28,
+      "title": "Pembuka",
+      "w": 390,
+      "x": 470,
+      "y": 0
+    },
+    "PengaturanNotif.dc.html": {
+      "h": 1360,
+      "is_interactive": true,
+      "page": "awal",
+      "radius": 28,
+      "title": "Pengaturan notifikasi",
+      "w": 390,
+      "x": 940,
+      "y": 7160
+    },
+    "Pengingat.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "page": "lengkap",
+      "radius": 28,
+      "title": "3.3 · Atur pengingat",
+      "w": 390,
+      "x": 940,
+      "y": 4280
+    },
+    "Peta.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "page": "awal",
+      "radius": 28,
+      "title": "Peta & rute",
+      "w": 390,
+      "x": 1410,
+      "y": 0
+    },
+    "PetaRuteIlustratif.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "page": "lengkap",
+      "radius": 28,
+      "title": "5.2 · Peta rute",
+      "w": 390,
+      "x": 470,
+      "y": 7620
+    },
+    "PilihDaerah.dc.html": {
+      "h": 1000,
+      "is_interactive": true,
+      "page": "lengkap",
+      "radius": 28,
+      "title": "1.5 · Pilih daerah",
+      "w": 390,
+      "x": 1880,
+      "y": 300
+    },
+    "PilihWilayah.dc.html": {
+      "h": 1520,
+      "is_interactive": true,
+      "page": "awal",
+      "radius": 28,
+      "title": "Pilih wilayah · versi A (daftar semua)",
+      "w": 390,
+      "x": 1410,
+      "y": 13430
+    },
+    "PilihWilayahB.dc.html": {
+      "h": 1000,
+      "is_interactive": true,
+      "page": "awal",
+      "radius": 28,
+      "title": "Pilih wilayah · versi B (peta + hover)",
+      "w": 390,
+      "x": 1880,
+      "y": 13430
+    },
+    "PilihWilayahC.dc.html": {
+      "h": 1180,
+      "is_interactive": true,
+      "page": "awal",
+      "radius": 28,
+      "title": "Pilih wilayah · versi B dengan 2 wilayah tersedia (contoh)",
+      "w": 390,
+      "x": 2350,
+      "y": 13430
+    },
+    "PilihWilayahTapAbu.dc.html": {
+      "h": 1000,
+      "is_interactive": true,
+      "page": "awal",
+      "radius": 28,
+      "title": "Versi B · ketuk titik abu (Sulawesi Selatan)",
+      "w": 390,
+      "x": 3290,
+      "y": 13430
+    },
+    "PilihWilayahTapBiru.dc.html": {
+      "h": 1000,
+      "is_interactive": true,
+      "page": "awal",
+      "radius": 28,
+      "title": "Versi B · ketuk titik biru (Bali)",
+      "w": 390,
+      "x": 2820,
+      "y": 13430
+    },
+    "Postcard.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "page": "awal",
+      "radius": 28,
+      "title": "Postcard 9:16",
+      "w": 390,
+      "x": 1880,
+      "y": 5320
+    },
+    "Profil.dc.html": {
+      "h": 1640,
+      "is_interactive": true,
+      "page": "awal",
+      "radius": 28,
+      "title": "Profil dan akun",
+      "w": 390,
+      "x": 470,
+      "y": 13430
+    },
+    "ProfilIlustratif.dc.html": {
+      "h": 1080,
+      "is_interactive": true,
+      "page": "lengkap",
+      "radius": 28,
+      "title": "8.2 · Profil",
+      "w": 390,
+      "x": 470,
+      "y": 11924
+    },
+    "Rencana.dc.html": {
+      "h": 1330,
+      "is_interactive": true,
+      "page": "awal",
+      "radius": 28,
+      "title": "Susun perjalanan",
+      "w": 390,
+      "x": 470,
+      "y": 3500
+    },
+    "RencanaHariIniIlustratif.dc.html": {
+      "h": 1000,
+      "is_interactive": true,
+      "page": "lengkap",
+      "radius": 28,
+      "title": "4.10 · Rencana hari ini",
+      "w": 390,
+      "x": 4230,
+      "y": 6200
+    },
+    "RencanaKosong.dc.html": {
+      "h": 1000,
+      "is_interactive": true,
+      "page": "awal",
+      "radius": 28,
+      "title": "Kosong · belum ada rencana",
+      "w": 390,
+      "x": 1410,
+      "y": 11510
+    },
+    "RencanaKosongIlustratif.dc.html": {
+      "h": 1000,
+      "is_interactive": true,
+      "page": "lengkap",
+      "radius": 28,
+      "title": "4.1 · Rencana kosong",
+      "w": 390,
+      "x": 0,
+      "y": 6200
+    },
+    "SemuaTempat.dc.html": {
+      "h": 1500,
+      "is_interactive": true,
+      "page": "awal",
+      "radius": 28,
+      "title": "Semua tempat (Lihat 10)",
+      "w": 390,
+      "x": 0,
+      "y": 11510
+    },
+    "Splash.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "page": "awal",
+      "radius": 28,
+      "title": "Memuat",
+      "w": 390,
+      "x": 0,
+      "y": 0
+    },
+    "SusunKebutuhan.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "page": "lengkap",
+      "radius": 28,
+      "title": "4.7 · 6/6 Kebutuhan",
+      "w": 390,
+      "x": 2820,
+      "y": 6200
+    },
+    "SusunKendaraan.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "page": "lengkap",
+      "radius": 28,
+      "title": "4.6 · 5/6 Kendaraan",
+      "w": 390,
+      "x": 2350,
+      "y": 6200
+    },
+    "SusunMinat.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "page": "lengkap",
+      "radius": 28,
+      "title": "4.4 · 3/6 Minat",
+      "w": 390,
+      "x": 1410,
+      "y": 6200
+    },
+    "SusunRencanaIlustratif.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "page": "lengkap",
+      "radius": 28,
+      "title": "4.3 · 2/6 Teman jalan",
+      "w": 390,
+      "x": 940,
+      "y": 6200
+    },
+    "SusunTanggal.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "page": "lengkap",
+      "radius": 28,
+      "title": "4.2 · 1/6 Tanggal",
+      "w": 390,
+      "x": 470,
+      "y": 6200
+    },
+    "SusunWaktu.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "page": "lengkap",
+      "radius": 28,
+      "title": "4.5 · 4/6 Waktu",
+      "w": 390,
+      "x": 1880,
+      "y": 6200
+    },
+    "TanpaInternet.dc.html": {
+      "h": 1100,
+      "is_interactive": true,
+      "page": "awal",
+      "radius": 28,
+      "title": "Tanpa internet · rencana tersimpan",
+      "w": 390,
+      "x": 3290,
+      "y": 11510
+    },
+    "TanpaInternetIlustratif.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "page": "lengkap",
+      "radius": 28,
+      "title": "5.4 · Tanpa internet",
+      "w": 390,
+      "x": 1410,
+      "y": 7620
+    },
+    "TempatTutup.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "page": "awal",
+      "radius": 28,
+      "title": "Tempat tutup · pilihan ganti",
+      "w": 390,
+      "x": 1880,
+      "y": 11510
+    },
+    "TempatTutupIlustratif.dc.html": {
+      "h": 900,
+      "is_interactive": true,
+      "page": "lengkap",
+      "radius": 28,
+      "title": "5.3 · Tempat tutup mendadak",
+      "w": 390,
+      "x": 940,
+      "y": 7620
+    },
+    "TulisPostcardIlustratif.dc.html": {
+      "h": 1000,
+      "is_interactive": true,
+      "page": "lengkap",
+      "radius": 28,
+      "title": "7.1 · Tulis postcard",
+      "w": 390,
+      "x": 0,
+      "y": 10284
+    },
+    "Ulasan.dc.html": {
+      "h": 1240,
+      "is_interactive": true,
+      "page": "awal",
+      "radius": 28,
+      "title": "Tulis ulasan · postcard",
+      "w": 390,
+      "x": 940,
+      "y": 5320
+    },
+    "UlasanPengunjung.dc.html": {
+      "h": 1260,
+      "is_interactive": true,
+      "page": "lengkap",
+      "radius": 28,
+      "title": "2.4 · Cerita pengunjung",
+      "w": 390,
+      "x": 1410,
+      "y": 2140
+    },
+    "UnggahVideoIlustratif.dc.html": {
+      "h": 1000,
+      "is_interactive": true,
+      "page": "lengkap",
+      "radius": 28,
+      "title": "7.3 · Unggah video",
+      "w": 390,
+      "x": 940,
+      "y": 10284
+    },
+    "Video.dc.html": {
+      "h": 1420,
+      "is_interactive": true,
+      "page": "awal",
+      "radius": 28,
+      "title": "Tulis ulasan · video",
+      "w": 390,
+      "x": 1410,
+      "y": 5320
+    },
+    "VideoPengunjung.dc.html": {
+      "h": 844,
+      "is_interactive": true,
+      "page": "lengkap",
+      "radius": 28,
+      "title": "2.6 · Video pengunjung",
+      "w": 390,
+      "x": 2350,
+      "y": 2140
+    }
+  },
+  "createdOnFiles": {
+    "at": "2026-11-20T05:49:06Z",
+    "v": 1
+  },
+  "designSystems": [],
+  "launch": {
+    "view": "canvas"
+  },
+  "noteOrder": [
+    "r1",
+    "r2",
+    "r3",
+    "catatan",
+    "ds",
+    "r4",
+    "note-cjymzz",
+    "r5",
+    "r6",
+    "r7",
+    "p2r1",
+    "p2r2",
+    "p2r3",
+    "p2r4",
+    "p2r5",
+    "p2r6",
+    "p2r7",
+    "p2r8",
+    "p2r9",
+    "p2r10",
+    "p2baca",
+    "p2isi"
+  ],
+  "notes": {
+    "catatan": {
+      "page": "awal",
+      "text": "Kotak bergaris putus berisi [ISI] = data yang belum terverifikasi. Isi dari sumber resmi beserta tanggal periksanya.\n\nData yang sudah terisi: jadwal Sendratari Prambanan dari ticket.injourneydestination.id, dibuka 20 November 2026.",
+      "w": 320,
+      "x": 2350,
+      "y": 0
+    },
+    "ds": {
+      "fill": "blue",
+      "page": "awal",
+      "text": "Mengikuti Papan 01–05: warna, Plus Jakarta Sans + Fraunces (hanya postcard dan sorotan), radius badge 4 / input 12 / kartu 16 / chip 999, ikon 3 warna yang sengaja tidak simetris, cap 4 bentuk.\n\nPenyimpangan sengaja: tombol oranye memakai #C94D1A agar teks putih lolos kontras 4,5:1; status bar palsu dihapus.",
+      "w": 320,
+      "x": 2350,
+      "y": 480
+    },
+    "note-cjymzz": {
+      "fill": "red",
+      "page": "awal",
+      "text": "Ikon yang belum ada di set:\n\nKerajinan atau batik (saya pakai canting), Keraton (joglo), dan Cap paspor.\nIkon kecil di tombol: kembali, cari, bagikan, lonceng, pengaturan, putar video, bus, jam, dan gembok. Ini masih ikon garis tipis.",
+      "w": 320,
+      "x": 2350,
+      "y": 240
+    },
+    "p2baca": {
+      "fill": "orange",
+      "page": "lengkap",
+      "text": "Setiap baris adalah satu use case, dibaca dari kiri ke kanan. Tekan Play di layar pertama sebuah baris untuk mencoba alurnya.\n\nKotak [ISI] menandai data yang belum terverifikasi dari sumber resmi.\n\nTautan ke Bagikan postcard, Pengaturan notifikasi, dan Hapus akun membuka layar di halaman Eksplorasi awal.\n\nData tempat dan kegiatan: sheet \"KELANA – Data Wisata Budaya Kota Yogyakarta\", diperiksa 20 November 2026.",
+      "w": 360,
+      "x": -480,
+      "y": 300
+    },
+    "p2isi": {
+      "fill": "red",
+      "page": "lengkap",
+      "text": "Daftar [ISI] di halaman 2 (Alur & fitur lengkap), per 20 November 2026\n\nA. Data resmi: tanyakan ke pengelola, lalu catat sumber dan tanggalnya\n- 2.2 Kategori Museum: jam buka Museum Puro Pakualaman (tiga sumber berbeda)\n- 2.3 Detail tempat: aturan foto & video Sonobudoyo; jadwal pergelaran November–Desember 2026\n- 2.5 Foto resmi: 4 foto pengelola, keterangan foto, nama pemberi foto, tanggal diperbarui\n- 3.1 Agenda: aturan foto & tempat menonton Ganti Dwaja (Kadipaten Pakualaman)\n- 3.2 Detail pentas: aturan foto & video Sendratari (InJourney)\n- 4.6 Kendaraan: info parkir resmi\n- 5.3 Tempat tutup: tanggal tutup Keraton (layar ini contoh skenario)\n- 9.1 Candi: aturan naik candi & berpakaian di Prambanan\n- 10.1 Panel pengelola: tanggal periksa, jatuh tempo, nama pemeriksa per baris\n\nB. Keputusan tim\n- 2.8 Laporan terkirim: lama pemeriksaan laporan (hari kerja)\n- 6.2 Ambil cap: radius area cap dan batas akurasi lokasi\n- 7.3 Unggah video: durasi maksimal video\n- 10.1 Panel pengelola: siklus cek ulang data (tiap ... hari)\n\nC. Diisi otomatis oleh aplikasi (biarkan [ISI] di desain atau ganti contoh berlabel)\n- 4.10 Rencana hari ini: jam di tiap tempat, waktu jalan kaki Keraton ke Sonobudoyo\n- 5.1 Notifikasi: jam masuk tiap notifikasi\n- 6.4 Di luar area: jarak ke area cap (dari GPS)\n- 6.2 Ambil cap: akurasi lokasi saat itu\n- 8.2 Profil: tanggal bergabung, jumlah postcard, jumlah tempat tersimpan\n- 10.1 Panel pengelola: jumlah laporan baru, jumlah pengguna yang dikabari\n\nD. Konten pengunjung: biarkan kosong, jangan dikarang\n- 2.3 Detail tempat, 2.4 Cerita pengunjung, 2.6 Video pengunjung: foto, video, ulasan, nama, nilai bintang",
+      "w": 380,
+      "x": -500,
+      "y": 1000
+    },
+    "p2r1": {
+      "kind": "title1",
+      "maxW": 2740,
+      "page": "lengkap",
+      "text": "1 · Pengguna baru: buka aplikasi sampai Jelajah",
+      "w": 240,
+      "x": 0,
+      "y": 0
+    },
+    "p2r10": {
+      "kind": "title1",
+      "maxW": 1800,
+      "page": "lengkap",
+      "text": "10 · Pengelola tempat (mitra)",
+      "w": 240,
+      "x": 0,
+      "y": 15364
+    },
+    "p2r2": {
+      "kind": "title1",
+      "maxW": 3680,
+      "page": "lengkap",
+      "text": "2 · Mencari dan menilai tempat",
+      "w": 240,
+      "x": 0,
+      "y": 1840
+    },
+    "p2r3": {
+      "kind": "title1",
+      "maxW": 1800,
+      "page": "lengkap",
+      "text": "3 · Menonton pertunjukan",
+      "w": 240,
+      "x": 0,
+      "y": 3980
+    },
+    "p2r4": {
+      "kind": "title1",
+      "maxW": 4620,
+      "page": "lengkap",
+      "text": "4 · Menyusun rencana",
+      "w": 240,
+      "x": 0,
+      "y": 5900
+    },
+    "p2r5": {
+      "kind": "title1",
+      "maxW": 1800,
+      "page": "lengkap",
+      "text": "5 · Hari H: berangkat dan perubahan",
+      "w": 240,
+      "x": 0,
+      "y": 7320
+    },
+    "p2r6": {
+      "kind": "title1",
+      "maxW": 2270,
+      "page": "lengkap",
+      "text": "6 · Di lokasi: ambil cap",
+      "w": 240,
+      "x": 0,
+      "y": 8720
+    },
+    "p2r7": {
+      "kind": "title1",
+      "maxW": 1800,
+      "page": "lengkap",
+      "text": "7 · Bercerita: postcard, video, paspor",
+      "w": 240,
+      "x": 0,
+      "y": 9984
+    },
+    "p2r8": {
+      "kind": "title1",
+      "maxW": 1800,
+      "page": "lengkap",
+      "text": "8 · Akun",
+      "w": 240,
+      "x": 0,
+      "y": 11624
+    },
+    "p2r9": {
+      "kind": "title1",
+      "maxW": 3210,
+      "page": "lengkap",
+      "text": "9 · Kategori di Jelajah",
+      "w": 240,
+      "x": 0,
+      "y": 13124
+    },
+    "r1": {
+      "kind": "title1",
+      "maxW": 2740,
+      "page": "awal",
+      "text": "1 · Masuk dan menjelajah",
+      "w": 240,
+      "x": 0,
+      "y": -300
+    },
+    "r2": {
+      "kind": "title1",
+      "maxW": 2740,
+      "page": "awal",
+      "text": "2 · Merencanakan",
+      "w": 240,
+      "x": 0,
+      "y": 3200
+    },
+    "r3": {
+      "kind": "title1",
+      "maxW": 2740,
+      "page": "awal",
+      "text": "3 · Mengambil cap dan bercerita",
+      "w": 240,
+      "x": 0,
+      "y": 5020
+    },
+    "r4": {
+      "kind": "title1",
+      "maxW": 2740,
+      "page": "awal",
+      "text": "4 · Notifikasi",
+      "w": 240,
+      "x": 0,
+      "y": 6860
+    },
+    "r5": {
+      "kind": "title1",
+      "maxW": 2740,
+      "page": "awal",
+      "text": "5 · Fitur inti: susun rencana, kisah pertunjukan, verifikasi",
+      "w": 240,
+      "x": 0,
+      "y": 8640
+    },
+    "r6": {
+      "kind": "title1",
+      "maxW": 3640,
+      "page": "awal",
+      "text": "6 · Pelengkap: daftar tempat, laporan, kondisi kosong dan gagal",
+      "w": 240,
+      "x": 0,
+      "y": 11210
+    },
+    "r7": {
+      "kind": "title1",
+      "maxW": 3680,
+      "page": "awal",
+      "text": "7 · Akun dan wilayah",
+      "w": 240,
+      "x": 0,
+      "y": 13130
+    }
+  },
+  "order": [
+    "Splash.dc.html",
+    "Pembuka.dc.html",
+    "Main.dc.html",
+    "Peta.dc.html",
+    "Detail.dc.html",
+    "Agenda.dc.html",
+    "Rencana.dc.html",
+    "AmbilCap.dc.html",
+    "CapBerhasil.dc.html",
+    "Ulasan.dc.html",
+    "Video.dc.html",
+    "Postcard.dc.html",
+    "Paspor.dc.html",
+    "IzinNotif.dc.html",
+    "Notifikasi.dc.html",
+    "PengaturanNotif.dc.html",
+    "LayarKunci.dc.html",
+    "BuatRencana.dc.html",
+    "DetailPertunjukan.dc.html",
+    "PanelVerifikasi.dc.html",
+    "SemuaTempat.dc.html",
+    "Lapor.dc.html",
+    "LaporTerkirim.dc.html",
+    "RencanaKosong.dc.html",
+    "TempatTutup.dc.html",
+    "LokasiDitolak.dc.html",
+    "DiLuarArea.dc.html",
+    "TanpaInternet.dc.html",
+    "Masuk.dc.html",
+    "Profil.dc.html",
+    "HapusAkun.dc.html",
+    "PilihWilayah.dc.html",
+    "PilihWilayahB.dc.html",
+    "PilihWilayahC.dc.html",
+    "PilihWilayahTapBiru.dc.html",
+    "PilihWilayahTapAbu.dc.html",
+    "JelajahIlustratif.dc.html",
+    "IzinLokasiIlustratif.dc.html",
+    "IzinNotifIlustratif.dc.html",
+    "RencanaKosongIlustratif.dc.html",
+    "MulaiIlustratif.dc.html",
+    "Kenalan1.dc.html",
+    "Kenalan2.dc.html",
+    "Kenalan3.dc.html",
+    "DetailIlustratif.dc.html",
+    "SusunRencanaIlustratif.dc.html",
+    "RencanaHariIniIlustratif.dc.html",
+    "AmbilCapIlustratif.dc.html",
+    "CapBerhasilIlustratif.dc.html",
+    "PilihDaerah.dc.html",
+    "Cari.dc.html",
+    "KatMuseum.dc.html",
+    "Galeri.dc.html",
+    "VideoPengunjung.dc.html",
+    "LaporIlustratif.dc.html",
+    "LaporTerkirimIlustratif.dc.html",
+    "AgendaIlustratif.dc.html",
+    "DetailPentasIlustratif.dc.html",
+    "Pengingat.dc.html",
+    "KeSitusResmi.dc.html",
+    "SusunTanggal.dc.html",
+    "SusunMinat.dc.html",
+    "SusunWaktu.dc.html",
+    "SusunKendaraan.dc.html",
+    "SusunKebutuhan.dc.html",
+    "Menyusun.dc.html",
+    "NotifikasiIlustratif.dc.html",
+    "PetaRuteIlustratif.dc.html",
+    "TempatTutupIlustratif.dc.html",
+    "TanpaInternetIlustratif.dc.html",
+    "DiLuarAreaIlustratif.dc.html",
+    "LokasiDitolakIlustratif.dc.html",
+    "TulisPostcardIlustratif.dc.html",
+    "UnggahVideoIlustratif.dc.html",
+    "PasporIlustratif.dc.html",
+    "MasukIlustratif.dc.html",
+    "ProfilIlustratif.dc.html",
+    "KatCandi.dc.html",
+    "KatTari.dc.html",
+    "KatTopeng.dc.html",
+    "KatGamelan.dc.html",
+    "KatTiket.dc.html",
+    "KatPeta.dc.html",
+    "KatSemua.dc.html",
+    "PanelPengelola.dc.html",
+    "UlasanPengunjung.dc.html",
+    "BagikanPostcardIlustratif.dc.html"
+  ],
+  "pages": [
+    {
+      "id": "awal",
+      "name": "Eksplorasi awal"
+    },
+    {
+      "id": "lengkap",
+      "name": "Alur & fitur lengkap"
+    }
+  ],
+  "title": "KELANA — UI Aplikasi"
+}
