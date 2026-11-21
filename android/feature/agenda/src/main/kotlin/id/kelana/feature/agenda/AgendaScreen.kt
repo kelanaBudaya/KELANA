@@ -50,6 +50,7 @@ import id.kelana.core.designsystem.theme.KelanaShapes
 import id.kelana.core.designsystem.theme.KelanaSpacing
 import id.kelana.core.designsystem.theme.KelanaTheme
 import id.kelana.core.model.EventOccurrence
+import id.kelana.core.model.EventTag
 import id.kelana.core.model.PlaceCategory
 import id.kelana.core.navigation.AgendaRoute
 import id.kelana.core.navigation.DetailPentasRoute
@@ -83,7 +84,7 @@ internal fun AgendaScreen(navigate: (Any) -> Unit, viewModel: AgendaViewModel = 
 internal fun AgendaContent(
     state: AgendaUiState,
     onSelectDate: (LocalDate) -> Unit,
-    onSelectFilter: (PlaceCategory?) -> Unit,
+    onSelectFilter: (EventTag?) -> Unit,
     onOpenEvent: (String) -> Unit,
     modifier: Modifier = Modifier,
 ) {
@@ -222,7 +223,7 @@ private fun DateStrip(days: List<AgendaDay>, selected: LocalDate, onSelect: (Loc
 }
 
 @Composable
-private fun FilterRow(filters: List<PlaceCategory>, selected: PlaceCategory?, onSelect: (PlaceCategory?) -> Unit) {
+private fun FilterRow(filters: List<EventTag>, selected: EventTag?, onSelect: (EventTag?) -> Unit) {
     LazyRow(
         contentPadding = PaddingValues(horizontal = KelanaSpacing.gutter),
         horizontalArrangement = Arrangement.spacedBy(KelanaSpacing.sm),
@@ -230,8 +231,8 @@ private fun FilterRow(filters: List<PlaceCategory>, selected: PlaceCategory?, on
         item {
             KelanaChip(stringResource(R.string.agenda_filter_all), selected == null, onClick = { onSelect(null) })
         }
-        items(filters, key = { it.key }) { category ->
-            KelanaChip(category.label(), selected == category, onClick = { onSelect(category) })
+        items(filters, key = { it.key }) { tag ->
+            KelanaChip(tag.label(), selected == tag, onClick = { onSelect(tag) })
         }
     }
 }

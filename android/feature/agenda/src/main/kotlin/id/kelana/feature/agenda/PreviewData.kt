@@ -3,6 +3,7 @@ package id.kelana.feature.agenda
 import id.kelana.core.model.Event
 import id.kelana.core.model.EventOccurrence
 import id.kelana.core.model.EventSchedule
+import id.kelana.core.model.EventTag
 import id.kelana.core.model.EventTicket
 import id.kelana.core.model.OfficialFact
 import id.kelana.core.model.PlaceCategory
@@ -29,6 +30,10 @@ internal object PreviewData {
             checked,
         ),
         ticket = OfficialFact(EventTicket(150_000, "https://example.org/tiket"), "https://example.org/tiket", checked),
+        performers = listOf("Lebih dari 200 penari dan pemusik lokal"),
+        arrivalAdviceMin = 30,
+        arrivalAdviceMax = 45,
+        tags = setOf(EventTag.Tari),
     )
 
     private val macapat = roro.copy(
@@ -36,6 +41,10 @@ internal object PreviewData {
         placeName = "Keraton Yogyakarta",
         title = "Macapat, Bangsal Srimanganti",
         category = PlaceCategory.Gamelan,
+        performers = emptyList(),
+        arrivalAdviceMin = null,
+        arrivalAdviceMax = null,
+        tags = emptySet(),
         schedule = roro.schedule.copy(
             value = EventSchedule(Recurrence.Weekly(DayOfWeek.SATURDAY), LocalTime.of(9, 0), LocalTime.of(11, 0)),
         ),
@@ -47,7 +56,7 @@ internal object PreviewData {
         selectedDate = today,
         regionName = "DI Yogyakarta",
         days = (0 until 7).map { AgendaDay(today.plusDays(it.toLong()), hasEvents = it % 2 == 0) },
-        filters = listOf(PlaceCategory.Tari, PlaceCategory.Gamelan),
+        filters = EventTag.entries,
         tonight = EventOccurrence(roro, today),
         alsoToday = emptyList(),
         upcoming = listOf(AgendaSection(today.plusDays(1), listOf(EventOccurrence(macapat, today.plusDays(1))))),

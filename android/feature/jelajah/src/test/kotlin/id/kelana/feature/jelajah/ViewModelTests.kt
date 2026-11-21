@@ -7,7 +7,10 @@ import id.kelana.core.data.repository.FakePlaceRepository
 import id.kelana.core.data.repository.FakeRegionRepository
 import id.kelana.core.model.PlaceCategory
 import id.kelana.core.navigation.KategoriRoute
+import id.kelana.core.navigation.PasporRoute
+import id.kelana.core.navigation.PetaRoute
 import id.kelana.core.navigation.SemuaTempatRoute
+import id.kelana.core.navigation.TiketRoute
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.UnconfinedTestDispatcher
@@ -83,8 +86,13 @@ class ViewModelTests {
         assertEquals(KategoriRoute("museum"), tileRoute(HomeTile.Museum))
         assertEquals(KategoriRoute("topeng"), tileRoute(HomeTile.Topeng))
         assertEquals(SemuaTempatRoute, tileRoute(HomeTile.Semua))
-        assertNull(tileRoute(HomeTile.Peta))
-        assertNull(tileRoute(HomeTile.Tiket))
+        assertEquals(PetaRoute, tileRoute(HomeTile.Peta))
+        assertEquals(TiketRoute, tileRoute(HomeTile.Tiket))
+    }
+
+    @Test fun everyTileHasADestinationAndPassportGoesToPaspor() {
+        HomeTile.entries.forEach { assertNotNull(it.name, tileRoute(it)) }
+        assertEquals(PasporRoute, passportRoute)
     }
 
     // Cari

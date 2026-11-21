@@ -30,7 +30,23 @@ data class EventTicket(
     val sellerUrl: String?,
 )
 
-/** A performance or recurring show at a place. [placeName] is denormalised for list rows. */
+/** Filter tag of an event. Mirrors the allowed values of `events.tags` (`tari`, `wayang`, `ramah_anak`). */
+enum class EventTag(val key: String) {
+    Tari("tari"),
+    Wayang("wayang"),
+    RamahAnak("ramah_anak"),
+    ;
+
+    companion object {
+        fun fromKey(key: String): EventTag? = entries.firstOrNull { it.key == key }
+    }
+}
+
+/**
+ * A performance or recurring show at a place.
+ * [placeName] is denormalised for list rows. [performers] is free text ("Lebih dari 200 penari dan pemusik lokal").
+ * [arrivalAdviceMin] and [arrivalAdviceMax] are minutes before the show; both null or both set.
+ */
 data class Event(
     val id: String,
     val placeId: String,
@@ -40,6 +56,10 @@ data class Event(
     val category: PlaceCategory,
     val schedule: OfficialFact<EventSchedule>,
     val ticket: OfficialFact<EventTicket>,
+    val performers: List<String> = emptyList(),
+    val arrivalAdviceMin: Int? = null,
+    val arrivalAdviceMax: Int? = null,
+    val tags: Set<EventTag> = emptySet(),
 ) {
     fun occursOn(date: LocalDate): Boolean = schedule.value.recurrence.occursOn(date)
 

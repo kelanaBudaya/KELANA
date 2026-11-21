@@ -6,7 +6,7 @@ import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import id.kelana.core.model.EventOccurrence
 import id.kelana.core.model.EventRepository
-import id.kelana.core.model.PlaceCategory
+import id.kelana.core.model.EventTag
 import id.kelana.core.model.RegionRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -36,9 +36,9 @@ data class AgendaUiState(
     val selectedDate: LocalDate,
     val regionName: String? = null,
     val days: List<AgendaDay> = emptyList(),
-    /** Categories that have events in the strip window, in enum order. "Semua" is `selectedFilter == null`. */
-    val filters: List<PlaceCategory> = emptyList(),
-    val selectedFilter: PlaceCategory? = null,
+    /** Filter chips after "Semua", always every [EventTag] in enum order. "Semua" is `selectedFilter == null`. */
+    val filters: List<EventTag> = EventTag.entries,
+    val selectedFilter: EventTag? = null,
     /** First evening event of [selectedDate] ("Malam ini"). */
     val tonight: EventOccurrence? = null,
     /** Other events of [selectedDate] ("Juga hari ini"). */
@@ -68,7 +68,7 @@ class AgendaViewModel(
 
     private val today: LocalDate = LocalDate.now(clock)
     private val selectedDate = MutableStateFlow(today)
-    private val selectedFilter = MutableStateFlow<PlaceCategory?>(null)
+    private val selectedFilter = MutableStateFlow<EventTag?>(null)
 
     private val windowEnd = today.plusDays(WINDOW_DAYS - 1L)
 
@@ -96,8 +96,8 @@ class AgendaViewModel(
     }
 
     /** `null` means "Semua". */
-    fun selectFilter(category: PlaceCategory?) {
-        selectedFilter.update { category }
+    fun selectFilter(tag: EventTag?) {
+        selectedFilter.update { tag }
     }
 
     companion object {
@@ -110,15 +110,14 @@ internal fun buildState(
     today: LocalDate,
     occurrences: List<EventOccurrence>,
     selected: LocalDate,
-    filter: PlaceCategory?,
+    filter: EventTag?,
     regionName: String?,
 ): AgendaUiState {
     val days = (0 until AgendaViewModel.WINDOW_DAYS).map { offset ->
         val date = today.plusDays(offset.toLong())
         AgendaDay(date, hasEvents = occurrences.any { it.date == date })
     }
-    val filters = PlaceCategory.entries.filter { category -> occurrences.any { it.event.category == category } }
-    val filtered = occurrences.filter { filter == null || it.event.category == filter }
+    val filtered = occurrences.filter { filter == null || filter in it.event.tags }
     val startOf = { o: EventOccurrence -> o.event.schedule.value.start }
     val selectedDay = filtered.filter { it.date == selected }.sortedBy(startOf)
     val tonight = selectedDay.firstOrNull { startOf(it) >= EveningStart }
@@ -133,7 +132,7 @@ internal fun buildState(
         selectedDate = selected,
         regionName = regionName,
         days = days,
-        filters = filters,
+        filters = EventTag.entries,
         selectedFilter = filter,
         tonight = tonight,
         alsoToday = selectedDay.filter { it != tonight },

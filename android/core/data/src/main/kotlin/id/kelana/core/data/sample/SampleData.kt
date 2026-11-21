@@ -2,6 +2,7 @@ package id.kelana.core.data.sample
 
 import id.kelana.core.model.Event
 import id.kelana.core.model.EventSchedule
+import id.kelana.core.model.EventTag
 import id.kelana.core.model.EventTicket
 import id.kelana.core.model.OfficialFact
 import id.kelana.core.model.OpeningHours
@@ -153,6 +154,10 @@ internal object SampleData {
         end: LocalTime,
         priceFrom: Long?,
         sellerUrl: String?,
+        tags: Set<EventTag> = emptySet(),
+        performers: List<String> = emptyList(),
+        arrivalAdviceMin: Int? = null,
+        arrivalAdviceMax: Int? = null,
     ) = Event(
         id = id,
         placeId = placeSlug,
@@ -170,6 +175,10 @@ internal object SampleData {
             sourceUrl = "https://example.org/sample/events/$placeSlug",
             checkedAt = checkedAt,
         ),
+        performers = performers,
+        arrivalAdviceMin = arrivalAdviceMin,
+        arrivalAdviceMax = arrivalAdviceMax,
+        tags = tags,
     )
 
     /** weekday follows ISO 8601 as in seed.sql: 1 = Monday .. 7 = Sunday. */
@@ -179,18 +188,23 @@ internal object SampleData {
             "Pentas sendratari kisah Roro Jonggrang.", PlaceCategory.Tari,
             DayOfWeek.FRIDAY, LocalTime.of(19, 30), LocalTime.of(20, 30), 150_000,
             "https://example.org/sample/tiket/roro-jonggrang",
+            tags = setOf(EventTag.Tari),
+            performers = listOf("Lebih dari 200 penari dan pemusik lokal"),
+            arrivalAdviceMin = 30, arrivalAdviceMax = 45,
         ),
         event(
             "ramayana-selasa", "candi-prambanan", "Candi Prambanan", "Sendratari Ramayana",
             "Pentas sendratari Ramayana. Hari tayang contoh.", PlaceCategory.Tari,
             DayOfWeek.TUESDAY, LocalTime.of(19, 30), LocalTime.of(21, 0), 150_000,
             "https://example.org/sample/tiket/ramayana",
+            tags = setOf(EventTag.Tari),
         ),
         event(
             "ramayana-kamis", "candi-prambanan", "Candi Prambanan", "Sendratari Ramayana",
             "Pentas sendratari Ramayana. Hari tayang contoh.", PlaceCategory.Tari,
             DayOfWeek.THURSDAY, LocalTime.of(19, 30), LocalTime.of(21, 0), 150_000,
             "https://example.org/sample/tiket/ramayana",
+            tags = setOf(EventTag.Tari),
         ),
         event(
             "macapat-sabtu", "keraton-yogyakarta", "Keraton Yogyakarta", "Macapat, Bangsal Srimanganti",
@@ -201,6 +215,7 @@ internal object SampleData {
             "wayang-wong-minggu", "keraton-yogyakarta", "Keraton Yogyakarta", "Fragmen wayang wong, Bangsal Srimanganti",
             "Fragmen wayang wong di Bangsal Srimanganti. Hari contoh.", PlaceCategory.Tari,
             DayOfWeek.SUNDAY, LocalTime.of(9, 0), LocalTime.of(11, 0), null, null,
+            tags = setOf(EventTag.Wayang),
         ),
     )
 

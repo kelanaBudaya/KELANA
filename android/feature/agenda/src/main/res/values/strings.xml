@@ -39,4 +39,10 @@
     <string name="detail_buy_ticket">Beli tiket</string>
     <string name="detail_no_payment">KELANA tidak menerima pembayaran. Tiket dibeli di situs resmi penyelenggara.</string>
     <string name="detail_illustration_placeholder_cd">Ilustrasi pentas (sementara)</string>
+    <string name="agenda_tag_tari">Tari</string>
+    <string name="agenda_tag_wayang">Wayang</string>
+    <string name="agenda_tag_ramah_anak">Ramah anak</string>
+    <string name="detail_performers_label">Penampil</string>
+    <string name="detail_arrival_range">Disarankan tiba %1$d sampai %2$d menit sebelum pentas</string>
+    <string name="detail_arrival_single">Disarankan tiba sekitar %1$d menit sebelum pentas</string>
 </resources>

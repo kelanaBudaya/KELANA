@@ -85,7 +85,7 @@ fun KelanaAppContent(appViewModel: AppViewModel = hiltViewModel()) {
             rencanaScreen()
             ceritaScreen()
 
-            // First launch: Intro(0) -> Intro(1) -> Intro(2) -> PilihDaerah -> Jelajah. Whichever way the flow ends
+            // First launch: Intro(0) Mulai -> Intro(1..3) Kenalan -> PilihDaerah -> Jelajah. Whichever way the flow ends
             // (Pilih daerah, or Masuk reached from it), mark onboarding done and drop the whole flow from the back stack.
             val finishOnboarding: () -> Unit = {
                 appViewModel.completeOnboarding()
@@ -120,11 +120,11 @@ fun KelanaAppContent(appViewModel: AppViewModel = hiltViewModel()) {
             }
 
             tempatScreens(navigate = navigate, onBack = onBack)
-            petaScreen()
-            pasporScreen()
+            petaScreen(onBack = onBack)
+            pasporScreen(onBack = onBack)
             postcardScreen()
             notifikasiScreen()
-            tiketScreen()
+            tiketScreen(onBack = onBack)
         }
     }
 }

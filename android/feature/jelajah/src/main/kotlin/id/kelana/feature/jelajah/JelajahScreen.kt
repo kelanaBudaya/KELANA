@@ -24,8 +24,12 @@ import id.kelana.core.navigation.DetailPentasRoute
 import id.kelana.core.navigation.DetailTempatRoute
 import id.kelana.core.navigation.JelajahRoute
 import id.kelana.core.navigation.KategoriRoute
+import id.kelana.core.navigation.PasporRoute
+import id.kelana.core.navigation.PetaRoute
 import id.kelana.core.navigation.SemuaTempatRoute
+import id.kelana.core.navigation.TiketRoute
 import id.kelana.core.ui.session.SessionViewModel
+import id.kelana.core.ui.session.rememberRequireLogin
 import kotlinx.coroutines.launch
 
 /**
@@ -41,18 +45,19 @@ fun NavGraphBuilder.jelajahScreens(navigate: (Any) -> Unit, onBack: () -> Unit) 
     composable<SemuaTempatRoute> { SemuaTempatScreen(navigate = navigate, onBack = onBack) }
 }
 
-/**
- * Where a home tile goes. Null means "segera hadir" (snackbar): Peta and Tiket resmi routes exist in
- * :core:navigation but :app has not registered a destination for them yet (checked in :app NavHost).
- */
-internal fun tileRoute(tile: HomeTile): Any? = when (tile) {
+/** Destination of the Paspor card on the home screen. */
+internal val passportRoute: Any = PasporRoute
+
+/** Where a home tile goes. Every tile has a destination registered in :app now, so this never returns null. */
+internal fun tileRoute(tile: HomeTile): Any = when (tile) {
     HomeTile.Museum -> KategoriRoute.of(PlaceCategory.Museum)
     HomeTile.Candi -> KategoriRoute.of(PlaceCategory.Candi)
     HomeTile.Tari -> KategoriRoute.of(PlaceCategory.Tari)
     HomeTile.Topeng -> KategoriRoute.of(PlaceCategory.Topeng)
     HomeTile.Gamelan -> KategoriRoute.of(PlaceCategory.Gamelan)
     HomeTile.Semua -> SemuaTempatRoute
-    HomeTile.Tiket, HomeTile.Peta -> null
+    HomeTile.Tiket -> TiketRoute
+    HomeTile.Peta -> PetaRoute
 }
 
 private fun initialsOf(state: SessionState): String = when (state) {
@@ -67,7 +72,7 @@ internal fun JelajahScreen(navigate: (Any) -> Unit) {
     val session: SessionViewModel = hiltViewModel()
     val state by viewModel.state.collectAsState()
     val sessionState by session.sessionState.collectAsState()
-    val requireLogin = rememberRequireLoginVia(navigate, session)
+    val requireLogin = rememberRequireLogin(navigate, session)
     val snackbar = remember { SnackbarHostState() }
     val scope = rememberCoroutineScope()
     val comingSoon = stringResource(R.string.coming_soon)
@@ -86,7 +91,7 @@ internal fun JelajahScreen(navigate: (Any) -> Unit) {
                 onBell = {}, // visual-only for now
                 // Guest goes to Masuk; signed-in is a no-op for now (profile entry comes later).
                 onAvatar = { requireLogin {} },
-                onPassport = showComingSoon, // Paspor is Phase 3: PasporRoute has no destination yet
+                onPassport = { navigate(passportRoute) }, // stub screen in :feature:paspor
                 onQuickAction = { action ->
                     when (action) {
                         QuickAction.Agenda -> navigate(AgendaRoute)
@@ -94,7 +99,7 @@ internal fun JelajahScreen(navigate: (Any) -> Unit) {
                         else -> if (action.needsAccount) requireLogin(showComingSoon) else showComingSoon()
                     }
                 },
-                onTile = { tile -> tileRoute(tile)?.let(navigate) ?: showComingSoon() },
+                onTile = { tile -> navigate(tileRoute(tile)) },
                 onEvent = { navigate(DetailPentasRoute(it.event.id)) },
                 onPlace = { navigate(DetailTempatRoute(it.id)) },
                 onSeeAll = { navigate(SemuaTempatRoute) },
@@ -123,7 +128,7 @@ internal fun KategoriScreen(route: KategoriRoute, navigate: (Any) -> Unit, onBac
     // The ViewModel reads the category from its SavedStateHandle; [route] documents the argument.
     val viewModel: KategoriViewModel = hiltViewModel()
     val state by viewModel.state.collectAsState()
-    val requireLogin = rememberRequireLoginVia(navigate)
+    val requireLogin = rememberRequireLogin(navigate)
     KategoriContent(
         state = state,
         onBack = onBack,
