@@ -128,7 +128,7 @@ paths:
       requestBody: { required: true, content: { application/json: { schema: { $ref: '#/components/schemas/PostcardInsert' } } } }
       responses:
         '201': { description: Created }
-        '403': { description: RLS violation (no stamp for that place, or user_id is not the caller) }
+        '403': { description: 'RLS violation (no stamp for that place, or user_id is not the caller)' }
     patch:
       operationId: updateOwnPostcard
       summary: Own rows only (filter id=eq.<uuid>); place_id must still be a stamped place
@@ -156,9 +156,11 @@ paths:
         '403': { description: RLS violation }
     patch:
       operationId: updateOwnVideo
+      summary: Edit own video (stamp rule still applies)
       responses: { '204': { description: Updated } }
     delete:
       operationId: deleteOwnVideo
+      summary: Delete own video
       responses: { '204': { description: Deleted } }
   /rest/v1/reports:
     get:
@@ -173,9 +175,11 @@ paths:
       responses: { '201': { description: Created } }
     patch:
       operationId: updateOwnReport
+      summary: Edit own report
       responses: { '204': { description: Updated } }
     delete:
       operationId: deleteOwnReport
+      summary: Delete own report
       responses: { '204': { description: Deleted } }
   /rest/v1/subscriptions:
     get:
@@ -190,6 +194,7 @@ paths:
       responses: { '201': { description: Created }, '409': { description: Already subscribed } }
     delete:
       operationId: deleteOwnSubscription
+      summary: Delete own subscription
       responses: { '204': { description: Deleted } }
   /storage/v1/object/postcards/{user_id}/{place_id}/{filename}:
     parameters:
@@ -210,7 +215,7 @@ paths:
       responses:
         '200': { description: Uploaded }
         '400': { description: File too large or mime type not allowed }
-        '403': { description: Not own folder, or no stamp for that place }
+        '403': { description: 'Not own folder, or no stamp for that place' }
     get:
       operationId: downloadPostcardPhoto
       summary: Download a postcard photo (any logged-in user; guests get 400/404)
