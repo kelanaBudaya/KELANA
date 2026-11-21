@@ -1,4 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="cerita_placeholder">Cerita pengunjung (segera hadir)</string>
+    <!-- Feed (UlasanPengunjung) -->
+    <string name="cerita_title">Cerita pengunjung</string>
+    <string name="cerita_summary_caption">Dari pengunjung yang mengambil cap</string>
+    <plurals name="cerita_postcard_count">
+        <item quantity="other">%1$d postcard</item>
+    </plurals>
+    <plurals name="cerita_video_count">
+        <item quantity="other">%1$d video</item>
+    </plurals>
+    <string name="cerita_filter_all">Semua</string>
+    <string name="cerita_filter_postcard">Postcard</string>
+    <string name="cerita_filter_video">Video</string>
+    <string name="cerita_write_postcard">Tulis postcard</string>
+    <string name="cerita_loading">Memuat cerita</string>
+    <string name="cerita_empty_title">Belum ada cerita</string>
+    <string name="cerita_empty_body">Cerita muncul di sini setelah pengunjung mengambil cap lalu membagikan postcard atau video.</string>
+    <string name="cerita_empty_filter_title">Belum ada cerita di pilihan ini</string>
+    <string name="cerita_empty_filter_body">Pilih Semua untuk melihat cerita lainnya.</string>
+    <string name="cerita_error_title">Cerita belum bisa dimuat</string>
+    <string name="cerita_error_body">Periksa sinyalmu lalu coba lagi.</string>
+    <string name="cerita_retry">Coba lagi</string>
+    <string name="cerita_guest_title">Masuk untuk membaca cerita</string>
+    <string name="cerita_guest_body">Cerita pengunjung hanya bisa dibaca setelah masuk. Kamu tetap bisa menjelajah tanpa akun.</string>
+    <string name="cerita_guest_action">Masuk</string>
+    <string name="cerita_author_fallback">Pengunjung</string>
+    <string name="cerita_badge_on_site">Di lokasi</string>
+    <string name="cerita_report_postcard">Laporkan postcard</string>
+    <string name="cerita_report_video">Laporkan video</string>
+    <string name="cerita_open_postcard">Buka postcard dari %1$s di %2$s</string>
+    <string name="cerita_play_video">Putar video dari %1$s di %2$s</string>
+    <string name="cerita_photo_unavailable">Foto belum bisa ditampilkan</string>
+    <string name="cerita_rating_desc">%1$d dari 5 bintang</string>
+    <string name="cerita_back">Kembali</string>
+    <string name="cerita_not_found_title">Cerita tidak ditemukan</string>
+    <string name="cerita_not_found_body">Cerita ini mungkin sudah dihapus.</string>
+    <string name="cerita_see_place">Lihat tempatnya</string>
+
+    <!-- Postcard detail (Postcard) -->
+    <string name="postcard_detail_title">Postcard pengunjung</string>
+    <string name="postcard_brand">KELANA / JURNAL</string>
+    <string name="postcard_visited_on">DIKUNJUNGI · %1$s</string>
+    <string name="postcard_by_author">Oleh %1$s</string>
+    <string name="postcard_stamp_desc">Cap %1$s</string>
+
+    <!-- Video detail (VideoPengunjung) -->
+    <string name="video_detail_title">Video pengunjung</string>
+    <string name="video_recorded_at">Direkam di %1$s</string>
+    <string name="video_recorded_at_stamp">Direkam di %1$s · cap %2$s</string>
+    <string name="video_player_unavailable">Pemutar video belum tersedia di versi ini</string>
 </resources>

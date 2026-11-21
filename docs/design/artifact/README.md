@@ -24,6 +24,9 @@ Each `*.dc.html` is one 390 px wide screen as HTML with inline styles. Read the 
 | 3.4 | Ke situs tiket resmi | `KeSitusResmi.dc.html` |
 | 8.1, 8.2 | Masuk, Profil | `MasukIlustratif`, `ProfilIlustratif` |
 | 9.1 to 9.7 | Candi, Tari, Topeng kosong, Gamelan, Tiket resmi, Peta, Semua tempat | `KatCandi`, `KatTari`, `KatTopeng`, `KatGamelan`, `KatTiket`, `KatPeta`, `KatSemua` |
+| (no. not checked) | Cerita pengunjung (feed) | `UlasanPengunjung.dc.html` |
+| (no. not checked) | Video pengunjung | `VideoPengunjung.dc.html` |
+| (no. not checked) | Postcard (Jurnal card, as viewed) | `Postcard.dc.html` |
 
 Screens not copied yet (fetch from the artifact when a phase needs them): 2.4, 2.6, 3.3, 4.x planner, 5.x, 6.x, 7.x, 10.1.
 

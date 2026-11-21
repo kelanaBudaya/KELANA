@@ -30,7 +30,7 @@ import id.kelana.core.ui.OfficialSiteSheet
 import id.kelana.core.ui.openCustomTab
 import id.kelana.feature.agenda.agendaScreens
 import id.kelana.feature.akun.akunScreen
-import id.kelana.feature.cerita.ceritaScreen
+import id.kelana.feature.cerita.ceritaScreens
 import id.kelana.feature.jelajah.jelajahScreens
 import id.kelana.feature.notifikasi.notifikasiScreen
 import id.kelana.feature.onboarding.onboardingScreens
@@ -85,7 +85,7 @@ fun KelanaAppContent(appViewModel: AppViewModel = hiltViewModel()) {
             jelajahScreens(navigate = navigate, onBack = onBack)
             agendaScreens(navigate = navigate, onBack = onBack)
             rencanaScreen()
-            ceritaScreen()
+            ceritaScreens(navigate = navigate, onBack = onBack)
 
             // First launch: Intro(0) Mulai -> Intro(1..3) Kenalan -> PilihDaerah -> Jelajah. Whichever way the flow ends
             // (Pilih daerah, or Masuk reached from it), mark onboarding done and drop the whole flow from the back stack.
