@@ -45,11 +45,29 @@
     <string name="status_available">Available</string>
     <string name="status_upcoming">Coming soon</string>
     <string name="status_not_open">Not open yet</string>
-    <string name="status_upcoming_text">We are preparing it. The team is still checking its official sources.</string>
-    <string name="status_not_open_text">Not open yet. We only open a region after its official sources are checked.</string>
+    <string name="status_upcoming_text">The team is checking the official sources. Expected opening date is being checked.</string>
+    <string name="status_not_open_text">Not in the checking queue yet.</string>
     <string name="pin_description">%1$s, %2$s</string>
-    <string name="island_java">Java Island</string>
     <string name="region_places_meta">%1$s · %2$d places</string>
     <string name="region_places_list">%1$s, and %2$d more places.</string>
     <string name="region_places_list_all">%1$s.</string>
+
+    <!-- Kenalan 3 sticker and stamp (decorative sample art) -->
+    <string name="intro3_sticker_name">SONOBUDOYO</string>
+    <string name="intro3_sticker_code">YK-02</string>
+    <string name="intro3_sticker_description">Sample sticker: Sonobudoyo, YK-02</string>
+    <string name="stamp_visited">VISITED</string>
+    <string name="stamp_region_code">DIY</string>
+    <string name="stamp_place_code">YK</string>
+    <string name="intro3_stamp_description">Sample stamp: visited, DIY</string>
+
+    <!-- Pilih daerah: islands -->
+    <string name="island_label">%1$s Island</string>
+    <string name="island_jawa">Java</string>
+    <string name="island_bali_nusa">Bali and Nusa Tenggara</string>
+    <string name="island_sumatera">Sumatra</string>
+    <string name="island_sulawesi">Sulawesi</string>
+    <string name="island_kalimantan">Kalimantan</string>
+    <string name="island_maluku">Maluku</string>
+    <string name="island_papua">Papua</string>
 </resources>

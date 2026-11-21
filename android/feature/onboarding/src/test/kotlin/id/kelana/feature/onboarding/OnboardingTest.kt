@@ -151,4 +151,30 @@ class OnboardingTest {
         assertFalse(vm.state.value.finished)
         assertNull((regions.selectedRegionId as MutableStateFlow).value)
     }
+
+    // ----- Map spots (artifact positions) -----
+
+    @Test
+    fun everySampleRegionHasAMapSpotInsideTheMapAndAnIsland() {
+        regions.all.forEachIndexed { index, region ->
+            val pos = pinPositionFor(region.id, index)
+            assertTrue(region.id, pos.x in 0f..MapUnitsWidth && pos.y in 0f..MapUnitsHeight)
+            assertTrue(region.id, islandNameRes(region.id) != null)
+        }
+    }
+
+    @Test
+    fun diyPinSitsWhereTheArtifactPutsIt() {
+        val pos = pinPositionFor("DIY", 0)
+        assertEquals(118f, pos.x, 0.01f)
+        assertEquals(144.1f, pos.y, 0.01f)
+        assertTrue(pos.below)
+    }
+
+    @Test
+    fun unknownRegionGetsAFallbackSpotInsideTheMap() {
+        val pos = pinPositionFor("TIDAK-ADA", 3)
+        assertTrue(pos.x in 0f..MapUnitsWidth && pos.y in 0f..MapUnitsHeight)
+        assertNull(islandNameRes("TIDAK-ADA"))
+    }
 }
