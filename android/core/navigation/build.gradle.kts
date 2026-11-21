@@ -6,5 +6,5 @@ plugins {
 dependencies {
     api(libs.kotlinx.serialization.json)
     api(libs.androidx.navigation.compose)
-    implementation(project(":core:model"))
+    api(project(":core:model"))
 }

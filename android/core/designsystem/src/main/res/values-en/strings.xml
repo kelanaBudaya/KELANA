@@ -7,4 +7,11 @@
     <string name="ds_preview_card_body">The largest Hindu temple in Indonesia.</string>
     <string name="ds_preview_chip_selected">Temples</string>
     <string name="ds_preview_chip_unselected">Museums</string>
+    <string name="ds_fact_pending">Being checked</string>
+    <string name="ds_preview_event_title">Roro Jonggrang Sendratari</string>
+    <string name="ds_preview_event_when">Friday 7.30–8.30 PM</string>
+    <string name="ds_preview_empty_title">No results yet</string>
+    <string name="ds_preview_empty_body">Try another keyword or pick a category.</string>
+    <string name="ds_preview_fact_label">Adult ticket price</string>
+    <string name="ds_preview_fact_value">Rp10,000</string>
 </resources>

@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="jelajah_placeholder">Jelajah (segera hadir)</string>
+    <string name="cari_placeholder">Cari (segera hadir)</string>
+    <string name="kategori_placeholder">Kategori %1$s (segera hadir)</string>
+    <string name="semua_tempat_placeholder">Semua tempat (segera hadir)</string>
 </resources>

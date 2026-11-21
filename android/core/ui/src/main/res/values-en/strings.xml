@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="category_museum">Museums</string>
+    <string name="category_candi">Temples</string>
+    <string name="category_tari">Dance</string>
+    <string name="category_topeng">Masks</string>
+    <string name="category_gamelan">Gamelan</string>
+    <string name="category_kerajinan">Crafts</string>
+    <string name="category_lainnya">Other</string>
+    <string name="official_site_title">To the official ticket site</string>
+    <string name="official_site_body">You will be taken to the official site of %1$s. KELANA does not sell tickets.</string>
+    <string name="official_site_open">Open site</string>
+    <string name="official_site_cancel">Cancel</string>
+    <string name="official_site_preview_label">Prambanan Temple</string>
+</resources>

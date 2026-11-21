@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="category_museum">Museum</string>
+    <string name="category_candi">Candi</string>
+    <string name="category_tari">Tari</string>
+    <string name="category_topeng">Topeng</string>
+    <string name="category_gamelan">Gamelan</string>
+    <string name="category_kerajinan">Kerajinan</string>
+    <string name="category_lainnya">Lainnya</string>
+    <string name="official_site_title">Ke situs tiket resmi</string>
+    <string name="official_site_body">Kamu akan dibawa ke situs resmi %1$s. KELANA tidak menjual tiket.</string>
+    <string name="official_site_open">Buka situs</string>
+    <string name="official_site_cancel">Batal</string>
+    <string name="official_site_preview_label">Candi Prambanan</string>
+</resources>

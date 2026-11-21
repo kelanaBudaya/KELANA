@@ -1,8 +1,17 @@
 package id.kelana.core.model
 
-/** A region (province) of Indonesia. Only regions with [isAvailable] set are open to users. */
+/** Mirrors the Postgres enum `region_status`. */
+enum class RegionStatus { Available, Upcoming, NotOpen }
+
+/**
+ * A region (province) of Indonesia. Only regions with [isAvailable] set are open to users.
+ * [id] is the region code, for example `DIY`.
+ */
 data class Region(
     val id: String,
     val name: String,
-    val isAvailable: Boolean,
-)
+    val status: RegionStatus,
+    val sortOrder: Int = 0,
+) {
+    val isAvailable: Boolean get() = status == RegionStatus.Available
+}

@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="tempat_placeholder">Place detail (coming soon)</string>
+    <string name="tempat_placeholder">Place detail %1$s (coming soon)</string>
+    <string name="foto_resmi_placeholder">Official photos %1$s (coming soon)</string>
+    <string name="laporkan_placeholder">Report %1$s (coming soon)</string>
 </resources>

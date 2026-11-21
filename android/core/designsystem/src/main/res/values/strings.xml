@@ -7,4 +7,11 @@
     <string name="ds_preview_card_body">Candi Hindu terbesar di Indonesia.</string>
     <string name="ds_preview_chip_selected">Candi</string>
     <string name="ds_preview_chip_unselected">Museum</string>
+    <string name="ds_fact_pending">Sedang dicek</string>
+    <string name="ds_preview_event_title">Sendratari Roro Jonggrang</string>
+    <string name="ds_preview_event_when">Jumat 19.30–20.30</string>
+    <string name="ds_preview_empty_title">Belum ada hasil</string>
+    <string name="ds_preview_empty_body">Coba kata kunci lain atau pilih kategori.</string>
+    <string name="ds_preview_fact_label">Harga tiket dewasa</string>
+    <string name="ds_preview_fact_value">Rp10.000</string>
 </resources>

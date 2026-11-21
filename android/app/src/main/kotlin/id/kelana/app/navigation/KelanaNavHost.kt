@@ -7,6 +7,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.window.DialogProperties
+import androidx.navigation.compose.dialog
+import androidx.navigation.toRoute
 import androidx.navigation.NavDestination.Companion.hasRoute
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.compose.NavHost
@@ -17,18 +21,22 @@ import id.kelana.app.AppViewModel
 import id.kelana.app.StartDestination
 import id.kelana.core.navigation.JelajahRoute
 import id.kelana.core.navigation.MasukRoute
-import id.kelana.core.navigation.OnboardingRoute
-import id.kelana.feature.agenda.agendaScreen
+import id.kelana.core.navigation.IntroRoute
+import id.kelana.core.navigation.OfficialSiteRoute
+import id.kelana.core.navigation.PilihDaerahRoute
+import id.kelana.core.ui.OfficialSiteSheet
+import id.kelana.core.ui.openCustomTab
+import id.kelana.feature.agenda.agendaScreens
 import id.kelana.feature.akun.akunScreen
 import id.kelana.feature.cerita.ceritaScreen
-import id.kelana.feature.jelajah.jelajahScreen
+import id.kelana.feature.jelajah.jelajahScreens
 import id.kelana.feature.notifikasi.notifikasiScreen
-import id.kelana.feature.onboarding.onboardingScreen
+import id.kelana.feature.onboarding.onboardingScreens
 import id.kelana.feature.paspor.pasporScreen
 import id.kelana.feature.peta.petaScreen
 import id.kelana.feature.postcard.postcardScreen
 import id.kelana.feature.rencana.rencanaScreen
-import id.kelana.feature.tempat.tempatScreen
+import id.kelana.feature.tempat.tempatScreens
 import id.kelana.feature.tiket.tiketScreen
 
 /** Owns the NavHost and registers every destination. Bottom bar shows on the four tab destinations only. */
@@ -64,42 +72,54 @@ fun KelanaAppContent(appViewModel: AppViewModel = hiltViewModel()) {
         NavHost(
             navController = navController,
             startDestination = when (startDestination) {
-                StartDestination.Onboarding -> OnboardingRoute
+                StartDestination.Onboarding -> IntroRoute(page = 0)
                 StartDestination.Jelajah -> JelajahRoute
             },
             modifier = Modifier.padding(padding),
         ) {
-            jelajahScreen()
-            agendaScreen()
+            val navigate: (Any) -> Unit = { route -> navController.navigate(route) }
+            val onBack: () -> Unit = { navController.popBackStack() }
+
+            jelajahScreens(navigate = navigate, onBack = onBack)
+            agendaScreens(navigate = navigate, onBack = onBack)
             rencanaScreen()
             ceritaScreen()
 
-            onboardingScreen(
-                onContinue = {
-                    appViewModel.completeOnboarding()
-                    navController.navigate(JelajahRoute) {
-                        popUpTo<OnboardingRoute> { inclusive = true }
-                    }
-                },
-                onLogin = { navController.navigate(MasukRoute) },
-            )
+            // First launch: Intro(0) -> Intro(1) -> Intro(2) -> PilihDaerah -> Jelajah. Whichever way the flow ends
+            // (Pilih daerah, or Masuk reached from it), mark onboarding done and drop the whole flow from the back stack.
+            val finishOnboarding: () -> Unit = {
+                appViewModel.completeOnboarding()
+                navController.navigate(JelajahRoute) {
+                    popUpTo(navController.graph.findStartDestination().id) { inclusive = true }
+                }
+            }
+            onboardingScreens(navigate = navigate, onFinished = finishOnboarding)
+
             // Masuk finishes the same way whether the user signed in or chose to browse as a guest:
             // from onboarding it continues to Jelajah, from a login prompt it returns to where the user was.
             val finishMasuk: () -> Unit = {
-                val cameFromOnboarding =
-                    navController.previousBackStackEntry?.destination?.hasRoute(OnboardingRoute::class) == true
-                if (cameFromOnboarding) {
-                    appViewModel.completeOnboarding()
-                    navController.navigate(JelajahRoute) {
-                        popUpTo<OnboardingRoute> { inclusive = true }
-                    }
-                } else {
-                    navController.popBackStack()
-                }
+                val previous = navController.previousBackStackEntry?.destination
+                val cameFromOnboarding = previous?.hasRoute(IntroRoute::class) == true ||
+                    previous?.hasRoute(PilihDaerahRoute::class) == true
+                if (cameFromOnboarding) finishOnboarding() else navController.popBackStack()
             }
             akunScreen(onSignedIn = finishMasuk, onGuest = finishMasuk)
 
-            tempatScreen()
+            // "Ke situs tiket resmi" confirm sheet (Figma 03.04); "Buka situs" opens a Custom Tab.
+            dialog<OfficialSiteRoute>(dialogProperties = DialogProperties(usePlatformDefaultWidth = false)) { entry ->
+                val route = entry.toRoute<OfficialSiteRoute>()
+                val context = LocalContext.current
+                OfficialSiteSheet(
+                    label = route.label,
+                    onOpen = {
+                        openCustomTab(context, route.url)
+                        navController.popBackStack()
+                    },
+                    onDismiss = { navController.popBackStack() },
+                )
+            }
+
+            tempatScreens(navigate = navigate, onBack = onBack)
             petaScreen()
             pasporScreen()
             postcardScreen()
