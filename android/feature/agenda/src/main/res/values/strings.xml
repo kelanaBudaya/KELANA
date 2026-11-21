@@ -14,13 +14,11 @@
     <string name="agenda_empty_title">Belum ada acara di tanggal ini</string>
     <string name="agenda_empty_body">Coba pilih tanggal lain atau pilih filter Semua.</string>
     <string name="agenda_loading">Memuat agenda</string>
-    <string name="agenda_event_when">%1$s %2$s</string>
-    <string name="agenda_illustration_placeholder_cd">Ilustrasi acara (sementara)</string>
 
     <string name="detail_title">Detail pentas</string>
     <string name="detail_not_found_title">Pentas tidak ditemukan</string>
     <string name="detail_not_found_body">Pentas ini mungkin sudah tidak ada dalam agenda.</string>
-    <string name="detail_place_and_duration">%1$s · %2$s</string>
+    <string name="detail_place_and_duration">%1$s · sekitar %2$s</string>
     <string name="detail_duration_hours">%1$d jam</string>
     <string name="detail_duration_minutes">%1$d menit</string>
     <string name="detail_duration_hours_minutes">%1$d jam %2$d menit</string>
@@ -36,13 +34,24 @@
     <string name="detail_price_free">Gratis atau tanpa tiket</string>
     <string name="detail_source_note">Sumber: %1$s, dibuka %2$s</string>
     <string name="detail_story_heading">Kisahnya</string>
-    <string name="detail_buy_ticket">Beli tiket</string>
-    <string name="detail_no_payment">KELANA tidak menerima pembayaran. Tiket dibeli di situs resmi penyelenggara.</string>
-    <string name="detail_illustration_placeholder_cd">Ilustrasi pentas (sementara)</string>
+    <string name="detail_buy_ticket">Beli tiket resmi</string>
     <string name="agenda_tag_tari">Tari</string>
     <string name="agenda_tag_wayang">Wayang</string>
     <string name="agenda_tag_ramah_anak">Ramah anak</string>
     <string name="detail_performers_label">Penampil</string>
-    <string name="detail_arrival_range">Disarankan tiba %1$d sampai %2$d menit sebelum pentas</string>
-    <string name="detail_arrival_single">Disarankan tiba sekitar %1$d menit sebelum pentas</string>
+
+    <string name="agenda_map_cd">Lihat di peta</string>
+    <string name="agenda_tonight_label">%1$s · %2$s</string>
+    <string name="agenda_ends_at">%1$s · selesai %2$s</string>
+    <string name="agenda_place_when">%1$s · %2$s</string>
+    <string name="agenda_checked">Diperiksa %1$s</string>
+    <string name="detail_back_cd">Kembali</string>
+    <string name="detail_checking">Sedang dicek</string>
+    <string name="detail_manners_heading">Tata krama menonton</string>
+    <string name="detail_arrival_title">Datang lebih awal</string>
+    <string name="detail_arrival_card_range">%1$d–%2$d menit sebelum mulai.</string>
+    <string name="detail_arrival_card_single">Sekitar %1$d menit sebelum mulai.</string>
+    <string name="detail_photo_title">Foto dan video</string>
+    <string name="detail_photo_checking">Aturan rekam sedang dicek.</string>
+    <string name="detail_after_show">Setelah menonton, buat postcard atau video ulasan. Cap %1$s terbuka saat lokasimu terdeteksi di sana.</string>
 </resources>
