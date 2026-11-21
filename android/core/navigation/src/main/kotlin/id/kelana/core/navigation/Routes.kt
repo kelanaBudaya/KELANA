@@ -66,3 +66,7 @@ import kotlinx.serialization.Serializable
 @Serializable data object PostcardRoute
 @Serializable data object NotifikasiRoute
 @Serializable data object TiketRoute
+
+// Paspor flow: Ambil cap for one place (Figma 06.x) and the success screen after the server stamped it.
+@Serializable data class AmbilCapRoute(val placeId: String)
+@Serializable data class CapBerhasilRoute(val placeId: String)

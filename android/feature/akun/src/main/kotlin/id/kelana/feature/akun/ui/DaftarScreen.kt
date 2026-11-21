@@ -72,7 +72,8 @@ internal fun DaftarContent(
             .navigationBarsPadding()
             .imePadding(),
     ) {
-        KelanaBackTopBar(title = stringResource(R.string.email_daftar_topbar), onBack = onBack)
+        // Back arrow only: the heading below carries the title (no duplicate text).
+        KelanaBackTopBar(title = "", onBack = onBack)
         Column(
             modifier = Modifier
                 .verticalScroll(rememberScrollState())

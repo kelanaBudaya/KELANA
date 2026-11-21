@@ -46,7 +46,7 @@ docs/design/  overview PNGs (context only)
 - **Cross-feature navigation**: typed routes live in `:core:navigation`. A feature navigates by route object only. `:app` owns the `NavHost` and registers every destination. If feature A needs something from feature B, move the shared piece into `:core:*`.
 - Inside a feature: `data` / `domain` / `ui` packages. UI talks to a ViewModel, the ViewModel to use cases, use cases to repository interfaces (defined in `domain`, implemented in `:core:data`).
 - Feature modules (one per design flow): `onboarding` (intro + Pilih wilayah), `akun` (masuk, profil), `jelajah`, `tempat` (detail, foto resmi, laporkan), `cerita` (visitor stories feed), `agenda`, `rencana` (6-step planner + live re-plan), `peta`, `paspor` (Ambil cap + passport), `postcard`, `notifikasi`, `tiket`.
-- Bottom tabs, in order: Jelajah, Agenda, Rencana, Cerita. Paspor is reached from the Jelajah header card and the avatar, not from a tab.
+- Bottom tabs, in order: Jelajah, Agenda, Rencana, Cerita. Paspor is reached from the Jelajah header card and from Profil (the avatar opens Profil, per the artifact), not from a tab.
 - Frame map and design tokens: `docs/design/FIGMA-FRAMES.md`. Agent briefs: `docs/agents/`.
 
 ## Conventions
