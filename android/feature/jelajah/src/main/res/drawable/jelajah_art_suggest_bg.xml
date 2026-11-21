@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Converted from docs/design/artifact/Cari.dc.html (inline SVG, viewBox 0 0 350 120). -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="350dp"
+    android:height="120dp"
+    android:viewportWidth="350"
+    android:viewportHeight="120">
+    <path
+        android:pathData="M42.0 36.0 C 84.0 4.8, 217.0 0.0, 287.0 19.2 C 343.0 36.0, 329.0 84.0, 259.0 103.2 C 182.0 120.0, 63.0 112.8, 28.0 84.0 C 7.0 64.80000000000001, 14.0 50.4, 42.0 36.0 Z"
+        android:fillColor="#FFEFE6D2" />
+    <path
+        android:pathData="M330 14 L331.68 18.32 L336 20 L331.68 21.68 L330 26 L328.32 21.68 L324 20 L328.32 18.32 Z"
+        android:fillColor="#FFE65D22" />
+</vector>

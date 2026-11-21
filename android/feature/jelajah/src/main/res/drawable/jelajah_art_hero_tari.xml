@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Converted from docs/design/artifact/KatTari.dc.html (inline SVG, viewBox 0 0 390 220). -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="390dp"
+    android:height="220dp"
+    android:viewportWidth="390"
+    android:viewportHeight="220">
+    <path
+        android:pathData="M46.8 66.0 C 93.6 8.8, 241.8 0.0, 319.79999999999995 35.2 C 382.2 66.0, 366.59999999999997 154.0, 288.6 189.2 C 202.8 220.0, 70.2 206.79999999999998, 31.2 154.0 C 7.8 118.80000000000001, 15.6 92.39999999999999, 46.8 66.0 Z"
+        android:fillColor="#FFFBE3A5" />
+    <path
+        android:pathData="M60 32 L62.24 37.76 L68 40 L62.24 42.24 L60 48 L57.76 42.24 L52 40 L57.76 37.76 Z"
+        android:fillColor="#FFF4B52B" />
+    <path
+        android:pathData="M340 164 L341.68 168.32 L346 170 L341.68 171.68 L340 176 L338.32 171.68 L334 170 L338.32 168.32 Z"
+        android:fillColor="#FFE65D22" />
+    <path
+        android:pathData="M220 25 L221.4 28.6 L225 30 L221.4 31.4 L220 35 L218.6 31.4 L215 30 L218.6 28.6 Z"
+        android:fillColor="#FF24458F" />
+</vector>

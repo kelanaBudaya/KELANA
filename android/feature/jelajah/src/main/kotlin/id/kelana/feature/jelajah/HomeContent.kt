@@ -1,18 +1,21 @@
 package id.kelana.feature.jelajah
 
 import androidx.annotation.StringRes
-import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.aspectRatio
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.heightIn
+import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -21,7 +24,6 @@ import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -29,7 +31,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.rotate
+import androidx.compose.ui.draw.shadow
+import androidx.compose.ui.layout.layout
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.Role
@@ -37,14 +44,17 @@ import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import id.kelana.core.designsystem.component.KelanaCard
-import id.kelana.core.designsystem.component.PlaceCardSize
-import id.kelana.core.designsystem.theme.FrauncesFontFamily
+import androidx.compose.ui.unit.sp
+import id.kelana.core.designsystem.theme.KelanaColors
+import id.kelana.core.designsystem.theme.KelanaRadii
 import id.kelana.core.designsystem.theme.KelanaShapes
-import id.kelana.core.designsystem.theme.KelanaSpacing
+import id.kelana.core.designsystem.theme.KelanaSizes
 import id.kelana.core.designsystem.theme.KelanaTheme
+import id.kelana.core.designsystem.theme.SerifHeadline
 import id.kelana.core.model.EventOccurrence
 import id.kelana.core.model.FactDisplay
 import id.kelana.core.model.Place
@@ -90,9 +100,19 @@ internal class HomeCallbacks(
     val onSeeAll: () -> Unit,
 )
 
+/** The passport card and everything below it overlap the header by this much (artifact: `margin: -48px 16px 0`). */
+private val Overlap = (-48).dp
+
+/** Moves the item up by [by] (negative value) and shrinks its layout height by the same amount. */
+private fun Modifier.pullUp(by: Dp): Modifier = layout { measurable, constraints ->
+    val placeable = measurable.measure(constraints)
+    val shift = by.roundToPx()
+    layout(placeable.width, placeable.height + shift) { placeable.place(0, shift) }
+}
+
 /**
- * Jelajah home, compared with docs/design/frames/01.06-jelajah.png. All sizes PROVISIONAL (estimated from the PNG).
- * Tile icons and quick-action icons are placeholder shapes until the illustration drawables exist in :core:designsystem.
+ * Jelajah home, compared with docs/design/artifact/JelajahIlustratif.dc.html (code against the HTML, no render seen).
+ * The bottom navigation is owned by :app and is not drawn here.
  */
 @Composable
 internal fun HomeContent(
@@ -102,25 +122,24 @@ internal fun HomeContent(
     modifier: Modifier = Modifier,
 ) {
     val colors = KelanaTheme.colors
-    LazyColumn(
-        modifier = modifier.fillMaxWidth().background(colors.background),
-        verticalArrangement = Arrangement.spacedBy(KelanaSpacing.lg),
-    ) {
+    LazyColumn(modifier = modifier.fillMaxWidth().background(colors.background)) {
         item { HomeHeader(state, avatarInitials, callbacks) }
-        item { TileGrid(onTile = callbacks.onTile) }
+        item { PassportCard(state, callbacks, Modifier.pullUp(Overlap).padding(horizontal = 16.dp)) }
+        item { TileGrid(onTile = callbacks.onTile, modifier = Modifier) }
         state.tonightEvent?.let { occurrence ->
             item {
                 TonightBanner(
                     occurrence = occurrence,
                     onClick = { callbacks.onEvent(occurrence) },
-                    modifier = Modifier.padding(horizontal = KelanaSpacing.gutter),
+                    modifier = Modifier.padding(start = 16.dp, end = 16.dp, top = 22.dp),
                 )
             }
         }
-        item { PicksSection(state.featuredPlaces, callbacks.onPlace, callbacks.onSeeAll) }
+        item { PicksSection(state.featuredPlaces, callbacks.onPlace, callbacks.onSeeAll, Modifier) }
         item {
-            ChallengeCard(Modifier.padding(horizontal = KelanaSpacing.gutter))
-            Spacer(Modifier.height(KelanaSpacing.lg))
+            ChallengeCard(
+                Modifier.padding(start = 16.dp, end = 16.dp, top = 24.dp, bottom = 24.dp),
+            )
         }
     }
 }
@@ -128,136 +147,216 @@ internal fun HomeContent(
 @Composable
 private fun HomeHeader(state: JelajahUiState, avatarInitials: String, callbacks: HomeCallbacks) {
     val colors = KelanaTheme.colors
-    Column(
-        Modifier
-            .fillMaxWidth()
-            .background(colors.navy)
-            .padding(horizontal = KelanaSpacing.gutter, vertical = KelanaSpacing.md),
-        verticalArrangement = Arrangement.spacedBy(KelanaSpacing.md),
-    ) {
-        Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(KelanaSpacing.sm)) {
-            val searchCd = stringResource(R.string.home_search_cd)
-            Surface(
-                onClick = callbacks.onSearch,
-                modifier = Modifier.weight(1f).heightIn(min = 48.dp),
-                shape = CircleShape,
-                color = colors.white,
-            ) {
-                Row(
-                    Modifier.padding(horizontal = KelanaSpacing.md),
-                    verticalAlignment = Alignment.CenterVertically,
+    Box(Modifier.fillMaxWidth().background(colors.primary)) {
+        Image(
+            painter = painterResource(R.drawable.jelajah_art_home_header_bg),
+            contentDescription = null,
+            modifier = Modifier.fillMaxWidth().aspectRatio(390f / 220f),
+            contentScale = ContentScale.FillWidth,
+            alignment = Alignment.TopStart,
+        )
+        Column(Modifier.fillMaxWidth().padding(start = 20.dp, end = 20.dp, top = 16.dp, bottom = 64.dp)) {
+            Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(10.dp)) {
+                Surface(
+                    onClick = callbacks.onSearch,
+                    modifier = Modifier.weight(1f).height(KelanaSizes.inputHeight),
+                    shape = CircleShape,
+                    color = colors.white,
+                ) {
+                    Row(Modifier.padding(horizontal = 14.dp), verticalAlignment = Alignment.CenterVertically) {
+                        Image(
+                            painter = painterResource(R.drawable.ic_search),
+                            contentDescription = stringResource(R.string.home_search_cd),
+                            modifier = Modifier.size(18.dp),
+                            colorFilter = ColorFilter.tint(colors.muted),
+                        )
+                        Text(
+                            text = stringResource(R.string.home_search_hint),
+                            modifier = Modifier.padding(start = 8.dp),
+                            style = MaterialTheme.typography.bodyMedium,
+                            color = colors.muted,
+                            maxLines = 1,
+                            overflow = TextOverflow.Ellipsis,
+                        )
+                    }
+                }
+                // The bell stays visual-only for now (no notification route yet).
+                Box(
+                    Modifier.size(KelanaSizes.inputHeight).clip(CircleShape).background(colors.white.copy(alpha = 0.16f))
+                        .clickable(role = Role.Button, onClick = callbacks.onBell),
+                    contentAlignment = Alignment.Center,
                 ) {
                     Image(
-                        painter = painterResource(R.drawable.ic_search),
-                        contentDescription = searchCd,
+                        painter = painterResource(R.drawable.ic_bell),
+                        contentDescription = stringResource(R.string.home_bell_cd),
                         modifier = Modifier.size(20.dp),
-                        colorFilter = ColorFilter.tint(colors.muted),
+                        colorFilter = ColorFilter.tint(colors.white),
                     )
+                    Box(
+                        Modifier.align(Alignment.TopEnd).padding(top = 10.dp, end = 10.dp).size(8.dp)
+                            .clip(CircleShape).background(colors.stampYellow),
+                    )
+                }
+                val avatarCd = stringResource(R.string.home_avatar_cd)
+                Box(
+                    Modifier.size(KelanaSizes.inputHeight).clip(CircleShape).background(colors.stampYellow)
+                        .semantics { contentDescription = avatarCd }
+                        .clickable(role = Role.Button, onClick = callbacks.onAvatar),
+                    contentAlignment = Alignment.Center,
+                ) {
                     Text(
-                        text = stringResource(R.string.home_search_hint),
-                        modifier = Modifier.padding(start = KelanaSpacing.sm),
-                        style = MaterialTheme.typography.bodyMedium,
-                        color = colors.muted,
+                        text = avatarInitials,
+                        style = MaterialTheme.typography.titleSmall.copy(fontWeight = FontWeight.ExtraBold),
+                        color = colors.navy,
+                    )
+                }
+            }
+            val date = state.date?.let(::formatHeaderDate)
+            val dateLine = when {
+                date == null -> null
+                state.regionName != null -> stringResource(R.string.home_date_line, state.regionName, date)
+                else -> date
+            }
+            Column(Modifier.padding(top = 16.dp)) {
+                if (dateLine != null) {
+                    Text(dateLine, style = MaterialTheme.typography.bodySmall, color = colors.skyText)
+                }
+                Text(
+                    text = stringResource(R.string.home_headline),
+                    modifier = Modifier.padding(top = 2.dp),
+                    style = MaterialTheme.typography.headlineSmall,
+                    color = colors.white,
+                )
+            }
+        }
+    }
+}
+
+/** Passport card: stamp sticker, count, chevron and the four quick actions. */
+@Composable
+private fun PassportCard(state: JelajahUiState, callbacks: HomeCallbacks, modifier: Modifier = Modifier) {
+    val colors = KelanaTheme.colors
+    val shape = RoundedCornerShape(KelanaRadii.listCard)
+    Column(
+        modifier
+            .fillMaxWidth()
+            .shadow(8.dp, shape, ambientColor = colors.navy, spotColor = colors.navy)
+            .clip(shape)
+            .background(colors.navy)
+            .padding(14.dp),
+    ) {
+        Row(
+            Modifier.fillMaxWidth().clickable(role = Role.Button, onClick = callbacks.onPassport),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(12.dp),
+        ) {
+            StampSticker(state.stampCount, state.stampTotal, Modifier.rotate(-6f))
+            Column(Modifier.weight(1f)) {
+                Text(
+                    stringResource(R.string.home_passport_title),
+                    style = MaterialTheme.typography.labelMedium.copy(fontWeight = FontWeight.Normal),
+                    color = colors.skyText,
+                )
+                // PROVISIONAL count: real stamp data comes with the Paspor feature.
+                Text(
+                    stringResource(R.string.home_passport_count, state.stampCount, state.stampTotal),
+                    style = MaterialTheme.typography.titleMedium.copy(fontSize = 17.sp),
+                    color = colors.white,
+                )
+            }
+            Image(
+                painter = painterResource(R.drawable.ic_chevron),
+                contentDescription = null,
+                modifier = Modifier.size(18.dp),
+                colorFilter = ColorFilter.tint(colors.white),
+            )
+        }
+        Row(Modifier.fillMaxWidth().padding(top = 12.dp), horizontalArrangement = Arrangement.spacedBy(6.dp)) {
+            QuickAction.entries.forEach { action ->
+                Column(
+                    Modifier.weight(1f).heightIn(min = 48.dp).clickable(role = Role.Button) { callbacks.onQuickAction(action) },
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                    verticalArrangement = Arrangement.spacedBy(4.dp),
+                ) {
+                    Box(
+                        Modifier.size(40.dp).clip(KelanaShapes.input).background(colors.background),
+                        contentAlignment = Alignment.Center,
+                    ) { Art(action.art, 26.dp) }
+                    Text(
+                        stringResource(action.label),
+                        style = MaterialTheme.typography.labelSmall,
+                        color = colors.white,
+                        textAlign = TextAlign.Center,
                         maxLines = 1,
                     )
                 }
             }
-            // Bell is visual-only for now (brief criterion 3).
-            Box(
-                Modifier.size(48.dp).clip(CircleShape).background(colors.primaryBrightAlt).clickable(
-                    role = Role.Button,
-                    onClick = callbacks.onBell,
-                ),
-                contentAlignment = Alignment.Center,
-            ) {
-                Image(
-                    painter = painterResource(R.drawable.ic_bell),
-                    contentDescription = stringResource(R.string.home_bell_cd),
-                    modifier = Modifier.size(22.dp),
-                    colorFilter = ColorFilter.tint(colors.white),
-                )
-            }
-            val avatarCd = stringResource(R.string.home_avatar_cd)
-            Box(
-                Modifier.size(48.dp).clip(CircleShape).background(colors.stampYellow)
-                    .semantics { contentDescription = avatarCd }.clickable(
-                    role = Role.Button,
-                    onClick = callbacks.onAvatar,
-                ),
-                contentAlignment = Alignment.Center,
-            ) {
-                Text(
-                    text = avatarInitials,
-                    style = MaterialTheme.typography.titleSmall,
-                    color = colors.navy,
-                )
-            }
         }
-        val date = state.date?.let(::formatHeaderDate)
-        val dateLine = when {
-            date == null -> null
-            state.regionName != null -> stringResource(R.string.home_date_line, state.regionName, date)
-            else -> date
-        }
-        if (dateLine != null) {
-            Text(dateLine, style = MaterialTheme.typography.bodyMedium, color = colors.skyText)
-        }
-        Text(
-            text = stringResource(R.string.home_headline),
-            style = MaterialTheme.typography.headlineMedium,
-            color = colors.white,
+    }
+}
+
+private val QuickAction.art: Int
+    get() = when (this) {
+        QuickAction.AmbilCap -> R.drawable.jelajah_art_badge_stamp
+        QuickAction.Rencana -> R.drawable.jelajah_art_rencana
+        QuickAction.Agenda -> R.drawable.jelajah_art_agenda
+        QuickAction.Postcard -> R.drawable.jelajah_art_postcard
+    }
+
+/** Yellow passport sticker with a white outline, 56 x 42 dp. */
+@Composable
+private fun StampSticker(count: Int, total: Int, modifier: Modifier = Modifier) {
+    val colors = KelanaTheme.colors
+    val cd = stringResource(R.string.home_stamp_cd)
+    Box(
+        modifier.size(width = 56.dp, height = 42.dp).semantics { contentDescription = cd },
+        contentAlignment = Alignment.Center,
+    ) {
+        Image(
+            painter = painterResource(R.drawable.jelajah_art_stamp_shape),
+            contentDescription = null,
+            modifier = Modifier.matchParentSize(),
+            contentScale = ContentScale.FillBounds,
         )
-        PassportCard(state, callbacks)
+        Column(horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(3.dp)) {
+            Art(R.drawable.jelajah_art_museum_navy, 16.dp)
+            Text(
+                stringResource(R.string.home_stamp_code),
+                style = MaterialTheme.typography.labelSmall.copy(fontWeight = FontWeight.ExtraBold, letterSpacing = 0.8.sp),
+                color = colors.navy,
+            )
+            Text(
+                "$count/$total",
+                style = MaterialTheme.typography.labelSmall.copy(fontSize = 9.sp, lineHeight = 11.sp),
+                color = colors.navy,
+            )
+        }
     }
 }
 
 @Composable
-private fun PassportCard(state: JelajahUiState, callbacks: HomeCallbacks) {
+private fun TileGrid(onTile: (HomeTile) -> Unit, modifier: Modifier = Modifier) {
     val colors = KelanaTheme.colors
-    Surface(shape = KelanaShapes.card, color = colors.primaryDeep, modifier = Modifier.fillMaxWidth()) {
-        Column(Modifier.padding(KelanaSpacing.md), verticalArrangement = Arrangement.spacedBy(KelanaSpacing.md)) {
-            Row(
-                Modifier.fillMaxWidth().heightIn(min = 48.dp).clickable(role = Role.Button, onClick = callbacks.onPassport),
-                verticalAlignment = Alignment.CenterVertically,
-            ) {
-                // PLACEHOLDER for the stamp illustration "YK".
-                Box(Modifier.size(56.dp).clip(KelanaShapes.card).background(colors.stampYellow))
-                Column(Modifier.weight(1f).padding(horizontal = KelanaSpacing.md)) {
-                    Text(
-                        stringResource(R.string.home_passport_title),
-                        style = MaterialTheme.typography.bodySmall,
-                        color = colors.skyText,
-                    )
-                    // PROVISIONAL placeholder count; real stamp data is Phase 3.
-                    Text(
-                        stringResource(R.string.home_passport_count, state.stampCount, state.stampTotal),
-                        style = MaterialTheme.typography.titleMedium,
-                        color = colors.white,
-                    )
-                }
-                Image(
-                    painter = painterResource(R.drawable.ic_chevron),
-                    contentDescription = null,
-                    modifier = Modifier.size(24.dp),
-                    colorFilter = ColorFilter.tint(colors.white),
-                )
-            }
-            Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
-                QuickAction.entries.forEach { action ->
+    Column(
+        modifier.padding(start = 16.dp, end = 16.dp, top = 22.dp),
+        verticalArrangement = Arrangement.spacedBy(16.dp),
+    ) {
+        HomeTile.entries.chunked(4).forEach { tiles ->
+            Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                tiles.forEach { tile ->
                     Column(
-                        Modifier
-                            .weight(1f)
-                            .heightIn(min = 48.dp)
-                            .clickable(role = Role.Button) { callbacks.onQuickAction(action) },
+                        Modifier.weight(1f).heightIn(min = 48.dp).clickable(role = Role.Button) { onTile(tile) },
                         horizontalAlignment = Alignment.CenterHorizontally,
-                        verticalArrangement = Arrangement.spacedBy(KelanaSpacing.xs),
+                        verticalArrangement = Arrangement.spacedBy(6.dp),
                     ) {
-                        // PLACEHOLDER icon tile (white rounded square, 48 dp).
-                        Box(Modifier.size(48.dp).clip(KelanaShapes.input).background(colors.white))
+                        Box(
+                            Modifier.size(62.dp).clip(RoundedCornerShape(KelanaRadii.listCard)).background(tile.tint(colors)),
+                            contentAlignment = Alignment.Center,
+                        ) { Art(tile.art, 38.dp) }
                         Text(
-                            stringResource(action.label),
-                            style = MaterialTheme.typography.bodySmall.copy(fontWeight = FontWeight.Bold),
-                            color = colors.white,
+                            stringResource(tile.label),
+                            style = MaterialTheme.typography.labelMedium.copy(fontWeight = FontWeight.Bold),
+                            color = colors.ink,
                             textAlign = TextAlign.Center,
                             maxLines = 1,
                         )
@@ -268,85 +367,73 @@ private fun PassportCard(state: JelajahUiState, callbacks: HomeCallbacks) {
     }
 }
 
-@Composable
-private fun TileGrid(onTile: (HomeTile) -> Unit) {
-    val colors = KelanaTheme.colors
-    val tints = listOf(
-        colors.skyText, colors.backgroundWarm, colors.creamYellow, colors.backgroundWarm,
-        colors.creamYellow, colors.skyText, colors.successSurface, colors.backgroundWarm,
-    )
-    Column(
-        Modifier.padding(horizontal = KelanaSpacing.gutter),
-        verticalArrangement = Arrangement.spacedBy(KelanaSpacing.md),
-    ) {
-        HomeTile.entries.chunked(4).forEachIndexed { row, tiles ->
-            Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(KelanaSpacing.md)) {
-                tiles.forEachIndexed { col, tile ->
-                    Column(
-                        Modifier
-                            .weight(1f)
-                            .heightIn(min = 48.dp)
-                            .clickable(role = Role.Button) { onTile(tile) },
-                        horizontalAlignment = Alignment.CenterHorizontally,
-                        verticalArrangement = Arrangement.spacedBy(KelanaSpacing.sm),
-                    ) {
-                        // PLACEHOLDER tile illustration (about 76 dp square, PROVISIONAL).
-                        Box(
-                            Modifier
-                                .fillMaxWidth()
-                                .height(76.dp)
-                                .clip(KelanaShapes.card)
-                                .background(tints[row * 4 + col]),
-                        )
-                        Text(
-                            stringResource(tile.label),
-                            style = MaterialTheme.typography.bodySmall.copy(fontWeight = FontWeight.Bold),
-                            color = colors.ink,
-                            maxLines = 1,
-                        )
-                    }
-                }
-            }
-        }
-    }
+private fun HomeTile.tint(colors: KelanaColors): Color = when (this) {
+    HomeTile.Museum, HomeTile.Tiket -> colors.skyText
+    HomeTile.Candi, HomeTile.Topeng -> colors.peach
+    HomeTile.Tari, HomeTile.Gamelan -> colors.creamYellow
+    HomeTile.Peta -> colors.successSurface
+    HomeTile.Semua -> colors.backgroundWarm
 }
 
+private val HomeTile.art: Int
+    get() = when (this) {
+        HomeTile.Museum -> R.drawable.jelajah_art_museum
+        HomeTile.Candi -> R.drawable.jelajah_art_candi
+        HomeTile.Tari -> R.drawable.jelajah_art_tari
+        HomeTile.Topeng -> R.drawable.jelajah_art_topeng
+        HomeTile.Gamelan -> R.drawable.jelajah_art_gamelan
+        HomeTile.Tiket -> R.drawable.jelajah_art_tiket
+        HomeTile.Peta -> R.drawable.jelajah_art_peta
+        HomeTile.Semua -> R.drawable.jelajah_art_semua
+    }
+
+/** "Malam ini di ..." banner: 170 dp tall, orange, illustration pieces on the right. */
 @Composable
 private fun TonightBanner(occurrence: EventOccurrence, onClick: () -> Unit, modifier: Modifier = Modifier) {
     val colors = KelanaTheme.colors
     val event = occurrence.event
     val time = (event.schedule.display() as? FactDisplay.Checked)?.value?.let { formatTimeRange(it.start, it.end) }
-    Surface(onClick = onClick, modifier = modifier.fillMaxWidth(), shape = KelanaShapes.card, color = colors.accentOrange) {
-        Column(Modifier.padding(KelanaSpacing.gutter), verticalArrangement = Arrangement.spacedBy(KelanaSpacing.xs)) {
+    Box(
+        modifier.fillMaxWidth().height(170.dp).clip(RoundedCornerShape(KelanaRadii.listCard))
+            .background(colors.accentOrange).clickable(role = Role.Button, onClick = onClick),
+    ) {
+        Image(
+            painter = painterResource(R.drawable.jelajah_art_banner_bg),
+            contentDescription = null,
+            modifier = Modifier.matchParentSize(),
+            contentScale = ContentScale.FillBounds,
+        )
+        ArtPiece(R.drawable.jelajah_art_tari, 96.dp, 214.dp, 30.dp, -6f)
+        ArtPiece(R.drawable.jelajah_art_gamelan, 58.dp, 290.dp, 96.dp, 8f)
+        ArtPiece(R.drawable.jelajah_art_agenda, 40.dp, 182.dp, 108.dp, -10f)
+        Column(Modifier.fillMaxHeight().padding(start = 18.dp, top = 18.dp, end = 170.dp)) {
             Text(
                 stringResource(R.string.banner_tonight_at, event.placeName).uppercase(IdLocale),
-                style = MaterialTheme.typography.labelMedium.copy(fontWeight = FontWeight.Bold),
+                style = MaterialTheme.typography.labelSmall.copy(fontWeight = FontWeight.ExtraBold, letterSpacing = 0.6.sp),
                 color = colors.creamYellow,
             )
             Text(
                 event.title,
-                style = MaterialTheme.typography.headlineMedium.copy(fontFamily = FrauncesFontFamily),
+                modifier = Modifier.padding(top = 6.dp),
+                style = SerifHeadline,
                 color = colors.white,
             )
             if (time != null) {
                 Text(
                     stringResource(R.string.banner_time, time),
-                    style = MaterialTheme.typography.bodyMedium,
-                    color = colors.white,
+                    modifier = Modifier.padding(top = 4.dp),
+                    style = MaterialTheme.typography.bodySmall,
+                    color = Color(0xFFFFE6D6),
                 )
             }
-            Spacer(Modifier.height(KelanaSpacing.sm))
             Box(
-                Modifier
-                    .heightIn(min = 48.dp)
-                    .clip(KelanaShapes.chip)
-                    .background(colors.white)
-                    .padding(horizontal = KelanaSpacing.lg),
+                Modifier.padding(top = 12.dp).height(32.dp).clip(KelanaShapes.chip)
+                    .background(colors.white).padding(horizontal = 12.dp),
                 contentAlignment = Alignment.Center,
             ) {
                 Text(
                     stringResource(R.string.banner_cta),
-                    style = MaterialTheme.typography.titleSmall,
+                    style = MaterialTheme.typography.bodySmall.copy(fontWeight = FontWeight.ExtraBold),
                     color = colors.accentOrange,
                 )
             }
@@ -355,40 +442,62 @@ private fun TonightBanner(occurrence: EventOccurrence, onClick: () -> Unit, modi
 }
 
 @Composable
-private fun PicksSection(places: List<Place>, onPlace: (Place) -> Unit, onSeeAll: () -> Unit) {
+private fun PicksSection(places: List<Place>, onPlace: (Place) -> Unit, onSeeAll: () -> Unit, modifier: Modifier = Modifier) {
     val colors = KelanaTheme.colors
-    Column(verticalArrangement = Arrangement.spacedBy(KelanaSpacing.md)) {
-        Row(
-            Modifier.fillMaxWidth().padding(horizontal = KelanaSpacing.gutter),
-            verticalAlignment = Alignment.CenterVertically,
-        ) {
+    Column(modifier.padding(top = 24.dp)) {
+        Row(Modifier.fillMaxWidth().padding(horizontal = 16.dp), verticalAlignment = Alignment.CenterVertically) {
             Text(
                 stringResource(R.string.home_picks_title),
                 modifier = Modifier.weight(1f),
-                style = MaterialTheme.typography.headlineSmall,
+                style = MaterialTheme.typography.titleLarge,
                 color = colors.ink,
             )
-            Box(Modifier.heightIn(min = 48.dp).clickable(role = Role.Button, onClick = onSeeAll), contentAlignment = Alignment.Center) {
+            Box(
+                Modifier.heightIn(min = 44.dp).clickable(role = Role.Button, onClick = onSeeAll),
+                contentAlignment = Alignment.Center,
+            ) {
                 Text(
                     stringResource(R.string.home_see_all),
-                    style = MaterialTheme.typography.titleSmall,
+                    style = MaterialTheme.typography.bodySmall.copy(fontWeight = FontWeight.Bold),
                     color = colors.primary,
                 )
             }
         }
         LazyRow(
-            contentPadding = androidx.compose.foundation.layout.PaddingValues(horizontal = KelanaSpacing.gutter),
-            horizontalArrangement = Arrangement.spacedBy(KelanaSpacing.md),
+            contentPadding = PaddingValues(start = 16.dp, end = 16.dp, top = 4.dp),
+            horizontalArrangement = Arrangement.spacedBy(12.dp),
         ) {
-            items(places, key = { it.id }) { place ->
-                PlaceItem(
-                    place = place,
-                    onClick = { onPlace(place) },
-                    modifier = Modifier.width(156.dp),
-                    size = PlaceCardSize.Grid,
-                )
-            }
+            items(places, key = { it.id }) { place -> PickCard(place, onClick = { onPlace(place) }) }
         }
+    }
+}
+
+/** 156 dp wide pick: 156 x 112 cover, name 14/800, subtitle 12 muted. No check badge here, as in the artifact. */
+@Composable
+private fun PickCard(place: Place, onClick: () -> Unit) {
+    val colors = KelanaTheme.colors
+    Column(
+        Modifier.width(156.dp).clickable(role = Role.Button, onClick = onClick),
+        verticalArrangement = Arrangement.spacedBy(8.dp),
+    ) {
+        Box(Modifier.fillMaxWidth().aspectRatio(156f / 112f).clip(KelanaShapes.card)) {
+            PlaceCover(place.category, compact = false)
+        }
+        Text(
+            place.name,
+            style = MaterialTheme.typography.titleSmall.copy(fontWeight = FontWeight.ExtraBold, lineHeight = 18.sp),
+            color = colors.ink,
+            maxLines = 2,
+            overflow = TextOverflow.Ellipsis,
+        )
+        Text(
+            place.description,
+            modifier = Modifier.offset(y = (-4).dp),
+            style = MaterialTheme.typography.labelMedium.copy(fontWeight = FontWeight.Normal),
+            color = colors.muted,
+            maxLines = 2,
+            overflow = TextOverflow.Ellipsis,
+        )
     }
 }
 
@@ -396,41 +505,54 @@ private fun PicksSection(places: List<Place>, onPlace: (Place) -> Unit, onSeeAll
 @Composable
 private fun ChallengeCard(modifier: Modifier = Modifier) {
     val colors = KelanaTheme.colors
-    KelanaCard(modifier.fillMaxWidth()) {
-        Row(verticalAlignment = Alignment.CenterVertically) {
-            Box(Modifier.size(72.dp).clip(KelanaShapes.card).background(colors.creamYellow))
-            Column(Modifier.weight(1f).padding(start = KelanaSpacing.md)) {
-                Text(
-                    stringResource(R.string.challenge_label).uppercase(IdLocale),
-                    style = MaterialTheme.typography.labelSmall.copy(fontWeight = FontWeight.Bold),
-                    color = colors.warnText,
-                )
-                Text(
-                    stringResource(R.string.challenge_title, PLACEHOLDER_CHALLENGE_GOAL),
-                    style = MaterialTheme.typography.titleSmall,
-                    color = colors.ink,
-                )
-                LinearProgressIndicator(
-                    progress = { PLACEHOLDER_CHALLENGE_DONE.toFloat() / PLACEHOLDER_CHALLENGE_GOAL },
-                    modifier = Modifier.fillMaxWidth().padding(top = KelanaSpacing.sm).height(8.dp).clip(CircleShape),
-                    color = colors.accentOrange,
-                    trackColor = colors.backgroundWarm,
-                    strokeCap = androidx.compose.ui.graphics.StrokeCap.Round,
-                    gapSize = 0.dp,
-                    drawStopIndicator = {},
-                )
-                Text(
-                    stringResource(R.string.challenge_progress, PLACEHOLDER_CHALLENGE_DONE, PLACEHOLDER_CHALLENGE_GOAL),
-                    modifier = Modifier.padding(top = KelanaSpacing.xs),
-                    style = MaterialTheme.typography.bodySmall,
-                    color = colors.muted,
+    val shape = RoundedCornerShape(KelanaRadii.listCard)
+    Row(
+        modifier.fillMaxWidth().clip(shape).background(colors.white).border(1.dp, colors.outline, shape).padding(14.dp),
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.spacedBy(12.dp),
+    ) {
+        Box(Modifier.size(76.dp).clip(KelanaShapes.card).background(colors.creamYellow)) {
+            Image(
+                painter = painterResource(R.drawable.jelajah_art_challenge_bg),
+                contentDescription = null,
+                modifier = Modifier.matchParentSize(),
+                contentScale = ContentScale.FillBounds,
+            )
+            ArtPiece(R.drawable.jelajah_art_badge_stamp, 40.dp, 18.dp, 18.dp, -8f)
+        }
+        Column(Modifier.weight(1f)) {
+            Text(
+                stringResource(R.string.challenge_label).uppercase(IdLocale),
+                style = MaterialTheme.typography.labelSmall.copy(fontWeight = FontWeight.ExtraBold, letterSpacing = 0.6.sp),
+                color = colors.warnText,
+            )
+            Text(
+                stringResource(R.string.challenge_title, PLACEHOLDER_CHALLENGE_GOAL),
+                modifier = Modifier.padding(top = 2.dp),
+                style = MaterialTheme.typography.titleSmall.copy(fontSize = 15.sp, fontWeight = FontWeight.ExtraBold),
+                color = colors.ink,
+            )
+            val progressCd = stringResource(R.string.challenge_progress_cd)
+            Box(
+                Modifier.padding(top = 8.dp).fillMaxWidth().height(8.dp).clip(CircleShape).background(colors.backgroundWarm)
+                    .semantics { contentDescription = progressCd },
+            ) {
+                Box(
+                    Modifier.fillMaxWidth(PLACEHOLDER_CHALLENGE_DONE.toFloat() / PLACEHOLDER_CHALLENGE_GOAL)
+                        .height(8.dp).clip(CircleShape).background(colors.accentOrange),
                 )
             }
+            Text(
+                stringResource(R.string.challenge_progress, PLACEHOLDER_CHALLENGE_DONE, PLACEHOLDER_CHALLENGE_GOAL),
+                modifier = Modifier.padding(top = 4.dp),
+                style = MaterialTheme.typography.labelMedium.copy(fontWeight = FontWeight.Normal),
+                color = colors.muted,
+            )
         }
     }
 }
 
-@Preview(showBackground = true, heightDp = 1400)
+@Preview(showBackground = true, heightDp = 1420)
 @Composable
 private fun HomeContentPreview() {
     KelanaTheme {

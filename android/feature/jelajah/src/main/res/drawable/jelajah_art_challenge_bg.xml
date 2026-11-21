@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Converted from docs/design/artifact/JelajahIlustratif.dc.html (inline SVG, viewBox 0 0 76 76). -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="76dp"
+    android:height="76dp"
+    android:viewportWidth="76"
+    android:viewportHeight="76">
+    <path
+        android:pathData="M6.08 31.919999999999998 C 4.56 9.12, 25.840000000000003 1.52, 41.800000000000004 6.08 C 60.800000000000004 10.64, 73.72 22.8, 70.68 44.08 C 68.4 65.36, 47.12 74.48, 30.400000000000002 69.92 C 12.16 65.36, 7.6000000000000005 53.199999999999996, 6.08 31.919999999999998 Z"
+        android:fillColor="#FFFBE3A5" />
+    <path
+        android:pathData="M62 9 L63.4 12.6 L67 14 L63.4 15.4 L62 19 L60.6 15.4 L57 14 L60.6 12.6 Z"
+        android:fillColor="#FFE65D22" />
+</vector>
