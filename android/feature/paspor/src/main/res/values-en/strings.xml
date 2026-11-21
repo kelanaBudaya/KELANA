@@ -1,4 +1,111 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="paspor_placeholder">Culture passport (coming soon)</string>
+    <!-- Cultural passport (7.4) -->
+    <string name="paspor_screen_title">Cultural passport</string>
+    <string name="paspor_kicker">CULTURAL PASSPORT · %1$s</string>
+    <string name="paspor_kicker_plain">CULTURAL PASSPORT</string>
+    <string name="paspor_profile_cd">Profile</string>
+    <string name="paspor_seal_name">KELANA</string>
+    <string name="paspor_count_title">%1$d of %2$d stamps</string>
+    <string name="paspor_remaining">%1$d more places to complete Jogja.</string>
+    <string name="paspor_complete">All Jogja stamps collected.</string>
+    <string name="paspor_progress_cd">Stamps collected: %1$d of %2$d</string>
+    <string name="paspor_section_title">Collected stamps</string>
+    <string name="paspor_section_hint">Tap a stamp to see the place.</string>
+    <string name="paspor_section_empty">No stamps yet. Visit a place, then take its stamp there.</string>
+    <string name="paspor_stamp_collected_cd">%1$s stamp, collected</string>
+    <string name="paspor_stamp_missing_cd">%1$s, stamp not collected yet</string>
+    <string name="paspor_postcard_title">Make a postcard from your stamp</string>
+    <string name="paspor_postcard_subtitle">Tell the story of your visit to %1$s</string>
+    <string name="paspor_guest_title">Sign in to see your passport</string>
+    <string name="paspor_guest_body">Stamps are saved to your account. Sign in to see and collect stamps.</string>
+    <string name="paspor_no_places_title">The place list is not available yet</string>
+    <string name="paspor_no_places_body">Check your connection, then open the passport again.</string>
+    <string name="paspor_login">Sign in</string>
+
+    <!-- Get stamp: common -->
+    <string name="paspor_ambil_title">Get stamp</string>
+    <string name="paspor_retry">Try again</string>
+    <string name="paspor_close">Close</string>
+    <string name="paspor_sticker_word">STAMP</string>
+    <string name="paspor_place_missing_title">Place not found</string>
+    <string name="paspor_place_missing_body">This place is not in the list. Go back and pick another place.</string>
+
+    <!-- 6.1 Location permission -->
+    <string name="paspor_izin_title">Can KELANA know your location?</string>
+    <string name="paspor_izin_body">We read it once, when you take a stamp at a place. Your location is not tracked and not shared.</string>
+    <string name="paspor_izin_later">Not now</string>
+    <string name="paspor_izin_allow">Allow</string>
+
+    <!-- 6.2 Get stamp -->
+    <string name="paspor_ambil_area_badge">Stamp area</string>
+    <string name="paspor_ambil_banner_title">Get the stamp at %1$s</string>
+    <string name="paspor_ambil_banner_accuracy">Accuracy ±%1$d m</string>
+    <string name="paspor_ambil_sticker_title">Stamp %1$s</string>
+    <string name="paspor_ambil_sticker_body">This stamp shows that your postcard and video were made right here.</string>
+    <string name="paspor_ambil_privacy">KELANA reads your location once, when you tap the button below. Not tracked, not shared.</string>
+    <string name="paspor_ambil_button">Stamp now!</string>
+    <string name="paspor_ambil_locating">Reading your location…</string>
+    <string name="paspor_ambil_sending">Checking with the server…</string>
+
+    <!-- 6.4 Outside the area -->
+    <string name="paspor_diluar_title">Almost there!</string>
+    <string name="paspor_diluar_body_distance">You are about %1$s m from the stamp area of %2$s. Move into the area, then try again.</string>
+    <string name="paspor_diluar_body_unknown">You are not in the stamp area of %1$s yet. Move into the area, then try again.</string>
+    <string name="paspor_diluar_directions">Directions</string>
+
+    <!-- 6.5 Location denied (Android app settings instead of the browser) -->
+    <string name="paspor_ditolak_title">Stamps need your location permission</string>
+    <string name="paspor_ditolak_body">Precise location permission is off. Turn it on in the app settings:</string>
+    <string name="paspor_ditolak_step1"><![CDATA[Tap <b>Open app settings</b> below.]]></string>
+    <string name="paspor_ditolak_step2"><![CDATA[Choose <b>Permissions</b>, then <b>Location</b>.]]></string>
+    <string name="paspor_ditolak_step3"><![CDATA[Choose <b>Allow only while using the app</b> and turn on <b>Use precise location</b>, then come back here.]]></string>
+    <string name="paspor_open_settings">Open app settings</string>
+
+    <!-- PROVISIONAL: Waiting for signal (not in the artifact) -->
+    <string name="paspor_pending_title">Waiting for signal</string>
+    <string name="paspor_pending_body">Your location was noted once. The stamp is sent automatically as soon as there is signal. If it is not sent within 30 minutes, take the stamp again.</string>
+    <string name="paspor_pending_less_than_minute">Less than 1 minute left</string>
+    <plurals name="paspor_pending_remaining">
+        <item quantity="one">About %1$d minute left</item>
+        <item quantity="other">About %1$d minutes left</item>
+    </plurals>
+    <string name="paspor_pending_cancel">Cancel</string>
+
+    <!-- Errors (no artifact screen) -->
+    <string name="paspor_err_accuracy_title">Location signal is not accurate enough</string>
+    <string name="paspor_err_accuracy_body">Move to a more open spot, wait a moment, then try again.</string>
+    <string name="paspor_err_expired_title">Your stamp request expired</string>
+    <string name="paspor_err_expired_body">Your location was read more than 30 minutes ago. Take the stamp again.</string>
+    <string name="paspor_err_clock_title">Your phone clock is off</string>
+    <string name="paspor_err_clock_body">Turn on automatic date and time on your phone, then try again.</string>
+    <string name="paspor_err_integrity_title">The app could not be verified</string>
+    <string name="paspor_err_integrity_body">KELANA cannot confirm this app is genuine. Install it from Google Play, then try again.</string>
+    <string name="paspor_err_radius_title">This place does not give stamps yet</string>
+    <string name="paspor_err_radius_body">The stamp area of this place is not set yet. Try again later.</string>
+    <string name="paspor_err_mock_title">Fake location detected</string>
+    <string name="paspor_err_mock_body">Turn off the mock location app on your phone, then try again.</string>
+    <string name="paspor_err_place_title">Place not recognised</string>
+    <string name="paspor_err_place_body">This place is not in the stamp list yet. Go back and pick another place.</string>
+    <string name="paspor_err_request_title">The request could not be processed</string>
+    <string name="paspor_err_request_body">Something is wrong with your stamp request. Try taking the stamp again.</string>
+    <string name="paspor_err_config_title">Stamps are not available yet</string>
+    <string name="paspor_err_config_body">This version of the app is not connected to the stamp service.</string>
+    <string name="paspor_err_nofix_title">Your location could not be read</string>
+    <string name="paspor_err_nofix_body">Make sure location (GPS) is turned on on your phone, then try again.</string>
+    <string name="paspor_err_login_title">Sign in to get a stamp</string>
+    <string name="paspor_err_login_body">Stamps are saved to your account. Sign in, then try again.</string>
+    <string name="paspor_err_unconfirmed_title">Stamp not confirmed</string>
+    <string name="paspor_err_unconfirmed_body">The server answered, but your stamp was not recorded. Take the stamp again.</string>
+
+    <!-- 6.3 Stamp collected -->
+    <string name="paspor_berhasil_kicker">STAMP %1$d · %2$d MORE IN JOGJA</string>
+    <string name="paspor_berhasil_kicker_complete">STAMP %1$d · JOGJA PASSPORT COMPLETE</string>
+    <string name="paspor_berhasil_kicker_plain">NEW STAMP</string>
+    <string name="paspor_berhasil_title">You have explored %1$s!</string>
+    <string name="paspor_berhasil_title_plain">Your stamp is recorded!</string>
+    <string name="paspor_berhasil_body">The stamp is now in your passport. Next, tell the story of your visit.</string>
+    <string name="paspor_berhasil_postcard">Make a postcard</string>
+    <string name="paspor_berhasil_passport">Peek at your passport</string>
+    <string name="paspor_seal_visited">VISITED</string>
 </resources>

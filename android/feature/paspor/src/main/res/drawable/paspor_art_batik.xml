@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Converted from docs/design/artifact (inline SVG, viewBox 1435 1810 28 28). Original colours kept. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="30dp"
+    android:height="30dp"
+    android:viewportWidth="28"
+    android:viewportHeight="28">
+    <group android:translateX="-1435" android:translateY="-1810">
+        <path
+            android:fillColor="#24458F"
+            android:pathData="M1456.38 1813H1442.38C1440.72 1813 1439.38 1814.34 1439.38 1816V1830C1439.38 1831.66 1440.72 1833 1442.38 1833H1456.38C1458.03 1833 1459.38 1831.66 1459.38 1830V1816C1459.38 1814.34 1458.03 1813 1456.38 1813Z" />
+        <path
+            android:strokeColor="#FFFCF6"
+            android:strokeWidth="2"
+            android:pathData="M1439.38 1833L1459.38 1813" />
+        <path
+            android:fillColor="#FFFCF6"
+            android:pathData="M1444.38 1820.2C1445.59 1820.2 1446.58 1819.22 1446.58 1818C1446.58 1816.79 1445.59 1815.8 1444.38 1815.8C1443.16 1815.8 1442.18 1816.79 1442.18 1818C1442.18 1819.22 1443.16 1820.2 1444.38 1820.2Z" />
+        <path
+            android:fillColor="#FFFCF6"
+            android:pathData="M1454.38 1830.2C1455.59 1830.2 1456.58 1829.22 1456.58 1828C1456.58 1826.79 1455.59 1825.8 1454.38 1825.8C1453.16 1825.8 1452.18 1826.79 1452.18 1828C1452.18 1829.22 1453.16 1830.2 1454.38 1830.2Z" />
+    </group>
+</vector>

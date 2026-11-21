@@ -26,15 +26,11 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.SnackbarHost
-import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
@@ -70,6 +66,7 @@ import id.kelana.core.model.OpeningHours
 import id.kelana.core.model.Place
 import id.kelana.core.model.PlaceCategory
 import id.kelana.core.model.TicketPrice
+import id.kelana.core.navigation.AmbilCapRoute
 import id.kelana.core.navigation.CeritaRoute
 import id.kelana.core.navigation.DetailTempatRoute
 import id.kelana.core.navigation.FotoResmiRoute
@@ -90,7 +87,6 @@ import id.kelana.feature.tempat.domain.infoCheckedAt
 import id.kelana.feature.tempat.domain.officialSellerUrl
 import id.kelana.feature.tempat.domain.sourceHost
 import id.kelana.feature.tempat.domain.todayHours
-import kotlinx.coroutines.launch
 import java.time.DayOfWeek
 import java.time.LocalDate
 import java.time.LocalTime
@@ -114,9 +110,6 @@ internal fun DetailTempatScreen(
 ) {
     val state by viewModel.uiState.collectAsState()
     val requireLogin = rememberRequireLogin(navigate)
-    val snackbar = remember { SnackbarHostState() }
-    val scope = rememberCoroutineScope()
-    val capSoon = stringResource(R.string.tempat_cap_soon)
 
     when (state.status) {
         PlaceLoadStatus.Loading -> LoadingBody()
@@ -137,7 +130,6 @@ internal fun DetailTempatScreen(
             Scaffold(
                 containerColor = KelanaTheme.colors.background,
                 contentWindowInsets = WindowInsets(0, 0, 0, 0),
-                snackbarHost = { SnackbarHost(snackbar) },
                 bottomBar = {
                     BottomActions(
                         // Postcard needs an account (product rule); "Masuk rencana" is open to guests.
@@ -151,8 +143,8 @@ internal fun DetailTempatScreen(
                     today = LocalDate.now().dayOfWeek,
                     onBack = onBack,
                     onPhotos = { navigate(FotoResmiRoute(place.id)) },
-                    // "Ambil cap" is Phase 3: a guest is sent to Masuk first, a signed-in user sees "segera hadir".
-                    onStamp = { requireLogin { scope.launch { snackbar.showSnackbar(capSoon) } } },
+                    // "Ambil cap" needs an account: a guest is sent to Masuk first, then Ambil cap for this place.
+                    onStamp = { requireLogin { navigate(AmbilCapRoute(place.id)) } },
                     onTicketSite = { url -> navigate(OfficialSiteRoute(url, place.name)) },
                     onReport = { navigate(LaporkanRoute(place.id)) },
                     onAllStories = { requireLogin { navigate(CeritaRoute) } },

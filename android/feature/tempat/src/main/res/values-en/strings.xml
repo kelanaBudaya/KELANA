@@ -10,7 +10,6 @@
     <string name="tempat_cap_label">STAMP %1$s IS WAITING</string>
     <string name="tempat_cap_headline">Visit the place, then collect the stamp here</string>
     <string name="tempat_cap_button">Get stamp</string>
-    <string name="tempat_cap_soon">Getting a stamp is coming soon</string>
     <string name="tempat_sticker_desc">Sticker %1$s</string>
     <string name="tempat_info_title">Official info</string>
     <string name="tempat_info_checking">Being checked</string>

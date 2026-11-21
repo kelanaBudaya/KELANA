@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Converted from docs/design/artifact (inline SVG, viewBox 0 0 38.26 38.94). Original colours kept. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="32dp"
+    android:height="32dp"
+    android:viewportWidth="38.26"
+    android:viewportHeight="38.94">
+    <path
+        android:fillColor="#468A5E"
+        android:pathData="M16.45 0.35c-25.45,5.01 -19.61,42.41 5.43,38.28 10.13,-1.67 17.33,-11.87 16.27,-21.97 -1.12,-10.71 -11.04,-18.41 -21.7,-16.31z" />
+    <path
+        android:fillColor="#FEFEFE"
+        android:pathData="M27.06 17.71c1.26,-1.19 4.57,-4.74 0.98,-5.6 -2.15,-0.65 -7.02,6.06 -10.24,9.43 -1.82,1.89 -3.48,-1.07 -5.77,-2.53 -2.35,-1.5 -4.99,0.46 -1.71,3.96 7.62,8.64 8.28,3.46 16.73,-5.26z" />
+</vector>

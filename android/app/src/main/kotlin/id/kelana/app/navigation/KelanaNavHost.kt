@@ -34,7 +34,7 @@ import id.kelana.feature.cerita.ceritaScreens
 import id.kelana.feature.jelajah.jelajahScreens
 import id.kelana.feature.notifikasi.notifikasiScreen
 import id.kelana.feature.onboarding.onboardingScreens
-import id.kelana.feature.paspor.pasporScreen
+import id.kelana.feature.paspor.pasporScreens
 import id.kelana.feature.peta.petaScreen
 import id.kelana.feature.postcard.postcardScreen
 import id.kelana.feature.rencana.rencanaScreens
@@ -148,7 +148,12 @@ fun KelanaAppContent(appViewModel: AppViewModel = hiltViewModel()) {
 
             tempatScreens(navigate = navigate, onBack = onBack)
             petaScreen(onBack = onBack)
-            pasporScreen(onBack = onBack)
+            // Ambil cap -> Cap berhasil -> Paspor: each step replaces the finished one so back does not return to it.
+            val onReplace: (Any) -> Unit = { route ->
+                val current = navController.currentDestination
+                navController.navigate(route) { if (current != null) popUpTo(current.id) { inclusive = true } }
+            }
+            pasporScreens(navigate = navigate, onBack = onBack, onReplace = onReplace)
             postcardScreen()
             notifikasiScreen()
             tiketScreen(onBack = onBack)
