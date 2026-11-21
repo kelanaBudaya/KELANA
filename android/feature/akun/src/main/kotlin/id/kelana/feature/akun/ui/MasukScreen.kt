@@ -20,6 +20,7 @@ import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -40,6 +41,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.compose.runtime.collectAsState
+import id.kelana.core.designsystem.component.KelanaButton
 import id.kelana.core.designsystem.theme.KelanaSpacing
 import id.kelana.core.designsystem.theme.KelanaTheme
 import id.kelana.feature.akun.R
@@ -51,6 +53,8 @@ private val ButtonHeight = 52.dp // PROVISIONAL: measured by eye from the 08.01 
 internal fun MasukScreen(
     onSignedIn: () -> Unit,
     onGuest: () -> Unit,
+    onEmail: () -> Unit,
+    onDaftar: () -> Unit,
     viewModel: MasukViewModel = hiltViewModel(),
 ) {
     val state by viewModel.state.collectAsState()
@@ -74,15 +78,19 @@ internal fun MasukScreen(
         state = state,
         onGoogleClick = viewModel::onGoogleClick,
         onGuestClick = viewModel::onGuestClick,
+        onEmailClick = onEmail,
+        onDaftarClick = onDaftar,
     )
 }
 
-/** Figma frame 08.01 Masuk. The email button is intentionally not rendered yet (see TODO). */
+/** Figma frame 08.01 Masuk. The "atau" divider, email option and Daftar link are PROVISIONAL (no artifact yet). */
 @Composable
 internal fun MasukContent(
     state: MasukUiState,
     onGoogleClick: () -> Unit,
     onGuestClick: () -> Unit,
+    onEmailClick: () -> Unit = {},
+    onDaftarClick: () -> Unit = {},
 ) {
     val colors = KelanaTheme.colors
     Column(
@@ -130,9 +138,21 @@ internal fun MasukContent(
         Spacer(Modifier.weight(1f))
 
         GoogleButton(isLoading = state.isLoading, onClick = onGoogleClick)
-        // TODO: "Lanjut dengan email" (primary blue pill, Figma 08.01) is hidden until email login is built.
-        // Only Google sign-in exists, and a dead or greyed-out primary button would mislead.
-        Spacer(Modifier.height(20.dp))
+        Spacer(Modifier.height(KelanaSpacing.md))
+        OrDivider()
+        Spacer(Modifier.height(KelanaSpacing.md))
+        KelanaButton(
+            text = stringResource(R.string.masuk_email),
+            onClick = onEmailClick,
+            modifier = Modifier.fillMaxWidth(),
+            enabled = !state.isLoading,
+        )
+        Spacer(Modifier.height(KelanaSpacing.sm))
+        SwitchLinkRow(
+            prompt = stringResource(R.string.masuk_daftar_prompt),
+            link = stringResource(R.string.masuk_daftar_link),
+            onClick = onDaftarClick,
+        )
         Text(
             text = stringResource(R.string.masuk_guest),
             style = MaterialTheme.typography.bodySmall.copy(
@@ -145,6 +165,21 @@ internal fun MasukContent(
                 .padding(horizontal = 16.dp, vertical = 8.dp),
         )
         Spacer(Modifier.height(16.dp))
+    }
+}
+
+@Composable
+private fun OrDivider() {
+    val colors = KelanaTheme.colors
+    Row(verticalAlignment = Alignment.CenterVertically, modifier = Modifier.fillMaxWidth()) {
+        HorizontalDivider(modifier = Modifier.weight(1f), color = colors.outline)
+        Text(
+            text = stringResource(R.string.masuk_or),
+            style = MaterialTheme.typography.bodySmall,
+            color = colors.muted,
+            modifier = Modifier.padding(horizontal = KelanaSpacing.md),
+        )
+        HorizontalDivider(modifier = Modifier.weight(1f), color = colors.outline)
     }
 }
 

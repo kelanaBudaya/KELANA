@@ -54,6 +54,12 @@ import kotlinx.serialization.Serializable
 /** Sign-in screen (Figma 08.01 Masuk). Use the requireLogin hook from :core:ui to send a guest here. */
 @Serializable data object MasukRoute
 
+/** Sign in with email and password (provisional design, no artifact yet). Reached from [MasukRoute] and [DaftarRoute]. */
+@Serializable data object MasukEmailRoute
+
+/** Sign up with email and password (provisional design, no artifact yet). */
+@Serializable data object DaftarRoute
+
 // Other flows, reached from within the app.
 @Serializable data object PetaRoute
 @Serializable data object PasporRoute
