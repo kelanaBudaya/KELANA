@@ -1,4 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="cerita_placeholder">Visitor stories (coming soon)</string>
+    <!-- Feed (UlasanPengunjung) -->
+    <string name="cerita_title">Visitor stories</string>
+    <string name="cerita_summary_caption">From visitors who took a stamp</string>
+    <plurals name="cerita_postcard_count">
+        <item quantity="one">%1$d postcard</item>
+        <item quantity="other">%1$d postcards</item>
+    </plurals>
+    <plurals name="cerita_video_count">
+        <item quantity="one">%1$d video</item>
+        <item quantity="other">%1$d videos</item>
+    </plurals>
+    <string name="cerita_filter_all">All</string>
+    <string name="cerita_filter_postcard">Postcards</string>
+    <string name="cerita_filter_video">Videos</string>
+    <string name="cerita_write_postcard">Write a postcard</string>
+    <string name="cerita_loading">Loading stories</string>
+    <string name="cerita_empty_title">No stories yet</string>
+    <string name="cerita_empty_body">Stories appear here after visitors take a stamp and share a postcard or video.</string>
+    <string name="cerita_empty_filter_title">No stories for this choice yet</string>
+    <string name="cerita_empty_filter_body">Choose All to see the other stories.</string>
+    <string name="cerita_error_title">Stories could not be loaded</string>
+    <string name="cerita_error_body">Check your signal and try again.</string>
+    <string name="cerita_retry">Try again</string>
+    <string name="cerita_guest_title">Sign in to read stories</string>
+    <string name="cerita_guest_body">Visitor stories can only be read after signing in. You can still browse without an account.</string>
+    <string name="cerita_guest_action">Sign in</string>
+    <string name="cerita_author_fallback">Visitor</string>
+    <string name="cerita_badge_on_site">On site</string>
+    <string name="cerita_report_postcard">Report postcard</string>
+    <string name="cerita_report_video">Report video</string>
+    <string name="cerita_open_postcard">Open postcard by %1$s at %2$s</string>
+    <string name="cerita_play_video">Play video by %1$s at %2$s</string>
+    <string name="cerita_photo_unavailable">Photo cannot be shown yet</string>
+    <string name="cerita_rating_desc">%1$d out of 5 stars</string>
+    <string name="cerita_back">Back</string>
+    <string name="cerita_not_found_title">Story not found</string>
+    <string name="cerita_not_found_body">This story may have been removed.</string>
+    <string name="cerita_see_place">See the place</string>
+
+    <!-- Postcard detail (Postcard) -->
+    <string name="postcard_detail_title">Visitor postcard</string>
+    <string name="postcard_brand">KELANA / JOURNAL</string>
+    <string name="postcard_visited_on">VISITED · %1$s</string>
+    <string name="postcard_by_author">By %1$s</string>
+    <string name="postcard_stamp_desc">Stamp %1$s</string>
+
+    <!-- Video detail (VideoPengunjung) -->
+    <string name="video_detail_title">Visitor video</string>
+    <string name="video_recorded_at">Recorded at %1$s</string>
+    <string name="video_recorded_at_stamp">Recorded at %1$s · stamp %2$s</string>
+    <string name="video_player_unavailable">The video player is not available in this version</string>
 </resources>
