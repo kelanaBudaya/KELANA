@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="onboarding_placeholder">Welcome (coming soon)</string>
+    <string name="onboarding_continue">Continue</string>
+    <string name="onboarding_have_account">Already have an account? Sign in</string>
 </resources>

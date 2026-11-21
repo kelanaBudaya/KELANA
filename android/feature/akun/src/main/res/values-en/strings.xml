@@ -1,4 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="akun_placeholder">Account (coming soon)</string>
+    <string name="masuk_title">Save your passport and plans</string>
+    <string name="masuk_subtitle">Sign in so your stamps and plans are not lost when you change phones.</string>
+    <string name="masuk_google">Continue with Google</string>
+    <string name="masuk_google_mark">G</string>
+    <string name="masuk_guest">Explore without an account first</string>
+    <string name="masuk_error_not_configured">Sign-in is not available yet because the account service is not set up. Please try again later.</string>
+    <string name="masuk_error_cancelled">Sign-in cancelled.</string>
+    <string name="masuk_error_no_account">There is no Google account on this phone. Add one in Settings, then try again.</string>
+    <string name="masuk_error_network">No connection. Check your internet, then try again.</string>
+    <string name="masuk_error_generic">Could not sign in. Please try again.</string>
 </resources>

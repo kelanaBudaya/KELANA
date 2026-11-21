@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- PROVISIONAL placeholder for the Masuk illustration (Figma 08.01): blue stamp card, green check, light-blue blob.
+     Replace with the exported Figma illustration. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="358dp"
+    android:height="280dp"
+    android:viewportWidth="358"
+    android:viewportHeight="280">
+    <!-- background panel -->
+    <path
+        android:fillColor="#DCE6F7"
+        android:pathData="M0,0h358v280h-358z" />
+    <!-- blob -->
+    <path
+        android:fillColor="#C8D6EF"
+        android:pathData="M30,140 C30,60 120,30 200,35 C290,40 340,90 335,160 C330,230 250,258 170,258 C90,258 30,215 30,140 Z" />
+    <!-- ribbon -->
+    <path
+        android:fillColor="#1D499A"
+        android:pathData="M56,52 Q56,40 70,42 L108,50 Q120,53 118,66 L113,120 L92,104 L68,122 Z" />
+    <!-- stamp card: white border, then blue body, slightly rotated -->
+    <group
+        android:pivotX="180"
+        android:pivotY="165"
+        android:rotation="-8">
+        <path
+            android:fillColor="#FFFFFF"
+            android:pathData="M98,100h166v128h-166z" />
+        <path
+            android:fillColor="#24458F"
+            android:pathData="M106,108h150v112h-150z" />
+        <!-- museum mark -->
+        <path
+            android:fillColor="#F4B52B"
+            android:pathData="M181,128 L158,140 L204,140 Z" />
+        <path
+            android:fillColor="#F4B52B"
+            android:pathData="M162,143h5v14h-5z M173,143h5v14h-5z M184,143h5v14h-5z M195,143h5v14h-5z" />
+        <path
+            android:fillColor="#F4B52B"
+            android:pathData="M158,159h46v4h-46z" />
+        <!-- text lines standing in for "PASPOR DIY" -->
+        <path
+            android:fillColor="#FFFFFF"
+            android:pathData="M158,178h46v6h-46z" />
+        <path
+            android:fillColor="#DCE6F7"
+            android:pathData="M172,190h20v5h-20z" />
+    </group>
+    <!-- green check badge -->
+    <path
+        android:fillColor="#468A5E"
+        android:pathData="M270,67 a28,28 0 1,0 56,0 a28,28 0 1,0 -56,0 Z" />
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M285,68 L295,78 L313,58"
+        android:strokeColor="#FFFFFF"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round"
+        android:strokeWidth="6" />
+    <!-- sparkles -->
+    <path
+        android:fillColor="#F4B52B"
+        android:pathData="M196,38 L199,46 L207,49 L199,52 L196,60 L193,52 L185,49 L193,46 Z" />
+    <path
+        android:fillColor="#E5591A"
+        android:pathData="M335,244 L337,249 L342,251 L337,253 L335,258 L333,253 L328,251 L333,249 Z" />
+</vector>

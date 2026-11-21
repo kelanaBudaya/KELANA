@@ -17,7 +17,7 @@ The PNGs in `docs/design/` are overview slides for context only. Do not use them
 - **Official info always shows its check date** ("Diperiksa 20 Nov 2026"). Any official fact (hours, price, closed day, show time) without a `checkedAt` date must not be rendered. Use the "Harga sedang dicek" state instead.
 - **Official info is scraped by an AI agent** for the first 10 places. Every scraped fact stores its `sourceUrl` and `checkedAt`, and `checkedAt` is set only when the source was actually fetched and parsed. A failed fetch keeps the old date and never refreshes it. The first scrape of a place and any value that differs from the published one go to a pending state and are published only after a human approves them (via the Supabase dashboard until the admin exists). An unchanged re-check just refreshes `checkedAt`.
 - **Offline planner:** the cached plan for today is readable and usable offline. Building or re-planning needs the server (Edge Function) and shows an offline state when there is no signal.
-- **Login is required from the start** (Google via Credential Manager, or phone OTP). Anonymous browsing is not supported.
+- **Guests can browse; an account is needed to act.** Figma frame 08.01 has "Jelajah dulu tanpa akun". Without login a guest can read regions, places, published official facts and events (Jelajah, Detail tempat, Agenda, Peta, Rencana). Ambil cap, Postcard, video, Laporkan, Kabari aku and visitor stories need a login (stories are not readable by guests). Login is Google only for now (Credential Manager, ID token exchanged with Supabase Auth); email and phone OTP are later. Auth and session use the supabase-kt client.
 
 ## Stack
 
