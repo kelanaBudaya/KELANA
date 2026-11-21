@@ -2,12 +2,17 @@ package id.kelana.feature.tempat.ui
 
 import androidx.lifecycle.SavedStateHandle
 import app.cash.turbine.test
+import id.kelana.core.model.Place
+import id.kelana.core.model.PlaceCategory
+import id.kelana.core.model.PlaceRepository
 import id.kelana.core.model.ReportDraft
 import id.kelana.core.model.ReportReason
 import id.kelana.core.model.ReportRepository
 import id.kelana.core.model.ReportResult
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.test.UnconfinedTestDispatcher
 import kotlinx.coroutines.test.resetMain
 import kotlinx.coroutines.test.runTest
@@ -30,7 +35,15 @@ class LaporkanViewModelTest {
         }
     }
 
+    private class FakePlaces(private val place: Place?) : PlaceRepository {
+        override fun place(id: String): Flow<Place?> = flowOf(place)
+        override fun places(): Flow<List<Place>> = flowOf(listOfNotNull(place))
+        override fun placesByCategory(category: PlaceCategory): Flow<List<Place>> = flowOf(emptyList())
+        override fun search(query: String): Flow<List<Place>> = flowOf(emptyList())
+    }
+
     private val repo = FakeReports()
+    private val museum = Place("p1", "p1", "Museum Uji", PlaceCategory.Museum, "YK-02", 0.0, 0.0, "a", "d", "cover-p1")
 
     @Before
     fun setUp() = Dispatchers.setMain(UnconfinedTestDispatcher())
@@ -38,7 +51,8 @@ class LaporkanViewModelTest {
     @After
     fun tearDown() = Dispatchers.resetMain()
 
-    private fun vm() = LaporkanViewModel(SavedStateHandle(mapOf("placeId" to "p1")), repo)
+    private fun vm(place: Place? = museum) =
+        LaporkanViewModel(SavedStateHandle(mapOf("placeId" to "p1")), repo, FakePlaces(place))
 
     @Test
     fun reason_is_required() = runTest {
@@ -108,5 +122,32 @@ class LaporkanViewModelTest {
         val vm = vm()
         vm.setDetails("a".repeat(MAX_DETAILS_LENGTH + 50))
         assertEquals(MAX_DETAILS_LENGTH, vm.uiState.value.details.length)
+    }
+
+    @Test
+    fun place_name_is_loaded_for_the_subtitle() = runTest {
+        assertEquals("Museum Uji", vm().uiState.value.placeName)
+        assertEquals("", vm(place = null).uiState.value.placeName)
+    }
+
+    @Test
+    fun success_marks_the_report_as_sent() = runTest {
+        val vm = vm()
+        assertFalse(vm.uiState.value.sent)
+        vm.selectReason(ReportReason.PlaceClosed)
+        vm.submit()
+        assertTrue(vm.uiState.value.sent)
+    }
+
+    @Test
+    fun failure_and_login_do_not_mark_the_report_as_sent() = runTest {
+        repo.result = { ReportResult.Failed }
+        val vm = vm()
+        vm.selectReason(ReportReason.PlaceClosed)
+        vm.submit()
+        assertFalse(vm.uiState.value.sent)
+        repo.result = { ReportResult.NeedsLogin }
+        vm.submit()
+        assertFalse(vm.uiState.value.sent)
     }
 }

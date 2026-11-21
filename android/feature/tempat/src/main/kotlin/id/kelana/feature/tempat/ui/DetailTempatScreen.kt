@@ -1,12 +1,15 @@
 package id.kelana.feature.tempat.ui
 
+import androidx.annotation.DrawableRes
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -14,11 +17,12 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
@@ -26,7 +30,6 @@ import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -37,50 +40,70 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.layout.layout
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.Role
+import androidx.compose.ui.semantics.clearAndSetSemantics
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import id.kelana.core.designsystem.component.KelanaButton
 import id.kelana.core.designsystem.component.KelanaButtonVariant
-import id.kelana.core.designsystem.component.KelanaCard
-import id.kelana.core.designsystem.component.OfficialFactRow as PendingFactRow
 import id.kelana.core.designsystem.component.formatCheckedDate
 import id.kelana.core.designsystem.theme.KelanaShapes
+import id.kelana.core.designsystem.theme.KelanaSizes
 import id.kelana.core.designsystem.theme.KelanaSpacing
 import id.kelana.core.designsystem.theme.KelanaTheme
 import id.kelana.core.model.Closure
+import id.kelana.core.model.FactDisplay
 import id.kelana.core.model.OfficialFact
 import id.kelana.core.model.OpeningHours
 import id.kelana.core.model.Place
 import id.kelana.core.model.PlaceCategory
 import id.kelana.core.model.TicketPrice
+import id.kelana.core.navigation.CeritaRoute
 import id.kelana.core.navigation.DetailTempatRoute
 import id.kelana.core.navigation.FotoResmiRoute
 import id.kelana.core.navigation.LaporkanRoute
 import id.kelana.core.navigation.OfficialSiteRoute
-import id.kelana.core.ui.OfficialFactRow
+import id.kelana.core.navigation.PostcardRoute
+import id.kelana.core.navigation.RencanaRoute
 import id.kelana.core.ui.formatRupiah
 import id.kelana.core.ui.formatTimeRange
 import id.kelana.core.ui.label
 import id.kelana.core.ui.session.rememberRequireLogin
 import id.kelana.feature.tempat.R
 import id.kelana.feature.tempat.domain.OFFICIAL_PHOTO_COUNT
+import id.kelana.feature.tempat.domain.HoursSummary
 import id.kelana.feature.tempat.domain.closedDaysFact
+import id.kelana.feature.tempat.domain.hoursSummary
+import id.kelana.feature.tempat.domain.infoCheckedAt
 import id.kelana.feature.tempat.domain.officialSellerUrl
 import id.kelana.feature.tempat.domain.sourceHost
 import id.kelana.feature.tempat.domain.todayHours
 import kotlinx.coroutines.launch
 import java.time.DayOfWeek
 import java.time.LocalDate
+import java.time.LocalTime
 import java.time.format.TextStyle
 import java.util.Locale
 import id.kelana.core.designsystem.R as DsR
+
+// Sizes read from DetailIlustratif.dc.html that have no token in :core:designsystem.
+private val HeaderHeight = 250.dp
+private val HeaderOverlap = 18.dp
+private val TitleCardRadius = 24.dp
+private val BannerHeight = 112.dp
+private val RowTile = 40.dp
 
 @Composable
 internal fun DetailTempatScreen(
@@ -115,6 +138,13 @@ internal fun DetailTempatScreen(
                 containerColor = KelanaTheme.colors.background,
                 contentWindowInsets = WindowInsets(0, 0, 0, 0),
                 snackbarHost = { SnackbarHost(snackbar) },
+                bottomBar = {
+                    BottomActions(
+                        // Postcard needs an account (product rule); "Masuk rencana" is open to guests.
+                        onPostcard = { requireLogin { navigate(PostcardRoute) } },
+                        onAddPlan = { navigate(RencanaRoute) },
+                    )
+                },
             ) { padding ->
                 DetailTempatContent(
                     place = place,
@@ -125,6 +155,7 @@ internal fun DetailTempatScreen(
                     onStamp = { requireLogin { scope.launch { snackbar.showSnackbar(capSoon) } } },
                     onTicketSite = { url -> navigate(OfficialSiteRoute(url, place.name)) },
                     onReport = { navigate(LaporkanRoute(place.id)) },
+                    onAllStories = { requireLogin { navigate(CeritaRoute) } },
                     modifier = Modifier.padding(padding),
                 )
             }
@@ -141,194 +172,295 @@ internal fun DetailTempatContent(
     onStamp: () -> Unit,
     onTicketSite: (String) -> Unit,
     onReport: () -> Unit,
+    onAllStories: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    val colors = KelanaTheme.colors
     Column(modifier.fillMaxSize().verticalScroll(rememberScrollState())) {
         PlaceHeader(place = place, onBack = onBack, onPhotos = onPhotos)
-        Column(
-            Modifier.padding(horizontal = KelanaSpacing.gutter, vertical = KelanaSpacing.md),
-            verticalArrangement = Arrangement.spacedBy(KelanaSpacing.md),
-        ) {
-            Row(horizontalArrangement = Arrangement.spacedBy(KelanaSpacing.sm)) {
-                Pill(text = place.category.label(), background = colors.skyText, content = colors.navy)
-                Pill(text = place.capCode, background = colors.creamYellow, content = colors.warnText)
-            }
-            Text(text = place.name, style = MaterialTheme.typography.headlineSmall, color = colors.ink)
-            Text(text = place.address, style = MaterialTheme.typography.bodySmall, color = colors.muted)
-            Text(text = place.description, style = MaterialTheme.typography.bodyMedium, color = colors.ink)
-            CapBanner(capCode = place.capCode, onStamp = onStamp)
-            InfoResmiCard(place = place, today = today, onTicketSite = onTicketSite)
-            StoriesEntry()
-            KelanaButton(
-                text = stringResource(R.string.tempat_report_link),
-                onClick = onReport,
-                variant = KelanaButtonVariant.Text,
-                modifier = Modifier.fillMaxWidth(),
-            )
-        }
+        TitleCard(place)
+        CapBanner(capCode = place.capCode, onStamp = onStamp)
+        InfoResmiCard(place = place, today = today, onTicketSite = onTicketSite)
+        StoriesSection(onAllStories = onAllStories)
+        ReportRow(onReport = onReport)
+        Spacer(Modifier.height(KelanaSpacing.lg))
     }
 }
 
-/** Illustrated header, 240 dp tall (PROVISIONAL), with back, save and the "Lihat N foto resmi" chip. */
+/** Illustrated header (250 dp) with the round back and save buttons and the "Lihat N foto resmi" pill. */
 @Composable
 private fun PlaceHeader(place: Place, onBack: () -> Unit, onPhotos: () -> Unit) {
     val colors = KelanaTheme.colors
     // PROVISIONAL: visual-only toggle. Saving places is not wired to any storage yet.
     var saved by rememberSaveable { mutableStateOf(false) }
-    Box(Modifier.fillMaxWidth().height(240.dp)) {
-        CoverPlaceholder(
-            coverKey = place.coverKey,
+    Box(Modifier.fillMaxWidth().height(HeaderHeight).background(colors.skyText)) {
+        // PROVISIONAL: one shared illustration for every place until per-place covers exist.
+        Image(
+            painter = painterResource(R.drawable.tempat_cover_art),
+            contentDescription = stringResource(R.string.tempat_header_cover, place.name),
             modifier = Modifier.fillMaxSize(),
-            description = stringResource(R.string.tempat_header_cover, place.name),
+            contentScale = ContentScale.Crop,
         )
-        Row(
-            Modifier.fillMaxWidth().padding(horizontal = KelanaSpacing.sm, vertical = KelanaSpacing.sm),
-            verticalAlignment = Alignment.CenterVertically,
-        ) {
-            RoundIconButton(
-                painterRes = DsR.drawable.ic_back,
-                description = stringResource(R.string.tempat_back),
-                onClick = onBack,
-            )
-            Box(Modifier.weight(1f))
-            RoundIconButton(
-                painterRes = if (saved) R.drawable.ic_bookmark else R.drawable.ic_bookmark_outline,
-                description = stringResource(if (saved) R.string.tempat_unsave else R.string.tempat_save),
-                onClick = { saved = !saved },
-            )
-        }
-        Row(
+        RoundIconButton(
+            iconRes = R.drawable.tempat_ic_chevron_back,
+            description = stringResource(R.string.tempat_back),
+            onClick = onBack,
+            modifier = Modifier.align(Alignment.TopStart).padding(start = 14.dp, top = 12.dp),
+        )
+        RoundIconButton(
+            iconRes = if (saved) R.drawable.ic_bookmark else R.drawable.tempat_ic_bookmark_art,
+            description = stringResource(if (saved) R.string.tempat_unsave else R.string.tempat_save),
+            onClick = { saved = !saved },
+            modifier = Modifier.align(Alignment.TopEnd).padding(end = 14.dp, top = 12.dp),
+            iconSize = 22.dp,
+        )
+        // 48 dp touch target around the 32 dp pill.
+        Box(
             Modifier
                 .align(Alignment.BottomStart)
-                .padding(KelanaSpacing.gutter)
+                .padding(start = KelanaSpacing.gutter, bottom = 6.dp)
                 .heightIn(min = 48.dp)
-                .clip(KelanaShapes.chip)
-                .background(colors.white.copy(alpha = 0.92f))
-                .clickable(role = Role.Button, onClick = onPhotos)
-                .padding(horizontal = KelanaSpacing.md),
-            verticalAlignment = Alignment.CenterVertically,
+                .clickable(role = Role.Button, onClick = onPhotos),
+            contentAlignment = Alignment.CenterStart,
         ) {
-            Text(
-                text = stringResource(R.string.tempat_photos_chip, OFFICIAL_PHOTO_COUNT),
-                style = MaterialTheme.typography.labelLarge,
-                color = colors.navy,
-            )
+            Row(
+                Modifier
+                    .height(32.dp)
+                    .clip(KelanaShapes.chip)
+                    .background(colors.navy.copy(alpha = 0.88f))
+                    .padding(horizontal = KelanaSpacing.md),
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
+                Image(painterResource(R.drawable.tempat_ic_media), contentDescription = null, Modifier.size(18.dp))
+                Spacer(Modifier.width(6.dp))
+                Text(
+                    text = stringResource(R.string.tempat_photos_chip, OFFICIAL_PHOTO_COUNT),
+                    style = MaterialTheme.typography.labelMedium.copy(fontWeight = FontWeight.Bold),
+                    color = colors.white,
+                )
+            }
         }
     }
 }
 
+/** White 44 dp round button on the header, inside a 48 dp touch target. */
 @Composable
-private fun RoundIconButton(painterRes: Int, description: String, onClick: () -> Unit) {
+private fun RoundIconButton(
+    @DrawableRes iconRes: Int,
+    description: String,
+    onClick: () -> Unit,
+    modifier: Modifier = Modifier,
+    iconSize: androidx.compose.ui.unit.Dp = 20.dp,
+) {
     Box(
-        Modifier.size(48.dp).clickable(role = Role.Button, onClick = onClick),
+        modifier.size(48.dp).clickable(role = Role.Button, onClick = onClick),
         contentAlignment = Alignment.Center,
     ) {
         Box(
-            Modifier.size(40.dp).clip(CircleShape).background(KelanaTheme.colors.white.copy(alpha = 0.92f)),
+            Modifier.size(KelanaSizes.backButton).clip(CircleShape).background(KelanaTheme.colors.white),
             contentAlignment = Alignment.Center,
         ) {
             Image(
-                painter = painterResource(painterRes),
+                painter = painterResource(iconRes),
                 contentDescription = description,
-                modifier = Modifier.size(24.dp),
+                modifier = Modifier.size(iconSize),
             )
         }
     }
 }
 
+/** Category and cap badges, name, address and description on a card that overlaps the header by 18 dp. */
 @Composable
-private fun Pill(text: String, background: Color, content: Color) {
+private fun TitleCard(place: Place) {
+    val colors = KelanaTheme.colors
+    val overlap = HeaderOverlap
+    Column(
+        Modifier
+            .layout { measurable, constraints ->
+                val placeable = measurable.measure(constraints)
+                val pull = overlap.roundToPx()
+                layout(placeable.width, placeable.height - pull) { placeable.place(0, -pull) }
+            }
+            .padding(horizontal = KelanaSpacing.gutter)
+            .fillMaxWidth()
+            .clip(RoundedCornerShape(TitleCardRadius))
+            .background(colors.background)
+            .padding(KelanaSpacing.gutter),
+    ) {
+        Row(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
+            Badge(text = place.category.label(), background = colors.skyText, content = colors.navy)
+            Badge(
+                text = stringResource(R.string.tempat_cap_badge, place.capCode),
+                background = colors.backgroundWarm,
+                content = colors.stampBrown,
+            )
+        }
+        Text(
+            text = place.name,
+            modifier = Modifier.padding(top = 10.dp),
+            style = MaterialTheme.typography.headlineMedium,
+            color = colors.ink,
+        )
+        Text(
+            text = place.address,
+            modifier = Modifier.padding(top = KelanaSpacing.xs),
+            style = MaterialTheme.typography.bodyMedium,
+            color = colors.muted,
+        )
+        Text(
+            text = place.description,
+            modifier = Modifier.padding(top = 10.dp),
+            style = MaterialTheme.typography.bodyMedium,
+            color = colors.ink,
+        )
+    }
+}
+
+@Composable
+private fun Badge(text: String, background: Color, content: Color) {
     Text(
         text = text,
         modifier = Modifier
-            .clip(KelanaShapes.chip)
+            .clip(KelanaShapes.badge)
             .background(background)
-            .padding(horizontal = KelanaSpacing.md, vertical = 6.dp),
+            .padding(horizontal = KelanaSpacing.sm, vertical = 3.dp),
         style = MaterialTheme.typography.labelMedium,
         color = content,
     )
 }
 
-/** Orange "Cap YK-02 menunggumu" banner. Layout PROVISIONAL (no frame PNG). */
+/**
+ * Orange "Cap YK-02 menunggumu" banner (358 x 112, radius 20) with the sticker. The whole banner is the
+ * "Ambil cap" button. The sticker drop shadow is skipped.
+ */
 @Composable
 private fun CapBanner(capCode: String, onStamp: () -> Unit) {
     val colors = KelanaTheme.colors
-    Row(
+    val stampLabel = stringResource(R.string.tempat_cap_button)
+    Box(
         Modifier
+            .padding(top = KelanaSpacing.sm, start = KelanaSpacing.gutter, end = KelanaSpacing.gutter)
             .fillMaxWidth()
-            .clip(KelanaShapes.card)
-            .background(colors.accentOrange)
-            .padding(KelanaSpacing.gutter),
-        verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.spacedBy(KelanaSpacing.md),
+            .height(BannerHeight)
+            .clip(KelanaShapes.listCard)
+            .background(colors.stampBrown)
+            .clickable(onClickLabel = stampLabel, role = Role.Button, onClick = onStamp),
     ) {
-        Column(Modifier.weight(1f)) {
-            Text(
-                text = stringResource(R.string.tempat_cap_title, capCode),
-                style = MaterialTheme.typography.titleSmall,
-                color = colors.white,
-            )
-            Text(
-                text = stringResource(R.string.tempat_cap_body),
-                modifier = Modifier.padding(top = KelanaSpacing.xs),
-                style = MaterialTheme.typography.bodySmall,
-                color = colors.white,
-            )
+        Image(
+            painter = painterResource(R.drawable.tempat_cap_banner_art),
+            contentDescription = null,
+            modifier = Modifier.fillMaxSize(),
+            contentScale = ContentScale.FillBounds,
+        )
+        Row(Modifier.fillMaxSize().padding(KelanaSpacing.gutter)) {
+            Column(Modifier.width(192.dp)) {
+                Text(
+                    text = stringResource(R.string.tempat_cap_label, capCode),
+                    style = MaterialTheme.typography.labelSmall.copy(
+                        fontWeight = FontWeight.ExtraBold,
+                        letterSpacing = 0.6.sp,
+                    ),
+                    color = colors.stampYellow,
+                )
+                Text(
+                    text = stringResource(R.string.tempat_cap_headline),
+                    modifier = Modifier.padding(top = KelanaSpacing.xs),
+                    style = MaterialTheme.typography.titleMedium.copy(fontSize = 17.sp, lineHeight = 22.sp),
+                    color = colors.white,
+                )
+            }
+            Spacer(Modifier.width(KelanaSpacing.md))
+            Sticker(capCode = capCode, modifier = Modifier.padding(top = 14.dp))
         }
-        Button(
-            onClick = onStamp,
-            modifier = Modifier.heightIn(min = 48.dp),
-            shape = KelanaShapes.button,
-            colors = ButtonDefaults.buttonColors(containerColor = colors.white, contentColor = colors.accentOrange),
-        ) { Text(stringResource(R.string.tempat_cap_button)) }
+    }
+}
+
+/** Perforated cap sticker with the region code and place number, tilted -8 degrees. */
+@Composable
+private fun Sticker(capCode: String, modifier: Modifier = Modifier) {
+    val colors = KelanaTheme.colors
+    val region = capCode.substringBefore('-')
+    val number = capCode.substringAfter('-', "")
+    val stickerDescription = stringResource(R.string.tempat_sticker_desc, region)
+    Box(
+        modifier
+            .size(width = 68.dp, height = 52.dp)
+            .rotate(-8f)
+            .semantics { contentDescription = stickerDescription },
+        contentAlignment = Alignment.Center,
+    ) {
+        Image(
+            painter = painterResource(R.drawable.tempat_sticker_shape),
+            contentDescription = null,
+            modifier = Modifier.fillMaxSize(),
+            contentScale = ContentScale.FillBounds,
+        )
+        Column(
+            Modifier.clearAndSetSemantics { },
+            horizontalAlignment = Alignment.CenterHorizontally,
+            verticalArrangement = Arrangement.spacedBy(3.dp),
+        ) {
+            Image(painterResource(R.drawable.tempat_ic_kawung), contentDescription = null, Modifier.size(14.dp))
+            Text(
+                text = region,
+                style = MaterialTheme.typography.labelSmall.copy(
+                    fontWeight = FontWeight.ExtraBold,
+                    letterSpacing = 0.8.sp,
+                ),
+                color = colors.stampBrown,
+            )
+            if (number.isNotEmpty()) {
+                Text(
+                    text = number,
+                    style = MaterialTheme.typography.labelSmall.copy(fontSize = 9.sp, lineHeight = 11.sp),
+                    color = colors.stampBrown.copy(alpha = 0.9f),
+                )
+            }
+        }
     }
 }
 
 /**
- * "Info resmi": hours, tickets and closed days. Every value goes through an OfficialFact row, so a fact without
- * a check date shows "Sedang dicek" and a dated one shows "Diperiksa <tanggal>". Today's hours are emphasized.
+ * "Info resmi" card: hours, tickets, closed days. Every value is shown only when its fact has a check date;
+ * otherwise the row says "sedang dicek". The header badge carries the oldest check date of the shown facts.
  */
 @Composable
 private fun InfoResmiCard(place: Place, today: DayOfWeek, onTicketSite: (String) -> Unit) {
     val colors = KelanaTheme.colors
-    KelanaCard(Modifier.fillMaxWidth()) {
-        Text(
-            text = stringResource(R.string.tempat_info_title),
-            style = MaterialTheme.typography.titleMedium,
-            color = colors.ink,
-        )
-        Spacer12()
-        // Jam buka (today, emphasized)
-        val todayFact = todayHours(place.hours, today)
-        val todayLabel = stringResource(R.string.tempat_hours_today, dayName(today))
-        Box(
-            Modifier
-                .fillMaxWidth()
-                .clip(KelanaShapes.card)
-                .background(colors.creamYellowAlt)
-                .padding(KelanaSpacing.md),
-        ) {
+    Column(
+        Modifier
+            .padding(top = 14.dp, start = KelanaSpacing.gutter, end = KelanaSpacing.gutter)
+            .fillMaxWidth()
+            .clip(KelanaShapes.listCard)
+            .background(colors.surface)
+            .border(1.dp, colors.outline, KelanaShapes.listCard)
+            .padding(start = KelanaSpacing.gutter, end = KelanaSpacing.gutter, top = KelanaSpacing.md, bottom = KelanaSpacing.xs),
+    ) {
+        InfoHeader(checkedAt = infoCheckedAt(place))
+
+        // Jam buka: weekly summary when the hours form one run, otherwise today's hours.
+        val summary = hoursSummary(place.hours)
+        if (summary != null) {
+            FactRow(R.drawable.tempat_ic_clock, colors.skyText, stringResource(R.string.tempat_hours), summary) {
+                formatHoursSummary(it)
+            }
+        } else {
+            val todayLabel = stringResource(R.string.tempat_hours_today, dayName(today))
+            val todayFact = todayHours(place.hours, today)
             if (todayFact != null) {
-                OfficialFactRow(label = todayLabel, fact = todayFact) { formatHours(it) }
+                FactRow(R.drawable.tempat_ic_clock, colors.skyText, todayLabel, todayFact) { formatHours(it) }
             } else {
-                PendingFactRow(label = todayLabel, value = null, checkedAt = null)
+                PendingRow(R.drawable.tempat_ic_clock, colors.skyText, todayLabel, stringResource(R.string.tempat_info_checking))
             }
         }
-        // Tiket
-        place.tickets.forEach { ticket ->
-            Divider12()
-            OfficialFactRow(
-                label = stringResource(R.string.tempat_ticket, ticket.value.label),
-                fact = ticket,
-            ) { formatTicket(it) }
-        }
+
+        // Tiket masuk: one row, one entry per ticket kind.
+        TicketsRow(place.tickets)
+
         // Hari tutup
-        Divider12()
         val closedLabel = stringResource(R.string.tempat_closed_days)
         val closedFact = closedDaysFact(place.hours)
         if (closedFact != null) {
-            OfficialFactRow(label = closedLabel, fact = closedFact) { days ->
+            FactRow(R.drawable.tempat_ic_closed, colors.peach, closedLabel, closedFact) { days ->
                 if (days.isEmpty()) {
                     stringResource(R.string.tempat_open_every_day)
                 } else {
@@ -336,18 +468,20 @@ private fun InfoResmiCard(place: Place, today: DayOfWeek, onTicketSite: (String)
                 }
             }
         } else {
-            PendingFactRow(label = closedLabel, value = null, checkedAt = null)
+            PendingRow(R.drawable.tempat_ic_closed, colors.peach, closedLabel, stringResource(R.string.tempat_info_checking))
         }
         place.closures.forEach { closure ->
-            Divider12()
-            OfficialFactRow(label = stringResource(R.string.tempat_closure), fact = closure) { formatClosure(it) }
+            FactRow(R.drawable.tempat_ic_closed, colors.peach, stringResource(R.string.tempat_closure), closure) {
+                formatClosure(it)
+            }
         }
-        // Source note
+
         sourceHost(place)?.let { host ->
-            Divider12()
+            RowDivider()
             Text(
                 text = stringResource(R.string.tempat_source, host),
-                style = MaterialTheme.typography.bodySmall,
+                modifier = Modifier.padding(vertical = 10.dp),
+                style = MaterialTheme.typography.labelMedium.copy(fontWeight = FontWeight.Normal, lineHeight = 17.sp),
                 color = colors.muted,
             )
         }
@@ -356,45 +490,261 @@ private fun InfoResmiCard(place: Place, today: DayOfWeek, onTicketSite: (String)
                 text = stringResource(R.string.tempat_ticket_site),
                 onClick = { onTicketSite(url) },
                 variant = KelanaButtonVariant.Outline,
-                modifier = Modifier.fillMaxWidth().padding(top = KelanaSpacing.md),
+                modifier = Modifier.fillMaxWidth().padding(vertical = KelanaSpacing.md),
             )
         }
     }
 }
 
 @Composable
-private fun Spacer12() = Box(Modifier.height(KelanaSpacing.md))
-
-@Composable
-private fun Divider12() {
-    HorizontalDivider(
-        modifier = Modifier.padding(vertical = KelanaSpacing.md),
-        color = KelanaTheme.colors.outline,
-    )
+private fun InfoHeader(checkedAt: LocalDate?) {
+    val colors = KelanaTheme.colors
+    Row(
+        Modifier.fillMaxWidth().padding(bottom = KelanaSpacing.sm),
+        horizontalArrangement = Arrangement.SpaceBetween,
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        Row(verticalAlignment = Alignment.CenterVertically) {
+            Image(painterResource(R.drawable.tempat_ic_info), contentDescription = null, Modifier.size(22.dp))
+            Text(
+                text = stringResource(R.string.tempat_info_title),
+                modifier = Modifier.padding(start = 6.dp),
+                style = MaterialTheme.typography.titleMedium,
+                color = colors.ink,
+            )
+        }
+        val (bg, fg, text) = if (checkedAt != null) {
+            Triple(colors.successSurface, colors.successText, stringResource(DsR.string.ds_verified_checked, formatCheckedDate(checkedAt)))
+        } else {
+            Triple(colors.creamYellow, colors.warnText, stringResource(R.string.tempat_info_checking))
+        }
+        Row(
+            Modifier.clip(KelanaShapes.badge).background(bg).padding(horizontal = KelanaSpacing.sm, vertical = 3.dp),
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            if (checkedAt != null) {
+                Image(painterResource(R.drawable.tempat_ic_check), contentDescription = null, Modifier.size(14.dp))
+                Spacer(Modifier.width(KelanaSpacing.xs))
+            }
+            Text(text = text, style = MaterialTheme.typography.labelMedium, color = fg)
+        }
+    }
 }
 
-/** Visitor stories are the Cerita feature (Phase 3). PROVISIONAL: only an entry row, no data. */
 @Composable
-private fun StoriesEntry() {
+private fun RowDivider() = HorizontalDivider(color = KelanaTheme.colors.outline)
+
+/** One info row: icon tile, label, value. The value is rendered only for a checked fact. */
+@Composable
+private fun <T> FactRow(
+    @DrawableRes icon: Int,
+    tile: Color,
+    label: String,
+    fact: OfficialFact<T>,
+    format: @Composable (T) -> String,
+) {
+    when (val display = fact.display()) {
+        is FactDisplay.Checked -> ValueRow(icon, tile, label, format(display.value), pending = false)
+        FactDisplay.Checking -> PendingRow(icon, tile, label, stringResource(R.string.tempat_info_checking))
+    }
+}
+
+@Composable
+private fun PendingRow(@DrawableRes icon: Int, tile: Color, label: String, text: String) =
+    ValueRow(icon, tile, label, text, pending = true)
+
+@Composable
+private fun ValueRow(@DrawableRes icon: Int, tile: Color, label: String, value: String, pending: Boolean) {
     val colors = KelanaTheme.colors
-    Column(
-        Modifier
-            .fillMaxWidth()
-            .clip(KelanaShapes.card)
-            .background(colors.backgroundWarm)
-            .padding(KelanaSpacing.gutter),
+    RowDivider()
+    Row(
+        Modifier.fillMaxWidth().padding(vertical = 10.dp),
+        horizontalArrangement = Arrangement.spacedBy(KelanaSpacing.md),
+        verticalAlignment = Alignment.CenterVertically,
     ) {
+        Box(
+            Modifier.size(RowTile).clip(KelanaShapes.input).background(tile),
+            contentAlignment = Alignment.Center,
+        ) {
+            Image(painterResource(icon), contentDescription = null, Modifier.size(26.dp))
+        }
         Text(
-            text = stringResource(R.string.tempat_stories_title),
-            style = MaterialTheme.typography.titleSmall,
-            color = colors.ink,
-        )
-        Text(
-            text = stringResource(R.string.tempat_stories_body),
-            modifier = Modifier.padding(top = KelanaSpacing.xs),
+            text = label,
+            modifier = Modifier.weight(1f),
             style = MaterialTheme.typography.bodySmall,
             color = colors.muted,
         )
+        Text(
+            text = value,
+            modifier = Modifier.widthIn(max = 190.dp),
+            style = MaterialTheme.typography.titleSmall,
+            color = if (pending) colors.warnText else colors.ink,
+            textAlign = TextAlign.End,
+        )
+    }
+}
+
+@Composable
+private fun TicketsRow(tickets: List<OfficialFact<TicketPrice>>) {
+    val colors = KelanaTheme.colors
+    val label = stringResource(R.string.tempat_ticket_label)
+    val parts = tickets.map { fact ->
+        val price = fact.takeIf { it.checkedAt != null }?.value?.priceIdr
+        if (price != null) {
+            stringResource(R.string.tempat_ticket_item, fact.value.label, formatRupiah(price))
+        } else {
+            stringResource(R.string.tempat_ticket_item_pending, fact.value.label)
+        }
+    }
+    val anyShown = tickets.any { it.checkedAt != null && it.value.priceIdr != null }
+    if (parts.isEmpty() || !anyShown) {
+        PendingRow(R.drawable.tempat_ic_ticket, colors.creamYellow, label, stringResource(R.string.tempat_ticket_pending))
+    } else {
+        ValueRow(
+            R.drawable.tempat_ic_ticket,
+            colors.creamYellow,
+            label,
+            parts.joinToString(stringResource(R.string.tempat_ticket_join)),
+            pending = false,
+        )
+    }
+}
+
+/**
+ * Visitor stories (Cerita feature). No visitor content exists yet, so the section shows its heading, the rule
+ * and an empty state, never invented cards.
+ */
+@Composable
+private fun StoriesSection(onAllStories: () -> Unit) {
+    val colors = KelanaTheme.colors
+    Column(Modifier.padding(top = 26.dp)) {
+        Row(
+            Modifier.fillMaxWidth().padding(horizontal = KelanaSpacing.gutter),
+            horizontalArrangement = Arrangement.SpaceBetween,
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            Text(
+                text = stringResource(R.string.tempat_stories_title),
+                style = MaterialTheme.typography.titleLarge,
+                color = colors.ink,
+            )
+            Text(
+                text = stringResource(R.string.tempat_stories_all),
+                modifier = Modifier
+                    .heightIn(min = 48.dp)
+                    .clickable(role = Role.Button, onClick = onAllStories)
+                    .padding(vertical = 14.dp),
+                style = MaterialTheme.typography.bodySmall.copy(fontWeight = FontWeight.ExtraBold),
+                color = colors.primary,
+            )
+        }
+        Row(
+            Modifier.padding(horizontal = KelanaSpacing.gutter),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(6.dp),
+        ) {
+            Image(painterResource(R.drawable.tempat_ic_check), contentDescription = null, Modifier.size(16.dp))
+            Text(
+                text = stringResource(R.string.tempat_stories_note),
+                style = MaterialTheme.typography.labelMedium.copy(fontWeight = FontWeight.Normal, lineHeight = 17.sp),
+                color = colors.muted,
+            )
+        }
+        Column(
+            Modifier
+                .padding(start = KelanaSpacing.gutter, end = KelanaSpacing.gutter, top = 14.dp)
+                .fillMaxWidth()
+                .clip(KelanaShapes.card)
+                .background(colors.backgroundWarm)
+                .padding(KelanaSpacing.gutter),
+        ) {
+            Text(
+                text = stringResource(R.string.tempat_stories_empty_title),
+                style = MaterialTheme.typography.titleSmall,
+                color = colors.ink,
+            )
+            Text(
+                text = stringResource(R.string.tempat_stories_empty_body),
+                modifier = Modifier.padding(top = KelanaSpacing.xs),
+                style = MaterialTheme.typography.bodySmall,
+                color = colors.muted,
+            )
+        }
+    }
+}
+
+/** "Ada info yang salah? Laporkan" row with a top hairline. */
+@Composable
+private fun ReportRow(onReport: () -> Unit) {
+    val colors = KelanaTheme.colors
+    Column(Modifier.padding(top = KelanaSpacing.gutter, start = KelanaSpacing.gutter, end = KelanaSpacing.gutter)) {
+        RowDivider()
+        Row(
+            Modifier.fillMaxWidth().padding(vertical = 10.dp),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(10.dp),
+        ) {
+            Image(painterResource(R.drawable.tempat_ic_report), contentDescription = null, Modifier.size(22.dp))
+            Text(
+                text = stringResource(R.string.tempat_report_prompt),
+                modifier = Modifier.weight(1f),
+                style = MaterialTheme.typography.bodySmall,
+                color = colors.muted,
+            )
+            Text(
+                text = stringResource(R.string.tempat_report_action),
+                modifier = Modifier
+                    .heightIn(min = 48.dp)
+                    .clickable(role = Role.Button, onClick = onReport)
+                    .padding(vertical = 14.dp),
+                style = MaterialTheme.typography.titleSmall,
+                color = colors.primary,
+            )
+        }
+    }
+}
+
+/** Fixed bottom bar: outlined "Postcard" and the orange "Masuk rencana" (52 dp pills). */
+@Composable
+private fun BottomActions(onPostcard: () -> Unit, onAddPlan: () -> Unit) {
+    val colors = KelanaTheme.colors
+    val label = MaterialTheme.typography.labelLarge.copy(fontSize = 15.sp)
+    Column(Modifier.background(colors.surface)) {
+        RowDivider()
+        Row(
+            Modifier
+                .fillMaxWidth()
+                .padding(start = KelanaSpacing.gutter, end = KelanaSpacing.gutter, top = KelanaSpacing.md, bottom = 24.dp),
+            horizontalArrangement = Arrangement.spacedBy(10.dp),
+        ) {
+            Row(
+                Modifier
+                    .height(KelanaSizes.buttonHeight)
+                    .clip(KelanaShapes.button)
+                    .border(1.5.dp, colors.primary, KelanaShapes.button)
+                    .clickable(role = Role.Button, onClick = onPostcard)
+                    .padding(horizontal = 18.dp),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.spacedBy(6.dp),
+            ) {
+                Image(painterResource(R.drawable.tempat_ic_media), contentDescription = null, Modifier.size(22.dp))
+                Text(text = stringResource(R.string.tempat_postcard), style = label, color = colors.primary)
+            }
+            Row(
+                Modifier
+                    .weight(1f)
+                    .height(KelanaSizes.buttonHeight)
+                    .clip(KelanaShapes.button)
+                    .background(colors.accentOrange)
+                    .clickable(role = Role.Button, onClick = onAddPlan),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.Center,
+            ) {
+                Image(painterResource(R.drawable.tempat_ic_plus), contentDescription = null, Modifier.size(20.dp))
+                Spacer(Modifier.width(6.dp))
+                Text(text = stringResource(R.string.tempat_add_plan), style = label, color = colors.white)
+            }
+        }
     }
 }
 
@@ -412,9 +762,13 @@ private fun formatHours(hours: OpeningHours): String {
 }
 
 @Composable
-private fun formatTicket(ticket: TicketPrice): String {
-    val price = ticket.priceIdr ?: return stringResource(R.string.tempat_ticket_pending)
-    return formatRupiah(price)
+private fun formatHoursSummary(summary: HoursSummary): String {
+    val days = if (summary.firstDay == summary.lastDay) {
+        dayName(summary.firstDay)
+    } else {
+        stringResource(R.string.tempat_days_range, dayName(summary.firstDay), dayName(summary.lastDay))
+    }
+    return stringResource(R.string.tempat_hours_range, days, formatTimeRange(summary.opens, summary.closes))
 }
 
 @Composable
@@ -444,7 +798,7 @@ private fun previewPlace(checked: Boolean) = Place(
     capCode = "YK-02",
     lat = 0.0,
     lng = 0.0,
-    address = "Jl. Pangurakan No. 6, Ngupasan, Gondomanan",
+    address = "Jl. Pangurakan No. 6, Gondomanan, Kota Yogyakarta",
     description = "Museum budaya Jawa: wayang, keris, topeng, dan batik.",
     coverKey = "museum-sonobudoyo",
     hours = DayOfWeek.entries.map {
@@ -452,8 +806,8 @@ private fun previewPlace(checked: Boolean) = Place(
             OpeningHours(
                 it,
                 it == DayOfWeek.MONDAY,
-                if (it == DayOfWeek.MONDAY) null else java.time.LocalTime.of(8, 0),
-                if (it == DayOfWeek.MONDAY) null else java.time.LocalTime.of(21, 0),
+                if (it == DayOfWeek.MONDAY) null else LocalTime.of(8, 0),
+                if (it == DayOfWeek.MONDAY) null else LocalTime.of(21, 0),
             ),
             "https://example.org/sample",
             if (checked) PreviewDate else null,
@@ -461,23 +815,23 @@ private fun previewPlace(checked: Boolean) = Place(
     },
     tickets = listOf(
         OfficialFact(TicketPrice("Dewasa", 10_000, "https://example.org/tiket"), "https://example.org/sample", if (checked) PreviewDate else null),
-        OfficialFact(TicketPrice("Anak-anak", null, null), null, null),
+        OfficialFact(TicketPrice("Anak-anak", 5_000, null), "https://example.org/sample", if (checked) PreviewDate else null),
     ),
 )
 
-@Preview(showBackground = true, widthDp = 390, heightDp = 1200)
+@Preview(showBackground = true, widthDp = 390, heightDp = 1500)
 @Composable
 private fun DetailTempatCheckedPreview() {
     KelanaTheme {
-        DetailTempatContent(previewPlace(true), DayOfWeek.TUESDAY, {}, {}, {}, {}, {})
+        DetailTempatContent(previewPlace(true), DayOfWeek.TUESDAY, {}, {}, {}, {}, {}, {})
     }
 }
 
-@Preview(showBackground = true, widthDp = 390, heightDp = 1200)
+@Preview(showBackground = true, widthDp = 390, heightDp = 1500)
 @Composable
 private fun DetailTempatCheckingPreview() {
     KelanaTheme {
-        DetailTempatContent(previewPlace(false), DayOfWeek.MONDAY, {}, {}, {}, {}, {})
+        DetailTempatContent(previewPlace(false), DayOfWeek.MONDAY, {}, {}, {}, {}, {}, {})
     }
 }
 

@@ -1,0 +1,14 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="68dp"
+    android:height="52dp"
+    android:viewportWidth="68"
+    android:viewportHeight="52">
+    <group android:translateX="3" android:translateY="3">
+        <path
+            android:fillColor="#F8F3E8"
+            android:strokeColor="#FFFFFF"
+            android:strokeWidth="5"
+            android:strokeLineJoin="round"
+            android:pathData="M0 0 L2.2 0.0 A4 4 0 0 0 10.2 0.0 L12.4 0.0 L14.6 0.0 A4 4 0 0 0 22.6 0.0 L24.8 0.0 L27.0 0.0 A4 4 0 0 0 35.0 0.0 L37.2 0.0 L39.4 0.0 A4 4 0 0 0 47.4 0.0 L49.6 0.0 L51.8 0.0 A4 4 0 0 0 59.8 0.0 L62.0 0.0 L62.0 1.8 A4 4 0 0 0 62.0 9.8 L62.0 11.5 L62.0 13.2 A4 4 0 0 0 62.0 21.2 L62.0 23.0 L62.0 24.8 A4 4 0 0 0 62.0 32.8 L62.0 34.5 L62.0 36.2 A4 4 0 0 0 62.0 44.2 L62.0 46.0 L59.8 46.0 A4 4 0 0 0 51.8 46.0 L49.6 46.0 L47.4 46.0 A4 4 0 0 0 39.4 46.0 L37.2 46.0 L35.0 46.0 A4 4 0 0 0 27.0 46.0 L24.8 46.0 L22.6 46.0 A4 4 0 0 0 14.6 46.0 L12.4 46.0 L10.2 46.0 A4 4 0 0 0 2.2 46.0 L0.0 46.0 L0.0 44.2 A4 4 0 0 0 0.0 36.2 L0.0 34.5 L0.0 32.8 A4 4 0 0 0 0.0 24.8 L0.0 23.0 L0.0 21.2 A4 4 0 0 0 0.0 13.2 L0.0 11.5 L0.0 9.8 A4 4 0 0 0 0.0 1.8 L0.0 0.0 Z" />
+    </group>
+</vector>
