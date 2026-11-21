@@ -20,6 +20,8 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import id.kelana.app.AppViewModel
 import id.kelana.app.StartDestination
 import id.kelana.core.navigation.JelajahRoute
+import id.kelana.core.navigation.DaftarRoute
+import id.kelana.core.navigation.MasukEmailRoute
 import id.kelana.core.navigation.MasukRoute
 import id.kelana.core.navigation.IntroRoute
 import id.kelana.core.navigation.OfficialSiteRoute
@@ -98,12 +100,25 @@ fun KelanaAppContent(appViewModel: AppViewModel = hiltViewModel()) {
             // Masuk finishes the same way whether the user signed in or chose to browse as a guest:
             // from onboarding it continues to Jelajah, from a login prompt it returns to where the user was.
             val finishMasuk: () -> Unit = {
-                val previous = navController.previousBackStackEntry?.destination
-                val cameFromOnboarding = previous?.hasRoute(IntroRoute::class) == true ||
-                    previous?.hasRoute(PilihDaerahRoute::class) == true
-                if (cameFromOnboarding) finishOnboarding() else navController.popBackStack()
+                // Masuk, Masuk with email and Daftar all sit above the screen the user came from: pop back through Masuk.
+                navController.popBackStack<MasukRoute>(inclusive = true)
+                val current = navController.currentDestination
+                val cameFromOnboarding = current?.hasRoute(IntroRoute::class) == true ||
+                    current?.hasRoute(PilihDaerahRoute::class) == true
+                if (cameFromOnboarding) finishOnboarding()
             }
-            akunScreen(onSignedIn = finishMasuk, onGuest = finishMasuk)
+            // Masuk with email and Daftar replace each other, so back from either returns to Masuk.
+            val navigateAkun: (Any) -> Unit = { route ->
+                val current = navController.currentDestination
+                val swap = (route is DaftarRoute && current?.hasRoute(MasukEmailRoute::class) == true) ||
+                    (route is MasukEmailRoute && current?.hasRoute(DaftarRoute::class) == true)
+                if (swap && current != null) {
+                    navController.navigate(route) { popUpTo(current.id) { inclusive = true } }
+                } else {
+                    navController.navigate(route)
+                }
+            }
+            akunScreen(onSignedIn = finishMasuk, onGuest = finishMasuk, navigate = navigateAkun, onBack = onBack)
 
             // "Ke situs tiket resmi" confirm sheet (Figma 03.04); "Buka situs" opens a Custom Tab.
             dialog<OfficialSiteRoute>(dialogProperties = DialogProperties(usePlatformDefaultWidth = false)) { entry ->
