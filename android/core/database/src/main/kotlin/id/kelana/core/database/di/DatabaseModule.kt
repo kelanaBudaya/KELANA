@@ -13,6 +13,8 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import id.kelana.core.database.KelanaDatabase
 import id.kelana.core.database.dao.EventDao
+import id.kelana.core.database.dao.OwnStampDao
+import id.kelana.core.database.dao.PendingStampDao
 import id.kelana.core.database.dao.PlaceDao
 import id.kelana.core.database.dao.RegionDao
 import javax.inject.Singleton
@@ -37,6 +39,12 @@ object DatabaseModule {
 
     @Provides
     fun provideEventDao(db: KelanaDatabase): EventDao = db.eventDao()
+
+    @Provides
+    fun providePendingStampDao(db: KelanaDatabase): PendingStampDao = db.pendingStampDao()
+
+    @Provides
+    fun provideOwnStampDao(db: KelanaDatabase): OwnStampDao = db.ownStampDao()
 
     @Provides
     @Singleton

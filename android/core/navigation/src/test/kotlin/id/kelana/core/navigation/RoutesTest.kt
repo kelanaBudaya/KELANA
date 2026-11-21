@@ -63,4 +63,11 @@ class RoutesTest {
         assertEquals(names.size, names.toSet().size)
         assertNotEquals(names[0], names[1])
     }
+
+    @Test
+    fun paspor_routes_roundTripWithPlaceId() {
+        roundTrip(AmbilCapRoute.serializer(), AmbilCapRoute(placeId = "123e4567-e89b-42d3-a456-426614174000"))
+        roundTrip(CapBerhasilRoute.serializer(), CapBerhasilRoute(placeId = "123e4567-e89b-42d3-a456-426614174000"))
+        roundTrip(PasporRoute.serializer(), PasporRoute)
+    }
 }

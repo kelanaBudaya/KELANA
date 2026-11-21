@@ -10,10 +10,12 @@ import id.kelana.core.data.repository.SupabaseEventRepository
 import id.kelana.core.data.repository.SupabasePlaceRepository
 import id.kelana.core.data.repository.SupabaseRegionRepository
 import id.kelana.core.data.repository.SupabaseReportRepository
+import id.kelana.core.data.stamp.SupabaseStampRepository
 import id.kelana.core.model.EventRepository
 import id.kelana.core.model.PlaceRepository
 import id.kelana.core.model.RegionRepository
 import id.kelana.core.model.ReportRepository
+import id.kelana.core.model.StampRepository
 
 /**
  * The single place where content repositories are bound. Production binds the Supabase-backed implementations
@@ -36,4 +38,6 @@ abstract class RepositoryModule {
     @Binds abstract fun bindRegionRepository(impl: SupabaseRegionRepository): RegionRepository
 
     @Binds abstract fun bindReportRepository(impl: SupabaseReportRepository): ReportRepository
+
+    @Binds abstract fun bindStampRepository(impl: SupabaseStampRepository): StampRepository
 }
