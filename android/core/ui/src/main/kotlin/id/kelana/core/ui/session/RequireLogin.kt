@@ -55,3 +55,26 @@ fun rememberRequireLogin(
         }
     }
 }
+
+/**
+ * Same hook for feature screens, which receive `navigate: (Any) -> Unit` instead of a `NavController`.
+ * Guest: `navigate(MasukRoute)`; signed in: runs the action; session loading: does nothing.
+ */
+@Composable
+fun rememberRequireLogin(
+    navigate: (Any) -> Unit,
+    viewModel: SessionViewModel = hiltViewModel(),
+): (action: () -> Unit) -> Unit {
+    val state by viewModel.sessionState.collectAsState()
+    val latestState = rememberUpdatedState(state)
+    val latestNavigate = rememberUpdatedState(navigate)
+    return remember {
+        { action ->
+            when (decideLoginAction(latestState.value)) {
+                LoginAction.Run -> action()
+                LoginAction.GoToLogin -> latestNavigate.value(MasukRoute)
+                LoginAction.Wait -> Unit
+            }
+        }
+    }
+}

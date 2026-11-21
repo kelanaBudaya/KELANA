@@ -1,19 +1,26 @@
 package id.kelana.feature.peta
 
+import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 import id.kelana.core.navigation.PetaRoute
 import id.kelana.core.ui.PlaceholderScreen
 
-/** Registers this feature's destination. Called by :app only. */
-fun NavGraphBuilder.petaScreen() {
-    composable<PetaRoute> { PetaScreen() }
+/** Registers this feature's destination. Called by :app only. [onBack] pops the back stack. */
+fun NavGraphBuilder.petaScreen(onBack: () -> Unit) {
+    composable<PetaRoute> { PetaScreen(onBack = onBack) }
 }
 
 // Placeholder until the real screen is built from its Figma frame.
 @Composable
-internal fun PetaScreen() {
-    PlaceholderScreen(text = stringResource(R.string.peta_placeholder))
+internal fun PetaScreen(onBack: () -> Unit) {
+    // PROVISIONAL stub: titled placeholder with a back button until the real screen is built from its Figma frame.
+    PlaceholderScreen(
+        text = stringResource(R.string.peta_placeholder),
+        modifier = Modifier.statusBarsPadding(),
+        onBack = onBack,
+    )
 }

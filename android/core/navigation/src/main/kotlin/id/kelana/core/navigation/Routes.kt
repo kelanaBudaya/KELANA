@@ -13,8 +13,11 @@ import kotlinx.serialization.Serializable
 @Serializable data object RencanaRoute
 @Serializable data object CeritaRoute
 
-// Onboarding (Figma 01.01 to 01.05): Intro(0) -> Intro(1) -> Intro(2) -> PilihDaerah -> Jelajah.
-/** Intro page 0..2 (frames 01.01 Mulai, 01.02 Kenalan 1, 01.03 Kenalan 2 and 01.04 Kenalan 3 are 3 pages). */
+// Onboarding (Figma 01.01 to 01.05): Intro(0) -> Intro(1) -> Intro(2) -> Intro(3) -> PilihDaerah -> Jelajah.
+/**
+ * Onboarding pager. [page] 0 is Mulai (Figma 01.01); pages 1 to 3 are Kenalan 1 to 3 (01.02 to 01.04).
+ * Pilih daerah is its own route, [PilihDaerahRoute].
+ */
 @Serializable data class IntroRoute(val page: Int = 0)
 @Serializable data object PilihDaerahRoute
 

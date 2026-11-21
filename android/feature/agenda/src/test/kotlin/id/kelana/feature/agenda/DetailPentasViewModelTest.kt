@@ -74,6 +74,33 @@ class DetailPentasViewModelTest {
     }
 
     @Test
+    fun `performers and arrival advice reach the detail state`() = runTest {
+        val event = testEvent(
+            "r", DayOfWeek.FRIDAY, LocalTime.of(19, 30),
+            performers = listOf("Lebih dari 200 penari dan pemusik lokal"),
+            arrivalAdviceMin = 30, arrivalAdviceMax = 45,
+        )
+        viewModel("r", event).uiState.test {
+            val found = settled() as DetailPentasUiState.Found
+            assertEquals(listOf("Lebih dari 200 penari dan pemusik lokal"), found.event.performers)
+            assertEquals(
+                ArrivalAdvice.Range(30, 45),
+                arrivalAdvice(found.event.arrivalAdviceMin, found.event.arrivalAdviceMax),
+            )
+        }
+    }
+
+    @Test
+    fun `arrival advice covers range, equal bounds, one bound and none`() {
+        assertEquals(ArrivalAdvice.Range(30, 45), arrivalAdvice(30, 45))
+        assertEquals(ArrivalAdvice.About(30), arrivalAdvice(30, 30))
+        assertEquals(ArrivalAdvice.About(20), arrivalAdvice(20, null))
+        assertEquals(ArrivalAdvice.About(20), arrivalAdvice(null, 20))
+        assertNull(arrivalAdvice(null, null))
+        assertNull(arrivalAdvice(0, 0))
+    }
+
+    @Test
     fun `httpsHost only accepts https`() {
         assertEquals("a.example.org", httpsHost("https://a.example.org/p?q=1"))
         assertNull(httpsHost("http://a.example.org"))

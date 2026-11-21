@@ -130,7 +130,15 @@ private fun FoundContent(state: DetailPentasUiState.Found, onBuyTicket: (String,
                 ) {
                     OfficialFactRow(stringResource(R.string.detail_schedule_label), event.schedule) { scheduleText(it) }
                     OfficialFactRow(stringResource(R.string.detail_price_label), event.ticket) { priceText(it) }
+                    // PROVISIONAL: plain label/value row, no Figma frame for Penampil yet.
+                    if (event.performers.isNotEmpty()) {
+                        PerformersRow(event.performers)
+                    }
                 }
+            }
+            arrivalAdviceText(event.arrivalAdviceMin, event.arrivalAdviceMax)?.let {
+                // PROVISIONAL: note style (muted bodySmall) is an estimate.
+                Text(it, style = MaterialTheme.typography.bodySmall, color = colors.muted)
             }
             state.sourceNote?.let {
                 Text(
@@ -161,6 +169,30 @@ private fun FoundContent(state: DetailPentasUiState.Found, onBuyTicket: (String,
             }
         }
     }
+}
+
+@Composable
+private fun PerformersRow(performers: List<String>) {
+    val colors = KelanaTheme.colors
+    Column(verticalArrangement = Arrangement.spacedBy(KelanaSpacing.xs)) {
+        Text(
+            stringResource(R.string.detail_performers_label),
+            style = MaterialTheme.typography.bodySmall,
+            color = colors.muted,
+        )
+        Text(performers.joinToString(", "), style = MaterialTheme.typography.bodyMedium, color = colors.ink)
+    }
+}
+
+/**
+ * "Disarankan tiba 30 sampai 45 menit sebelum pentas". Equal bounds read "sekitar 30 menit"; a single bound is used
+ * as it is; null when no advice is known.
+ */
+@Composable
+private fun arrivalAdviceText(min: Int?, max: Int?): String? = when (val advice = arrivalAdvice(min, max)) {
+    is ArrivalAdvice.Range -> stringResource(R.string.detail_arrival_range, advice.min, advice.max)
+    is ArrivalAdvice.About -> stringResource(R.string.detail_arrival_single, advice.minutes)
+    null -> null
 }
 
 /** "Candi Prambanan · 1 jam"; the duration is part of the schedule fact, so it is hidden when that is unchecked. */

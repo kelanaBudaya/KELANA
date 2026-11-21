@@ -39,4 +39,10 @@
     <string name="detail_buy_ticket">Buy tickets</string>
     <string name="detail_no_payment">KELANA does not take payments. Tickets are bought on the organiser\'s official site.</string>
     <string name="detail_illustration_placeholder_cd">Show illustration (placeholder)</string>
+    <string name="agenda_tag_tari">Dance</string>
+    <string name="agenda_tag_wayang">Wayang</string>
+    <string name="agenda_tag_ramah_anak">Kid-friendly</string>
+    <string name="detail_performers_label">Performers</string>
+    <string name="detail_arrival_range">Arrive %1$d to %2$d minutes before the show</string>
+    <string name="detail_arrival_single">Arrive about %1$d minutes before the show</string>
 </resources>

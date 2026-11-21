@@ -5,6 +5,7 @@ import id.kelana.core.model.Event
 import id.kelana.core.model.EventOccurrence
 import id.kelana.core.model.EventRepository
 import id.kelana.core.model.EventSchedule
+import id.kelana.core.model.EventTag
 import id.kelana.core.model.EventTicket
 import id.kelana.core.model.OfficialFact
 import id.kelana.core.model.PlaceCategory
@@ -46,6 +47,10 @@ internal fun testEvent(
     ticketUrl: String? = "https://tiket.example.org/x",
     ticketChecked: LocalDate? = TestChecked,
     price: Long? = 150_000,
+    tags: Set<EventTag> = emptySet(),
+    performers: List<String> = emptyList(),
+    arrivalAdviceMin: Int? = null,
+    arrivalAdviceMax: Int? = null,
 ) = Event(
     id = id,
     placeId = "p",
@@ -59,6 +64,10 @@ internal fun testEvent(
         checkedAt,
     ),
     ticket = OfficialFact(EventTicket(price, ticketUrl), ticketUrl, ticketChecked),
+    performers = performers,
+    arrivalAdviceMin = arrivalAdviceMin,
+    arrivalAdviceMax = arrivalAdviceMax,
+    tags = tags,
 )
 
 /** Weekly events resolved against a date range, like the fake in :core:data. */
@@ -107,8 +116,9 @@ class AgendaViewModelTest {
     private val friday = LocalDate.of(2026, 11, 20)
     private val saturday = friday.plusDays(1)
 
-    private val roro = testEvent("roro", DayOfWeek.FRIDAY, LocalTime.of(19, 30))
-    private val fridayMorning = testEvent("pagi", DayOfWeek.FRIDAY, LocalTime.of(9, 0), PlaceCategory.Gamelan)
+    private val roro = testEvent("roro", DayOfWeek.FRIDAY, LocalTime.of(19, 30), tags = setOf(EventTag.Tari))
+    private val fridayMorning =
+        testEvent("pagi", DayOfWeek.FRIDAY, LocalTime.of(9, 0), PlaceCategory.Gamelan, tags = setOf(EventTag.Wayang))
     private val macapat = testEvent("macapat", DayOfWeek.SATURDAY, LocalTime.of(9, 0), PlaceCategory.Gamelan)
     private val unchecked = testEvent("belum", DayOfWeek.SUNDAY, LocalTime.of(10, 0), checkedAt = null)
 
@@ -173,20 +183,38 @@ class AgendaViewModelTest {
     }
 
     @Test
-    fun `filter keeps one category and Semua clears it`() = runTest {
+    fun `filter keeps one tag and Semua clears it`() = runTest {
         val vm = viewModel(roro, fridayMorning)
         vm.uiState.test {
-            assertEquals(listOf(PlaceCategory.Tari, PlaceCategory.Gamelan), loaded().filters)
-            vm.selectFilter(PlaceCategory.Gamelan)
-            val filtered = until { it.selectedFilter == PlaceCategory.Gamelan }
+            // Chips come from EventTag, not from place categories, and are always all three.
+            assertEquals(listOf(EventTag.Tari, EventTag.Wayang, EventTag.RamahAnak), loaded().filters)
+            vm.selectFilter(EventTag.Wayang)
+            val filtered = until { it.selectedFilter == EventTag.Wayang }
             assertNull(filtered.tonight)
             assertEquals(listOf("pagi"), filtered.alsoToday.map { it.event.id })
             // Chips stay, so the user can go back.
-            assertEquals(2, filtered.filters.size)
+            assertEquals(3, filtered.filters.size)
             vm.selectFilter(null)
             val all = until { it.selectedFilter == null }
             assertEquals("roro", all.tonight?.event?.id)
             assertEquals(listOf("pagi"), all.alsoToday.map { it.event.id })
+        }
+    }
+
+    @Test
+    fun `a tag without events gives an empty day and untagged events are only under Semua`() = runTest {
+        val untagged = testEvent("polos", DayOfWeek.FRIDAY, LocalTime.of(10, 0))
+        val vm = viewModel(roro, untagged)
+        vm.uiState.test {
+            loaded()
+            vm.selectFilter(EventTag.RamahAnak)
+            assertTrue(until { it.selectedFilter == EventTag.RamahAnak }.isSelectedDayEmpty)
+            vm.selectFilter(EventTag.Tari)
+            val tari = until { it.selectedFilter == EventTag.Tari }
+            assertEquals("roro", tari.tonight?.event?.id)
+            assertTrue(tari.alsoToday.isEmpty())
+            vm.selectFilter(null)
+            assertEquals(listOf("polos"), until { it.selectedFilter == null }.alsoToday.map { it.event.id })
         }
     }
 
@@ -208,7 +236,7 @@ class AgendaViewModelTest {
         vm.uiState.test {
             val state = loaded()
             assertTrue(state.isEmpty)
-            assertTrue(state.filters.isEmpty())
+            assertEquals(EventTag.entries, state.filters)
         }
     }
 }

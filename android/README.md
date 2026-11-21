@@ -18,7 +18,7 @@ The API base URL is a placeholder (`KELANA_API_BASE_URL` in `local.properties` o
 |---|---|
 | `:app` | Application, `MainActivity`, `NavHost` (registers every route), bottom bar (Jelajah, Agenda, Rencana, Cerita) |
 | `:core:designsystem` | Theme, tokens, fonts, `KelanaButton/Card/Chip/TopBar/BackTopBar`, `VerifiedBadge`, `PlaceCard`, `EventRow`, `InfoBanner`, `EmptyState`, `OfficialFactRow` |
-| `:core:ui` | `PlaceholderScreen`, `OfficialFactRow(label, OfficialFact, format)`, `OfficialSiteSheet` + `openCustomTab`, category labels, `formatRupiah`/`formatTimeRange`, `rememberRequireLogin` |
+| `:core:ui` | `PlaceholderScreen`, `OfficialFactRow(label, OfficialFact, format)`, `OfficialSiteSheet` + `openCustomTab`, category labels, `formatRupiah`/`formatTimeRange`, `rememberRequireLogin(navController)` and `rememberRequireLogin(navigate)` (for feature screens that only get `navigate`) |
 | `:core:model` | Pure Kotlin: `Place`, `Event`, `Region`, `OfficialFact<T>`, repository interfaces |
 | `:core:navigation` | Type-safe routes for every screen |
 | `:core:data` | Repository implementations: fakes seeded from `supabase/seed.sql` (`RepositoryModule`), session, onboarding flag |
@@ -30,13 +30,14 @@ The API base URL is a placeholder (`KELANA_API_BASE_URL` in `local.properties` o
 
 | Screen (route) | Module | Entry point called by `:app` |
 |---|---|---|
-| Intro 1 to 3 (`IntroRoute(page)`), Pilih daerah (`PilihDaerahRoute`) | `:feature:onboarding` | `onboardingScreens(navigate, onFinished)` |
+| Mulai + Kenalan 1 to 3 (`IntroRoute(page)`: page 0 is Mulai, pages 1 to 3 are Kenalan 1 to 3), Pilih daerah (`PilihDaerahRoute`) | `:feature:onboarding` | `onboardingScreens(navigate, onFinished)` |
 | Masuk (`MasukRoute`), Akun (`AkunRoute`) | `:feature:akun` | `akunScreen(onSignedIn, onGuest)` |
 | Jelajah (`JelajahRoute`), Cari (`CariRoute`), Kategori (`KategoriRoute(category)`), Semua tempat (`SemuaTempatRoute`) | `:feature:jelajah` | `jelajahScreens(navigate, onBack)` |
 | Detail tempat (`DetailTempatRoute(placeId)`), Foto resmi (`FotoResmiRoute`), Laporkan (`LaporkanRoute`) | `:feature:tempat` | `tempatScreens(navigate, onBack)` |
 | Agenda (`AgendaRoute`), Detail pentas (`DetailPentasRoute(eventId)`) | `:feature:agenda` | `agendaScreens(navigate, onBack)` |
 | Ke situs tiket resmi (`OfficialSiteRoute(url, label)`) | `:app` dialog, content in `:core:ui` | features just `navigate(OfficialSiteRoute(...))` |
-| Rencana, Cerita, Peta, Paspor, Postcard, Notifikasi, Tiket | their own `:feature:*` | still placeholders |
+| Peta (`PetaRoute`), Paspor (`PasporRoute`), Tiket (`TiketRoute`) | `:feature:peta`, `:feature:paspor`, `:feature:tiket` | `petaScreen(onBack)`, `pasporScreen(onBack)`, `tiketScreen(onBack)`: stub screens with a back button |
+| Rencana, Cerita, Postcard, Notifikasi | their own `:feature:*` | still placeholders |
 
 `navigate` takes a route object from `:core:navigation`; `onBack` pops the back stack. These signatures are stable.
 
