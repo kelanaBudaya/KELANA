@@ -7,6 +7,8 @@ supabase start                                              # first run pulls im
 supabase db reset                                           # applies migrations/ then seed.sql
 supabase test db                                            # pgTAP tests in tests/
 supabase gen types typescript --local > supabase/contract/types.ts
+# Windows PowerShell 5.1: do NOT use `>` (it writes UTF-16 and git sees a binary file).
+# Use Git Bash, or: supabase gen types typescript --linked | Out-File -Encoding utf8 supabase/contract/types.ts
 supabase stop
 ```
 

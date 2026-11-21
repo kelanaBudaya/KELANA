@@ -1,4 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="akun_placeholder">Akun (segera hadir)</string>
+    <string name="masuk_title">Simpan paspor dan rencanamu</string>
+    <string name="masuk_subtitle">Masuk supaya cap dan rencanamu tidak hilang saat ganti ponsel.</string>
+    <string name="masuk_google">Lanjut dengan Google</string>
+    <string name="masuk_google_mark">G</string>
+    <string name="masuk_guest">Jelajah dulu tanpa akun</string>
+    <string name="masuk_error_not_configured">Masuk belum tersedia karena layanan akun belum disiapkan. Coba lagi nanti.</string>
+    <string name="masuk_error_cancelled">Masuk dibatalkan.</string>
+    <string name="masuk_error_no_account">Tidak ada akun Google di ponsel ini. Tambahkan akun Google di Pengaturan, lalu coba lagi.</string>
+    <string name="masuk_error_network">Tidak ada koneksi. Periksa internet kamu, lalu coba lagi.</string>
+    <string name="masuk_error_generic">Gagal masuk. Coba lagi.</string>
 </resources>
