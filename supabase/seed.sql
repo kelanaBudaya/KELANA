@@ -36,6 +36,10 @@ from public.regions r,
 ) as v(slug, name, category, cap_code, ord, lat, lng, address, description)
 where r.code = 'DIY';
 
+-- PLACEHOLDER dev cap radius (metres) for the sample places only, so Ambil cap can be tried. The real radius
+-- per place is a team decision and is NOT decided here. Same change as dev/sample_cap_radius.sql.
+update public.places set cap_radius_m = 150 where is_sample = true and cap_radius_m is null;
+
 -- Opening hours, all published (sample). 1=Senin .. 7=Minggu.
 -- Sonobudoyo (figma): Selasa-Minggu 08.00-21.00, Senin tutup.
 insert into public.opening_hours (place_id, weekday, is_closed, opens_at, closes_at, source_url, checked_at, review_status, is_sample)
