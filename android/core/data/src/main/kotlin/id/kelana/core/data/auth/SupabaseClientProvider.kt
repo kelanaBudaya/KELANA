@@ -7,6 +7,7 @@ import id.kelana.core.model.AuthConfig
 import io.github.jan.supabase.SupabaseClient
 import io.github.jan.supabase.auth.Auth
 import io.github.jan.supabase.createSupabaseClient
+import io.github.jan.supabase.postgrest.Postgrest
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -31,6 +32,7 @@ class SupabaseClientProvider @Inject constructor(
                 install(Auth) {
                     sessionManager = PrefsSessionManager(context)
                 }
+                install(Postgrest)
             }
         }
     }
