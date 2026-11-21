@@ -1,3 +1,5 @@
+> **Superseded in part:** the design source is now the artifact in `docs/design/artifact/` (see its README). Fonts there are Plus Jakarta Sans + Fraunces, not Inter. The colors below stay valid; use the artifact for everything else.
+
 # Figma frame map
 
 File: https://www.figma.com/design/S740rinPV6M9cUYpHzALtv/KELANA (page `UI Design`, node `42:2`).
