@@ -39,7 +39,7 @@ fun KelanaButton(
             modifier = sizing,
             enabled = enabled,
             shape = KelanaShapes.button,
-            colors = ButtonDefaults.buttonColors(containerColor = colors.navy, contentColor = colors.white),
+            colors = ButtonDefaults.buttonColors(containerColor = colors.primary, contentColor = colors.white),
         ) { Text(text) }
 
         KelanaButtonVariant.Secondary -> Button(
@@ -47,7 +47,7 @@ fun KelanaButton(
             modifier = sizing,
             enabled = enabled,
             shape = KelanaShapes.button,
-            colors = ButtonDefaults.buttonColors(containerColor = colors.orange, contentColor = colors.white),
+            colors = ButtonDefaults.buttonColors(containerColor = colors.accentOrange, contentColor = colors.white),
         ) { Text(text) }
 
         KelanaButtonVariant.Outline -> OutlinedButton(

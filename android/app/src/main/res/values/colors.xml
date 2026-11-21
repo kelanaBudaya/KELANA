@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- PROVISIONAL: confirm against Figma. Mirrors KelanaColors.cream and navy for the window and launcher icon. -->
-    <color name="kelana_cream">#FBF7EE</color>
+    <!-- Mirrors KelanaColors.background, navy and stampYellow for the window and launcher icon. -->
+    <color name="kelana_cream">#FFFCF6</color>
     <color name="kelana_navy">#1B3671</color>
-    <color name="kelana_stamp_yellow">#F4B528</color>
+    <color name="kelana_stamp_yellow">#F4B52B</color>
 </resources>

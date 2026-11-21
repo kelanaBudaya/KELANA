@@ -15,18 +15,23 @@ object KelanaTheme {
 fun KelanaTheme(content: @Composable () -> Unit) {
     val colors = KelanaColors()
     val scheme = lightColorScheme(
-        primary = colors.navy,
+        primary = colors.primary,
         onPrimary = colors.white,
-        secondary = colors.primaryBlue,
+        primaryContainer = colors.skyText,
+        onPrimaryContainer = colors.navy,
+        secondary = colors.navy,
         onSecondary = colors.white,
-        tertiary = colors.orange,
-        background = colors.cream,
+        tertiary = colors.accentOrange,
+        onTertiary = colors.white,
+        background = colors.background,
         onBackground = colors.ink,
-        surface = colors.white,
+        surface = colors.surface,
         onSurface = colors.ink,
+        surfaceVariant = colors.backgroundWarm,
         onSurfaceVariant = colors.muted,
         outline = colors.outline,
         error = colors.danger,
+        onError = colors.white,
     )
     CompositionLocalProvider(LocalKelanaColors provides colors) {
         MaterialTheme(

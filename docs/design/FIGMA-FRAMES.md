@@ -39,4 +39,27 @@ Confirmed from Figma node styles:
 
 Font: **Inter** (Regular 400, Bold 700). Sizes seen: 9, 11, 12 (caption/tab), 14 (card title), 17 (header value). Layout: 16 dp side gutter, 358 dp card width.
 
-PROVISIONAL (estimated from the overview PNGs, replace once read from Figma): primary blue ~`#23458F`, deep navy background ~`#1E3A78`, orange ~`#C4501B`, stamp yellow ~`#F4B528`, cream background ~`#FBF7EE`, success green ~`#2E8B57`, warning amber, danger red. Headline serif (used for "KELANA", section titles, postcard) not yet identified.
+Read from Figma fills on 7 key frames (Jelajah, Detail tempat, Ambil cap, Cap berhasil, Rencana hari ini, Mulai, Peta), most used first. Treat as confirmed unless marked guess:
+
+| Token | Hex | Where seen |
+|---|---|---|
+| `surface` | `#FFFFFF` | cards, sheets |
+| `background` | `#FFFCF6` | screen background (cream) |
+| `backgroundWarm` | `#F8F3E8` | warm panels |
+| `primary` | `#24458F` | buttons, links ("Lihat semua"), header blue |
+| `primaryDeep` | `#133476` and `#1A3885` | deep navy shapes and illustrations |
+| `primaryBright` | `#1D499A`, `#2D52A9` | illustration accents |
+| `accentOrange` | `#C94D1A` | CTA buttons ("Lihat kisahnya", Ambil cap), orange card |
+| `accentOrangeBright` | `#F5831B`, `#E5591A` | pins, illustration |
+| `stampBrown` | `#A84E2B` | Cap card background |
+| `stampYellow` | `#F4B52B`, `#FDB42C` | stamp, highlights, "Ayo berkelana" button |
+| `creamYellow` | `#FFF0C8`, `#FFF6DC` | info banners |
+| `warnText` | `#8A5A00`, `#5C3D00` | text on yellow banners |
+| `successText` | `#35745A`, `#1F4D3A` | "Diperiksa", "Kamu ada di area" |
+| `success` | `#468A5E` | check icons |
+| `successSurface` | `#E3F1EA` | success banner background |
+| `iconMuted` | `#8C93A0` | inactive icons |
+
+Fonts (confirmed): **Inter** Regular and Bold for UI; **Fraunces** Regular, Bold and Italic for headlines, titles on dark screens, postcard and "KELANA" wordmark. Text sizes in use: 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 20, 22, 26, 30. Most common are 12 (body small), 13, 14 (card title), 11 (button label). Danger red, card corner radius, button height and exact spacing were not readable from fills (vectors); keep PROVISIONAL.
+
+Bottom-bar icons (frame 01.06, node `43:49659`): Jelajah = compass (`docs/assets/Discover.svg`), Agenda = calendar (`docs/assets/Jadwal.svg`), Rencana = route with pin (`docs/assets/Tujuan.svg`), Cerita = camera (`docs/assets/Kamera.svg`). Inactive icons use `iconMuted`. The active tab icon sits on a light-blue pill (~`#DCE6F7`) about 64 x 32 dp, label bold `navy`. Verify the icon-to-file mapping by looking at the SVGs before using them.
