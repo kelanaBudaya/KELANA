@@ -1,0 +1,444 @@
+openapi: 3.1.0
+info:
+  title: KELANA API
+  version: 0.1.0
+  description: |
+    Contract for the Android app. Two surfaces:
+    - PostgREST (`/rest/v1`), generated from the Postgres schema in `supabase/migrations`.
+    - Edge Function `POST /functions/v1/verify-stamp` (defined here, NOT implemented yet).
+
+    Every request needs `apikey: <anon key>` and, except `GET /regions`, an
+    `Authorization: Bearer <user JWT>` (login is required; there is no anonymous browsing).
+    Row Level Security enforces the rules below. Official facts (hours, closures,
+    prices, events) are returned only when `review_status = published`; render a fact
+    only when `checked_at` is non-null, otherwise show "Harga sedang dicek".
+    Location is never stored. Only `verify-stamp` receives a location, once.
+servers:
+  - url: http://127.0.0.1:54321
+    description: Local `supabase start`
+security:
+  - userJwt: []
+paths:
+  /rest/v1/regions:
+    get:
+      operationId: listRegions
+      summary: Region picker (the only endpoint readable without login)
+      security: [{ anonKey: [] }, { userJwt: [] }]
+      parameters: [{ $ref: '#/components/parameters/order' }]
+      responses:
+        '200': { description: OK, content: { application/json: { schema: { type: array, items: { $ref: '#/components/schemas/Region' } } } } }
+  /rest/v1/places:
+    get:
+      operationId: listPlaces
+      summary: Places with numeric lat/lng, filterable by category, region, id or slug (PostgREST filters, e.g. category=eq.museum). Use select= to omit the internal location column.
+      parameters:
+        - { $ref: '#/components/parameters/select' }
+        - { $ref: '#/components/parameters/order' }
+        - { name: category, in: query, schema: { type: string }, description: 'e.g. eq.museum' }
+        - { name: region_id, in: query, schema: { type: string }, description: 'e.g. eq.1' }
+        - { name: id, in: query, schema: { type: string } }
+        - { name: slug, in: query, schema: { type: string } }
+      responses:
+        '200': { description: OK, content: { application/json: { schema: { type: array, items: { $ref: '#/components/schemas/Place' } } } } }
+  /rest/v1/opening_hours:
+    get:
+      operationId: listOpeningHours
+      summary: Published opening hours (filter place_id=eq.<uuid>)
+      parameters: [{ $ref: '#/components/parameters/placeIdFilter' }]
+      responses:
+        '200': { description: OK, content: { application/json: { schema: { type: array, items: { $ref: '#/components/schemas/OpeningHour' } } } } }
+  /rest/v1/closures:
+    get:
+      operationId: listClosures
+      summary: Published closures (filter place_id=eq.<uuid>)
+      parameters: [{ $ref: '#/components/parameters/placeIdFilter' }]
+      responses:
+        '200': { description: OK, content: { application/json: { schema: { type: array, items: { $ref: '#/components/schemas/Closure' } } } } }
+  /rest/v1/ticket_prices:
+    get:
+      operationId: listTicketPrices
+      summary: Published ticket prices (information only; seller_url opens in a Custom Tab, no checkout)
+      parameters: [{ $ref: '#/components/parameters/placeIdFilter' }]
+      responses:
+        '200': { description: OK, content: { application/json: { schema: { type: array, items: { $ref: '#/components/schemas/TicketPrice' } } } } }
+  /rest/v1/events:
+    get:
+      operationId: listEvents
+      summary: Published events. Recurrence 'once' uses event_date, 'weekly' uses ISO weekday (1=Senin..7=Minggu), 'daily' neither.
+      parameters:
+        - { $ref: '#/components/parameters/placeIdFilter' }
+        - { name: category, in: query, schema: { type: string } }
+      responses:
+        '200': { description: OK, content: { application/json: { schema: { type: array, items: { $ref: '#/components/schemas/Event' } } } } }
+  /rest/v1/rpc/place_facts:
+    post:
+      operationId: placeFacts
+      summary: All published facts of one place in one call (RLS still applies)
+      requestBody:
+        required: true
+        content: { application/json: { schema: { type: object, required: [p_place_id], properties: { p_place_id: { type: string, format: uuid } } } } }
+      responses:
+        '200': { description: OK, content: { application/json: { schema: { $ref: '#/components/schemas/PlaceFacts' } } } }
+  /rest/v1/profiles:
+    get:
+      operationId: listProfiles
+      summary: Profiles (readable by any logged-in user; filter id=eq.<uuid>)
+      responses:
+        '200': { description: OK, content: { application/json: { schema: { type: array, items: { $ref: '#/components/schemas/Profile' } } } } }
+    patch:
+      operationId: updateOwnProfile
+      summary: Edit own profile only (filter id=eq.<own uid>). Rows are created by trigger at sign-up.
+      requestBody: { required: true, content: { application/json: { schema: { $ref: '#/components/schemas/ProfileUpdate' } } } }
+      responses:
+        '204': { description: Updated }
+    delete:
+      operationId: deleteOwnProfile
+      summary: Delete own profile only
+      responses:
+        '204': { description: Deleted }
+  /rest/v1/stamps:
+    get:
+      operationId: listOwnStamps
+      summary: Own stamps only (the passport). READ-ONLY for clients; insert/update/delete are rejected (42501).
+      responses:
+        '200': { description: OK, content: { application/json: { schema: { type: array, items: { $ref: '#/components/schemas/Stamp' } } } } }
+  /rest/v1/postcards:
+    get:
+      operationId: listPostcards
+      summary: Postcard feed (visible immediately; subscribe via Supabase Realtime on this table)
+      parameters:
+        - { $ref: '#/components/parameters/placeIdFilter' }
+        - { $ref: '#/components/parameters/order' }
+        - { name: limit, in: query, schema: { type: integer } }
+      responses:
+        '200': { description: OK, content: { application/json: { schema: { type: array, items: { $ref: '#/components/schemas/Postcard' } } } } }
+    post:
+      operationId: createPostcard
+      summary: Allowed only if user_id = caller AND the caller holds a stamp for place_id; otherwise 42501.
+      requestBody: { required: true, content: { application/json: { schema: { $ref: '#/components/schemas/PostcardInsert' } } } }
+      responses:
+        '201': { description: Created }
+        '403': { description: RLS violation (no stamp for that place, or user_id is not the caller) }
+    patch:
+      operationId: updateOwnPostcard
+      summary: Own rows only (filter id=eq.<uuid>); place_id must still be a stamped place
+      responses: { '204': { description: Updated } }
+    delete:
+      operationId: deleteOwnPostcard
+      summary: Own rows only
+      responses: { '204': { description: Deleted } }
+  /rest/v1/videos:
+    get:
+      operationId: listVideos
+      summary: Visitor video feed (visible immediately; Realtime on this table)
+      parameters:
+        - { $ref: '#/components/parameters/placeIdFilter' }
+        - { $ref: '#/components/parameters/order' }
+        - { name: limit, in: query, schema: { type: integer } }
+      responses:
+        '200': { description: OK, content: { application/json: { schema: { type: array, items: { $ref: '#/components/schemas/Video' } } } } }
+    post:
+      operationId: createVideo
+      summary: Same stamp rule as postcards. stream_uid is the Cloudflare Stream / Mux asset id.
+      requestBody: { required: true, content: { application/json: { schema: { $ref: '#/components/schemas/VideoInsert' } } } }
+      responses:
+        '201': { description: Created }
+        '403': { description: RLS violation }
+    patch:
+      operationId: updateOwnVideo
+      responses: { '204': { description: Updated } }
+    delete:
+      operationId: deleteOwnVideo
+      responses: { '204': { description: Deleted } }
+  /rest/v1/reports:
+    get:
+      operationId: listOwnReports
+      summary: Own reports only
+      responses:
+        '200': { description: OK, content: { application/json: { schema: { type: array, items: { $ref: '#/components/schemas/Report' } } } } }
+    post:
+      operationId: createReport
+      summary: Frame 02.07. user_id must be the caller. At least one of place_id, postcard_id, video_id.
+      requestBody: { required: true, content: { application/json: { schema: { $ref: '#/components/schemas/ReportInsert' } } } }
+      responses: { '201': { description: Created } }
+    patch:
+      operationId: updateOwnReport
+      responses: { '204': { description: Updated } }
+    delete:
+      operationId: deleteOwnReport
+      responses: { '204': { description: Deleted } }
+  /rest/v1/subscriptions:
+    get:
+      operationId: listOwnSubscriptions
+      summary: '"Kabari aku" subscriptions, own only'
+      responses:
+        '200': { description: OK, content: { application/json: { schema: { type: array, items: { $ref: '#/components/schemas/Subscription' } } } } }
+    post:
+      operationId: createSubscription
+      summary: Exactly one of category / place_id. user_id must be the caller. Duplicates return 409.
+      requestBody: { required: true, content: { application/json: { schema: { $ref: '#/components/schemas/SubscriptionInsert' } } } }
+      responses: { '201': { description: Created }, '409': { description: Already subscribed } }
+    delete:
+      operationId: deleteOwnSubscription
+      responses: { '204': { description: Deleted } }
+  /functions/v1/verify-stamp:
+    post:
+      operationId: verifyStamp
+      summary: Server-side stamp verification (NOT YET IMPLEMENTED; service role writes the stamp)
+      description: |
+        The client calls this from "Ambil cap" with the single location fix. The
+        server decides; the client never decides a stamp was earned.
+
+        Rules for the implementation:
+        - Reject with `expired_request` when `captured_at` is older than **30 minutes**
+          (queued offline requests; the client also drops them after 30 minutes).
+          Also reject a `captured_at` in the future beyond a small clock skew.
+        - Verify `integrity_token` (Play Integrity, nonce bound to a hash of the request
+          payload, requested at send time, never stored in the queue). Failure -> `integrity_failed`.
+        - Distance check with PostGIS (`public.stamp_distance`) against the place's
+          `cap_radius_m`; outside -> `out_of_area`. The radius is still open in the design
+          (nullable column); the function must not stamp while it is null unless it owns a default.
+        - If the user already has a stamp for the place -> `already_stamped`.
+        - On success insert into `stamps` with the service role. Store no location, only the result.
+        - `location_denied` is returned by the client flow when permission is refused; the
+          server variant applies when the request carries no usable fix (accuracy_m too poor).
+      requestBody:
+        required: true
+        content: { application/json: { schema: { $ref: '#/components/schemas/VerifyStampRequest' } } }
+      responses:
+        '200': { description: Stamp granted, content: { application/json: { schema: { $ref: '#/components/schemas/VerifyStampSuccess' } } } }
+        '422': { description: Stamp refused, content: { application/json: { schema: { $ref: '#/components/schemas/VerifyStampFailure' } } } }
+        '401': { description: Missing or invalid user JWT }
+components:
+  securitySchemes:
+    anonKey: { type: apiKey, in: header, name: apikey }
+    userJwt: { type: http, scheme: bearer, bearerFormat: JWT }
+  parameters:
+    select: { name: select, in: query, schema: { type: string } }
+    order: { name: order, in: query, schema: { type: string }, description: 'e.g. created_at.desc' }
+    placeIdFilter: { name: place_id, in: query, schema: { type: string }, description: 'e.g. eq.<uuid>' }
+  schemas:
+    PlaceCategory: { type: string, enum: [museum, candi, tari, topeng, gamelan, kerajinan, lainnya] }
+    ReviewStatus: { type: string, enum: [pending, published] }
+    Region:
+      type: object
+      required: [id, code, name, status, sort_order]
+      properties:
+        id: { type: integer }
+        code: { type: string }
+        name: { type: string }
+        status: { type: string, enum: [available, upcoming, not_open] }
+        sort_order: { type: integer }
+        is_sample: { type: boolean }
+    Place:
+      type: object
+      required: [id, region_id, slug, name, category, cap_code, lat, lng]
+      properties:
+        id: { type: string, format: uuid }
+        region_id: { type: integer }
+        slug: { type: string }
+        name: { type: string }
+        category: { $ref: '#/components/schemas/PlaceCategory' }
+        cap_code: { type: string, examples: ['YK-02'] }
+        passport_order: { type: [integer, 'null'] }
+        cap_radius_m: { type: [integer, 'null'], description: 'null until decided' }
+        lat: { type: number, format: double, description: 'Latitude (WGS84), plain number, generated from the stored point. Read-only.' }
+        lng: { type: number, format: double, description: 'Longitude (WGS84), plain number. Read-only.' }
+        location: { type: string, description: 'Internal PostGIS geography (EWKB hex). Clients must NOT parse it: use lat/lng and request select=id,slug,name,category,cap_code,lat,lng,... without location.' }
+        address: { type: [string, 'null'] }
+        description: { type: [string, 'null'] }
+        cover_path: { type: [string, 'null'] }
+        is_sample: { type: boolean }
+    FactMeta:
+      type: object
+      properties:
+        source_url: { type: [string, 'null'] }
+        checked_at: { type: [string, 'null'], format: date-time, description: 'null -> do not render the fact; show "Harga sedang dicek"' }
+        review_status: { $ref: '#/components/schemas/ReviewStatus' }
+        is_sample: { type: boolean }
+    OpeningHour:
+      allOf:
+        - $ref: '#/components/schemas/FactMeta'
+        - type: object
+          required: [id, place_id, weekday, is_closed]
+          properties:
+            id: { type: string, format: uuid }
+            place_id: { type: string, format: uuid }
+            weekday: { type: integer, minimum: 1, maximum: 7, description: '1=Senin .. 7=Minggu' }
+            is_closed: { type: boolean }
+            opens_at: { type: [string, 'null'], examples: ['08:00:00'] }
+            closes_at: { type: [string, 'null'] }
+            note: { type: [string, 'null'] }
+    Closure:
+      allOf:
+        - $ref: '#/components/schemas/FactMeta'
+        - type: object
+          required: [id, place_id, starts_on, ends_on]
+          properties:
+            id: { type: string, format: uuid }
+            place_id: { type: string, format: uuid }
+            starts_on: { type: string, format: date }
+            ends_on: { type: string, format: date }
+            reason: { type: [string, 'null'] }
+    TicketPrice:
+      allOf:
+        - $ref: '#/components/schemas/FactMeta'
+        - type: object
+          required: [id, place_id, label]
+          properties:
+            id: { type: string, format: uuid }
+            place_id: { type: string, format: uuid }
+            label: { type: string }
+            price_idr: { type: [integer, 'null'] }
+            seller_url: { type: [string, 'null'] }
+    Event:
+      allOf:
+        - $ref: '#/components/schemas/FactMeta'
+        - type: object
+          required: [id, place_id, title, category, recurrence, start_time]
+          properties:
+            id: { type: string, format: uuid }
+            place_id: { type: string, format: uuid }
+            title: { type: string }
+            description: { type: [string, 'null'] }
+            category: { $ref: '#/components/schemas/PlaceCategory' }
+            recurrence: { type: string, enum: [once, weekly, daily] }
+            weekday: { type: [integer, 'null'], minimum: 1, maximum: 7 }
+            event_date: { type: [string, 'null'], format: date }
+            start_time: { type: string, examples: ['19:30:00'] }
+            end_time: { type: [string, 'null'] }
+            price_from_idr: { type: [integer, 'null'] }
+            seller_url: { type: [string, 'null'] }
+    PlaceFacts:
+      type: object
+      properties:
+        opening_hours: { type: array, items: { $ref: '#/components/schemas/OpeningHour' } }
+        closures: { type: array, items: { $ref: '#/components/schemas/Closure' } }
+        ticket_prices: { type: array, items: { $ref: '#/components/schemas/TicketPrice' } }
+        events: { type: array, items: { $ref: '#/components/schemas/Event' } }
+    Profile:
+      type: object
+      required: [id]
+      properties:
+        id: { type: string, format: uuid }
+        display_name: { type: [string, 'null'] }
+        avatar_path: { type: [string, 'null'] }
+        home_region_id: { type: [integer, 'null'] }
+        created_at: { type: string, format: date-time }
+    ProfileUpdate:
+      type: object
+      properties:
+        display_name: { type: string }
+        avatar_path: { type: string }
+        home_region_id: { type: integer }
+    Stamp:
+      type: object
+      required: [id, user_id, place_id, stamped_at]
+      properties:
+        id: { type: string, format: uuid }
+        user_id: { type: string, format: uuid }
+        place_id: { type: string, format: uuid }
+        stamped_at: { type: string, format: date-time }
+    Postcard:
+      type: object
+      required: [id, user_id, place_id, message, created_at]
+      properties:
+        id: { type: string, format: uuid }
+        user_id: { type: string, format: uuid }
+        place_id: { type: string, format: uuid }
+        message: { type: string, minLength: 1, maxLength: 500 }
+        photo_path: { type: [string, 'null'] }
+        created_at: { type: string, format: date-time }
+    PostcardInsert:
+      type: object
+      required: [user_id, place_id, message]
+      properties:
+        user_id: { type: string, format: uuid, description: must equal the caller }
+        place_id: { type: string, format: uuid }
+        message: { type: string, minLength: 1, maxLength: 500 }
+        photo_path: { type: string }
+    Video:
+      type: object
+      required: [id, user_id, place_id, created_at]
+      properties:
+        id: { type: string, format: uuid }
+        user_id: { type: string, format: uuid }
+        place_id: { type: string, format: uuid }
+        caption: { type: [string, 'null'], maxLength: 300 }
+        stream_uid: { type: [string, 'null'] }
+        thumbnail_path: { type: [string, 'null'] }
+        duration_s: { type: [integer, 'null'] }
+        created_at: { type: string, format: date-time }
+    VideoInsert:
+      type: object
+      required: [user_id, place_id]
+      properties:
+        user_id: { type: string, format: uuid }
+        place_id: { type: string, format: uuid }
+        caption: { type: string, maxLength: 300 }
+        stream_uid: { type: string }
+        thumbnail_path: { type: string }
+        duration_s: { type: integer }
+    ReportReason:
+      type: string
+      enum: [hours_or_price_changed, place_closed, ceremony_shown_without_permission, inappropriate_media, other]
+    Report:
+      type: object
+      properties:
+        id: { type: string, format: uuid }
+        user_id: { type: string, format: uuid }
+        place_id: { type: [string, 'null'], format: uuid }
+        postcard_id: { type: [string, 'null'], format: uuid }
+        video_id: { type: [string, 'null'], format: uuid }
+        reason: { $ref: '#/components/schemas/ReportReason' }
+        details: { type: [string, 'null'], maxLength: 1000 }
+        photo_path: { type: [string, 'null'] }
+        created_at: { type: string, format: date-time }
+    ReportInsert:
+      type: object
+      required: [user_id, reason]
+      properties:
+        user_id: { type: string, format: uuid }
+        place_id: { type: string, format: uuid }
+        postcard_id: { type: string, format: uuid }
+        video_id: { type: string, format: uuid }
+        reason: { $ref: '#/components/schemas/ReportReason' }
+        details: { type: string, maxLength: 1000 }
+        photo_path: { type: string }
+    Subscription:
+      type: object
+      properties:
+        id: { type: string, format: uuid }
+        user_id: { type: string, format: uuid }
+        category: { oneOf: [{ $ref: '#/components/schemas/PlaceCategory' }, { type: 'null' }] }
+        place_id: { type: [string, 'null'], format: uuid }
+        created_at: { type: string, format: date-time }
+    SubscriptionInsert:
+      type: object
+      required: [user_id]
+      properties:
+        user_id: { type: string, format: uuid }
+        category: { $ref: '#/components/schemas/PlaceCategory' }
+        place_id: { type: string, format: uuid }
+    VerifyStampRequest:
+      type: object
+      required: [place_id, lat, lng, accuracy_m, captured_at, integrity_token]
+      properties:
+        place_id: { type: string, format: uuid }
+        lat: { type: number }
+        lng: { type: number }
+        accuracy_m: { type: number }
+        captured_at: { type: string, format: date-time, description: 'Time of the location fix. Rejected when older than 30 minutes.' }
+        integrity_token: { type: string, description: 'Play Integrity token, nonce bound to a hash of this payload' }
+    VerifyStampSuccess:
+      type: object
+      required: [status, stamp]
+      properties:
+        status: { type: string, const: success }
+        stamp: { $ref: '#/components/schemas/Stamp' }
+    VerifyStampFailure:
+      type: object
+      required: [status, reason]
+      properties:
+        status: { type: string, const: failure }
+        reason: { type: string, enum: [out_of_area, location_denied, expired_request, integrity_failed, already_stamped] }

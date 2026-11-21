@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">KELANA</string>
+    <string name="tab_jelajah">Jelajah</string>
+    <string name="tab_agenda">Agenda</string>
+    <string name="tab_rencana">Rencana</string>
+    <string name="tab_cerita">Cerita</string>
+</resources>
