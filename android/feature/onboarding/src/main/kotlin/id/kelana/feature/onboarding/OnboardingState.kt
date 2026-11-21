@@ -47,8 +47,12 @@ internal data class IntroUiState(
     }
 }
 
-/** Pin position on the illustrated map, 0..1 of width and height. PROVISIONAL: Region has no coordinates yet. */
-internal data class PinPosition(val x: Float, val y: Float)
+/**
+ * Pin position on the illustrated map, in the artifact's map units (the 350 x 210 map drawing, tip of the pin).
+ * [left] and [below] say where the zoomed label goes (PilihDaerah.dc.html region list).
+ * PROVISIONAL: Region has no coordinates yet, so positions are keyed by region code in this module.
+ */
+internal data class PinPosition(val x: Float, val y: Float, val left: Boolean = false, val below: Boolean = false)
 
 internal data class RegionPin(
     val region: Region,

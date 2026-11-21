@@ -1,20 +1,18 @@
 package id.kelana.feature.onboarding
 
 import androidx.compose.foundation.Canvas
-import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.BoxWithConstraints
-import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.CornerRadius
 import androidx.compose.ui.geometry.Offset
-import androidx.compose.ui.geometry.Size
+import androidx.compose.ui.geometry.RoundRect
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Path
+import androidx.compose.ui.graphics.drawscope.rotate
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.semantics.contentDescription
@@ -22,45 +20,50 @@ import androidx.compose.ui.semantics.role
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.unit.dp
 import id.kelana.core.designsystem.theme.KelanaTheme
+import id.kelana.core.model.Region
 import id.kelana.core.model.RegionStatus
 
-/**
- * PROVISIONAL placeholder for the Natural Earth map: simple blobs for Sumatera, Jawa, Kalimantan, Sulawesi
- * and Papua. The real map (MapLibre) comes later.
- */
-@Composable
-internal fun ArchipelagoBackdrop(modifier: Modifier = Modifier) {
-    val colors = KelanaTheme.colors
-    Canvas(modifier) {
-        drawRect(colors.skyText)
-        val land = colors.creamYellowAlt
-        fun blob(x: Float, y: Float, w: Float, h: Float) = drawRoundRect(
-            color = land,
-            topLeft = Offset(size.width * x, size.height * y),
-            size = Size(size.width * w, size.height * h),
-            cornerRadius = CornerRadius(h * size.height / 2),
-        )
-        blob(0.0f, 0.38f, 0.22f, 0.18f) // Sumatera
-        blob(0.34f, 0.40f, 0.24f, 0.07f) // Jawa
-        blob(0.36f, 0.14f, 0.16f, 0.22f) // Kalimantan
-        blob(0.58f, 0.18f, 0.10f, 0.26f) // Sulawesi
-        blob(0.78f, 0.34f, 0.22f, 0.14f) // Papua
-    }
-}
+/** Map drawing size in artifact units (PilihDaerah.dc.html: 350 x 210) and where it sits in the 360 tall panel. */
+internal const val MapUnitsWidth = 350f
+internal const val MapUnitsHeight = 210f
+internal const val MapPanelHeightUnits = 360f
+internal const val MapTopUnits = 65f // round((360 - 210) / 2) - 10
+
+/** Artifact zoom levels (zoom index 0..2). */
+internal val MapZoomScales = floatArrayOf(1f, 2f, 3.2f)
+
+private val Spots = mapOf(
+    "DIY" to PinPosition(118f, 144.1f, below = true),
+    "BALI" to PinPosition(153.6f, 148.6f),
+    "SUMUT" to PinPosition(32.5f, 67.1f),
+    "JKT" to PinPosition(92f, 132.2f, left = true),
+    "BDG" to PinPosition(97.6f, 137.5f),
+    "JTM" to PinPosition(135.5f, 140f),
+    "SULSEL" to PinPosition(184.9f, 124.3f),
+    "KALTIM" to PinPosition(168f, 90f),
+    "MALUT" to PinPosition(243.6f, 80.5f),
+    "PAPUA" to PinPosition(342f, 105.2f, left = true),
+    // PROVISIONAL: these sample regions are not in the artifact's list, so they sit near their neighbours.
+    "JBR" to PinPosition(97.6f, 137.5f),
+    "JTG" to PinPosition(126f, 141f),
+    "SUMBAR" to PinPosition(26f, 80f),
+    "NTT" to PinPosition(172f, 152f),
+)
 
 /** PROVISIONAL positions by region code until Region carries coordinates. Unknown codes get a fallback spot. */
-internal fun pinPositionFor(regionId: String, index: Int): PinPosition = when (regionId) {
-    "DIY" -> PinPosition(0.48f, 0.43f)
-    "JTG" -> PinPosition(0.42f, 0.41f)
-    "BALI" -> PinPosition(0.58f, 0.45f)
-    "JTM" -> PinPosition(0.53f, 0.42f)
-    "JBR" -> PinPosition(0.36f, 0.43f)
-    "SUMBAR" -> PinPosition(0.08f, 0.44f)
-    "SULSEL" -> PinPosition(0.62f, 0.34f)
-    "NTT" -> PinPosition(0.68f, 0.50f)
-    "KALTIM" -> PinPosition(0.46f, 0.22f)
-    "PAPUA" -> PinPosition(0.86f, 0.38f)
-    else -> PinPosition(0.1f + 0.07f * (index % 10), 0.7f)
+internal fun pinPositionFor(regionId: String, index: Int): PinPosition =
+    Spots[regionId] ?: PinPosition(20f + 25f * (index % 12), 175f)
+
+/** Island of a region (artifact "Pulau ..." line), or null when unknown. PROVISIONAL until Region has an island. */
+internal fun islandNameRes(regionId: String): Int? = when (regionId) {
+    "DIY", "JTG", "JTM", "JBR", "JKT", "BDG" -> R.string.island_jawa
+    "BALI", "NTT" -> R.string.island_bali_nusa
+    "SUMUT", "SUMBAR" -> R.string.island_sumatera
+    "SULSEL" -> R.string.island_sulawesi
+    "KALTIM" -> R.string.island_kalimantan
+    "MALUT" -> R.string.island_maluku
+    "PAPUA" -> R.string.island_papua
+    else -> null
 }
 
 @Composable
@@ -72,45 +75,71 @@ internal fun statusLabel(status: RegionStatus): String = stringResource(
     },
 )
 
+/** Pin and legend colors: `#C94D1A` available, `#24458F` soon, `#8C93A0` closed (PilihDaerah.dc.html COL). */
 @Composable
 internal fun statusColor(status: RegionStatus): Color {
     val c = KelanaTheme.colors
     return when (status) {
         RegionStatus.Available -> c.accentOrange
-        RegionStatus.Upcoming -> c.navy
+        RegionStatus.Upcoming -> c.primary
         RegionStatus.NotOpen -> c.iconMuted
     }
 }
 
-/** Pins laid over the map. Each pin has a 48 dp touch target and a content description with name and status. */
 @Composable
-internal fun RegionPins(
-    pins: List<RegionPin>,
-    onPinTapped: (String) -> Unit,
+internal fun islandLabel(region: Region): String? =
+    islandNameRes(region.id)?.let { stringResource(R.string.island_label, stringResource(it)) }
+
+/**
+ * One pin. The 48 dp box is the touch target; the pin tip is at the position given by the caller (box centre + 14 dp
+ * down). Selected: teardrop with halo, 22 dp. Others: 12 dp dot with a white edge (PilihDaerah.dc.html).
+ */
+@Composable
+internal fun RegionPinMarker(
+    region: Region,
+    selected: Boolean,
+    onClick: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    BoxWithConstraints(modifier) {
-        pins.forEach { pin ->
-            val status = statusLabel(pin.region.status)
-            val description = stringResource(R.string.pin_description, pin.region.name, status)
-            Box(
-                modifier = Modifier
-                    .offset(maxWidth * pin.position.x - 24.dp, maxHeight * pin.position.y - 24.dp)
-                    .size(48.dp)
-                    .semantics {
-                        contentDescription = description
-                        role = Role.Button
+    val colors = KelanaTheme.colors
+    val fill = statusColor(region.status)
+    val description = stringResource(R.string.pin_description, region.name, statusLabel(region.status))
+    Box(
+        modifier = modifier
+            .size(48.dp)
+            .semantics {
+                contentDescription = description
+                role = Role.Button
+            }
+            .clickable(onClick = onClick),
+        contentAlignment = Alignment.Center,
+    ) {
+        val halo = colors.ink.copy(alpha = 0.18f)
+        val edge = colors.white
+        Canvas(Modifier.size(48.dp)) {
+            val d = density
+            if (selected) {
+                val c = Offset(24f * d, 19f * d)
+                rotate(-45f, pivot = c) {
+                    fun teardrop(half: Float) = Path().apply {
+                        val r = CornerRadius(half)
+                        addRoundRect(
+                            RoundRect(
+                                c.x - half, c.y - half, c.x + half, c.y + half,
+                                topLeftCornerRadius = r, topRightCornerRadius = r, bottomRightCornerRadius = r,
+                                bottomLeftCornerRadius = CornerRadius(3f * d),
+                            ),
+                        )
                     }
-                    .clickable { onPinTapped(pin.region.id) },
-                contentAlignment = Alignment.Center,
-            ) {
-                val size = if (pin.selected) 22.dp else 14.dp
-                Box(
-                    Modifier
-                        .size(size)
-                        .background(statusColor(pin.region.status), CircleShape),
-                )
-                if (pin.selected) Box(Modifier.size(7.dp).background(KelanaTheme.colors.white, CircleShape))
+                    drawPath(teardrop(16f * d), halo)
+                    drawPath(teardrop(11f * d), edge)
+                    drawPath(teardrop(8.5f * d), fill)
+                }
+                drawCircle(edge, 3f * d, c)
+            } else {
+                val c = Offset(24f * d, 35f * d)
+                drawCircle(edge, 6f * d, c)
+                drawCircle(fill, 4f * d, c)
             }
         }
     }
