@@ -37,7 +37,7 @@ import id.kelana.feature.onboarding.onboardingScreens
 import id.kelana.feature.paspor.pasporScreen
 import id.kelana.feature.peta.petaScreen
 import id.kelana.feature.postcard.postcardScreen
-import id.kelana.feature.rencana.rencanaScreen
+import id.kelana.feature.rencana.rencanaScreens
 import id.kelana.feature.tempat.tempatScreens
 import id.kelana.feature.tiket.tiketScreen
 
@@ -84,7 +84,7 @@ fun KelanaAppContent(appViewModel: AppViewModel = hiltViewModel()) {
 
             jelajahScreens(navigate = navigate, onBack = onBack)
             agendaScreens(navigate = navigate, onBack = onBack)
-            rencanaScreen()
+            rencanaScreens(navController = navController, navigate = navigate, onBack = onBack)
             ceritaScreens(navigate = navigate, onBack = onBack)
 
             // First launch: Intro(0) Mulai -> Intro(1..3) Kenalan -> PilihDaerah -> Jelajah. Whichever way the flow ends

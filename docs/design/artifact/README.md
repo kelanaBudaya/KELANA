@@ -36,6 +36,23 @@ Each `*.dc.html` is one 390 px wide screen as HTML with inline styles. Read the 
 
 Screens not copied yet (fetch from the artifact when a phase needs them): 2.4, 2.6, 3.3, 4.x planner, 5.x, 6.x, 7.x, 10.1.
 
+Rencana tab and planner (Phase 6, feature `rencana`; screen numbers are not mapped here, see `project/canvas.json` in the artifact):
+| Screen | File |
+|---|---|
+| Rencana hari ini | `RencanaHariIniIlustratif.dc.html` |
+| Rencana kosong | `RencanaKosongIlustratif.dc.html` |
+| Susun 1/6 Tanggal | `SusunTanggal.dc.html` |
+| Susun 2/6 Teman (hub, "Kamu berkelana bersama siapa?") | `SusunRencanaIlustratif.dc.html` |
+| Susun 3/6 Minat | `SusunMinat.dc.html` |
+| Susun 4/6 Waktu dan tempo | `SusunWaktu.dc.html` |
+| Susun 5/6 Kendaraan | `SusunKendaraan.dc.html` |
+| Susun 6/6 Kebutuhan | `SusunKebutuhan.dc.html` |
+| Menyusun (loading) | `Menyusun.dc.html` |
+| Pengingat | `Pengingat.dc.html` |
+| Tempat tutup (live re-plan) | `TempatTutupIlustratif.dc.html` |
+| Tanpa internet | `TanpaInternetIlustratif.dc.html` |
+| Peta rute | `PetaRuteIlustratif.dc.html` |
+
 ## Design tokens (from the artifact's own notes and styles; they override FIGMA-FRAMES.md)
 - **Fonts:** Plus Jakarta Sans 400/500/600/700/800 for all UI; Fraunces (500/600, italic) only for the postcard and highlight headlines. Figma reported Inter, but every screen in the artifact uses Plus Jakarta Sans, so the app's Inter must be replaced.
 - **Colors:** background `#FFFCF6`, ink `#243047`, muted `#566072`, primary `#24458F`, navy `#1B3671`, stamp yellow `#F4B52B`, sky `#DCE6F7`, peach `#FCE1D2`, divider `#D5DBE6`. The orange button is `#C94D1A` on purpose (white text passes 4.5:1).

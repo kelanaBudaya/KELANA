@@ -1,0 +1,245 @@
+package id.kelana.feature.rencana.ui
+
+import id.kelana.core.model.Interest
+import id.kelana.core.model.Pace
+import id.kelana.core.model.PlaceCategory
+import id.kelana.core.model.SpecialNeed
+import id.kelana.core.model.TravelGroup
+import id.kelana.core.model.Vehicle
+import id.kelana.feature.rencana.domain.PlanBuilder
+import id.kelana.feature.rencana.domain.hoursFacts
+import id.kelana.feature.rencana.domain.place
+import kotlinx.coroutines.test.runTest
+import org.junit.Assert.assertEquals
+import org.junit.Assert.assertFalse
+import org.junit.Assert.assertNotNull
+import org.junit.Assert.assertNull
+import org.junit.Assert.assertTrue
+import org.junit.Rule
+import org.junit.Test
+import java.time.LocalDate
+import java.time.LocalTime
+import java.time.YearMonth
+
+class SusunViewModelTest {
+    @get:Rule
+    val main = MainDispatcherRule()
+
+    private val places = FakePlaces(listOf(place("m1", hours = hoursFacts(LocalTime.of(8, 0), LocalTime.of(21, 0)))))
+    private val cache = FakeCache()
+    private val connectivity = FakeConnectivity()
+
+    private fun viewModel() = SusunViewModel(repo(places, FakeEvents(emptyList()), cache, connectivity), connectivity, TestClock, stageDelayMs = 0)
+
+    private fun SusunViewModel.fillAnswers() {
+        selectCompanion(TravelGroup.Solo)
+        toggleInterest(Interest.Museum)
+    }
+
+    @Test
+    fun startsOnTodayWithSensibleDefaultsAndNothingToContinueWith() {
+        val s = viewModel().uiState.value
+        assertEquals(TestToday, s.startDate)
+        assertNull(s.endDate)
+        assertEquals(1, s.dayCount)
+        assertEquals(YearMonth.of(2026, 11), s.visibleMonth)
+        assertTrue(s.canContinueTanggal)
+        assertFalse(s.canContinueTeman)
+        assertFalse(s.canContinueMinat)
+        assertTrue(s.canContinueWaktu)
+        assertFalse(s.canSubmit)
+        assertEquals(LocalTime.of(8, 0), s.windowStart)
+        assertEquals(LocalTime.of(21, 0), s.windowEnd)
+        assertEquals(Pace.Relaxed, s.pace)
+        assertEquals(Vehicle.TransitAndWalk, s.vehicle)
+        assertTrue(s.needs.isEmpty())
+    }
+
+    @Test
+    fun companionAndInterestsGateTheirSteps() {
+        val vm = viewModel()
+        vm.selectCompanion(TravelGroup.Family)
+        assertTrue(vm.uiState.value.canContinueTeman)
+        vm.toggleInterest(Interest.Candi)
+        assertTrue(vm.uiState.value.canContinueMinat)
+        vm.toggleInterest(Interest.Candi)
+        assertFalse(vm.uiState.value.canContinueMinat)
+    }
+
+    @Test
+    fun aLaterTapSetsTheEndAndFurtherTapsRestart() {
+        val vm = viewModel()
+        // The start is preselected as today, so the first tap on a later date completes the range.
+        vm.pickDate(TestToday.plusDays(2))
+        assertEquals(TestToday, vm.uiState.value.startDate)
+        assertEquals(TestToday.plusDays(2), vm.uiState.value.endDate)
+        assertEquals(3, vm.uiState.value.dayCount)
+        // a tap after a complete range starts over
+        vm.pickDate(TestToday.plusDays(4))
+        assertEquals(TestToday.plusDays(4), vm.uiState.value.startDate)
+        assertNull(vm.uiState.value.endDate)
+        // a tap before the start also starts over
+        vm.pickDate(TestToday.plusDays(1))
+        assertEquals(TestToday.plusDays(1), vm.uiState.value.startDate)
+        assertNull(vm.uiState.value.endDate)
+    }
+
+    @Test
+    fun tapOnTheStartAgainKeepsASingleDay() {
+        val vm = viewModel()
+        vm.pickDate(TestToday)
+        assertNull(vm.uiState.value.endDate)
+        assertEquals(1, vm.uiState.value.dayCount)
+    }
+
+    @Test
+    fun pastDatesAreIgnored() {
+        val vm = viewModel()
+        vm.pickDate(TestToday.minusDays(1))
+        assertEquals(TestToday, vm.uiState.value.startDate)
+    }
+
+    @Test
+    fun aRangeLongerThanTheLimitRestartsFromTheTappedDate() {
+        val vm = viewModel()
+        val far = TestToday.plusDays(PlanBuilder.MAX_DAYS.toLong())
+        vm.pickDate(far)
+        assertEquals(far, vm.uiState.value.startDate)
+        assertNull(vm.uiState.value.endDate)
+        val ok = TestToday.plusDays(PlanBuilder.MAX_DAYS - 1L)
+        val vm2 = viewModel()
+        vm2.pickDate(TestToday)
+        vm2.pickDate(ok)
+        assertEquals(ok, vm2.uiState.value.endDate)
+        assertEquals(PlanBuilder.MAX_DAYS, vm2.uiState.value.dayCount)
+    }
+
+    @Test
+    fun monthNavigationCannotGoBeforeThisMonth() {
+        val vm = viewModel()
+        assertFalse(vm.uiState.value.canGoPreviousMonth)
+        vm.showPreviousMonth()
+        assertEquals(YearMonth.of(2026, 11), vm.uiState.value.visibleMonth)
+        vm.showNextMonth()
+        assertEquals(YearMonth.of(2026, 12), vm.uiState.value.visibleMonth)
+        assertTrue(vm.uiState.value.canGoPreviousMonth)
+        vm.showPreviousMonth()
+        assertEquals(YearMonth.of(2026, 11), vm.uiState.value.visibleMonth)
+    }
+
+    @Test
+    fun timeWindowMovesInHalfHoursAndKeepsAtLeastTwoHours() {
+        val vm = viewModel()
+        vm.shiftStart(1)
+        assertEquals(LocalTime.of(8, 30), vm.uiState.value.windowStart)
+        vm.shiftEnd(-1)
+        assertEquals(LocalTime.of(20, 30), vm.uiState.value.windowEnd)
+        // push the end down to 10:30 (2 h after 8:30), then one more step is refused
+        repeat(40) { vm.shiftEnd(-1) }
+        assertEquals(LocalTime.of(10, 30), vm.uiState.value.windowEnd)
+        assertTrue(vm.uiState.value.canContinueWaktu)
+        vm.shiftStart(1)
+        assertEquals(LocalTime.of(8, 30), vm.uiState.value.windowStart)
+    }
+
+    @Test
+    fun timeWindowStaysInsideTheDay() {
+        val vm = viewModel()
+        repeat(40) { vm.shiftStart(-1) }
+        assertEquals(LocalTime.of(5, 0), vm.uiState.value.windowStart)
+        repeat(40) { vm.shiftEnd(1) }
+        assertEquals(LocalTime.of(23, 30), vm.uiState.value.windowEnd)
+    }
+
+    @Test
+    fun noneClearsEveryNeedAndNeedsToggle() {
+        val vm = viewModel()
+        vm.toggleNeed(SpecialNeed.Wheelchair)
+        vm.toggleNeed(SpecialNeed.MoreRests)
+        assertEquals(setOf(SpecialNeed.Wheelchair, SpecialNeed.MoreRests), vm.uiState.value.needs)
+        vm.toggleNeed(SpecialNeed.Wheelchair)
+        assertEquals(setOf(SpecialNeed.MoreRests), vm.uiState.value.needs)
+        vm.clearNeeds()
+        assertTrue(vm.uiState.value.needs.isEmpty())
+    }
+
+    @Test
+    fun checklistLengthFollowsTheAnswers() {
+        val vm = viewModel()
+        vm.fillAnswers()
+        assertEquals(2, vm.stageCountNow())
+        vm.selectCompanion(TravelGroup.Family)
+        assertEquals(3, vm.stageCountNow())
+        vm.toggleNeed(SpecialNeed.Wheelchair)
+        assertEquals(4, vm.stageCountNow())
+    }
+
+    @Test
+    fun canBuildNowFollowsConnectivity() {
+        val vm = viewModel()
+        assertTrue(vm.canBuildNow())
+        connectivity.state.value = false
+        assertFalse(vm.canBuildNow())
+    }
+
+    @Test
+    fun buildWithMissingAnswersDoesNothing() {
+        val vm = viewModel()
+        vm.startBuild()
+        assertFalse(vm.uiState.value.isBuilding)
+        assertNull(vm.uiState.value.outcome)
+        assertNull(cache.tripState.value)
+    }
+
+    @Test
+    fun buildSavesThePlanAndReportsBuilt() = runTest {
+        val vm = viewModel()
+        vm.fillAnswers()
+        vm.startBuild()
+        val s = vm.uiState.value
+        assertEquals(BuildOutcome.Built, s.outcome)
+        assertFalse(s.isBuilding)
+        val trip = cache.tripState.value
+        assertNotNull(trip)
+        assertEquals(listOf("m1"), trip!!.days.single().stops.map { it.placeId })
+        assertEquals(TravelGroup.Solo, trip.choices.companion)
+        vm.consumeOutcome()
+        assertNull(vm.uiState.value.outcome)
+    }
+
+    @Test
+    fun buildOfflineReportsOfflineAndChangesNothing() = runTest {
+        val vm = viewModel()
+        vm.fillAnswers()
+        connectivity.state.value = false
+        vm.startBuild()
+        assertEquals(BuildOutcome.Offline, vm.uiState.value.outcome)
+        assertNull(cache.tripState.value)
+    }
+
+    @Test
+    fun buildThatFindsNothingKeepsTheOldPlan() = runTest {
+        val vm = viewModel()
+        vm.fillAnswers()
+        vm.startBuild()
+        val before = cache.tripState.value
+        val again = viewModel()
+        again.selectCompanion(TravelGroup.Solo)
+        again.toggleInterest(Interest.Topeng) // no topeng place exists
+        again.startBuild()
+        assertEquals(BuildOutcome.NothingFits, again.uiState.value.outcome)
+        assertEquals(before, cache.tripState.value)
+        assertTrue(places.all.none { it.category == PlaceCategory.Topeng })
+    }
+
+    @Test
+    fun aRangeBuildsOnePlanPerDay() = runTest {
+        val vm = viewModel()
+        vm.fillAnswers()
+        vm.pickDate(TestToday)
+        vm.pickDate(TestToday.plusDays(2))
+        vm.startBuild()
+        assertEquals(3, cache.tripState.value!!.days.size)
+        assertEquals(LocalDate.of(2026, 11, 22), cache.tripState.value!!.choices.endDate)
+    }
+}
