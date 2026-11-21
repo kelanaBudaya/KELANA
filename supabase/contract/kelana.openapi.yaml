@@ -380,6 +380,10 @@ components:
             end_time: { type: [string, 'null'] }
             price_from_idr: { type: [integer, 'null'] }
             seller_url: { type: [string, 'null'] }
+            performers: { type: array, items: { type: string }, description: 'Free text, e.g. "Lebih dari 200 penari dan pemusik lokal". Empty array when unknown.', examples: [['Lebih dari 200 penari dan pemusik lokal']] }
+            arrival_advice_min: { type: [integer, 'null'], minimum: 0, description: 'Minutes before the show. Null together with arrival_advice_max when there is no advice.' }
+            arrival_advice_max: { type: [integer, 'null'], minimum: 0, description: 'Minutes before the show, >= arrival_advice_min.' }
+            tags: { type: array, items: { type: string, enum: [tari, wayang, ramah_anak] }, description: 'Agenda filter chips: Tari, Wayang, Ramah anak.' }
     PlaceFacts:
       type: object
       properties:

@@ -60,6 +60,8 @@ export type Database = {
       }
       events: {
         Row: {
+          arrival_advice_max: number | null
+          arrival_advice_min: number | null
           category: Database["public"]["Enums"]["place_category"]
           checked_at: string | null
           description: string | null
@@ -67,6 +69,7 @@ export type Database = {
           event_date: string | null
           id: string
           is_sample: boolean
+          performers: string[]
           place_id: string
           price_from_idr: number | null
           recurrence: Database["public"]["Enums"]["recurrence_kind"]
@@ -74,10 +77,13 @@ export type Database = {
           seller_url: string | null
           source_url: string | null
           start_time: string
+          tags: string[]
           title: string
           weekday: number | null
         }
         Insert: {
+          arrival_advice_max?: number | null
+          arrival_advice_min?: number | null
           category?: Database["public"]["Enums"]["place_category"]
           checked_at?: string | null
           description?: string | null
@@ -85,6 +91,7 @@ export type Database = {
           event_date?: string | null
           id?: string
           is_sample?: boolean
+          performers?: string[]
           place_id: string
           price_from_idr?: number | null
           recurrence: Database["public"]["Enums"]["recurrence_kind"]
@@ -92,10 +99,13 @@ export type Database = {
           seller_url?: string | null
           source_url?: string | null
           start_time: string
+          tags?: string[]
           title: string
           weekday?: number | null
         }
         Update: {
+          arrival_advice_max?: number | null
+          arrival_advice_min?: number | null
           category?: Database["public"]["Enums"]["place_category"]
           checked_at?: string | null
           description?: string | null
@@ -103,6 +113,7 @@ export type Database = {
           event_date?: string | null
           id?: string
           is_sample?: boolean
+          performers?: string[]
           place_id?: string
           price_from_idr?: number | null
           recurrence?: Database["public"]["Enums"]["recurrence_kind"]
@@ -110,6 +121,7 @@ export type Database = {
           seller_url?: string | null
           source_url?: string | null
           start_time?: string
+          tags?: string[]
           title?: string
           weekday?: number | null
         }
