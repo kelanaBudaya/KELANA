@@ -37,9 +37,11 @@ dependencies {
 
     implementation(platform(libs.supabase.bom))
     implementation(libs.supabase.auth)
+    implementation(libs.supabase.postgrest)
     implementation(libs.ktor.client.okhttp)
     implementation(libs.kotlinx.serialization.json)
     implementation(libs.androidx.datastore.preferences)
 
     testImplementation(libs.kotlinx.coroutines.test)
+    testImplementation(libs.turbine)
 }

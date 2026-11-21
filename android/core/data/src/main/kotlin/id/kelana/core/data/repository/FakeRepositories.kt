@@ -40,15 +40,7 @@ class FakePlaceRepository @Inject constructor() : PlaceRepository {
         flowOf(all.filter { it.category == category })
 
     override fun search(query: String): Flow<List<Place>> {
-        val q = query.trim()
-        if (q.isEmpty()) return flowOf(emptyList())
-        return flowOf(
-            all.filter {
-                it.name.contains(q, ignoreCase = true) ||
-                    it.address.contains(q, ignoreCase = true) ||
-                    it.description.contains(q, ignoreCase = true)
-            },
-        )
+        return flowOf(all.searchPlaces(query))
     }
 }
 
@@ -58,10 +50,8 @@ class FakeEventRepository @Inject constructor() : EventRepository {
 
     override fun eventsOn(date: LocalDate): Flow<List<EventOccurrence>> = eventsBetween(date, date)
 
-    override fun eventsBetween(from: LocalDate, to: LocalDate): Flow<List<EventOccurrence>> = flowOf(
-        all.flatMap { event -> event.occurrencesBetween(from, to).map { EventOccurrence(event, it) } }
-            .sortedWith(compareBy({ it.date }, { it.event.schedule.value.start }, { it.event.title })),
-    )
+    override fun eventsBetween(from: LocalDate, to: LocalDate): Flow<List<EventOccurrence>> =
+        flowOf(expandOccurrences(all, from, to))
 
     override fun event(id: String): Flow<Event?> = flowOf(all.firstOrNull { it.id == id })
 }

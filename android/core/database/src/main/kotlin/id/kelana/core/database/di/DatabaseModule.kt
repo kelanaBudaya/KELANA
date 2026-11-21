@@ -12,6 +12,9 @@ import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import id.kelana.core.database.KelanaDatabase
+import id.kelana.core.database.dao.EventDao
+import id.kelana.core.database.dao.PlaceDao
+import id.kelana.core.database.dao.RegionDao
 import javax.inject.Singleton
 
 @Module
@@ -21,7 +24,19 @@ object DatabaseModule {
     @Provides
     @Singleton
     fun provideDatabase(@ApplicationContext context: Context): KelanaDatabase =
-        Room.databaseBuilder(context, KelanaDatabase::class.java, "kelana.db").build()
+        Room.databaseBuilder(context, KelanaDatabase::class.java, "kelana.db")
+            // Only public content is cached and it is re-downloaded, so dropping it on upgrade is safe.
+            .fallbackToDestructiveMigration(dropAllTables = true)
+            .build()
+
+    @Provides
+    fun provideRegionDao(db: KelanaDatabase): RegionDao = db.regionDao()
+
+    @Provides
+    fun providePlaceDao(db: KelanaDatabase): PlaceDao = db.placeDao()
+
+    @Provides
+    fun provideEventDao(db: KelanaDatabase): EventDao = db.eventDao()
 
     @Provides
     @Singleton
