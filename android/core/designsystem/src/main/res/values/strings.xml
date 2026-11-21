@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ds_back">Kembali</string>
+    <string name="ds_verified_checked">Diperiksa %1$s</string>
+    <string name="ds_preview_button">Lanjut</string>
+    <string name="ds_preview_card_title">Candi Prambanan</string>
+    <string name="ds_preview_card_body">Candi Hindu terbesar di Indonesia.</string>
+    <string name="ds_preview_chip_selected">Candi</string>
+    <string name="ds_preview_chip_unselected">Museum</string>
+</resources>
