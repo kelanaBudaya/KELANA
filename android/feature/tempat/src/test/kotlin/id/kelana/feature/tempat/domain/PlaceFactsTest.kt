@@ -67,4 +67,39 @@ class PlaceFactsTest {
         assertNull(officialSellerUrl(place(emptyList(), listOf(unchecked))))
         assertTrue(OFFICIAL_PHOTO_COUNT > 0)
     }
+
+    @Test
+    fun hoursSummary_is_one_run_of_open_days() {
+        val list = listOf(
+            hours(DayOfWeek.MONDAY, true, d1),
+            hours(DayOfWeek.TUESDAY, false, d1),
+            hours(DayOfWeek.WEDNESDAY, false, d0),
+            hours(DayOfWeek.THURSDAY, false, d1),
+        )
+        val summary = hoursSummary(list)!!
+        assertEquals(DayOfWeek.TUESDAY, summary.value.firstDay)
+        assertEquals(DayOfWeek.THURSDAY, summary.value.lastDay)
+        assertEquals(d0, summary.checkedAt)
+    }
+
+    @Test
+    fun hoursSummary_has_no_date_when_any_hours_is_unchecked() {
+        val list = listOf(hours(DayOfWeek.TUESDAY, false, d1), hours(DayOfWeek.WEDNESDAY, false, null))
+        assertNull(hoursSummary(list)!!.checkedAt)
+    }
+
+    @Test
+    fun hoursSummary_is_null_when_open_days_have_a_gap_or_no_open_day() {
+        val gap = listOf(hours(DayOfWeek.MONDAY, false, d1), hours(DayOfWeek.WEDNESDAY, false, d1))
+        assertNull(hoursSummary(gap))
+        assertNull(hoursSummary(listOf(hours(DayOfWeek.MONDAY, true, d1))))
+        assertNull(hoursSummary(emptyList()))
+    }
+
+    @Test
+    fun infoCheckedAt_is_oldest_checked_date_or_null() {
+        val list = listOf(hours(DayOfWeek.MONDAY, true, d1), hours(DayOfWeek.TUESDAY, false, d0), hours(DayOfWeek.FRIDAY, false, null))
+        assertEquals(d0, infoCheckedAt(place(list)))
+        assertNull(infoCheckedAt(place(listOf(hours(DayOfWeek.MONDAY, true, null)))))
+    }
 }

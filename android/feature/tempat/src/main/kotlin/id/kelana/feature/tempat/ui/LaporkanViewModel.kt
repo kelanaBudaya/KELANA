@@ -4,6 +4,7 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
+import id.kelana.core.model.PlaceRepository
 import id.kelana.core.model.ReportDraft
 import id.kelana.core.model.ReportReason
 import id.kelana.core.model.ReportRepository
@@ -34,6 +35,10 @@ data class LaporkanUiState(
     val details: String = "",
     val submitting: Boolean = false,
     val failed: Boolean = false,
+    /** Name of the reported place, for the subtitle and the "Kembali ke ..." button. Empty until loaded. */
+    val placeName: String = "",
+    /** True after the report was accepted: the screen shows "Laporan terkirim". */
+    val sent: Boolean = false,
 ) {
     /** The submit button stays disabled until a reason is chosen. */
     val canSubmit: Boolean get() = reason != null && !submitting
@@ -52,11 +57,24 @@ sealed interface LaporkanEvent {
 class LaporkanViewModel @Inject constructor(
     savedStateHandle: SavedStateHandle,
     private val reports: ReportRepository,
+    private val places: PlaceRepository,
 ) : ViewModel() {
     private val placeId: String = savedStateHandle.get<String>("placeId").orEmpty()
 
     private val _uiState = MutableStateFlow(LaporkanUiState())
     val uiState: StateFlow<LaporkanUiState> = _uiState.asStateFlow()
+
+    init {
+        viewModelScope.launch {
+            try {
+                places.place(placeId).collect { place -> _uiState.update { it.copy(placeName = place?.name.orEmpty()) } }
+            } catch (e: CancellationException) {
+                throw e
+            } catch (_: Exception) {
+                // The name is cosmetic: the form still works without it.
+            }
+        }
+    }
 
     private val _events = Channel<LaporkanEvent>(Channel.BUFFERED)
     val events: Flow<LaporkanEvent> = _events.receiveAsFlow()
@@ -78,7 +96,9 @@ class LaporkanViewModel @Inject constructor(
             } catch (_: Exception) {
                 ReportResult.Failed
             }
-            _uiState.update { it.copy(submitting = false, failed = result == ReportResult.Failed) }
+            _uiState.update {
+                it.copy(submitting = false, failed = result == ReportResult.Failed, sent = result == ReportResult.Success)
+            }
             when (result) {
                 ReportResult.Success -> _events.send(LaporkanEvent.Sent)
                 ReportResult.NeedsLogin -> _events.send(LaporkanEvent.NeedsLogin)
