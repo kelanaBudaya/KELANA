@@ -35,6 +35,7 @@ Each `*.dc.html` is one 390 px wide screen as HTML with inline styles. Read the 
 | 7.4 | Paspor budaya | `PasporIlustratif.dc.html` |
 | 7.3 | Unggah video | `UnggahVideoIlustratif.dc.html` |
 | (awal page only) | Hapus akun · konfirmasi | `HapusAkun.dc.html` |
+| (web, lengkap) | Panel verifikasi · web pengelola (admin) | `PanelPengelola.dc.html` |
 
 Phase 7 (postcard, notifikasi):
 | No. | Screen | File |

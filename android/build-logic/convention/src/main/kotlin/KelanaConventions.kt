@@ -29,6 +29,7 @@ internal fun configureKotlinAndroid(project: Project, extension: CommonExtension
             }
         }
         defaultConfig.minSdk = KELANA_MIN_SDK
+        defaultConfig.testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         compileOptions {
             sourceCompatibility = JavaVersion.VERSION_17
             targetCompatibility = JavaVersion.VERSION_17

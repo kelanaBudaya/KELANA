@@ -28,6 +28,12 @@ class AndroidComposeConventionPlugin : Plugin<Project> {
                 add("implementation", lib("androidx-compose-material3"))
                 add("implementation", lib("androidx-compose-ui-tooling-preview"))
                 add("debugImplementation", lib("androidx-compose-ui-tooling"))
+                // Compose UI tests (src/androidTest), run on a device or emulator with connectedDebugAndroidTest.
+                add("androidTestImplementation", bom)
+                add("androidTestImplementation", lib("androidx-compose-ui-test-junit4"))
+                add("androidTestImplementation", lib("androidx-test-ext-junit"))
+                add("androidTestImplementation", lib("androidx-test-runner"))
+                add("debugImplementation", lib("androidx-compose-ui-test-manifest"))
             }
         }
     }
