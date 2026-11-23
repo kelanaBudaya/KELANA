@@ -66,6 +66,7 @@ internal fun ProfilScreen(
     onMasuk: () -> Unit,
     onSignedOut: () -> Unit,
     onNotifikasi: () -> Unit = {},
+    onHapusAkun: () -> Unit = {},
     viewModel: ProfilViewModel = hiltViewModel(),
 ) {
     val state by viewModel.state.collectAsState()
@@ -84,6 +85,7 @@ internal fun ProfilScreen(
         onMasuk = onMasuk,
         onSignOut = viewModel::onSignOut,
         onNotifikasi = onNotifikasi,
+        onHapusAkun = onHapusAkun,
     )
 }
 
@@ -100,6 +102,7 @@ internal fun ProfilContent(
     onMasuk: () -> Unit,
     onSignOut: () -> Unit,
     onNotifikasi: () -> Unit = {},
+    onHapusAkun: () -> Unit = {},
 ) {
     val colors = KelanaTheme.colors
     Column(
@@ -125,6 +128,7 @@ internal fun ProfilContent(
                 onDaerah = onDaerah,
                 onSignOut = onSignOut,
                 onNotifikasi = onNotifikasi,
+                onHapusAkun = onHapusAkun,
             )
         }
     }
@@ -236,6 +240,7 @@ private fun SignedInBody(
     onDaerah: () -> Unit,
     onSignOut: () -> Unit,
     onNotifikasi: () -> Unit,
+    onHapusAkun: () -> Unit,
 ) {
     Column(
         modifier = Modifier
@@ -267,6 +272,7 @@ private fun SignedInBody(
             R.drawable.akun_ic_close,
             R.string.profil_row_hapus,
             R.string.profil_row_hapus_sub,
+            onClick = onHapusAkun,
             destructive = true,
         )
 
