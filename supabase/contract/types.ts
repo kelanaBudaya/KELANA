@@ -252,30 +252,39 @@ export type Database = {
       }
       postcards: {
         Row: {
+          card_style: string
           created_at: string
           id: string
+          is_public: boolean
           is_sample: boolean
           message: string
           photo_path: string | null
           place_id: string
+          rating: number | null
           user_id: string
         }
         Insert: {
+          card_style?: string
           created_at?: string
           id?: string
+          is_public?: boolean
           is_sample?: boolean
           message: string
           photo_path?: string | null
           place_id: string
+          rating?: number | null
           user_id: string
         }
         Update: {
+          card_style?: string
           created_at?: string
           id?: string
+          is_public?: boolean
           is_sample?: boolean
           message?: string
           photo_path?: string | null
           place_id?: string
+          rating?: number | null
           user_id?: string
         }
         Relationships: [
