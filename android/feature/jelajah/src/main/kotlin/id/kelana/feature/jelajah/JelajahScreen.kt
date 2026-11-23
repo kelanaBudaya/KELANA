@@ -25,6 +25,7 @@ import id.kelana.core.navigation.DetailPentasRoute
 import id.kelana.core.navigation.DetailTempatRoute
 import id.kelana.core.navigation.JelajahRoute
 import id.kelana.core.navigation.KategoriRoute
+import id.kelana.core.navigation.NotifikasiRoute
 import id.kelana.core.navigation.PasporRoute
 import id.kelana.core.navigation.PetaRoute
 import id.kelana.core.navigation.SemuaTempatRoute
@@ -89,7 +90,7 @@ internal fun JelajahScreen(navigate: (Any) -> Unit) {
             modifier = Modifier.padding(padding),
             callbacks = HomeCallbacks(
                 onSearch = { navigate(CariRoute) },
-                onBell = {}, // visual-only for now
+                onBell = { navigate(NotifikasiRoute) },
                 // Artifact: the avatar opens Profil (AkunRoute). A guest goes to Masuk.
                 onAvatar = { requireLogin { navigate(AkunRoute) } },
                 // The passport needs an account: a guest goes to Masuk first.

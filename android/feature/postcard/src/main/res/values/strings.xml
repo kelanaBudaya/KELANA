@@ -1,4 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="postcard_placeholder">Postcard (segera hadir)</string>
+    <!-- Tulis postcard (7.1) -->
+    <string name="postcard_back">Kembali</string>
+    <string name="postcard_cancel">Batal</string>
+    <string name="postcard_tulis_title">Tulis postcard</string>
+    <string name="postcard_photo_title">Pilih fotomu</string>
+    <string name="postcard_photo_hint">Dari galeri atau kamera</string>
+    <string name="postcard_photo_cd">Pilih foto untuk postcard</string>
+    <string name="postcard_photo_chosen_cd">Fotomu untuk postcard</string>
+    <string name="postcard_photo_source_title">Ambil foto dari mana?</string>
+    <string name="postcard_photo_gallery">Galeri</string>
+    <string name="postcard_photo_camera">Kamera</string>
+    <string name="postcard_photo_change">Ganti foto</string>
+    <string name="postcard_photo_remove">Hapus foto</string>
+    <string name="postcard_photo_processing">Menyiapkan foto…</string>
+    <string name="postcard_photo_failed">Foto ini tidak bisa dipakai. Coba foto lain atau buka kameranya lagi.</string>
+    <string name="postcard_sticker_cap">CAP</string>
+    <string name="postcard_sticker_cd">Stiker cap %1$s</string>
+    <string name="postcard_rating_title">Seberapa berkesan?</string>
+    <string name="postcard_rating_group_cd">Nilai</string>
+    <string name="postcard_rating_star_cd">%1$d dari 5 bintang</string>
+    <string name="postcard_message_label">Pesanmu</string>
+    <string name="postcard_message_hint">Koleksi favoritmu, tips buat pengunjung berikutnya…</string>
+    <string name="postcard_message_counter">%1$d/%2$d</string>
+    <string name="postcard_style_title">Gaya kartu</string>
+    <string name="postcard_style_jurnal">Jurnal</string>
+    <string name="postcard_style_cap">Cap</string>
+    <string name="postcard_style_peta">Peta</string>
+    <string name="postcard_public_label">Tampilkan di halaman %1$s agar pengunjung lain terbantu</string>
+    <string name="postcard_publish">Lihat postcard</string>
+    <string name="postcard_publishing">Mengirim…</string>
+    <string name="postcard_retry">Coba lagi</string>
+    <string name="postcard_error_network">Postcard belum terkirim. Periksa sinyalmu, lalu coba lagi.</string>
+    <string name="postcard_error_invalid">Postcard ditolak: pesan atau foto belum memenuhi syarat. Periksa lagi, lalu coba kirim.</string>
+    <string name="postcard_error_not_configured">Postcard belum bisa dikirim di versi aplikasi ini.</string>
+
+    <!-- Guards of Tulis postcard -->
+    <string name="postcard_guest_title">Masuk dulu untuk menulis postcard</string>
+    <string name="postcard_guest_body">Postcard hanya bisa ditulis oleh pengunjung yang punya akun.</string>
+    <string name="postcard_guest_action">Masuk</string>
+    <string name="postcard_nostamps_title">Belum ada cap</string>
+    <string name="postcard_nostamps_body">Postcard hanya bisa ditulis dari tempat yang sudah kamu cap. Ambil cap di sebuah tempat dulu.</string>
+    <string name="postcard_open_paspor">Buka paspor</string>
+    <string name="postcard_needsstamp_title">Ambil cap dulu di %1$s</string>
+    <string name="postcard_needsstamp_body">Postcard hanya bisa ditulis dari tempat yang sudah kamu cap.</string>
+    <string name="postcard_needsstamp_action">Ambil cap</string>
+    <string name="postcard_pick_title">Pilih tempat</string>
+    <string name="postcard_pick_body">Postcard ditulis dari tempat yang sudah kamu cap.</string>
+
+    <!-- Bagikan postcard (7.2) -->
+    <string name="postcard_bagikan_title">Bagikan postcard</string>
+    <string name="postcard_format_story">9:16 Story</string>
+    <string name="postcard_format_feed">1:1 Feed</string>
+    <string name="postcard_share_instagram">Story IG</string>
+    <string name="postcard_share_whatsapp">WhatsApp</string>
+    <string name="postcard_share_other">Lainnya</string>
+    <string name="postcard_share_save">Simpan</string>
+    <string name="postcard_share_chooser">Bagikan postcard</string>
+    <string name="postcard_notice_saved">Tersimpan di galeri, folder Pictures/KELANA.</string>
+    <string name="postcard_notice_save_failed">Gambar belum tersimpan. Coba lagi.</string>
+    <string name="postcard_notice_share_failed">Gambar belum bisa disiapkan atau dibuka di aplikasi tujuan.</string>
+    <string name="postcard_gone_title">Kartu tidak ditemukan</string>
+    <string name="postcard_gone_body">Kartu yang tadi kamu tulis sudah tidak ada di layar ini. Tulis lagi untuk membagikannya.</string>
+    <string name="postcard_gone_action">Tulis postcard</string>
+
+    <!-- The card itself (also drawn into the shared picture) -->
+    <string name="postcard_card_description">Pratinjau kartu postcard untuk %1$s</string>
+    <string name="postcard_card_kicker">KELANA / %1$s</string>
+    <string name="postcard_card_style_jurnal">JURNAL</string>
+    <string name="postcard_card_style_cap">CAP</string>
+    <string name="postcard_card_style_peta">PETA</string>
+    <string name="postcard_card_region">YOGYAKARTA</string>
+    <string name="postcard_card_region_code">DIY</string>
+    <string name="postcard_card_visited">DIKUNJUNGI · %1$s</string>
+    <string name="postcard_card_headline">Sepenggal Jogja.</string>
+    <string name="postcard_card_quote">“%1$s”</string>
+    <string name="postcard_card_tagline">JALAN BUDAYAMU</string>
 </resources>

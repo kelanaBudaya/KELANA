@@ -418,6 +418,9 @@ components:
         place_id: { type: string, format: uuid }
         message: { type: string, minLength: 1, maxLength: 500 }
         photo_path: { type: [string, 'null'] }
+        rating: { type: [integer, 'null'], minimum: 1, maximum: 5 }
+        card_style: { type: string, enum: [jurnal, cap, peta] }
+        is_public: { type: boolean, description: false means visible to the author only }
         created_at: { type: string, format: date-time }
     PostcardInsert:
       type: object
@@ -427,6 +430,9 @@ components:
         place_id: { type: string, format: uuid }
         message: { type: string, minLength: 1, maxLength: 500 }
         photo_path: { type: string }
+        rating: { type: integer, minimum: 1, maximum: 5 }
+        card_style: { type: string, enum: [jurnal, cap, peta], default: jurnal }
+        is_public: { type: boolean, default: true }
     Video:
       type: object
       required: [id, user_id, place_id, created_at]

@@ -34,7 +34,17 @@ Each `*.dc.html` is one 390 px wide screen as HTML with inline styles. Read the 
 | 6.5 | Lokasi ditolak | `LokasiDitolakIlustratif.dc.html` (copy still says "lewat browser": adapt to Android app settings) |
 | 7.4 | Paspor budaya | `PasporIlustratif.dc.html` |
 
-Screens not copied yet (fetch from the artifact when a phase needs them): 2.4, 2.6, 3.3, 4.x planner, 5.x, 6.x, 7.x, 10.1.
+Phase 7 (postcard, notifikasi):
+| No. | Screen | File |
+|---|---|---|
+| 4.9 | Izin notifikasi | `IzinNotifIlustratif.dc.html` |
+| 5.1 | Notifikasi (pusat notifikasi) | `NotifikasiIlustratif.dc.html` |
+| 7.1 | Tulis postcard | `TulisPostcardIlustratif.dc.html` |
+| 7.2 | Bagikan postcard | `BagikanPostcardIlustratif.dc.html` |
+| (awal page) | Pengaturan notifikasi (web-era copy: drop browser and email rows on Android) | `PengaturanNotif.dc.html` |
+| (awal page) | Contoh layar kunci (how a system notification reads) | `LayarKunci.dc.html` |
+
+Screens not copied yet (fetch from the artifact when a phase needs them): 2.4, 2.6, 7.3 (cancelled), 10.1.
 
 Rencana tab and planner (Phase 6, feature `rencana`; screen numbers are not mapped here, see `project/canvas.json` in the artifact):
 | Screen | File |

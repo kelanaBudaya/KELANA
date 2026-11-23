@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Rendered postcards (shared out) and the camera target. Both live in the cache folder. -->
+<paths>
+    <cache-path name="postcards" path="postcards/" />
+    <cache-path name="postcard_camera" path="postcard-camera/" />
+</paths>

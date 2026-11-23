@@ -1,6 +1,8 @@
 package id.kelana.core.data.stamp
 
 import app.cash.turbine.test
+import id.kelana.core.data.repository.FakeNotificationRepository
+import id.kelana.core.model.NotificationEvent
 import id.kelana.core.model.SessionState
 import id.kelana.core.model.Stamp
 import id.kelana.core.model.StampRejectReason
@@ -29,9 +31,10 @@ class SupabaseStampRepositoryTest {
     private val session = FakeSession(signedIn())
     private val scheduler = FakeScheduler()
     private val network = FakeNetwork(online = true)
+    private val notifications = FakeNotificationRepository()
 
     private val cache = OwnStampsCache(remote, ownDao, clock)
-    private val sender = StampSender(pendingDao, cache, remote, integrity, session, clock)
+    private val sender = StampSender(pendingDao, cache, remote, integrity, session, clock, notifications)
     private val repo = SupabaseStampRepository(
         session, remote, pendingDao, ownDao, cache, sender, scheduler, network, clock,
     )
@@ -299,5 +302,37 @@ class SupabaseStampRepositoryTest {
         )
         val stamps = repo.stamps().first { it.isNotEmpty() }
         assertEquals(listOf(placeId), stamps.map { it.placeId })
+    }
+
+    // ---- notification center: one event, only for a confirmed stamp
+
+    @Test
+    fun stampedAnswer_postsStampConfirmedOnce() = runTest {
+        remote.outcome = VerifyOutcome.Answer("stamped", null, null)
+        assertEquals(StampResult.Stamped, repo.requestStamp(request()))
+        assertEquals(listOf<NotificationEvent>(NotificationEvent.StampConfirmed(placeId)), notifications.posted)
+    }
+
+    @Test
+    fun queuedStampSentLater_postsStampConfirmedWhenTheServerConfirms() = runTest {
+        network.online = false
+        repo.requestStamp(request())
+        assertTrue(notifications.posted.isEmpty())
+        assertEquals(StampResult.Stamped, sender.sendPending())
+        assertEquals(listOf<NotificationEvent>(NotificationEvent.StampConfirmed(placeId)), notifications.posted)
+    }
+
+    @Test
+    fun alreadyStamped_rejected_expired_andNetworkError_postNothing() = runTest {
+        remote.outcome = VerifyOutcome.Answer("already_stamped", null, null)
+        assertEquals(StampResult.AlreadyStamped, repo.requestStamp(request()))
+        for (reason in StampRejectReason.entries) {
+            remote.outcome = VerifyOutcome.Answer("rejected", reason.wire, null)
+            repo.requestStamp(request())
+        }
+        assertEquals(StampResult.Expired, repo.requestStamp(request(capturedAt = now.minus(Duration.ofMinutes(31)))))
+        remote.outcome = VerifyOutcome.Unreachable
+        repo.requestStamp(request())
+        assertTrue(notifications.posted.isEmpty())
     }
 }

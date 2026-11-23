@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>KELANA – Pengaturan notifikasi</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#24458F}a:hover{color:#1B3671}
+</style>
+</helmet>
+<div style="width: 390px; height: 1360px; position: relative; overflow: hidden; box-sizing: border-box; background: #FFFCF6; color: #243047; font-family: 'Plus Jakarta Sans', system-ui, sans-serif; font-variant-numeric: tabular-nums">
+
+<div style="padding: 12px 12px 0; display: flex; align-items: center; gap: 4px"><a href="Notifikasi.dc.html" aria-label="Kembali" style="width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; color: #243047"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"></path></svg></a><span style="font-size: 16px; font-weight: 700">Pengaturan notifikasi</span><span style="flex: 1 1 auto"></span></div>
+<section style="padding: 10px 20px 0">
+<h2 style="margin: 0; font-size: 13px; font-weight: 800; letter-spacing: 0.6px; color: #566072">KABARI SAYA SOAL</h2>
+<label for="n1" style="display: flex; gap: 14px; align-items: flex-start; padding: 14px 0; border-top: 1px solid #E7E0D2; cursor: pointer">
+<span style="flex: 1 1 auto; display: flex; flex-direction: column; gap: 3px"><span style="font-size: 15px; font-weight: 700">Info resmi berubah</span><span style="font-size: 13px; line-height: 18px; color: #566072">Jam, harga, hari tutup, atau jadwal pertunjukan di tempat yang ada di rencanamu.</span><span style="font-size: 11px; font-weight: 700; color: #35745A">Disarankan tetap aktif</span></span>
+<span style="position: relative; flex: 0 0 auto; width: 46px; height: 28px; margin-top: 2px"><input id="n1" type="checkbox" role="switch" checked="" style="appearance: none; -webkit-appearance: none; margin: 0; width: 46px; height: 28px; border-radius: 999px; background: #24458F; cursor: pointer"><span aria-hidden="true" style="position: absolute; top: 3px; left: 22px; width: 22px; height: 22px; border-radius: 999px; background: #FFFFFF; box-shadow: 0 1px 2px rgba(0,0,0,0.25); pointer-events: none"></span></span>
+</label>
+<label for="n2" style="display: flex; gap: 14px; align-items: flex-start; padding: 14px 0; border-top: 1px solid #E7E0D2; cursor: pointer">
+<span style="flex: 1 1 auto; display: flex; flex-direction: column; gap: 3px"><span style="font-size: 15px; font-weight: 700">Tiket pertunjukan</span><span style="font-size: 13px; line-height: 18px; color: #566072">Pengingat H-3 untuk pertunjukan yang tiketnya perlu dibeli lebih dulu.</span></span>
+<span style="position: relative; flex: 0 0 auto; width: 46px; height: 28px; margin-top: 2px"><input id="n2" type="checkbox" role="switch" checked="" style="appearance: none; -webkit-appearance: none; margin: 0; width: 46px; height: 28px; border-radius: 999px; background: #24458F; cursor: pointer"><span aria-hidden="true" style="position: absolute; top: 3px; left: 22px; width: 22px; height: 22px; border-radius: 999px; background: #FFFFFF; box-shadow: 0 1px 2px rgba(0,0,0,0.25); pointer-events: none"></span></span>
+</label>
+<label for="n3" style="display: flex; gap: 14px; align-items: flex-start; padding: 14px 0; border-top: 1px solid #E7E0D2; cursor: pointer">
+<span style="flex: 1 1 auto; display: flex; flex-direction: column; gap: 3px"><span style="font-size: 15px; font-weight: 700">Rencana besok</span><span style="font-size: 13px; line-height: 18px; color: #566072">Ringkasan urutan tempat, pukul 17.00 sehari sebelumnya.</span></span>
+<span style="position: relative; flex: 0 0 auto; width: 46px; height: 28px; margin-top: 2px"><input id="n3" type="checkbox" role="switch" checked="" style="appearance: none; -webkit-appearance: none; margin: 0; width: 46px; height: 28px; border-radius: 999px; background: #24458F; cursor: pointer"><span aria-hidden="true" style="position: absolute; top: 3px; left: 22px; width: 22px; height: 22px; border-radius: 999px; background: #FFFFFF; box-shadow: 0 1px 2px rgba(0,0,0,0.25); pointer-events: none"></span></span>
+</label>
+<label for="n4" style="display: flex; gap: 14px; align-items: flex-start; padding: 14px 0; border-top: 1px solid #E7E0D2; cursor: pointer">
+<span style="flex: 1 1 auto; display: flex; flex-direction: column; gap: 3px"><span style="font-size: 15px; font-weight: 700">Waktunya berangkat</span><span style="font-size: 13px; line-height: 18px; color: #566072">Dihitung dari jadwal pertunjukan dan waktu tempuh.</span></span>
+<span style="position: relative; flex: 0 0 auto; width: 46px; height: 28px; margin-top: 2px"><input id="n4" type="checkbox" role="switch" checked="" style="appearance: none; -webkit-appearance: none; margin: 0; width: 46px; height: 28px; border-radius: 999px; background: #24458F; cursor: pointer"><span aria-hidden="true" style="position: absolute; top: 3px; left: 22px; width: 22px; height: 22px; border-radius: 999px; background: #FFFFFF; box-shadow: 0 1px 2px rgba(0,0,0,0.25); pointer-events: none"></span></span>
+</label>
+<label for="n5" style="display: flex; gap: 14px; align-items: flex-start; padding: 14px 0; border-top: 1px solid #E7E0D2; cursor: pointer">
+<span style="flex: 1 1 auto; display: flex; flex-direction: column; gap: 3px"><span style="font-size: 15px; font-weight: 700">Tata krama tempat</span><span style="font-size: 13px; line-height: 18px; color: #566072">Aturan pakaian dan foto dari pengelola, sebelum kamu masuk.</span></span>
+<span style="position: relative; flex: 0 0 auto; width: 46px; height: 28px; margin-top: 2px"><input id="n5" type="checkbox" role="switch" checked="" style="appearance: none; -webkit-appearance: none; margin: 0; width: 46px; height: 28px; border-radius: 999px; background: #24458F; cursor: pointer"><span aria-hidden="true" style="position: absolute; top: 3px; left: 22px; width: 22px; height: 22px; border-radius: 999px; background: #FFFFFF; box-shadow: 0 1px 2px rgba(0,0,0,0.25); pointer-events: none"></span></span>
+</label>
+<label for="n6" style="display: flex; gap: 14px; align-items: flex-start; padding: 14px 0; border-top: 1px solid #E7E0D2; cursor: pointer">
+<span style="flex: 1 1 auto; display: flex; flex-direction: column; gap: 3px"><span style="font-size: 15px; font-weight: 700">Ambil cap</span><span style="font-size: 13px; line-height: 18px; color: #566072">Saat jadwalmu menunjukkan kamu sedang di tempat wisata.</span></span>
+<span style="position: relative; flex: 0 0 auto; width: 46px; height: 28px; margin-top: 2px"><input id="n6" type="checkbox" role="switch"  style="appearance: none; -webkit-appearance: none; margin: 0; width: 46px; height: 28px; border-radius: 999px; background: #C8CDD6; cursor: pointer"><span aria-hidden="true" style="position: absolute; top: 3px; left: 3px; width: 22px; height: 22px; border-radius: 999px; background: #FFFFFF; box-shadow: 0 1px 2px rgba(0,0,0,0.25); pointer-events: none"></span></span>
+</label>
+<label for="n7" style="display: flex; gap: 14px; align-items: flex-start; padding: 14px 0; border-top: 1px solid #E7E0D2; cursor: pointer">
+<span style="flex: 1 1 auto; display: flex; flex-direction: column; gap: 3px"><span style="font-size: 15px; font-weight: 700">Postcard dan video</span><span style="font-size: 13px; line-height: 18px; color: #566072">Ajakan membuat postcard di malam hari perjalanan.</span></span>
+<span style="position: relative; flex: 0 0 auto; width: 46px; height: 28px; margin-top: 2px"><input id="n7" type="checkbox" role="switch"  style="appearance: none; -webkit-appearance: none; margin: 0; width: 46px; height: 28px; border-radius: 999px; background: #C8CDD6; cursor: pointer"><span aria-hidden="true" style="position: absolute; top: 3px; left: 3px; width: 22px; height: 22px; border-radius: 999px; background: #FFFFFF; box-shadow: 0 1px 2px rgba(0,0,0,0.25); pointer-events: none"></span></span>
+</label>
+</section>
+<section style="padding: 20px 20px 0">
+<h2 style="margin: 0; font-size: 13px; font-weight: 800; letter-spacing: 0.6px; color: #566072">KIRIM LEWAT</h2>
+<label for="c1" style="display: flex; gap: 14px; align-items: flex-start; padding: 14px 0; border-top: 1px solid #E7E0D2; cursor: pointer">
+<span style="flex: 1 1 auto; display: flex; flex-direction: column; gap: 3px"><span style="font-size: 15px; font-weight: 700">Notifikasi browser</span><span style="font-size: 13px; line-height: 18px; color: #566072">Di iPhone, tambahkan KELANA ke Layar Utama agar notifikasi bisa muncul.</span></span>
+<span style="position: relative; flex: 0 0 auto; width: 46px; height: 28px; margin-top: 2px"><input id="c1" type="checkbox" role="switch" checked="" style="appearance: none; -webkit-appearance: none; margin: 0; width: 46px; height: 28px; border-radius: 999px; background: #24458F; cursor: pointer"><span aria-hidden="true" style="position: absolute; top: 3px; left: 22px; width: 22px; height: 22px; border-radius: 999px; background: #FFFFFF; box-shadow: 0 1px 2px rgba(0,0,0,0.25); pointer-events: none"></span></span>
+</label>
+<label for="c2" style="display: flex; gap: 14px; align-items: flex-start; padding: 14px 0; border-top: 1px solid #E7E0D2; cursor: pointer">
+<span style="flex: 1 1 auto; display: flex; flex-direction: column; gap: 3px"><span style="font-size: 15px; font-weight: 700">Email</span><span style="font-size: 13px; line-height: 18px; color: #566072"><span style="display: inline-block; padding: 0 6px; border: 1px dashed #C9A14A; border-radius: 4px; background: #FFF6DC; color: #8A5A00; font-weight: 600; font-size: 0.92em; line-height: 1.5">[ISI] alamat email</span></span></span>
+<span style="position: relative; flex: 0 0 auto; width: 46px; height: 28px; margin-top: 2px"><input id="c2" type="checkbox" role="switch"  style="appearance: none; -webkit-appearance: none; margin: 0; width: 46px; height: 28px; border-radius: 999px; background: #C8CDD6; cursor: pointer"><span aria-hidden="true" style="position: absolute; top: 3px; left: 3px; width: 22px; height: 22px; border-radius: 999px; background: #FFFFFF; box-shadow: 0 1px 2px rgba(0,0,0,0.25); pointer-events: none"></span></span>
+</label>
+<div style="display: flex; gap: 12px; align-items: center; padding: 14px 0; border-top: 1px solid #E7E0D2"><span style="flex: 1 1 auto; display: flex; flex-direction: column; gap: 3px"><span style="font-size: 15px; font-weight: 700">Kalender</span><span style="font-size: 13px; line-height: 18px; color: #566072">Masukkan setiap kunjungan dan pertunjukan ke Google Calendar atau Kalender iPhone.</span></span><a href="#" style="flex: 0 0 auto; height: 48px; padding: 0 16px; box-sizing: border-box; border-radius: 12px; background: #DCE6F7; color: #1B3671; border: 1px solid #DCE6F7; display: flex; align-items: center; justify-content: center; gap: 6px; text-decoration: none; font-size: 15px; font-weight: 700"><svg aria-hidden="true" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="#1B3671" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15.5" rx="2.5"></rect><path d="M3.5 10h17M8 3v4M16 3v4"></path></svg>Tambahkan</a></div>
+</section>
+<section style="padding: 20px 20px 0">
+<h2 style="margin: 0; font-size: 13px; font-weight: 800; letter-spacing: 0.6px; color: #566072">JAM TENANG</h2>
+<label for="q1" style="display: flex; gap: 14px; align-items: flex-start; padding: 14px 0; border-top: 1px solid #E7E0D2; cursor: pointer">
+<span style="flex: 1 1 auto; display: flex; flex-direction: column; gap: 3px"><span style="font-size: 15px; font-weight: 700">Jangan kirim pukul 21.00–06.00</span><span style="font-size: 13px; line-height: 18px; color: #566072">Info resmi yang berubah di hari perjalanan tetap dikirim.</span></span>
+<span style="position: relative; flex: 0 0 auto; width: 46px; height: 28px; margin-top: 2px"><input id="q1" type="checkbox" role="switch" checked="" style="appearance: none; -webkit-appearance: none; margin: 0; width: 46px; height: 28px; border-radius: 999px; background: #24458F; cursor: pointer"><span aria-hidden="true" style="position: absolute; top: 3px; left: 22px; width: 22px; height: 22px; border-radius: 999px; background: #FFFFFF; box-shadow: 0 1px 2px rgba(0,0,0,0.25); pointer-events: none"></span></span>
+</label>
+<p style="margin: 6px 0 0; font-size: 12px; line-height: 17px; color: #566072">Paling banyak <span style="display: inline-block; padding: 0 6px; border: 1px dashed #C9A14A; border-radius: 4px; background: #FFF6DC; color: #8A5A00; font-weight: 600; font-size: 0.92em; line-height: 1.5">[ISI]</span> notifikasi per hari. Notifikasi dikirim sesuai zona waktu tempat wisata.</p>
+</section>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":390,"height":1360}}'>
+class Component extends DCLogic {
+renderVals() {
+return {};
+}
+}
+</script>
+</body>
+</html>

@@ -5,6 +5,8 @@ import id.kelana.core.database.dao.PendingStampDao
 import id.kelana.core.database.entity.OwnStampEntity
 import id.kelana.core.database.entity.PendingStampEntity
 import id.kelana.core.model.STAMP_QUEUE_EXPIRY_MINUTES
+import id.kelana.core.model.NotificationEvent
+import id.kelana.core.model.NotificationRepository
 import id.kelana.core.model.SessionRepository
 import id.kelana.core.model.SessionState
 import id.kelana.core.model.StampRejectReason
@@ -77,6 +79,7 @@ class StampSender @Inject constructor(
     private val integrity: IntegrityTokenProvider,
     private val session: SessionRepository,
     private val clock: Clock,
+    private val notifications: NotificationRepository,
 ) {
     private val mutex = Mutex()
 
@@ -129,6 +132,7 @@ class StampSender @Inject constructor(
         when (answer.status) {
             "stamped" -> {
                 cache.recordConfirmed(userId, placeId)
+                announceStamp(placeId)
                 StampResult.Stamped
             }
             "already_stamped" -> {
@@ -140,6 +144,16 @@ class StampSender @Inject constructor(
                 distanceM = if (answer.reason == StampRejectReason.TooFar.wire) answer.distanceM else null,
             )
         }
+
+    /** Tells the notification center. Only called for a confirmed stamp; a failure here never changes the stamp result. */
+    private suspend fun announceStamp(placeId: String) {
+        try {
+            notifications.post(NotificationEvent.StampConfirmed(placeId))
+        } catch (e: CancellationException) {
+            throw e
+        } catch (_: Exception) {
+        }
+    }
 
     private suspend fun drop() = withContext(NonCancellable) { pendingDao.clear() }
 
