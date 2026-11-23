@@ -76,4 +76,41 @@
     <string name="postcard_card_headline">A piece of Jogja.</string>
     <string name="postcard_card_quote">“%1$s”</string>
     <string name="postcard_card_tagline">YOUR CULTURAL JOURNEY</string>
+
+    <!-- Tulis postcard: button to Unggah video -->
+    <string name="postcard_video_button">Video</string>
+
+    <!-- Unggah video (7.3) -->
+    <string name="video_title">Video review</string>
+    <string name="video_pick_title">Choose a video</string>
+    <string name="video_pick_hint">Tap to pick from your gallery</string>
+    <string name="video_pick_cd">Choose a video to upload</string>
+    <string name="video_chosen_cd">Video chosen. Tap to choose another video</string>
+    <string name="video_reading">Reading the video…</string>
+    <string name="video_recorded_at">Recorded at %1$s</string>
+    <string name="video_duration_cd">Length %1$s</string>
+    <string name="video_max_hint">At most %1$d seconds. Vertical video looks best.</string>
+    <string name="video_too_long">This video is %1$s long, over the %2$d second limit. Choose a shorter one.</string>
+    <string name="video_unreadable">This video cannot be opened. Try another one.</string>
+    <string name="video_change">Change video</string>
+    <string name="video_remove">Remove video</string>
+    <string name="video_caption_label">Caption</string>
+    <string name="video_caption_hint">The wayang collection room was the best</string>
+    <string name="video_before_title">Before you upload</string>
+    <string name="video_consent_area">I recorded in an area the site managers allow recording.</string>
+    <string name="video_consent_people">Performers or other visitors in the video do not mind appearing.</string>
+    <string name="video_consent_ceremony">This video does not record a traditional ceremony or worship.</string>
+    <string name="video_upload">Upload video</string>
+    <string name="video_uploading">Uploading… %1$d%%</string>
+    <string name="video_retry">Try again</string>
+    <string name="video_error_network">The video was not uploaded. Your signal seems to be gone. Check it, then try again.</string>
+    <string name="video_error_too_long">The video was refused because it is too long. Choose a shorter one.</string>
+    <string name="video_error_not_configured">Video upload is not available in this version of the app.</string>
+    <string name="video_guest_title">Sign in to upload a video</string>
+    <string name="video_guest_body">Only visitors with an account can upload a video.</string>
+    <string name="video_needsstamp_title">Get a stamp first at %1$s</string>
+    <string name="video_needsstamp_body">You can only upload a video from a place you have stamped.</string>
+    <string name="video_unknown_title">Place not found</string>
+    <string name="video_unknown_body">Open this again from Write a postcard, then choose Video.</string>
+    <string name="video_unknown_action">Back</string>
 </resources>
