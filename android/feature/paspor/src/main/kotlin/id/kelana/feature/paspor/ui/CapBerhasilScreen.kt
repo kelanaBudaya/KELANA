@@ -63,7 +63,7 @@ internal fun CapBerhasilScreen(
     val state by viewModel.uiState.collectAsState()
     CapBerhasilContent(
         state = state,
-        onPostcard = { navigate(PostcardRoute) },
+        onPostcard = { navigate(PostcardRoute(state.place?.id)) },
         onPassport = { onReplace(PasporRoute) },
         modifier = modifier,
     )

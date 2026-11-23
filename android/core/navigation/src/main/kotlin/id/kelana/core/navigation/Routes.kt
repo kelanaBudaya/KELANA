@@ -63,7 +63,11 @@ import kotlinx.serialization.Serializable
 // Other flows, reached from within the app.
 @Serializable data object PetaRoute
 @Serializable data object PasporRoute
-@Serializable data object PostcardRoute
+/**
+ * Tulis postcard (7.1). [placeId] null means "pick one of your stamped places" (from Cerita or Paspor);
+ * screens that know the place (Detail tempat, Cap berhasil) pass it.
+ */
+@Serializable data class PostcardRoute(val placeId: String? = null)
 @Serializable data object NotifikasiRoute
 @Serializable data object TiketRoute
 

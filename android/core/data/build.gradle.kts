@@ -42,6 +42,7 @@ dependencies {
     implementation(libs.supabase.auth)
     implementation(libs.supabase.postgrest)
     implementation(libs.supabase.functions)
+    implementation(libs.supabase.storage) // postcard photos (bucket `postcards`)
     implementation(libs.androidx.work.runtime)
     implementation(libs.play.integrity)
     implementation(libs.ktor.client.okhttp)
