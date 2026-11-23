@@ -1,6 +1,6 @@
 begin;
 create extension if not exists pgtap with schema extensions;
-select plan(35);
+select plan(38);
 
 -- ---- fixtures (as postgres) -------------------------------------------------
 -- A (b001) holds a stamp for Tamansari only. B (b002) holds none.
@@ -29,6 +29,15 @@ insert into storage.objects (bucket_id, name, owner)
 values ('postcards',     '00000000-0000-0000-0000-00000000b001/' || pg_temp.pid('tamansari') || '/seed.jpg', '00000000-0000-0000-0000-00000000b001'),
        ('postcards',     '00000000-0000-0000-0000-00000000b001/' || pg_temp.pid('tamansari') || '/todelete.jpg', '00000000-0000-0000-0000-00000000b001'),
        ('report-photos', '00000000-0000-0000-0000-00000000b001/seed.png', '00000000-0000-0000-0000-00000000b001');
+-- seed.jpg belongs to a public postcard, private.jpg to a private one, loose.jpg to no postcard (failed insert).
+insert into storage.objects (bucket_id, name, owner)
+values ('postcards', '00000000-0000-0000-0000-00000000b001/' || pg_temp.pid('tamansari') || '/private.jpg', '00000000-0000-0000-0000-00000000b001'),
+       ('postcards', '00000000-0000-0000-0000-00000000b001/' || pg_temp.pid('tamansari') || '/loose.jpg', '00000000-0000-0000-0000-00000000b001');
+insert into public.postcards (user_id, place_id, message, photo_path, is_public)
+values ('00000000-0000-0000-0000-00000000b001', pg_temp.pid('tamansari')::uuid, 'publik',
+        '00000000-0000-0000-0000-00000000b001/' || pg_temp.pid('tamansari') || '/seed.jpg', true),
+       ('00000000-0000-0000-0000-00000000b001', pg_temp.pid('tamansari')::uuid, 'privat',
+        '00000000-0000-0000-0000-00000000b001/' || pg_temp.pid('tamansari') || '/private.jpg', false);
 
 -- ---- buckets ------------------------------------------------------------------
 select is((select count(*)::int from storage.buckets where id in ('postcards','report-photos')), 2, 'both buckets exist');
@@ -70,6 +79,10 @@ select throws_ok($$insert into storage.objects (bucket_id, name, owner) values (
 -- ---- postcards: read, update, delete -------------------------------------------
 select is((select count(*)::int from storage.objects where bucket_id = 'postcards' and name like '%/seed.jpg'), 1,
           'postcards: another logged-in user can read A''s file');
+select is((select count(*)::int from storage.objects where bucket_id = 'postcards' and name like '%/private.jpg'), 0,
+          'postcards: another user cannot read the photo of a private postcard');
+select is((select count(*)::int from storage.objects where bucket_id = 'postcards' and name like '%/loose.jpg'), 0,
+          'postcards: another user cannot read a file no public postcard points at');
 select is(pg_temp.affected($$update storage.objects set metadata = '{"x":1}' where bucket_id = 'postcards' and name like '%/seed.jpg'$$), 0,
           'postcards: another user cannot update A''s file');
 select is(pg_temp.affected($$delete from storage.objects where bucket_id = 'postcards' and name like '%/seed.jpg'$$), 0,
@@ -85,6 +98,8 @@ select throws_ok($$update storage.objects set name = '00000000-0000-0000-0000-00
   'postcards: owner cannot move a file into another user''s folder');
 select is(pg_temp.affected($$delete from storage.objects where bucket_id = 'postcards' and name like '%/todelete.jpg'$$), 1,
           'postcards: owner can delete own file');
+select is((select count(*)::int from storage.objects where bucket_id = 'postcards' and name similar to '%/(private|loose).jpg'), 2,
+          'postcards: owner reads own private and unlinked files');
 
 -- ---- report-photos ---------------------------------------------------------------
 select lives_ok($$insert into storage.objects (bucket_id, name, owner) values ('report-photos',
