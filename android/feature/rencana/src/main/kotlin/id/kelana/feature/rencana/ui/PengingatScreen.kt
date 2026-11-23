@@ -6,7 +6,7 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
 import android.provider.CalendarContract
-import androidx.compose.foundation.Image
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
@@ -16,10 +16,12 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Checkbox
 import androidx.compose.material3.CheckboxDefaults
 import androidx.compose.material3.MaterialTheme
@@ -33,9 +35,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -45,7 +45,8 @@ import androidx.compose.ui.unit.sp
 import androidx.core.content.ContextCompat
 import androidx.hilt.navigation.compose.hiltViewModel
 import id.kelana.core.designsystem.component.KelanaButton
-import id.kelana.core.designsystem.component.KelanaButtonVariant
+import id.kelana.core.designsystem.theme.KelanaShapes
+import id.kelana.core.designsystem.theme.KelanaSizes
 import id.kelana.core.designsystem.theme.KelanaTheme
 import id.kelana.core.model.ReminderTiming
 import id.kelana.feature.rencana.R
@@ -112,9 +113,10 @@ internal fun PengingatContent(
                 .clip(RoundedCornerShape(28.dp))
                 .background(colors.background),
         ) {
-            // PROVISIONAL art: the artifact draws two marks on a 170 dp cream panel.
             Box(Modifier.fillMaxWidth().height(170.dp).background(colors.creamYellow)) {
-                Image(painterResource(R.drawable.rencana_cat_pentas), contentDescription = null, modifier = Modifier.align(Alignment.Center).size(88.dp).rotate(-8f))
+                ArtBlob(R.drawable.rencana_pengingat_blob)
+                ArtMark(R.drawable.rencana_calendar, 90, 80, 36, -8f)
+                ArtMark(R.drawable.rencana_cat_pentas, 90, 200, 40, 6f)
             }
             Column(Modifier.padding(start = 22.dp, end = 22.dp, top = 20.dp, bottom = 22.dp)) {
                 Text(
@@ -176,12 +178,14 @@ internal fun PengingatContent(
                     }
                 }
                 Row(Modifier.padding(top = 18.dp), horizontalArrangement = Arrangement.spacedBy(10.dp)) {
-                    KelanaButton(
-                        text = stringResource(R.string.rencana_cancel),
+                    // Batal is outlined in primary blue (1.5 dp, 16/800) as in the artifact; the shared Outline variant is grey.
+                    OutlinedButton(
                         onClick = onCancel,
-                        variant = KelanaButtonVariant.Outline,
-                        modifier = Modifier.weight(1f),
-                    )
+                        modifier = Modifier.weight(1f).heightIn(min = KelanaSizes.buttonHeight),
+                        shape = KelanaShapes.button,
+                        border = BorderStroke(1.5.dp, colors.primary),
+                        colors = ButtonDefaults.outlinedButtonColors(contentColor = colors.primary),
+                    ) { Text(stringResource(R.string.rencana_cancel), style = MaterialTheme.typography.labelLarge) }
                     KelanaButton(
                         text = stringResource(R.string.rencana_save),
                         onClick = onSave,

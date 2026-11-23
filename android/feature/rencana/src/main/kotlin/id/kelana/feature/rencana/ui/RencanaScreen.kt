@@ -34,6 +34,7 @@ import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.graphics.PathEffect
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -57,6 +58,7 @@ import id.kelana.core.model.PlanStop
 import id.kelana.core.model.ReminderChoice
 import id.kelana.core.model.ReminderTiming
 import id.kelana.core.model.TravelGroup
+import id.kelana.core.model.TravelMode
 import id.kelana.core.navigation.DetailPentasRoute
 import id.kelana.core.navigation.PasporRoute
 import id.kelana.core.navigation.PengingatRoute
@@ -150,7 +152,7 @@ internal fun RencanaContent(
                                 minAdvice,
                                 maxAdvice,
                             ),
-                            iconRes = R.drawable.rencana_tip,
+                            iconRes = R.drawable.rencana_need_stairs,
                             tone = RencanaTone.Peach,
                             modifier = Modifier.padding(start = 16.dp, end = 16.dp, top = 16.dp),
                         )
@@ -288,11 +290,10 @@ private fun RouteCard(count: Int, isToday: Boolean, onOpen: () -> Unit) {
             .background(colors.primary)
             .clickable(role = Role.Button, onClick = onOpen),
     ) {
-        Image(
-            painter = painterResource(R.drawable.rencana_veh_walk),
-            contentDescription = null,
-            modifier = Modifier.align(Alignment.TopEnd).padding(top = 18.dp, end = 30.dp).size(56.dp).rotate(8f),
-        )
+        ArtBlob(R.drawable.rencana_route_blob)
+        ArtMark(R.drawable.rencana_art_route, 62, 268, 18, 8f)
+        ArtMark(R.drawable.rencana_cat_candi, 54, 212, 80, -4f)
+        ArtMark(R.drawable.rencana_veh_walk, 30, 168, 40, 200f)
         Column(Modifier.align(Alignment.BottomStart).padding(start = 18.dp, bottom = 18.dp).width(180.dp)) {
             Text(
                 stringResource(if (isToday) R.string.rencana_route_label_today else R.string.rencana_route_label_upcoming),
@@ -355,7 +356,17 @@ private fun Timeline(
                     horizontalArrangement = Arrangement.spacedBy(12.dp),
                 ) {
                     Box(Modifier.width(34.dp).background(colors.background), contentAlignment = Alignment.Center) {
-                        Image(painterResource(R.drawable.rencana_veh_walk), contentDescription = null, modifier = Modifier.size(16.dp))
+                        Image(
+                            painter = painterResource(
+                                when (travel.mode) {
+                                    TravelMode.Walk -> R.drawable.rencana_veh_walk
+                                    TravelMode.Transit -> R.drawable.rencana_veh_bus
+                                    TravelMode.Car -> R.drawable.rencana_veh_car
+                                },
+                            ),
+                            contentDescription = null,
+                            modifier = Modifier.size(20.dp).then(if (travel.mode == TravelMode.Walk) Modifier.rotate(180f) else Modifier),
+                        )
                     }
                     Text(travelText(travel.mode, travel.minutes), style = MaterialTheme.typography.bodySmall, color = colors.muted)
                 }
@@ -470,11 +481,14 @@ private fun StopRow(
                         .clickable(role = Role.Button, onClick = onTakeStamp),
                     contentAlignment = Alignment.Center,
                 ) {
-                    Text(
-                        stringResource(R.string.rencana_take_stamp, stop.capCode),
-                        style = MaterialTheme.typography.titleSmall.copy(fontWeight = FontWeight.ExtraBold),
-                        color = colors.white,
-                    )
+                    Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(6.dp)) {
+                        Image(painterResource(R.drawable.rencana_check), contentDescription = null, modifier = Modifier.size(20.dp))
+                        Text(
+                            stringResource(R.string.rencana_take_stamp, stop.capCode),
+                            style = MaterialTheme.typography.titleSmall.copy(fontWeight = FontWeight.ExtraBold),
+                            color = colors.white,
+                        )
+                    }
                 }
             }
         }
@@ -497,7 +511,6 @@ private fun EmptyPlan(state: RencanaUiState, onStart: () -> Unit, onOpenEvent: (
             style = MaterialTheme.typography.headlineMedium,
             color = colors.ink,
         )
-        // PROVISIONAL art: the artifact scatters four marks over a 280 dp peach panel.
         Box(
             modifier = Modifier
                 .padding(start = 16.dp, end = 16.dp, top = 16.dp)
@@ -506,9 +519,11 @@ private fun EmptyPlan(state: RencanaUiState, onStart: () -> Unit, onOpenEvent: (
                 .clip(RoundedCornerShapeBig)
                 .background(colors.peach),
         ) {
-            Image(painterResource(R.drawable.rencana_calendar), contentDescription = null, modifier = Modifier.align(Alignment.Center).size(96.dp).rotate(-6f))
-            Image(painterResource(R.drawable.rencana_veh_walk), contentDescription = null, modifier = Modifier.align(Alignment.TopEnd).padding(top = 40.dp, end = 40.dp).size(56.dp).rotate(14f))
-            Image(painterResource(R.drawable.rencana_cat_candi), contentDescription = null, modifier = Modifier.align(Alignment.BottomStart).padding(start = 36.dp, bottom = 36.dp).size(64.dp).rotate(-10f))
+            ArtBlob(R.drawable.rencana_kosong_blob)
+            ArtMark(R.drawable.rencana_art_route, 92, 30, 40, -10f)
+            ArtMark(R.drawable.rencana_cat_candi, 96, 146, 74)
+            ArtMark(R.drawable.rencana_art_ticket, 58, 256, 40, 14f)
+            ArtMark(R.drawable.rencana_veh_walk, 46, 256, 180, 170f)
         }
         Text(
             stringResource(R.string.rencana_empty_title),
@@ -563,7 +578,7 @@ private fun TonightCard(occurrence: EventOccurrence, onOpen: (String) -> Unit) {
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.spacedBy(12.dp),
     ) {
-        Image(painterResource(R.drawable.rencana_cat_pentas), contentDescription = null, modifier = Modifier.size(36.dp))
+        Image(painterResource(R.drawable.rencana_cat_pentas), contentDescription = null, modifier = Modifier.size(34.dp))
         Column(Modifier.weight(1f)) {
             Text(
                 stringResource(R.string.rencana_tonight_title, event.title),
@@ -577,7 +592,7 @@ private fun TonightCard(occurrence: EventOccurrence, onOpen: (String) -> Unit) {
             )
             schedule.checkedAt?.let { VerifiedBadge(it, Modifier.padding(top = 2.dp)) }
         }
-        Image(painterResource(R.drawable.rencana_ic_chevron), contentDescription = null, modifier = Modifier.size(18.dp))
+        Image(painterResource(R.drawable.rencana_ic_chevron), contentDescription = null, modifier = Modifier.size(18.dp), colorFilter = ColorFilter.tint(colors.warnTextDeep))
     }
 }
 
@@ -609,9 +624,10 @@ internal fun RencanaOfflineContent(hasPlan: Boolean, onOpenPlan: () -> Unit, onO
                 .clip(KelanaShapes.imagePanel)
                 .background(colors.backgroundWarm),
         ) {
-            // PROVISIONAL art: the artifact draws a blob with scattered marks.
-            Image(painterResource(R.drawable.rencana_info), contentDescription = null, modifier = Modifier.align(Alignment.Center).size(96.dp).rotate(-10f))
-            Image(painterResource(R.drawable.rencana_veh_walk), contentDescription = null, modifier = Modifier.align(Alignment.BottomEnd).padding(end = 60.dp, bottom = 50.dp).size(40.dp).rotate(190f))
+            ArtBlob(R.drawable.rencana_offline_blob)
+            ArtMark(R.drawable.rencana_art_route, 90, 50, 50, -10f)
+            ArtMark(R.drawable.rencana_art_bookmark, 64, 230, 60, 8f)
+            ArtMark(R.drawable.rencana_veh_walk, 40, 170, 180, 190f)
         }
         Text(
             stringResource(R.string.rencana_offline_title),
@@ -629,7 +645,7 @@ internal fun RencanaOfflineContent(hasPlan: Boolean, onOpenPlan: () -> Unit, onO
         )
         Column(Modifier.padding(start = 20.dp, end = 20.dp, top = 16.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
             if (hasPlan) {
-                OfflineLink(R.drawable.rencana_calendar, colors.skyText, stringResource(R.string.rencana_offline_link_plan), stringResource(R.string.rencana_offline_link_plan_hint), onOpenPlan)
+                OfflineLink(R.drawable.rencana_art_route, colors.skyText, stringResource(R.string.rencana_offline_link_plan), stringResource(R.string.rencana_offline_link_plan_hint), onOpenPlan)
             }
             OfflineLink(R.drawable.rencana_check, colors.successSurface, stringResource(R.string.rencana_offline_link_paspor), stringResource(R.string.rencana_offline_link_paspor_hint), onOpenPaspor)
         }
@@ -665,7 +681,7 @@ private fun OfflineLink(art: Int, tile: Color, title: String, hint: String, onCl
             Text(title, style = MaterialTheme.typography.titleMedium, color = colors.ink)
             Text(hint, style = MaterialTheme.typography.bodySmall, color = colors.muted)
         }
-        Image(painterResource(R.drawable.rencana_ic_chevron), contentDescription = null, modifier = Modifier.size(18.dp))
+        Image(painterResource(R.drawable.rencana_ic_chevron), contentDescription = null, modifier = Modifier.size(18.dp), colorFilter = ColorFilter.tint(colors.muted))
     }
 }
 
