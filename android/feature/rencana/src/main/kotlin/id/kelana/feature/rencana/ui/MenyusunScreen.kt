@@ -21,7 +21,6 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.contentDescription
@@ -63,7 +62,6 @@ internal fun MenyusunContent(
     val colors = KelanaTheme.colors
     val labels = stageLabels(state)
     Column(modifier = modifier.fillMaxSize().background(colors.background).statusBarsPadding()) {
-        // PROVISIONAL art: the artifact draws a blob with three large marks.
         Box(
             modifier = Modifier
                 .padding(start = 16.dp, end = 16.dp, top = 80.dp)
@@ -72,9 +70,11 @@ internal fun MenyusunContent(
                 .clip(KelanaShapes.imagePanel)
                 .background(colors.skyText),
         ) {
-            Image(painterResource(R.drawable.rencana_cat_candi), contentDescription = null, modifier = Modifier.align(Alignment.Center).size(80.dp))
-            Image(painterResource(R.drawable.rencana_cat_museum), contentDescription = null, modifier = Modifier.align(Alignment.TopStart).padding(start = 40.dp, top = 40.dp).size(80.dp).rotate(-8f))
-            Image(painterResource(R.drawable.rencana_veh_walk), contentDescription = null, modifier = Modifier.align(Alignment.BottomCenter).padding(bottom = 40.dp).size(36.dp).rotate(190f))
+            ArtBlob(R.drawable.rencana_menyusun_blob)
+            ArtMark(R.drawable.rencana_art_route, 90, 40, 40, -8f)
+            ArtMark(R.drawable.rencana_cat_candi, 80, 150, 120)
+            ArtMark(R.drawable.rencana_cat_museum, 70, 250, 40, 8f)
+            ArtMark(R.drawable.rencana_veh_walk, 36, 110, 220, 190f)
         }
         if (state.outcome == BuildOutcome.NothingFits) {
             Text(

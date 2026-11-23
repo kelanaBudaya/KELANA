@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Converted from docs/design/artifact/TempatTutupIlustratif.dc.html (inline SVG blob, viewBox 0 0 358 220). -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="358dp" android:height="220dp" android:viewportWidth="358" android:viewportHeight="220">
+  <path android:pathData="M28.64,92.4 C21.48,26.4 121.72,4.4 196.9,17.6 C286.4,30.8 347.26,66 332.94,127.6 C322.2,189.2 221.96,215.6 143.2,202.4 C57.28,189.2 35.8,154 28.64,92.4 Z" android:fillColor="#FFF8CDB3" />
+  <path android:pathData="M60,33 L61.96,38.04 L67,40 L61.96,41.96 L60,47 L58.04,41.96 L53,40 L58.04,38.04 Z" android:fillColor="#FFE65D22" />
+  <path android:pathData="M320,174 L321.68,178.32 L326,180 L321.68,181.68 L320,186 L318.32,181.68 L314,180 L318.32,178.32 Z" android:fillColor="#FF24458F" />
+</vector>

@@ -16,6 +16,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.navigationBarsPadding
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -31,6 +32,15 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.draw.drawBehind
+import androidx.compose.ui.draw.rotate
+import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.graphics.StrokeCap
+import androidx.compose.ui.graphics.StrokeJoin
+import androidx.annotation.DrawableRes
+import androidx.compose.ui.graphics.drawscope.Stroke
+import androidx.compose.ui.graphics.Path
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -42,7 +52,6 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
-import id.kelana.core.designsystem.component.KelanaButton
 import id.kelana.core.designsystem.theme.KelanaShapes
 import id.kelana.core.designsystem.theme.KelanaSizes
 import id.kelana.core.designsystem.theme.KelanaTheme
@@ -80,7 +89,8 @@ internal fun PetaRuteContent(
     onOpenMaps: (PlanStop) -> Unit,
 ) {
     val colors = KelanaTheme.colors
-    Box(Modifier.fillMaxSize().background(colors.skyText)) {
+    Box(Modifier.fillMaxSize().background(Color(0xFFDCEAF7))) {
+        Image(painterResource(R.drawable.rencana_map_base), contentDescription = null, modifier = Modifier.fillMaxSize(), contentScale = ContentScale.Crop)
         SchematicMap(state, Modifier.fillMaxSize())
         Text(
             stringResource(R.string.rencana_map_placeholder),
@@ -104,7 +114,7 @@ internal fun PetaRuteContent(
                 .clickable(role = Role.Button, onClick = onBack),
             contentAlignment = Alignment.Center,
         ) {
-            Image(painterResource(R.drawable.rencana_ic_back), contentDescription = stringResource(R.string.rencana_back), modifier = Modifier.size(24.dp))
+            Image(painterResource(R.drawable.rencana_ic_back), contentDescription = stringResource(R.string.rencana_back), modifier = Modifier.size(20.dp))
         }
         val next = state.next
         Column(
@@ -143,7 +153,7 @@ internal fun PetaRuteContent(
                     horizontalArrangement = Arrangement.spacedBy(12.dp),
                 ) {
                     Box(Modifier.size(56.dp).clip(KelanaShapes.card).background(colors.skyText), contentAlignment = Alignment.Center) {
-                        Image(painterResource(categoryArt(next.category, next.isEvent)), contentDescription = null, modifier = Modifier.size(40.dp))
+                        Image(painterResource(categoryArt(next.category, next.isEvent)), contentDescription = null, modifier = Modifier.size(38.dp))
                     }
                     Column(Modifier.weight(1f)) {
                         Text(next.eventTitle ?: next.placeName, style = MaterialTheme.typography.titleMedium.copy(fontSize = 17.sp), color = colors.ink)
@@ -157,11 +167,20 @@ internal fun PetaRuteContent(
                         }
                     }
                 }
-                KelanaButton(
-                    text = stringResource(R.string.rencana_map_open_app),
-                    onClick = { onOpenMaps(next) },
-                    modifier = Modifier.fillMaxWidth().padding(top = 14.dp),
-                )
+                Row(
+                    modifier = Modifier
+                        .padding(top = 14.dp)
+                        .fillMaxWidth()
+                        .heightIn(min = KelanaSizes.buttonHeight)
+                        .clip(KelanaShapes.button)
+                        .background(colors.primary)
+                        .clickable(role = Role.Button) { onOpenMaps(next) },
+                    horizontalArrangement = Arrangement.spacedBy(8.dp, Alignment.CenterHorizontally),
+                    verticalAlignment = Alignment.CenterVertically,
+                ) {
+                    Image(painterResource(R.drawable.rencana_ic_share), contentDescription = null, modifier = Modifier.size(18.dp))
+                    Text(stringResource(R.string.rencana_map_open_app), style = MaterialTheme.typography.labelLarge, color = colors.white)
+                }
             }
         }
     }
@@ -176,21 +195,41 @@ private fun arrivalLine(stop: PlanStop): String? {
     return stringResource(R.string.rencana_map_arrive_before, formatClock(schedule.value.start.minusMinutes(advice.toLong())))
 }
 
-/** Numbered markers placed by relative position of the stops' coordinates. */
+/**
+ * Pins placed by the relative position of the stops' coordinates (schematic, not a real map), joined by the route line
+ * in stop order (orange, 4 dp, round, as in the artifact).
+ */
 @Composable
 private fun SchematicMap(state: PetaRuteUiState, modifier: Modifier) {
     val colors = KelanaTheme.colors
     val stops = state.stops
     if (stops.isEmpty()) return
+    val routeColor = colors.accentOrange
     BoxWithConstraints(modifier.padding(horizontal = 48.dp, vertical = 120.dp)) {
         val minLat = stops.minOf { it.lat }
         val maxLat = stops.maxOf { it.lat }
         val minLng = stops.minOf { it.lng }
         val maxLng = stops.maxOf { it.lng }
         val nextIndex = state.next?.let { n -> stops.indexOfFirst { it.key == n.key } } ?: -1
-        stops.forEachIndexed { index, stop ->
+        val fractions = stops.map { stop ->
             val fx = if (maxLng > minLng) ((stop.lng - minLng) / (maxLng - minLng)).toFloat() else 0.5f
             val fy = if (maxLat > minLat) ((maxLat - stop.lat) / (maxLat - minLat)).toFloat() else 0.5f
+            fx to fy
+        }
+        Box(
+            Modifier.fillMaxSize().drawBehind {
+                if (fractions.size < 2) return@drawBehind
+                val path = Path()
+                fractions.forEachIndexed { i, (fx, fy) ->
+                    val x = (size.width - MarkerWidth.toPx()) * fx + MarkerWidth.toPx() / 2
+                    val y = (size.height - MarkerHeight.toPx()) * fy + PinSize.toPx() / 2
+                    if (i == 0) path.moveTo(x, y) else path.lineTo(x, y)
+                }
+                drawPath(path, routeColor, style = Stroke(width = 4.dp.toPx(), cap = StrokeCap.Round, join = StrokeJoin.Round))
+            },
+        )
+        stops.forEachIndexed { index, stop ->
+            val (fx, fy) = fractions[index]
             val color = when {
                 nextIndex >= 0 && index < nextIndex -> colors.successText
                 index == nextIndex -> colors.accentOrange
@@ -199,6 +238,7 @@ private fun SchematicMap(state: PetaRuteUiState, modifier: Modifier) {
             Marker(
                 number = index + 1,
                 label = stop.placeName,
+                art = categoryArt(stop.category, stop.isEvent),
                 color = color,
                 modifier = Modifier.offset(x = (maxWidth - MarkerWidth) * fx, y = (maxHeight - MarkerHeight) * fy),
             )
@@ -207,22 +247,30 @@ private fun SchematicMap(state: PetaRuteUiState, modifier: Modifier) {
 }
 
 private val MarkerWidth: Dp = 96.dp
-private val MarkerHeight: Dp = 68.dp
+private val MarkerHeight: Dp = 72.dp
+private val PinSize: Dp = 44.dp
 
+/** Teardrop pin (44 dp, 3 dp border, corner 4 dp at the point) with the category icon, and a "n Name" pill below. */
 @Composable
-private fun Marker(number: Int, label: String, color: Color, modifier: Modifier) {
+private fun Marker(number: Int, label: String, @DrawableRes art: Int, color: Color, modifier: Modifier) {
     val colors = KelanaTheme.colors
+    val pin = RoundedCornerShape(topStart = 22.dp, topEnd = 22.dp, bottomEnd = 22.dp, bottomStart = 4.dp)
     Column(modifier.size(width = MarkerWidth, height = MarkerHeight), horizontalAlignment = Alignment.CenterHorizontally) {
         Box(
-            modifier = Modifier.size(40.dp).clip(CircleShape).background(colors.surface).border(3.dp, color, CircleShape),
+            modifier = Modifier
+                .size(PinSize)
+                .rotate(-45f)
+                .clip(pin)
+                .background(colors.surface)
+                .border(3.dp, color, pin),
             contentAlignment = Alignment.Center,
         ) {
-            Text(number.toString(), style = MaterialTheme.typography.titleSmall.copy(fontWeight = FontWeight.ExtraBold), color = color)
+            Image(painterResource(art), contentDescription = null, modifier = Modifier.size(26.dp).rotate(45f))
         }
         Text(
-            text = label,
-            modifier = Modifier.padding(top = 4.dp).clip(KelanaShapes.chip).background(color).padding(horizontal = 8.dp, vertical = 2.dp),
-            style = MaterialTheme.typography.labelSmall,
+            text = "$number $label",
+            modifier = Modifier.padding(top = 6.dp).clip(KelanaShapes.chip).background(color).padding(horizontal = 8.dp, vertical = 2.dp),
+            style = MaterialTheme.typography.labelSmall.copy(fontWeight = FontWeight.ExtraBold),
             color = colors.white,
             maxLines = 1,
             overflow = TextOverflow.Ellipsis,

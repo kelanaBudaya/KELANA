@@ -3,9 +3,10 @@ info:
   title: KELANA API
   version: 0.1.0
   description: |
-    Contract for the Android app. Two surfaces:
+    Contract for the Android app. Surfaces:
     - PostgREST (`/rest/v1`), generated from the Postgres schema in `supabase/migrations`.
     - Edge Function `POST /functions/v1/verify-stamp` (implemented in `supabase/functions/verify-stamp`).
+    - Edge Function `POST /functions/v1/delete-account` (implemented in `supabase/functions/delete-account`), user JWT only.
 
     Every request needs `apikey: <anon key>`. Guests (no login, Postgres role `anon`)
     may browse: GET regions, places, opening_hours, closures, ticket_prices, events and
@@ -275,6 +276,26 @@ paths:
         '400': { description: 'Malformed body', content: { application/json: { schema: { $ref: '#/components/schemas/VerifyStampResponse' } } } }
         '401': { description: Missing or invalid user JWT }
         '500': { description: Server fault }
+  /functions/v1/delete-account:
+    post:
+      operationId: deleteAccount
+      summary: Delete the caller's own account (implemented in supabase/functions/delete-account)
+      description: |
+        "Hapus akun". The account deleted is always the one in the JWT; any id in the body is ignored.
+        The function removes the caller's postcard photos (bucket `postcards`, folder `<user_id>/`) through the
+        Storage API, then hard-deletes the auth user with the service role. The database cascades profiles,
+        stamps, postcards (public and private), videos and subscriptions, and keeps the caller's reports with
+        `user_id` set to null (migration 20261123080000_account_deletion.sql). Report photos are kept with them.
+        If any step fails the answer is 500 and the user is not deleted (photos may already be gone); the
+        client keeps its session and may retry. Clients never delete these rows themselves.
+      requestBody:
+        required: true
+        content: { application/json: { schema: { $ref: '#/components/schemas/DeleteAccountRequest' } } }
+      responses:
+        '200': { description: Deleted, content: { application/json: { schema: { $ref: '#/components/schemas/DeleteAccountResponse' } } } }
+        '400': { description: 'Body is not { "confirm": "HAPUS" }' }
+        '401': { description: Missing or invalid user JWT }
+        '500': { description: Server fault, nothing reported back }
 components:
   securitySchemes:
     anonKey: { type: apiKey, in: header, name: apikey }
@@ -514,3 +535,13 @@ components:
         status: { type: string, enum: [stamped, already_stamped, rejected] }
         reason: { type: string, enum: [too_far, expired, future_timestamp, low_accuracy, mock_location, integrity_failed, place_unknown, radius_not_set, bad_request] }
         distanceM: { type: integer, description: 'Only with reason too_far' }
+    DeleteAccountRequest:
+      type: object
+      required: [confirm]
+      properties:
+        confirm: { type: string, const: HAPUS, description: 'Exactly what the user typed on the confirmation screen' }
+    DeleteAccountResponse:
+      type: object
+      required: [status]
+      properties:
+        status: { type: string, const: deleted }

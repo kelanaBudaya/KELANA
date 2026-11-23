@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Converted from docs/design/artifact (inline SVG blob, viewBox 0 0 366 170). -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android" android:width="366dp" android:height="170dp" android:viewportWidth="366" android:viewportHeight="170">
+  <path android:pathData="M29.28,71.4 C21.96,20.4 124.44,3.4 201.3,13.6 C292.8,23.8 355.02,51 340.38,98.6 C329.4,146.2 226.92,166.6 146.4,156.4 C58.56,146.2 36.6,119 29.28,71.4 Z" android:fillColor="#FFFBE3A5" />
+  <path android:pathData="M330,23 L331.96,28.04 L337,30 L331.96,31.96 L330,37 L328.04,31.96 L323,30 L328.04,28.04 Z" android:fillColor="#FFE65D22" />
+</vector>

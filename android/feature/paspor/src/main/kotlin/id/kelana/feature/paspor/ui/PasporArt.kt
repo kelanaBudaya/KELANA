@@ -293,6 +293,23 @@ internal fun PlaceCategory.stampIcon(): Int = when (this) {
     PlaceCategory.Tari, PlaceCategory.Topeng, PlaceCategory.Gamelan -> R.drawable.paspor_art_tugu
 }
 
+/**
+ * Short sticker label: the artifact prints "SONOBUDOYO", "PRAMBANAN" rather than the full place name. There is no short
+ * name in the model, so a leading generic word (Museum, Candi) is dropped. PROVISIONAL until Place carries a short name.
+ */
+internal fun stampLabel(name: String, locale: java.util.Locale): String {
+    val trimmed = name.trim()
+    val first = trimmed.substringBefore(' ')
+    val rest = trimmed.substringAfter(' ', "")
+    val short = if (rest.isNotBlank() && first.lowercase(locale) in GenericLeadWords) rest else trimmed
+    return short.uppercase(locale)
+}
+
+private val GenericLeadWords = setOf("museum", "candi")
+
+/** Artifact prints labels at 11 sp; longer ones are shrunk so they stay on one line. */
+internal fun stampLabelSize(label: String): TextUnit = if (label.length > 10) 8.sp else 11.sp
+
 /** The artifact cycles yellow, blue and brown stickers through the passport. */
 internal fun stickerToneFor(index: Int): StickerTone = StickerTone.entries[index.mod(StickerTone.entries.size)]
 
@@ -360,7 +377,8 @@ internal fun PasporButton(
 ) {
     val colors = KelanaTheme.colors
     val (container, content, border) = when (style) {
-        PasporButtonStyle.Orange -> Triple(colors.accentOrange, colors.white, null)
+        // Artifact 6.2 / 6.4 / 6.5 buttons are #A84E2B (stampBrown), not the shared accentOrange.
+        PasporButtonStyle.Orange -> Triple(colors.stampBrown, colors.white, null)
         PasporButtonStyle.Primary -> Triple(colors.primary, colors.white, null)
         PasporButtonStyle.Outlined -> Triple(Color.Transparent, colors.primary, colors.primary)
         PasporButtonStyle.WhiteOnBrown -> Triple(colors.white, colors.stampBrown, null)

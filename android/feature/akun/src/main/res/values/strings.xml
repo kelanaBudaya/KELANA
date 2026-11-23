@@ -60,4 +60,34 @@
     <string name="profil_row_hapus_sub">Paspor dan postcardmu ikut terhapus</string>
     <string name="profil_keluar">Keluar</string>
     <string name="profil_guest_masuk">Masuk</string>
+
+    <!-- Hapus akun (HapusAkun.dc.html) -->
+    <string name="hapus_akun_title">Hapus akun KELANA?</string>
+    <string name="hapus_akun_body">Akun yang sudah dihapus tidak bisa dipulihkan.</string>
+    <string name="hapus_akun_deleted_header">Ikut terhapus</string>
+    <plurals name="hapus_akun_stamps_count">
+        <item quantity="other">%1$d cap di paspormu</item>
+    </plurals>
+    <string name="hapus_akun_stamps">Cap di paspormu</string>
+    <plurals name="hapus_akun_postcards_part">
+        <item quantity="other">%1$d postcard</item>
+    </plurals>
+    <plurals name="hapus_akun_videos_part">
+        <item quantity="other">%1$d video</item>
+    </plurals>
+    <string name="hapus_akun_stories_count">%1$s dan %2$s, termasuk yang sudah tampil untuk umum</string>
+    <string name="hapus_akun_stories">Postcard dan video, termasuk yang sudah tampil untuk umum</string>
+    <string name="hapus_akun_plans">Rencana dan kebutuhan perjalanan yang tersimpan</string>
+    <string name="hapus_akun_kept_header">Tetap tersimpan, tanpa namamu</string>
+    <string name="hapus_akun_reports">Laporan info salah yang pernah kamu kirim</string>
+    <string name="hapus_akun_download">Unduh dataku dulu</string>
+    <string name="hapus_akun_download_unavailable">Belum tersedia</string>
+    <string name="hapus_akun_confirm_label">Ketik %1$s untuk melanjutkan</string>
+    <string name="hapus_akun_cancel">Batal</string>
+    <string name="hapus_akun_submit">Hapus akun</string>
+    <string name="hapus_akun_deleting">Menghapus…</string>
+    <string name="hapus_akun_error_network">Tidak ada sinyal. Akunmu belum dihapus, coba lagi.</string>
+    <string name="hapus_akun_error_failed">Akunmu belum bisa dihapus. Coba lagi nanti.</string>
+    <string name="hapus_akun_error_not_configured">Layanan akun belum tersedia di versi ini.</string>
+    <string name="hapus_akun_error_not_signed_in">Kamu perlu masuk dulu untuk menghapus akun.</string>
 </resources>

@@ -11,7 +11,7 @@
     <string name="paspor_complete">All Jogja stamps collected.</string>
     <string name="paspor_progress_cd">Stamps collected: %1$d of %2$d</string>
     <string name="paspor_section_title">Collected stamps</string>
-    <string name="paspor_section_hint">Tap a stamp to see the place.</string>
+    <string name="paspor_section_hint">Tap a stamp to see your postcard and video there.</string>
     <string name="paspor_section_empty">No stamps yet. Visit a place, then take its stamp there.</string>
     <string name="paspor_stamp_collected_cd">%1$s stamp, collected</string>
     <string name="paspor_stamp_missing_cd">%1$s, stamp not collected yet</string>
@@ -56,7 +56,7 @@
 
     <!-- 6.5 Location denied (Android app settings instead of the browser) -->
     <string name="paspor_ditolak_title">Stamps need your location permission</string>
-    <string name="paspor_ditolak_body">Precise location permission is off. Turn it on in the app settings:</string>
+    <string name="paspor_ditolak_body">You declined location permission earlier. Turn it back on in the app settings:</string>
     <string name="paspor_ditolak_step1"><![CDATA[Tap <b>Open app settings</b> below.]]></string>
     <string name="paspor_ditolak_step2"><![CDATA[Choose <b>Permissions</b>, then <b>Location</b>.]]></string>
     <string name="paspor_ditolak_step3"><![CDATA[Choose <b>Allow only while using the app</b> and turn on <b>Use precise location</b>, then come back here.]]></string>

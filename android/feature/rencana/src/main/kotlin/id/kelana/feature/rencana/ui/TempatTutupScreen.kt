@@ -1,5 +1,6 @@
 package id.kelana.feature.rencana.ui
 
+
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -28,7 +29,8 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.draw.rotate
+import androidx.compose.ui.draw.drawBehind
+import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.Role
@@ -82,6 +84,7 @@ internal fun TempatTutupContent(
     onOpenPaspor: () -> Unit,
 ) {
     val colors = KelanaTheme.colors
+    val lineColor = colors.outline
     if (state.isOffline) {
         // Re-planning needs the server: show the offline state (AGENTS.md).
         RencanaOfflineContent(hasPlan = true, onOpenPlan = onBack, onOpenPaspor = onOpenPaspor)
@@ -98,10 +101,9 @@ internal fun TempatTutupContent(
                         .clickable(role = Role.Button, onClick = onBack),
                     contentAlignment = Alignment.Center,
                 ) {
-                    Image(painterResource(R.drawable.rencana_ic_back), contentDescription = stringResource(R.string.rencana_back), modifier = Modifier.size(24.dp))
+                    Image(painterResource(R.drawable.rencana_ic_back), contentDescription = stringResource(R.string.rencana_back), modifier = Modifier.size(22.dp))
                 }
             }
-            // PROVISIONAL art: the artifact draws a blob with three marks.
             Box(
                 modifier = Modifier
                     .padding(start = 16.dp, end = 16.dp, top = 4.dp)
@@ -110,9 +112,10 @@ internal fun TempatTutupContent(
                     .clip(RoundedCornerShape(28.dp))
                     .background(colors.peach),
             ) {
-                Image(painterResource(R.drawable.rencana_cat_keraton), contentDescription = null, modifier = Modifier.align(Alignment.Center).size(88.dp))
-                Image(painterResource(R.drawable.rencana_info), contentDescription = null, modifier = Modifier.align(Alignment.TopEnd).padding(top = 40.dp, end = 40.dp).size(56.dp).rotate(10f))
-                Image(painterResource(R.drawable.rencana_veh_walk), contentDescription = null, modifier = Modifier.align(Alignment.BottomStart).padding(start = 50.dp, bottom = 30.dp).size(48.dp).rotate(-10f))
+                ArtBlob(R.drawable.rencana_tutup_blob)
+                ArtMark(R.drawable.rencana_cat_keraton, 96, 130, 50)
+                ArtMark(R.drawable.rencana_need_stairs, 48, 250, 40, 10f)
+                ArtMark(R.drawable.rencana_calendar, 42, 50, 130, -10f)
             }
             if (state.isLoading || stop == null) {
                 Box(Modifier.fillMaxWidth().padding(32.dp), contentAlignment = Alignment.Center) { CircularProgressIndicator() }
@@ -144,7 +147,7 @@ internal fun TempatTutupContent(
                     ResolutionCard(
                         selected = state.selected == ClosedResolution.ReplaceWithOther,
                         enabled = replacement != null,
-                        art = R.drawable.rencana_cat_keraton,
+                        art = R.drawable.rencana_art_route,
                         title = if (replacement != null) stringResource(R.string.rencana_closed_replace, replacement.placeName) else stringResource(R.string.rencana_closed_replace_none),
                         hint = replacement?.let { hoursText(it) } ?: stringResource(R.string.rencana_closed_replace_none_hint),
                         onClick = { onSelect(ClosedResolution.ReplaceWithOther) },
@@ -160,7 +163,7 @@ internal fun TempatTutupContent(
                     ResolutionCard(
                         selected = state.selected == ClosedResolution.Remove,
                         enabled = true,
-                        art = R.drawable.rencana_need_stairs,
+                        art = R.drawable.rencana_edit,
                         title = stringResource(R.string.rencana_closed_remove),
                         hint = stringResource(R.string.rencana_closed_remove_hint),
                         onClick = { onSelect(ClosedResolution.Remove) },
@@ -172,6 +175,7 @@ internal fun TempatTutupContent(
             modifier = Modifier
                 .fillMaxWidth()
                 .background(colors.surface)
+                .drawBehind { drawLine(lineColor, Offset(0f, 0f), Offset(size.width, 0f), 1.dp.toPx()) }
                 .padding(start = 20.dp, end = 20.dp, top = 12.dp, bottom = 26.dp)
                 .navigationBarsPadding(),
         ) {

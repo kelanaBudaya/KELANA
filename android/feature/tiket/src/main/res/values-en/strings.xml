@@ -1,4 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="tiket_placeholder">Official tickets (coming soon)</string>
+    <string name="tiket_title">Official tickets</string>
+    <string name="tiket_subtitle">Buy directly from the venue\'s own channel</string>
+    <string name="tiket_back_cd">Back</string>
+    <string name="tiket_filter_all">All</string>
+    <string name="tiket_filter_place">Places</string>
+    <string name="tiket_filter_show">Shows</string>
+    <string name="tiket_filter_class">Classes</string>
+    <string name="tiket_banner">KELANA does not sell tickets. We point you to the official channel of the venue, so your money goes straight to them.</string>
+    <string name="tiket_price_from">from %1$s</string>
+    <string name="tiket_checked">Checked %1$s</string>
+    <string name="tiket_price_pending">Price being checked</string>
+    <string name="tiket_open_action">To the official ticket site</string>
+    <string name="tiket_loading">Loading tickets</string>
+    <string name="tiket_empty_title">No tickets here yet</string>
+    <string name="tiket_empty_body">Try the All filter. Tickets show up once we have checked their official channel.</string>
+    <string name="tiket_error_title">Could not load tickets</string>
+    <string name="tiket_error_body">Check your signal, then try again.</string>
+    <string name="tiket_retry">Try again</string>
 </resources>

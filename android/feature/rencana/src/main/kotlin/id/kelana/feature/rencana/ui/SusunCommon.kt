@@ -62,6 +62,7 @@ internal fun SusunScaffold(
     onContinue: () -> Unit,
     modifier: Modifier = Modifier,
     hint: String? = null,
+    titleTop: Int = 18,
     topContent: @Composable () -> Unit = {},
     content: @Composable ColumnScope.() -> Unit,
 ) {
@@ -87,7 +88,7 @@ internal fun SusunScaffold(
                 Image(
                     painter = painterResource(R.drawable.rencana_ic_back),
                     contentDescription = stringResource(R.string.rencana_back),
-                    modifier = Modifier.size(24.dp),
+                    modifier = Modifier.size(22.dp),
                 )
             }
             val progressLabel = stringResource(R.string.rencana_susun_progress_label, step, SusunSteps)
@@ -125,7 +126,7 @@ internal fun SusunScaffold(
             topContent()
             Text(
                 text = title,
-                modifier = Modifier.padding(start = 20.dp, end = 20.dp, top = 18.dp),
+                modifier = Modifier.padding(start = 20.dp, end = 20.dp, top = titleTop.dp),
                 style = MaterialTheme.typography.headlineMedium,
                 color = colors.ink,
             )
