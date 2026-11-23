@@ -40,7 +40,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import id.kelana.core.designsystem.component.KelanaBackTopBar
+import id.kelana.core.designsystem.R as DsR
 import id.kelana.core.designsystem.theme.KelanaShapes
 import id.kelana.core.designsystem.theme.KelanaSpacing
 import id.kelana.core.designsystem.theme.KelanaTheme
@@ -105,15 +105,53 @@ internal fun AmbilCapContent(state: AmbilCapUiState, actions: AmbilCapActions, m
 private fun ScreenFrame(
     actions: AmbilCapActions,
     modifier: Modifier = Modifier,
+    /** 6.2 draws the bar as 16/700 (default); 6.4 and 6.5 as 17/800 with a smaller top inset and a wider gap. */
+    wideTitleBar: Boolean = false,
     bottom: (@Composable () -> Unit)? = null,
     body: @Composable () -> Unit,
 ) {
     Column(modifier.fillMaxSize().background(KelanaTheme.colors.background).statusBarsPadding()) {
-        KelanaBackTopBar(title = stringResource(R.string.paspor_ambil_title), onBack = actions.onBack)
+        AmbilCapTopBar(wideTitleBar, actions.onBack)
         Column(Modifier.weight(1f).verticalScroll(rememberScrollState())) { body() }
         if (bottom != null) {
-            Box(Modifier.padding(start = 20.dp, end = 20.dp, top = 12.dp, bottom = 26.dp).navigationBarsPadding()) { bottom() }
+            // Artifact: 6.2 button sits 28 from the bottom, 6.4 and 6.5 pad 12 / 20 / 26.
+            Box(
+                Modifier
+                    .padding(start = 20.dp, end = 20.dp, top = 12.dp, bottom = if (wideTitleBar) 26.dp else 28.dp)
+                    .navigationBarsPadding(),
+            ) { bottom() }
         }
+    }
+}
+
+/**
+ * Top bar of the Ambil cap screens. The design-system bar is 56 dp with a 16/800 title; the artifact draws 6.2 with
+ * 12 dp inset and 16/700, and 6.4 / 6.5 with 10 dp inset, 6 dp gap and 17/800. The tap target stays 48 dp
+ * (artifact 44), so the inset is reduced by 2 dp to keep the icon where the artifact has it.
+ */
+@Composable
+private fun AmbilCapTopBar(wide: Boolean, onBack: () -> Unit) {
+    val colors = KelanaTheme.colors
+    val back = stringResource(DsR.string.ds_back)
+    Row(
+        Modifier.fillMaxWidth().padding(start = 10.dp, end = 12.dp, top = if (wide) 8.dp else 10.dp),
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.spacedBy(if (wide) 4.dp else 2.dp),
+    ) {
+        Box(
+            Modifier.size(48.dp).clip(CircleShape).clickable(role = Role.Button, onClickLabel = back, onClick = onBack),
+            contentAlignment = Alignment.Center,
+        ) {
+            Image(painterResource(DsR.drawable.ic_back), contentDescription = back, modifier = Modifier.size(22.dp))
+        }
+        Text(
+            stringResource(R.string.paspor_ambil_title),
+            style = MaterialTheme.typography.titleMedium.copy(
+                fontSize = if (wide) 17.sp else 16.sp,
+                fontWeight = if (wide) FontWeight.ExtraBold else FontWeight.Bold,
+            ),
+            color = colors.ink,
+        )
     }
 }
 
@@ -283,7 +321,7 @@ private fun ReadyContent(place: Place, working: CapStep.Working?, actions: Ambil
             horizontalArrangement = Arrangement.spacedBy(16.dp),
         ) {
             CapSticker(
-                label = place.name.uppercase(IdLocale),
+                label = stampLabel(place.name, IdLocale),
                 code = place.capCode,
                 icon = place.category.stampIcon(),
                 tone = StickerTone.Blue,
@@ -291,7 +329,7 @@ private fun ReadyContent(place: Place, working: CapStep.Working?, actions: Ambil
                 height = 82.dp,
                 iconSize = 24.dp,
                 modifier = Modifier.rotate(-5f),
-                labelSize = if (place.name.length > 10) 8.sp else 11.sp,
+                labelSize = stampLabelSize(stampLabel(place.name, IdLocale)),
             )
             Column {
                 Text(
@@ -331,6 +369,7 @@ private fun DiLuarContent(place: Place, step: CapStep.OutOfArea, actions: AmbilC
     ScreenFrame(
         actions,
         modifier,
+        wideTitleBar = true,
         bottom = {
             Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
                 PasporButton(
@@ -399,6 +438,7 @@ private fun DitolakContent(step: CapStep.Denied, actions: AmbilCapActions, modif
     ScreenFrame(
         actions,
         modifier,
+        wideTitleBar = true,
         bottom = {
             Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
                 if (step.canAskAgain) {
@@ -519,6 +559,7 @@ private fun MessageScreen(
     ScreenFrame(
         actions,
         modifier,
+        wideTitleBar = true,
         bottom = primary?.let { (label, onClick) -> { PasporButton(label, onClick, Modifier.fillMaxWidth()) } },
     ) {
         DitolakPanel()
@@ -558,6 +599,7 @@ private fun PendingContent(place: Place, step: CapStep.WaitingSignal, actions: A
     ScreenFrame(
         actions,
         modifier,
+        wideTitleBar = true,
         bottom = {
             PasporButton(
                 stringResource(R.string.paspor_pending_cancel),
@@ -574,7 +616,7 @@ private fun PendingContent(place: Place, step: CapStep.WaitingSignal, actions: A
                 ScenePiece(s, R.drawable.paspor_art_footprint, 92f, 90f, 40f, 210f)
                 ScenePiece(s, R.drawable.paspor_art_footprint, 144f, 60f, 40f, 200f)
                 CapSticker(
-                    label = place.name.uppercase(IdLocale),
+                    label = stampLabel(place.name, IdLocale),
                     code = place.capCode,
                     icon = place.category.stampIcon(),
                     tone = StickerTone.Blue,
@@ -582,7 +624,7 @@ private fun PendingContent(place: Place, step: CapStep.WaitingSignal, actions: A
                     height = s.dp(82f),
                     iconSize = 24.dp,
                     modifier = Modifier.offset(s.dp(210f), s.dp(60f)).rotate(6f),
-                    labelSize = if (place.name.length > 10) 8.sp else 11.sp,
+                    labelSize = stampLabelSize(stampLabel(place.name, IdLocale)),
                 )
             }
         }

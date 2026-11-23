@@ -11,7 +11,7 @@
     <string name="paspor_complete">Semua cap Jogja sudah terkumpul.</string>
     <string name="paspor_progress_cd">Cap terkumpul: %1$d dari %2$d</string>
     <string name="paspor_section_title">Cap terkumpul</string>
-    <string name="paspor_section_hint">Ketuk cap untuk melihat tempatnya.</string>
+    <string name="paspor_section_hint">Ketuk cap untuk melihat postcard dan videomu di sana.</string>
     <string name="paspor_section_empty">Belum ada cap. Kunjungi tempatnya, lalu ambil cap di sana.</string>
     <string name="paspor_stamp_collected_cd">Cap %1$s, sudah terkumpul</string>
     <string name="paspor_stamp_missing_cd">%1$s, cap belum terkumpul</string>
@@ -56,7 +56,7 @@
 
     <!-- 6.5 Lokasi ditolak (adapted from "lewat browser" to Android app settings) -->
     <string name="paspor_ditolak_title">Cap butuh izin lokasimu</string>
-    <string name="paspor_ditolak_body">Izin lokasi yang tepat belum aktif. Nyalakan lewat setelan aplikasi:</string>
+    <string name="paspor_ditolak_body">Tadi kamu menolak izin lokasi. Nyalakan lagi lewat setelan aplikasi:</string>
     <string name="paspor_ditolak_step1"><![CDATA[Ketuk <b>Buka setelan aplikasi</b> di bawah.]]></string>
     <string name="paspor_ditolak_step2"><![CDATA[Pilih <b>Izin</b>, lalu <b>Lokasi</b>.]]></string>
     <string name="paspor_ditolak_step3"><![CDATA[Pilih <b>Izinkan hanya saat aplikasi digunakan</b> dan nyalakan <b>Gunakan lokasi tepat</b>, lalu kembali ke sini.]]></string>
