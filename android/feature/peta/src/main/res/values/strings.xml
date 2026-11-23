@@ -1,4 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="peta_placeholder">Peta (segera hadir)</string>
+    <string name="peta_back_cd">Kembali</string>
+    <string name="peta_filter_all">Semua</string>
+    <string name="peta_filter_open_today">Buka hari ini</string>
+    <string name="peta_filter_has_cap">Ada cap</string>
+    <string name="peta_hint">Ketuk titik untuk melihat info tempat.</string>
+    <string name="peta_footnote">Peta ilustrasi, tidak sesuai skala.</string>
+    <string name="peta_filter_no_match">Tidak ada tempat untuk filter ini. Pilih filter lain.</string>
+    <string name="peta_pin_selected">Dipilih</string>
+    <string name="peta_card_hours_from">Buka %1$s</string>
+    <string name="peta_card_hours_closed">Tutup hari ini</string>
+    <string name="peta_card_hours_checking">Jam buka sedang dicek</string>
+    <string name="peta_card_price_from">Mulai %1$s</string>
+    <string name="peta_card_price_free">Gratis</string>
+    <string name="peta_card_price_checking">Harga sedang dicek</string>
+    <string name="peta_card_line">%1$s · %2$s</string>
+    <string name="peta_card_checked">Diperiksa %1$s</string>
+    <string name="peta_badge_show">Pentas malam ini</string>
+    <string name="peta_badge_open">Buka hari ini</string>
+    <string name="peta_open_detail">Lihat detail</string>
+    <string name="peta_open_maps">Buka di aplikasi peta</string>
+    <string name="peta_loading_cd">Memuat peta</string>
+    <string name="peta_empty_title">Belum ada tempat</string>
+    <string name="peta_empty_body">Tempat yang sudah kami periksa akan muncul di peta ini.</string>
+    <string name="peta_error_title">Peta belum bisa dimuat</string>
+    <string name="peta_error_body">Periksa sambunganmu, lalu coba lagi.</string>
+    <string name="peta_retry">Coba lagi</string>
 </resources>

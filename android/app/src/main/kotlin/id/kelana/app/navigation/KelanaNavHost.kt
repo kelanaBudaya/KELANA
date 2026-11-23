@@ -147,7 +147,7 @@ fun KelanaAppContent(appViewModel: AppViewModel = hiltViewModel()) {
             }
 
             tempatScreens(navigate = navigate, onBack = onBack)
-            petaScreen(onBack = onBack)
+            petaScreen(navigate = navigate, onBack = onBack)
             // Ambil cap -> Cap berhasil -> Paspor: each step replaces the finished one so back does not return to it.
             val onReplace: (Any) -> Unit = { route ->
                 val current = navController.currentDestination
