@@ -65,6 +65,7 @@ internal fun ProfilScreen(
     onDaerah: () -> Unit,
     onMasuk: () -> Unit,
     onSignedOut: () -> Unit,
+    onNotifikasi: () -> Unit = {},
     viewModel: ProfilViewModel = hiltViewModel(),
 ) {
     val state by viewModel.state.collectAsState()
@@ -82,6 +83,7 @@ internal fun ProfilScreen(
         onDaerah = onDaerah,
         onMasuk = onMasuk,
         onSignOut = viewModel::onSignOut,
+        onNotifikasi = onNotifikasi,
     )
 }
 
@@ -97,6 +99,7 @@ internal fun ProfilContent(
     onDaerah: () -> Unit,
     onMasuk: () -> Unit,
     onSignOut: () -> Unit,
+    onNotifikasi: () -> Unit = {},
 ) {
     val colors = KelanaTheme.colors
     Column(
@@ -116,7 +119,13 @@ internal fun ProfilContent(
                 CircularProgressIndicator(color = colors.primary)
             }
             state.isGuest -> GuestBody(onMasuk = onMasuk)
-            else -> SignedInBody(state = state, onPaspor = onPaspor, onDaerah = onDaerah, onSignOut = onSignOut)
+            else -> SignedInBody(
+                state = state,
+                onPaspor = onPaspor,
+                onDaerah = onDaerah,
+                onSignOut = onSignOut,
+                onNotifikasi = onNotifikasi,
+            )
         }
     }
 }
@@ -226,6 +235,7 @@ private fun SignedInBody(
     onPaspor: () -> Unit,
     onDaerah: () -> Unit,
     onSignOut: () -> Unit,
+    onNotifikasi: () -> Unit,
 ) {
     Column(
         modifier = Modifier
@@ -243,7 +253,12 @@ private fun SignedInBody(
         )
         // Not built yet: rendered like the artifact but inert.
         ProfilRow(R.drawable.akun_ic_kebutuhan, R.string.profil_row_kebutuhan, R.string.profil_row_kebutuhan_sub)
-        ProfilRow(R.drawable.akun_ic_notifikasi, R.string.profil_row_notifikasi, R.string.profil_row_notifikasi_sub)
+        ProfilRow(
+            R.drawable.akun_ic_notifikasi,
+            R.string.profil_row_notifikasi,
+            R.string.profil_row_notifikasi_sub,
+            onClick = onNotifikasi,
+        )
 
         SectionLabel(R.string.profil_section_bantuan, topPadding = 16.dp)
         ProfilRow(R.drawable.akun_ic_cara, R.string.profil_row_cara, R.string.profil_row_cara_sub)

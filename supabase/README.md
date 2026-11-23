@@ -33,7 +33,7 @@ Times are Asia/Jakarta wall-clock. Cancelled dates go in `closures`.
 - Guests cannot read postcards, videos, profiles, stamps, reports or subscriptions, and cannot write anything. Those need login.
 - Only `published` facts (hours, closures, prices, events) are visible; a fact with `checked_at` null must be shown as "Harga sedang dicek".
 - Stamps: clients can only read their own; nobody on the client side can insert, update or delete (a service-role Edge Function will).
-- Postcards and videos: any logged-in user can read them immediately; inserting needs `user_id = self` and a stamp for the same place.
+- Postcards and videos: any logged-in user can read them immediately; inserting needs `user_id = self` and a stamp for the same place. A postcard with `is_public = false` is visible to its author only (`postcards.rating` 1 to 5 or null, `card_style` `jurnal`/`cap`/`peta`).
 - Visitor stories are for logged-in users only; the guest browse set above is the whole guest surface.
 - Own rows only for editing/deleting postcards, videos, reports, subscriptions, profile.
 

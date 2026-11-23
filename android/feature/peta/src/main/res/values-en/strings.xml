@@ -1,4 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="peta_placeholder">Map (coming soon)</string>
+    <string name="peta_back_cd">Back</string>
+    <string name="peta_filter_all">All</string>
+    <string name="peta_filter_open_today">Open today</string>
+    <string name="peta_filter_has_cap">Has stamp</string>
+    <string name="peta_hint">Tap a point to see place info.</string>
+    <string name="peta_footnote">Illustrated map, not to scale.</string>
+    <string name="peta_filter_no_match">No places match this filter. Pick another one.</string>
+    <string name="peta_pin_selected">Selected</string>
+    <string name="peta_card_hours_from">Opens %1$s</string>
+    <string name="peta_card_hours_closed">Closed today</string>
+    <string name="peta_card_hours_checking">Opening hours being checked</string>
+    <string name="peta_card_price_from">From %1$s</string>
+    <string name="peta_card_price_free">Free</string>
+    <string name="peta_card_price_checking">Price being checked</string>
+    <string name="peta_card_line">%1$s · %2$s</string>
+    <string name="peta_card_checked">Checked %1$s</string>
+    <string name="peta_badge_show">Show tonight</string>
+    <string name="peta_badge_open">Open today</string>
+    <string name="peta_open_detail">View details</string>
+    <string name="peta_open_maps">Open in a maps app</string>
+    <string name="peta_loading_cd">Loading the map</string>
+    <string name="peta_empty_title">No places yet</string>
+    <string name="peta_empty_body">Places we have checked will show up on this map.</string>
+    <string name="peta_error_title">The map could not load</string>
+    <string name="peta_error_body">Check your connection, then try again.</string>
+    <string name="peta_retry">Try again</string>
 </resources>

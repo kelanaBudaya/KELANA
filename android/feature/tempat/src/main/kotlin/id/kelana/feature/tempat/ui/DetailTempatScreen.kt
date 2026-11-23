@@ -133,7 +133,7 @@ internal fun DetailTempatScreen(
                 bottomBar = {
                     BottomActions(
                         // Postcard needs an account (product rule); "Masuk rencana" is open to guests.
-                        onPostcard = { requireLogin { navigate(PostcardRoute) } },
+                        onPostcard = { requireLogin { navigate(PostcardRoute(place.id)) } },
                         onAddPlan = { navigate(RencanaRoute) },
                     )
                 },

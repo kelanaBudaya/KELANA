@@ -7,6 +7,7 @@ import id.kelana.core.navigation.DaftarRoute
 import id.kelana.core.navigation.MasukEmailRoute
 import id.kelana.core.navigation.MasukRoute
 import id.kelana.core.navigation.PasporRoute
+import id.kelana.core.navigation.PengaturanNotifRoute
 import id.kelana.core.navigation.PilihDaerahRoute
 import id.kelana.feature.akun.ui.DaftarScreen
 import id.kelana.feature.akun.ui.MasukEmailScreen
@@ -32,6 +33,7 @@ fun NavGraphBuilder.akunScreen(
             onDaerah = { navigate(PilihDaerahRoute) },
             onMasuk = { navigate(MasukRoute) },
             onSignedOut = onSignedOut,
+            onNotifikasi = { navigate(PengaturanNotifRoute) },
         )
     }
     composable<MasukRoute> {

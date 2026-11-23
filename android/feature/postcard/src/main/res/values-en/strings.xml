@@ -1,4 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="postcard_placeholder">Postcard (coming soon)</string>
+    <!-- Tulis postcard (7.1) -->
+    <string name="postcard_back">Back</string>
+    <string name="postcard_cancel">Cancel</string>
+    <string name="postcard_tulis_title">Write a postcard</string>
+    <string name="postcard_photo_title">Choose your photo</string>
+    <string name="postcard_photo_hint">From the gallery or the camera</string>
+    <string name="postcard_photo_cd">Choose a photo for the postcard</string>
+    <string name="postcard_photo_chosen_cd">Your photo for the postcard</string>
+    <string name="postcard_photo_source_title">Where is the photo from?</string>
+    <string name="postcard_photo_gallery">Gallery</string>
+    <string name="postcard_photo_camera">Camera</string>
+    <string name="postcard_photo_change">Change photo</string>
+    <string name="postcard_photo_remove">Remove photo</string>
+    <string name="postcard_photo_processing">Preparing the photo…</string>
+    <string name="postcard_photo_failed">This photo cannot be used. Try another one or open the camera again.</string>
+    <string name="postcard_sticker_cap">STAMP</string>
+    <string name="postcard_sticker_cd">Stamp sticker %1$s</string>
+    <string name="postcard_rating_title">How memorable was it?</string>
+    <string name="postcard_rating_group_cd">Rating</string>
+    <string name="postcard_rating_star_cd">%1$d of 5 stars</string>
+    <string name="postcard_message_label">Your message</string>
+    <string name="postcard_message_hint">Your favourite collection, tips for the next visitor…</string>
+    <string name="postcard_message_counter">%1$d/%2$d</string>
+    <string name="postcard_style_title">Card style</string>
+    <string name="postcard_style_jurnal">Journal</string>
+    <string name="postcard_style_cap">Stamp</string>
+    <string name="postcard_style_peta">Map</string>
+    <string name="postcard_public_label">Show on the %1$s page so other visitors benefit</string>
+    <string name="postcard_publish">Preview postcard</string>
+    <string name="postcard_publishing">Sending…</string>
+    <string name="postcard_retry">Try again</string>
+    <string name="postcard_error_network">Your postcard was not sent. Check your connection and try again.</string>
+    <string name="postcard_error_invalid">The postcard was refused: the message or photo does not meet the rules. Check them and try again.</string>
+    <string name="postcard_error_not_configured">Postcards cannot be sent in this version of the app.</string>
+
+    <!-- Guards of Tulis postcard -->
+    <string name="postcard_guest_title">Sign in to write a postcard</string>
+    <string name="postcard_guest_body">Only visitors with an account can write a postcard.</string>
+    <string name="postcard_guest_action">Sign in</string>
+    <string name="postcard_nostamps_title">No stamps yet</string>
+    <string name="postcard_nostamps_body">You can only write a postcard from a place you have stamped. Collect a stamp at a place first.</string>
+    <string name="postcard_open_paspor">Open passport</string>
+    <string name="postcard_needsstamp_title">Collect a stamp at %1$s first</string>
+    <string name="postcard_needsstamp_body">You can only write a postcard from a place you have stamped.</string>
+    <string name="postcard_needsstamp_action">Collect stamp</string>
+    <string name="postcard_pick_title">Choose a place</string>
+    <string name="postcard_pick_body">A postcard is written from a place you have stamped.</string>
+
+    <!-- Bagikan postcard (7.2) -->
+    <string name="postcard_bagikan_title">Share postcard</string>
+    <string name="postcard_format_story">9:16 Story</string>
+    <string name="postcard_format_feed">1:1 Feed</string>
+    <string name="postcard_share_instagram">IG Story</string>
+    <string name="postcard_share_whatsapp">WhatsApp</string>
+    <string name="postcard_share_other">More</string>
+    <string name="postcard_share_save">Save</string>
+    <string name="postcard_share_chooser">Share postcard</string>
+    <string name="postcard_notice_saved">Saved to the gallery, folder Pictures/KELANA.</string>
+    <string name="postcard_notice_save_failed">The picture was not saved. Try again.</string>
+    <string name="postcard_notice_share_failed">The picture could not be prepared or opened in the other app.</string>
+    <string name="postcard_gone_title">Card not found</string>
+    <string name="postcard_gone_body">The card you just wrote is no longer on this screen. Write it again to share it.</string>
+    <string name="postcard_gone_action">Write a postcard</string>
+
+    <!-- The card itself (also drawn into the shared picture) -->
+    <string name="postcard_card_description">Preview of the postcard for %1$s</string>
+    <string name="postcard_card_kicker">KELANA / %1$s</string>
+    <string name="postcard_card_style_jurnal">JOURNAL</string>
+    <string name="postcard_card_style_cap">STAMP</string>
+    <string name="postcard_card_style_peta">MAP</string>
+    <string name="postcard_card_region">YOGYAKARTA</string>
+    <string name="postcard_card_region_code">DIY</string>
+    <string name="postcard_card_visited">VISITED · %1$s</string>
+    <string name="postcard_card_headline">A piece of Jogja.</string>
+    <string name="postcard_card_quote">“%1$s”</string>
+    <string name="postcard_card_tagline">YOUR CULTURAL JOURNEY</string>
 </resources>

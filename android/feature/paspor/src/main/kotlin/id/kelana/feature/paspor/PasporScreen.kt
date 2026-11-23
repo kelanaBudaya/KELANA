@@ -61,7 +61,7 @@ internal fun PasporScreen(
             onBack = onBack,
             onProfile = { navigate(AkunRoute) },
             onPlace = { navigate(DetailTempatRoute(it.id)) },
-            onPostcard = { navigate(PostcardRoute) },
+            onPostcard = { navigate(PostcardRoute()) },
             onLogin = { navigate(MasukRoute) },
         ),
     )

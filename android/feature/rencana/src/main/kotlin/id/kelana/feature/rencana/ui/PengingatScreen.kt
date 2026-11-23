@@ -1,5 +1,11 @@
 package id.kelana.feature.rencana.ui
 
+import android.Manifest
+import android.content.Context
+import android.content.Intent
+import android.content.pm.PackageManager
+import android.os.Build
+import android.provider.CalendarContract
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -28,6 +34,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.rotate
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
@@ -35,6 +42,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.core.content.ContextCompat
 import androidx.hilt.navigation.compose.hiltViewModel
 import id.kelana.core.designsystem.component.KelanaButton
 import id.kelana.core.designsystem.component.KelanaButtonVariant
@@ -43,10 +51,45 @@ import id.kelana.core.model.ReminderTiming
 import id.kelana.feature.rencana.R
 
 @Composable
-internal fun PengingatScreen(onClose: () -> Unit, viewModel: PengingatViewModel = hiltViewModel()) {
+internal fun PengingatScreen(
+    onClose: () -> Unit,
+    onNeedNotificationPermission: () -> Unit = {},
+    viewModel: PengingatViewModel = hiltViewModel(),
+) {
     val state by viewModel.uiState.collectAsState()
-    LaunchedEffect(state.saved) { if (state.saved) onClose() }
-    PengingatContent(state, viewModel::selectTiming, viewModel::setAddToCalendar, onCancel = onClose, onSave = viewModel::save)
+    val context = LocalContext.current
+    LaunchedEffect(state.saved) {
+        if (state.saved) {
+            state.calendarInsert?.let { openCalendarInsert(context, it) }
+            onClose()
+        }
+    }
+    PengingatContent(
+        state,
+        viewModel::selectTiming,
+        viewModel::setAddToCalendar,
+        onCancel = onClose,
+        // API 33+ without the permission: Izin notifikasi (4.9) comes first; it hands control back and the save goes on.
+        onSave = { if (needsNotificationPermission(context)) onNeedNotificationPermission() else viewModel.save() },
+    )
+}
+
+private fun needsNotificationPermission(context: Context): Boolean =
+    Build.VERSION.SDK_INT >= 33 &&
+        ContextCompat.checkSelfPermission(context, Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED
+
+/** Opens the calendar's own "new event" screen, so no calendar permission is needed. A phone without a calendar app just skips it. */
+private fun openCalendarInsert(context: Context, insert: CalendarInsert) {
+    val intent = Intent(Intent.ACTION_INSERT)
+        .setData(CalendarContract.Events.CONTENT_URI)
+        .putExtra(CalendarContract.Events.TITLE, insert.title)
+        .putExtra(CalendarContract.Events.EVENT_LOCATION, insert.location)
+        .putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, insert.startMillis)
+        .putExtra(CalendarContract.EXTRA_EVENT_END_TIME, insert.endMillis)
+    try {
+        context.startActivity(intent)
+    } catch (_: android.content.ActivityNotFoundException) {
+    }
 }
 
 // Layout from Pengingat.dc.html: bottom sheet over a 55% ink scrim. Compared as code, not as a render.

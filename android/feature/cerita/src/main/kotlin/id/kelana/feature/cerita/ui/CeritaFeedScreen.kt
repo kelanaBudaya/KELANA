@@ -84,7 +84,7 @@ internal fun CeritaFeedScreen(navigate: (Any) -> Unit, viewModel: CeritaViewMode
         // Provisional: the existing report route reports a place, it does not carry the story id.
         onReport = { story -> requireLogin { navigate(LaporkanRoute(story.placeId)) } },
         // Entry point to the creation flow, which belongs to :feature:postcard.
-        onWritePostcard = { requireLogin { navigate(PostcardRoute) } },
+        onWritePostcard = { requireLogin { navigate(PostcardRoute()) } },
         // A guest is sent to Masuk; for a signed-in user the action does nothing.
         onSignIn = { requireLogin {} },
     )

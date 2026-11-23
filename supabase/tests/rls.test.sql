@@ -1,6 +1,6 @@
 begin;
 create extension if not exists pgtap with schema extensions;
-select plan(101);
+select plan(109);
 
 -- ---- fixtures (as postgres) -------------------------------------------------
 -- A holds a stamp for Tamansari only. B holds no stamps.
@@ -164,6 +164,30 @@ select throws_ok($$update public.postcards set place_id = (select id from public
 select throws_ok($$update public.videos set place_id = (select id from public.places where slug = 'kotagede')
   where id = '00000000-0000-0000-0000-00000000d001'$$,
   '42501', null, 'A cannot move a video to an unstamped place');
+
+-- ---- postcard fields: rating, card style, private postcards ---------------------
+select pg_temp.as_user('00000000-0000-0000-0000-00000000b001');
+select lives_ok($$insert into public.postcards (id, user_id, place_id, message, rating, card_style, is_public)
+  select '00000000-0000-0000-0000-00000000c002', '00000000-0000-0000-0000-00000000b001', id, 'Hanya aku', 5, 'cap', false
+  from public.places where slug = 'tamansari'$$, 'A can post a private postcard with rating and style');
+select throws_ok($$insert into public.postcards (user_id, place_id, message, rating, card_style, is_public)
+  select '00000000-0000-0000-0000-00000000b001', id, 'belum cap', 4, 'peta', false from public.places where slug = 'kotagede'$$,
+  '42501', null, 'insert without a stamp is refused even with the new fields');
+select throws_ok($$insert into public.postcards (user_id, place_id, message, rating)
+  select '00000000-0000-0000-0000-00000000b001', id, 'bintang 6', 6 from public.places where slug = 'tamansari'$$,
+  '23514', null, 'rating above 5 is refused');
+select throws_ok($$insert into public.postcards (user_id, place_id, message, card_style)
+  select '00000000-0000-0000-0000-00000000b001', id, 'gaya salah', 'video' from public.places where slug = 'tamansari'$$,
+  '23514', null, 'unknown card style is refused');
+select is((select card_style from public.postcards where id = '00000000-0000-0000-0000-00000000c001'), 'jurnal',
+          'card_style defaults to jurnal');
+select is((select is_public from public.postcards where id = '00000000-0000-0000-0000-00000000c001'), true,
+          'is_public defaults to true');
+select is((select count(*)::int from public.postcards where id = '00000000-0000-0000-0000-00000000c002'), 1,
+          'A sees own private postcard');
+select pg_temp.as_user('00000000-0000-0000-0000-00000000b002');
+select is((select count(*)::int from public.postcards where id = '00000000-0000-0000-0000-00000000c002'), 0,
+          'B cannot see A''s private postcard');
 
 -- ---- stories visible immediately ------------------------------------------------
 select pg_temp.as_user('00000000-0000-0000-0000-00000000b002');
