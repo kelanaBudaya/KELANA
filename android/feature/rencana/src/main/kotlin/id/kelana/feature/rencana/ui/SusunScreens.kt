@@ -3,14 +3,18 @@ package id.kelana.feature.rencana.ui
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.BorderStroke
+import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.heightIn
+import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
@@ -83,6 +87,7 @@ internal fun SusunTanggalContent(
                 .fillMaxWidth()
                 .clip(CardShape)
                 .background(colors.surface)
+                .border(BorderStroke(1.dp, colors.outline), CardShape)
                 .padding(14.dp),
         ) {
             Row(Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically) {
@@ -99,7 +104,7 @@ internal fun SusunTanggalContent(
                 DayOfWeek.SUNDAY, DayOfWeek.MONDAY, DayOfWeek.TUESDAY, DayOfWeek.WEDNESDAY,
                 DayOfWeek.THURSDAY, DayOfWeek.FRIDAY, DayOfWeek.SATURDAY,
             )
-            Row(Modifier.fillMaxWidth().padding(top = 6.dp)) {
+            Row(Modifier.fillMaxWidth().padding(top = 10.dp)) {
                 order.forEach { day ->
                     Text(
                         text = weekdayShort(day),
@@ -213,7 +218,7 @@ private fun DayCell(state: SusunUiState, date: LocalDate, onPick: (LocalDate) ->
         contentAlignment = Alignment.Center,
     ) {
         if (endpoint) {
-            Box(Modifier.size(40.dp).clip(CircleShape).background(colors.accentOrange), contentAlignment = Alignment.Center) {
+            Box(Modifier.fillMaxSize().clip(CircleShape).background(colors.accentOrange), contentAlignment = Alignment.Center) {
                 Text(date.dayOfMonth.toString(), style = MaterialTheme.typography.bodyMedium.copy(fontWeight = FontWeight.ExtraBold), color = colors.white)
             }
         } else {
@@ -259,6 +264,7 @@ internal fun SusunTemanContent(
     SusunScaffold(
         step = 2,
         title = stringResource(R.string.rencana_teman_title),
+        titleTop = 14,
         hint = stringResource(R.string.rencana_teman_hint),
         buttonText = stringResource(R.string.rencana_next),
         canContinue = state.canContinueTeman,
@@ -297,21 +303,28 @@ internal fun SusunTemanContent(
                                 .weight(1f)
                                 .heightIn(min = 150.dp)
                                 .susunCard(selected, CardShape)
-                                .singleChoice(selected) { onSelect(option.group) }
-                                .padding(horizontal = 12.dp, vertical = 14.dp),
+                                .singleChoice(selected) { onSelect(option.group) },
                         ) {
-                            Column(Modifier.align(Alignment.BottomStart), verticalArrangement = Arrangement.spacedBy(8.dp)) {
-                                Image(painterResource(option.art), contentDescription = null, modifier = Modifier.size(width = 64.dp, height = 52.dp))
+                            Column(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .heightIn(min = 150.dp)
+                                    .padding(horizontal = 12.dp, vertical = 14.dp),
+                                verticalArrangement = Arrangement.SpaceBetween,
+                            ) {
+                                Box(Modifier.height(56.dp), contentAlignment = Alignment.BottomStart) {
+                                    Image(painterResource(option.art), contentDescription = null, modifier = Modifier.size(width = 64.dp, height = 52.dp))
+                                }
                                 Column {
-                                    Text(stringResource(option.label), style = MaterialTheme.typography.titleSmall.copy(fontWeight = FontWeight.ExtraBold, fontSize = 15.sp), color = colors.ink)
-                                    Text(stringResource(option.hint), style = MaterialTheme.typography.labelMedium.copy(fontWeight = FontWeight.Normal), color = colors.muted)
+                                    Text(stringResource(option.label), style = MaterialTheme.typography.titleSmall.copy(fontWeight = FontWeight.ExtraBold, fontSize = 15.sp, lineHeight = 20.sp), color = colors.ink)
+                                    Text(stringResource(option.hint), modifier = Modifier.padding(top = 2.dp), style = MaterialTheme.typography.labelMedium.copy(fontWeight = FontWeight.Normal), color = colors.muted)
                                 }
                             }
                             if (selected) {
                                 Image(
                                     painter = painterResource(R.drawable.rencana_check),
                                     contentDescription = null,
-                                    modifier = Modifier.align(Alignment.TopEnd).size(22.dp),
+                                    modifier = Modifier.align(Alignment.TopEnd).padding(top = 12.dp, end = 12.dp).size(22.dp),
                                 )
                             }
                         }
@@ -476,15 +489,22 @@ internal fun SusunWaktuContent(
                     .clip(CardShape)
                     .background(colors.creamYellow),
             ) {
-                Column(Modifier.padding(start = 16.dp, top = 18.dp, end = 120.dp)) {
+                Image(painterResource(R.drawable.rencana_pace_blob), contentDescription = null, modifier = Modifier.fillMaxSize())
+                Column(Modifier.padding(start = 16.dp, top = 18.dp, end = 140.dp)) {
                     Text(stringResource(paceLabel(state.pace)), style = MaterialTheme.typography.titleMedium.copy(fontSize = 15.sp), color = colors.ink)
                     Text(stringResource(paceHint(state.pace)), style = MaterialTheme.typography.bodySmall.copy(lineHeight = 19.sp), color = colors.warnTextDeep)
                 }
-                // PROVISIONAL art: the artifact scatters footprint marks over a blob; one mark stands in for it.
+                // Two footprint marks as in the artifact (left 252/top 40, 44 dp, -8 deg; left 298/top 20, 36 dp, 6 deg).
+                // The artifact's hard drop shadow (3px 4px 0) is not drawn.
                 Image(
                     painter = painterResource(R.drawable.rencana_veh_walk),
                     contentDescription = null,
-                    modifier = Modifier.align(Alignment.CenterEnd).padding(end = 28.dp).size(44.dp).rotate(-8f),
+                    modifier = Modifier.align(Alignment.TopEnd).offset(x = (-54).dp, y = 40.dp).size(44.dp).rotate(-8f),
+                )
+                Image(
+                    painter = painterResource(R.drawable.rencana_veh_walk),
+                    contentDescription = null,
+                    modifier = Modifier.align(Alignment.TopEnd).offset(x = (-16).dp, y = 20.dp).size(36.dp).rotate(6f),
                 )
             }
         }
@@ -511,6 +531,7 @@ private fun TimeField(label: String, time: LocalTime, onShift: (Int) -> Unit, mo
         modifier = modifier
             .clip(KelanaShapes.card)
             .background(colors.surface)
+            .border(BorderStroke(1.5.dp, colors.outline), KelanaShapes.card)
             .padding(start = 14.dp, end = 6.dp, top = 12.dp, bottom = 6.dp),
     ) {
         Text(label, style = MaterialTheme.typography.labelMedium.copy(fontWeight = FontWeight.Bold), color = colors.muted)

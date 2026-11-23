@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Converted from docs/design/artifact/PetaRuteIlustratif.dc.html ("Buka di aplikasi peta" button icon). -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="18dp" android:height="18dp" android:viewportWidth="24" android:viewportHeight="24">
+  <path android:pathData="M12,15V3.5M7.5,8L12,3.5 16.5,8" android:strokeColor="#FFFFFFFF" android:strokeWidth="1.8" android:strokeLineCap="round" android:strokeLineJoin="round" />
+  <path android:pathData="M5,12.5V19a1.5,1.5 0,0 0,1.5 1.5h11A1.5,1.5 0,0 0,19 19v-6.5" android:strokeColor="#FFFFFFFF" android:strokeWidth="1.8" android:strokeLineCap="round" android:strokeLineJoin="round" />
+</vector>

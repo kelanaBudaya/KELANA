@@ -5,6 +5,11 @@ import androidx.annotation.StringRes
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.BoxScope
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.offset
+import androidx.compose.ui.draw.rotate
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -172,4 +177,23 @@ internal fun skipReasonRes(reason: SkipReason): Int = when (reason) {
 @Composable
 internal fun SmallFact(text: String, modifier: Modifier = Modifier) {
     Text(text, modifier = modifier, style = MaterialTheme.typography.labelMedium.copy(fontWeight = FontWeight.Normal), color = KelanaTheme.colors.muted)
+}
+
+/** Illustration blob that fills its panel (the artifact draws it at the panel size). */
+@Composable
+internal fun BoxScope.ArtBlob(@DrawableRes res: Int) {
+    Image(painterResource(res), contentDescription = null, modifier = Modifier.fillMaxSize(), contentScale = ContentScale.FillBounds)
+}
+
+/**
+ * One scattered mark of an illustration panel, placed like the artifact (`left`, `top`, size, rotation, all in dp).
+ * The artifact's hard drop shadow (`drop-shadow(3px 4px 0 ...)`) is not drawn.
+ */
+@Composable
+internal fun BoxScope.ArtMark(@DrawableRes res: Int, size: Int, x: Int, y: Int, rotation: Float = 0f) {
+    Image(
+        painter = painterResource(res),
+        contentDescription = null,
+        modifier = Modifier.align(Alignment.TopStart).offset(x = x.dp, y = y.dp).size(size.dp).rotate(rotation),
+    )
 }
