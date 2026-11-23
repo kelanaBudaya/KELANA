@@ -76,4 +76,41 @@
     <string name="postcard_card_headline">Sepenggal Jogja.</string>
     <string name="postcard_card_quote">“%1$s”</string>
     <string name="postcard_card_tagline">JALAN BUDAYAMU</string>
+
+    <!-- Tulis postcard: button to Unggah video -->
+    <string name="postcard_video_button">Video</string>
+
+    <!-- Unggah video (7.3) -->
+    <string name="video_title">Video ulasan</string>
+    <string name="video_pick_title">Pilih video</string>
+    <string name="video_pick_hint">Ketuk untuk memilih dari galeri</string>
+    <string name="video_pick_cd">Pilih video untuk diunggah</string>
+    <string name="video_chosen_cd">Video terpilih. Ketuk untuk memilih video lain</string>
+    <string name="video_reading">Membaca video…</string>
+    <string name="video_recorded_at">Direkam di %1$s</string>
+    <string name="video_duration_cd">Durasi %1$s</string>
+    <string name="video_max_hint">Maksimal %1$d detik. Video vertikal paling enak ditonton.</string>
+    <string name="video_too_long">Video ini berdurasi %1$s, lebih panjang dari batas %2$d detik. Pilih video yang lebih pendek.</string>
+    <string name="video_unreadable">Video ini tidak bisa dibuka. Coba pilih video lain.</string>
+    <string name="video_change">Ganti video</string>
+    <string name="video_remove">Hapus video</string>
+    <string name="video_caption_label">Keterangan</string>
+    <string name="video_caption_hint">Ruang koleksi wayang paling seru</string>
+    <string name="video_before_title">Sebelum mengunggah</string>
+    <string name="video_consent_area">Saya merekam di area yang boleh direkam menurut pengelola.</string>
+    <string name="video_consent_people">Penampil atau pengunjung lain di video tidak keberatan tampil.</string>
+    <string name="video_consent_ceremony">Video ini tidak merekam upacara adat atau ibadah.</string>
+    <string name="video_upload">Unggah video</string>
+    <string name="video_uploading">Mengunggah… %1$d%%</string>
+    <string name="video_retry">Coba lagi</string>
+    <string name="video_error_network">Video belum terunggah. Sepertinya sinyalmu hilang. Periksa sinyal, lalu coba lagi.</string>
+    <string name="video_error_too_long">Video ditolak karena terlalu panjang. Pilih video yang lebih pendek.</string>
+    <string name="video_error_not_configured">Video belum bisa diunggah di versi aplikasi ini.</string>
+    <string name="video_guest_title">Masuk dulu untuk mengunggah video</string>
+    <string name="video_guest_body">Video hanya bisa diunggah oleh pengunjung yang punya akun.</string>
+    <string name="video_needsstamp_title">Ambil cap dulu di %1$s</string>
+    <string name="video_needsstamp_body">Video hanya bisa diunggah dari tempat yang sudah kamu cap.</string>
+    <string name="video_unknown_title">Tempat tidak ditemukan</string>
+    <string name="video_unknown_body">Buka lagi dari halaman Tulis postcard, lalu pilih Video.</string>
+    <string name="video_unknown_action">Kembali</string>
 </resources>

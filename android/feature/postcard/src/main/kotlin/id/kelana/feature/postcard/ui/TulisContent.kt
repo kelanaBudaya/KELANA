@@ -99,6 +99,7 @@ internal data class TulisActions(
     val onLogin: () -> Unit = {},
     val onOpenPaspor: () -> Unit = {},
     val onTakeStamp: (String) -> Unit = {},
+    val onVideo: (String) -> Unit = {},
 )
 
 /** Tulis postcard (Figma 7.1) and its guard states. Compared with TulisPostcardIlustratif.dc.html. */
@@ -330,7 +331,7 @@ private fun FormBody(state: TulisUiState, place: Place, actions: TulisActions) {
                 )
             }
         }
-        BottomBar(state = state, onPublish = actions.onPublish)
+        BottomBar(state = state, onPublish = actions.onPublish, onVideo = { actions.onVideo(place.id) })
     }
 }
 
@@ -585,7 +586,7 @@ private fun MessageField(value: String, onChange: (String) -> Unit) {
 }
 
 @Composable
-private fun BottomBar(state: TulisUiState, onPublish: () -> Unit) {
+private fun BottomBar(state: TulisUiState, onPublish: () -> Unit, onVideo: () -> Unit) {
     val colors = KelanaTheme.colors
     val failed = state.publish as? PublishState.Failed
     Column(
@@ -608,19 +609,39 @@ private fun BottomBar(state: TulisUiState, onPublish: () -> Unit) {
                     tone = BannerTone.Warning,
                 )
             }
-            KelanaButton(
-                text = stringResource(
-                    when {
-                        state.publish is PublishState.Sending -> R.string.postcard_publishing
-                        failed != null && failed.error != PublishError.NotConfigured -> R.string.postcard_retry
-                        else -> R.string.postcard_publish
-                    },
-                ),
-                onClick = onPublish,
-                enabled = state.canPublish,
-                variant = KelanaButtonVariant.Secondary,
-                modifier = Modifier.fillMaxWidth(),
-            )
+            Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
+                // Artifact: "Video" outline pill, 52 high, padding 0 16, 1.5 px blue border, play icon + 15/800 label.
+                Row(
+                    modifier = Modifier
+                        .height(52.dp)
+                        .clip(RoundedCornerShape(KelanaRadii.pill))
+                        .border(1.5.dp, colors.primary, RoundedCornerShape(KelanaRadii.pill))
+                        .clickable(role = Role.Button, onClick = onVideo)
+                        .padding(horizontal = 16.dp),
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.spacedBy(6.dp),
+                ) {
+                    Image(painter = painterResource(R.drawable.postcard_ic_play), contentDescription = null, modifier = Modifier.size(18.dp))
+                    Text(
+                        text = stringResource(R.string.postcard_video_button),
+                        style = TextStyle(fontFamily = JakartaFontFamily, fontSize = 15.sp, fontWeight = FontWeight.ExtraBold),
+                        color = colors.primary,
+                    )
+                }
+                KelanaButton(
+                    text = stringResource(
+                        when {
+                            state.publish is PublishState.Sending -> R.string.postcard_publishing
+                            failed != null && failed.error != PublishError.NotConfigured -> R.string.postcard_retry
+                            else -> R.string.postcard_publish
+                        },
+                    ),
+                    onClick = onPublish,
+                    enabled = state.canPublish,
+                    variant = KelanaButtonVariant.Secondary,
+                    modifier = Modifier.weight(1f),
+                )
+            }
         }
     }
 }

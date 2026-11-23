@@ -18,6 +18,8 @@ import id.kelana.core.navigation.AmbilCapRoute
 import id.kelana.core.navigation.BagikanPostcardRoute
 import id.kelana.core.navigation.MasukRoute
 import id.kelana.core.navigation.PasporRoute
+import id.kelana.core.navigation.UnggahVideoRoute
+import id.kelana.core.ui.session.rememberRequireLogin
 import id.kelana.feature.postcard.data.PostcardFiles
 
 /**
@@ -33,6 +35,7 @@ internal fun TulisScreen(
 ) {
     val state by viewModel.uiState.collectAsState()
     val context = LocalContext.current
+    val requireLogin = rememberRequireLogin(navigate)
 
     // Photo Picker: images only, no permission needed.
     val picker = rememberLauncherForActivityResult(ActivityResultContracts.PickVisualMedia()) { uri ->
@@ -88,6 +91,7 @@ internal fun TulisScreen(
             onLogin = { navigate(MasukRoute) },
             onOpenPaspor = { navigate(PasporRoute) },
             onTakeStamp = { navigate(AmbilCapRoute(it)) },
+            onVideo = { placeId -> requireLogin { navigate(UnggahVideoRoute(placeId)) } },
         ),
     )
 }
