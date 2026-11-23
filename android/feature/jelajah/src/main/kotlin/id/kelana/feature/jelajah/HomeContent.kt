@@ -180,7 +180,7 @@ private fun HomeHeader(state: JelajahUiState, avatarInitials: String, callbacks:
                         )
                     }
                 }
-                // The bell stays visual-only for now (no notification route yet).
+                // The bell opens the notification center (NotifikasiRoute).
                 Box(
                     Modifier.size(KelanaSizes.inputHeight).clip(CircleShape).background(colors.white.copy(alpha = 0.16f))
                         .clickable(role = Role.Button, onClick = callbacks.onBell),

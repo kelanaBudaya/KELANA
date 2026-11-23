@@ -9,6 +9,7 @@ import id.kelana.core.model.PlaceCategory
 import id.kelana.core.model.PlaceRepository
 import id.kelana.core.model.PlanCache
 import id.kelana.core.model.ReminderChoice
+import id.kelana.core.model.ReminderScheduler
 import id.kelana.core.model.TripPlan
 import id.kelana.feature.rencana.data.LocalPlanRepository
 import id.kelana.feature.rencana.domain.PlanBuilder
@@ -87,3 +88,17 @@ internal fun repo(
     cache: FakeCache = FakeCache(),
     connectivity: FakeConnectivity = FakeConnectivity(),
 ) = LocalPlanRepository(places, events, cache, connectivity, PlanBuilder(), TestClock)
+
+/** Records the calls of the notifikasi scheduler (the real one lives in :feature:notifikasi). */
+internal class FakeReminderScheduler : ReminderScheduler {
+    val scheduleCalls = mutableListOf<Pair<String, ReminderChoice>>()
+    val cancelCalls = mutableListOf<String>()
+
+    override suspend fun scheduleShowReminder(eventId: String, choice: ReminderChoice) {
+        scheduleCalls += eventId to choice
+    }
+
+    override suspend fun cancelShowReminder(eventId: String) {
+        cancelCalls += eventId
+    }
+}

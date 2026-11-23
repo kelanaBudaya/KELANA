@@ -1,4 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="notifikasi_placeholder">Notifikasi (segera hadir)</string>
+    <!-- Notification channels (system settings) -->
+    <string name="notif_channel_rencana">Rencana</string>
+    <string name="notif_channel_paspor">Paspor</string>
+    <string name="notif_channel_info">Info</string>
+
+    <!-- Text of the entries the center stores (resolved when the event is posted) -->
+    <string name="notif_stamp_title">Cap %1$s masuk paspormu</string>
+    <string name="notif_stamp_body">Kamu sudah berkelana ke %1$s!</string>
+    <string name="notif_stamp_title_unknown">Cap baru masuk paspormu</string>
+    <string name="notif_stamp_body_unknown">Server sudah mengonfirmasi capmu.</string>
+    <string name="notif_reminder_title_leave">Waktunya berangkat ke %1$s</string>
+    <string name="notif_reminder_title_hour">Satu jam lagi: %1$s</string>
+    <string name="notif_reminder_title_half">30 menit lagi: %1$s</string>
+    <string name="notif_reminder_body">%1$s mulai %2$s di %3$s. Jadwal diperiksa %4$s.</string>
+    <string name="notif_reminder_body_checking">%1$s di %2$s. Jadwal resminya sedang dicek.</string>
+    <string name="notif_reminder_title_unknown">Pengingat pentas</string>
+    <string name="notif_reminder_body_unknown">Waktunya bersiap untuk pentas yang kamu pilih.</string>
+
+    <!-- Notifikasi (5.1) -->
+    <string name="notifikasi_title">Notifikasi</string>
+    <string name="notifikasi_back">Kembali</string>
+    <string name="notifikasi_settings_cd">Atur notifikasi</string>
+    <string name="notifikasi_chip_all">Semua</string>
+    <string name="notifikasi_chip_rencana">Rencana</string>
+    <string name="notifikasi_chip_paspor">Paspor</string>
+    <string name="notifikasi_chip_cerita">Cerita</string>
+    <string name="notifikasi_group_today">HARI INI</string>
+    <string name="notifikasi_group_yesterday">KEMARIN</string>
+    <string name="notifikasi_unread_cd">Belum dibaca</string>
+    <string name="notifikasi_empty_title">Belum ada notifikasi</string>
+    <string name="notifikasi_empty_body">Pengingat pentas dan kabar cap di paspormu muncul di sini.</string>
+
+    <!-- Izin notifikasi (4.9) -->
+    <string name="izin_notif_title">Mau diingatkan sebelum pentas mulai?</string>
+    <string name="izin_notif_body">Kami kabari saat waktunya berangkat atau capmu sudah masuk. Tanpa promo.</string>
+    <string name="izin_notif_later">Nanti saja</string>
+    <string name="izin_notif_allow">Ingatkan aku</string>
+    <string name="izin_notif_close">Tutup</string>
+
+    <!-- Pengaturan notifikasi -->
+    <string name="pengaturan_notif_title">Pengaturan notifikasi</string>
+    <string name="pengaturan_notif_section_topics">KABARI SAYA SOAL</string>
+    <string name="pengaturan_notif_leave_title">Waktunya berangkat</string>
+    <string name="pengaturan_notif_leave_body">Pengingat sebelum pentas yang kamu pilih di rencanamu.</string>
+    <string name="pengaturan_notif_stamp_title">Ambil cap</string>
+    <string name="pengaturan_notif_stamp_body">Kabar saat server sudah mengonfirmasi capmu.</string>
+    <string name="pengaturan_notif_section_quiet">JAM TENANG</string>
+    <string name="pengaturan_notif_quiet_title">Jangan kirim pukul 21.00–06.00</string>
+    <string name="pengaturan_notif_quiet_body">Notifikasi tetap tersimpan di pusat notifikasi.</string>
 </resources>

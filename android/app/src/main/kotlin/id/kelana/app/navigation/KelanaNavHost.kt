@@ -155,7 +155,7 @@ fun KelanaAppContent(appViewModel: AppViewModel = hiltViewModel()) {
             }
             pasporScreens(navigate = navigate, onBack = onBack, onReplace = onReplace)
             postcardScreen()
-            notifikasiScreen()
+            notifikasiScreen(navController = navController, navigate = navigate, onBack = onBack)
             tiketScreen(onBack = onBack)
         }
     }

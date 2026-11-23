@@ -14,6 +14,7 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.dialog
 import androidx.navigation.compose.navigation
+import id.kelana.core.navigation.IzinNotifRoute
 import id.kelana.core.navigation.MenyusunRoute
 import id.kelana.core.navigation.PasporRoute
 import id.kelana.core.navigation.PengingatRoute
@@ -127,7 +128,7 @@ fun NavGraphBuilder.rencanaScreens(navController: NavController, navigate: (Any)
     }
 
     dialog<PengingatRoute>(dialogProperties = DialogProperties(usePlatformDefaultWidth = false)) {
-        PengingatScreen(onClose = onBack)
+        PengingatScreen(onClose = onBack, onNeedNotificationPermission = { navigate(IzinNotifRoute) })
     }
     composable<TempatTutupRoute> {
         TempatTutupScreen(
