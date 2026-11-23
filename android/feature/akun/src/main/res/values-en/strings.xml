@@ -60,4 +60,37 @@
     <string name="profil_row_hapus_sub">Your passport and postcards are deleted too</string>
     <string name="profil_keluar">Sign out</string>
     <string name="profil_guest_masuk">Sign in</string>
+
+    <!-- Hapus akun (HapusAkun.dc.html) -->
+    <string name="hapus_akun_title">Delete your KELANA account?</string>
+    <string name="hapus_akun_body">A deleted account cannot be recovered.</string>
+    <string name="hapus_akun_deleted_header">Deleted too</string>
+    <plurals name="hapus_akun_stamps_count">
+        <item quantity="one">%1$d stamp in your passport</item>
+        <item quantity="other">%1$d stamps in your passport</item>
+    </plurals>
+    <string name="hapus_akun_stamps">The stamps in your passport</string>
+    <plurals name="hapus_akun_postcards_part">
+        <item quantity="one">%1$d postcard</item>
+        <item quantity="other">%1$d postcards</item>
+    </plurals>
+    <plurals name="hapus_akun_videos_part">
+        <item quantity="one">%1$d video</item>
+        <item quantity="other">%1$d videos</item>
+    </plurals>
+    <string name="hapus_akun_stories_count">%1$s and %2$s, including those already shown publicly</string>
+    <string name="hapus_akun_stories">Postcards and videos, including those already shown publicly</string>
+    <string name="hapus_akun_plans">Saved trip plans and travel needs</string>
+    <string name="hapus_akun_kept_header">Kept, without your name</string>
+    <string name="hapus_akun_reports">Reports of wrong info you have sent</string>
+    <string name="hapus_akun_download">Download my data first</string>
+    <string name="hapus_akun_download_unavailable">Not available yet</string>
+    <string name="hapus_akun_confirm_label">Type %1$s to continue</string>
+    <string name="hapus_akun_cancel">Cancel</string>
+    <string name="hapus_akun_submit">Delete account</string>
+    <string name="hapus_akun_deleting">Deleting…</string>
+    <string name="hapus_akun_error_network">No connection. Your account was not deleted, try again.</string>
+    <string name="hapus_akun_error_failed">Your account could not be deleted. Try again later.</string>
+    <string name="hapus_akun_error_not_configured">The account service is not available in this build.</string>
+    <string name="hapus_akun_error_not_signed_in">You need to sign in to delete your account.</string>
 </resources>

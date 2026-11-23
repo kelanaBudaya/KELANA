@@ -1,22 +1,27 @@
 package id.kelana.feature.akun
 
 import androidx.navigation.NavGraphBuilder
+import androidx.compose.ui.window.DialogProperties
 import androidx.navigation.compose.composable
+import androidx.navigation.compose.dialog
 import id.kelana.core.navigation.AkunRoute
 import id.kelana.core.navigation.DaftarRoute
+import id.kelana.core.navigation.HapusAkunRoute
 import id.kelana.core.navigation.MasukEmailRoute
 import id.kelana.core.navigation.MasukRoute
 import id.kelana.core.navigation.PasporRoute
 import id.kelana.core.navigation.PengaturanNotifRoute
 import id.kelana.core.navigation.PilihDaerahRoute
 import id.kelana.feature.akun.ui.DaftarScreen
+import id.kelana.feature.akun.ui.HapusAkunScreen
 import id.kelana.feature.akun.ui.MasukEmailScreen
 import id.kelana.feature.akun.ui.MasukScreen
 import id.kelana.feature.akun.ui.ProfilScreen
 
 /**
  * Registers this feature's destinations. Called by :app only.
- * [onSignedIn] and [onGuest] tell the app where to go after Masuk finishes; [onSignedOut] after Keluar on Profil.
+ * [onSignedIn] and [onGuest] tell the app where to go after Masuk finishes; [onSignedOut] after Keluar on Profil
+ * and after Hapus akun.
  * [AkunRoute] is the Profil screen (artifact 8.2).
  */
 fun NavGraphBuilder.akunScreen(
@@ -34,7 +39,15 @@ fun NavGraphBuilder.akunScreen(
             onMasuk = { navigate(MasukRoute) },
             onSignedOut = onSignedOut,
             onNotifikasi = { navigate(PengaturanNotifRoute) },
+            onHapusAkun = { navigate(HapusAkunRoute) },
         )
+    }
+    // "Hapus akun KELANA?" sheet over Profil. After the server deleted the account the device is already signed
+    // out; [onSignedOut] then takes the user to Jelajah as a guest, like Keluar.
+    dialog<HapusAkunRoute>(
+        dialogProperties = DialogProperties(usePlatformDefaultWidth = false, decorFitsSystemWindows = false),
+    ) {
+        HapusAkunScreen(onBack = onBack, onDeleted = onSignedOut)
     }
     composable<MasukRoute> {
         MasukScreen(
