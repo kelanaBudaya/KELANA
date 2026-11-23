@@ -1,4 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="notifikasi_placeholder">Notifications (coming soon)</string>
+    <!-- Notification channels (system settings) -->
+    <string name="notif_channel_rencana">Plan</string>
+    <string name="notif_channel_paspor">Passport</string>
+    <string name="notif_channel_info">Info</string>
+
+    <!-- Text of the entries the center stores (resolved when the event is posted) -->
+    <string name="notif_stamp_title">Stamp %1$s is in your passport</string>
+    <string name="notif_stamp_body">You have explored %1$s!</string>
+    <string name="notif_stamp_title_unknown">A new stamp is in your passport</string>
+    <string name="notif_stamp_body_unknown">The server has confirmed your stamp.</string>
+    <string name="notif_reminder_title_leave">Time to head to %1$s</string>
+    <string name="notif_reminder_title_hour">One hour to go: %1$s</string>
+    <string name="notif_reminder_title_half">30 minutes to go: %1$s</string>
+    <string name="notif_reminder_body">%1$s starts at %2$s at %3$s. Schedule checked %4$s.</string>
+    <string name="notif_reminder_body_checking">%1$s at %2$s. Its official schedule is being checked.</string>
+    <string name="notif_reminder_title_unknown">Show reminder</string>
+    <string name="notif_reminder_body_unknown">Time to get ready for the show you picked.</string>
+
+    <!-- Notifications (5.1) -->
+    <string name="notifikasi_title">Notifications</string>
+    <string name="notifikasi_back">Back</string>
+    <string name="notifikasi_settings_cd">Notification settings</string>
+    <string name="notifikasi_chip_all">All</string>
+    <string name="notifikasi_chip_rencana">Plan</string>
+    <string name="notifikasi_chip_paspor">Passport</string>
+    <string name="notifikasi_chip_cerita">Stories</string>
+    <string name="notifikasi_group_today">TODAY</string>
+    <string name="notifikasi_group_yesterday">YESTERDAY</string>
+    <string name="notifikasi_unread_cd">Unread</string>
+    <string name="notifikasi_empty_title">No notifications yet</string>
+    <string name="notifikasi_empty_body">Show reminders and news about stamps in your passport show up here.</string>
+
+    <!-- Notification permission (4.9) -->
+    <string name="izin_notif_title">Remind you before the show starts?</string>
+    <string name="izin_notif_body">We tell you when it is time to leave or your stamp is in. No promotions.</string>
+    <string name="izin_notif_later">Not now</string>
+    <string name="izin_notif_allow">Remind me</string>
+    <string name="izin_notif_close">Close</string>
+
+    <!-- Notification settings -->
+    <string name="pengaturan_notif_title">Notification settings</string>
+    <string name="pengaturan_notif_section_topics">TELL ME ABOUT</string>
+    <string name="pengaturan_notif_leave_title">Time to leave</string>
+    <string name="pengaturan_notif_leave_body">A reminder before the shows you pick in your plan.</string>
+    <string name="pengaturan_notif_stamp_title">Collect stamp</string>
+    <string name="pengaturan_notif_stamp_body">News when the server has confirmed your stamp.</string>
+    <string name="pengaturan_notif_section_quiet">QUIET HOURS</string>
+    <string name="pengaturan_notif_quiet_title">Do not send 21.00–06.00</string>
+    <string name="pengaturan_notif_quiet_body">Notifications are still kept in the notification center.</string>
 </resources>
