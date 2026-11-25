@@ -427,7 +427,7 @@ private fun TonightBanner(occurrence: EventOccurrence, onClick: () -> Unit, modi
                     stringResource(R.string.banner_time, time),
                     modifier = Modifier.padding(top = 4.dp),
                     style = MaterialTheme.typography.bodySmall,
-                    color = Color(0xFFFFE6D6),
+                    color = colors.peachSoft,
                 )
             }
             Box(

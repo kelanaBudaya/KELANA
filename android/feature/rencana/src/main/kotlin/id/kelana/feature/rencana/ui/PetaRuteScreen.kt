@@ -89,7 +89,7 @@ internal fun PetaRuteContent(
     onOpenMaps: (PlanStop) -> Unit,
 ) {
     val colors = KelanaTheme.colors
-    Box(Modifier.fillMaxSize().background(Color(0xFFDCEAF7))) {
+    Box(Modifier.fillMaxSize().background(colors.mapBackdrop)) {
         Image(painterResource(R.drawable.rencana_map_base), contentDescription = null, modifier = Modifier.fillMaxSize(), contentScale = ContentScale.Crop)
         SchematicMap(state, Modifier.fillMaxSize())
         Text(

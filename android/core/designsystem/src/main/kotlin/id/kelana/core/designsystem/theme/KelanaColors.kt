@@ -61,6 +61,26 @@ data class KelanaColors(
 
     // PROVISIONAL: no red appears in the five reference files
     val danger: Color = Color(0xFFC0392B),
+    /** Strong red of the Hapus akun sheet: "Ikut terhapus" title, cross icon, enabled delete button (HapusAkun.dc.html). */
+    val dangerStrong: Color = Color(0xFFB84439),
+    /** Pale red panel "Ikut terhapus" (HapusAkun.dc.html). */
+    val dangerSurface: Color = Color(0xFFFBE7E5),
+    /** Disabled "Hapus akun" button (HapusAkun.dc.html). */
+    val dangerDisabled: Color = Color(0xFFE5B9B4),
+    /** Pale peach text on the orange agenda banner (Jelajah home banner time). */
+    val peachSoft: Color = Color(0xFFFFE6D6),
+    /** Grey badge background of a region that is not open yet (PilihDaerah.dc.html). */
+    val badgeClosedBackground: Color = Color(0xFFEEF0F3),
+    /** Dashed border of the "Usul daerah" suggestion box (PilihDaerah.dc.html). */
+    val dashWarm: Color = Color(0xFFB9B09E),
+    /** Dashed photo-box border (Tulis postcard) and gallery caption text on dark panels (Foto resmi). */
+    val dashMuted: Color = Color(0xFFB9C4DA),
+    /** Photo panel and selected-tile fill on the dark gallery page (Galeri.dc.html). */
+    val galleryPanel: Color = Color(0xFF24345A),
+    /** Border of an unselected gallery thumbnail (Galeri.dc.html). */
+    val galleryTileBorder: Color = Color(0xFF3A4A70),
+    /** Water-blue backdrop behind the route map base image (PetaRute). */
+    val mapBackdrop: Color = Color(0xFFDCEAF7),
     /** Hairline of cards, chips, outline buttons and the bottom bar top border (`#E7E0D2` in every screen file). */
     val outline: Color = Color(0xFFE7E0D2),
     /** Divider and inactive pager dot (`#D5DBE6`, Kenalan1 and Jelajah). */

@@ -53,6 +53,7 @@ import id.kelana.core.designsystem.component.EmptyState
 import id.kelana.core.designsystem.component.KelanaBackTopBar
 import id.kelana.core.designsystem.component.formatCheckedDate
 import id.kelana.core.designsystem.theme.FrauncesFontFamily
+import id.kelana.core.designsystem.theme.KelanaRadii
 import id.kelana.core.designsystem.theme.KelanaShapes
 import id.kelana.core.designsystem.theme.KelanaSizes
 import id.kelana.core.designsystem.theme.KelanaSpacing
@@ -120,8 +121,8 @@ private val DetailTitle = TextStyle(
     lineHeight = 34.sp,
 )
 
-// PROVISIONAL: the 24 dp radius of the content card and the 16 dp radius of the etiquette cards have no token.
-private val SheetShape = RoundedCornerShape(24.dp)
+// 24 dp content card radius is KelanaRadii.sheet.
+private val SheetShape = RoundedCornerShape(KelanaRadii.sheet)
 
 @Composable
 private fun FoundContent(
