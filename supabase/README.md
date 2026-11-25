@@ -19,7 +19,7 @@ Local keys printed by `supabase start` stay out of git.
 ## Tables
 
 regions, places, opening_hours, closures, ticket_prices, events, profiles (1:1 with auth.users),
-stamps, postcards, videos, reports, subscriptions. RPCs: `place_facts(place_id)` (client),
+stamps, postcards, videos, reports, subscriptions; admin: staff, fact_reviews, fact_history (see below). RPCs: `place_facts(place_id)` (client),
 `stamp_distance(place_id, lat, lng)` (service role only, for verify-stamp), `release_check()`.
 
 Event recurrence: `once` (event_date), `weekly` (ISO weekday 1=Senin..7=Minggu), `daily` (neither).
@@ -36,6 +36,21 @@ Times are Asia/Jakarta wall-clock. Cancelled dates go in `closures`.
 - Postcards and videos: any logged-in user can read them immediately; inserting needs `user_id = self` and a stamp for the same place. A postcard with `is_public = false` is visible to its author only (`postcards.rating` 1 to 5 or null, `card_style` `jurnal`/`cap`/`peta`).
 - Visitor stories are for logged-in users only; the guest browse set above is the whole guest surface.
 - Own rows only for editing/deleting postcards, videos, reports, subscriptions, profile.
+
+## Admin panel: staff, four-eyes, history (migration 20261123090000)
+
+The web panel in `admin/` signs in as the staff member (anon key + session, never the service role). See `admin/README.md` for adding staff.
+
+- `staff` (user_id, role `checker` | `reviewer` | `admin`, region_id null = all, display_name). Rows are inserted by the project owner in the SQL editor; there is no insert/update/delete policy. Staff can read the staff list. Helpers: `is_staff()`, `current_staff_role()`, `is_staff_for_place(place_id)`.
+- `fact_reviews` (one row per fact: internal_note, manager_confirmation, has_conflict, due_on, checker, reviewer, content snapshots). Separate from the fact tables so internal data never reaches travellers (`place_facts` returns whole fact rows). Readable by staff of the place's region; written only through the RPCs.
+- `fact_history`: append-only (before, after, source_url, changed_by = `auth.uid()` or null for scraper/dashboard, changed_at), written by triggers on every insert/update/delete of a fact and on every check and review. Triggers reject update, delete and truncate for every role, postgres included; API roles have no write privilege at all. No foreign keys, so it outlives deleted places and accounts.
+- **Four-eyes rule (database-enforced):** a `BEFORE INSERT OR UPDATE` trigger on `opening_hours`, `closures`, `ticket_prices`, `events` lets a row become or stay `published` with changed content only when `fact_reviews` has a checker and a different reviewer whose snapshots equal the row's current content (all columns except `review_status` and `checked_at`). A guard trigger on `fact_reviews` only lets the caller (`auth.uid()`) set themselves as checker or reviewer, requires reviewer/admin role for the review, and computes the snapshots itself, so service_role and postgres cannot forge a review either. Consequences:
+  - Inserting an already `published` fact is refused for every role except the owner roles `postgres`/`supabase_admin` (seed and migrations). The scraper (service role) inserts `pending`.
+  - Changing a value of a published fact is refused unless the row goes back to `pending`. Refreshing only `checked_at` of an unchanged published fact is allowed ("an unchanged re-check just refreshes checkedAt").
+  - A value change after the check makes the check stale; the reviewer gets `stale_check` and the fact must be checked again.
+- RPCs (authenticated, each checks the staff row and region): `staff_fact_queue()`, `staff_summary()`, `staff_save_fact(kind, id, patch, note, confirmation, has_conflict, due_on)` (a content change sends the fact back to pending), `mark_fact_checked(kind, id)` (needs `source_url` and `checked_at`), `publish_fact(kind, id)` (reviewer/admin, not the checker: approves and publishes in one transaction). Errors: `four_eyes_required`, `stale_check`, `reviewer_role_required`, `not_staff`, `fact_not_pending`, `check_needs_source_and_date`.
+- Unchanged for travellers: no new policy on the fact tables (staff read pending facts only through `staff_fact_queue()`, so a staff account in the Android app still sees published facts only). `reports` gets one extra select policy for staff of the reported place's region (read-only). Report photos stay private to the reporter.
+- Tests: `tests/admin.test.sql`.
 
 ## Storage
 
