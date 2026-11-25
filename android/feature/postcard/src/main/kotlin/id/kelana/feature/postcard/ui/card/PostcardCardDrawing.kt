@@ -68,6 +68,15 @@ internal fun ShareFormat.designHeight(): Float = if (this == ShareFormat.Story) 
 
 private val Colors = KelanaColors()
 
+/** Colours of the code-drawn postcard art (wave band behind the photo). Art, not UI: no semantic token. */
+internal object PostcardWaveArt {
+    /** Lighter navy wave of the Jurnal style, `#2B4C93`. */
+    val waveJurnal = Color(0xFF2B4C93)
+
+    /** Lighter yellow wave of the Cap style, `#F8CB62`. */
+    val waveCap = Color(0xFFF8CB62)
+}
+
 /** Colours per card style. Jurnal is the artifact (Postcard.dc.html); Cap and Peta have no artifact yet: PROVISIONAL. */
 private class Palette(
     val background: Color,
@@ -83,12 +92,12 @@ private class Palette(
 
 private fun paletteOf(style: PostcardStyle): Palette = when (style) {
     PostcardStyle.Jurnal -> Palette(
-        background = Colors.navy, wave = Color(0xFF2B4C93), kickerLeft = Colors.stampYellow, kickerRight = Colors.white,
+        background = Colors.navy, wave = PostcardWaveArt.waveJurnal, kickerLeft = Colors.stampYellow, kickerRight = Colors.white,
         stampInk = Colors.stampYellow, stickerFill = Colors.stampYellow, stickerText = Colors.navy,
         polaroid = Colors.backgroundWarm, stampScale = 1f,
     )
     PostcardStyle.Cap -> Palette(
-        background = Colors.stampYellow, wave = Color(0xFFF8CB62), kickerLeft = Colors.navy, kickerRight = Colors.navy,
+        background = Colors.stampYellow, wave = PostcardWaveArt.waveCap, kickerLeft = Colors.navy, kickerRight = Colors.navy,
         stampInk = Colors.navy, stickerFill = Colors.navy, stickerText = Colors.white,
         polaroid = Colors.backgroundWarm, stampScale = 1.4f,
     )

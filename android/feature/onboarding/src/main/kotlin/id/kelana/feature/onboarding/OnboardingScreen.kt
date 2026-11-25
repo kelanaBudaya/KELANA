@@ -103,10 +103,6 @@ fun NavGraphBuilder.onboardingScreens(navigate: (Any) -> Unit, onFinished: () ->
     composable<PilihDaerahRoute> { PilihDaerahScreen(navigate = navigate, onFinished = onFinished) }
 }
 
-// Colors that appear in PilihDaerah.dc.html but have no token in :core:designsystem yet (see "Needs from planner").
-private val BadgeClosedBackground = Color(0xFFEEF0F3)
-private val SuggestDashColor = Color(0xFFB9B09E)
-
 // ---------------------------------------------------------------------------------------------------------
 // Mulai + Kenalan
 // ---------------------------------------------------------------------------------------------------------
@@ -782,7 +778,7 @@ private fun StatusBadge(status: RegionStatus) {
     val (bg, fg) = when (status) {
         RegionStatus.Available -> colors.successSurface to colors.successText
         RegionStatus.Upcoming -> colors.creamYellow to colors.warnText
-        RegionStatus.NotOpen -> BadgeClosedBackground to colors.muted
+        RegionStatus.NotOpen -> colors.badgeClosedBackground to colors.muted
     }
     Text(
         statusLabel(status),
@@ -859,7 +855,7 @@ private fun SuggestCard() {
             .clip(shape)
             .drawBehind {
                 drawRoundRect(
-                    color = SuggestDashColor,
+                    color = colors.dashWarm,
                     cornerRadius = CornerRadius(14.dp.toPx()),
                     style = Stroke(width = 1.5.dp.toPx(), pathEffect = PathEffect.dashPathEffect(floatArrayOf(5.dp.toPx(), 4.dp.toPx()))),
                 )

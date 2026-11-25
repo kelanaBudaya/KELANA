@@ -19,6 +19,12 @@ object KelanaRadii {
     /** Row card of a list (KatMuseum place rows `border-radius: 20px`). */
     val listCard: Dp = 20.dp
 
+    /** Day tile of the agenda strip (54 x 74, `border-radius: 18px`). */
+    val dayTile: Dp = 18.dp
+
+    /** Hero card and bottom sheet (`border-radius: 24px`: Agenda hero, Detail pentas card, Hapus akun sheet). */
+    val sheet: Dp = 24.dp
+
     /** Large image panel (Kenalan1, Masuk: `border-radius: 32px`). */
     val imagePanel: Dp = 32.dp
 

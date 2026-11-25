@@ -55,6 +55,7 @@ import androidx.navigation.compose.composable
 import id.kelana.core.designsystem.component.EmptyState
 import id.kelana.core.designsystem.theme.ChipLabel
 import id.kelana.core.designsystem.theme.FrauncesFontFamily
+import id.kelana.core.designsystem.theme.KelanaRadii
 import id.kelana.core.designsystem.theme.KelanaShapes
 import id.kelana.core.designsystem.theme.KelanaSizes
 import id.kelana.core.designsystem.theme.KelanaSpacing
@@ -220,11 +221,9 @@ private fun SectionHeading(text: String, first: Boolean) {
     )
 }
 
-// PROVISIONAL: the 18 dp radius of the day tiles has no token (artifact: 54 x 74, radius 18).
-private val DayTileShape = RoundedCornerShape(18.dp)
+private val DayTileShape = RoundedCornerShape(KelanaRadii.dayTile)
 
-// PROVISIONAL: the 24 dp radius of the hero card has no token (artifact: border-radius 24).
-private val HeroShape = RoundedCornerShape(24.dp)
+private val HeroShape = RoundedCornerShape(KelanaRadii.sheet)
 
 /** Fraunces 22/26 w600 in the artifact; the bundled static Fraunces has Regular and Bold, Bold is the closest. */
 private val HeroTitle = TextStyle(

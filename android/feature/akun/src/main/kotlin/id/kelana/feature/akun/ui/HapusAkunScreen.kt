@@ -63,23 +63,13 @@ import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import id.kelana.core.designsystem.theme.KelanaShapes
 import id.kelana.core.designsystem.theme.KelanaSpacing
+import id.kelana.core.designsystem.theme.KelanaRadii
 import id.kelana.core.designsystem.theme.KelanaTheme
 import id.kelana.core.model.ACCOUNT_DELETION_CONFIRM_WORD
 import id.kelana.core.model.AccountDeletionSummary
 import id.kelana.feature.akun.R
 
-// Colours of this sheet that have no token yet (HapusAkun.dc.html). PROVISIONAL until :core:designsystem has them;
-// KelanaColors.danger (#C0392B) is itself provisional and differs from the artifact's red.
-/** "Ikut terhapus" title and cross icon, `#B84439`. Also the enabled "Hapus akun" button (the artifact only draws it disabled). */
-private val DangerRed = Color(0xFFB84439)
-
-/** "Ikut terhapus" panel, `#FBE7E5`. */
-private val DangerSurface = Color(0xFFFBE7E5)
-
-/** Disabled "Hapus akun" button, `#E5B9B4`. */
-private val DangerDisabled = Color(0xFFE5B9B4)
-
-private val SheetShape = RoundedCornerShape(topStart = 24.dp, topEnd = 24.dp)
+private val SheetShape = RoundedCornerShape(topStart = KelanaRadii.sheet, topEnd = KelanaRadii.sheet)
 private val PanelShape = RoundedCornerShape(14.dp)
 
 @Composable
@@ -185,7 +175,7 @@ internal fun HapusAkunContent(
                 Text(
                     text = stringResource(error.messageRes()),
                     style = MaterialTheme.typography.bodySmall,
-                    color = DangerRed,
+                    color = colors.dangerStrong,
                     modifier = Modifier
                         .padding(top = 10.dp)
                         .semantics { liveRegion = LiveRegionMode.Polite },
@@ -213,7 +203,7 @@ internal fun HapusAkunContent(
                     ),
                     onClick = onDelete,
                     enabled = state.canDelete,
-                    containerColor = if (state.canDelete) DangerRed else DangerDisabled,
+                    containerColor = if (state.canDelete) colors.dangerStrong else colors.dangerDisabled,
                     contentColor = colors.white,
                     border = null,
                     modifier = Modifier.weight(1f),
@@ -241,8 +231,8 @@ private fun DeletedPanel(summary: AccountDeletionSummary) {
     }
     Panel(
         title = stringResource(R.string.hapus_akun_deleted_header),
-        titleColor = DangerRed,
-        background = DangerSurface,
+        titleColor = KelanaTheme.colors.dangerStrong,
+        background = KelanaTheme.colors.dangerSurface,
         border = null,
         modifier = Modifier.padding(top = 16.dp),
     ) {

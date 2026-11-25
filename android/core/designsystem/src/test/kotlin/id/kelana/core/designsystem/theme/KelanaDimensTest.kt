@@ -11,6 +11,8 @@ class KelanaDimensTest {
         assertEquals(12.dp, KelanaRadii.input)
         assertEquals(16.dp, KelanaRadii.card)
         assertEquals(20.dp, KelanaRadii.listCard)
+        assertEquals(18.dp, KelanaRadii.dayTile)
+        assertEquals(24.dp, KelanaRadii.sheet)
         assertEquals(32.dp, KelanaRadii.imagePanel)
         assertEquals(999.dp, KelanaRadii.pill)
     }

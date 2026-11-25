@@ -29,7 +29,6 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.Role
@@ -47,12 +46,6 @@ import id.kelana.core.designsystem.theme.KelanaSpacing
 import id.kelana.core.designsystem.theme.KelanaTheme
 import id.kelana.core.navigation.FotoResmiRoute
 import id.kelana.feature.tempat.R
-
-// Dark gallery panel colours from Galeri.dc.html that have no token in :core:designsystem yet
-// (the page background #14213D is KelanaColors.galleryDark). PROVISIONAL: the planner may promote them to tokens.
-private val GalleryPanel = Color(0xFF24345A)
-private val GalleryTileBorder = Color(0xFF3A4A70)
-private val GalleryCaption = Color(0xFFB9C4DA)
 
 /** Official photos gallery (Galeri.dc.html, screen 2.5). The photos do not exist yet: the tiles are placeholders. */
 @Composable
@@ -106,7 +99,7 @@ internal fun FotoResmiContent(state: FotoResmiUiState, onBack: () -> Unit, modif
         Column(Modifier.weight(1f).verticalScroll(rememberScrollState())) {
             // Hero: placeholder for the photo, with the "Dokumentasi resmi" badge.
             Box(
-                Modifier.padding(top = 18.dp).fillMaxWidth().height(420.dp).background(GalleryPanel),
+                Modifier.padding(top = 18.dp).fillMaxWidth().height(420.dp).background(colors.galleryPanel),
                 contentAlignment = Alignment.Center,
             ) {
                 Text(
@@ -145,7 +138,7 @@ internal fun FotoResmiContent(state: FotoResmiUiState, onBack: () -> Unit, modif
                     text = stringResource(R.string.foto_resmi_source_pending),
                     modifier = Modifier.padding(top = KelanaSpacing.xs),
                     style = MaterialTheme.typography.labelMedium.copy(fontWeight = FontWeight.Normal, lineHeight = 18.sp),
-                    color = GalleryCaption,
+                    color = colors.dashMuted,
                 )
             }
             // Thumbnails.
@@ -189,10 +182,10 @@ private fun RowScope.Thumb(index: Int, isSelected: Boolean, onSelect: () -> Unit
             .weight(1f)
             .height(64.dp)
             .clip(KelanaShapes.input)
-            .background(GalleryPanel)
+            .background(colors.galleryPanel)
             .border(
                 width = if (isSelected) 3.dp else 1.dp,
-                color = if (isSelected) colors.stampYellow else GalleryTileBorder,
+                color = if (isSelected) colors.stampYellow else colors.galleryTileBorder,
                 shape = KelanaShapes.input,
             )
             .clickable(role = Role.Button, onClick = onSelect)
