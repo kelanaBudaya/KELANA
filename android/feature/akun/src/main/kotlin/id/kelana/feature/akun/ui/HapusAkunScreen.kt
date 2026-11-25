@@ -345,7 +345,7 @@ private fun DownloadLink(state: HapusAkunUiState, onExport: () -> Unit) {
         }
         val status = when (state.export) {
             DataExportState.Saved -> stringResource(R.string.hapus_akun_download_saved) to colors.muted
-            DataExportState.Error -> stringResource((state.exportError ?: DataExportError.Failed).messageRes()) to DangerRed
+            DataExportState.Error -> stringResource((state.exportError ?: DataExportError.Failed).messageRes()) to colors.dangerStrong
             else -> null
         }
         if (status != null) {
