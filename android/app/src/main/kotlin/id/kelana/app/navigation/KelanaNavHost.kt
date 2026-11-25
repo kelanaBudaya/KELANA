@@ -1,5 +1,6 @@
 package id.kelana.app.navigation
 
+import androidx.compose.foundation.layout.consumeWindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
@@ -77,7 +78,9 @@ fun KelanaAppContent(appViewModel: AppViewModel = hiltViewModel()) {
                 StartDestination.Onboarding -> IntroRoute(page = 0)
                 StartDestination.Jelajah -> JelajahRoute
             },
-            modifier = Modifier.padding(padding),
+            // The Scaffold padding already holds the status bar, navigation bar and bottom bar insets. Mark them consumed,
+            // otherwise every screen that calls statusBarsPadding() / navigationBarsPadding() adds them a second time.
+            modifier = Modifier.padding(padding).consumeWindowInsets(padding),
         ) {
             val navigate: (Any) -> Unit = { route -> navController.navigate(route) }
             val onBack: () -> Unit = { navController.popBackStack() }

@@ -119,7 +119,7 @@ class JelajahContentTest {
                 KategoriContent(state, onBack = {}, onOpenTodayChange = {}, onPlace = {}, onNotifyMe = { notified++ })
             }
         }
-        rule.onNodeWithText(str(R.string.kategori_empty_title, "topeng")).assertIsDisplayed()
+        rule.onNodeWithText(str(R.string.kategori_empty_title, str(id.kelana.core.ui.R.string.category_topeng).lowercase())).assertIsDisplayed()
         rule.onNodeWithText(str(R.string.kategori_empty_body)).assertIsDisplayed()
         rule.onNodeWithText(str(R.string.kabari_aku)).performClick()
         assertEquals(1, notified)

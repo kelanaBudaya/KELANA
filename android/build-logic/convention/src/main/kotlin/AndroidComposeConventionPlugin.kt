@@ -12,6 +12,8 @@ class AndroidComposeConventionPlugin : Plugin<Project> {
 
             val configureCompose: CommonExtension<*, *, *, *, *, *>.() -> Unit = {
                 buildFeatures.compose = true
+                // Only modules that get the androidTest dependencies below are instrumented.
+                defaultConfig.testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
             }
             pluginManager.withPlugin("com.android.library") {
                 extensions.configure<com.android.build.api.dsl.LibraryExtension> { configureCompose() }

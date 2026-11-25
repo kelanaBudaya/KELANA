@@ -39,6 +39,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
@@ -50,7 +51,9 @@ import androidx.compose.ui.draw.drawBehind
 import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.geometry.CornerRadius
+import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.PathEffect
 import androidx.compose.ui.graphics.Shadow
@@ -611,7 +614,23 @@ private fun MapPanel(state: PilihDaerahUiState, onPinTapped: (String) -> Unit, o
             }
         }
 
-        // Pins: the selected one is drawn last, on top.
+        // One touch layer for all pins: the pin nearest to the tap wins, so overlapping pin boxes cannot steal taps.
+        val currentPlaced by rememberUpdatedState(placed)
+        val currentSelectedId by rememberUpdatedState(state.selectedRegionId)
+        val currentOnPinTapped by rememberUpdatedState(onPinTapped)
+        Box(
+            Modifier.matchParentSize().pointerInput(u) {
+                detectTapGestures { tap ->
+                    val pin = nearestPin(currentPlaced, currentSelectedId, u, tap.x / this.density, tap.y / this.density)
+                    if (pin != null) {
+                        currentOnPinTapped(pin.region.id)
+                        zoomIndex = max(zoomIndex, 1)
+                    }
+                }
+            },
+        )
+
+        // Pins: the selected one is drawn last, on top. They only draw and describe themselves (see RegionPinMarker).
         (placed.filter { it.region.id != state.selectedRegionId } + placed.filter { it.region.id == state.selectedRegionId })
             .forEach { p ->
                 RegionPinMarker(
@@ -673,6 +692,30 @@ private fun MapPanel(state: PilihDaerahUiState, onPinTapped: (String) -> Unit, o
 }
 
 private data class PlacedPin(val region: Region, val pos: PinPosition, val sx: Float, val sy: Float)
+
+/** A tap farther than this from every pin dot selects nothing (below the 48 dp pin box, so neighbours stay separable). */
+private const val MaxPinTapDistanceDp = 28f
+
+/**
+ * The pin whose dot is nearest to the tap ([tapXDp], [tapYDp] inside the map panel), or null when none is within
+ * [MaxPinTapDistanceDp]. [u] is dp per artifact unit. The dot sits 11 dp below the pin box centre (unselected) or 5 dp
+ * above it (selected teardrop), see `RegionPinMarker`.
+ */
+private fun nearestPin(placed: List<PlacedPin>, selectedId: String?, u: Float, tapXDp: Float, tapYDp: Float): PlacedPin? {
+    var best: PlacedPin? = null
+    var bestDistance = MaxPinTapDistanceDp
+    for (p in placed) {
+        val dotY = (p.sy - 14f) * u + if (p.region.id == selectedId) -5f else 11f
+        val dx = p.sx * u - tapXDp
+        val dy = dotY - tapYDp
+        val distance = kotlin.math.sqrt(dx * dx + dy * dy)
+        if (distance < bestDistance) {
+            best = p
+            bestDistance = distance
+        }
+    }
+    return best
+}
 
 @Composable
 private fun ZoomButton(symbol: String, description: String, onClick: () -> Unit) {

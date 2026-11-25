@@ -2,6 +2,8 @@ package id.kelana.feature.cerita.ui
 
 import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.junit4.createComposeRule
+import androidx.compose.ui.test.onAllNodesWithContentDescription
+import androidx.compose.ui.test.onFirst
 import androidx.compose.ui.test.onNodeWithContentDescription
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
@@ -94,7 +96,9 @@ class CeritaFeedContentTest {
     fun content_showsStoryTiles_andOpensThem() {
         show(content)
         val postcard = CeritaPreviewData.postcard
-        rule.onNodeWithContentDescription(str(R.string.cerita_open_postcard, postcard.authorName, postcard.placeName))
+        // The sample feed has two postcards by the same author at the same place: take the first tile.
+        rule.onAllNodesWithContentDescription(str(R.string.cerita_open_postcard, postcard.authorName, postcard.placeName))
+            .onFirst()
             .assertIsDisplayed()
             .performClick()
         assertEquals(listOf("open:${postcard.id}"), calls)

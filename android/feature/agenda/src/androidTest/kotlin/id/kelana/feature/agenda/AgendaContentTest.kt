@@ -11,6 +11,7 @@ import androidx.compose.ui.test.assertIsSelected
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onAllNodesWithText
 import androidx.compose.ui.test.onNodeWithContentDescription
+import androidx.compose.ui.test.onFirst
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
 import androidx.test.ext.junit.runners.AndroidJUnit4
@@ -77,7 +78,8 @@ class AgendaContentTest {
                 AgendaContent(PreviewData.agendaState, onSelectDate = {}, onSelectFilter = {}, onOpenEvent = { opened += it }, onOpenMap = {})
             }
         }
-        rule.onNodeWithText(str(R.string.agenda_tonight), substring = true).assertIsDisplayed()
+        // The hero kicker is drawn uppercase ("TONIGHT · 19.30").
+        rule.onAllNodesWithText(str(R.string.agenda_tonight), substring = true, ignoreCase = true).onFirst().assertIsDisplayed()
         rule.onNodeWithText(PreviewData.roro.title).performClick()
         assertEquals(listOf(PreviewData.roro.id), opened)
     }
@@ -125,7 +127,8 @@ class AgendaContentTest {
             KelanaTheme { DetailPentasContent(toFound(PreviewData.roro), onBack = {}, onBuyTicket = { _, _ -> }) }
         }
         rule.onNodeWithText(PreviewData.roro.title).assertExists()
-        rule.onNodeWithText(formatCheckedDate(PreviewData.today), substring = true).assertExists()
+        // The check date shows on the schedule badge, the ticket badge and the source line.
+        rule.onAllNodesWithText(formatCheckedDate(PreviewData.today), substring = true).onFirst().assertExists()
     }
 
     @Test

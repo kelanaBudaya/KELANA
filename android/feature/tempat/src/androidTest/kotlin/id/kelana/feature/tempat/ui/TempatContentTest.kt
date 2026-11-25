@@ -7,6 +7,7 @@ import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onAllNodesWithText
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
+import androidx.compose.ui.test.performScrollTo
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
 import id.kelana.core.designsystem.component.formatCheckedDate
@@ -119,8 +120,8 @@ class TempatContentTest {
         var stamped = 0
         var reported = 0
         setDetail(place(checked = true), onStamp = { stamped++ }, onReport = { reported++ })
-        rule.onNodeWithText(str(R.string.tempat_cap_headline)).performClick()
-        rule.onNodeWithText(str(R.string.tempat_report_action)).performClick()
+        rule.onNodeWithText(str(R.string.tempat_cap_headline)).performScrollTo().performClick()
+        rule.onNodeWithText(str(R.string.tempat_report_action)).performScrollTo().performClick()
         assertEquals(1, stamped)
         assertEquals(1, reported)
     }
