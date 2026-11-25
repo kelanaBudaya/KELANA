@@ -1,6 +1,9 @@
 package id.kelana.feature.akun.ui
 
+import android.content.ActivityNotFoundException
 import androidx.activity.compose.BackHandler
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
@@ -48,11 +51,9 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.LiveRegionMode
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.semantics.contentDescription
-import androidx.compose.ui.semantics.disabled
 import androidx.compose.ui.semantics.heading
 import androidx.compose.ui.semantics.liveRegion
 import androidx.compose.ui.semantics.semantics
-import androidx.compose.ui.semantics.stateDescription
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
@@ -89,10 +90,19 @@ internal fun HapusAkunScreen(
     viewModel: HapusAkunViewModel = hiltViewModel(),
 ) {
     val state by viewModel.state.collectAsState()
+    // Storage Access Framework: the user picks where the file goes; no storage permission.
+    val createExportFile = rememberLauncherForActivityResult(
+        ActivityResultContracts.CreateDocument(EXPORT_MIME_TYPE),
+    ) { uri -> viewModel.onExportDestination(uri?.toString()) }
     LaunchedEffect(viewModel) {
         viewModel.events.collect { event ->
             when (event) {
                 HapusAkunEvent.Deleted -> onDeleted()
+                is HapusAkunEvent.ChooseExportFile -> try {
+                    createExportFile.launch(event.fileName)
+                } catch (_: ActivityNotFoundException) {
+                    viewModel.onExportPickerUnavailable()
+                }
             }
         }
     }
@@ -103,6 +113,7 @@ internal fun HapusAkunScreen(
         onConfirmationChange = viewModel::onConfirmationChange,
         onDelete = viewModel::onDelete,
         onCancel = { if (!state.isDeleting) onBack() },
+        onExport = viewModel::onExport,
     )
 }
 
@@ -113,6 +124,7 @@ internal fun HapusAkunContent(
     onConfirmationChange: (String) -> Unit,
     onDelete: () -> Unit,
     onCancel: () -> Unit,
+    onExport: () -> Unit = {},
 ) {
     val colors = KelanaTheme.colors
     Box(modifier = Modifier.fillMaxSize()) {
@@ -161,7 +173,7 @@ internal fun HapusAkunContent(
 
             DeletedPanel(summary = state.summary)
             KeptPanel()
-            DownloadLink()
+            DownloadLink(state = state, onExport = onExport)
 
             Text(
                 text = stringResource(R.string.hapus_akun_confirm_label, ACCOUNT_DELETION_CONFIRM_WORD),
@@ -311,34 +323,49 @@ private fun PanelLine(@DrawableRes icon: Int, text: String, color: Color) {
 }
 
 /**
- * PROVISIONAL: a real data export is not built yet, so the link is shown as in the artifact but inert (dimmed and
- * announced as not available), like the unbuilt rows on Profil.
+ * "Unduh dataku dulu": fetches the user's own data from the server and lets them save it as a JSON file. Below the
+ * link, a status line says when the file was saved or why it was not (the link then retries).
  */
 @Composable
-private fun DownloadLink() {
-    val unavailable = stringResource(R.string.hapus_akun_download_unavailable)
-    Row(
-        modifier = Modifier
-            .padding(top = 12.dp)
-            .heightIn(min = 48.dp)
-            .alpha(0.5f)
-            .semantics {
-                disabled()
-                stateDescription = unavailable
-            },
-        horizontalArrangement = Arrangement.spacedBy(8.dp),
-        verticalAlignment = Alignment.CenterVertically,
-    ) {
-        Image(
-            painter = painterResource(R.drawable.akun_hapus_ic_unduh),
-            contentDescription = null,
-            modifier = Modifier.size(18.dp),
-        )
-        Text(
-            text = stringResource(R.string.hapus_akun_download),
-            style = MaterialTheme.typography.titleSmall,
-            color = KelanaTheme.colors.primary,
-        )
+private fun DownloadLink(state: HapusAkunUiState, onExport: () -> Unit) {
+    val colors = KelanaTheme.colors
+    val label = stringResource(
+        when (state.export) {
+            DataExportState.Exporting -> R.string.hapus_akun_download_preparing
+            DataExportState.Error -> R.string.hapus_akun_download_retry
+            DataExportState.Idle, DataExportState.Saved -> R.string.hapus_akun_download
+        },
+    )
+    Column(modifier = Modifier.padding(top = 12.dp)) {
+        Row(
+            modifier = Modifier
+                .heightIn(min = 48.dp)
+                // Dimmed only while the account is being deleted; while exporting the label says what happens.
+                .alpha(if (state.isDeleting) 0.5f else 1f)
+                .clickable(enabled = state.canExport, role = Role.Button, onClick = onExport),
+            horizontalArrangement = Arrangement.spacedBy(8.dp),
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            Image(
+                painter = painterResource(R.drawable.akun_hapus_ic_unduh),
+                contentDescription = null,
+                modifier = Modifier.size(18.dp),
+            )
+            Text(text = label, style = MaterialTheme.typography.titleSmall, color = colors.primary)
+        }
+        val status = when (state.export) {
+            DataExportState.Saved -> stringResource(R.string.hapus_akun_download_saved) to colors.muted
+            DataExportState.Error -> stringResource((state.exportError ?: DataExportError.Failed).messageRes()) to DangerRed
+            else -> null
+        }
+        if (status != null) {
+            Text(
+                text = status.first,
+                style = MaterialTheme.typography.bodySmall,
+                color = status.second,
+                modifier = Modifier.semantics { liveRegion = LiveRegionMode.Polite },
+            )
+        }
     }
 }
 
@@ -429,6 +456,16 @@ private fun SheetButton(
     }
 }
 
+private fun DataExportError.messageRes(): Int = when (this) {
+    DataExportError.Network -> R.string.hapus_akun_download_error_network
+    DataExportError.Failed -> R.string.hapus_akun_download_error_failed
+    DataExportError.NotConfigured -> R.string.hapus_akun_download_error_not_configured
+    DataExportError.NotSignedIn -> R.string.hapus_akun_download_error_not_signed_in
+    DataExportError.SaveFailed -> R.string.hapus_akun_download_error_save
+}
+
+private const val EXPORT_MIME_TYPE = "application/json"
+
 private fun HapusAkunError.messageRes(): Int = when (this) {
     HapusAkunError.Network -> R.string.hapus_akun_error_network
     HapusAkunError.Failed -> R.string.hapus_akun_error_failed
@@ -475,6 +512,37 @@ private fun HapusAkunErrorPreview() {
     KelanaTheme {
         HapusAkunContent(
             HapusAkunUiState(summary = PreviewSummary, confirmation = "HAPUS", error = HapusAkunError.Network),
+            {}, {}, {},
+        )
+    }
+}
+
+@Preview(showBackground = true, widthDp = 390, heightDp = 844)
+@Composable
+private fun HapusAkunExportingPreview() {
+    KelanaTheme {
+        HapusAkunContent(HapusAkunUiState(summary = PreviewSummary, export = DataExportState.Exporting), {}, {}, {})
+    }
+}
+
+@Preview(showBackground = true, widthDp = 390, heightDp = 844)
+@Composable
+private fun HapusAkunExportSavedPreview() {
+    KelanaTheme {
+        HapusAkunContent(HapusAkunUiState(summary = PreviewSummary, export = DataExportState.Saved), {}, {}, {})
+    }
+}
+
+@Preview(showBackground = true, widthDp = 390, heightDp = 844)
+@Composable
+private fun HapusAkunExportErrorPreview() {
+    KelanaTheme {
+        HapusAkunContent(
+            HapusAkunUiState(
+                summary = PreviewSummary,
+                export = DataExportState.Error,
+                exportError = DataExportError.Network,
+            ),
             {}, {}, {},
         )
     }

@@ -9,6 +9,7 @@ import id.kelana.core.model.AccountDeletionSummary
 import id.kelana.core.model.PlanCache
 import id.kelana.core.model.SessionRepository
 import id.kelana.core.model.SessionState
+import id.kelana.core.model.UserDataCleaner
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.NonCancellable
 import kotlinx.coroutines.async
@@ -24,6 +25,7 @@ import javax.inject.Singleton
  * - the pending stamp request (Room `pending_stamp`, and its WorkManager send job),
  * - the passport cache (Room `own_stamp` rows of that user),
  * - today's plan ([PlanCache]),
+ * - every feature's own data through its [UserDataCleaner] (notification centre, reminders, ...),
  * - the Supabase session (last, so the app sees a guest only once the data is gone).
  * On any other outcome nothing local is touched.
  */
@@ -35,6 +37,7 @@ class SupabaseAccountDeletionRepository @Inject constructor(
     private val ownStampDao: OwnStampDao,
     private val scheduler: StampSendScheduler,
     private val planCache: PlanCache,
+    private val cleaners: Set<@JvmSuppressWildcards UserDataCleaner>,
 ) : AccountDeletionRepository {
 
     override suspend fun summary(): AccountDeletionSummary {
@@ -74,6 +77,7 @@ class SupabaseAccountDeletionRepository @Inject constructor(
         attempt { pendingDao.clear() }
         attempt { ownStampDao.replaceForUser(userId, emptyList()) }
         attempt { planCache.clear() }
+        for (cleaner in cleaners) attempt { cleaner.clear() }
         remote.clearLocalSession()
     }
 

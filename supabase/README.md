@@ -99,12 +99,41 @@ DENO_DIR=D:/deno-cache D:/Devtools/deno/deno.exe check index.ts
 
 Deploy (needs the user): `supabase functions deploy verify-stamp`, then `supabase secrets set ...`.
 
+## Edge Function delete-account (Hapus akun)
+
+`functions/delete-account/` (Deno). `POST /functions/v1/delete-account` with body `{ "confirm": "HAPUS" }`, `verify_jwt = true` in `config.toml`. The account deleted is always the JWT's user; any id in the body is ignored. Pure logic in `account.ts`, HTTP in `handler.ts`, wiring in `index.ts`.
+
+What it does: removes the caller's postcard photos (bucket `postcards`, folder `<user_id>/`) through the Storage API, then hard-deletes the auth user with the service role. The database cascades profiles, stamps, postcards, videos and subscriptions, and keeps the caller's reports with `user_id` set to null (migration `20261123080000_account_deletion.sql`); report photos stay with them. Any failing step answers 500 and the user is not deleted, so the client keeps its session and may retry. Answers: 200 `{ "status": "deleted" }`, 400 `bad_request`, 401 `unauthorized`, 405, 500 `server_error`. Logs never carry the user id.
+
+Env (provided by the platform): `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY`. The service role key stays on the server.
+
+## Edge Function export-account (Unduh dataku dulu)
+
+`functions/export-account/` (Deno). `POST /functions/v1/export-account` (body ignored), `verify_jwt = true` in `config.toml`. Pure logic in `export.ts`, HTTP in `handler.ts`, wiring in `index.ts`.
+
+What it does: returns one JSON document (`format: "kelana-account-export"`, `version: 1`) with the caller's own data: account (id, email, created), profile (display name, home region), stamps (place and time), postcards (message, rating, card style, visibility, photo link), videos (caption, duration, visibility), reports they sent, and "Kabari aku" subscriptions. No location (none is stored), no other user's rows, no internal columns (`is_sample`, Storage paths, stream ids). Photo links are signed URLs that expire after 10 minutes (`PHOTO_URL_TTL_S`), made only for objects in the caller's own folder.
+
+Who reads what: the user id comes from the verified JWT only. The function reads with a client that carries the caller's JWT and the anon key, so RLS applies, and every query also filters on that id; `export.ts` drops any row of another owner again and copies fields by allowlist. No service role is used. Answers: 200 the document (`cache-control: no-store`), 401 `unauthorized`, 405, 500 `server_error` (a failed read fails the whole export; a photo that cannot be signed only loses its link). The Android app saves the file through the Storage Access Framework as `kelana-dataku-<yyyy-MM-dd>.json`.
+
+Env (provided by the platform): `SUPABASE_URL`, `SUPABASE_ANON_KEY`.
+
+Tests and deploy for both functions (tests use injected fakes, no network):
+
+```
+cd supabase/functions/delete-account && DENO_DIR=D:/deno-cache D:/Devtools/deno/deno.exe test delete_account_test.ts
+cd supabase/functions/export-account && DENO_DIR=D:/deno-cache D:/Devtools/deno/deno.exe test export_account_test.ts
+supabase functions deploy delete-account
+supabase functions deploy export-account
+```
+
+Deploy needs the user (linked project). Keep `verify_jwt = true`; never deploy either with `--no-verify-jwt`.
+
 ## Android feature module -> endpoints
 
 | Module | Endpoints (guest = no login needed) |
 |---|---|
 | onboarding | GET regions (guest), PATCH profiles (home_region_id, login) |
-| akun | Supabase Auth (Google / phone OTP), GET/PATCH/DELETE profiles (login) |
+| akun | Supabase Auth (Google / phone OTP), GET/PATCH/DELETE profiles (login), POST functions/v1/delete-account and functions/v1/export-account (login) |
 | jelajah | GET places (guest), GET events (guest), GET stamps (login, header card; hide for guests) |
 | tempat | GET places (guest), RPC place_facts (guest), GET postcards/videos by place (login), POST reports (login) |
 | cerita | login only: GET/POST/PATCH/DELETE postcards and videos, Realtime on both tables, POST reports |

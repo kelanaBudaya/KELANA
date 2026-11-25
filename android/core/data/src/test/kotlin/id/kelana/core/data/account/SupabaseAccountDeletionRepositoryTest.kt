@@ -12,6 +12,7 @@ import id.kelana.core.model.AccountDeletionSummary
 import id.kelana.core.model.PlanCache
 import id.kelana.core.model.ReminderChoice
 import id.kelana.core.model.SessionState
+import id.kelana.core.model.UserDataCleaner
 import id.kelana.core.model.TripPlan
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -65,7 +66,21 @@ class SupabaseAccountDeletionRepositoryTest {
     private val scheduler = FakeScheduler()
     private val planCache = FakePlanCache()
 
-    private val repo = SupabaseAccountDeletionRepository(session, remote, pendingDao, ownStampDao, scheduler, planCache)
+    /** Records each run and whether the session was already cleared at that moment. */
+    private inner class RecordingCleaner(private val fail: Boolean = false) : UserDataCleaner {
+        val sessionClearedAtRun = mutableListOf<Int>()
+        override suspend fun clear() {
+            sessionClearedAtRun += remote.sessionCleared
+            if (fail) throw IllegalStateException("cleaner")
+        }
+    }
+
+    private val failingCleaner = RecordingCleaner(fail = true)
+    private val cleaner = RecordingCleaner()
+
+    private val repo = SupabaseAccountDeletionRepository(
+        session, remote, pendingDao, ownStampDao, scheduler, planCache, linkedSetOf(failingCleaner, cleaner),
+    )
 
     private fun seedLocal() {
         pendingDao.row.value = PendingStampEntity(
@@ -115,6 +130,23 @@ class SupabaseAccountDeletionRepositoryTest {
         assertEquals(1, scheduler.cancelled)
         assertEquals(1, remote.sessionCleared)
         assertEquals(SessionState.Guest, session.state.value)
+    }
+
+    @Test
+    fun deleted_runsEveryCleanerBeforeTheSessionIsCleared_evenIfOneFails() = runTest {
+        assertEquals(AccountDeletionResult.Deleted, repo.deleteAccount())
+        assertEquals(listOf(0), failingCleaner.sessionClearedAtRun)
+        assertEquals(listOf(0), cleaner.sessionClearedAtRun)
+        assertEquals(1, remote.sessionCleared)
+    }
+
+    @Test
+    fun notDeleted_runsNoCleaner() = runTest {
+        for (outcome in listOf(DeleteAccountOutcome.Refused, DeleteAccountOutcome.Unreachable)) {
+            remote.outcome = outcome
+            repo.deleteAccount()
+        }
+        assertEquals(emptyList<Int>(), cleaner.sessionClearedAtRun)
     }
 
     @Test

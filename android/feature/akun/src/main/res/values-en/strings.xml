@@ -84,7 +84,14 @@
     <string name="hapus_akun_kept_header">Kept, without your name</string>
     <string name="hapus_akun_reports">Reports of wrong info you have sent</string>
     <string name="hapus_akun_download">Download my data first</string>
-    <string name="hapus_akun_download_unavailable">Not available yet</string>
+    <string name="hapus_akun_download_preparing">Preparing your data…</string>
+    <string name="hapus_akun_download_retry">Try downloading again</string>
+    <string name="hapus_akun_download_saved">Your data was saved as a JSON file.</string>
+    <string name="hapus_akun_download_error_network">No connection. Your data was not downloaded.</string>
+    <string name="hapus_akun_download_error_failed">Your data could not be downloaded. Try again later.</string>
+    <string name="hapus_akun_download_error_not_configured">The account service is not available in this build.</string>
+    <string name="hapus_akun_download_error_not_signed_in">You need to sign in to download your data.</string>
+    <string name="hapus_akun_download_error_save">The file was not saved. Try again and pick another place.</string>
     <string name="hapus_akun_confirm_label">Type %1$s to continue</string>
     <string name="hapus_akun_cancel">Cancel</string>
     <string name="hapus_akun_submit">Delete account</string>
