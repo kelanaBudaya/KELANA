@@ -16,6 +16,18 @@
     <string name="language_name_en">English</string>
     <string name="language_sheet_title">Bahasa</string>
     <string name="map_pin_selected">Dipilih</string>
+    <plurals name="map_cluster_cd">
+        <item quantity="one">%1$d tempat: %2$s</item>
+        <item quantity="other">%1$d tempat: %2$s</item>
+    </plurals>
+    <string name="map_cluster_names_more">%1$s, dan %2$d lainnya</string>
+    <string name="map_cluster_action_zoom">Perbesar peta</string>
+    <string name="map_cluster_action_list">Lihat daftar tempat</string>
+    <plurals name="map_cluster_sheet_title">
+        <item quantity="one">%d tempat di titik ini</item>
+        <item quantity="other">%d tempat di titik ini</item>
+    </plurals>
+    <string name="map_cluster_count_overflow">99+</string>
     <string name="map_attribution">OpenFreeMap &#169; OpenMapTiles Data from OpenStreetMap</string>
     <string name="map_attribution_cd">Info dan hak cipta peta</string>
     <string name="map_attribution_title">Hak cipta peta</string>
