@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="rencana_title_day">Day %1$d plan</string>
+    <string name="rencana_route_label_day">DAY %1$d ROUTE</string>
+    <string name="rencana_day_chip">Day %1$d</string>
+    <string name="rencana_day_chip_desc">Day %1$d, %2$s</string>
+    <string name="rencana_day_empty_title">No places for this day yet</string>
+    <string name="rencana_day_empty_body">All the places that fit are already in other days.</string>
+</resources>

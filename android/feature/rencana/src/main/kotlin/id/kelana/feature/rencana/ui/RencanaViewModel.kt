@@ -1,6 +1,7 @@
 package id.kelana.feature.rencana.ui
 
 import androidx.compose.runtime.Immutable
+import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -33,6 +34,10 @@ import java.time.LocalTime
 import java.time.ZoneId
 import javax.inject.Inject
 
+/** One day chip of the day picker: the date and how many stops that day has (0 = empty day). */
+@Immutable
+data class DayOption(val date: LocalDate, val stopCount: Int)
+
 @Immutable
 data class RencanaUiState(
     val isLoading: Boolean = true,
@@ -51,7 +56,16 @@ data class RencanaUiState(
     val backpack: List<Place> = emptyList(),
     /** Loading the plan failed unexpectedly: the tab shows an error with retry. */
     val loadError: Boolean = false,
+    /** Every day of the trip, in order. The picker is shown only when there is more than one ([showDayPicker]). */
+    val days: List<DayOption> = emptyList(),
+    /** True when [plan] is the day the tab opens on (today, the next planned day, or the first day of a finished trip). */
+    val isDefaultDay: Boolean = true,
 ) {
+    val showDayPicker: Boolean get() = days.size > 1
+
+    /** 1-based position of [plan] in the trip, or null when it is not part of [days]. */
+    val dayNumber: Int? get() = days.indexOfFirst { it.date == plan?.date }.takeIf { it >= 0 }?.plus(1)
+
     val isToday: Boolean get() = plan?.date == today
 
     /** Key of the stop that is going on right now (only for today's plan). */
@@ -72,6 +86,8 @@ class RencanaViewModel(
     private val places: PlaceRepository,
     private val backpackStore: PlanBackpackRepository,
     private val clock: Clock,
+    /** Keeps the selected day across configuration change and process death. */
+    private val savedState: SavedStateHandle = SavedStateHandle(),
 ) : ViewModel() {
 
     @Inject
@@ -81,21 +97,23 @@ class RencanaViewModel(
         connectivity: ConnectivityMonitor,
         places: PlaceRepository,
         backpackStore: PlanBackpackRepository,
-    ) : this(plans, events, connectivity, places, backpackStore, Clock.system(ZoneId.of("Asia/Jakarta")))
+        savedStateHandle: SavedStateHandle,
+    ) : this(plans, events, connectivity, places, backpackStore, Clock.system(ZoneId.of("Asia/Jakarta")), savedStateHandle)
 
     private val retryTrigger = MutableStateFlow(0)
 
     @OptIn(ExperimentalCoroutinesApi::class)
     val uiState: StateFlow<RencanaUiState> = retryTrigger.flatMapLatest {
         combine(
-            plans.trip,
+            combine(plans.trip, savedState.getStateFlow<String?>(SelectedDateKey, null)) { trip, selected -> trip to selected },
             connectivity.isOnline,
             plans.reminders,
             tonightFlow(),
             backpackFlow(),
-        ) { trip, online, reminders, tonight, backpack ->
+        ) { (trip, selected), online, reminders, tonight, backpack ->
             val today = LocalDate.now(clock)
-            val day = trip?.days?.firstOrNull { it.date == today } ?: trip?.days?.firstOrNull { it.date.isAfter(today) }
+            val default = defaultDay(trip, today)
+            val day = trip?.days?.firstOrNull { it.date.toString() == selected } ?: default
             RencanaUiState(
                 isLoading = false,
                 today = today,
@@ -107,6 +125,8 @@ class RencanaViewModel(
                 reminders = reminders,
                 tonight = tonight,
                 backpack = backpack,
+                days = trip?.days.orEmpty().map { DayOption(it.date, it.stops.size) },
+                isDefaultDay = day?.date == default?.date,
             )
         }.catch { e ->
             if (e is CancellationException) throw e
@@ -117,6 +137,22 @@ class RencanaViewModel(
         started = SharingStarted.WhileSubscribed(5_000),
         initialValue = RencanaUiState(today = LocalDate.now(clock), now = LocalTime.now(clock)),
     )
+
+    /** A chip of the day picker was tapped: the whole tab follows that day. */
+    fun selectDay(date: LocalDate) {
+        savedState[SelectedDateKey] = date.toString()
+    }
+
+    /**
+     * The day the tab opens on: today, else the next planned day. When every day of a multi-day trip is past, the first
+     * day (so the picker still has something to show); a finished single-day trip stays the empty state.
+     */
+    private fun defaultDay(trip: id.kelana.core.model.TripPlan?, today: LocalDate): DayPlan? {
+        val days = trip?.days.orEmpty()
+        return days.firstOrNull { it.date == today }
+            ?: days.firstOrNull { it.date.isAfter(today) }
+            ?: if (days.size > 1) days.first() else null
+    }
 
     /** "Coba lagi" on the load error: subscribes to the plan again. */
     fun retry() {
@@ -162,6 +198,7 @@ class RencanaViewModel(
     }
 
     private companion object {
+        const val SelectedDateKey = "selected_date"
         val EveningStart: LocalTime = LocalTime.of(17, 0)
     }
 }

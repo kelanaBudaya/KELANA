@@ -38,5 +38,7 @@ import kotlinx.serialization.Serializable
 @Serializable data class TempatTutupRoute(val placeId: String, val date: String)
 
 
-/** Route view of the plan of today (PetaRute). */
-@Serializable data object PetaRuteRoute
+/**
+ * Route view of one day of the plan (PetaRute). [date] is ISO yyyy-MM-dd; null means today or the next planned day.
+ */
+@Serializable data class PetaRuteRoute(val date: String? = null)

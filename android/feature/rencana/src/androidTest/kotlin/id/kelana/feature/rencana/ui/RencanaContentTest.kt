@@ -15,6 +15,7 @@ import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
 import id.kelana.core.designsystem.component.formatCheckedDate
 import id.kelana.core.designsystem.theme.KelanaTheme
+import id.kelana.core.model.DayPlan
 import id.kelana.core.model.SkipReason
 import id.kelana.core.model.SkippedPlace
 import id.kelana.core.model.TravelGroup
@@ -53,6 +54,54 @@ class RencanaContentTest {
                 )
             }
         }
+    }
+
+    // ---- Day picker ----
+
+    private fun multiDayState(selected: Int, empty: Boolean = false): RencanaUiState {
+        val dates = (0..2).map { today.plusDays(it.toLong()) }
+        val stops = PreviewRencana.stops()
+        return PreviewRencana.filled().copy(
+            plan = DayPlan(dates[selected], if (empty) emptyList() else stops),
+            days = dates.mapIndexed { i, d -> DayOption(d, if (i == 2) 0 else stops.size) },
+            isDefaultDay = selected == 0,
+        )
+    }
+
+    @Test
+    fun dayPicker_showsChipsAndReportsTheTappedDay() {
+        var picked: LocalDate? = null
+        rule.setContent {
+            KelanaTheme {
+                RencanaContent(
+                    multiDayState(0), onEdit = {}, onOpenRoute = {}, onOpenClosed = {}, onTakeStamp = {},
+                    onRemind = {}, onOpenEvent = {}, onSelectDay = { picked = it },
+                )
+            }
+        }
+        val desc = str(R.string.rencana_day_chip_desc, 2, formatDayNumberMonth(today.plusDays(1)))
+        rule.onNodeWithContentDescription(desc).assertIsDisplayed().performClick()
+        assertEquals(today.plusDays(1), picked)
+    }
+
+    @Test
+    fun singleDay_hasNoPicker() {
+        setRencana(PreviewRencana.filled())
+        rule.onNodeWithText(str(R.string.rencana_day_chip, 1)).assertDoesNotExist()
+    }
+
+    @Test
+    fun emptyDay_showsTheEmptyDayCard() {
+        rule.setContent {
+            KelanaTheme {
+                RencanaContent(
+                    multiDayState(2, empty = true), onEdit = {}, onOpenRoute = {}, onOpenClosed = {}, onTakeStamp = {},
+                    onRemind = {}, onOpenEvent = {},
+                )
+            }
+        }
+        rule.onNodeWithText(str(R.string.rencana_day_empty_title)).assertIsDisplayed()
+        rule.onNodeWithText(str(R.string.rencana_day_empty_body)).assertIsDisplayed()
     }
 
     // ---- Rencana kosong ----
