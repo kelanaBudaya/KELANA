@@ -60,7 +60,7 @@ class NotifikasiContentTest {
     private val stamp = NotificationItem(
         id = "n1",
         category = NotificationCategory.Paspor,
-        title = "Cap YK-02 masuk paspormu",
+        title = "Cap Museum Sonobudoyo masuk paspormu",
         body = "Kamu sudah berkelana ke Museum Sonobudoyo!",
         time = LocalTime.of(9, 30),
         isUnread = true,
