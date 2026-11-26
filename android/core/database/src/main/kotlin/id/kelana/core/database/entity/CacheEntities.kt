@@ -58,3 +58,21 @@ data class EventClosureEntity(
     val placeId: String,
     val json: String,
 )
+
+/** A published, validated official photo row of a place. Image bytes live in Coil's disk cache, not here. */
+@Entity(tableName = "cache_place_photo", indices = [Index("placeId")])
+data class PlacePhotoEntity(
+    @PrimaryKey val id: String,
+    val placeId: String,
+    /** Position in the server order (sort_order, created_at). */
+    val position: Int,
+    val url: String,
+    val thumbUrl: String,
+    val width: Int,
+    val height: Int,
+    val caption: String?,
+    val attributionText: String,
+    val licenseCode: String,
+    val licenseUrl: String,
+    val sourcePageUrl: String,
+)

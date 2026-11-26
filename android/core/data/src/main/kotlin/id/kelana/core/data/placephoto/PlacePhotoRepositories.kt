@@ -4,12 +4,14 @@ import id.kelana.core.data.BuildConfig
 import id.kelana.core.data.auth.SupabaseClientProvider
 import id.kelana.core.data.auth.normalizeSupabaseUrl
 import id.kelana.core.data.remote.NotConfiguredException
+import id.kelana.core.data.repository.RefreshGate
+import id.kelana.core.database.dao.PlacePhotoDao
+import id.kelana.core.database.entity.PlacePhotoEntity
 import id.kelana.core.model.PlacePhoto
 import id.kelana.core.model.PlacePhotoRepository
 import io.github.jan.supabase.postgrest.from
 import io.github.jan.supabase.postgrest.query.Columns
 import io.github.jan.supabase.postgrest.query.Order
-import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.flow
@@ -93,34 +95,64 @@ internal fun PlacePhotoDto.toModelOrNull(supabaseUrl: String): PlacePhoto? {
 }
 
 /**
- * Cache-then-network: emits the last list seen for the place (if any), then the fresh one. When the network fails
- * and a cached list was already emitted, the cached list stays; otherwise the exception reaches the collector so
- * the gallery shows an error state. Image bytes are cached by the app-wide Coil loader.
+ * Cache-then-network over the Room photo cache: emits the cached list for the place first (if any), then the fresh
+ * one after a refresh that replaces the place's rows in one transaction. A failed refresh never touches the cache:
+ * with cached rows the collector just keeps them; with none the exception reaches the collector so the gallery
+ * shows an error state. Image bytes are cached by the app-wide Coil loader.
  */
 @Singleton
-class SupabasePlacePhotoRepository(
+class SupabasePlacePhotoRepository internal constructor(
     private val remote: PlacePhotoRemote,
+    private val dao: PlacePhotoDao,
     private val supabaseUrl: String,
+    private val minIntervalMs: Long,
 ) : PlacePhotoRepository {
     @Inject
-    constructor(remote: PlacePhotoRemote) : this(remote, BuildConfig.SUPABASE_URL)
+    constructor(remote: PlacePhotoRemote, dao: PlacePhotoDao) :
+        this(remote, dao, BuildConfig.SUPABASE_URL, RefreshGate.DEFAULT_MIN_INTERVAL_MS)
 
-    private val cache = ConcurrentHashMap<String, List<PlacePhoto>>()
+    private val gates = ConcurrentHashMap<String, RefreshGate>()
 
     override fun photos(placeId: String): Flow<List<PlacePhoto>> = flow {
-        val cached = cache[placeId]
-        if (cached != null) emit(cached)
-        try {
-            val fresh = remote.fetch(placeId).mapNotNull { it.toModelOrNull(supabaseUrl) }
-            cache[placeId] = fresh
-            emit(fresh)
-        } catch (e: CancellationException) {
-            throw e
-        } catch (e: Exception) {
-            if (cached == null) throw e
+        val gate = gates.getOrPut(placeId) { RefreshGate(minIntervalMs) }
+        val cached = dao.get(placeId)
+        if (cached.isNotEmpty()) emit(cached.map { it.toModel() })
+        var ran = false
+        var failure: Exception? = null
+        gate.run {
+            ran = true
+            try {
+                // A blank base URL means "not configured": every row would be dropped, so keep the cache as is.
+                if (supabaseUrl.isNotBlank()) {
+                    val rows = remote.fetch(placeId).mapNotNull { it.toModelOrNull(supabaseUrl) }
+                    dao.replaceForPlace(placeId, rows.mapIndexed { i, p -> p.toEntity(i) })
+                }
+            } catch (e: Exception) {
+                failure = e
+                throw e
+            }
         }
+        val error = failure
+        if (error != null) {
+            if (cached.isEmpty()) throw error
+            return@flow
+        }
+        // Skipped by the gate with a cache already shown: nothing new to say.
+        if (!ran && cached.isNotEmpty()) return@flow
+        emit(dao.get(placeId).map { it.toModel() })
     }
 }
+
+private fun PlacePhoto.toEntity(position: Int) = PlacePhotoEntity(
+    id = id, placeId = placeId, position = position, url = url, thumbUrl = thumbUrl, width = width, height = height,
+    caption = caption, attributionText = attributionText, licenseCode = licenseCode, licenseUrl = licenseUrl,
+    sourcePageUrl = sourcePageUrl,
+)
+
+private fun PlacePhotoEntity.toModel() = PlacePhoto(
+    id = id, placeId = placeId, url = url, thumbUrl = thumbUrl, width = width, height = height, caption = caption,
+    attributionText = attributionText, licenseCode = licenseCode, licenseUrl = licenseUrl, sourcePageUrl = sourcePageUrl,
+)
 
 /** In-memory stand-in for previews and tests; not bound by Hilt. Sample photos use no network by default. */
 class FakePlacePhotoRepository(initial: List<PlacePhoto> = samplePhotos("p1")) : PlacePhotoRepository {
