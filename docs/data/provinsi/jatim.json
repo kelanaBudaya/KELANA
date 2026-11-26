@@ -1,0 +1,1012 @@
+{
+  "provinsi": "Jawa Timur",
+  "dikumpulkan": "2026-11-26",
+  "status": "pending (belum disetujui manusia)",
+  "tempat": [
+    {
+      "nama": "Museum Majapahit (Museum Trowulan)",
+      "slug": "museum-majapahit",
+      "kategori_usulan": "museum",
+      "jenis": "permanen",
+      "provinsi": "Jawa Timur",
+      "induk_lokasi": null,
+      "kabupaten": "Mojokerto",
+      "alamat": "Jalan Jayanegara 01, Trowulan, Mojokerto, Jawa Timur (alamat dari OpenStreetMap)",
+      "lat": -7.5600583,
+      "lng": 112.3805254,
+      "deskripsi": "Museum yang menyimpan koleksi peninggalan Majapahit dari kawasan arkeologi Trowulan, bekas pusat kerajaan Majapahit. Koleksinya didominasi benda cagar budaya seperti arca dan prasasti. Museum ini banyak dikunjungi pelajar.",
+      "jam_buka": [
+        {
+          "hari": "Selasa-Minggu",
+          "tutup": false,
+          "buka": "08:30",
+          "tutup_jam": "15:30",
+          "catatan": "Hanya dari artikel beritajatim 17 Nov 2023 (lebih dari 2 tahun, belum diverifikasi ulang). Waktu tertulis WIB.",
+          "source_url": "https://beritajatim.com/?p=1098346",
+          "checked_at": null
+        },
+        {
+          "hari": "Senin",
+          "tutup": true,
+          "buka": null,
+          "tutup_jam": null,
+          "catatan": "Tutup menurut artikel beritajatim 2023, belum diverifikasi ulang.",
+          "source_url": "https://beritajatim.com/?p=1098346",
+          "checked_at": null
+        }
+      ],
+      "hari_tutup_khusus": [
+        {
+          "keterangan": "Tutup pada hari besar dan libur nasional (menurut artikel 2023).",
+          "source_url": "https://beritajatim.com/?p=1098346",
+          "checked_at": null
+        }
+      ],
+      "tiket": [
+        {
+          "label": "Tiket masuk anak-anak",
+          "harga_idr": 2500,
+          "catatan": "Harga per orang menurut artikel 2023; belum diverifikasi ulang.",
+          "source_url": "https://beritajatim.com/?p=1098346",
+          "checked_at": null
+        },
+        {
+          "label": "Tiket masuk dewasa",
+          "harga_idr": 5000,
+          "catatan": "Harga per orang menurut artikel 2023; belum diverifikasi ulang.",
+          "source_url": "https://beritajatim.com/?p=1098346",
+          "checked_at": null
+        }
+      ],
+      "jadwal_pertunjukan": [],
+      "situs_resmi": null,
+      "url_beli_tiket": null,
+      "sumber_dibuka": [
+        "https://beritajatim.com/?p=1098346"
+      ],
+      "sumber_gagal": [],
+      "catatan": "Satu-satunya sumber yang dibaca adalah artikel beritajatim tertanggal 17 Nov 2023. Karena lebih dari 2 tahun, jam dan tiket diisi sebagai informasi tetapi checked_at dikosongkan (null) dan jangan ditampilkan sebagai fakta resmi tanpa pengecekan ulang. Artikel menyebut lokasi museum sebagai Balai Penyelamat Arca/Museum Trowulan dan mengutip alamat lama Jalan Raya Mojokerto-Jombang KM 13 untuk OVM; alamat di atas diambil dari OpenStreetMap, bukan sumber resmi. Koordinat dari OpenStreetMap Nominatim (display_name: Museum Majapahit Trowulan, Mojokerto, Jawa Timur), belum dicek terhadap sumber resmi. Situs resmi pengelola dan kontak tidak ditemukan. Tidak ada pertentangan data yang berhasil diperiksa.",
+      "status": "pending",
+      "bentuk": "tempat",
+      "kategori_enum": "museum"
+    },
+    {
+      "nama": "Candi Tikus (Trowulan)",
+      "slug": "candi-tikus",
+      "kategori_usulan": "situs",
+      "jenis": "permanen",
+      "provinsi": "Jawa Timur",
+      "induk_lokasi": null,
+      "kabupaten": "Mojokerto",
+      "alamat": "Jalan Raya Gemekan-Gondang, Domas, Trowulan, Mojokerto, Jawa Timur (alamat dari OpenStreetMap)",
+      "lat": -7.5716315,
+      "lng": 112.4035216,
+      "deskripsi": "",
+      "jam_buka": [],
+      "hari_tutup_khusus": [],
+      "tiket": [],
+      "jadwal_pertunjukan": [],
+      "situs_resmi": null,
+      "url_beli_tiket": null,
+      "sumber_dibuka": [],
+      "sumber_gagal": [
+        "https://candi.perpusnas.go.id/temples_en/deskripsi-east_java-tikus_temple_31 (Firecrawl: halaman tantangan Cloudflare, status 403; WebFetch: HTTP 403)"
+      ],
+      "catatan": "Deskripsi kosong: sumber yang diusulkan (candi.perpusnas.go.id) tidak bisa dibaca karena diblokir tantangan Cloudflare, dan petunjuk discovery tidak disalin sebagai fakta. Jam, tiket, dan jadwal tidak ditemukan. Alamat dan koordinat berasal dari OpenStreetMap Nominatim (display_name: Candi Tikus, Jalan Raya Gemekan-Gondang, Domas, Trowulan, Mojokerto); belum dicek terhadap sumber resmi. Perlu dibaca ulang dari sumber lain (mis. pengelola kawasan arkeologi Trowulan atau Balai Pelestarian Kebudayaan) sebelum deskripsi dan jam ditulis.",
+      "status": "pending",
+      "bentuk": "tempat",
+      "kategori_enum": "lainnya"
+    },
+    {
+      "nama": "Candi Penataran",
+      "slug": "candi-penataran",
+      "kategori_usulan": "candi",
+      "jenis": "permanen",
+      "provinsi": "Jawa Timur",
+      "induk_lokasi": null,
+      "kabupaten": "Blitar",
+      "alamat": "Desa Penataran, Kecamatan Nglegok, Kabupaten Blitar, Jawa Timur (alamat dari OpenStreetMap; jalan: Jalan Insinyur Soekarno, Kedawung)",
+      "lat": -8.0164156,
+      "lng": 112.2094979,
+      "deskripsi": "Kompleks candi Hindu peninggalan masa Kerajaan Kediri hingga Majapahit di Desa Penataran, Kabupaten Blitar. Sumber dinas setempat menyebutnya sebagai candi terbesar di Jawa Timur, dengan relief Ramayana dan Kresnayana serta prasasti Palah bertarikh 1197 M. Kompleks ini mencakup bale agung, paviliun teras, dan candi utama bertingkat tiga.",
+      "jam_buka": [],
+      "hari_tutup_khusus": [],
+      "tiket": [],
+      "jadwal_pertunjukan": [],
+      "situs_resmi": null,
+      "url_beli_tiket": null,
+      "sumber_dibuka": [
+        "https://disbudpar.blitarkab.go.id/?p=41906"
+      ],
+      "sumber_gagal": [],
+      "catatan": "Sumber yang dibaca adalah artikel dinas kebudayaan dan pariwisata Kabupaten Blitar (konten 2025). Halaman itu tidak memuat jam buka, tiket, atau kontak, sehingga jam_buka dan tiket dikosongkan; belum ada sumber lain yang dicek, jadi pertentangan jam buka antar sumber (seperti disebut di petunjuk discovery) belum bisa dinilai. Koordinat dari OpenStreetMap Nominatim (display_name: Candi Penataran, Jalan Insinyur Soekarno, Kedawung, Blitar), belum dicek terhadap sumber resmi. Alamat kecamatan dari artikel; jalan dari OpenStreetMap. Situs resmi pengelola belum ditemukan.",
+      "status": "pending",
+      "bentuk": "tempat",
+      "kategori_enum": "candi"
+    },
+    {
+      "nama": "Makam Bung Karno",
+      "slug": "makam-bung-karno",
+      "provinsi": "Jawa Timur",
+      "kategori_usulan": "situs",
+      "jenis": "permanen",
+      "induk_lokasi": null,
+      "kabupaten": "Kota Blitar",
+      "alamat": "Jl. Ir. Soekarno No. 152, Desa Bendogerit, Kecamatan Sananwetan, Kota Blitar, Jawa Timur",
+      "lat": -8.0899991,
+      "lng": 112.1716269,
+      "deskripsi": "Makam Presiden pertama Republik Indonesia, Soekarno, di Kota Blitar, yang didatangi peziarah dan wisatawan sejarah dari berbagai daerah. Kompleks ini juga memiliki Museum dan Perpustakaan Bung Karno serta Gong Perdamaian Dunia. Makam dibersihkan setiap hari sebelum jam kunjungan dimulai.",
+      "jam_buka": [
+        {
+          "hari": "Setiap hari",
+          "tutup": false,
+          "buka": "07:00",
+          "tutup_jam": "18:00",
+          "catatan": "Artikel tidak merinci jam per hari. Sumber menyebut jam ziarah 07.00-18.00 WIB.",
+          "source_url": "https://timesindonesia.co.id/english/561462/the-tomb-of-bung-karno-blitar-remains-a-perpetual-hub-for-pilgrims-and-tourists",
+          "checked_at": "2026-11-26"
+        }
+      ],
+      "hari_tutup_khusus": [],
+      "tiket": [
+        {
+          "label": "Masuk per orang",
+          "harga_idr": 4000,
+          "catatan": "Tarif masuk per orang menurut artikel TIMES Indonesia (24 Okt 2025).",
+          "source_url": "https://timesindonesia.co.id/english/561462/the-tomb-of-bung-karno-blitar-remains-a-perpetual-hub-for-pilgrims-and-tourists",
+          "checked_at": "2026-11-26"
+        }
+      ],
+      "jadwal_pertunjukan": [],
+      "situs_resmi": null,
+      "url_beli_tiket": null,
+      "sumber_dibuka": [
+        "https://timesindonesia.co.id/english/561462/the-tomb-of-bung-karno-blitar-remains-a-perpetual-hub-for-pilgrims-and-tourists"
+      ],
+      "sumber_gagal": [],
+      "catatan": "Koordinat: OSM Nominatim hanya mengembalikan Pusat Informasi dan Pelataran Parkir Makam Bung Karno (-8.0899991, 112.1716269), bukan titik makam. Perkiraan, perlu verifikasi di peta. Klaim buka 24 jam (2026) dari brief tidak ditemukan di artikel yang dibaca; artikel menyebut jam ziarah 07.00-18.00 WIB, sehingga jam 24 jam belum dikonfirmasi. Artikel bertanggal 24 Okt 2025 (dalam 2 tahun). Tidak ada situs resmi pengelola yang ditemukan atau dibaca. Tarif tercantum sebagai Rp4.000 per orang menurut artikel; belum dicek ke pengelola.",
+      "status": "pending",
+      "bentuk": "tempat",
+      "kategori_enum": "lainnya"
+    },
+    {
+      "nama": "Candi Surowono",
+      "slug": "candi-surowono",
+      "provinsi": "Jawa Timur",
+      "kategori_usulan": "candi",
+      "jenis": "permanen",
+      "induk_lokasi": null,
+      "kabupaten": "Kabupaten Kediri",
+      "alamat": "Desa Canggu, Kecamatan Badas, Kabupaten Kediri, Jawa Timur",
+      "lat": -7.7464173,
+      "lng": 112.2180351,
+      "deskripsi": "Candi peninggalan era Majapahit di Desa Canggu, Kecamatan Badas, Kabupaten Kediri. Candi ini dibangun untuk memuliakan Bhre Wengker, paman Hayam Wuruk. Pengunjungnya umumnya singgah sebentar untuk melihat bangunan dan berfoto, dengan sekitar 1.000 kunjungan per bulan.",
+      "jam_buka": [],
+      "hari_tutup_khusus": [],
+      "tiket": [],
+      "jadwal_pertunjukan": [],
+      "situs_resmi": null,
+      "url_beli_tiket": null,
+      "sumber_dibuka": [
+        "https://rri.co.id/kediri/wisata/2311109/pengunjung-candi-surowono-kediri-1000-orang-per-bulan"
+      ],
+      "sumber_gagal": [],
+      "catatan": "Jam buka dan tiket tidak ada di artikel RRI (5 Apr 2026); keduanya dikosongkan dan belum ada sumber resmi. Pengelolaan oleh koordinator situs di bawah BPK Wilayah XI menurut artikel RRI. Koordinat dari OSM Nominatim (jenis historic archaeological_site, Jalan Candi Surowono, Canggu, Badas), belum diverifikasi di peta. Tidak ditemukan situs resmi.",
+      "status": "pending",
+      "bentuk": "tempat",
+      "kategori_enum": "candi"
+    },
+    {
+      "nama": "Candi Tegowangi",
+      "slug": "candi-tegowangi",
+      "provinsi": "Jawa Timur",
+      "kategori_usulan": "candi",
+      "jenis": "permanen",
+      "induk_lokasi": null,
+      "kabupaten": "Kabupaten Kediri",
+      "alamat": "Dusun Candirejo, Desa Tegowangi, Kecamatan Plemahan, Kabupaten Kediri, Jawa Timur",
+      "lat": -7.7349613,
+      "lng": 112.1611779,
+      "deskripsi": "Candi Hindu peninggalan Majapahit di Desa Tegowangi, Kecamatan Plemahan, Kabupaten Kediri, berbentuk kubus dan penuh relief. Candi ini berstatus bangunan cagar budaya dan dapat dikunjungi tanpa tiket masuk, hanya membayar parkir.",
+      "jam_buka": [
+        {
+          "hari": "Setiap hari",
+          "tutup": false,
+          "buka": "08:00",
+          "tutup_jam": "17:00",
+          "catatan": "Artikel menyebut saran waktu kunjungan pagi hari dan menghindari hari libur atau akhir pekan.",
+          "source_url": "https://www.detik.com/jatim/berita/d-8254452/menelusuri-candi-tegowangi-peninggalan-kerajaan-majapahit-yang-masih-lestari",
+          "checked_at": "2026-11-26"
+        }
+      ],
+      "hari_tutup_khusus": [],
+      "tiket": [
+        {
+          "label": "Masuk",
+          "harga_idr": 0,
+          "catatan": "Tidak dipungut tiket masuk menurut artikel detikJatim.",
+          "source_url": "https://www.detik.com/jatim/berita/d-8254452/menelusuri-candi-tegowangi-peninggalan-kerajaan-majapahit-yang-masih-lestari",
+          "checked_at": "2026-11-26"
+        },
+        {
+          "label": "Parkir roda dua",
+          "harga_idr": 3000,
+          "catatan": "Tarif parkir menurut artikel detikJatim.",
+          "source_url": "https://www.detik.com/jatim/berita/d-8254452/menelusuri-candi-tegowangi-peninggalan-kerajaan-majapahit-yang-masih-lestari",
+          "checked_at": "2026-11-26"
+        },
+        {
+          "label": "Parkir roda empat",
+          "harga_idr": 5000,
+          "catatan": "Tarif parkir menurut artikel detikJatim.",
+          "source_url": "https://www.detik.com/jatim/berita/d-8254452/menelusuri-candi-tegowangi-peninggalan-kerajaan-majapahit-yang-masih-lestari",
+          "checked_at": "2026-11-26"
+        }
+      ],
+      "jadwal_pertunjukan": [],
+      "situs_resmi": null,
+      "url_beli_tiket": null,
+      "sumber_dibuka": [
+        "https://www.detik.com/jatim/berita/d-8254452/menelusuri-candi-tegowangi-peninggalan-kerajaan-majapahit-yang-masih-lestari"
+      ],
+      "sumber_gagal": [],
+      "catatan": "Artikel detikJatim bertanggal 13 Des 2025 (dalam 2 tahun). Koordinat dari OSM Nominatim (tourism attraction, Jalan Diponegoro, Plemahan), belum diverifikasi di peta; hasil Nominatim menyebut Puhjarak dan Candirejo. Tidak ditemukan situs resmi pengelola. Sumber hanya satu artikel berita; jam dan tarif parkir perlu dikonfirmasi ke pengelola sebelum publikasi.",
+      "status": "pending",
+      "bentuk": "tempat",
+      "kategori_enum": "candi"
+    },
+    {
+      "nama": "Candi Singosari",
+      "slug": "candi-singosari",
+      "kategori_usulan": "candi",
+      "jenis": "permanen",
+      "induk_lokasi": null,
+      "provinsi": "Jawa Timur",
+      "kabupaten": "Malang",
+      "alamat": "Jalan Kertanegara, Candirenggo, Singosari, Kabupaten Malang, Jawa Timur 65153",
+      "lat": -7.8877437,
+      "lng": 112.6639091,
+      "deskripsi": "Candi Singosari adalah peninggalan Kerajaan Singasari yang berada di Desa Candirenggo, Kecamatan Singosari, sekitar pinggir kota Malang. Kompleks ini menjadi salah satu titik awal wisata sejarah di Kabupaten Malang. Pengunjung dapat melihat langsung bentuk bangunan candi peninggalan abad ke-13.",
+      "jam_buka": [],
+      "hari_tutup_khusus": [],
+      "tiket": [],
+      "jadwal_pertunjukan": [],
+      "situs_resmi": null,
+      "url_beli_tiket": null,
+      "sumber_dibuka": [
+        "https://www.lonelyplanet.com/points-of-interest/candi-jago/1189878"
+      ],
+      "sumber_gagal": [
+        "https://www.indonesia.travel/my/en/explore-indonesia/java/east-java/candi-singosari (Firecrawl 404; WebFetch 404)"
+      ],
+      "catatan": "Halaman indonesia.travel yang diberikan tidak ditemukan (404) baik lewat Firecrawl maupun WebFetch, dan tidak ada halaman lain yang bisa dibaca (WebSearch tidak tersedia pada putaran ini). Karena itu tidak ada sumber yang berhasil dibaca untuk tempat ini: jam_buka, tiket, hari_tutup_khusus, dan jadwal kosong, dan checked_at tidak diisi. Koordinat berasal dari OpenStreetMap Nominatim (display_name: Candi Singosari, Jalan Kertanegara, Candirenggo, Kabupaten Malang, Jawa Timur), sudah dicek berada di wilayah Malang. Deskripsi ditulis berdasarkan keterangan discovery (nama desa dan kecamatan dikonfirmasi oleh Nominatim), belum diverifikasi dari halaman sumber mana pun. Alamat berasal dari display_name Nominatim, bukan dari halaman resmi.",
+      "status": "pending",
+      "bentuk": "tempat",
+      "kategori_enum": "candi"
+    },
+    {
+      "nama": "Candi Jago",
+      "slug": "candi-jago",
+      "kategori_usulan": "candi",
+      "jenis": "permanen",
+      "induk_lokasi": null,
+      "provinsi": "Jawa Timur",
+      "kabupaten": "Malang",
+      "alamat": "Jalan Raya Tumpang, Malangsuko, Tumpang, Kabupaten Malang, Jawa Timur 65156",
+      "lat": -8.0057952,
+      "lng": 112.7641342,
+      "deskripsi": "Candi Jago berada di dekat pasar Tumpang, sekitar 22 km dari pusat kota Malang. Candi ini diperkirakan dibangun antara 1268 dan 1280 dan dipercaya sebagai peringatan bagi raja keempat Singasari, Wisnuwardhana. Relief pada candi menampilkan cerita Jataka dan Mahabharata dengan gaya pahatan khas Jawa Timur.",
+      "jam_buka": [],
+      "hari_tutup_khusus": [],
+      "tiket": [],
+      "jadwal_pertunjukan": [],
+      "situs_resmi": null,
+      "url_beli_tiket": null,
+      "sumber_dibuka": [
+        "https://www.lonelyplanet.com/points-of-interest/candi-jago/1189878"
+      ],
+      "sumber_gagal": [],
+      "catatan": "Deskripsi, alamat (Jl Wisnuwardhana, dekat pasar Tumpang), tahun pembangunan, dan keterangan relief berasal dari halaman Lonely Planet (bukan situs resmi pengelola). Halaman itu tidak bertanggal, isinya bersifat umum dan tampak lama, sehingga checked_at dibiarkan null. Halaman itu tidak memuat jam buka atau harga tiket resmi, jadi jam_buka dan tiket kosong; ongkos angkot (Rp13.000 dari Terminal Arjosari) dan taksi (sekitar Rp180.000 pulang-pergi) disebut di Lonely Planet, tetapi bukan harga tiket candi dan tidak dimasukkan. Koordinat dari OpenStreetMap Nominatim (display_name: Candi Jago, Jalan Raya Tumpang, Malangsuko, Tumpang, Kabupaten Malang, Jawa Timur), sudah dicek berada di wilayah Malang. Tidak ada sumber resmi pengelola yang dibaca.",
+      "status": "pending",
+      "bentuk": "tempat",
+      "kategori_enum": "candi"
+    },
+    {
+      "nama": "Candi Kidal",
+      "slug": "candi-kidal",
+      "kategori_usulan": "candi",
+      "jenis": "permanen",
+      "induk_lokasi": null,
+      "provinsi": "Jawa Timur",
+      "kabupaten": "Malang",
+      "alamat": "Jalan Raya Kidal, Jeding, Kidal, Kabupaten Malang, Jawa Timur 65156",
+      "lat": -8.0258439,
+      "lng": 112.7091054,
+      "deskripsi": "Candi Kidal adalah peninggalan Kerajaan Singasari yang berada di Desa Rejokidal, Kecamatan Tumpang, dekat dengan Candi Jago. Kedua candi ini bisa dikunjungi dalam satu rute. Candi Kidal menjadi bagian dari wisata sejarah candi di Malang.",
+      "jam_buka": [],
+      "hari_tutup_khusus": [],
+      "tiket": [],
+      "jadwal_pertunjukan": [],
+      "situs_resmi": null,
+      "url_beli_tiket": null,
+      "sumber_dibuka": [],
+      "sumber_gagal": [
+        "https://www.tripadvisor.in/ShowUserReviews-g3334196-d3217746-r582912302-Candi_Kidal-Tumpang_East_Java_Java.html (Firecrawl 403; WebFetch 403)"
+      ],
+      "catatan": "Tidak ada halaman yang berhasil dibaca untuk tempat ini. Halaman TripAdvisor yang diberikan ditolak (403) baik lewat Firecrawl maupun WebFetch, dan WebSearch tidak tersedia pada putaran ini. Karena itu jam_buka, tiket, dan jadwal kosong, dan checked_at tidak diisi. Koordinat dari OpenStreetMap Nominatim (display_name: Candi Kidal, Jalan Raya Kidal, Jeding, Kidal, Kabupaten Malang, Jawa Timur). Nominatim juga mengembalikan entri kedua di wilayah yang sama, dan keduanya berada sekitar 0,0002 derajat satu sama lain. Deskripsi dan alamat (Desa Rejokidal, Kecamatan Tumpang, dan kedekatan dengan Candi Jago) berasal dari keterangan discovery dan belum diverifikasi dari halaman sumber. Alamat dari display_name Nominatim, bukan dari halaman resmi.",
+      "status": "pending",
+      "bentuk": "tempat",
+      "kategori_enum": "candi"
+    },
+    {
+      "nama": "Candi Jawi",
+      "slug": "candi-jawi",
+      "provinsi": "Jawa Timur",
+      "kategori_usulan": "candi",
+      "jenis": "permanen",
+      "induk_lokasi": null,
+      "kabupaten": "Pasuruan",
+      "alamat": "Desa Candi Wates, Kecamatan Prigen, Kabupaten Pasuruan, Jawa Timur",
+      "lat": -7.6624998,
+      "lng": 112.6677564,
+      "deskripsi": "Candi Jawi merupakan peninggalan Kerajaan Singhasari dari sekitar abad ke-13 yang berdiri di lereng timur Gunung Welirang. Bangunan ini dibangun atas perintah Kertanegara dan berfungsi sebagai tempat pendharmaan bagi penganut ajaran Siwa-Buddha. Candi yang tinggi dan ramping ini dikelilingi parit berhias teratai serta pagar bata.",
+      "jam_buka": [],
+      "hari_tutup_khusus": [],
+      "tiket": [],
+      "jadwal_pertunjukan": [],
+      "situs_resmi": null,
+      "url_beli_tiket": null,
+      "sumber_dibuka": [
+        "https://id.wikipedia.org/wiki/Candi_Jawi",
+        "https://en.wikipedia.org/wiki/Jawi_Temple"
+      ],
+      "sumber_gagal": [
+        "http://cagarbudaya.kemdikbud.go.id/cagarbudaya/detail/PO2015100401007/candi-jawi (Firecrawl 403; WebFetch: host tidak ditemukan)"
+      ],
+      "catatan": "Koordinat dari id.wikipedia (7°39′45″S 112°40′04″E). en.wikipedia memberi 112°40′11″E, selisih sekitar 200 m; pakai nilai id.wikipedia, perlu dicek di peta. Pengelola menurut id.wikipedia: Balai Pelestarian Cagar Budaya Jawa Timur. Jam buka dan harga tiket tidak ditemukan di sumber yang berhasil dibaca dan belum ada situs resmi pengelola yang bisa dibuka; kosong, jangan ditampilkan sebagai fakta. Kedua Wikipedia tidak memuat tanggal pembaruan untuk data ini (en.wikipedia merujuk referensi 2013), sehingga tidak ada fakta yang diberi checked_at.",
+      "status": "pending",
+      "bentuk": "tempat",
+      "kategori_enum": "candi"
+    },
+    {
+      "nama": "Museum Mpu Purwa",
+      "slug": "museum-mpu-purwa",
+      "provinsi": "Jawa Timur",
+      "kategori_usulan": "museum",
+      "jenis": "permanen",
+      "induk_lokasi": null,
+      "kabupaten": "Kota Malang",
+      "alamat": "Jalan Soekarno Hatta, Perumahan Griya Shanta Blok B Nomor 210, Kelurahan Mojolangu, Kecamatan Lowokwaru, Kota Malang, Jawa Timur",
+      "lat": -7.94039,
+      "lng": 112.62086,
+      "deskripsi": "Museum Mpu Purwa menyimpan sekitar 136 artefak purbakala dari kerajaan-kerajaan Jawa Kuno, di antaranya Kanjuruhan, Mataram Kuno, Kediri, Singosari, dan Majapahit. Koleksinya meliputi arca, prasasti, makara, serta benda prasejarah seperti batu lumpang. Museum ini dimiliki Pemerintah Kota Malang dan terbagi dua lantai dengan koleksi yang berbeda.",
+      "jam_buka": [],
+      "hari_tutup_khusus": [],
+      "tiket": [
+        {
+          "label": "Masuk museum",
+          "harga_idr": 0,
+          "catatan": "Menurut Wikipedia, museum dapat dikunjungi gratis. Belum dikonfirmasi dari sumber resmi; dari sumber tanpa tanggal.",
+          "source_url": "https://id.wikipedia.org/wiki/Museum_Mpu_Purwa",
+          "checked_at": null
+        }
+      ],
+      "jadwal_pertunjukan": [],
+      "situs_resmi": null,
+      "url_beli_tiket": null,
+      "sumber_dibuka": [
+        "https://id.wikipedia.org/wiki/Museum_Mpu_Purwa",
+        "https://www.liputan6.com/hot/read/4493631/15-wisata-sejarah-di-malang-paling-populer-dari-museum-sampai-bangunan-kuno"
+      ],
+      "sumber_gagal": [],
+      "catatan": "Alamat dan kepemilikan cocok di kedua sumber. Koordinat dari id.wikipedia (7°56′25.4″S 112°37′15.1″E), dikonversi ke derajat desimal; belum dicek di peta. Jam buka tidak ditemukan di sumber yang dibaca, sehingga jam_buka kosong. Artikel Liputan6 berasal dari sekitar 2018 (foto tahun 2018), jadi checked_at dikosongkan. Harga gratis hanya dari id.wikipedia tanpa tanggal dan belum diverifikasi ke pengelola.",
+      "status": "pending",
+      "bentuk": "tempat",
+      "kategori_enum": "museum"
+    },
+    {
+      "nama": "Museum Negeri Mpu Tantular",
+      "slug": "museum-mpu-tantular",
+      "provinsi": "Jawa Timur",
+      "kategori_usulan": "museum",
+      "jenis": "permanen",
+      "induk_lokasi": null,
+      "kabupaten": "Sidoarjo",
+      "alamat": "Jalan Raya Buduran, Bedrek, Siwalanpanji, Kecamatan Buduran, Kabupaten Sidoarjo, Jawa Timur",
+      "lat": -7.433982,
+      "lng": 112.719922,
+      "deskripsi": "Museum Negeri Mpu Tantular adalah museum milik Pemerintah Provinsi Jawa Timur yang berawal dari Stedelijk Historisch Museum Soerabaia pada 1933. Koleksinya sekitar 15.600 buah, mencakup relief, arca Durga Mahisasuramarhini, dan artefak dari masa prasejarah hingga kolonial. Sejak 2004 museum berada di Buduran, Sidoarjo.",
+      "jam_buka": [],
+      "hari_tutup_khusus": [],
+      "tiket": [],
+      "jadwal_pertunjukan": [],
+      "situs_resmi": null,
+      "url_beli_tiket": null,
+      "sumber_dibuka": [
+        "https://en.wikipedia.org/wiki/Mpu_Tantular_Museum",
+        "https://id.wikipedia.org/wiki/Museum_Negeri_Mpu_Tantular"
+      ],
+      "sumber_gagal": [
+        "https://museummputantular.com/ (dibuka via Firecrawl, tetapi isinya tidak terkait museum: konten judi; tidak dipakai)"
+      ],
+      "catatan": "Alamat di kedua Wikipedia: Jalan Raya Buduran, Sidoarjo, sejak pindah pada 14 Mei 2004. Alamat Surabaya (Jalan Taman Mayangkara) adalah lokasi lama dan tidak dipakai; kabupaten 'Surabaya (Kota)' dari discovery awal tidak didukung sumber. Situs resmi di infobox Wikipedia tampak diambil alih oleh pihak lain, sehingga situs_resmi dikosongkan dan jam buka serta tiket tidak diisi karena tidak ada sumber resmi yang terbaca. Koordinat dari en.wikipedia (7.433982, 112.719922); id.wikipedia memberi 7.434, 112.71992. Perlu dicek ulang ke kanal resmi Pemprov Jatim sebelum publish.",
+      "status": "pending",
+      "bentuk": "tempat",
+      "kategori_enum": "museum"
+    },
+    {
+      "nama": "House of Sampoerna",
+      "slug": "house-of-sampoerna",
+      "kategori_usulan": "museum",
+      "jenis": "permanen",
+      "induk_lokasi": null,
+      "provinsi": "Jawa Timur",
+      "kabupaten": "Surabaya",
+      "alamat": "Jalan Sampoerna 6, Krembangan Utara, Pabean Cantian, Surabaya (alamat dari OpenStreetMap/Nominatim)",
+      "lat": -7.230813,
+      "lng": 112.734247,
+      "deskripsi": "Bekas kompleks pabrik rokok milik keluarga Sampoerna di pusat Surabaya, dibangun sejak 1862 dan dulunya dipakai sebagai panti asuhan. Kini bangunan utamanya dipugar dan dibuka sebagai museum tembakau yang juga memperlihatkan sejarah keluarga pendiri.",
+      "jam_buka": [],
+      "hari_tutup_khusus": [],
+      "tiket": [],
+      "jadwal_pertunjukan": [],
+      "situs_resmi": "http://houseofsampoerna.com/",
+      "url_beli_tiket": null,
+      "sumber_dibuka": [
+        "https://en.wikipedia.org/wiki/House_of_Sampoerna"
+      ],
+      "sumber_gagal": [
+        "http://houseofsampoerna.com/ (Firecrawl: diblokir sebagai alamat privat; WebFetch: DNS gagal)",
+        "https://houseofsampoerna.id/ (Firecrawl: diblokir sebagai alamat privat; WebFetch: DNS gagal)"
+      ],
+      "catatan": "Jam buka, tiket, dan hari tutup tidak ditemukan karena situs resmi (houseofsampoerna.com / houseofsampoerna.id) tidak bisa dibuka dari lingkungan ini. Dibiarkan kosong, jangan ditampilkan sebagai fakta. Koordinat dari Wikipedia (7°13′51″S 112°44′03″E); Nominatim memberi -7.2309923, 112.7341461, selisih kecil. Alamat dari OSM, belum dikonfirmasi situs resmi. Wikipedia (artikel bertanda butuh kutipan, sumber umur tidak jelas) dipakai hanya untuk deskripsi dan koordinat. Jadwal Surabaya Heritage Track di Wikipedia tidak dipakai karena bukan fakta jam museum. Sumber pencarian web tidak tersedia pada putaran ini.",
+      "status": "pending",
+      "bentuk": "tempat",
+      "kategori_enum": "museum"
+    },
+    {
+      "nama": "Masjid Ampel dan Makam Sunan Ampel",
+      "slug": "masjid-ampel-dan-makam-sunan-ampel",
+      "kategori_usulan": "situs",
+      "jenis": "permanen",
+      "induk_lokasi": null,
+      "provinsi": "Jawa Timur",
+      "kabupaten": "Surabaya",
+      "alamat": "Jalan Gubah Kidul, Ampel, Semampir, Surabaya (alamat dari OpenStreetMap/Nominatim)",
+      "lat": -7.2317656,
+      "lng": 112.7423278,
+      "deskripsi": "Kawasan masjid bersejarah dan makam Sunan Ampel, salah satu wali penyebar Islam di Jawa, di kawasan Ampel Surabaya. Tempat ini ramai peziarah dan dikenal sebagai bagian dari jalur wisata religi Wali Limo di Jawa Timur.",
+      "jam_buka": [],
+      "hari_tutup_khusus": [],
+      "tiket": [],
+      "jadwal_pertunjukan": [],
+      "situs_resmi": null,
+      "url_beli_tiket": null,
+      "sumber_dibuka": [
+        "https://www.detik.com/jatim/wisata/d-8074206/wisata-religi-wali-limo-di-jawa-timur"
+      ],
+      "sumber_gagal": [],
+      "catatan": "Tanpa tiket masuk menurut alasan awal, tetapi halaman detik yang dibaca tidak menyebut tiket atau jam, jadi jam_buka dan tiket dibiarkan kosong. Halaman detik bertanggal 22 Agu 2025 dan hanya menyebut Sunan Ampel dan lokasinya secara umum; tidak ada data jam atau aturan kunjungan. Koordinat dari Nominatim (node Masjid Ampel, -7.2317656, 112.7423278). Nominatim juga memberi way Masjid Agung Sunan Ampel di -7.2299710, 112.7428733, jadi titik kawasan belum pasti; makam belum diverifikasi koordinatnya secara terpisah. Kategori 'situs' dipakai karena 'masjid' tidak ada di daftar kategori. Alamat dari OSM, belum dari sumber resmi. Sumber pencarian web tidak tersedia pada putaran ini.",
+      "status": "pending",
+      "bentuk": "tempat",
+      "kategori_enum": "lainnya"
+    },
+    {
+      "nama": "Makam Sunan Giri",
+      "slug": "makam-sunan-giri",
+      "kategori_usulan": "situs",
+      "jenis": "permanen",
+      "induk_lokasi": null,
+      "provinsi": "Jawa Timur",
+      "kabupaten": "Gresik",
+      "alamat": "Desa Giri, Kecamatan Kebomas, Gresik (alamat dari OpenStreetMap/Nominatim)",
+      "lat": -7.1688945,
+      "lng": 112.6310331,
+      "deskripsi": "Makam Sunan Giri, salah satu wali penyebar Islam di Jawa, berada di Desa Giri, Kebomas, Gresik. Makam ini termasuk tujuan wisata religi paling ramai di Gresik dan bagian dari jalur Wali Limo di Jawa Timur.",
+      "jam_buka": [],
+      "hari_tutup_khusus": [],
+      "tiket": [],
+      "jadwal_pertunjukan": [],
+      "situs_resmi": null,
+      "url_beli_tiket": null,
+      "sumber_dibuka": [
+        "https://www.detik.com/jatim/wisata/d-8074206/wisata-religi-wali-limo-di-jawa-timur"
+      ],
+      "sumber_gagal": [],
+      "catatan": "Halaman detik yang dibaca menyebut Sunan Giri di Gresik dan hubungan keluarganya dengan wali lain, tetapi tidak menyebut lokasi desa, jam, atau aturan kunjungan, jadi field itu dibiarkan kosong. Halaman detik bertanggal 22 Agu 2025. Koordinat dari Nominatim (polygon makam, Kebomas, Gresik; cocok dengan Desa Giri dari alasan awal). Alamat dari OSM, belum dari sumber resmi. Tidak ada tiket atau jam yang diverifikasi. Sumber pencarian web tidak tersedia pada putaran ini.",
+      "status": "pending",
+      "bentuk": "tempat",
+      "kategori_enum": "lainnya"
+    },
+    {
+      "nama": "Makam Maulana Malik Ibrahim",
+      "slug": "makam-maulana-malik-ibrahim",
+      "kategori_usulan": "situs",
+      "jenis": "permanen",
+      "provinsi": "Jawa Timur",
+      "induk_lokasi": null,
+      "kabupaten": "Gresik",
+      "alamat": "Desa Gapura Wetan, Gresik (menurut detik.com; alamat lengkap belum dikonfirmasi dari sumber resmi)",
+      "lat": null,
+      "lng": null,
+      "deskripsi": "Makam Maulana Malik Ibrahim di Gresik dikenal sebagai makam wali pertama penyebar Islam di Jawa, tokoh yang juga dikenal sebagai pedagang ulung pada masa Majapahit. Makamnya tetap ramai diziarahi dari berbagai daerah.",
+      "jam_buka": [],
+      "hari_tutup_khusus": [],
+      "tiket": [],
+      "jadwal_pertunjukan": [],
+      "situs_resmi": null,
+      "url_beli_tiket": null,
+      "sumber_dibuka": [
+        "https://www.detik.com/jatim/wisata/d-8074206/wisata-religi-wali-limo-di-jawa-timur"
+      ],
+      "sumber_gagal": [],
+      "catatan": "Koordinat tidak ditemukan: Nominatim (4 variasi kueri, termasuk Makam Maulana Malik Ibrahim, Gresik) hanya memberi jalan atau halte yang bukan lokasi makam, sehingga lat/lng dikosongkan. Detik.com menyebut makam di Desa Gapura Wetan (tertulis GapuraWetan), sedangkan discovery awal menyebut Gapuro Sukolilo; pertentangan ini belum terselesaikan, alamat perlu dikonfirmasi. Jam buka dan harga tidak ada di sumber yang berhasil dibaca, sehingga dikosongkan. Sumber yang dibaca hanya artikel media (detik.com) tanpa tanggal pemeriksaan resmi, checked_at dibiarkan null. Klaim aula edukasi di sisi utara dari discovery awal tidak terkonfirmasi di sumber yang dibaca dan tidak dimasukkan. Deskripsi ditulis ulang dari ringkasan detik.com.",
+      "status": "pending",
+      "bentuk": "tempat",
+      "kategori_enum": "lainnya"
+    },
+    {
+      "nama": "Makam Sunan Bonang",
+      "slug": "makam-sunan-bonang",
+      "kategori_usulan": "situs",
+      "jenis": "permanen",
+      "provinsi": "Jawa Timur",
+      "induk_lokasi": null,
+      "kabupaten": "Tuban",
+      "alamat": "Belakang Masjid Agung Tuban, Kelurahan Kutorejo, Kecamatan Tuban, Kabupaten Tuban",
+      "lat": -6.8945877,
+      "lng": 112.0633076,
+      "deskripsi": "Makam Sunan Bonang berada di belakang Masjid Agung Tuban dan menjadi salah satu tujuan ziarah utama bagi peziarah dari berbagai daerah. Sunan Bonang termasuk wali penyebar Islam di Jawa yang namanya tercatat dalam rangkaian Wali Songo.",
+      "jam_buka": [],
+      "hari_tutup_khusus": [],
+      "tiket": [],
+      "jadwal_pertunjukan": [],
+      "situs_resmi": null,
+      "url_beli_tiket": null,
+      "sumber_dibuka": [
+        "https://www.inews.id/regional/jatim/wisata-religi-makam-sunan-bonang-di-tuban-mulai-dibuka-bertahap",
+        "https://www.detik.com/jatim/wisata/d-8074206/wisata-religi-wali-limo-di-jawa-timur"
+      ],
+      "sumber_gagal": [],
+      "catatan": "Koordinat dari OpenStreetMap Nominatim (Makam Sunan Bonang, Kutorejo, Tuban, Jawa Timur); nama dan wilayah sudah dicek sesuai, tetapi belum dibandingkan dengan sumber resmi, jadi perkiraan. Artikel inews.id terbit 28 Juni 2020 (saat pandemi, jam dibuka bertahap, kuota 60 peziarah, 25 menit), sudah lebih dari 2 tahun, sehingga tidak dipakai sebagai fakta jam dan checked_at dibiarkan null. Jam buka saat ini tidak ditemukan di sumber yang berhasil dibaca; jam_buka dikosongkan. Tidak ditemukan keterangan harga, dan sumber yang dibaca tidak menyebut biaya masuk, jadi tiket dikosongkan dan tidak diisi 'gratis'. Alamat diambil dari artikel detik.com.",
+      "status": "pending",
+      "bentuk": "tempat",
+      "kategori_enum": "lainnya"
+    },
+    {
+      "nama": "Kampung Adat Osing Kemiren",
+      "slug": "kampung-adat-osing-kemiren",
+      "kategori_usulan": "desa-wisata",
+      "jenis": "pengalaman",
+      "provinsi": "Jawa Timur",
+      "induk_lokasi": null,
+      "kabupaten": "Banyuwangi",
+      "alamat": "Desa Kemiren, Kecamatan Glagah, Kabupaten Banyuwangi",
+      "lat": null,
+      "lng": null,
+      "deskripsi": "Desa Kemiren di Kecamatan Glagah, Banyuwangi, dihuni mayoritas masyarakat suku Osing, suku asli Banyuwangi. Pengunjung dapat melihat rumah adat Osing, mengenal kesenian seperti gandrung, dan merasakan kehidupan kampung adat.",
+      "jam_buka": [],
+      "hari_tutup_khusus": [],
+      "tiket": [],
+      "jadwal_pertunjukan": [],
+      "situs_resmi": null,
+      "url_beli_tiket": null,
+      "sumber_dibuka": [
+        "https://www.indonesia.travel/id-id/tourism-village/desa-wisata-adat-osing-kemiren/"
+      ],
+      "sumber_gagal": [],
+      "catatan": "Koordinat tidak didapat: Nominatim untuk Kemiren Glagah Banyuwangi tidak memberi hasil yang cocok (hasil 'Kemiren, Juruh' dan 'Jalan Kemiren, Watubuncul' bukan pusat desa yang dicari), sehingga lat/lng dikosongkan. Halaman indonesia.travel berhasil dibaca, tetapi isinya tidak memuat jam kunjungan, harga, atau kontak reservasi; sebagian isi berasal dari masa pandemi dan tidak bertanggal, jadi checked_at dibiarkan null. Kategori 'kampung-adat' dari discovery dipetakan ke kategori_usulan 'desa-wisata' karena skema tidak punya kategori kampung adat; jenis 'pengalaman' dipilih untuk desa wisata. Status desa wisata budaya dan penghargaan Kemenparekraf disebut halaman, tetapi tahunnya tidak dipastikan dari sumber yang dibaca (discovery menyebut Desa Budaya 2022). Kontak dan aturan kunjungan tidak ditemukan. Deskripsi ditulis ulang dari halaman sumber.",
+      "status": "pending",
+      "bentuk": "tempat",
+      "kategori_enum": "kerajinan"
+    },
+    {
+      "nama": "Museum Blambangan",
+      "slug": "museum-blambangan",
+      "provinsi": "Jawa Timur",
+      "kategori_usulan": "museum",
+      "jenis": "permanen",
+      "induk_lokasi": null,
+      "kabupaten": "Banyuwangi",
+      "alamat": "Jalan Jenderal Achmad Yani No. 78, Kampungbaru, Tamansari, Banyuwangi (alamat dari OpenStreetMap/Nominatim, belum dikonfirmasi halaman resmi)",
+      "lat": -8.2208655,
+      "lng": 114.3681617,
+      "deskripsi": "Museum Blambangan adalah museum sejarah milik Pemerintah Kabupaten Banyuwangi yang berdiri sejak 1977 dan dikelola oleh UPT museum di bawah dinas kebudayaan dan pariwisata setempat. Koleksinya mencakup etnografi, arkeologi, sejarah, numismatik, dan keramik, dengan fokus pada warisan Kerajaan Blambangan. Gedung yang digunakan merupakan bangunan peninggalan Belanda.",
+      "jam_buka": [],
+      "hari_tutup_khusus": [],
+      "tiket": [],
+      "jadwal_pertunjukan": [],
+      "situs_resmi": "https://sijamuwangi.banyuwangikab.go.id/en/museum-blambangan",
+      "url_beli_tiket": null,
+      "sumber_dibuka": [
+        "https://sijamuwangi.banyuwangikab.go.id/en/museum-blambangan/sejarah-museum",
+        "https://sijamuwangi.banyuwangikab.go.id/en/museum-blambangan"
+      ],
+      "sumber_gagal": [],
+      "catatan": "Jam buka dan tiket tidak ditemukan pada halaman resmi yang dibaca (halaman sejarah, visi-misi, dan beranda museum), sehingga dikosongkan. Alamat dan koordinat berasal dari OpenStreetMap Nominatim (display_name: Museum Blambangan, Banyuwangi, Jawa Timur), bukan dari halaman resmi. Halaman resmi yang dibaca tidak memuat tanggal terbit, jadi checked_at dikosongkan untuk semua fakta. Discovery awal menyebut jam buka belum terverifikasi; hal itu tetap berlaku. Yang perlu dikonfirmasi ke pengelola: jam buka, tarif tiket, dan hari tutup.",
+      "status": "pending",
+      "bentuk": "tempat",
+      "kategori_enum": "museum"
+    },
+    {
+      "nama": "Museum Keraton Sumenep",
+      "slug": "museum-keraton-sumenep",
+      "provinsi": "Jawa Timur",
+      "kategori_usulan": "keraton",
+      "jenis": "permanen",
+      "induk_lokasi": null,
+      "kabupaten": "Sumenep",
+      "alamat": "Jalan Dr. Sutomo No. 6, Pajagalan, Sumenep, Madura",
+      "lat": -7.0083434,
+      "lng": 113.8628657,
+      "deskripsi": "Museum Keraton Sumenep menempati bekas pusat pemerintahan Kerajaan Sumenep di tengah kota, dengan bangunan yang didirikan sejak abad ke-18. Kompleksnya memadukan gaya arsitektur Tionghoa, Eropa, Islam, dan Jawa, dan menyimpan kereta kencana, koleksi naskah, serta Al-Quran tulisan tangan berukuran besar. Museum ini dikelola oleh UPT Museum Keraton Sumenep di bawah Pemerintah Kabupaten Sumenep.",
+      "jam_buka": [
+        {
+          "hari": "Senin",
+          "tutup": false,
+          "buka": "07:00",
+          "tutup_jam": "16:00",
+          "catatan": null,
+          "source_url": "https://www.goodnewsfromindonesia.id/2026/05/21/museum-keraton-sumenep-jejak-kejayaan-kerajaan-sumenep-dari-abad-ke-18",
+          "checked_at": "2026-11-26"
+        },
+        {
+          "hari": "Selasa",
+          "tutup": false,
+          "buka": "07:00",
+          "tutup_jam": "16:00",
+          "catatan": null,
+          "source_url": "https://www.goodnewsfromindonesia.id/2026/05/21/museum-keraton-sumenep-jejak-kejayaan-kerajaan-sumenep-dari-abad-ke-18",
+          "checked_at": "2026-11-26"
+        },
+        {
+          "hari": "Rabu",
+          "tutup": false,
+          "buka": "07:00",
+          "tutup_jam": "16:00",
+          "catatan": null,
+          "source_url": "https://www.goodnewsfromindonesia.id/2026/05/21/museum-keraton-sumenep-jejak-kejayaan-kerajaan-sumenep-dari-abad-ke-18",
+          "checked_at": "2026-11-26"
+        },
+        {
+          "hari": "Kamis",
+          "tutup": false,
+          "buka": "07:00",
+          "tutup_jam": "16:00",
+          "catatan": null,
+          "source_url": "https://www.goodnewsfromindonesia.id/2026/05/21/museum-keraton-sumenep-jejak-kejayaan-kerajaan-sumenep-dari-abad-ke-18",
+          "checked_at": "2026-11-26"
+        },
+        {
+          "hari": "Jumat",
+          "tutup": false,
+          "buka": "08:00",
+          "tutup_jam": "15:00",
+          "catatan": null,
+          "source_url": "https://www.goodnewsfromindonesia.id/2026/05/21/museum-keraton-sumenep-jejak-kejayaan-kerajaan-sumenep-dari-abad-ke-18",
+          "checked_at": "2026-11-26"
+        },
+        {
+          "hari": "Sabtu",
+          "tutup": false,
+          "buka": "08:00",
+          "tutup_jam": "15:00",
+          "catatan": null,
+          "source_url": "https://www.goodnewsfromindonesia.id/2026/05/21/museum-keraton-sumenep-jejak-kejayaan-kerajaan-sumenep-dari-abad-ke-18",
+          "checked_at": "2026-11-26"
+        },
+        {
+          "hari": "Minggu",
+          "tutup": false,
+          "buka": "08:00",
+          "tutup_jam": "15:00",
+          "catatan": null,
+          "source_url": "https://www.goodnewsfromindonesia.id/2026/05/21/museum-keraton-sumenep-jejak-kejayaan-kerajaan-sumenep-dari-abad-ke-18",
+          "checked_at": "2026-11-26"
+        }
+      ],
+      "hari_tutup_khusus": [
+        {
+          "keterangan": "Tutup pada hari libur nasional",
+          "source_url": "https://www.goodnewsfromindonesia.id/2026/05/21/museum-keraton-sumenep-jejak-kejayaan-kerajaan-sumenep-dari-abad-ke-18",
+          "checked_at": "2026-11-26"
+        }
+      ],
+      "tiket": [
+        {
+          "label": "Wisatawan lokal dewasa",
+          "harga_idr": 10000,
+          "catatan": "Tarif menurut artikel media; artikel menyebut sebagian sumber lain Rp5.000, sebaiknya konfirmasi di loket",
+          "source_url": "https://www.goodnewsfromindonesia.id/2026/05/21/museum-keraton-sumenep-jejak-kejayaan-kerajaan-sumenep-dari-abad-ke-18",
+          "checked_at": "2026-11-26"
+        },
+        {
+          "label": "Anak-anak",
+          "harga_idr": 6000,
+          "catatan": null,
+          "source_url": "https://www.goodnewsfromindonesia.id/2026/05/21/museum-keraton-sumenep-jejak-kejayaan-kerajaan-sumenep-dari-abad-ke-18",
+          "checked_at": "2026-11-26"
+        },
+        {
+          "label": "Wisatawan mancanegara",
+          "harga_idr": 20000,
+          "catatan": null,
+          "source_url": "https://www.goodnewsfromindonesia.id/2026/05/21/museum-keraton-sumenep-jejak-kejayaan-kerajaan-sumenep-dari-abad-ke-18",
+          "checked_at": "2026-11-26"
+        }
+      ],
+      "jadwal_pertunjukan": [],
+      "situs_resmi": null,
+      "url_beli_tiket": null,
+      "sumber_dibuka": [
+        "https://www.goodnewsfromindonesia.id/2026/05/21/museum-keraton-sumenep-jejak-kejayaan-kerajaan-sumenep-dari-abad-ke-18",
+        "https://nominatim.openstreetmap.org/search?q=Museum+Keraton+Sumenep"
+      ],
+      "sumber_gagal": [],
+      "catatan": "Jam buka, tarif, dan hari tutup berasal dari satu artikel media (Good News From Indonesia, 21 Mei 2026), bukan dari pengelola. Artikel itu sendiri meminta pengunjung mengonfirmasi tarif terkini di loket, dan menyebut tarif Rp5.000 dari sumber lain, jadi pertentangan ini dicatat. Situs resmi dan kontak pengelola tidak ditemukan dan belum dibaca; perlu dikonfirmasi ke UPT Museum Keraton Sumenep. Alamat dari artikel; koordinat dari OpenStreetMap Nominatim (display_name: Keraton Sumenep, Jalan Dokter Soetomo, Sumenep, Jawa Timur), cocok dengan alamat artikel. Hari tutup khusus hanya disebut 'hari libur nasional' tanpa daftar tanggal.",
+      "status": "pending",
+      "bentuk": "tempat",
+      "kategori_enum": "lainnya"
+    }
+  ],
+  "event": [
+    {
+      "bentuk": "event",
+      "nama": "Festival Nasional Reog Ponorogo (FNRP)",
+      "slug": "festival-nasional-reog-ponorogo",
+      "provinsi": "Jawa Timur",
+      "jenis_event": "festival",
+      "lokasi_induk": {
+        "nama": "Alun-alun Ponorogo",
+        "alamat": null,
+        "kota_kabupaten": "Ponorogo",
+        "lat": -7.8710475,
+        "lng": 111.462263
+      },
+      "deskripsi": "Festival Nasional Reog Ponorogo adalah pesta budaya tahunan yang menampilkan reog dengan dadak merak, pawai budaya, dan lomba seni. Penyelenggaraannya dirangkai dengan Grebeg Suro di Ponorogo, dan melibatkan generasi muda untuk melestarikan tradisi reog. Festival ini termasuk kegiatan wisata budaya yang menarik wisatawan lokal dan mancanegara.",
+      "pola": "annual",
+      "hari_iso": null,
+      "tanggal": null,
+      "jam_mulai": null,
+      "jam_selesai": null,
+      "harga_dari_idr": null,
+      "url_beli_tiket": null,
+      "situs_resmi": null,
+      "sumber": {
+        "source_url": "https://www.indonesia.travel/id-id/muslim-friendly-travel/events/festival-nasional-reog-ponorogo-dan-grebeg-suro-2026/",
+        "checked_at": "2026-11-26"
+      },
+      "sumber_dibuka": [
+        "https://www.indonesia.travel/id-id/muslim-friendly-travel/events/festival-nasional-reog-ponorogo-dan-grebeg-suro-2026/",
+        "https://nominatim.openstreetmap.org/search?q=Alun-alun+Ponorogo"
+      ],
+      "sumber_gagal": [],
+      "catatan": "Halaman indonesia.travel yang dibaca memuat deskripsi edisi 2026 (Grebeg Suro 2026) tetapi tidak mencantumkan tanggal pelaksanaan, jadi tanggal dan jam dikosongkan. Discovery awal menyebut edisi ke-XXXI berlangsung 6-15 Juni 2026, namun tanggal itu tidak ditemukan di halaman yang dibaca dan belum diverifikasi; tanggal itu juga sudah lewat dari hari ini (2026-11-26). Pola tahunan (Juni, dirangkai Grebeg Suro) belum terkonfirmasi dari halaman ini; perlu dicek ulang ke penyelenggara atau Dinas Pariwisata Ponorogo untuk tanggal edisi berikutnya. Koordinat dari OpenStreetMap Nominatim untuk Alun-alun Ponorogo (display_name: Alun-Alun Ponorogo, Ponorogo, Jawa Timur), bukan titik lokasi acara resmi. Harga tiket tidak ada; acara tidak terlihat memungut tiket dari halaman yang dibaca.",
+      "status": "pending",
+      "kategori_enum": "lainnya"
+    },
+    {
+      "bentuk": "event",
+      "nama": "Grebeg Suro Ponorogo",
+      "slug": "grebeg-suro-ponorogo",
+      "provinsi": "Jawa Timur",
+      "jenis_event": "upacara",
+      "lokasi_induk": {
+        "nama": "Alun-alun Ponorogo",
+        "alamat": null,
+        "kota_kabupaten": "Ponorogo",
+        "lat": -7.8710475,
+        "lng": 111.462263
+      },
+      "deskripsi": "Grebeg Suro adalah pesta rakyat tahunan di Ponorogo yang berisi rangkaian kegiatan budaya, religi, dan pameran ekonomi kreatif. Pembukaannya berlangsung di panggung utama Alun-alun Ponorogo dan diramaikan festival reog, termasuk Festival Nasional Reog Ponorogo.",
+      "pola": "annual",
+      "hari_iso": null,
+      "tanggal": null,
+      "jam_mulai": null,
+      "jam_selesai": null,
+      "harga_dari_idr": null,
+      "url_beli_tiket": null,
+      "situs_resmi": null,
+      "sumber": {
+        "source_url": "https://timesindonesia.co.id/peristiwa-daerah/593656/grebeg-suro-2026-dimulai-festival-nasional-reog-perebutkan-piala-presiden",
+        "checked_at": "2026-11-26"
+      },
+      "sumber_dibuka": [
+        "https://timesindonesia.co.id/peristiwa-daerah/593656/grebeg-suro-2026-dimulai-festival-nasional-reog-perebutkan-piala-presiden"
+      ],
+      "sumber_gagal": [],
+      "catatan": "Satu-satunya sumber yang berhasil dibaca adalah artikel TIMES Indonesia (media, bukan situs resmi pemkab), terbit 7 Juni 2026. Isinya: Grebeg Suro 2026 dibuka Sabtu 6 Juni 2026 malam di Panggung Utama Alun-alun Ponorogo oleh Plt Bupati Ponorogo, dengan 28 agenda budaya, religi, dan ekonomi kreatif, termasuk Festival Reog Remaja (Trofi Suromenggolo) dan Festival Nasional Reog Ponorogo (Piala Presiden). Artikel tidak menyebut tanggal kirab pusaka (Senin 15 Juni dari sumber discovery belum terverifikasi, sehingga tidak dimasukkan), tidak menyebut lokasi Kota Lama Setono/Paseban, dan tidak menyebut larungan di Telaga Ngebel; ketiganya perlu dicek ulang dari sumber resmi Pemkab Ponorogo sebelum dipakai. Tanggal dan jam pasti tahun ini tidak ditemukan. Koordinat dari OpenStreetMap Nominatim (Alun-Alun Ponorogo, Ponorogo, Jawa Timur). Alamat jalan tidak ditemukan.",
+      "status": "pending",
+      "kategori_enum": "lainnya"
+    },
+    {
+      "bentuk": "event",
+      "nama": "Gandrung Sewu Banyuwangi",
+      "slug": "gandrung-sewu-banyuwangi",
+      "provinsi": "Jawa Timur",
+      "jenis_event": "pertunjukan",
+      "lokasi_induk": {
+        "nama": "Pantai Boom",
+        "alamat": null,
+        "kota_kabupaten": "Banyuwangi",
+        "lat": -8.2067756,
+        "lng": 114.3837475
+      },
+      "deskripsi": "Gandrung Sewu adalah pertunjukan tahunan di Banyuwangi yang menampilkan ribuan penari Gandrung dalam koreografi serempak di tepi pantai. Pertunjukan pertama digelar pada 2012 dan kini menjadi salah satu daya tarik wisata budaya paling dikenal di Banyuwangi. Penutupnya adalah tarian massal Jejer Gandrung.",
+      "pola": "annual",
+      "hari_iso": null,
+      "tanggal": null,
+      "jam_mulai": null,
+      "jam_selesai": null,
+      "harga_dari_idr": null,
+      "url_beli_tiket": null,
+      "situs_resmi": "http://www.banyuwangitourism.com/",
+      "sumber": {
+        "source_url": "https://www.indonesia.travel/jp/ja/events/event-detail/gandrung-sewu-2026",
+        "checked_at": "2026-11-26"
+      },
+      "sumber_dibuka": [
+        "https://www.indonesia.travel/jp/ja/events/event-detail/gandrung-sewu-2026"
+      ],
+      "sumber_gagal": [],
+      "catatan": "Halaman indonesia.travel (portal resmi Kemenparekraf) berhasil dibaca dan mencantumkan tanggal 22-24 Oktober 2026, lokasi Boom Beach dengan latar Selat Bali, Kabupaten Banyuwangi. Halaman memuat tautan situs resmi banyuwangitourism.com (belum dibuka sendiri). Jam pertunjukan malam tanggal 24 Oktober, harga atau tiket, dan kontak reservasi tidak ditemukan di halaman yang dibaca, sehingga tidak diisi. Koordinat dari OpenStreetMap Nominatim untuk Pantai Boom, Banyuwangi; koordinat ini titik pantai, bukan area panggung. Versi malam hari disebut di sumber discovery tetapi tidak terverifikasi di halaman yang dibaca. Halaman indonesia.travel berbahasa Inggris dengan antarmuka Jepang.",
+      "status": "pending",
+      "kategori_enum": "tari"
+    },
+    {
+      "bentuk": "event",
+      "nama": "Karapan Sapi Piala Bergilir Presiden RI",
+      "slug": "karapan-sapi-piala-presiden",
+      "provinsi": "Jawa Timur",
+      "jenis_event": "festival",
+      "lokasi_induk": {
+        "nama": "Stadion Karapan Sapi RP Moh Noer",
+        "alamat": null,
+        "kota_kabupaten": "Bangkalan",
+        "lat": null,
+        "lng": null
+      },
+      "deskripsi": "Karapan sapi adalah lomba adu cepat pasangan sapi yang menjadi tradisi khas Madura. Ajang Piala Bergilir Presiden RI mempertemukan pasangan sapi terbaik hasil seleksi tingkat kabupaten dari Bangkalan, Sampang, Pamekasan, dan Sumenep.",
+      "pola": "annual",
+      "hari_iso": null,
+      "tanggal": null,
+      "jam_mulai": null,
+      "jam_selesai": null,
+      "harga_dari_idr": null,
+      "url_beli_tiket": null,
+      "situs_resmi": null,
+      "sumber": {
+        "source_url": "https://koran-jakarta.com/2026-11-16/berlian-merah-juarai-karapan-sapi-piala-presiden-ri-2026",
+        "checked_at": "2026-11-26"
+      },
+      "sumber_dibuka": [
+        "https://koran-jakarta.com/2026-11-16/berlian-merah-juarai-karapan-sapi-piala-presiden-ri-2026"
+      ],
+      "sumber_gagal": [],
+      "catatan": "Edisi 2026 digelar Minggu 15 November 2026 di Stadion Karapan Sapi RP Moh Noer, Bangkalan, setelah sebelumnya dijadwalkan 8 November dan ditunda karena kendala penyelenggaraan (Koran Jakarta, 16 Nov 2026). Nama resmi menurut sumber: Karapan Sapi Piala Bergilir Presiden RI. Sumber tunggal berita; belum ada situs resmi atau halaman dinas yang dibaca. Tanggal edisi tahun depan belum diketahui; bulan rutin belum terverifikasi dari sumber ini. Koordinat stadion tidak ditemukan di OSM Nominatim (dicari dua kali dengan kueri berbeda) dan tidak ada di sumber. Klaim 'dibuka untuk umum' dari discovery tidak ada di sumber yang dibaca, sehingga tidak dicantumkan. Teks sumber tentang penyelenggara terpotong, jadi pihak kerja sama tidak dicatat.",
+      "status": "pending",
+      "kategori_enum": "lainnya"
+    },
+    {
+      "bentuk": "event",
+      "nama": "Agenda pertunjukan dan pameran bulanan Taman Budaya Jawa Timur (Cak Durasim)",
+      "slug": "agenda-pertunjukan-dan-pameran-bulanan-taman-bud",
+      "provinsi": "Jawa Timur",
+      "jenis_event": "pertunjukan",
+      "lokasi_induk": {
+        "nama": "Taman Budaya Jawa Timur (Gedung Cak Durasim)",
+        "alamat": "Jalan Genteng Kali, Surabaya (sesuai OSM)",
+        "kota_kabupaten": "Surabaya",
+        "lat": -7.2564579,
+        "lng": 112.7398785
+      },
+      "deskripsi": "Taman Budaya Jawa Timur di Surabaya rutin menjadi ruang pameran seni rupa, pementasan kesenian, dan konser musik, termasuk di Gedung Cak Durasim. Agenda biasanya diumumkan per bulan, dan sebagian acara terbuka untuk umum.",
+      "pola": null,
+      "hari_iso": null,
+      "tanggal": null,
+      "jam_mulai": null,
+      "jam_selesai": null,
+      "harga_dari_idr": null,
+      "url_beli_tiket": null,
+      "situs_resmi": null,
+      "sumber": {
+        "source_url": "https://www.detik.com/jatim/budaya/d-8012761/catat-ini-jadwal-agenda-taman-budaya-jatim-juli-2025",
+        "checked_at": null
+      },
+      "sumber_dibuka": [
+        "https://www.detik.com/jatim/budaya/d-8012761/catat-ini-jadwal-agenda-taman-budaya-jatim-juli-2025"
+      ],
+      "sumber_gagal": [
+        "https://www.tiketcakdurasim.com"
+      ],
+      "catatan": "Pola bulanan belum bisa diisi karena enum pola tidak memuat 'bulanan'. Sumber yang dibaca adalah agenda Juli 2025 (Detik, 16 Jul 2025), yang sudah lewat, sehingga checked_at null. Contoh agenda Juli 2025: pameran lukisan candi 11-17 Juli, Ludruk Eka Budaya 18 Juli, panggung ekspresi Hari Anak Nasional 20 Juli, dan konser musik REK 29 Juli. Detik menulis seluruh acara Juli 2025 di Gedung Cak Durasim gratis, sehingga tidak ada harga tetap untuk bulan lain. Pemesanan tiket disebut lewat aplikasi Cak Durasim atau www.tiketcakdurasim.com, tetapi situs itu gagal dibuka (sumber_gagal), jadi url_beli_tiket dikosongkan. Tidak ada agenda 2026 yang dibaca. Koordinat dari OSM (Bale Utama Taman Budaya Surabaya, Jalan Genteng Kali), bukan titik pasti Gedung Cak Durasim.",
+      "status": "pending",
+      "kategori_enum": "tari"
+    },
+    {
+      "bentuk": "event",
+      "nama": "Tong Tong Night Market Malang",
+      "slug": "tong-tong-night-market-malang",
+      "provinsi": "Jawa Timur",
+      "jenis_event": "festival",
+      "lokasi_induk": {
+        "nama": "Taman Tjerme, The Shalimar Boutique Hotel Malang",
+        "alamat": "Jalan Ciremai, Oro-Oro Dowo, Kota Malang",
+        "kota_kabupaten": "Malang",
+        "lat": -7.9700028,
+        "lng": 112.6251364
+      },
+      "deskripsi": "Tong Tong Night Market adalah festival budaya dan kuliner tahunan di Malang yang terinspirasi dari Tong Tong Fair di Belanda. Edisi ke-10 pada 2026 menampilkan pertunjukan budaya, kuliner Nusantara, bazar UMKM, dan lokakarya kreatif seperti melukis batik dan menganyam, dengan tema Punakawan.",
+      "pola": "annual",
+      "hari_iso": null,
+      "tanggal": null,
+      "jam_mulai": null,
+      "jam_selesai": null,
+      "harga_dari_idr": null,
+      "url_beli_tiket": null,
+      "situs_resmi": null,
+      "sumber": {
+        "source_url": "https://rri.co.id/en/art-and-culture/2604258/tong-tong-night-market-2026-celebrates-a-decade-of-culture-and-culinary-heritage",
+        "checked_at": "2026-11-26"
+      },
+      "sumber_dibuka": [
+        "https://rri.co.id/en/art-and-culture/2604258/tong-tong-night-market-2026-celebrates-a-decade-of-culture-and-culinary-heritage"
+      ],
+      "sumber_gagal": [],
+      "catatan": "Artikel RRI (28 Juli 2026) menyebut edisi ke-10 berlangsung 30 Juli sampai 2 Agustus 2026 di Taman Tjerme, The Shalimar Boutique Hotel Malang, sebagai bagian Karisma Event Nusantara (KEN) 2026. Artikel juga menyebut festival ini salah satu acara tahunan paling dinanti di kota Malang, sehingga pola dicatat sebagai tahunan. Tanggal dibiarkan null karena tanggal edisi berikutnya belum ada. Harga tiket dan kontak tidak disebut di artikel, jadi harga_dari_idr null. Koordinat adalah titik The Shalimar Boutique Hotel dari Nominatim (alamat Jalan Ciremai, Oro-Oro Dowo, Kota Malang); posisi Taman Tjerme di dalam area hotel belum dipastikan terpisah. Alamat berasal dari data OpenStreetMap. Artikel sumber berbahasa Inggris.",
+      "status": "pending",
+      "kategori_enum": "lainnya"
+    },
+    {
+      "bentuk": "event",
+      "nama": "Paket Wisata Budaya Desa Kemiren (Suku Osing)",
+      "slug": "paket-wisata-budaya-desa-kemiren",
+      "provinsi": "Jawa Timur",
+      "jenis_event": "desa-wisata",
+      "lokasi_induk": {
+        "nama": "Desa Wisata Kemiren",
+        "alamat": "Desa Kemiren, Kabupaten Banyuwangi",
+        "kota_kabupaten": "Banyuwangi",
+        "lat": -8.2054572,
+        "lng": 114.3223015
+      },
+      "deskripsi": "Desa Wisata Kemiren adalah desa wisata budaya Suku Osing di Banyuwangi yang dikelola kelompok sadar wisata (Pokdarwis) sejak 2022. Kegiatannya meliputi paket membatik, mengolah kopi, menikmati tari Gandrung, mencicipi kuliner Osing, dan menginap di homestay milik warga.",
+      "pola": null,
+      "hari_iso": null,
+      "tanggal": null,
+      "jam_mulai": null,
+      "jam_selesai": null,
+      "harga_dari_idr": null,
+      "url_beli_tiket": null,
+      "situs_resmi": null,
+      "sumber": {
+        "source_url": "https://lestari.kompas.com/read/2026/06/30/075736986/suku-osing-desa-kemiren-banyuwangi-sulap-budaya-jadi-sumber-cuan",
+        "checked_at": "2026-11-26"
+      },
+      "sumber_dibuka": [
+        "https://lestari.kompas.com/read/2026/06/30/075736986/suku-osing-desa-kemiren-banyuwangi-sulap-budaya-jadi-sumber-cuan"
+      ],
+      "sumber_gagal": [],
+      "catatan": "Artikel Kompas Lestari (30 Juni 2026) membenarkan pengelolaan oleh Pokdarwis sejak 2022 dan daftar paket (membatik, mengolah kopi, tari Gandrung, kuliner, homestay). Artikel tidak mencantumkan harga paket, jam layanan, kontak, atau cara reservasi, sehingga tiket dan harga_dari_idr dibiarkan kosong dan pola tidak diisi; klaim 'dipesan melalui Pokdarwis' dan 'sepanjang tahun' dari discovery tidak terkonfirmasi. Kecamatan: discovery menulis Kecamatan Glagah, tetapi artikel hanya menyebut Kabupaten Banyuwangi dan data OpenStreetMap mencatat alamat Kantor Desa Kemiren di Kecamatan Jambesari Darussholah, sehingga kecamatan belum pasti. Koordinat adalah Kantor Desa Kemiren dari Nominatim (-8.2054572, 114.3223015), bukan titik desa wisata yang diverifikasi. Artikel juga mencatat kunjungan 2025 sebanyak 3.683 wisatawan domestik dan 114 mancanegara, tetapi ini tidak dimasukkan ke field karena bukan fakta tempat.",
+      "status": "pending",
+      "kategori_enum": "lainnya"
+    }
+  ],
+  "dikeluarkan": [
+    {
+      "slug": "ritual-seblang-olehsari",
+      "nama": "Ritual Seblang Olehsari",
+      "alasan": "seluruh fakta dari Antara (tidak dipakai)"
+    },
+    {
+      "slug": "parade-teater-jawa-timur",
+      "nama": "Parade Teater Jawa Timur",
+      "alasan": "acara tidak terbukti ada"
+    },
+    {
+      "slug": "hari-tari-dunia-surabaya",
+      "nama": "Hari Tari Dunia Surabaya",
+      "alasan": "sumber ternyata acara lain (balet The Lion King)"
+    }
+  ]
+}

@@ -1,0 +1,1493 @@
+{
+  "provinsi": "DKI Jakarta",
+  "dikumpulkan": "2026-11-26",
+  "status": "pending (belum disetujui manusia)",
+  "tempat": [
+    {
+      "nama": "Museum Nasional Indonesia (Gedung Gajah)",
+      "slug": "museum-nasional-indonesia",
+      "kategori_usulan": "museum",
+      "jenis": "permanen",
+      "provinsi": "DKI Jakarta",
+      "induk_lokasi": null,
+      "kabupaten": "Jakarta Pusat",
+      "alamat": "Jl. Medan Merdeka Barat No. 12, Gambir, Jakarta Pusat",
+      "lat": -6.1761,
+      "lng": 106.8217,
+      "deskripsi": "Museum Nasional Indonesia, yang juga dikenal sebagai Museum Gajah, menyimpan koleksi arkeologi, sejarah, etnografi, dan geografi dari seluruh Nusantara. Museum ini berada di bawah Kementerian Kebudayaan dan merupakan salah satu museum tertua di Asia Tenggara.",
+      "jam_buka": [
+        {
+          "hari": "Senin",
+          "tutup": true,
+          "buka": null,
+          "tutup_jam": null,
+          "catatan": "Tutup setiap Senin dan Hari Libur Nasional.",
+          "source_url": "https://www.museumnasional.or.id/layanan-blu",
+          "checked_at": "2026-11-26"
+        },
+        {
+          "hari": "Selasa",
+          "tutup": false,
+          "buka": "08:00",
+          "tutup_jam": "18:00",
+          "catatan": null,
+          "source_url": "https://www.museumnasional.or.id/layanan-blu",
+          "checked_at": "2026-11-26"
+        },
+        {
+          "hari": "Rabu",
+          "tutup": false,
+          "buka": "08:00",
+          "tutup_jam": "18:00",
+          "catatan": null,
+          "source_url": "https://www.museumnasional.or.id/layanan-blu",
+          "checked_at": "2026-11-26"
+        },
+        {
+          "hari": "Kamis",
+          "tutup": false,
+          "buka": "08:00",
+          "tutup_jam": "18:00",
+          "catatan": null,
+          "source_url": "https://www.museumnasional.or.id/layanan-blu",
+          "checked_at": "2026-11-26"
+        },
+        {
+          "hari": "Jumat",
+          "tutup": false,
+          "buka": "08:00",
+          "tutup_jam": "20:00",
+          "catatan": null,
+          "source_url": "https://www.museumnasional.or.id/layanan-blu",
+          "checked_at": "2026-11-26"
+        },
+        {
+          "hari": "Sabtu",
+          "tutup": false,
+          "buka": "08:00",
+          "tutup_jam": "20:00",
+          "catatan": null,
+          "source_url": "https://www.museumnasional.or.id/layanan-blu",
+          "checked_at": "2026-11-26"
+        },
+        {
+          "hari": "Minggu",
+          "tutup": false,
+          "buka": "08:00",
+          "tutup_jam": "20:00",
+          "catatan": null,
+          "source_url": "https://www.museumnasional.or.id/layanan-blu",
+          "checked_at": "2026-11-26"
+        }
+      ],
+      "hari_tutup_khusus": [
+        {
+          "keterangan": "Tutup setiap Senin dan Hari Libur Nasional (tercantum di halaman Tiket dan Jam Operasional).",
+          "source_url": "https://www.museumnasional.or.id/layanan-blu",
+          "checked_at": "2026-11-26"
+        }
+      ],
+      "tiket": [
+        {
+          "label": "Dewasa WNI",
+          "harga_idr": 50000,
+          "catatan": null,
+          "source_url": "https://www.museumnasional.or.id/layanan-blu",
+          "checked_at": "2026-11-26"
+        },
+        {
+          "label": "Pelajar WNI (PAUD/TK/SD/SMP/SMA)",
+          "harga_idr": 30000,
+          "catatan": null,
+          "source_url": "https://www.museumnasional.or.id/layanan-blu",
+          "checked_at": "2026-11-26"
+        },
+        {
+          "label": "Anak 0-3 tahun",
+          "harga_idr": 0,
+          "catatan": "Gratis.",
+          "source_url": "https://www.museumnasional.or.id/layanan-blu",
+          "checked_at": "2026-11-26"
+        },
+        {
+          "label": "Rombongan (min. 50 orang) Dewasa",
+          "harga_idr": 40000,
+          "catatan": "Per orang.",
+          "source_url": "https://www.museumnasional.or.id/layanan-blu",
+          "checked_at": "2026-11-26"
+        },
+        {
+          "label": "Rombongan (min. 50 orang) Pelajar",
+          "harga_idr": 24000,
+          "catatan": "Per orang.",
+          "source_url": "https://www.museumnasional.or.id/layanan-blu",
+          "checked_at": "2026-11-26"
+        },
+        {
+          "label": "WNA",
+          "harga_idr": 150000,
+          "catatan": null,
+          "source_url": "https://www.museumnasional.or.id/layanan-blu",
+          "checked_at": "2026-11-26"
+        },
+        {
+          "label": "WNA pemegang KITAS",
+          "harga_idr": 50000,
+          "catatan": null,
+          "source_url": "https://www.museumnasional.or.id/layanan-blu",
+          "checked_at": "2026-11-26"
+        },
+        {
+          "label": "imersifA (tiket tambahan)",
+          "harga_idr": 35000,
+          "catatan": "Wajib membeli tiket masuk museum; per orang.",
+          "source_url": "https://www.museumnasional.or.id/layanan-blu",
+          "checked_at": "2026-11-26"
+        }
+      ],
+      "jadwal_pertunjukan": [],
+      "situs_resmi": "https://www.museumnasional.or.id",
+      "url_beli_tiket": null,
+      "sumber_dibuka": [
+        "https://www.museumnasional.or.id",
+        "https://www.museumnasional.or.id/layanan-blu",
+        "https://www.museumnasional.or.id/informasi-kunjungan-2/",
+        "https://www.museumnasional.or.id/kontak/",
+        "https://id.wikipedia.org/wiki/Museum_Nasional_Indonesia"
+      ],
+      "sumber_gagal": [
+        "https://www.indonesia.travel/au/en/destinations/java/dki-jakarta/national-museum (404)"
+      ],
+      "catatan": "Jam dan tiket dari halaman resmi museumnasional.or.id/layanan-blu (dibaca 2026-11-26). Halaman beranda menyebut Penyesuaian Jam Operasional per 1 April 2026, tetapi artikelnya tidak berhasil dibaca; jam di atas perlu dicek ulang terhadap pengumuman itu. Halaman yang sama juga menyebut acara ARAMSA setiap Rabu minggu kedua pukul 16.00-20.00 WIB, belum dimasukkan sebagai hari khusus. Sesi kunjungan rombongan pagi 08.00-11.00 dan siang 13.00-15.00 WIB ada di halaman informasi kunjungan. Koordinat diambil dari id.wikipedia (6°10′34″S 106°49′18″E), belum dicocokkan dengan Nominatim. Alamat dari halaman resmi/Wikipedia (Jl. Medan Merdeka Barat No. 12), sedangkan indonesia.travel (sumber discovery) gagal dibuka.",
+      "status": "pending",
+      "bentuk": "tempat",
+      "kategori_enum": "museum"
+    },
+    {
+      "nama": "Museum Taman Prasasti",
+      "slug": "museum-taman-prasasti",
+      "kategori_usulan": "museum",
+      "jenis": "permanen",
+      "provinsi": "DKI Jakarta",
+      "induk_lokasi": null,
+      "kabupaten": "Jakarta Pusat",
+      "alamat": "Jl. Tanah Abang I No. 1, Jakarta Pusat 10130",
+      "lat": -6.172,
+      "lng": 106.819,
+      "deskripsi": "Museum Taman Prasasti adalah museum sejarah terbuka yang dulunya merupakan pemakaman kolonial Belanda sejak akhir abad ke-18. Di dalamnya terdapat nisan dan makam tokoh-tokoh masa lalu, termasuk Olivia Mariamne Raffles dan aktivis Soe Hok Gie.",
+      "jam_buka": [],
+      "hari_tutup_khusus": [],
+      "tiket": [],
+      "jadwal_pertunjukan": [],
+      "situs_resmi": null,
+      "url_beli_tiket": null,
+      "sumber_dibuka": [
+        "https://en.wikipedia.org/wiki/Taman_Prasasti_Museum"
+      ],
+      "sumber_gagal": [
+        "https://www.indonesia.travel/au/en/destinations/java/dki-jakarta/national-museum (404, ini halaman Museum Nasional, tidak relevan)"
+      ],
+      "catatan": "Jam buka dan tiket tidak ditemukan di sumber yang berhasil dibaca (hanya en.wikipedia.org, yang tidak memuat jam atau harga); nilai dibiarkan kosong, bukan ditebak. Pencarian web tidak bisa dijalankan karena batas pencarian sesi sudah habis, sehingga situs pengelola (Museum Sejarah Jakarta) dan sumber resmi lain belum dicek. Status penetapan cagar budaya nasional belum terkonfirmasi. Koordinat -6.172, 106.819 dari en.wikipedia (6°10′19″S 106°49′08″E); Nominatim memberi -6.17237, 106.81954 untuk 'Museum Taman Prasasti, Jalan Tanah Abang I' (cocok). Alamat dari en.wikipedia (Jl. Tanah Abang 1, no. 1, 10130); Nominatim menulis Petojo Selatan, Gambir, 10320.",
+      "status": "pending",
+      "bentuk": "tempat",
+      "kategori_enum": "museum"
+    },
+    {
+      "nama": "Museum Joang '45 (Gedung Joang '45)",
+      "slug": "museum-joang-45",
+      "kategori_usulan": "museum",
+      "jenis": "permanen",
+      "provinsi": "DKI Jakarta",
+      "induk_lokasi": null,
+      "kabupaten": "Jakarta Pusat",
+      "alamat": "Jalan Menteng Raya 31, Menteng, Jakarta Pusat",
+      "lat": -6.18624,
+      "lng": 106.83665,
+      "deskripsi": "Museum Joang '45 berada di gedung bekas Hotel Schomper, yang pada masa pendudukan Jepang dikenal sebagai Gedung Menteng 31 dan menjadi pusat pemuda pejuang. Museum ini menyimpan dokumen, benda bersejarah, dan materi visual tentang perjuangan kemerdekaan Indonesia sekitar proklamasi 1945.",
+      "jam_buka": [],
+      "hari_tutup_khusus": [],
+      "tiket": [],
+      "jadwal_pertunjukan": [],
+      "situs_resmi": null,
+      "url_beli_tiket": null,
+      "sumber_dibuka": [
+        "https://www.indonesia.travel/jp-ja/destination/java/jakarta/museum-joang-45"
+      ],
+      "sumber_gagal": [
+        "https://id.wikipedia.org/wiki/Museum_Joang_45 (404)"
+      ],
+      "catatan": "Jam buka dan tiket tidak ditemukan. Halaman indonesia.travel yang berhasil dibuka tidak memuat jam atau harga, dan isinya terlihat seperti ringkasan otomatis (bertanda 'Powered by Google Gemini'), jadi keandalannya rendah. Alamat 'Jalan Menteng Raya 31' berasal dari petunjuk discovery dan tidak ada di halaman yang dibaca. Koordinat -6.18624, 106.83665 dari Nominatim (Gedung Joang 45, Jalan Gang Tembok, Kebon Sirih, Menteng, Jakarta Pusat), cocok dengan wilayah tetapi nama jalannya berbeda dari alamat discovery. Halaman resmi pengelola (Unit Pengelola Museum Kesejarahan Jakarta) belum ditemukan karena pencarian web tidak bisa dijalankan.",
+      "status": "pending",
+      "bentuk": "tempat",
+      "kategori_enum": "museum"
+    },
+    {
+      "nama": "Museum Sumpah Pemuda",
+      "slug": "museum-sumpah-pemuda",
+      "kategori_usulan": "museum",
+      "jenis": "permanen",
+      "induk_lokasi": null,
+      "provinsi": "DKI Jakarta",
+      "kabupaten": "Jakarta Pusat",
+      "alamat": "Jalan Kramat Raya No. 106, Kwitang, Senen, Jakarta Pusat",
+      "lat": -6.1838167,
+      "lng": 106.8430499,
+      "deskripsi": "Museum ini menempati gedung Kramat 106, tempat Kongres Pemuda II digelar pada 1928 dan lahirnya ikrar Sumpah Pemuda. Pengunjung dapat melihat diorama kongres serta koleksi terkait tokoh dan simbol pergerakan pemuda. Gedung ini juga pernah beralih fungsi sebelum dipugar dan dijadikan museum pada 1973.",
+      "jam_buka": [
+        {
+          "hari": "Senin",
+          "tutup": true,
+          "buka": null,
+          "tutup_jam": null,
+          "catatan": "Tutup pada hari Senin dan hari libur nasional (sumber tirto.id, artikel 2023).",
+          "source_url": "https://tirto.id/harga-tiket-masuk-museum-sumpah-pemuda-dan-jadwal-jam-buka-gRcy",
+          "checked_at": null
+        },
+        {
+          "hari": "Selasa",
+          "tutup": false,
+          "buka": "08:00",
+          "tutup_jam": "16:00",
+          "catatan": null,
+          "source_url": "https://tirto.id/harga-tiket-masuk-museum-sumpah-pemuda-dan-jadwal-jam-buka-gRcy",
+          "checked_at": null
+        },
+        {
+          "hari": "Rabu",
+          "tutup": false,
+          "buka": "08:00",
+          "tutup_jam": "16:00",
+          "catatan": null,
+          "source_url": "https://tirto.id/harga-tiket-masuk-museum-sumpah-pemuda-dan-jadwal-jam-buka-gRcy",
+          "checked_at": null
+        },
+        {
+          "hari": "Kamis",
+          "tutup": false,
+          "buka": "08:00",
+          "tutup_jam": "16:00",
+          "catatan": null,
+          "source_url": "https://tirto.id/harga-tiket-masuk-museum-sumpah-pemuda-dan-jadwal-jam-buka-gRcy",
+          "checked_at": null
+        },
+        {
+          "hari": "Jumat",
+          "tutup": false,
+          "buka": "08:00",
+          "tutup_jam": "16:30",
+          "catatan": null,
+          "source_url": "https://tirto.id/harga-tiket-masuk-museum-sumpah-pemuda-dan-jadwal-jam-buka-gRcy",
+          "checked_at": null
+        },
+        {
+          "hari": "Sabtu",
+          "tutup": false,
+          "buka": "08:00",
+          "tutup_jam": "16:00",
+          "catatan": null,
+          "source_url": "https://tirto.id/harga-tiket-masuk-museum-sumpah-pemuda-dan-jadwal-jam-buka-gRcy",
+          "checked_at": null
+        },
+        {
+          "hari": "Minggu",
+          "tutup": false,
+          "buka": "08:00",
+          "tutup_jam": "16:00",
+          "catatan": null,
+          "source_url": "https://tirto.id/harga-tiket-masuk-museum-sumpah-pemuda-dan-jadwal-jam-buka-gRcy",
+          "checked_at": null
+        }
+      ],
+      "hari_tutup_khusus": [],
+      "tiket": [
+        {
+          "label": "Dewasa",
+          "harga_idr": null,
+          "catatan": "Sumber bertentangan: tirto.id (artikel 2023) menyebut Rp2.000; hasil pencarian Orami (Januari 2025, tidak saya buka) menyebut Rp5.000. Belum dikonfirmasi, cek ke museum.",
+          "source_url": "https://tirto.id/harga-tiket-masuk-museum-sumpah-pemuda-dan-jadwal-jam-buka-gRcy",
+          "checked_at": null
+        },
+        {
+          "label": "Anak-anak",
+          "harga_idr": null,
+          "catatan": "Tirto.id (artikel 2023) menyebut Rp1.000; belum dikonfirmasi.",
+          "source_url": "https://tirto.id/harga-tiket-masuk-museum-sumpah-pemuda-dan-jadwal-jam-buka-gRcy",
+          "checked_at": null
+        },
+        {
+          "label": "Turis asing",
+          "harga_idr": null,
+          "catatan": "Tirto.id (artikel 2023) menyebut Rp10.000; belum dikonfirmasi.",
+          "source_url": "https://tirto.id/harga-tiket-masuk-museum-sumpah-pemuda-dan-jadwal-jam-buka-gRcy",
+          "checked_at": null
+        }
+      ],
+      "jadwal_pertunjukan": [],
+      "situs_resmi": "https://museumsumpahpemuda.kemdikbud.go.id",
+      "url_beli_tiket": null,
+      "sumber_dibuka": [
+        "https://tirto.id/harga-tiket-masuk-museum-sumpah-pemuda-dan-jadwal-jam-buka-gRcy"
+      ],
+      "sumber_gagal": [
+        "https://museumsumpahpemuda.kemdikbud.go.id/ (Firecrawl mengembalikan markdown kosong; situs resmi tidak terbaca)"
+      ],
+      "catatan": "Jam dan harga hanya dari tirto.id, artikel bertanggal 2023 (tema Sumpah Pemuda ke-95), sehingga checked_at null. Situs resmi tidak terbaca dan tidak ada tanggal pemeriksaan yang valid. Harga tiket bertentangan antarsumber (Rp2.000 tirto vs Rp5.000 Orami) dan belum diverifikasi, jadi harga dibiarkan null. Koordinat dari OpenStreetMap Nominatim (way 120553975, display_name Jalan Kramat Raya, Senen, Jakarta Pusat), cocok dengan lokasi. situs_resmi hanya disebut di hasil pencarian, belum dibuka. Deskripsi ditulis ulang sendiri.",
+      "status": "pending",
+      "bentuk": "tempat",
+      "kategori_enum": "museum"
+    },
+    {
+      "nama": "Masjid Istiqlal",
+      "slug": "masjid-istiqlal",
+      "kategori_usulan": "situs",
+      "jenis": "permanen",
+      "induk_lokasi": null,
+      "provinsi": "DKI Jakarta",
+      "kabupaten": "Jakarta Pusat",
+      "alamat": "Jalan Taman Wijaya Kusuma, Jakarta Pusat (kawasan dekat Lapangan Banteng dan Monas)",
+      "lat": -6.1702395,
+      "lng": 106.8310056,
+      "deskripsi": "Masjid nasional yang diresmikan pada 1978 ini disebut sebagai masjid terbesar di Asia Tenggara, dengan kapasitas jemaah yang sangat besar. Arsitekturnya dirancang oleh arsitek Frederich Silaban, dan halamannya menghadap langsung ke Gereja Katedral Jakarta. Pengunjung nonmuslim dapat berkeliling dengan pemandu, tetapi tidak diizinkan masuk ke ruang salat utama.",
+      "jam_buka": [],
+      "hari_tutup_khusus": [],
+      "tiket": [
+        {
+          "label": "Masuk",
+          "harga_idr": 0,
+          "catatan": "Sumber menyebut tidak dipungut biaya masuk. Halaman tidak bertanggal, jadi tidak diberi checked_at.",
+          "source_url": "https://www.indonesia.travel/gb-en/destination/java/jakarta/dki-jakarta---the-grand-istiqlal-mosque/",
+          "checked_at": null
+        }
+      ],
+      "jadwal_pertunjukan": [],
+      "situs_resmi": null,
+      "url_beli_tiket": null,
+      "sumber_dibuka": [
+        "https://www.indonesia.travel/gb-en/destination/java/jakarta/dki-jakarta---the-grand-istiqlal-mosque/"
+      ],
+      "sumber_gagal": [],
+      "catatan": "Sumber indonesia.travel menyebut masjid buka setiap hari tanpa jam spesifik, sehingga jam_buka dibiarkan kosong. Halaman tidak bertanggal dan memuat konten lama (misalnya kunjungan 2010), jadi checked_at null untuk fakta biaya masuk. Aturan kunjungan: pengunjung nonmuslim tidak boleh masuk ruang salat utama, pelepasan alas kaki saat masuk bangunan, dan pemandu tersedia. Koordinat dari OpenStreetMap Nominatim (relation 9627236, display_name Masjid Istiqlal, Pasar Baru, Sawah Besar, Jakarta Pusat). Nominatim menulis alamat Jalan KH Hasyim Asyari, sedangkan sumber menulis Jalan Taman Wijaya Kusuma; alamat dicantumkan sesuai sumber dan perbedaannya belum diselesaikan. Deskripsi ditulis ulang sendiri.",
+      "status": "pending",
+      "bentuk": "tempat",
+      "kategori_enum": "lainnya"
+    },
+    {
+      "nama": "Katedral Jakarta",
+      "slug": "katedral-jakarta",
+      "kategori_usulan": "situs",
+      "jenis": "permanen",
+      "induk_lokasi": null,
+      "provinsi": "DKI Jakarta",
+      "kabupaten": "Jakarta Pusat",
+      "alamat": "Jalan Katedral No. 7B, Jakarta Pusat",
+      "lat": -6.1692046,
+      "lng": 106.8332373,
+      "deskripsi": "Gereja katedral bergaya Neo-Gothic ini berdiri berhadapan dengan Masjid Istiqlal dan menjadi pusat ibadah umat Katolik Keuskupan Agung Jakarta. Bangunan yang selesai pada 1901 ini memiliki dua menara tinggi dan jendela kaca patri berwarna. Di dalam kompleksnya terdapat museum kecil yang memamerkan artefak keagamaan dan sejarah gereja.",
+      "jam_buka": [],
+      "hari_tutup_khusus": [],
+      "tiket": [],
+      "jadwal_pertunjukan": [],
+      "situs_resmi": null,
+      "url_beli_tiket": null,
+      "sumber_dibuka": [
+        "https://www.indonesia.travel/gb/en/travel-ideas/katedral-jakarta/"
+      ],
+      "sumber_gagal": [],
+      "catatan": "Sumber indonesia.travel menyebut gereja terbuka untuk pengunjung wisata dan ada museum kecil di kompleks, tetapi tidak menyebut jam kunjung maupun tiket, sehingga jam_buka dan tiket dibiarkan kosong. Halaman tidak bertanggal, jadi tidak ada checked_at. Kunjungan dianjurkan pada pagi awal atau sore, dan parkir terbatas di kompleks; parkir di sekitar Masjid Istiqlal bila penuh. Koordinat dari OpenStreetMap Nominatim (way 97196698, display_name Katedral Jakarta, Jalan Lapangan Banteng Utara, Pasar Baru, Sawah Besar, Jakarta Pusat). Nominatim memakai nama jalan Lapangan Banteng Utara, sedangkan sumber menulis Jalan Katedral No. 7B; alamat ditulis sesuai sumber. Deskripsi ditulis ulang sendiri.",
+      "status": "pending",
+      "bentuk": "tempat",
+      "kategori_enum": "lainnya"
+    },
+    {
+      "nama": "Museum Tekstil",
+      "slug": "museum-tekstil",
+      "kategori_usulan": "museum",
+      "jenis": "permanen",
+      "induk_lokasi": null,
+      "provinsi": "DKI Jakarta",
+      "kabupaten": "Jakarta Barat",
+      "alamat": "Jalan Pintu Besar Utara No. 27, Pinangsia, Taman Sari, Jakarta Barat 11110 (alamat menurut daftar PPID; lihat catatan)",
+      "lat": null,
+      "lng": null,
+      "deskripsi": "Museum Tekstil di kawasan Kota Tua Jakarta menyimpan koleksi wastra Nusantara, mulai dari kain batik dan tenun hingga peralatan tekstil. Museum ini juga menjadi tempat belajar tentang pelestarian kain tradisional Indonesia.",
+      "jam_buka": [],
+      "hari_tutup_khusus": [],
+      "tiket": [],
+      "jadwal_pertunjukan": [],
+      "situs_resmi": "https://museumtekstiljakarta.com/",
+      "url_beli_tiket": null,
+      "sumber_dibuka": [
+        "https://www.indonesia.travel/id-id/destination/java/jakarta/museum-tekstil/",
+        "https://ppid.jakarta.go.id/download/nIgB6CINcD1584346334"
+      ],
+      "sumber_gagal": [
+        "https://museumtekstiljakarta.com/ (Firecrawl: diblokir sebagai alamat private; WebFetch: sertifikat TLS tidak cocok)"
+      ],
+      "catatan": "(1) Pertentangan alamat: indonesia.travel menyebut Jakarta Barat tanpa alamat jalan; daftar PPID (dokumen lama, berkas bertanda 2020) menyebut Jalan Pintu Besar Utara No. 27, Kota Tua. Hasil pencarian awal dan OSM Nominatim menaruh museum di Jl. KS Tubun, Palmerah, Jakarta Barat, dan rumah123 juga memuat rujukan Tubun. Brief awal menyebut Jakarta Pusat dan Tanah Abang; sumber yang berhasil dibuka tidak mendukung itu, jadi kabupaten diisi Jakarta Barat. Perlu cek ulang alamat ke pengelola. (2) Koordinat dikosongkan: titik OSM yang ditemukan ada di Jl. KS Tubun dan belum cocok dengan alamat PPID. (3) Jam buka dan harga tiket tidak ditetapkan. Daftar PPID memuat dua pola berbeda untuk baris museum ini (08.00-17.00 dengan Rp2.000/3.000/5.000, dan 09.00-15.00 dengan pola harga lain), dan pasangannya tidak bisa dipastikan dari teks. Dokumen itu juga lama, jadi checked_at tetap null. (4) Situs resmi museumtekstiljakarta.com tidak bisa dibuka dari alat ini, sehingga tidak ada data resmi terbaru. Tidak ada tanggal Diperiksa yang sah. (5) Senin disebut tutup dalam daftar PPID dan belum diverifikasi. Libur keagamaan juga belum dikonfirmasi dari sumber yang dibuka. (6) indonesia.travel dikelola Dinas Kebudayaan DKI Jakarta; tidak memuat jam atau harga.",
+      "status": "pending",
+      "bentuk": "tempat",
+      "kategori_enum": "museum"
+    },
+    {
+      "nama": "Museum Bahari",
+      "slug": "museum-bahari",
+      "kategori_usulan": "museum",
+      "jenis": "permanen",
+      "induk_lokasi": null,
+      "provinsi": "DKI Jakarta",
+      "kabupaten": "Jakarta Utara",
+      "alamat": "Jalan Pasar Ikan No. 1, Penjaringan, Jakarta Utara 14440",
+      "lat": -6.1267614,
+      "lng": 106.808347,
+      "deskripsi": "Museum Bahari menempati bekas gudang VOC di seberang Pelabuhan Sunda Kelapa dan menyimpan koleksi tentang sejarah kemaritiman serta kehidupan pelaut Nusantara. Gedung tua ini dibuka sebagai museum pada 1977 dan kini dikelola Dinas Kebudayaan DKI Jakarta.",
+      "jam_buka": [
+        {
+          "hari": "Selasa",
+          "tutup": false,
+          "buka": "09:00",
+          "tutup_jam": "15:00",
+          "catatan": "Daftar PPID; dokumen lama, belum diverifikasi",
+          "source_url": "https://ppid.jakarta.go.id/download/nIgB6CINcD1584346334",
+          "checked_at": null
+        },
+        {
+          "hari": "Rabu",
+          "tutup": false,
+          "buka": "09:00",
+          "tutup_jam": "15:00",
+          "catatan": "Daftar PPID; dokumen lama, belum diverifikasi",
+          "source_url": "https://ppid.jakarta.go.id/download/nIgB6CINcD1584346334",
+          "checked_at": null
+        },
+        {
+          "hari": "Kamis",
+          "tutup": false,
+          "buka": "09:00",
+          "tutup_jam": "15:00",
+          "catatan": "Daftar PPID; dokumen lama, belum diverifikasi",
+          "source_url": "https://ppid.jakarta.go.id/download/nIgB6CINcD1584346334",
+          "checked_at": null
+        },
+        {
+          "hari": "Jumat",
+          "tutup": false,
+          "buka": "09:00",
+          "tutup_jam": "15:00",
+          "catatan": "Daftar PPID; dokumen lama, belum diverifikasi",
+          "source_url": "https://ppid.jakarta.go.id/download/nIgB6CINcD1584346334",
+          "checked_at": null
+        },
+        {
+          "hari": "Sabtu",
+          "tutup": false,
+          "buka": "09:00",
+          "tutup_jam": "15:00",
+          "catatan": "Daftar PPID; dokumen lama, belum diverifikasi",
+          "source_url": "https://ppid.jakarta.go.id/download/nIgB6CINcD1584346334",
+          "checked_at": null
+        },
+        {
+          "hari": "Minggu",
+          "tutup": false,
+          "buka": "09:00",
+          "tutup_jam": "15:00",
+          "catatan": "Daftar PPID; dokumen lama, belum diverifikasi",
+          "source_url": "https://ppid.jakarta.go.id/download/nIgB6CINcD1584346334",
+          "checked_at": null
+        },
+        {
+          "hari": "Senin",
+          "tutup": true,
+          "buka": null,
+          "tutup_jam": null,
+          "catatan": "Tidak disebut dibuka dalam daftar PPID",
+          "source_url": "https://ppid.jakarta.go.id/download/nIgB6CINcD1584346334",
+          "checked_at": null
+        }
+      ],
+      "hari_tutup_khusus": [],
+      "tiket": [
+        {
+          "label": "Anak-anak",
+          "harga_idr": 2000,
+          "catatan": "Daftar PPID; dokumen lama",
+          "source_url": "https://ppid.jakarta.go.id/download/nIgB6CINcD1584346334",
+          "checked_at": null
+        },
+        {
+          "label": "Mahasiswa",
+          "harga_idr": 3000,
+          "catatan": "Daftar PPID; dokumen lama",
+          "source_url": "https://ppid.jakarta.go.id/download/nIgB6CINcD1584346334",
+          "checked_at": null
+        },
+        {
+          "label": "Dewasa",
+          "harga_idr": 5000,
+          "catatan": "Daftar PPID; dokumen lama",
+          "source_url": "https://ppid.jakarta.go.id/download/nIgB6CINcD1584346334",
+          "checked_at": null
+        }
+      ],
+      "jadwal_pertunjukan": [],
+      "situs_resmi": "https://museumbahari.org",
+      "url_beli_tiket": null,
+      "sumber_dibuka": [
+        "https://www.indonesia.travel/id-id/destination/java/jakarta/museum-bahari/",
+        "https://ppid.jakarta.go.id/download/nIgB6CINcD1584346334"
+      ],
+      "sumber_gagal": [
+        "https://museumbahari.org (Firecrawl: SSL error lalu 503; WebFetch: sertifikat TLS tidak cocok)"
+      ],
+      "catatan": "(1) Koordinat dari OSM Nominatim (node 'Museum Bahari', Jalan Pasar Ikan, Penjaringan, Jakarta Utara), bukan dari sumber resmi; perkiraan titik, perlu dicek. (2) Jam dan harga hanya dari daftar PPID (dokumen lama, berkas bertanda 2020). Pemetaan baris ke museum ini diinferensi dari urutan teks dan tidak sepenuhnya pasti, jadi checked_at null. Jam 09.00-15.00 berlaku Selasa-Minggu menurut daftar itu. Senin tutup diinferensi dari kalimat yang menyebut Selasa hingga Minggu. (3) indonesia.travel tidak memuat jam atau harga. (4) Situs resmi museumbahari.org tidak bisa dibuka dari alat ini. (5) Brief menyebut Gubernur Ali Sadikin, Menara Syahbandar, dan tahun 1977; indonesia.travel mengonfirmasi peresmian 7 Juli 1977, tetapi nama gubernur dan menara tidak diverifikasi. (6) Tidak ada tanggal Diperiksa yang sah. Jam dan harga perlu dicek ulang ke pengelola sebelum dipublikasikan.",
+      "status": "pending",
+      "bentuk": "tempat",
+      "kategori_enum": "museum"
+    },
+    {
+      "nama": "Pelabuhan Sunda Kelapa",
+      "slug": "pelabuhan-sunda-kelapa",
+      "kategori_usulan": "kawasan",
+      "jenis": "permanen",
+      "induk_lokasi": null,
+      "provinsi": "DKI Jakarta",
+      "kabupaten": "Jakarta Utara",
+      "alamat": "Kawasan Pelabuhan Sunda Kelapa, Pademangan, Jakarta Utara (alamat umum; belum ada alamat resmi dari sumber yang dibuka)",
+      "lat": -6.1215868,
+      "lng": 106.8102943,
+      "deskripsi": "Pelabuhan bersejarah di Jakarta Utara ini masih melayani kapal kayu pinisi dan kegiatan bongkar muat tradisional. Pengunjung bisa menyusuri dermaga dan merasakan suasana pelabuhan tempo dulu yang terhubung dengan kawasan Kota Tua.",
+      "jam_buka": [],
+      "hari_tutup_khusus": [],
+      "tiket": [],
+      "jadwal_pertunjukan": [],
+      "situs_resmi": null,
+      "url_beli_tiket": null,
+      "sumber_dibuka": [
+        "https://www.rumah123.com/explore/kota-jakarta-utara/pelabuhan-sunda-kelapa/"
+      ],
+      "sumber_gagal": [],
+      "catatan": "(1) Koordinat dari OSM Nominatim (landuse 'Pelabuhan Sunda Kelapa', Ancol/Pademangan, Jakarta Utara): titik tengah area, perkiraan; tidak dari sumber resmi. (2) Jam kunjung dan tiket masuk tidak ditemukan di sumber resmi. rumah123 (dibuka) tidak mencantumkan jam atau nominal tiket; pencarian menyebut tiket masuk ada tetapi tanpa nominal, dan FIMELA (belum dibuka) menyebut tidak ada biaya masuk kecuali membawa kendaraan bermotor. Keduanya tidak diverifikasi, jadi jam_buka dan tiket dikosongkan. (3) rumah123 menyebut walking tour Kota Tua dan Sunda Kelapa gratis jika dilakukan sendiri, dan sekitar Rp50.000-150.000 dengan pemandu. Ini belum diverifikasi ke operator tur dan tidak ditulis sebagai tiket. (4) Pengelola pelabuhan: Pelindo Regional 2 Sunda Kelapa (menurut pencarian; belum dibuka). Situs resmi tidak ditemukan. (5) Akses umum menurut rumah123: TransJakarta Koridor 1 (Blok M-Kota), turun di Halte Kota, lalu jalan kaki atau ojek. Tidak diverifikasi ulang. (6) Museum Bahari berada di seberang pelabuhan (lihat file museum-bahari.json). (7) Tidak ada tanggal Diperiksa yang sah.",
+      "status": "pending",
+      "bentuk": "tempat",
+      "kategori_enum": "lainnya"
+    },
+    {
+      "nama": "Rumah Si Pitung (Marunda)",
+      "slug": "rumah-si-pitung",
+      "kategori_usulan": "museum",
+      "jenis": "permanen",
+      "induk_lokasi": null,
+      "provinsi": "DKI Jakarta",
+      "kabupaten": "Jakarta Utara",
+      "alamat": "Jl. Kampung Marunda Pulo, RT.2/RW.7, Marunda, Kec. Cilincing, Jakarta Utara",
+      "lat": -6.0969265,
+      "lng": 106.9588827,
+      "deskripsi": "Rumah panggung di Marunda Pulo, Cilincing, yang dikaitkan dengan tokoh Betawi Si Pitung. Bangunan ini kini dijadikan museum dan cagar budaya, dan menjadi salah satu sisa rumah panggung khas pesisir Betawi.",
+      "jam_buka": [
+        {
+          "hari": "Senin",
+          "tutup": false,
+          "buka": "08:00",
+          "tutup_jam": "17:00",
+          "catatan": "Sumber hanya menulis jam buka harian; hari libur tidak disebutkan",
+          "source_url": "https://www.orami.co.id/magazine/rumah-si-pitung",
+          "checked_at": null
+        },
+        {
+          "hari": "Selasa",
+          "tutup": false,
+          "buka": "08:00",
+          "tutup_jam": "17:00",
+          "catatan": null,
+          "source_url": "https://www.orami.co.id/magazine/rumah-si-pitung",
+          "checked_at": null
+        },
+        {
+          "hari": "Rabu",
+          "tutup": false,
+          "buka": "08:00",
+          "tutup_jam": "17:00",
+          "catatan": null,
+          "source_url": "https://www.orami.co.id/magazine/rumah-si-pitung",
+          "checked_at": null
+        },
+        {
+          "hari": "Kamis",
+          "tutup": false,
+          "buka": "08:00",
+          "tutup_jam": "17:00",
+          "catatan": null,
+          "source_url": "https://www.orami.co.id/magazine/rumah-si-pitung",
+          "checked_at": null
+        },
+        {
+          "hari": "Jumat",
+          "tutup": false,
+          "buka": "08:00",
+          "tutup_jam": "17:00",
+          "catatan": null,
+          "source_url": "https://www.orami.co.id/magazine/rumah-si-pitung",
+          "checked_at": null
+        },
+        {
+          "hari": "Sabtu",
+          "tutup": false,
+          "buka": "08:00",
+          "tutup_jam": "17:00",
+          "catatan": null,
+          "source_url": "https://www.orami.co.id/magazine/rumah-si-pitung",
+          "checked_at": null
+        },
+        {
+          "hari": "Minggu",
+          "tutup": false,
+          "buka": "08:00",
+          "tutup_jam": "17:00",
+          "catatan": null,
+          "source_url": "https://www.orami.co.id/magazine/rumah-si-pitung",
+          "checked_at": null
+        }
+      ],
+      "hari_tutup_khusus": [],
+      "tiket": [
+        {
+          "label": "Dewasa",
+          "harga_idr": 5000,
+          "catatan": null,
+          "source_url": "https://www.orami.co.id/magazine/rumah-si-pitung",
+          "checked_at": null
+        },
+        {
+          "label": "Pelajar",
+          "harga_idr": 1500,
+          "catatan": null,
+          "source_url": "https://www.orami.co.id/magazine/rumah-si-pitung",
+          "checked_at": null
+        }
+      ],
+      "jadwal_pertunjukan": [],
+      "situs_resmi": null,
+      "url_beli_tiket": null,
+      "sumber_dibuka": [
+        "https://www.orami.co.id/magazine/rumah-si-pitung",
+        "https://nominatim.openstreetmap.org/search?format=json&limit=2&q=Rumah+Si+Pitung+Marunda+Cilincing+Jakarta"
+      ],
+      "sumber_gagal": [],
+      "catatan": "Jam dan harga hanya dari artikel Orami tertanggal 17 April 2024, lebih dari 2 tahun sebelum 2026-11-26, sehingga checked_at null untuk semua fakta jam dan tiket; nilai tetap diisi untuk ditinjau manusia. Tidak ditemukan situs resmi pengelola. Pencarian web kedua untuk memverifikasi jam dan tiket gagal karena batas pencarian sesi habis, jadi belum ada sumber yang lebih baru atau resmi. Status cagar budaya: artikel Orami menyebut Perda DKI Jakarta No. 9 Tahun 1999; belum diverifikasi ke dokumen resmi. Koordinat dari OpenStreetMap Nominatim (objek bangunan), bukan dari sumber resmi. Kontak 0882-1424-2666 dari artikel tidak diisi karena belum terverifikasi. Tidak ada pertunjukan.",
+      "status": "pending",
+      "bentuk": "tempat",
+      "kategori_enum": "museum"
+    },
+    {
+      "nama": "Masjid Luar Batang",
+      "slug": "masjid-luar-batang",
+      "kategori_usulan": "situs",
+      "jenis": "permanen",
+      "induk_lokasi": null,
+      "provinsi": "DKI Jakarta",
+      "kabupaten": "Jakarta Utara",
+      "alamat": "Penjaringan, Jakarta Utara (Jl. Gedong Panjang, RW 01, menurut OpenStreetMap)",
+      "lat": -6.1262704,
+      "lng": 106.8044521,
+      "deskripsi": "Masjid tua di Penjaringan, Jakarta Utara, yang didirikan pada abad ke-18 oleh ulama keturunan Arab Habib Husein bin Abu Bakar Alaydrus. Masjid ini menjadi jejak penyebaran Islam di pesisir Batavia dan tetap ramai dikunjungi peziarah dan wisatawan.",
+      "jam_buka": [],
+      "hari_tutup_khusus": [],
+      "tiket": [],
+      "jadwal_pertunjukan": [],
+      "situs_resmi": null,
+      "url_beli_tiket": null,
+      "sumber_dibuka": [
+        "https://www.cnnindonesia.com/gaya-hidup/20260312091615-269-1337100/masjid-luar-batang-di-jakarta-kisah-tauladan-hingga-aura-yang-magis",
+        "https://nominatim.openstreetmap.org/search?format=json&limit=2&q=Masjid+Luar+Batang+Penjaringan+Jakarta"
+      ],
+      "sumber_gagal": [],
+      "catatan": "Artikel CNN Indonesia tertanggal 14 Maret 2026 dibaca (sebagian, bagian awal). Dari artikel: masjid dibangun 1739 oleh Habib Husein bin Abu Bakar Alaydrus, awalnya bernama Masjid An Nur, berusia lebih dari 287 tahun; nama Luar Batang memiliki dua versi cerita. Jam buka dan tiket tidak ditemukan di bagian yang dibaca; jam_buka dan tiket dibiarkan kosong, dan tidak ada sumber resmi pengelola yang dibaca karena batas pencarian web sesi sudah habis. Aturan kunjungan (pakaian, jam salat) belum diverifikasi. Klaim status benda cagar budaya DKI dari tugas belum terverifikasi. Koordinat dari OpenStreetMap Nominatim: objek yang dikembalikan adalah node halte bus bernama Masjid Luar Batang, bukan titik masjid itu sendiri; perkiraan, perlu dicek ulang. Tidak ada pertunjukan.",
+      "status": "pending",
+      "bentuk": "tempat",
+      "kategori_enum": "lainnya"
+    },
+    {
+      "nama": "Museum Sejarah Jakarta (Museum Fatahillah)",
+      "slug": "museum-sejarah-jakarta",
+      "kategori_usulan": "museum",
+      "jenis": "permanen",
+      "induk_lokasi": null,
+      "provinsi": "DKI Jakarta",
+      "kabupaten": "Jakarta Barat",
+      "alamat": "Jl. Taman Fatahillah No. 1, Pinangsia, Taman Sari, Jakarta Barat",
+      "lat": -6.1351548,
+      "lng": 106.813289,
+      "deskripsi": "Museum sejarah Jakarta yang menempati bekas Balai Kota Batavia di kawasan Kota Tua. Koleksinya mencakup peninggalan dari masa prasejarah hingga setelah kemerdekaan, termasuk sel bawah tanah tempat tokoh seperti Pangeran Diponegoro pernah ditahan.",
+      "jam_buka": [
+        {
+          "hari": "Senin",
+          "tutup": true,
+          "buka": null,
+          "tutup_jam": null,
+          "catatan": "Tutup setiap Senin",
+          "source_url": "https://www.jawapos.com/travelling/2510150215/harga-tiket-masuk-museum-fatahillah-spot-wisata-edukasi-favorit-di-kota-tua-jakarta",
+          "checked_at": "2026-11-26"
+        },
+        {
+          "hari": "Selasa",
+          "tutup": false,
+          "buka": "09:00",
+          "tutup_jam": "15:00",
+          "catatan": null,
+          "source_url": "https://www.jawapos.com/travelling/2510150215/harga-tiket-masuk-museum-fatahillah-spot-wisata-edukasi-favorit-di-kota-tua-jakarta",
+          "checked_at": "2026-11-26"
+        },
+        {
+          "hari": "Rabu",
+          "tutup": false,
+          "buka": "09:00",
+          "tutup_jam": "15:00",
+          "catatan": null,
+          "source_url": "https://www.jawapos.com/travelling/2510150215/harga-tiket-masuk-museum-fatahillah-spot-wisata-edukasi-favorit-di-kota-tua-jakarta",
+          "checked_at": "2026-11-26"
+        },
+        {
+          "hari": "Kamis",
+          "tutup": false,
+          "buka": "09:00",
+          "tutup_jam": "15:00",
+          "catatan": null,
+          "source_url": "https://www.jawapos.com/travelling/2510150215/harga-tiket-masuk-museum-fatahillah-spot-wisata-edukasi-favorit-di-kota-tua-jakarta",
+          "checked_at": "2026-11-26"
+        },
+        {
+          "hari": "Jumat",
+          "tutup": false,
+          "buka": "09:00",
+          "tutup_jam": "15:00",
+          "catatan": null,
+          "source_url": "https://www.jawapos.com/travelling/2510150215/harga-tiket-masuk-museum-fatahillah-spot-wisata-edukasi-favorit-di-kota-tua-jakarta",
+          "checked_at": "2026-11-26"
+        },
+        {
+          "hari": "Sabtu",
+          "tutup": false,
+          "buka": "09:00",
+          "tutup_jam": "15:00",
+          "catatan": null,
+          "source_url": "https://www.jawapos.com/travelling/2510150215/harga-tiket-masuk-museum-fatahillah-spot-wisata-edukasi-favorit-di-kota-tua-jakarta",
+          "checked_at": "2026-11-26"
+        },
+        {
+          "hari": "Minggu",
+          "tutup": false,
+          "buka": "09:00",
+          "tutup_jam": "15:00",
+          "catatan": null,
+          "source_url": "https://www.jawapos.com/travelling/2510150215/harga-tiket-masuk-museum-fatahillah-spot-wisata-edukasi-favorit-di-kota-tua-jakarta",
+          "checked_at": "2026-11-26"
+        }
+      ],
+      "hari_tutup_khusus": [
+        {
+          "keterangan": "Tutup pada hari libur nasional",
+          "source_url": "https://www.jawapos.com/travelling/2510150215/harga-tiket-masuk-museum-fatahillah-spot-wisata-edukasi-favorit-di-kota-tua-jakarta",
+          "checked_at": "2026-11-26"
+        }
+      ],
+      "tiket": [
+        {
+          "label": "Dewasa",
+          "harga_idr": 5000,
+          "catatan": "Tarif umum perorangan",
+          "source_url": "https://www.jawapos.com/travelling/2510150215/harga-tiket-masuk-museum-fatahillah-spot-wisata-edukasi-favorit-di-kota-tua-jakarta",
+          "checked_at": "2026-11-26"
+        },
+        {
+          "label": "Mahasiswa",
+          "harga_idr": 3000,
+          "catatan": "Perorangan; bawa kartu mahasiswa",
+          "source_url": "https://www.jawapos.com/travelling/2510150215/harga-tiket-masuk-museum-fatahillah-spot-wisata-edukasi-favorit-di-kota-tua-jakarta",
+          "checked_at": "2026-11-26"
+        },
+        {
+          "label": "Pelajar/Anak-anak",
+          "harga_idr": 2000,
+          "catatan": "Perorangan; bawa kartu pelajar",
+          "source_url": "https://www.jawapos.com/travelling/2510150215/harga-tiket-masuk-museum-fatahillah-spot-wisata-edukasi-favorit-di-kota-tua-jakarta",
+          "checked_at": "2026-11-26"
+        },
+        {
+          "label": "Rombongan minimal 30 orang: Dewasa",
+          "harga_idr": 3750,
+          "catatan": "Harga rombongan per orang",
+          "source_url": "https://www.jawapos.com/travelling/2510150215/harga-tiket-masuk-museum-fatahillah-spot-wisata-edukasi-favorit-di-kota-tua-jakarta",
+          "checked_at": "2026-11-26"
+        },
+        {
+          "label": "Rombongan minimal 30 orang: Mahasiswa",
+          "harga_idr": 2250,
+          "catatan": "Harga rombongan per orang",
+          "source_url": "https://www.jawapos.com/travelling/2510150215/harga-tiket-masuk-museum-fatahillah-spot-wisata-edukasi-favorit-di-kota-tua-jakarta",
+          "checked_at": "2026-11-26"
+        },
+        {
+          "label": "Rombongan minimal 30 orang: Pelajar",
+          "harga_idr": 1500,
+          "catatan": "Harga rombongan per orang",
+          "source_url": "https://www.jawapos.com/travelling/2510150215/harga-tiket-masuk-museum-fatahillah-spot-wisata-edukasi-favorit-di-kota-tua-jakarta",
+          "checked_at": "2026-11-26"
+        }
+      ],
+      "jadwal_pertunjukan": [],
+      "situs_resmi": null,
+      "url_beli_tiket": null,
+      "sumber_dibuka": [
+        "https://www.jawapos.com/travelling/2510150215/harga-tiket-masuk-museum-fatahillah-spot-wisata-edukasi-favorit-di-kota-tua-jakarta",
+        "https://news.detik.com/berita/d-7854328/daftar-museum-yang-ada-kawasan-wisata-kota-tua-jakarta",
+        "https://nominatim.openstreetmap.org/search?format=json&limit=2&q=Museum+Fatahillah+Taman+Fatahillah+Jakarta"
+      ],
+      "sumber_gagal": [
+        "https://www.indonesia.travel/kr/ko/destinations/java/jakarta/fatahilah-museum"
+      ],
+      "catatan": "Halaman indonesia.travel dari tugas mengembalikan 404 (Resource Not Found) lewat Firecrawl, sehingga tidak dipakai. Jam dan tiket dari JawaPos (15 Oktober 2025), dikonfirmasi detik.com (tidak bertanggal jelas; angka jam dan tiket sama). Sumber lain dari hasil pencarian (IDN Times, Orami, GNFI) tidak dibaca dan tidak dipakai. Ada catatan dari hasil pencarian bahwa pengunjung tanpa kartu JakLinko membeli kartu seharga Rp35.000 di pintu; belum diverifikasi dari halaman yang dibaca, jadi tidak dimasukkan. Tidak ada situs resmi pengelola yang ditemukan dan dibaca karena batas pencarian web sesi sudah habis. Koordinat dari OpenStreetMap Nominatim, cocok dengan alamat Taman Fatahillah No. 1 di Jakarta Barat. Tidak ada pertunjukan.",
+      "status": "pending",
+      "bentuk": "tempat",
+      "kategori_enum": "museum"
+    },
+    {
+      "nama": "Museum Bank Indonesia",
+      "slug": "museum-bank-indonesia",
+      "kategori_usulan": "museum",
+      "jenis": "permanen",
+      "induk_lokasi": null,
+      "provinsi": "DKI Jakarta",
+      "kabupaten": "Jakarta Barat",
+      "alamat": "Jalan Pintu Besar Utara, Pinangsia, Taman Sari, Jakarta Barat (gedung BI Kota, Kawasan Kota Tua)",
+      "lat": -6.1371853,
+      "lng": 106.8129483,
+      "deskripsi": "Museum sejarah bank sentral yang menempati gedung BI Kota, bangunan cagar budaya di kawasan Kota Tua. Pengunjung bisa melihat koleksi numismatik, dokumen bersejarah, dan penjelasan kebijakan Bank Indonesia dari masa ke masa. Museum dibuka untuk umum sejak 15 Desember 2006.",
+      "jam_buka": [],
+      "hari_tutup_khusus": [],
+      "tiket": [],
+      "jadwal_pertunjukan": [],
+      "situs_resmi": "https://www.bi.go.id/id/layanan/museum-bi/default.aspx",
+      "url_beli_tiket": null,
+      "sumber_dibuka": [
+        "https://www.bi.go.id/id/layanan/museum-bi/default.aspx"
+      ],
+      "sumber_gagal": [],
+      "catatan": "Jam buka, hari tutup, dan tiket TIDAK tercantum di halaman resmi Museum BI yang dibaca (dibaca via Firecrawl, HTTP 200, halaman tidak bertanggal; tidak ada fakta jam/harga yang bisa diberi checked_at). Klaim brief 'gratis' tidak didukung halaman ini, sehingga tiket dikosongkan. Pertentangan alamat: halaman resmi mencantumkan kontak di Jalan M.H. Thamrin No. 2 (alamat kantor pusat BI, bukan alamat museum); alamat museum dari OSM Nominatim adalah Jalan Pintu Besar Utara; nomor 'No. 3' dari brief tidak terverifikasi. Koordinat dari OpenStreetMap Nominatim (relasi osm 7226303), nama dan wilayah sesuai, dalam DKI Jakarta. Kontak resmi: telepon 131, bicara@bi.go.id; kunjungan rombongan lewat surat permohonan ke Museum BI. Menurut halaman resmi, museum dibuka untuk umum 15 Des 2006 dan diresmikan 19 Juli 2009.",
+      "status": "pending",
+      "bentuk": "tempat",
+      "kategori_enum": "museum"
+    },
+    {
+      "nama": "Museum Seni Rupa dan Keramik",
+      "slug": "museum-seni-rupa-dan-keramik",
+      "kategori_usulan": "museum",
+      "jenis": "permanen",
+      "induk_lokasi": null,
+      "provinsi": "DKI Jakarta",
+      "kabupaten": "Jakarta Barat",
+      "alamat": "Kawasan Kota Tua, Jakarta Barat (alamat jalan belum terverifikasi; brief menyebut Jalan Pos Kota No. 2)",
+      "lat": -6.1342607,
+      "lng": 106.8144771,
+      "deskripsi": "Museum seni rupa dan keramik di kawasan Kota Tua, Jakarta Barat. Koleksinya berupa karya seni rupa dan benda keramik yang dipamerkan untuk umum. Jam kunjungan dan tiket perlu dicek langsung sebelum berkunjung.",
+      "jam_buka": [],
+      "hari_tutup_khusus": [],
+      "tiket": [],
+      "jadwal_pertunjukan": [],
+      "situs_resmi": null,
+      "url_beli_tiket": null,
+      "sumber_dibuka": [],
+      "sumber_gagal": [
+        "https://dinaskebudayaan.jakarta.go.id/content/uploads/PDF_Press_Release/4559_Semarkan_Libur_Natal_dan_Tahun_Baru_Tiga_Museum_di_Jakarta_Buka_Kembali.pdf (Firecrawl: HTTP 403, diblokir; WebFetch: PDF terkompresi, teks tidak terbaca, hanya metadata 2 Jan 2024; nama museum dan jam tidak dapat dikonfirmasi)"
+      ],
+      "catatan": "Jam buka 'Selasa-Minggu' dari brief TIDAK terverifikasi: satu-satunya sumber yang disebut (rilis Dinas Kebudayaan DKI) tidak bisa dibaca dan metadatanya menunjuk 2 Jan 2024, jadi checked_at dikosongkan dan jam_buka dibiarkan []. Tiket tidak ditemukan. Situs resmi museum belum ditemukan. Koordinat dari OSM Nominatim (relasi osm 5476480, nama 'Museum Seni Rupa dan Keramik', wilayah Pinangsia, Taman Sari, Jakarta Barat); titik ini tercatat di Jalan Kemukus, sedangkan brief menyebut Jalan Pos Kota, sehingga pertentangan alamat belum selesai. Pencarian web tidak bisa dijalankan karena batas WebSearch sesi habis.",
+      "status": "pending",
+      "bentuk": "tempat",
+      "kategori_enum": "museum"
+    },
+    {
+      "nama": "Vihara Dharma Bhakti (Jin De Yuan / Kim Tek Ie)",
+      "slug": "vihara-dharma-bhakti",
+      "kategori_usulan": "situs",
+      "jenis": "permanen",
+      "induk_lokasi": null,
+      "provinsi": "DKI Jakarta",
+      "kabupaten": "Jakarta Barat",
+      "alamat": "Kawasan Pecinan Glodok, Jakarta Barat (alamat jalan belum terverifikasi; brief menyebut Jalan Kemenangan III No. 13)",
+      "lat": null,
+      "lng": null,
+      "deskripsi": "Vihara di kawasan Pecinan Glodok, Jakarta Barat, yang juga dikenal dengan nama Jin De Yuan atau Kim Tek Ie. Vihara ini termasuk tempat ibadah Tionghoa yang sering disebut sebagai salah satu yang tertua di Jakarta. Kunjungan sebaiknya disesuaikan dengan jam ibadah yang berlaku.",
+      "jam_buka": [],
+      "hari_tutup_khusus": [],
+      "tiket": [],
+      "jadwal_pertunjukan": [],
+      "situs_resmi": null,
+      "url_beli_tiket": null,
+      "sumber_dibuka": [],
+      "sumber_gagal": [
+        "https://www.indonesia.travel/de/de/destinations/java/dki-jakarta/vihara-dharma-bhakti-the-jin-de-yuan (WebFetch: HTTP 404; Firecrawl: HTTP 404 'Ressource nicht gefunden')"
+      ],
+      "catatan": "Satu-satunya sumber dari brief (indonesia.travel) tidak bisa dibuka: HTTP 404 pada kedua cara baca, sehingga seluruh klaim dari sumber itu (tahun pembangunan 1755, kerusakan kebakaran 2015, alamat) tidak terverifikasi dan tidak dipakai sebagai fakta. Jam, tiket, dan koordinat kosong. Nominatim untuk 'Vihara Dharma Bhakti Glodok Jakarta' tidak mengembalikan hasil, jadi koordinat tidak diisi. Pencarian web untuk sumber alternatif tidak bisa dijalankan karena batas WebSearch sesi habis. Kategori 'situs' dipakai karena 'klenteng' tidak ada di daftar kategori_usulan; keputusan kategori ada di tangan tim. Jenis asli dari brief: klenteng.",
+      "status": "pending",
+      "bentuk": "tempat",
+      "kategori_enum": "lainnya"
+    },
+    {
+      "nama": "Gereja Sion",
+      "slug": "gereja-sion",
+      "provinsi": "DKI Jakarta",
+      "kategori_usulan": "situs",
+      "jenis": "permanen",
+      "induk_lokasi": null,
+      "kabupaten": "Jakarta Barat",
+      "alamat": "Jalan Pangeran Jayakarta, Pinangsia, Taman Sari, Jakarta",
+      "lat": -6.138126,
+      "lng": 106.81779,
+      "deskripsi": "Gereja Protestan ini berdiri sejak 1695 dan disebut sebagai gereja tertua di Jakarta yang masih berfungsi sesuai fungsi awalnya. Bangunannya bergaya kolonial Belanda awal dan sebagian artefak kolonialnya, seperti mebel, papan peringatan, dan nisan, masih tersimpan di dalamnya.",
+      "jam_buka": [
+        {
+          "hari": "Senin-Minggu (tidak dirinci sumber)",
+          "tutup": false,
+          "buka": "10:00",
+          "tutup_jam": "17:00",
+          "catatan": "Dari Holidify, sumber tidak bertanggal dan tidak merinci hari. Nashaplaneta hanya menulis 'during daytime', jadi jam ini belum pasti. Konfirmasi ke pengelola (GPIB Jemaat Sion DKI Jakarta) sebelum berkunjung.",
+          "source_url": "https://www.holidify.com/places/jakarta/gereja-sion-sightseeing-123557.html",
+          "checked_at": null
+        }
+      ],
+      "hari_tutup_khusus": [],
+      "tiket": [
+        {
+          "label": "Masuk",
+          "harga_idr": 0,
+          "catatan": "Gratis; donasi diterima. Dari Nashaplaneta, sumber tidak bertanggal.",
+          "source_url": "https://nashaplaneta.net/asia/indonesia/jakarta-dostoprimechatelnosti-cerkov-gereja-sion_en",
+          "checked_at": null
+        }
+      ],
+      "jadwal_pertunjukan": [],
+      "situs_resmi": null,
+      "url_beli_tiket": null,
+      "sumber_dibuka": [
+        "https://en.wikipedia.org/wiki/Sion_Church",
+        "https://www.holidify.com/places/jakarta/gereja-sion-sightseeing-123557.html",
+        "https://nashaplaneta.net/asia/indonesia/jakarta-dostoprimechatelnosti-cerkov-gereja-sion_en",
+        "https://nominatim.openstreetmap.org (cek koordinat, bukan sumber fakta)"
+      ],
+      "sumber_gagal": [],
+      "catatan": "Koordinat dari Wikipedia (6.1381264 S, 106.8177903 E); Nominatim memberi hasil serupa (-6.13813, 106.81783). Alamat: brief menyebut Jl. Pangeran Jayakarta No. 1, tetapi nomor itu tidak saya temukan di sumber yang dibaca, jadi nomornya dikosongkan. Nashaplaneta memberi alamat Jl. Jembatan Batu No. 17. Kabupaten: Nominatim dan brief menyebut Jakarta Barat, sedangkan Wikipedia menyebut Central Jakarta; saya pakai Jakarta Barat. Jam dan tiket dari sumber yang tidak bertanggal, sehingga checked_at null. Pencarian web terhenti karena kuota, jadi situs resmi GPIB belum dicek. Sumber sumber di atas tidak merinci hari buka, misa Minggu kedua tiap bulan (Holidify) belum dimasukkan sebagai jadwal.",
+      "status": "pending",
+      "bentuk": "tempat",
+      "kategori_enum": "lainnya"
+    },
+    {
+      "nama": "Setu Babakan (Perkampungan Budaya Betawi)",
+      "slug": "setu-babakan",
+      "provinsi": "DKI Jakarta",
+      "kategori_usulan": "kawasan",
+      "jenis": "permanen",
+      "induk_lokasi": null,
+      "kabupaten": "Jakarta Selatan",
+      "alamat": "Srengseng Sawah, Jagakarsa, Jakarta Selatan",
+      "lat": -6.341667,
+      "lng": 106.823889,
+      "deskripsi": "Kawasan cagar budaya Betawi di Jagakarsa ini memiliki kampung adat, kebun warga, dan danau alami yang bisa dinikmati pengunjung. Di area ini juga ada museum Betawi, amfiteater, dan pertunjukan seni Betawi yang sering digelar di panggung terbuka.",
+      "jam_buka": [],
+      "hari_tutup_khusus": [],
+      "tiket": [],
+      "jadwal_pertunjukan": [],
+      "situs_resmi": null,
+      "url_beli_tiket": null,
+      "sumber_dibuka": [
+        "https://en.wikipedia.org/wiki/Setu_Babakan_Betawi_Cultural_Village"
+      ],
+      "sumber_gagal": [],
+      "catatan": "Jam buka: Wikipedia hanya menulis 'open all year' tanpa jam, jadi jam_buka dikosongkan. Tiket: tidak ditemukan di sumber yang dibaca, jadi tiket dikosongkan. Luas kawasan bertentangan di Wikipedia: 117 ha di infobox dan sekitar 289 ha di badan artikel. Koordinat dari Wikipedia (6.341667 S, 106.823889 E); Nominatim hanya memberi nama jalan (Jalan Setu Babakan Timur) pada -6.3456, 106.8192, jadi itu bukan titik tengah kawasan. Pencarian web terhenti karena kuota, sehingga situs resmi pengelola dan info jam atau tiket belum dicek. Wikipedia tidak bertanggal, jadi checked_at null.",
+      "status": "pending",
+      "bentuk": "tempat",
+      "kategori_enum": "lainnya"
+    },
+    {
+      "nama": "Museum Satria Mandala",
+      "slug": "museum-satria-mandala",
+      "provinsi": "DKI Jakarta",
+      "kategori_usulan": "museum",
+      "jenis": "permanen",
+      "induk_lokasi": null,
+      "kabupaten": "Jakarta Selatan",
+      "alamat": "Jalan Gatot Subroto No. 14, Kuningan Barat, Mampang Prapatan, Jakarta Selatan",
+      "lat": -6.2310834,
+      "lng": 106.8189045,
+      "deskripsi": "Museum sejarah militer ini menyimpan koleksi dan dokumen perjuangan TNI dari tahun 1945 hingga masa kini. Gedungnya dulunya kediaman Ratna Sari Dewi, istri Presiden Soekarno, dan sempat dipakai sebagai tempat persemayaman Soekarno sebelum dimakamkan di Blitar.",
+      "jam_buka": [
+        {
+          "hari": "Senin",
+          "tutup": true,
+          "buka": null,
+          "tutup_jam": null,
+          "catatan": "Museum tutup setiap Senin dan pada hari besar (sumber Orami).",
+          "source_url": "https://www.orami.co.id/magazine/museum-satria-mandala",
+          "checked_at": null
+        },
+        {
+          "hari": "Selasa..Minggu",
+          "tutup": false,
+          "buka": "08:00",
+          "tutup_jam": "21:00",
+          "catatan": "Dari Orami, artikel bertanggal 22 Juli 2024 (lebih dari 2 tahun lalu). Brief menyebut sumber lain berbeda soal jam; sumber kedua belum berhasil saya cek karena kuota pencarian habis.",
+          "source_url": "https://www.orami.co.id/magazine/museum-satria-mandala",
+          "checked_at": null
+        }
+      ],
+      "hari_tutup_khusus": [
+        {
+          "keterangan": "Tutup pada hari besar (sumber Orami, tanggal tidak dirinci).",
+          "source_url": "https://www.orami.co.id/magazine/museum-satria-mandala",
+          "checked_at": null
+        }
+      ],
+      "tiket": [
+        {
+          "label": "Dewasa/umum",
+          "harga_idr": 5000,
+          "catatan": "Dari Orami (artikel 22 Juli 2024), harga bisa sudah berubah.",
+          "source_url": "https://www.orami.co.id/magazine/museum-satria-mandala",
+          "checked_at": null
+        },
+        {
+          "label": "Pelajar/mahasiswa/anak-anak",
+          "harga_idr": 2500,
+          "catatan": "Dari Orami (artikel 22 Juli 2024), harga bisa sudah berubah.",
+          "source_url": "https://www.orami.co.id/magazine/museum-satria-mandala",
+          "checked_at": null
+        }
+      ],
+      "jadwal_pertunjukan": [],
+      "situs_resmi": null,
+      "url_beli_tiket": null,
+      "sumber_dibuka": [
+        "https://www.orami.co.id/magazine/museum-satria-mandala",
+        "https://nominatim.openstreetmap.org (cek koordinat, bukan sumber fakta)"
+      ],
+      "sumber_gagal": [],
+      "catatan": "Semua jam dan tiket berasal dari Orami (artikel bertanggal 22 Juli 2024), sehingga checked_at null. Sumber resmi (misalnya situs TNI atau Kemendikbud) belum dicek karena kuota pencarian web habis. Brief menyebut ada sumber lain yang berbeda soal jam dan tarif, tetapi sumber itu tidak saya baca, jadi pertentangannya belum bisa dikonfirmasi. Koordinat dari OSM (Nominatim) untuk poligon kompleks museum (Kuningan Barat, Mampang Prapatan), bukan titik pintu masuk, jadi perlu diverifikasi.",
+      "status": "pending",
+      "bentuk": "tempat",
+      "kategori_enum": "museum"
+    },
+    {
+      "nama": "Kawasan Taman Mini Indonesia Indah (anjungan provinsi)",
+      "slug": "kawasan-taman-mini-indonesia-indah",
+      "kategori_usulan": "kawasan",
+      "jenis": "permanen",
+      "induk_lokasi": null,
+      "kabupaten": "Jakarta Timur",
+      "provinsi": "DKI Jakarta",
+      "alamat": "Pinang Ranti, Makasar, Jakarta Timur, DKI Jakarta 13810 (alamat dari OpenStreetMap; alamat resmi belum dibaca dari situs pengelola)",
+      "lat": -6.3026341,
+      "lng": 106.8952962,
+      "deskripsi": "Taman Mini Indonesia Indah adalah kawasan budaya seluas sekitar 147 hektare di Jakarta Timur yang menampilkan anjungan setiap provinsi, rumah adat, dan berbagai museum. Pengelolanya kini PT Taman Wisata Candi Borobudur, Prambanan, dan Ratu Boko di bawah InJourney. Pengunjung bisa menjelajahi kawasan ini dengan kereta gantung atau jalan kaki.",
+      "jam_buka": [],
+      "hari_tutup_khusus": [],
+      "tiket": [],
+      "jadwal_pertunjukan": [],
+      "situs_resmi": "https://tamanmini.com/taman_jelajah_indonesia/",
+      "url_beli_tiket": "https://tiket.tamanmini.com/",
+      "sumber_dibuka": [
+        "https://en.wikipedia.org/wiki/Taman_Mini_Indonesia_Indah",
+        "https://tamanmini.com/taman_jelajah_indonesia/",
+        "https://tamanmini.com/taman_jelajah_indonesia/tentang-tmii/",
+        "https://www.openstreetmap.org (via Nominatim, koordinat dan alamat)"
+      ],
+      "sumber_gagal": [
+        "https://tamanmini.com/taman_jelajah_indonesia/harga-tiket/ (HTTP 404)",
+        "https://tiket.tamanmini.com/ (dibuka, tidak memuat jam atau harga yang terbaca)"
+      ],
+      "catatan": "JAM BUKA DAN HARGA TIDAK DIISI: tidak ada halaman yang berhasil dibaca memuat jam dan harga tiket. Halaman resmi tamanmini.com (tentang-tmii, dimodifikasi 29 Mei 2026) tidak memuat jam atau harga; halaman harga-tiket 404. Hasil pencarian (tidak dibuka penuh) menyebut jam 06.00-21.00 atau 06.00-20.00 WIB dan harga Rp25.000 hari kerja / Rp35.000 hari libur, tetapi sumbernya saling bertentangan dan belum diverifikasi, sehingga tidak dipakai. Promo 2026 yang ditemukan (potongan HUT ke-51 April 2026, Jagat Satwa Agustus 2026, Hari Anak Nasional 23 Juli 2026) sudah lewat dan bukan tarif reguler. Tiket kendaraan dibayar terpisah menurut pemberitaan, belum diverifikasi. Koordinat dari OSM Nominatim (way 28834489), display_name cocok: Taman Mini Indonesia Indah, Jakarta Timur. Wikipedia menyebut area 146,8 ha dan dibuka kembali 31 Des 2022 setelah ditutup 17 Mei 2022 untuk revitalisasi. Deskripsi ditulis ulang dari ringkasan Wikipedia dan halaman resmi, bukan disalin.",
+      "status": "pending",
+      "bentuk": "tempat",
+      "kategori_enum": "lainnya"
+    },
+    {
+      "nama": "Museum Purna Bhakti Pertiwi (TMII)",
+      "slug": "museum-purna-bhakti-pertiwi",
+      "kategori_usulan": "museum",
+      "jenis": "permanen",
+      "induk_lokasi": "Kawasan Taman Mini Indonesia Indah",
+      "kabupaten": "Jakarta Timur",
+      "provinsi": "DKI Jakarta",
+      "alamat": "Jalan Raya Taman Mini Pintu 1, Kel. Ceger, Kec. Cipayung, Jakarta Timur",
+      "lat": -6.3006158,
+      "lng": 106.8872775,
+      "deskripsi": "Museum Purna Bhakti Pertiwi berdiri di dekat gerbang utama Taman Mini Indonesia Indah dengan bangunan berbentuk kerucut menyerupai tumpeng. Museum ini menyimpan cendera mata, benda sejarah, dan ruang yang menampilkan perjalanan hidup Presiden Soeharto serta ajaran Asthabrata dalam adegan wayang. Museum dikelola oleh Yayasan Purna Bhakti Pertiwi, bukan lembaga pemerintah.",
+      "jam_buka": [
+        {
+          "hari": "Senin..Sabtu",
+          "tutup": false,
+          "buka": "09:00",
+          "tutup_jam": "16:00",
+          "catatan": "Dari artikel Orami 2022; belum diverifikasi ke situs pengelola. Konfirmasi lewat telepon 021-8401604 sesuai saran artikel.",
+          "source_url": "https://www.orami.co.id/magazine/museum-purna-bhakti-pertiwi",
+          "checked_at": null
+        },
+        {
+          "hari": "Minggu",
+          "tutup": false,
+          "buka": "09:00",
+          "tutup_jam": "18:00",
+          "catatan": "Dari artikel Orami 2022; belum diverifikasi ke situs pengelola.",
+          "source_url": "https://www.orami.co.id/magazine/museum-purna-bhakti-pertiwi",
+          "checked_at": null
+        }
+      ],
+      "hari_tutup_khusus": [],
+      "tiket": [
+        {
+          "label": "Dewasa",
+          "harga_idr": 2000,
+          "catatan": "Dari artikel Orami Juni 2022; tarif bisa sudah berubah.",
+          "source_url": "https://www.orami.co.id/magazine/museum-purna-bhakti-pertiwi",
+          "checked_at": null
+        },
+        {
+          "label": "Anak-anak",
+          "harga_idr": 1000,
+          "catatan": "Dari artikel Orami Juni 2022; tarif bisa sudah berubah.",
+          "source_url": "https://www.orami.co.id/magazine/museum-purna-bhakti-pertiwi",
+          "checked_at": null
+        }
+      ],
+      "jadwal_pertunjukan": [],
+      "situs_resmi": null,
+      "url_beli_tiket": null,
+      "sumber_dibuka": [
+        "https://www.orami.co.id/magazine/museum-purna-bhakti-pertiwi (artikel 14 Juni 2022, HTTP 200)",
+        "https://www.openstreetmap.org (via Nominatim, koordinat: Museum Purna Bhakti Pertiwi, Gerbang 1 TMII)"
+      ],
+      "sumber_gagal": [
+        "Situs resmi museum: tidak ditemukan lewat pencarian; tidak ada URL resmi yang dibaca"
+      ],
+      "catatan": "CHECKED_AT NULL: satu-satunya sumber yang dibaca adalah artikel Orami 14 Juni 2022, lebih dari 2 tahun lalu, sehingga jam dan tiket diisi tetapi tidak bertanggal periksa. Pencarian 2026 tidak menemukan jam atau tarif terbaru museum ini; pemberitaan kenaikan tarif 2026 yang muncul merujuk Museum Nasional, bukan museum ini. Ada pertentangan lokasi: artikel Orami menyebut kompleks berada di luar kawasan TMII (Jalan Taman Mini 1), sedangkan koordinat OSM menempatkannya di dekat Gerbang 1 TMII; kategori induk_lokasi diisi sebagai kawasan TMII dengan asumsi dekat gerbang, perlu dicek. Koordinat dari OSM Nominatim (way 432786733), display_name cocok dengan museum ini. Deskripsi ditulis ulang, bukan disalin. Telepon 021-8401604 berasal dari artikel 2022, belum diverifikasi.",
+      "status": "pending",
+      "bentuk": "tempat",
+      "kategori_enum": "museum"
+    }
+  ],
+  "event": [
+    {
+      "bentuk": "event",
+      "nama": "Pertunjukan Wayang Orang Bharata",
+      "slug": "pertunjukan-wayang-orang-bharata",
+      "jenis_event": "pertunjukan",
+      "provinsi": "DKI Jakarta",
+      "lokasi_induk": {
+        "nama": "Gedung Wayang Orang Bharata",
+        "alamat": "Jalan Senen Dalam, Senen, Jakarta Pusat",
+        "kota_kabupaten": "Jakarta Pusat",
+        "lat": -6.1723584,
+        "lng": 106.8410806
+      },
+      "deskripsi": "Wayang Orang Bharata di Senen, Jakarta Pusat, adalah kelompok wayang orang yang sudah berjalan sekitar 54 tahun dengan gedung pertunjukan berkapasitas sekitar 220 penonton. Pentas yang difasilitasi Pemerintah Provinsi DKI Jakarta tidak dipungut tiket, sementara pengelola membuka donasi untuk membantu para senimannya. Tahun 2026 tercatat 10 kali pentas yang difasilitasi, turun dari 12 kali pada tahun sebelumnya.",
+      "pola": "annual",
+      "hari_iso": null,
+      "tanggal": null,
+      "jam_mulai": null,
+      "jam_selesai": null,
+      "harga_dari_idr": 0,
+      "url_beli_tiket": null,
+      "situs_resmi": null,
+      "sumber": {
+        "source_url": "https://nu.or.id/nasional/wayang-orang-bharata-bertahan-merawat-tradisi-dan-melintasi-zaman-Ztvp8",
+        "checked_at": "2026-11-26"
+      },
+      "sumber_dibuka": [
+        "https://nu.or.id/nasional/wayang-orang-bharata-bertahan-merawat-tradisi-dan-melintasi-zaman-Ztvp8 (NU Online, 26 Januari 2026, HTTP 200)",
+        "https://www.openstreetmap.org (via Nominatim, koordinat gedung: Wayang Orang Bharata, Jalan Senen Dalam)"
+      ],
+      "sumber_gagal": [
+        "Situs resmi pertunjukan: tidak ditemukan dan tidak dibaca"
+      ],
+      "catatan": "POLA ANNUAL, TANGGAL BELUM ADA: artikel NU (26 Jan 2026) menyebut 10 pementasan yang difasilitasi tahun ini dan pentas Wisanggeni Lahir pada 24 Jan 2026, tetapi tidak merinci tanggal pentas berikutnya. Klaim discovery 'contoh Juni 2026' dan 'Dinas Kebudayaan merencanakan pentas gratis sepanjang tahun' tidak ada di artikel yang dibaca, sehingga tidak dipakai. Untuk bulan pentas 2026 selain Januari, perlu cek ke pengelola gedung atau Dinas Kebudayaan DKI. Harga 0 berarti pentas yang difasilitasi pemerintah tidak dipungut tiket (sesuai NU); pentas di luar fasilitasi belum diverifikasi. Belum ada jam pertunjukan tertulis. Koordinat dari OSM Nominatim (node 6255594385), display_name cocok dengan Senen, Jakarta Pusat. Deskripsi ditulis ulang dari artikel NU.",
+      "status": "pending",
+      "kategori_enum": "tari"
+    },
+    {
+      "bentuk": "event",
+      "nama": "Pementasan Drama Sunda Miss Tjitjih 1928",
+      "slug": "pementasan-drama-sunda-miss-tjitjih-1928",
+      "provinsi": "DKI Jakarta",
+      "jenis_event": "pertunjukan",
+      "lokasi_induk": {
+        "nama": "Pusat Kebudayaan Miss Tjitjih",
+        "alamat": "Cempaka Baru, Kemayoran, Jakarta Pusat",
+        "kota_kabupaten": "Jakarta Pusat",
+        "lat": null,
+        "lng": null
+      },
+      "deskripsi": "Pemerintah Provinsi DKI Jakarta menghidupkan kembali drama teater Sunda Miss Tjitjih 1928 dengan sepuluh pementasan sepanjang 2026. Pertunjukan digelar di pusat kebudayaan Miss Tjitjih di Kemayoran dan dibuka untuk umum tanpa biaya. Program ini bertujuan menjaga seni tradisi sekaligus memberi hiburan budaya bagi warga kota.",
+      "pola": null,
+      "hari_iso": null,
+      "tanggal": null,
+      "jam_mulai": null,
+      "jam_selesai": null,
+      "harga_dari_idr": 0,
+      "url_beli_tiket": null,
+      "situs_resmi": null,
+      "sumber": {
+        "source_url": "https://rri.co.id/en/art-and-culture/2350517/jakarta-revives-miss-tjitjih-theater-with-10-free-shows",
+        "checked_at": "2026-11-26"
+      },
+      "sumber_dibuka": [
+        "https://rri.co.id/en/art-and-culture/2350517/jakarta-revives-miss-tjitjih-theater-with-10-free-shows"
+      ],
+      "sumber_gagal": [],
+      "catatan": "Sumber RRI (21 Apr 2026) menyebut 10 pementasan gratis sepanjang 2026, diselenggarakan Unit Pengelola Gedung Pertunjukan Seni Budaya (UP GPSB) Dinas Kebudayaan DKI bersama Yayasan/Paguyuban Miss Tjitjih 1928. Tanggal pasti dan bulan pementasan tidak disebutkan di artikel, jadi pola, tanggal, dan jam dikosongkan. Pementasan contoh 18 Apr 2026 (Kembang Turangga Jati) hanya disebut sebagai contoh; judul 23 Mei 2026 dari petunjuk awal tidak tercantum di sumber yang dibaca dan tidak dipakai. Artikel menyebut 553 orang mendaftar untuk pertunjukan 18 Apr di kapasitas 252 kursi, tetapi mekanisme pendaftaran tidak dijelaskan. Koordinat tidak ditemukan di OSM Nominatim untuk gedung ini; centroid kelurahan Cempaka Baru (-6.1677049, 106.8619785) hanya perkiraan area sehingga lat/lng dikosongkan. Jadwal berikutnya belum diverifikasi dan sebaiknya dicek ulang ke pengelola.",
+      "status": "pending",
+      "kategori_enum": "tari"
+    },
+    {
+      "bentuk": "event",
+      "nama": "Pertunjukan Seni Rutin Gedung Kesenian Jakarta",
+      "slug": "pertunjukan-seni-rutin-gedung-kesenian-jakarta",
+      "provinsi": "DKI Jakarta",
+      "jenis_event": "pertunjukan",
+      "lokasi_induk": {
+        "nama": "Gedung Kesenian Jakarta",
+        "alamat": "Jalan Kesenian No. 1, Pasar Baru, Sawah Besar, Jakarta Pusat",
+        "kota_kabupaten": "Jakarta Pusat",
+        "lat": -6.166539,
+        "lng": 106.8344227
+      },
+      "deskripsi": "Gedung Kesenian Jakarta menjadi tempat pentas seni tradisi maupun modern yang dikelola Pemerintah Provinsi DKI Jakarta. Daftar acaranya berubah setiap bulan dan diumumkan lewat kalender kegiatan. Pengunjung dianjurkan memeriksa jadwal terbaru sebelum datang.",
+      "pola": null,
+      "hari_iso": null,
+      "tanggal": null,
+      "jam_mulai": null,
+      "jam_selesai": null,
+      "harga_dari_idr": null,
+      "url_beli_tiket": null,
+      "situs_resmi": null,
+      "sumber": {
+        "source_url": "https://www.idntimes.com/travel/destination/kalender-event-jakarta-agustus-2026-dari-festival-hingga-pameran-00-p3rq2-3yd6kx",
+        "checked_at": "2026-11-26"
+      },
+      "sumber_dibuka": [
+        "https://www.idntimes.com/travel/destination/kalender-event-jakarta-agustus-2026-dari-festival-hingga-pameran-00-p3rq2-3yd6kx"
+      ],
+      "sumber_gagal": [],
+      "catatan": "Artikel IDN Times hanya memuat kalender Agustus 2026 (1-30 Agustus), bukan jadwal rutin tetap. Acara di Gedung Kesenian Jakarta yang tercantum: Teater Romeo dan Juliet (Manna Proxia Theatre) pada 2 Agustus dan Guzheng Recital 'Lingering Resonance' (Miladomus Music School) pada 5 Agustus 2026. Pola bulanan tidak bisa disimpulkan dari satu artikel, sehingga pola dan tanggal dikosongkan; jadwal bulan-bulan lain belum diverifikasi. Harga tiket per acara tidak tercantum. Koordinat dari OSM Nominatim (display_name: Gedung Kesenian Jakarta, Jalan Kesenian, Pasar Baru, Sawah Besar, Jakarta Pusat) dan cocok dengan lokasi di Jakarta Pusat. Sebaiknya cek kalender resmi GKJ/Disbud DKI untuk jadwal terbaru.",
+      "status": "pending",
+      "kategori_enum": "tari"
+    },
+    {
+      "bentuk": "event",
+      "nama": "Pertunjukan Teater Bintang Planetarium",
+      "slug": "pertunjukan-teater-bintang-planetarium",
+      "provinsi": "DKI Jakarta",
+      "jenis_event": "pertunjukan",
+      "lokasi_induk": {
+        "nama": "Planetarium Jakarta (Teater Bintang), Taman Ismail Marzuki",
+        "alamat": "Jalan Cikini Raya No. 73, Cikini, Menteng, Jakarta Pusat",
+        "kota_kabupaten": "Jakarta Pusat",
+        "lat": -6.189155,
+        "lng": 106.8398854
+      },
+      "deskripsi": "Teater Bintang di Planetarium Jakarta menyajikan pertunjukan astronomi dengan kubah besar, pameran benda angkasa, dan edukasi interaktif. Pertunjukan berlangsung beberapa kali sehari dengan durasi sekitar 45 menit. Lokasinya berada di kompleks Taman Ismail Marzuki, Jakarta Pusat.",
+      "pola": "daily",
+      "hari_iso": null,
+      "tanggal": null,
+      "jam_mulai": "10:00",
+      "jam_selesai": "19:15",
+      "harga_dari_idr": 0,
+      "url_beli_tiket": "https://www.loket.com",
+      "situs_resmi": null,
+      "sumber": {
+        "source_url": "https://www.metrotvnews.com/read/b7WCmAv9-catat-jadwal-pertunjukan-dan-cara-beli-tiket-planetarium-jakarta",
+        "checked_at": "2026-11-26"
+      },
+      "sumber_dibuka": [
+        "https://www.metrotvnews.com/read/b7WCmAv9-catat-jadwal-pertunjukan-dan-cara-beli-tiket-planetarium-jakarta"
+      ],
+      "sumber_gagal": [],
+      "catatan": "Sumber Metro TV (13 Apr 2026): Planetarium tutup setiap Senin dan hari libur nasional; buka 10.00-19.15 WIB. Selasa-Kamis: show 10.00-10.45, 13.00-13.45, 15.30-16.15, 18.30-19.15. Jumat-Minggu: show 10.00-10.45, 14.00-14.45, 16.00-16.45, 18.30-19.15. Field jam_mulai/jam_selesai mengambil rentang terluas; jadwal per hari ada di catatan dan belum dipecah per hari di skema. Tiket: pelajar gratis, umum Rp10.000 (harga_dari_idr diisi 0 sebagai harga terendah); pembelian online via Loket.com (URL spesifik halaman tidak disebut, dicantumkan domain utamanya); pembelian langsung di lokasi dengan kuota terbatas (pelajar 20, umum 70, disabilitas/pendamping 5); e-tiket wajib ditukar tiket fisik paling lambat 1 jam sebelum tayang; rombongan minimal 10 orang bisa reservasi lewat hotline (nomor tidak tercantum di artikel). Artikel menyebut teater dibuka kembali Desember 2025 setelah tutup 13 tahun akibat revitalisasi TIM. Klaim 'tetap berjalan sepanjang 2026' dari petunjuk awal tidak tercantum di artikel, sehingga tidak dipakai. Koordinat dari OSM Nominatim untuk kompleks Taman Ismail Marzuki (-6.1891550, 106.8398854), bukan titik gedung planetarium, jadi perkiraan.",
+      "status": "pending",
+      "kategori_enum": "tari"
+    },
+    {
+      "bentuk": "event",
+      "nama": "Lebaran Betawi",
+      "slug": "lebaran-betawi",
+      "provinsi": "DKI Jakarta",
+      "jenis_event": "festival",
+      "lokasi_induk": {
+        "nama": "Lapangan Banteng",
+        "alamat": null,
+        "kota_kabupaten": "Jakarta Pusat",
+        "lat": -6.1702606,
+        "lng": 106.8349109
+      },
+      "deskripsi": "Festival budaya Betawi tahunan yang digelar setelah Idulfitri oleh Pemerintah Provinsi DKI Jakarta bersama Bamus Betawi. Rangkaiannya meliputi pertunjukan kesenian Betawi, pameran budaya, dan bazar kuliner. Edisi 2026 adalah yang ke-18.",
+      "pola": "annual",
+      "hari_iso": null,
+      "tanggal": null,
+      "jam_mulai": null,
+      "jam_selesai": null,
+      "harga_dari_idr": null,
+      "url_beli_tiket": null,
+      "situs_resmi": null,
+      "sumber": {
+        "source_url": "https://news.detik.com/berita/d-8431455/lebaran-betawi-2026-jadwal-lokasi-dan-rangkaian-acaranya",
+        "checked_at": "2026-11-26"
+      },
+      "sumber_dibuka": [
+        "https://news.detik.com/berita/d-8431455/lebaran-betawi-2026-jadwal-lokasi-dan-rangkaian-acaranya"
+      ],
+      "sumber_gagal": [],
+      "catatan": "Edisi 2026 digelar 10-12 April 2026 di Lapangan Banteng, Jakarta Pusat (dikutip detik, Antara, dan Berita Jakarta; tanggal ini sudah lewat dibanding hari ini 2026-11-26). Tanggal edisi berikutnya belum ada, jadi tanggal dan pola tahunan dibiarkan null/annual. Biaya masuk: tidak tertulis di sumber yang berhasil dibaca (artikel lain menyebut gratis, tetapi belum diverifikasi), jadi harga_dari_idr null. Jam acara tidak tertulis di halaman detik, jadi null. Koordinat dari OSM Nominatim (way Lapangan Banteng, Pasar Baru, Sawah Besar, Jakarta Pusat), sudah dicocokkan namanya.",
+      "status": "pending",
+      "kategori_enum": "lainnya"
+    },
+    {
+      "bentuk": "event",
+      "nama": "Perayaan Cap Go Meh Glodok",
+      "slug": "perayaan-cap-go-meh-glodok",
+      "provinsi": "DKI Jakarta",
+      "jenis_event": "upacara",
+      "lokasi_induk": {
+        "nama": "Pancoran Chinatown Point, Glodok",
+        "alamat": "Jalan Pancoran, Pinangsia, Taman Sari, Jakarta Barat",
+        "kota_kabupaten": "Jakarta Barat",
+        "lat": -6.1409461,
+        "lng": 106.8131722
+      },
+      "deskripsi": "Perayaan Cap Go Meh yang diselenggarakan Pemprov DKI Jakarta di kawasan Pecinan Glodok pada hari ke-15 Imlek. Acara menampilkan barongsai dan liong, ondel-ondel, tari tradisional, serta bazar UMKM. Terbuka untuk umum.",
+      "pola": "annual",
+      "hari_iso": null,
+      "tanggal": null,
+      "jam_mulai": "10:00",
+      "jam_selesai": "18:00",
+      "harga_dari_idr": null,
+      "url_beli_tiket": null,
+      "situs_resmi": null,
+      "sumber": {
+        "source_url": "https://koran-jakarta.com/2026-03-03/info-lengkap-festival-cap-go-meh-pemprov-dki-jakarta-di-glodok",
+        "checked_at": "2026-11-26"
+      },
+      "sumber_dibuka": [
+        "https://koran-jakarta.com/2026-03-03/info-lengkap-festival-cap-go-meh-pemprov-dki-jakarta-di-glodok"
+      ],
+      "sumber_gagal": [],
+      "catatan": "Edisi 2026 digelar Selasa 3 Maret 2026 (hari ke-15 Imlek), dua sesi: 10.00-14.00 dan 16.00-18.00 WIB (jam_mulai/jam_selesai menutup rentang keseluruhan). Informasi berasal dari poster Instagram @dkijakarta yang dikutip Koran Jakarta; akun resmi tidak dibuka langsung. Tanggal edisi berikutnya belum ada, jadi tanggal null dan pola annual. Harga tidak disebut (\"terbuka untuk masyarakat\"), jadi harga_dari_idr null. Koordinat dari OSM Nominatim (Pancoran Chinatown Point, Pinangsia, Taman Sari, Jakarta Barat), namanya sudah dicocokkan.",
+      "status": "pending",
+      "kategori_enum": "lainnya"
+    },
+    {
+      "bentuk": "event",
+      "nama": "Colours of Cultures Festival (CoCF) 10 Tandamata Indonesia",
+      "slug": "colours-of-cultures-festival-10-tandamata-indone",
+      "provinsi": "DKI Jakarta",
+      "jenis_event": "festival",
+      "lokasi_induk": {
+        "nama": "Kawasan Kota Tua",
+        "alamat": null,
+        "kota_kabupaten": "Jakarta Pusat",
+        "lat": -6.1312,
+        "lng": 106.8107
+      },
+      "deskripsi": "Festival budaya tahunan di kawasan Kota Tua ini menampilkan kerajinan dari 22 provinsi, pertunjukan musik dan tari daerah, serta zona kuliner dan parade wastra. Edisi ke-10 mengusung tema interaktif berupa instalasi seni dan pengalaman multisensori.",
+      "pola": "annual",
+      "hari_iso": null,
+      "tanggal": null,
+      "jam_mulai": null,
+      "jam_selesai": null,
+      "harga_dari_idr": 0,
+      "url_beli_tiket": null,
+      "situs_resmi": null,
+      "sumber": {
+        "source_url": "https://www.indonesia.travel/id/en/events/event-detail/cocf-10--tandamata-indonesia-2026",
+        "checked_at": "2026-11-26"
+      },
+      "sumber_dibuka": [
+        "https://www.indonesia.travel/id/en/events/event-detail/cocf-10--tandamata-indonesia-2026"
+      ],
+      "sumber_gagal": [],
+      "catatan": "Tanggal 16-18 Oktober 2026 dan tiket GRATIS tercantum di halaman indonesia.travel yang dibaca. PERTENTANGAN: brief menulis Jakarta Barat, halaman resmi menulis Central Jakarta City (Jakarta Pusat); kota_kabupaten diisi Jakarta Pusat mengikuti sumber resmi, perlu dikonfirmasi ke penyelenggara (ITIC dan ForkapPSI). Koordinat adalah titik pusat Kawasan Kota Tua (perkiraan, bukan titik lokasi acara resmi; sumber: OpenStreetMap Nominatim, way 1088175359 Kota Tua Jakarta). Alamat venue tidak ditemukan. Brief menyebut status 'Segera Hadir' pada listing; status itu tidak terlihat di halaman yang dibaca. Jam acara dan situs resmi penyelenggara tidak ditemukan. Sumber adalah listing resmi Indonesia Travel tahun 2026, bukan halaman penyelenggara.",
+      "status": "pending",
+      "kategori_enum": "lainnya"
+    },
+    {
+      "bentuk": "event",
+      "nama": "Jakarta Light Festival",
+      "slug": "jakarta-light-festival",
+      "provinsi": "DKI Jakarta",
+      "jenis_event": "festival",
+      "lokasi_induk": {
+        "nama": "Lapangan Fatahillah, Kawasan Kota Tua",
+        "alamat": null,
+        "kota_kabupaten": "Jakarta Barat",
+        "lat": -6.1312,
+        "lng": 106.8107
+      },
+      "deskripsi": "Festival seni cahaya yang digelar di kawasan Kota Tua dengan pertunjukan video mapping di dinding Museum Fatahillah. Edisi Februari 2026 dibuat untuk menyambut Tahun Baru Imlek dan menampilkan animasi bernuansa tradisi Tionghoa.",
+      "pola": "once",
+      "hari_iso": null,
+      "tanggal": "2026-02-16",
+      "jam_mulai": null,
+      "jam_selesai": null,
+      "harga_dari_idr": null,
+      "url_beli_tiket": null,
+      "situs_resmi": null,
+      "sumber": {
+        "source_url": "https://rmol.id/nusantara/read/2026/02/16/697599/warga-serbu-jakarta-light-festival-di-kawasan-kota-tua",
+        "checked_at": "2026-11-26"
+      },
+      "sumber_dibuka": [
+        "https://rmol.id/nusantara/read/2026/02/16/697599/warga-serbu-jakarta-light-festival-di-kawasan-kota-tua"
+      ],
+      "sumber_gagal": [],
+      "catatan": "Artikel RMOL terbit 16 Februari 2026 tentang edisi Imlek. Artikel itu tidak menyebut status gratis atau harga, sehingga harga_dari_idr dikosongkan (brief menulis 'gratis', belum terverifikasi dari artikel ini). Edisi 21 Juni (HUT Jakarta) dari brief tidak tercatat di artikel yang dibaca, jadi belum dikonfirmasi; tanggal edisi berikutnya belum diketahui. Lokasi: Lapangan/Taman Fatahillah, Kota Tua; artikel menyebut Kawasan Kota Tua berada di Jakarta Barat. Koordinat adalah titik pusat Kawasan Kota Tua (perkiraan; pencarian Nominatim 'Lapangan Fatahillah' mengembalikan tempat lain di Ancol, sehingga tidak dipakai). Jam acara tidak ditemukan. Sumber adalah artikel berita, bukan penyelenggara resmi.",
+      "status": "pending",
+      "kategori_enum": "lainnya"
+    },
+    {
+      "bentuk": "event",
+      "nama": "Workshop Membatik",
+      "slug": "workshop-membatik",
+      "provinsi": "DKI Jakarta",
+      "jenis_event": "workshop",
+      "lokasi_induk": {
+        "nama": "Museum Tekstil Jakarta (Pendopo Batik)",
+        "alamat": "Jalan Aipda KS Tubun, Palmerah, Jakarta Barat (alamat menurut OpenStreetMap; belum dikonfirmasi dari situs museum)",
+        "kota_kabupaten": "Jakarta Barat",
+        "lat": -6.1879,
+        "lng": 106.8096
+      },
+      "deskripsi": "Kelas membatik rutin di Museum Tekstil Jakarta yang memberi pengalaman langsung membuat kain sendiri. Peserta bisa memilih batik tulis, batik cap, ecoprint, atau jumputan, dan pulang membawa hasil karyanya.",
+      "pola": "weekly",
+      "hari_iso": null,
+      "tanggal": null,
+      "jam_mulai": "09:00",
+      "jam_selesai": "14:00",
+      "harga_dari_idr": 50000,
+      "url_beli_tiket": null,
+      "situs_resmi": null,
+      "sumber": {
+        "source_url": "https://m.beritajakarta.id/en/read/153867/9387-visitors-join-batik-making-classes-at-textile-museum",
+        "checked_at": "2026-11-26"
+      },
+      "sumber_dibuka": [
+        "https://m.beritajakarta.id/en/read/153867/9387-visitors-join-batik-making-classes-at-textile-museum"
+      ],
+      "sumber_gagal": [],
+      "catatan": "Sumber: Berita Jakarta, 7 Juli 2026. Sesi Selasa sampai Minggu, 09.00-14.00, menurut artikel; artikel yang sama menyebut museum buka sampai 15.00 dan tutup setiap Senin, jadi jam sesi perlu dikonfirmasi. Harga Rp50.000 adalah biaya workshop per peserta, DITAMBAH tiket masuk museum (Selasa-Jumat: dewasa Rp10.000, pelajar dan anak Rp5.000, wisatawan asing Rp50.000; Sabtu-Minggu: dewasa Rp15.000). Jenis batik selain batik tulis wajib dipesan sebelumnya. Diskon grup minimal 30 orang. Hari_iso dikosongkan karena sesi berlaku beberapa hari. Situs resmi dan kontak reservasi museum belum ditemukan. Koordinat dari OpenStreetMap Nominatim (Museum Tekstil, way 121706048), belum dicocokkan dengan situs museum.",
+      "status": "pending",
+      "kategori_enum": "kerajinan"
+    }
+  ],
+  "dikeluarkan": [
+    {
+      "slug": "pertunjukan-ondel-ondel-dan-seni-betawi",
+      "nama": "Pertunjukan Ondel-ondel dan Seni Betawi",
+      "alasan": "seluruh fakta dari Antara (tidak dipakai)"
+    }
+  ]
+}
