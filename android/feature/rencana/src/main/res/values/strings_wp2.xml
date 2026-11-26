@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="rencana_nodata_title">Data tempat belum tersedia</string>
+    <string name="rencana_nodata_body_offline">Sambungkan internet sekali agar data tempat tersimpan di ponsel ini, lalu coba lagi.</string>
+    <string name="rencana_nodata_body_online">Data tempat sedang dimuat. Coba lagi sebentar lagi.</string>
+    <string name="rencana_buildfail_title">Rencana gagal disusun</string>
+    <string name="rencana_buildfail_body">Ada yang tidak beres saat menyusun rencana. Coba lagi.</string>
+    <string name="rencana_loaderror_title">Rencana belum bisa dimuat</string>
+    <string name="rencana_loaderror_body">Coba muat ulang.</string>
+    <string name="rencana_retry">Coba lagi</string>
+    <string name="rencana_status_back">Kembali</string>
+    <string name="rencana_apply_error">Perubahan belum tersimpan. Coba lagi.</string>
+</resources>

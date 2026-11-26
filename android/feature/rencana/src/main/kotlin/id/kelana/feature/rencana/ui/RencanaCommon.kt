@@ -1,7 +1,6 @@
 package id.kelana.feature.rencana.ui
 
 import androidx.annotation.DrawableRes
-import androidx.annotation.StringRes
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -31,7 +30,6 @@ import id.kelana.core.model.FactDisplay
 import id.kelana.core.model.OfficialFact
 import id.kelana.core.model.PlaceCategory
 import id.kelana.core.model.PlanStop
-import id.kelana.core.model.SkipReason
 import id.kelana.core.model.TravelMode
 import id.kelana.core.ui.formatRupiah
 import id.kelana.core.ui.formatTimeRange
@@ -162,14 +160,6 @@ internal fun scheduleText(stop: PlanStop): String? {
         )
         FactDisplay.Checking -> stringResource(R.string.rencana_schedule_checking)
     }
-}
-
-@StringRes
-internal fun skipReasonRes(reason: SkipReason): Int = when (reason) {
-    SkipReason.ClosedThatDay -> R.string.rencana_skip_closed_day
-    SkipReason.TemporarilyClosed -> R.string.rencana_skip_closure
-    SkipReason.HoursUnknown -> R.string.rencana_skip_unknown
-    SkipReason.NoRoomInDay -> R.string.rencana_skip_no_room
 }
 
 @Composable

@@ -14,6 +14,7 @@ import id.kelana.core.model.Vehicle
 import id.kelana.feature.rencana.domain.BuildResult
 import id.kelana.feature.rencana.domain.PlanBuilder
 import id.kelana.feature.rencana.domain.PlanRepository
+import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -30,7 +31,7 @@ import java.time.temporal.ChronoUnit
 import javax.inject.Inject
 
 /** What happened to the last build request. */
-enum class BuildOutcome { Built, NothingFits, Offline }
+enum class BuildOutcome { Built, NothingFits, NoData, Failed }
 
 @Immutable
 data class SusunUiState(
@@ -50,6 +51,8 @@ data class SusunUiState(
     /** Index of the checklist item shown as running on the Menyusun screen. */
     val stage: Int = 0,
     val outcome: BuildOutcome? = null,
+    /** Whether the device had no signal when [outcome] was set; only picks the copy of the NoData state. */
+    val outcomeOffline: Boolean = false,
 ) {
     val lastDate: LocalDate get() = endDate ?: startDate
     val dayCount: Int get() = (ChronoUnit.DAYS.between(startDate, lastDate) + 1).toInt()
@@ -202,9 +205,6 @@ class SusunViewModel(
 
     // ---- build ----
 
-    /** Whether building may start. Without signal the caller shows the offline screen instead of Menyusun. */
-    fun canBuildNow(): Boolean = connectivity.isOnlineNow()
-
     /** Builds the plan from the answers. Safe to call again while a build runs (ignored). */
     fun startBuild() {
         if (buildJob?.isActive == true) return
@@ -216,7 +216,14 @@ class SusunViewModel(
                 if (stageDelayMs > 0) delay(stageDelayMs)
                 _state.update { it.copy(stage = i) }
             }
-            val result = plans.build(choices)
+            val result = try {
+                plans.build(choices)
+            } catch (e: CancellationException) {
+                throw e
+            } catch (_: Exception) {
+                BuildResult.Failed
+            }
+            val offline = !connectivity.isOnlineNow()
             _state.update {
                 it.copy(
                     isBuilding = false,
@@ -224,11 +231,20 @@ class SusunViewModel(
                     outcome = when (result) {
                         is BuildResult.Built -> BuildOutcome.Built
                         BuildResult.NothingFits -> BuildOutcome.NothingFits
-                        BuildResult.Offline -> BuildOutcome.Offline
+                        BuildResult.NoData -> BuildOutcome.NoData
+                        BuildResult.Failed -> BuildOutcome.Failed
                     },
+                    outcomeOffline = offline,
                 )
             }
         }
+    }
+
+    /** "Coba lagi" on the Menyusun error states: clears the outcome and builds again. */
+    fun retryBuild() {
+        if (buildJob?.isActive == true) return
+        consumeOutcome()
+        startBuild()
     }
 
     /** The screen handled [SusunUiState.outcome]. */

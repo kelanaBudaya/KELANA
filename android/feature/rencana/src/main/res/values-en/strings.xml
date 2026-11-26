@@ -18,7 +18,7 @@
     <string name="rencana_route_headline">Today you explore %1$d places!</string>
     <string name="rencana_route_headline_upcoming">Exploring %1$d places!</string>
     <string name="rencana_route_open_map">Open map</string>
-    <string name="rencana_offline_banner">You are offline. Your saved plan stays readable; re-planning needs internet.</string>
+    <string name="rencana_offline_banner">You are offline. You can still open, build and rebuild your plan.</string>
     <string name="rencana_closed_prompt_title">%1$s is closed on your visit day</string>
     <string name="rencana_closed_prompt_action">See your options</string>
     <string name="rencana_stop_done">The visit time has passed</string>
@@ -42,11 +42,6 @@
     <string name="rencana_arrival_advice">Arrive at %1$s by %2$s at the latest. The operator suggests coming %3$d–%4$d minutes before the show starts.</string>
     <string name="rencana_day_empty">Nothing fits this day yet. Try changing your answers.</string>
     <string name="rencana_no_show">There is no official show with a checked schedule on this date.</string>
-    <string name="rencana_skipped_title">Left out of the plan</string>
-    <string name="rencana_skip_closed_day">closed that day</string>
-    <string name="rencana_skip_closure">temporarily closed</string>
-    <string name="rencana_skip_unknown">opening hours are being checked</string>
-    <string name="rencana_skip_no_room">does not fit in the day</string>
     <string name="rencana_susun_progress">%1$d/%2$d</string>
     <string name="rencana_susun_progress_label">Question %1$d of %2$d</string>
     <string name="rencana_tanggal_title">When are you exploring?</string>
@@ -130,14 +125,6 @@
     <string name="rencana_closed_remove">Remove from the plan</string>
     <string name="rencana_closed_remove_hint">The other stops stay as planned</string>
     <string name="rencana_closed_apply">Apply</string>
-    <string name="rencana_offline_title">Your internet is down</string>
-    <string name="rencana_offline_body">Don’t worry, your plan is saved on this phone. Building or re-planning needs internet; you can still open:</string>
-    <string name="rencana_offline_body_no_plan">Building or re-planning needs internet. Reconnect to continue. You can still open:</string>
-    <string name="rencana_offline_link_plan">Today\'s plan</string>
-    <string name="rencana_offline_link_plan_hint">Order of places and show times</string>
-    <string name="rencana_offline_link_paspor">Your culture passport</string>
-    <string name="rencana_offline_link_paspor_hint">Stamps you have collected</string>
-    <string name="rencana_offline_stamp_note">You can still try Ambil cap: the request is saved and sent when you are back online, valid for 30 minutes. The server decides.</string>
     <string name="rencana_reminder_title">When should we remind you?</string>
     <string name="rencana_reminder_body">Choose when you want to be reminded before the show.</string>
     <string name="rencana_reminder_when_to_leave">When it is time to leave</string>

@@ -35,7 +35,6 @@ class TempatTutupViewModelTest {
     val main = MainDispatcherRule()
 
     private val allDay = hoursFacts(LocalTime.of(8, 0), LocalTime.of(21, 0))
-    private val connectivity = FakeConnectivity()
 
     private fun world(withSpare: Boolean): Triple<FakePlaces, FakeCache, TripPlan> {
         val base = listOf(
@@ -54,7 +53,7 @@ class TempatTutupViewModelTest {
     }
 
     private fun viewModel(places: FakePlaces, cache: FakeCache, placeId: String = "keraton") =
-        TempatTutupViewModel(repo(places, cache = cache, connectivity = connectivity), connectivity, placeId, TestToday)
+        TempatTutupViewModel(repo(places, cache = cache), placeId, TestToday)
 
     @Test
     fun closedPlaceLoadsWithItsReasonAndAReplacement() = runTest {
@@ -137,18 +136,58 @@ class TempatTutupViewModelTest {
     }
 
     @Test
-    fun withoutSignalTheScreenIsOfflineAndApplyChangesNothing() = runTest {
+    fun withoutSignalApplyStillWorks() = runTest {
+        // The view model has no connectivity input any more: re-planning runs from cached data.
+        val (places, cache, _) = world(withSpare = true)
+        closeKeraton(places)
+        val vm = viewModel(places, cache)
+        vm.uiState.test {
+            settled()
+            vm.apply()
+            assertEquals(TempatTutupOutcome.Done, expectMostRecentItem().outcome)
+        }
+        assertTrue("puro" in cache.tripState.value!!.days.single().stops.map { it.placeId })
+    }
+
+    @Test
+    fun applyFailureSetsApplyError() = runTest {
         val (places, cache, original) = world(withSpare = true)
         closeKeraton(places)
         val vm = viewModel(places, cache)
         vm.uiState.test {
-            assertFalse(settled().isOffline)
-            connectivity.state.value = false
-            assertTrue(expectMostRecentItem().isOffline)
+            settled()
+            places.failing = true
             vm.apply()
-            assertEquals(TempatTutupOutcome.GoOffline, expectMostRecentItem().outcome)
+            val s = expectMostRecentItem()
+            assertTrue(s.applyError)
+            assertFalse(s.isApplying)
+            assertNull(s.outcome)
         }
         assertEquals(original, cache.tripState.value)
+        // A second try after the cause is gone clears the error.
+        places.failing = false
+        vm.apply()
+        assertFalse(vm.uiState.value.applyError)
+        assertEquals(TempatTutupOutcome.Done, vm.uiState.value.outcome)
+    }
+
+    @Test
+    fun loadFailureSetsLoadErrorAndRetryLoadRecovers() = runTest {
+        val (places, cache, _) = world(withSpare = true)
+        closeKeraton(places)
+        places.failing = true
+        val vm = viewModel(places, cache)
+        vm.uiState.test {
+            val s = settled()
+            assertTrue(s.loadError)
+            assertNull(s.stop)
+            places.failing = false
+            vm.retryLoad()
+            var next = awaitItem()
+            while (next.isLoading || next.loadError) next = awaitItem()
+            assertEquals("keraton", next.stop?.placeId)
+            assertFalse(next.loadError)
+        }
     }
 
     @Test
@@ -166,7 +205,7 @@ class TempatTutupViewModelTest {
         val (places, cache, _) = world(withSpare = true)
         closeKeraton(places)
         val handle = SavedStateHandle(mapOf("placeId" to "keraton", "date" to "2026-11-20"))
-        val vm = TempatTutupViewModel(repo(places, cache = cache, connectivity = connectivity), connectivity, handle)
+        val vm = TempatTutupViewModel(repo(places, cache = cache), handle)
         vm.uiState.test {
             assertEquals("keraton", settled().stop?.placeId)
         }
