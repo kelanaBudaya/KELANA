@@ -606,7 +606,7 @@ on conflict (place_id, sha1) do update set
   license_code = excluded.license_code,
   license_url = excluded.license_url;
 insert into public.place_photos (place_id, storage_path, thumb_path, width, height, sha1, source, source_page_url, original_url, caption, author, author_url, license_code, license_url, attribution_text, sort_order, is_published)
-select id, 'diy/museum-sonobudoyo/25b2a4fd.jpg', 'diy/museum-sonobudoyo/25b2a4fd_t.jpg', 1280, 960, '25b2a4fd1b2d9baf7b2f05d38d4af473b03249c7', 'openverse', 'https://commons.wikimedia.org/w/index.php?curid=201828969', 'https://upload.wikimedia.org/wikipedia/commons/b/ba/Museum_Sonobudoyo_sep_2026.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original', 'Bangunan depan Museum Sonobudoyo dengan atap joglo', 'Rahmatdenas', 'https://commons.wikimedia.org/wiki/User:Rahmatdenas', 'CC-BY-SA-4.0', 'https://creativecommons.org/licenses/by-sa/4.0/', 'Foto: Rahmatdenas · CC BY-SA 4.0 · Openverse (Wikimedia Commons)', 0, false
+select id, 'diy/museum-sonobudoyo/25b2a4fd.jpg', 'diy/museum-sonobudoyo/25b2a4fd_t.jpg', 1280, 960, '25b2a4fd1b2d9baf7b2f05d38d4af473b03249c7', 'wikimedia_commons', 'https://commons.wikimedia.org/w/index.php?curid=201828969', 'https://upload.wikimedia.org/wikipedia/commons/b/ba/Museum_Sonobudoyo_sep_2026.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original', 'Bangunan depan Museum Sonobudoyo dengan atap joglo', 'Rahmatdenas', 'https://commons.wikimedia.org/wiki/User:Rahmatdenas', 'CC-BY-SA-4.0', 'https://creativecommons.org/licenses/by-sa/4.0/', 'Foto: Rahmatdenas · CC BY-SA 4.0 · Wikimedia Commons', 0, false
 from public.places where slug = 'museum-sonobudoyo'
 on conflict (place_id, sha1) do update set
   storage_path = excluded.storage_path,
@@ -617,7 +617,7 @@ on conflict (place_id, sha1) do update set
   license_code = excluded.license_code,
   license_url = excluded.license_url;
 insert into public.place_photos (place_id, storage_path, thumb_path, width, height, sha1, source, source_page_url, original_url, caption, author, author_url, license_code, license_url, attribution_text, sort_order, is_published)
-select id, 'diy/museum-sonobudoyo/f1049f18.jpg', 'diy/museum-sonobudoyo/f1049f18_t.jpg', 1280, 840, 'f1049f180bd4a1eee8e425ab46606c8d247ad98f', 'openverse', 'https://commons.wikimedia.org/w/index.php?curid=48226974', 'https://upload.wikimedia.org/wikipedia/commons/2/24/Museum_Sonobudoyo_Yogyakarta_Unit_1.jpg', 'Gerbang dan bangunan Museum Sonobudoyo Unit 1', 'Sabjan Badio', 'https://commons.wikimedia.org/wiki/User:Sabjan_Badio', 'CC-BY-SA-4.0', 'https://creativecommons.org/licenses/by-sa/4.0/', 'Foto: Sabjan Badio · CC BY-SA 4.0 · Openverse (Wikimedia Commons)', 1, false
+select id, 'diy/museum-sonobudoyo/f1049f18.jpg', 'diy/museum-sonobudoyo/f1049f18_t.jpg', 1280, 840, 'f1049f180bd4a1eee8e425ab46606c8d247ad98f', 'wikimedia_commons', 'https://commons.wikimedia.org/w/index.php?curid=48226974', 'https://upload.wikimedia.org/wikipedia/commons/2/24/Museum_Sonobudoyo_Yogyakarta_Unit_1.jpg', 'Gerbang dan bangunan Museum Sonobudoyo Unit 1', 'Sabjan Badio', 'https://commons.wikimedia.org/wiki/User:Sabjan_Badio', 'CC-BY-SA-4.0', 'https://creativecommons.org/licenses/by-sa/4.0/', 'Foto: Sabjan Badio · CC BY-SA 4.0 · Wikimedia Commons', 1, false
 from public.places where slug = 'museum-sonobudoyo'
 on conflict (place_id, sha1) do update set
   storage_path = excluded.storage_path,
@@ -628,7 +628,7 @@ on conflict (place_id, sha1) do update set
   license_code = excluded.license_code,
   license_url = excluded.license_url;
 insert into public.place_photos (place_id, storage_path, thumb_path, width, height, sha1, source, source_page_url, original_url, caption, author, author_url, license_code, license_url, attribution_text, sort_order, is_published)
-select id, 'diy/museum-sonobudoyo/e431cf7e.jpg', 'diy/museum-sonobudoyo/e431cf7e_t.jpg', 1280, 960, 'e431cf7efc549ff8a680c8237ddea02bc4b2efa5', 'openverse', 'https://commons.wikimedia.org/w/index.php?curid=101149199', 'https://upload.wikimedia.org/wikipedia/commons/4/41/Pameran_Astronomi_Sonobudoyo_-5_Koleksi_Prasen.jpg', 'Vitrin koleksi periuk logam kuno di Museum Sonobudoyo', 'Pinerineks', 'https://commons.wikimedia.org/wiki/User:Pinerineks', 'CC-BY-SA-4.0', 'https://creativecommons.org/licenses/by-sa/4.0/', 'Foto: Pinerineks · CC BY-SA 4.0 · Openverse (Wikimedia Commons)', 2, false
+select id, 'diy/museum-sonobudoyo/e431cf7e.jpg', 'diy/museum-sonobudoyo/e431cf7e_t.jpg', 1280, 960, 'e431cf7efc549ff8a680c8237ddea02bc4b2efa5', 'wikimedia_commons', 'https://commons.wikimedia.org/w/index.php?curid=101149199', 'https://upload.wikimedia.org/wikipedia/commons/4/41/Pameran_Astronomi_Sonobudoyo_-5_Koleksi_Prasen.jpg', 'Vitrin koleksi periuk logam kuno di Museum Sonobudoyo', 'Pinerineks', 'https://commons.wikimedia.org/wiki/User:Pinerineks', 'CC-BY-SA-4.0', 'https://creativecommons.org/licenses/by-sa/4.0/', 'Foto: Pinerineks · CC BY-SA 4.0 · Wikimedia Commons', 2, false
 from public.places where slug = 'museum-sonobudoyo'
 on conflict (place_id, sha1) do update set
   storage_path = excluded.storage_path,
@@ -639,7 +639,7 @@ on conflict (place_id, sha1) do update set
   license_code = excluded.license_code,
   license_url = excluded.license_url;
 insert into public.place_photos (place_id, storage_path, thumb_path, width, height, sha1, source, source_page_url, original_url, caption, author, author_url, license_code, license_url, attribution_text, sort_order, is_published)
-select id, 'diy/museum-sonobudoyo/ec859153.jpg', 'diy/museum-sonobudoyo/ec859153_t.jpg', 1280, 1707, 'ec859153b49dac07f730271838531df5bd6939be', 'openverse', 'https://commons.wikimedia.org/w/index.php?curid=158925184', 'https://upload.wikimedia.org/wikipedia/commons/d/d4/Keris_Naga_Sonobudoyo.jpg', 'Keris naga dalam vitrin Museum Sonobudoyo', 'Candramawa99', 'https://commons.wikimedia.org/wiki/User:Candramawa99', 'CC0-1.0', 'https://creativecommons.org/publicdomain/zero/1.0/', 'Foto: Candramawa99 · CC0 · Openverse (Wikimedia Commons)', 3, false
+select id, 'diy/museum-sonobudoyo/ec859153.jpg', 'diy/museum-sonobudoyo/ec859153_t.jpg', 1280, 1707, 'ec859153b49dac07f730271838531df5bd6939be', 'wikimedia_commons', 'https://commons.wikimedia.org/w/index.php?curid=158925184', 'https://upload.wikimedia.org/wikipedia/commons/d/d4/Keris_Naga_Sonobudoyo.jpg', 'Keris naga dalam vitrin Museum Sonobudoyo', 'Candramawa99', 'https://commons.wikimedia.org/wiki/User:Candramawa99', 'CC0-1.0', 'https://creativecommons.org/publicdomain/zero/1.0/', 'Foto: Candramawa99 · CC0 · Wikimedia Commons', 3, false
 from public.places where slug = 'museum-sonobudoyo'
 on conflict (place_id, sha1) do update set
   storage_path = excluded.storage_path,
