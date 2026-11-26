@@ -14,7 +14,7 @@ import javax.inject.Inject
 /**
  * Clears the planner's data after "Hapus akun": cancels the scheduled reminder of every show the user chose one for
  * (Pengingat), then clears today's plan ([PlanCache]). Each cancel runs even if an earlier one fails.
- * The reminder choices map itself lives in [PlanCache], which has no call to empty it (in-memory, gone on restart).
+ * [PlanCache.clear] also wipes the stored reminder choices map.
  */
 class RencanaUserDataCleaner @Inject constructor(
     private val cache: PlanCache,
