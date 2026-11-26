@@ -1,0 +1,2214 @@
+{
+  "dibuat": "2026-11-25",
+  "status": "pending (belum disetujui manusia); entri berstatus 'ditahan' tidak boleh dimuat",
+  "tempat": [
+    {
+      "nama": "Keraton Ngayogyakarta Hadiningrat",
+      "slug": "keraton-yogyakarta",
+      "kategori_usulan": "keraton",
+      "jenis": "permanen",
+      "induk_lokasi": null,
+      "kabupaten": "Kota Yogyakarta",
+      "alamat": "Jl. Rotowijayan Blok No.1, Panembahan, Kecamatan Kraton, Kota Yogyakarta, Daerah Istimewa Yogyakarta",
+      "lat": -7.805689,
+      "lng": 110.36406,
+      "deskripsi": "Keraton Ngayogyakarta Hadiningrat adalah kediaman resmi Sultan Yogyakarta, didirikan pada 1755 oleh Sri Sultan Hamengkubuwana I setelah pembagian Mataram lewat Perjanjian Giyanti. Sebagian kompleksnya dibuka untuk wisatawan dan dikelola oleh Kawedanan Radya Kartiyasa. Jam dan tarif kunjungan sebaiknya dicek ulang sebelum datang.",
+      "jam_buka": [
+        {
+          "hari": "Selasa",
+          "tutup": false,
+          "buka": "09:00",
+          "tutup_jam": "14:00",
+          "catatan": "Sumber sekunder indonesia.travel menulis 'Selasa-Minggu: 09.00 - 14.00 WIB'. Bukan dari situs resmi Keraton. Jam per unit (Kedhaton, Tamansari, dll.) tidak berhasil dibaca.",
+          "source_url": "https://www.indonesia.travel/id-id/destination/java/yogyakarta/karaton-ngayogyakarta/",
+          "checked_at": "2026-11-25"
+        },
+        {
+          "hari": "Rabu",
+          "tutup": false,
+          "buka": "09:00",
+          "tutup_jam": "14:00",
+          "catatan": "Sama dengan entri Selasa (sumber indonesia.travel).",
+          "source_url": "https://www.indonesia.travel/id-id/destination/java/yogyakarta/karaton-ngayogyakarta/",
+          "checked_at": "2026-11-25"
+        },
+        {
+          "hari": "Kamis",
+          "tutup": false,
+          "buka": "09:00",
+          "tutup_jam": "14:00",
+          "catatan": "Sama dengan entri Selasa (sumber indonesia.travel).",
+          "source_url": "https://www.indonesia.travel/id-id/destination/java/yogyakarta/karaton-ngayogyakarta/",
+          "checked_at": "2026-11-25"
+        },
+        {
+          "hari": "Jumat",
+          "tutup": false,
+          "buka": "09:00",
+          "tutup_jam": "14:00",
+          "catatan": "Sama dengan entri Selasa (sumber indonesia.travel).",
+          "source_url": "https://www.indonesia.travel/id-id/destination/java/yogyakarta/karaton-ngayogyakarta/",
+          "checked_at": "2026-11-25"
+        },
+        {
+          "hari": "Sabtu",
+          "tutup": false,
+          "buka": "09:00",
+          "tutup_jam": "14:00",
+          "catatan": "Sama dengan entri Selasa (sumber indonesia.travel).",
+          "source_url": "https://www.indonesia.travel/id-id/destination/java/yogyakarta/karaton-ngayogyakarta/",
+          "checked_at": "2026-11-25"
+        },
+        {
+          "hari": "Minggu",
+          "tutup": false,
+          "buka": "09:00",
+          "tutup_jam": "14:00",
+          "catatan": "Sama dengan entri Selasa (sumber indonesia.travel).",
+          "source_url": "https://www.indonesia.travel/id-id/destination/java/yogyakarta/karaton-ngayogyakarta/",
+          "checked_at": "2026-11-25"
+        }
+      ],
+      "hari_tutup_khusus": [],
+      "tiket": [
+        {
+          "label": "Dewasa",
+          "harga_idr": 15000,
+          "catatan": "Sumber indonesia.travel tidak melabeli domestik secara eksplisit; tertulis tarif Dewasa biasa. Tidak jelas apakah berlaku untuk seluruh kompleks atau satu unit. Hasil pencarian (belum dibuka) menyebut Rp30.000 untuk Kedhaton di GlobalTix, jadi perlu dicek.",
+          "source_url": "https://www.indonesia.travel/id-id/destination/java/yogyakarta/karaton-ngayogyakarta/",
+          "checked_at": "2026-11-25"
+        },
+        {
+          "label": "Anak-anak",
+          "harga_idr": 10000,
+          "catatan": "Tarif anak-anak biasa, sumber sama dengan tiket Dewasa.",
+          "source_url": "https://www.indonesia.travel/id-id/destination/java/yogyakarta/karaton-ngayogyakarta/",
+          "checked_at": "2026-11-25"
+        },
+        {
+          "label": "Turis mancanegara (Dewasa)",
+          "harga_idr": 25000,
+          "catatan": null,
+          "source_url": "https://www.indonesia.travel/id-id/destination/java/yogyakarta/karaton-ngayogyakarta/",
+          "checked_at": "2026-11-25"
+        },
+        {
+          "label": "Turis mancanegara (Anak-anak)",
+          "harga_idr": 20000,
+          "catatan": null,
+          "source_url": "https://www.indonesia.travel/id-id/destination/java/yogyakarta/karaton-ngayogyakarta/",
+          "checked_at": "2026-11-25"
+        }
+      ],
+      "jadwal_pertunjukan": [],
+      "situs_resmi": "https://kratonjogja.id",
+      "url_beli_tiket": null,
+      "sumber_dibuka": [
+        "https://www.kratonjogja.id",
+        "https://tourism.kratonjogja.id",
+        "https://visitingjogja.jogjaprov.go.id",
+        "https://visitingjogja.jogjaprov.go.id/wisata-jogja/wisata-budaya-sejarah/",
+        "https://www.indonesia.travel/id-id/destination/java/yogyakarta/karaton-ngayogyakarta/",
+        "https://id.wikipedia.org/wiki/Keraton_Yogyakarta"
+      ],
+      "sumber_gagal": [
+        "https://tourism.kratonjogja.id/kedhaton (HTTP 404)",
+        "https://kratonjogja-online.globaltix.com/attraction/abdi-dalem-experience-66133?lang=ms (HTTP 403)"
+      ],
+      "catatan": "1) Situs resmi Keraton (kratonjogja.id, tourism.kratonjogja.id) dan visitingjogja tidak memuat jam buka, tarif, maupun alamat lengkap pada halaman yang berhasil dibaca. Jam dan tarif di atas berasal dari indonesia.travel (sumber sekunder pemerintah), sehingga belum setara dengan sumber resmi pengelola. 2) Halaman indonesia.travel menulis jam hanya 'Selasa-Minggu'. Senin tidak tercantum, jadi belum dikonfirmasi tutup. Tidak ada entri Senin karena tidak tertulis di sumber. 3) Pertentangan: hasil pencarian (belum dibuka) menyebut Traveloka 08:30-14:30 dan tiket Kedhaton Rp30.000 pada listing GlobalTix yang menulis Senin tutup. Tidak dimasukkan sebagai fakta. 4) Harga pada indonesia.travel tidak dipisah per unit (Kedhaton, Tamansari, Wahanarata), dan cakupan tiket belum pasti. 5) Koordinat dari id.wikipedia (7°48′20″S 110°21′51″E) dan berada di dalam batas DIY. Nomor rumah 1 dari infobox Wikipedia dan indonesia.travel, sedangkan header Wikipedia tidak menampilkan nomornya. 6) Deskripsi ditulis ulang dari fakta: pendirian 1755 dan Perjanjian Giyanti dari Wikipedia, pengelolaan wisata dari kratonjogja.id. 7) url_beli_tiket null: visitingjogja menyebut pembelian online, tetapi tautan GlobalTix tidak berhasil dibuka. 8) Tidak ada hari tutup khusus atau jadwal pertunjukan yang berhasil diverifikasi.",
+      "kategori_enum": "lainnya",
+      "status": "pending",
+      "perlu_tindak_lanjut": [
+        "Jam dan tarif dari indonesia.travel, bukan kratonjogja.id. Senin tidak tercantum, belum dikonfirmasi tutup."
+      ]
+    },
+    {
+      "nama": "Taman Sari",
+      "slug": "taman-sari",
+      "kategori_usulan": "kawasan",
+      "jenis": "permanen",
+      "induk_lokasi": null,
+      "kabupaten": "Kota Yogyakarta",
+      "alamat": "Jalan Tamanan, Patehan, Kecamatan Kraton, Kota Yogyakarta, Daerah Istimewa Yogyakarta 55133",
+      "lat": -7.8100322,
+      "lng": 110.3591533,
+      "deskripsi": "Taman Sari adalah kompleks taman dan pesanggrahan milik Keraton Yogyakarta yang dibangun bertahap sejak 1758 pada masa Sultan Hamengku Buwono I. Dahulu area seluas lebih dari 10 hektar ini dipakai sebagai kebun dan tempat pemandian kerabat kerajaan, lengkap dengan kolam, jembatan gantung, dan lorong bawah tanah. Bangunannya sempat rusak akibat gempa 1867 dan 2006, kini sebagian telah dipugar dan dibuka sebagai objek wisata.",
+      "jam_buka": [
+        {
+          "hari": "Senin",
+          "tutup": false,
+          "buka": "09:00",
+          "tutup_jam": "15:00",
+          "catatan": null,
+          "source_url": "https://visitingjogja.jogjaprov.go.id/38875/harga-tiket-masuk-htm-baru-di-sejumlah-unit-pariwisata-keraton-yogyakarta/",
+          "checked_at": "2026-11-25"
+        },
+        {
+          "hari": "Selasa",
+          "tutup": false,
+          "buka": "09:00",
+          "tutup_jam": "15:00",
+          "catatan": null,
+          "source_url": "https://visitingjogja.jogjaprov.go.id/38875/harga-tiket-masuk-htm-baru-di-sejumlah-unit-pariwisata-keraton-yogyakarta/",
+          "checked_at": "2026-11-25"
+        },
+        {
+          "hari": "Rabu",
+          "tutup": false,
+          "buka": "09:00",
+          "tutup_jam": "15:00",
+          "catatan": null,
+          "source_url": "https://visitingjogja.jogjaprov.go.id/38875/harga-tiket-masuk-htm-baru-di-sejumlah-unit-pariwisata-keraton-yogyakarta/",
+          "checked_at": "2026-11-25"
+        },
+        {
+          "hari": "Kamis",
+          "tutup": false,
+          "buka": "09:00",
+          "tutup_jam": "15:00",
+          "catatan": null,
+          "source_url": "https://visitingjogja.jogjaprov.go.id/38875/harga-tiket-masuk-htm-baru-di-sejumlah-unit-pariwisata-keraton-yogyakarta/",
+          "checked_at": "2026-11-25"
+        },
+        {
+          "hari": "Jumat",
+          "tutup": false,
+          "buka": "09:00",
+          "tutup_jam": "15:00",
+          "catatan": null,
+          "source_url": "https://visitingjogja.jogjaprov.go.id/38875/harga-tiket-masuk-htm-baru-di-sejumlah-unit-pariwisata-keraton-yogyakarta/",
+          "checked_at": "2026-11-25"
+        },
+        {
+          "hari": "Sabtu",
+          "tutup": false,
+          "buka": "09:00",
+          "tutup_jam": "15:00",
+          "catatan": null,
+          "source_url": "https://visitingjogja.jogjaprov.go.id/38875/harga-tiket-masuk-htm-baru-di-sejumlah-unit-pariwisata-keraton-yogyakarta/",
+          "checked_at": "2026-11-25"
+        },
+        {
+          "hari": "Minggu",
+          "tutup": false,
+          "buka": "09:00",
+          "tutup_jam": "15:00",
+          "catatan": null,
+          "source_url": "https://visitingjogja.jogjaprov.go.id/38875/harga-tiket-masuk-htm-baru-di-sejumlah-unit-pariwisata-keraton-yogyakarta/",
+          "checked_at": "2026-11-25"
+        }
+      ],
+      "hari_tutup_khusus": [],
+      "tiket": [
+        {
+          "label": "Domestik dewasa (13 tahun ke atas)",
+          "harga_idr": 15000,
+          "catatan": "Tarif HTM dari pengumuman Dinas Pariwisata DIY, berlaku mulai 1 Maret 2023. Belum ada tarif yang lebih baru di sumber resmi yang terbaca.",
+          "source_url": "https://visitingjogja.jogjaprov.go.id/38875/harga-tiket-masuk-htm-baru-di-sejumlah-unit-pariwisata-keraton-yogyakarta/",
+          "checked_at": "2026-11-25"
+        },
+        {
+          "label": "Domestik anak (2-12 tahun, sampai kelas VI SD)",
+          "harga_idr": 10000,
+          "catatan": "Anak 0-2 tahun gratis menurut pengumuman yang sama.",
+          "source_url": "https://visitingjogja.jogjaprov.go.id/38875/harga-tiket-masuk-htm-baru-di-sejumlah-unit-pariwisata-keraton-yogyakarta/",
+          "checked_at": "2026-11-25"
+        },
+        {
+          "label": "Mancanegara dewasa (13 tahun ke atas)",
+          "harga_idr": 25000,
+          "catatan": "Tarif HTM dari pengumuman Dinas Pariwisata DIY, berlaku mulai 1 Maret 2023.",
+          "source_url": "https://visitingjogja.jogjaprov.go.id/38875/harga-tiket-masuk-htm-baru-di-sejumlah-unit-pariwisata-keraton-yogyakarta/",
+          "checked_at": "2026-11-25"
+        },
+        {
+          "label": "Mancanegara anak (2-12 tahun, sampai kelas VI SD)",
+          "harga_idr": 20000,
+          "catatan": "Anak 0-2 tahun gratis menurut pengumuman yang sama.",
+          "source_url": "https://visitingjogja.jogjaprov.go.id/38875/harga-tiket-masuk-htm-baru-di-sejumlah-unit-pariwisata-keraton-yogyakarta/",
+          "checked_at": "2026-11-25"
+        }
+      ],
+      "jadwal_pertunjukan": [],
+      "situs_resmi": "https://kratonjogja.id",
+      "url_beli_tiket": "https://kratonjogja-online.globaltix.com/attraction/kraton-taman-sari-35778",
+      "sumber_dibuka": [
+        "https://visitingjogja.jogjaprov.go.id/38875/harga-tiket-masuk-htm-baru-di-sejumlah-unit-pariwisata-keraton-yogyakarta/",
+        "https://visitingjogja.jogjaprov.go.id/jp/15077/%E6%B0%B4%E3%81%AE%E5%AE%AE%E6%AE%BF-%E3%82%BF%E3%83%9E%E3%83%B3%E3%82%B5%E3%83%AA-taman-sari/",
+        "https://visitingjogja.jogjaprov.go.id/id/",
+        "https://tourism.kratonjogja.id/id-ID/destination/5-kagungan-dalem-tamansari",
+        "https://tourism.kratonjogja.id/id-ID/faq/",
+        "https://tourism.kratonjogja.id/",
+        "https://www.kratonjogja.id/tata-rakiting/13-tamansari/",
+        "https://kratonjogja.id"
+      ],
+      "sumber_gagal": [
+        "https://kratonjogja-online.globaltix.com/attraction/kraton-taman-sari-35778 (HTTP 403, halaman booking tidak terbaca)",
+        "https://id.wikipedia.org/wiki/Taman_Sari_(Yogyakarta) (HTTP 404, URL tebakan)",
+        "https://direktoripariwisata.id/pdf/4873 (HTTP 404, hanya muncul di hasil pencarian)",
+        "Dinas Pariwisata Kota Yogyakarta: tidak ditemukan halaman Taman Sari yang bisa dibaca"
+      ],
+      "catatan": "1) Harga: tarif 2023 dari visitingjogja.jogjaprov.go.id (Dinas Pariwisata DIY) dipakai sebagai sumber utama, tanggal berlaku 1 Maret 2023, jadi perlu dicek ulang. Halaman portal berbahasa Jepang (jp/15077) mencantumkan satu harga umum Rp15.000 tanpa kategori, konsisten dengan tarif domestik dewasa. Sumber lama (Rp5.000 dan Rp7.500) dan artikel detikJogja Desember 2023 (Rp15.000 domestik, Rp25.000 mancanegara) tidak dipakai sebagai angka resmi. 2) Tarif kamera Rp3.000 hanya ada di sumber pihak ketiga, tidak dimasukkan. 3) Jam: 09.00-15.00 setiap hari menurut tiga sumber (Dinas Pariwisata DIY, portal pariwisata DIY versi Jepang, tourism.kratonjogja.id); sebagian sumber pihak ketiga menulis 09.00-16.00 dan tidak dipakai. Tidak ada hari tutup khusus yang ditemukan. FAQ Keraton: pembelian tiket terakhir sampai jam tutup unit, lalu pengunjung masih diberi sekitar 30 menit. 4) Koordinat tidak diambil dari sumber yang berhasil dibuka, sehingga lat dan lng null. Hasil pencarian menyebut sekitar -7.8077 sampai -7.8102 LS dan 110.3589 sampai 110.3594 BT (direktoripariwisata.id dan Travel Dojo), tetapi belum terverifikasi. Perlu dicek di peta resmi. 5) Halaman booking Globaltix tidak terbaca (403), jadi url_beli_tiket hanya berasal dari tautan di halaman resmi tourism.kratonjogja.id. 6) Alamat: Jalan Tamanan, Patehan, Kraton, Kota Yogyakarta 55133, sesuai tourism.kratonjogja.id dan portal Dinas Pariwisata DIY. 7) Jangan tertukar dengan Kampung Wisata Tamansari, yang merupakan entitas terpisah. 8) Kontak WhatsApp resmi di tourism.kratonjogja.id: +62 819-1137-6756. Nomor telepon 0274 377904 muncul di portal DIY versi Jepang. Sumber lain tidak dibuka.",
+      "kategori_enum": "lainnya",
+      "status": "pending",
+      "perlu_tindak_lanjut": [
+        "Tarif berlaku 1 Maret 2023 (pengumuman Dinas Pariwisata DIY); cek apakah masih berlaku."
+      ]
+    },
+    {
+      "nama": "Museum Negeri Sonobudoyo",
+      "slug": "museum-sonobudoyo",
+      "kategori_usulan": "museum",
+      "jenis": "permanen",
+      "induk_lokasi": null,
+      "kabupaten": "Kota Yogyakarta",
+      "alamat": "Jl. Pangurakan No. 6, Yogyakarta 55122 (Unit I, Alun-alun Utara)",
+      "lat": -7.8021367,
+      "lng": 110.3637812,
+      "deskripsi": "Museum Negeri Sonobudoyo adalah museum daerah di Kota Yogyakarta yang dikelola oleh Pemerintah Daerah Istimewa Yogyakarta sebagai unit pelaksana teknis. Museum ini merawat, meneliti, dan memamerkan koleksi budaya serta ilmiah, termasuk benda-benda budaya Jawa. Pengunjung juga dapat menyaksikan pagelaran wayang dan gamelan.",
+      "jam_buka": [
+        {
+          "hari": "Senin",
+          "tutup": true,
+          "buka": null,
+          "tutup_jam": null,
+          "catatan": "Unit I. Telkomsel menulis Unit I buka Selasa-Minggu, jadi Senin tutup. Unit II Senin dibahas di catatan.",
+          "source_url": "https://www.telkomsel.com/jelajah/jelajah-nusantara/museum-sonobudoyo-wisata-budaya-keren-di-jogja",
+          "checked_at": "2026-11-25"
+        },
+        {
+          "hari": "Selasa",
+          "tutup": false,
+          "buka": "08:00",
+          "tutup_jam": "21:00",
+          "catatan": "Unit I. Tiket maksimal dibeli pukul 20:00. Sumber non-resmi, lihat catatan.",
+          "source_url": "https://www.telkomsel.com/jelajah/jelajah-nusantara/museum-sonobudoyo-wisata-budaya-keren-di-jogja",
+          "checked_at": "2026-11-25"
+        },
+        {
+          "hari": "Rabu",
+          "tutup": false,
+          "buka": "08:00",
+          "tutup_jam": "21:00",
+          "catatan": "Unit I. Tiket maksimal dibeli pukul 20:00. Sumber non-resmi, lihat catatan.",
+          "source_url": "https://www.telkomsel.com/jelajah/jelajah-nusantara/museum-sonobudoyo-wisata-budaya-keren-di-jogja",
+          "checked_at": "2026-11-25"
+        },
+        {
+          "hari": "Kamis",
+          "tutup": false,
+          "buka": "08:00",
+          "tutup_jam": "21:00",
+          "catatan": "Unit I. Tiket maksimal dibeli pukul 20:00. Sumber non-resmi, lihat catatan.",
+          "source_url": "https://www.telkomsel.com/jelajah/jelajah-nusantara/museum-sonobudoyo-wisata-budaya-keren-di-jogja",
+          "checked_at": "2026-11-25"
+        },
+        {
+          "hari": "Jumat",
+          "tutup": false,
+          "buka": "08:00",
+          "tutup_jam": "21:00",
+          "catatan": "Unit I. Tiket maksimal dibeli pukul 20:00. Sumber non-resmi, lihat catatan.",
+          "source_url": "https://www.telkomsel.com/jelajah/jelajah-nusantara/museum-sonobudoyo-wisata-budaya-keren-di-jogja",
+          "checked_at": "2026-11-25"
+        },
+        {
+          "hari": "Sabtu",
+          "tutup": false,
+          "buka": "08:00",
+          "tutup_jam": "21:00",
+          "catatan": "Unit I. Tiket maksimal dibeli pukul 20:00. Sumber non-resmi, lihat catatan.",
+          "source_url": "https://www.telkomsel.com/jelajah/jelajah-nusantara/museum-sonobudoyo-wisata-budaya-keren-di-jogja",
+          "checked_at": "2026-11-25"
+        },
+        {
+          "hari": "Minggu",
+          "tutup": false,
+          "buka": "08:00",
+          "tutup_jam": "21:00",
+          "catatan": "Unit I. Tiket maksimal dibeli pukul 20:00. Sumber non-resmi, lihat catatan.",
+          "source_url": "https://www.telkomsel.com/jelajah/jelajah-nusantara/museum-sonobudoyo-wisata-budaya-keren-di-jogja",
+          "checked_at": "2026-11-25"
+        }
+      ],
+      "hari_tutup_khusus": [],
+      "tiket": [
+        {
+          "label": "Tiket masuk dewasa (domestik)",
+          "harga_idr": 10000,
+          "catatan": "Berlaku untuk Unit I menurut Telkomsel (tidak disebutkan unitnya). Mengacu Pergub DIY No. 122 Tahun 2021 menurut sumber. Belum diverifikasi resmi.",
+          "source_url": "https://www.telkomsel.com/jelajah/jelajah-nusantara/museum-sonobudoyo-wisata-budaya-keren-di-jogja",
+          "checked_at": "2026-11-25"
+        },
+        {
+          "label": "Tiket masuk anak",
+          "harga_idr": 5000,
+          "catatan": "Tidak disebutkan unitnya. Belum diverifikasi resmi.",
+          "source_url": "https://www.telkomsel.com/jelajah/jelajah-nusantara/museum-sonobudoyo-wisata-budaya-keren-di-jogja",
+          "checked_at": "2026-11-25"
+        },
+        {
+          "label": "Tiket masuk wisatawan asing",
+          "harga_idr": 20000,
+          "catatan": "Tidak disebutkan unitnya. Cuplikan pencarian (tidak dibuka) menyebut Rp10.000 untuk asing, jadi bertentangan. Belum diverifikasi resmi.",
+          "source_url": "https://www.telkomsel.com/jelajah/jelajah-nusantara/museum-sonobudoyo-wisata-budaya-keren-di-jogja",
+          "checked_at": "2026-11-25"
+        },
+        {
+          "label": "Pagelaran wayang (domestik)",
+          "harga_idr": 20000,
+          "catatan": "Tambahan di luar tiket masuk. Belum diverifikasi resmi.",
+          "source_url": "https://www.telkomsel.com/jelajah/jelajah-nusantara/museum-sonobudoyo-wisata-budaya-keren-di-jogja",
+          "checked_at": "2026-11-25"
+        },
+        {
+          "label": "Pagelaran wayang (asing)",
+          "harga_idr": 50000,
+          "catatan": "Tambahan di luar tiket masuk. Belum diverifikasi resmi.",
+          "source_url": "https://www.telkomsel.com/jelajah/jelajah-nusantara/museum-sonobudoyo-wisata-budaya-keren-di-jogja",
+          "checked_at": "2026-11-25"
+        }
+      ],
+      "jadwal_pertunjukan": [],
+      "situs_resmi": "https://sonobudoyo.jogjaprov.go.id",
+      "url_beli_tiket": null,
+      "sumber_dibuka": [
+        "https://sonobudoyo.jogjaprov.go.id",
+        "https://en.wikipedia.org/wiki/Sonobudoyo_Museum",
+        "https://www.telkomsel.com/jelajah/jelajah-nusantara/museum-sonobudoyo-wisata-budaya-keren-di-jogja"
+      ],
+      "sumber_gagal": [
+        "https://sonobudoyo.jogjaprov.go.id/informasi-kunjungan (404, URL ditebak, tidak ada di beranda)"
+      ],
+      "catatan": "1) Situs resmi (beranda sonobudoyo.jogjaprov.go.id) dibuka dan berisi alamat, kontak, dan deskripsi, tetapi TIDAK memuat jam buka, hari tutup, atau tarif. Jam dan tarif di file ini berasal dari Telkomsel Jelajah (non-resmi, dibuka dan dibaca 2026-11-25) dan BELUM diverifikasi ke sumber resmi. Perlu dicek manual sebelum publish. 2) Unit I (Jl. Pangurakan No. 6) dipakai sebagai utama. Pertentangan alamat Unit I: resmi = Pangurakan No. 6, Yogyakarta 55122; Telkomsel = Pangurakan No. 6, Ngupasan, Gondomanan; Wikipedia EN = Jl. Trikora No. 6 (infobox tetap Pangurakan). Ikuti resmi. 3) Unit II (Wijilan, Ndalem Condrokiranan): menurut Telkomsel buka Senin-Kamis 08.00-16.00 dan Jumat 08.00-14.30, tetapi artikel yang sama juga menulis Senin dan libur nasional tutup (kontradiktif). Cuplikan pencarian Orami (tidak dibuka) menulis Senin-Kamis 08.00-15.15 dan Jumat 08.00-16.00. Tidak dimasukkan ke jam_buka karena utamakan Unit I. Tarif Unit II tidak ditemukan terpisah. 4) Tarif: Telkomsel memberi dewasa Rp10.000, anak Rp5.000, asing Rp20.000; cuplikan Orami (tidak dibuka) memberi domestik Rp5.000 dan asing Rp10.000. Pertentangan belum terselesaikan, butuh verifikasi resmi. Telkomsel tidak menyebut unit untuk tarif. 5) Wikipedia EN menulis pagelaran wayang Senin-Sabtu 20.00-22.00 WIB dan 'pertunjukan wayang dan gamelan malam hari pada hari kerja'. Jadwal ini belum diverifikasi resmi, dan tidak dimasukkan ke jadwal_pertunjukan karena museum bukan kategori pertunjukan. Hari buka Unit I (Selasa-Minggu) belum cocok dengan jadwal pagelaran Senin-Sabtu; perlu cek. 6) Koordinat dari infobox Wikipedia EN (7.801785 S, 110.364003 E), belum dicek ke peta resmi atau OSM; berada dalam batas DIY. 7) Tidak ditemukan: situs pemesanan tiket online (url_beli_tiket null), hari tutup khusus resmi, dan kontak resmi lain selain: telp (0274) 373617, email sonobudoyomuseum@gmail.com (dari beranda resmi).",
+      "kategori_enum": "museum",
+      "status": "pending",
+      "perlu_tindak_lanjut": [
+        "Jam dan tiket dari Telkomsel Jelajah (bukan situs resmi); situs resmi tidak memuatnya. Konfirmasi ke pengelola."
+      ]
+    },
+    {
+      "nama": "Candi Prambanan",
+      "slug": "candi-prambanan",
+      "kategori_usulan": "candi",
+      "jenis": "permanen",
+      "induk_lokasi": null,
+      "kabupaten": "Sleman",
+      "alamat": "Bokoharjo, Kecamatan Prambanan, Kabupaten Sleman, DI Yogyakarta (pintu administrasi berada di Tlogo, Klaten, Jawa Tengah)",
+      "lat": -7.75202,
+      "lng": 110.491465,
+      "deskripsi": "Candi Prambanan adalah kompleks candi Hindu terbesar di Indonesia yang dibangun pada abad ke-9 dan didedikasikan untuk Trimurti: Brahma, Wisnu, dan Siwa. Candi Siwa di tengahnya menjulang sekitar 47 meter dan menjadi salah satu bangunan candi paling mengesankan di Asia Tenggara. Situs ini masuk Warisan Dunia UNESCO sejak 1991.",
+      "jam_buka": [
+        {
+          "hari": "Senin",
+          "tutup": false,
+          "buka": "06:30",
+          "tutup_jam": "17:00",
+          "catatan": "Jam layanan tiket. Jam kunjungan 07:00-17:30 WIB. Sumber berupa artikel terbit 19 Juli 2022, perlu verifikasi ke pengelola. Halaman tiket resmi hanya menyebut mulai pukul 06.30 WIB setiap hari.",
+          "source_url": "https://visitingjogja.jogjaprov.go.id/36404/jam-operasional-twc-prambanan/",
+          "checked_at": null
+        },
+        {
+          "hari": "Selasa",
+          "tutup": false,
+          "buka": "06:30",
+          "tutup_jam": "17:00",
+          "catatan": "Sama dengan Senin (lihat catatan Senin).",
+          "source_url": "https://visitingjogja.jogjaprov.go.id/36404/jam-operasional-twc-prambanan/",
+          "checked_at": null
+        },
+        {
+          "hari": "Rabu",
+          "tutup": false,
+          "buka": "06:30",
+          "tutup_jam": "17:00",
+          "catatan": "Sama dengan Senin (lihat catatan Senin).",
+          "source_url": "https://visitingjogja.jogjaprov.go.id/36404/jam-operasional-twc-prambanan/",
+          "checked_at": null
+        },
+        {
+          "hari": "Kamis",
+          "tutup": false,
+          "buka": "06:30",
+          "tutup_jam": "17:00",
+          "catatan": "Sama dengan Senin (lihat catatan Senin).",
+          "source_url": "https://visitingjogja.jogjaprov.go.id/36404/jam-operasional-twc-prambanan/",
+          "checked_at": null
+        },
+        {
+          "hari": "Jumat",
+          "tutup": false,
+          "buka": "06:30",
+          "tutup_jam": "17:00",
+          "catatan": "Sama dengan Senin (lihat catatan Senin).",
+          "source_url": "https://visitingjogja.jogjaprov.go.id/36404/jam-operasional-twc-prambanan/",
+          "checked_at": null
+        },
+        {
+          "hari": "Sabtu",
+          "tutup": false,
+          "buka": "06:30",
+          "tutup_jam": "17:00",
+          "catatan": "Sama dengan Senin (lihat catatan Senin).",
+          "source_url": "https://visitingjogja.jogjaprov.go.id/36404/jam-operasional-twc-prambanan/",
+          "checked_at": null
+        },
+        {
+          "hari": "Minggu",
+          "tutup": false,
+          "buka": "06:30",
+          "tutup_jam": "17:00",
+          "catatan": "Sama dengan Senin (lihat catatan Senin).",
+          "source_url": "https://visitingjogja.jogjaprov.go.id/36404/jam-operasional-twc-prambanan/",
+          "checked_at": null
+        }
+      ],
+      "hari_tutup_khusus": [],
+      "tiket": [],
+      "jadwal_pertunjukan": [],
+      "situs_resmi": "https://ticket.borobudurpark.com/id/candi-prambanan/",
+      "url_beli_tiket": "https://ticket.borobudurpark.com/id/candi-prambanan/",
+      "sumber_dibuka": [
+        "https://ticket.borobudurpark.com/id/candi-prambanan/",
+        "https://visitingjogja.jogjaprov.go.id/36404/jam-operasional-twc-prambanan/",
+        "https://id.wikipedia.org/wiki/Candi_Prambanan",
+        "https://visitingjogja.jogjaprov.go.id/wisata-jogja/wisata-budaya-sejarah/"
+      ],
+      "sumber_gagal": [
+        "https://www.borobudurpark.com/ (HTTP 521, dicoba 3 kali)",
+        "https://www.borobudurpark.com/prambanan (HTTP 521)",
+        "https://prambanan.injourneydestination.id/destination-info/ (ENOTFOUND)"
+      ],
+      "catatan": "TARIF TIKET TIDAK DITEMUKAN DI SUMBER RESMI YANG BERHASIL DIBUKA: halaman ticket.borobudurpark.com/id/candi-prambanan hanya menyebut cakupan tiket (Candi Prambanan, Candi Lumbung, Candi Bubrah, Candi Sewu, Museum Prambanan) tanpa harga. Tiket dibiarkan kosong (tiket: []) sampai ada sumber resmi yang memuat angka. Angka dari sumber sekunder yang TIDAK terverifikasi di halaman resmi: (a) wisatawan domestik dewasa Rp50.000 hari biasa dan Rp65.000 akhir pekan/libur, anak 3-10 tahun Rp25.000/Rp35.000 (beberapa blog 2026); Kontan 2023 mengutip borobudurpark.com dewasa Rp50.000, anak Rp25.000; (b) wisatawan mancanegara dewasa Rp375.000-400.000, anak Rp225.000-250.000 (sumber berbeda-beda, kemungkinan tercampur harga Borobudur); tidak ada yang terkonfirmasi. Halaman borobudurpark.com gagal dibuka (HTTP 521), sehingga harga resmi di halaman utama belum bisa dicek. Jam: satu sumber (Bernas) menulis 08.00-17.00 atau 24 jam, dan artikel lama Dinas Pariwisata menulis 08.00-17.00; keduanya dianggap usang atau keliru. Jam 06.30-17.00 berasal dari artikel 2022, bukan dari halaman yang diperbarui, sehingga perlu dicek ulang. Hari tutup: sumber sekunder (situs tiket 2023) menyebut zona candi utama tutup pada hari Senin untuk pemeliharaan; tidak ada di sumber resmi yang dibuka, sehingga hari_tutup_khusus dikosongkan. Entri Senin di jam_buka memakai jam umum, bukan konfirmasi hari tutup. Koordinat dari Wikipedia Indonesia (7°45'07\"S 110°29'29\"E); pintu administrasi ada di Klaten, Jawa Tengah. Tidak ada tanggal 'Diperiksa' dari halaman resmi terbaru; checked_at pada jam_buka mengikuti tanggal baca halaman artikel 2022 dan perlu konfirmasi pengelola sebelum publikasi. Sendratari Ramayana dijual terpisah dan tidak dimasukkan ke jadwal_pertunjukan karena tempat ini kategori candi.",
+      "kategori_enum": "candi",
+      "status": "pending",
+      "perlu_tindak_lanjut": [
+        "Jam 06.30-17.00 dari artikel 2022, checked_at dikosongkan. Tarif resmi tidak ditemukan (borobudurpark.com error)."
+      ]
+    },
+    {
+      "nama": "Museum Benteng Vredeburg",
+      "slug": "benteng-vredeburg",
+      "kategori_usulan": "benteng",
+      "jenis": "permanen",
+      "induk_lokasi": null,
+      "kabupaten": "Kota Yogyakarta",
+      "alamat": "Jalan Margo Mulyo No. 6, Yogyakarta 55121",
+      "lat": -7.8003,
+      "lng": 110.3663,
+      "deskripsi": "Museum Benteng Vredeburg menempati bekas benteng peninggalan kolonial yang tanahnya dimiliki Kesultanan Yogyakarta dan disewakan kepada pemerintah pusat. Sejak 1992 kompleks ini dikelola sebagai museum yang mengisahkan perjalanan perjuangan kemerdekaan Indonesia. Pengunjung dapat menjelajahi pameran sejarah bangsa di dalam area benteng.",
+      "jam_buka": [
+        {
+          "hari": "Senin",
+          "tutup": true,
+          "buka": null,
+          "tutup_jam": null,
+          "catatan": "Senin tutup layanan (sesuai footer situs resmi).",
+          "source_url": "https://vredeburg.id/",
+          "checked_at": "2026-11-25"
+        },
+        {
+          "hari": "Selasa",
+          "tutup": false,
+          "buka": "08:00",
+          "tutup_jam": "20:00",
+          "catatan": null,
+          "source_url": "https://vredeburg.id/",
+          "checked_at": "2026-11-25"
+        },
+        {
+          "hari": "Rabu",
+          "tutup": false,
+          "buka": "08:00",
+          "tutup_jam": "20:00",
+          "catatan": null,
+          "source_url": "https://vredeburg.id/",
+          "checked_at": "2026-11-25"
+        },
+        {
+          "hari": "Kamis",
+          "tutup": false,
+          "buka": "08:00",
+          "tutup_jam": "20:00",
+          "catatan": null,
+          "source_url": "https://vredeburg.id/",
+          "checked_at": "2026-11-25"
+        },
+        {
+          "hari": "Jumat",
+          "tutup": false,
+          "buka": "08:00",
+          "tutup_jam": "21:00",
+          "catatan": null,
+          "source_url": "https://vredeburg.id/",
+          "checked_at": "2026-11-25"
+        },
+        {
+          "hari": "Sabtu",
+          "tutup": false,
+          "buka": "08:00",
+          "tutup_jam": "21:00",
+          "catatan": null,
+          "source_url": "https://vredeburg.id/",
+          "checked_at": "2026-11-25"
+        },
+        {
+          "hari": "Minggu",
+          "tutup": false,
+          "buka": "08:00",
+          "tutup_jam": "21:00",
+          "catatan": null,
+          "source_url": "https://vredeburg.id/",
+          "checked_at": "2026-11-25"
+        }
+      ],
+      "hari_tutup_khusus": [],
+      "tiket": [
+        {
+          "label": "Anak usia 0-3 tahun",
+          "harga_idr": 0,
+          "catatan": "Gratis pada semua jam.",
+          "source_url": "https://vredeburg.id/id/page/tiket",
+          "checked_at": "2026-11-25"
+        },
+        {
+          "label": "Pelajar (PAUD-Universitas), Selasa-Kamis 08.00-20.00",
+          "harga_idr": 10000,
+          "catatan": null,
+          "source_url": "https://vredeburg.id/id/page/tiket",
+          "checked_at": "2026-11-25"
+        },
+        {
+          "label": "Pelajar (PAUD-Universitas), Jumat-Minggu 08.00-16.00",
+          "harga_idr": 15000,
+          "catatan": null,
+          "source_url": "https://vredeburg.id/id/page/tiket",
+          "checked_at": "2026-11-25"
+        },
+        {
+          "label": "Pelajar (PAUD-Universitas), Jumat-Minggu 16.01-21.00",
+          "harga_idr": 20000,
+          "catatan": null,
+          "source_url": "https://vredeburg.id/id/page/tiket",
+          "checked_at": "2026-11-25"
+        },
+        {
+          "label": "Dewasa (domestik), Selasa-Kamis 08.00-20.00",
+          "harga_idr": 15000,
+          "catatan": null,
+          "source_url": "https://vredeburg.id/id/page/tiket",
+          "checked_at": "2026-11-25"
+        },
+        {
+          "label": "Dewasa (domestik), Jumat-Minggu 08.00-16.00",
+          "harga_idr": 20000,
+          "catatan": null,
+          "source_url": "https://vredeburg.id/id/page/tiket",
+          "checked_at": "2026-11-25"
+        },
+        {
+          "label": "Dewasa (domestik), Jumat-Minggu 16.01-21.00",
+          "harga_idr": 25000,
+          "catatan": null,
+          "source_url": "https://vredeburg.id/id/page/tiket",
+          "checked_at": "2026-11-25"
+        },
+        {
+          "label": "WNA pemegang Izin Tinggal Terbatas (KITAS)",
+          "harga_idr": 25000,
+          "catatan": "Sama pada semua jam.",
+          "source_url": "https://vredeburg.id/id/page/tiket",
+          "checked_at": "2026-11-25"
+        },
+        {
+          "label": "WNA (mancanegara)",
+          "harga_idr": 100000,
+          "catatan": "Sama pada semua jam.",
+          "source_url": "https://vredeburg.id/id/page/tiket",
+          "checked_at": "2026-11-25"
+        }
+      ],
+      "jadwal_pertunjukan": [],
+      "situs_resmi": "https://vredeburg.id/",
+      "url_beli_tiket": "https://vredeburg.id/tiket.html",
+      "sumber_dibuka": [
+        "https://vredeburg.id/",
+        "https://vredeburg.id/id/page/tiket",
+        "https://visitingjogja.jogjaprov.go.id",
+        "https://visitingjogja.jogjaprov.go.id/wisata-jogja/wisata-museum/",
+        "https://visitingjogja.jogjaprov.go.id/wisata-jogja/wisata-museum/page/2/",
+        "https://en.wikipedia.org/wiki/Fort_Vredeburg_Museum"
+      ],
+      "sumber_gagal": [
+        "https://museum.kemdikbud.go.id (ENOTFOUND, host tidak bisa dihubungi)"
+      ],
+      "catatan": "(1) Alamat: situs resmi (footer) menulis 'Jalan Margo Mulyo No. 6 Yogyakarta 55121'; direktori pihak ketiga menulis 55122 dan kecamatan Gondomanan (tidak ada di sumber resmi, tidak dipakai). Infobox en.wikipedia menulis 'Jalan Ahmad Yani No. 6'; dipilih alamat resmi. (2) Koordinat -7.8003, 110.3663 diambil dari infobox en.wikipedia (sudah dibuka dan dibaca), bukan dari sumber resmi; perlu dicek di peta sebelum publish. Dalam batas DIY. (3) Harga tiket: halaman /id/page/tiket dibuka dan dibaca, tetapi tertulis 'dated 26 Mei 2019'; harga mungkin sudah tidak berlaku. checked_at tetap diisi sesuai aturan (halaman berhasil dibaca), namun perlu konfirmasi ulang sebelum publish. (4) Jam: footer vredeburg.id dan halaman tiket sepakat (Selasa-Kamis 08.00-20.00; Jumat-Minggu 08.00-21.00; Senin tutup); jam Jumat-Minggu dipecah 08.00-16.00 dan 16.01-21.00 pada tabel harga. (5) Berita 'Museum Tutup Layanan Lebih Awal' di vredeburg.id tidak menyebut tanggal atau jam; tidak dicatat sebagai hari_tutup_khusus. (6) visitingjogja.jogjaprov.go.id: halaman utama dan listing wisata-museum halaman 1 dan 2 tidak memuat Benteng Vredeburg; halaman 3-5 belum dibuka. (7) Kontak resmi (dari footer): telepon 0274 586934, WhatsApp 081226099292, email museumcb@kemenbud.go.id. (8) url_beli_tiket 'https://vredeburg.id/tiket.html' diambil dari link header situs resmi, URL itu sendiri belum dibuka langsung. (9) Jadwal pertunjukan tidak relevan (tempat permanen), dikosongkan.",
+      "kategori_enum": "museum",
+      "status": "pending",
+      "perlu_tindak_lanjut": [
+        "Tiket dari halaman resmi yang bertanda 26 Mei 2019; konfirmasi masih berlaku. Koordinat dari Wikipedia."
+      ]
+    },
+    {
+      "nama": "Museum Ullen Sentalu",
+      "slug": "museum-ullen-sentalu",
+      "kategori_usulan": "museum",
+      "jenis": "permanen",
+      "induk_lokasi": null,
+      "kabupaten": "Sleman",
+      "alamat": "Jl. Boyong - Kaliurang KM 25, Harjobinangun, Kaliurang Barat, Pakem, Sleman, DI Yogyakarta",
+      "lat": -7.597973,
+      "lng": 110.423174,
+      "deskripsi": "Museum swasta di kawasan Kaliurang ini menampilkan kehidupan dan budaya kaum bangsawan Mataram, termasuk keraton Yogyakarta, Surakarta, Mangkunegaran, dan Pakualaman. Pengunjung mengikuti tur berpemandu yang dipilih menurut tema, dan koleksinya mencakup batik serta arca tokoh kerajaan. Lokasi ini dikelola oleh Yayasan Ulating Blencong.",
+      "jam_buka": [
+        {
+          "hari": "Senin",
+          "tutup": true,
+          "buka": null,
+          "tutup_jam": null,
+          "catatan": "Tutup (sesuai jadwal resmi)",
+          "source_url": "https://ullensentalu.com/berkunjung.html",
+          "checked_at": "2026-11-25"
+        },
+        {
+          "hari": "Selasa",
+          "tutup": false,
+          "buka": "08:30",
+          "tutup_jam": "16:30",
+          "catatan": "Tur terakhir pukul 15:15",
+          "source_url": "https://ullensentalu.com/berkunjung.html",
+          "checked_at": "2026-11-25"
+        },
+        {
+          "hari": "Rabu",
+          "tutup": false,
+          "buka": "08:30",
+          "tutup_jam": "16:30",
+          "catatan": "Tur terakhir pukul 15:15",
+          "source_url": "https://ullensentalu.com/berkunjung.html",
+          "checked_at": "2026-11-25"
+        },
+        {
+          "hari": "Kamis",
+          "tutup": false,
+          "buka": "08:30",
+          "tutup_jam": "16:30",
+          "catatan": "Tur terakhir pukul 15:15",
+          "source_url": "https://ullensentalu.com/berkunjung.html",
+          "checked_at": "2026-11-25"
+        },
+        {
+          "hari": "Jumat",
+          "tutup": false,
+          "buka": "08:30",
+          "tutup_jam": "16:30",
+          "catatan": "Tur terakhir pukul 15:15",
+          "source_url": "https://ullensentalu.com/berkunjung.html",
+          "checked_at": "2026-11-25"
+        },
+        {
+          "hari": "Sabtu",
+          "tutup": false,
+          "buka": "08:30",
+          "tutup_jam": "16:30",
+          "catatan": "Tur terakhir pukul 15:15",
+          "source_url": "https://ullensentalu.com/berkunjung.html",
+          "checked_at": "2026-11-25"
+        },
+        {
+          "hari": "Minggu",
+          "tutup": false,
+          "buka": "08:30",
+          "tutup_jam": "16:30",
+          "catatan": "Tur terakhir pukul 15:15",
+          "source_url": "https://ullensentalu.com/berkunjung.html",
+          "checked_at": "2026-11-25"
+        }
+      ],
+      "hari_tutup_khusus": [],
+      "tiket": [
+        {
+          "label": "Tur Adiluhung Mataram",
+          "harga_idr": 50000,
+          "catatan": "Harga per tur tema dari situs resmi; belum jelas apakah pemandu sudah termasuk",
+          "source_url": "https://ullensentalu.com/berkunjung.html",
+          "checked_at": "2026-11-25"
+        },
+        {
+          "label": "Tur Skriptorium",
+          "harga_idr": 60000,
+          "catatan": "Harga per tur tema dari situs resmi",
+          "source_url": "https://ullensentalu.com/berkunjung.html",
+          "checked_at": "2026-11-25"
+        },
+        {
+          "label": "Tur Vorstenlanden",
+          "harga_idr": 100000,
+          "catatan": "Harga per tur tema dari situs resmi",
+          "source_url": "https://ullensentalu.com/berkunjung.html",
+          "checked_at": "2026-11-25"
+        },
+        {
+          "label": "English Guided Tour",
+          "harga_idr": 100000,
+          "catatan": "Tur berbahasa Inggris dari situs resmi",
+          "source_url": "https://ullensentalu.com/berkunjung.html",
+          "checked_at": "2026-11-25"
+        }
+      ],
+      "jadwal_pertunjukan": [],
+      "situs_resmi": "https://ullensentalu.com",
+      "url_beli_tiket": null,
+      "sumber_dibuka": [
+        "https://ullensentalu.com",
+        "https://ullensentalu.com/berkunjung.html",
+        "https://visitingjogja.jogjaprov.go.id/wisata-jogja/wisata-museum/",
+        "https://visitingjogja.jogjaprov.go.id/12766/museum-ullen-sentalu/",
+        "https://id.wikipedia.org/wiki/Museum_Ullen_Sentalu"
+      ],
+      "sumber_gagal": [
+        "https://visitingjogja.jogjaprov.go.id (landing page dibuka, tapi tidak memuat entri Ullen Sentalu)"
+      ],
+      "catatan": "1) Sumber konflik: visitingjogja (artikel terbit 29 Des 2017) mencantumkan jam Selasa-Jumat 08.30-16.00, Sabtu-Minggu 08.30-17.00, dan tiket dewasa domestik Rp 30.000 / anak Rp 15.000 / mancanegara dewasa Rp 50.000. Data tersebut lebih tua dan bertentangan dengan situs resmi ullensentalu.com/berkunjung.html, sehingga tidak dipakai; sebaiknya dikonfirmasi ke pengelola. 2) Kunjungan dilakukan dengan pemandu: tur sekitar 45 menit dipandu 'Edukator Ullen Sentalu'. Situs resmi tidak menyatakan apakah pemandu sudah termasuk dalam harga tiket. 3) Reservasi: situs resmi menyebut kunjungan rombongan wajib reservasi melalui 0274 880158. Tidak disebutkan apakah pengunjung perorangan perlu reservasi. 4) Foto tidak diizinkan di galeri selama tur (sumber: Wikipedia). 5) Koordinat berasal dari Wikipedia (id), bukan dari OSM atau situs resmi. Nilai lat -7.597973 berada sedikit di utara batas kotak DIY yang ditetapkan brief (lat -7.6 s/d -8.2), selisih sekitar 0.002 derajat. Koordinat ini tetap dipakai dan perlu diputuskan apakah batas kotak perlu dilonggarkan atau koordinat diverifikasi ulang. 6) Alamat sekretariat berbeda (Jl. Plemburan 10, Sariharjo, Ngaglik, Sleman 55581) dan tidak dipakai sebagai alamat lokasi. 7) Telepon resmi: (0274) 880158, 880157. Tidak ditemukan jam khusus hari libur atau tanggal tutup selain hari Senin, sehingga hari_tutup_khusus kosong. Bagian Kajian/Galeri Skriptorium tidak diperiksa lebih dalam.",
+      "kategori_enum": "museum",
+      "status": "pending",
+      "perlu_tindak_lanjut": [
+        "Koordinat Wikipedia id. Belum jelas apakah pemandu sudah termasuk tiket."
+      ]
+    },
+    {
+      "nama": "Situs Ratu Boko",
+      "slug": "situs-ratu-boko",
+      "kategori_usulan": "situs",
+      "jenis": "permanen",
+      "induk_lokasi": null,
+      "kabupaten": "Sleman",
+      "alamat": "Bokoharjo dan Sambirejo, Kecamatan Prambanan, Kabupaten Sleman, Daerah Istimewa Yogyakarta",
+      "lat": -7.770512,
+      "lng": 110.4894642,
+      "deskripsi": "Situs Ratu Boko berupa kompleks keraton di atas bukit sekitar 3 km selatan Candi Prambanan. Berbeda dengan monumen Jawa kuno pada umumnya, situs ini merupakan tempat tinggal kerajaan yang bersifat sekuler, dilengkapi gerbang, pendopo, kolam pemandian, dan tembok benteng dengan parit kering. Situs ini diperkirakan digunakan sejak abad ke-8.",
+      "jam_buka": [],
+      "hari_tutup_khusus": [],
+      "tiket": [],
+      "jadwal_pertunjukan": [],
+      "situs_resmi": null,
+      "url_beli_tiket": null,
+      "sumber_dibuka": [
+        "https://id.wikipedia.org/wiki/Situs_Ratu_Boko",
+        "https://visitingjogja.jogjaprov.go.id/wisata-jogja/wisata-budaya-sejarah/",
+        "https://visitingjogja.jogjaprov.go.id/wisata-jogja/wisata-budaya-sejarah/page/2/",
+        "https://visitingjogja.jogjaprov.go.id"
+      ],
+      "sumber_gagal": [
+        "https://borobudurpark.com/ratuboko (HTTP 403)",
+        "https://borobudurpark.com/ratu-boko (HTTP 403)",
+        "https://www.borobudurpark.com/ (HTTP 521, Retry-After 120)"
+      ],
+      "catatan": "Jam buka dan harga tiket TIDAK diisi. Sumber resmi PT TWC (borobudurpark.com) gagal dibuka (403/521), dan halaman Situs Ratu Boko di visitingjogja.jogjaprov.go.id belum ditemukan di listing 'Wisata Budaya & Sejarah' halaman 1 dan 2 (halaman 3 dan 4 belum dibaca). Hasil pencarian web (bukan halaman resmi, tidak di-fetch, sehingga checked_at tetap null) menyebut: jam buka 07.00-17.30 WIB (Telkomsel, Traveloka), 07.00-17.00 (Orami), 06.00-18.00 (Viva), 09.00-17.00 (Sabilashuttle, kemungkinan data lama); tiket dewasa WNI Rp 40.000 (Telkomsel, Orami, Kumparan); tiket anak 3-10 tahun Rp 20.000 (Kumparan, mengutip borobudurpark.com); paket Ratu Boko-Prambanan dewasa Rp 85.000; parkir motor Rp 5.000 dan mobil Rp 10.000 (Viva). Angka-angka ini harus diverifikasi di halaman resmi sebelum dipakai. Koordinat 7.771 S, 110.491 E diambil dari id.wikipedia (berada di dalam batas DIY). Alamat dusun/desa mengikuti Wikipedia. situs_resmi dikosongkan karena halaman resmi tidak bisa dibuka; kandidat untuk diverifikasi: borobudurpark.com/ratuboko.",
+      "kategori_enum": "lainnya",
+      "status": "pending",
+      "perlu_tindak_lanjut": [
+        "Jam dan tiket KOSONG: sumber resmi PT TWC gagal dibuka. Perlu dicari ulang atau dikonfirmasi pengelola."
+      ]
+    },
+    {
+      "nama": "Kampung Batik Giriloyo",
+      "slug": "batik-giriloyo",
+      "kategori_usulan": "desa-wisata",
+      "jenis": "pengalaman",
+      "induk_lokasi": "Desa Wisata Wukirsari",
+      "kabupaten": "Bantul",
+      "alamat": "Dusun Giriloyo, Wukirsari, Imogiri, Bantul, Daerah Istimewa Yogyakarta",
+      "lat": null,
+      "lng": null,
+      "deskripsi": "Kampung Batik Giriloyo adalah dusun di Desa Wisata Wukirsari, kaki Bukit Imogiri, yang sejak lama dikenal sebagai sentra batik tulis bermotif gaya keraton. Pengunjung dapat mencoba sendiri proses membatik tulis dengan canting dalam paket belajar yang dikelola paguyuban pengrajin setempat. Tarif dan jam layanan bisa berubah, jadi konfirmasi ke pengelola sebelum datang.",
+      "jam_buka": [],
+      "hari_tutup_khusus": [],
+      "tiket": [
+        {
+          "label": "Workshop membatik tulis, per peserta (kisaran)",
+          "harga_idr": 25000,
+          "catatan": "Halaman visitingjogja menulis kisaran Rp 25.000 sampai Rp 50.000 per peserta; angka 25.000 adalah batas bawah. Halaman bertanggal 19 Okt 2020, jadi harga perlu dikonfirmasi. Sumber lain (goodnewsfromindonesia, 2022) menyebut Rp 25 ribu per orang untuk rombongan sampai 200 orang. Sumber pada tanggal yang sama menyebut paket lima orang Rp 250 ribu, sehingga kedua skema tampaknya berbeda.",
+          "source_url": "https://visitingjogja.jogjaprov.go.id/en/17606/hand-drawn-batik-of-giriloyo-tourism-village/",
+          "checked_at": null
+        },
+        {
+          "label": "Paket eduwisata membatik (mulai, 5 lembar kain)",
+          "harga_idr": 250000,
+          "catatan": "Mulai Rp 250.000 untuk paket belajar membatik dengan 5 lembar kain, menurut artikel detikJateng bertanggal 6 Feb 2023. Minum dan snack dijual sebagai paket terpisah. Artikel goodnewsfromindonesia (2 Jan 2022) menulis 'mulai dari Rp250 ribu untuk lima orang', yang berarti patokan per kelompok, bukan per orang. Belum jelas paket mana yang berlaku sekarang.",
+          "source_url": "https://www.detik.com/jateng/jogja/d-6554686/kampung-batik-giriloyo-bantul-bangkit-usai-gempa-2006-kini-jadi-eduwisata",
+          "checked_at": null
+        },
+        {
+          "label": "Makan dan minum per orang (opsional, terpisah dari paket)",
+          "harga_idr": 30000,
+          "catatan": "Sekitar Rp 30.000 per orang, menurut artikel detikJateng (6 Feb 2023). Bukan bagian dari tarif belajar membatik.",
+          "source_url": "https://www.detik.com/jateng/jogja/d-6554686/kampung-batik-giriloyo-bantul-bangkit-usai-gempa-2006-kini-jadi-eduwisata",
+          "checked_at": null
+        }
+      ],
+      "jadwal_pertunjukan": [],
+      "situs_resmi": null,
+      "url_beli_tiket": null,
+      "sumber_dibuka": [
+        "https://visitingjogja.jogjaprov.go.id/en/17606/hand-drawn-batik-of-giriloyo-tourism-village/",
+        "https://www.detik.com/jateng/jogja/d-6554686/kampung-batik-giriloyo-bantul-bangkit-usai-gempa-2006-kini-jadi-eduwisata",
+        "https://www.goodnewsfromindonesia.id/2022/01/02/belajar-membuat-batik-khas-keraton-di-kampung-batik-giriloyo",
+        "https://visitingjogja.jogjaprov.go.id/en/wp-json/wp/v2/posts/18610",
+        "https://wukirsari.bantulkab.go.id",
+        "https://en.wikipedia.org/wiki/Giriloyo"
+      ],
+      "sumber_gagal": [
+        "https://www.goodnewsfromindonesia.id/2025/09/16/desa-wisata-wukirsari-imogiri-kabupaten-bantul-sukses-jaga-tradisi-batik-dan-wayang-kulit (redirect ke ceritakawan.goodnewsfromindonesia.id, tidak diikuti)",
+        "https://ceritakawan.goodnewsfromindonesia.id/wisata/desa-wisata-wukirsari-imogiri-kabupaten-bantul-sukses-jaga-tradisi-batik-dan-wayang-kulit (HTTP 410)",
+        "https://batikgiriloyo.co.id (HTTP 500)",
+        "https://id.wikipedia.org/wiki/Giriloyo,_Wukirsari,_Imogiri,_Bantul (HTTP 404)"
+      ],
+      "catatan": "1) Jam layanan workshop tidak ditemukan di sumber mana pun, jadi jam_buka dikosongkan. Jam pelayanan Kalurahan Wukirsari (Senin-Jumat 08.00-15.00, dari wukirsari.bantulkab.go.id) adalah jam kantor kalurahan, bukan jam workshop, dan tidak dipakai. 2) Durasi paket, syarat reservasi, dan nomor kontak workshop tidak ditemukan. Halaman visitingjogja hanya menyebut paket grup untuk 5 sampai 500 peserta, jadi reservasi untuk rombongan kemungkinan perlu, tetapi tidak tertulis eksplisit. 3) Kontak media sosial resmi desa menurut visitingjogja (artikel 31 Des 2025): Instagram dan Facebook @desawisata_wukirsari, serta YouTube 'Desa Wisata Wukirsari'. Tidak ada situs khusus; situs_resmi dibiarkan null. Situs batikgiriloyo.co.id gagal dibuka (HTTP 500), jadi statusnya belum terverifikasi. 4) Harga kain batik tulis (dijual di galeri): sekitar Rp 300.000 sampai di atas Rp 3.000.000 menurut goodnewsfromindonesia 2022. Ini bukan tarif workshop, tidak dimasukkan ke tiket. 5) Penginapan sekitar Rp 200.000 per kamar menurut detikJateng; tidak dimasukkan. 6) Koordinat tidak ditemukan di sumber yang dibuka (en.wikipedia Giriloyo tidak mencantumkan koordinat), jadi lat/lng null. 7) Alamat: Giriloyo disebut sebagai dusun di Wukirsari, Imogiri, Bantul, dengan dasar sumber sekunder (Wikipedia, Mojok, Antara). Belum ada alamat resmi workshop. 8) Kisaran harga dari visitingjogja (2020) dan paket detikJateng (2023) belum tentu berlaku sekarang; tanggal pengecekan 2026-11-25 hanya menandai tanggal baca, bukan tanggal berlaku harga.",
+      "kategori_enum": "kerajinan",
+      "status": "pending",
+      "perlu_tindak_lanjut": [
+        "Tarif dari artikel 2020-2023 dan skemanya tidak konsisten (per peserta vs per paket), checked_at dikosongkan. Jam workshop, kontak, dan koordinat belum ada; situs batikgiriloyo.co.id error."
+      ]
+    },
+    {
+      "nama": "Sendratari Ramayana Prambanan",
+      "slug": "sendratari-ramayana",
+      "kategori_usulan": "pertunjukan",
+      "jenis": "pengalaman",
+      "induk_lokasi": "Candi Prambanan",
+      "kabupaten": "Sleman",
+      "alamat": "Kompleks Candi Prambanan, Bokoharjo, Prambanan, Sleman",
+      "lat": -7.75202,
+      "lng": 110.491465,
+      "deskripsi": "Sendratari Ramayana menampilkan kisah Ramayana melalui tari, drama, dan iringan gamelan dengan latar Candi Prambanan. Pertunjukan dipentaskan di panggung terbuka pada musim tertentu dan di gedung tertutup Trimurti pada musim lain. Jadwal berubah menurut musim, sehingga pengunjung perlu memeriksa ulang sebelum berangkat.",
+      "jam_buka": [],
+      "hari_tutup_khusus": [],
+      "tiket": [
+        {
+          "label": "Open Air Theater - VIP (bernomor, termasuk minuman ringan dan camilan tradisional)",
+          "harga_idr": null,
+          "catatan": "Harga tidak tercantum di halaman. VIP tidak tersedia untuk Ramayana pada Nov-Des 2026 menurut halaman yang sama.",
+          "source_url": "https://ticket.injourneydestination.id/en/ramayana-ballet-prambanan",
+          "checked_at": "2026-11-25"
+        },
+        {
+          "label": "Open Air Theater - Class Special (bernomor, termasuk minuman ringan)",
+          "harga_idr": null,
+          "catatan": "Harga tidak tercantum di halaman.",
+          "source_url": "https://ticket.injourneydestination.id/en/ramayana-ballet-prambanan",
+          "checked_at": "2026-11-25"
+        },
+        {
+          "label": "Open Air Theater - Class I dan Class II (tempat duduk tidak bernomor)",
+          "harga_idr": null,
+          "catatan": "Harga tidak tercantum di halaman.",
+          "source_url": "https://ticket.injourneydestination.id/en/ramayana-ballet-prambanan",
+          "checked_at": "2026-11-25"
+        },
+        {
+          "label": "Amphi Theater - Class Special (tempat duduk tidak bernomor, musik rekaman, bukan gamelan live)",
+          "harga_idr": null,
+          "catatan": "Harga tidak tercantum di halaman. Berlaku untuk pertunjukan Amphi Theater Jan-Apr 2026 menurut tabel halaman.",
+          "source_url": "https://ticket.injourneydestination.id/en/ramayana-ballet-prambanan",
+          "checked_at": "2026-11-25"
+        },
+        {
+          "label": "Gedung Trimurti (indoor) - Class Special (bernomor, gamelan, termasuk minuman ringan)",
+          "harga_idr": null,
+          "catatan": "Harga tidak tercantum di halaman. Halaman menyebut venue 'Gedung Trimurti' tetapi tidak mencantumkan baris jadwal untuk pertunjukan indoor Ramayana.",
+          "source_url": "https://ticket.injourneydestination.id/en/ramayana-ballet-prambanan",
+          "checked_at": "2026-11-25"
+        },
+        {
+          "label": "Kisaran harga umum (artikel 2023, bukan sumber resmi, belum diverifikasi untuk 2026)",
+          "harga_idr": 150000,
+          "catatan": "Artikel menyebut Rp150.000 sampai Rp450.000 per orang tanpa rincian per kelas. Angka batas atas (Rp450.000) belum dikonfirmasi ke sumber resmi. Tiket pelajar/mahasiswa kelompok minimal 30 orang: Rp50.000 (artikel yang sama). Jangan ditampilkan sebagai harga resmi.",
+          "source_url": "https://ceritakawan.goodnewsfromindonesia.id/wisata/sendratari-ramayana-candi-prambanan",
+          "checked_at": null
+        }
+      ],
+      "jadwal_pertunjukan": [
+        {
+          "hari": "Selasa, Kamis, Sabtu",
+          "jam": "19:30-21:00",
+          "catatan": "Ramayana, Open Air Theater (panggung terbuka), Mei-Okt 2026. Tabel halaman juga mencantumkan baris yang sama untuk Nov-Des 2026. Jam 19:30-21:00 hanya dari tabel ini.",
+          "source_url": "https://ticket.injourneydestination.id/en/ramayana-ballet-prambanan",
+          "checked_at": "2026-11-25"
+        },
+        {
+          "hari": "Sabtu",
+          "jam": "17:30-18:30",
+          "catatan": "Ramayana, Amphi Theater, Jan-Apr 2026, menurut tabel halaman. Sumber yang sama di header menyebut Selasa, Kamis, Jumat, Sabtu 17:30-19:30 WIB, jadi tidak konsisten dengan tabel (lihat catatan).",
+          "source_url": "https://ticket.injourneydestination.id/en/ramayana-ballet-prambanan",
+          "checked_at": "2026-11-25"
+        }
+      ],
+      "situs_resmi": null,
+      "url_beli_tiket": "https://ticket.injourneydestination.id/en/ramayana-ballet-prambanan",
+      "sumber_dibuka": [
+        "https://ticket.injourneydestination.id/en/ramayana-ballet-prambanan",
+        "https://ceritakawan.goodnewsfromindonesia.id/wisata/sendratari-ramayana-candi-prambanan (dialihkan dari goodnewsfromindonesia.id/2023/07/18/sendratari-ramayana-candi-prambanan, artikel 18 Juli 2023)",
+        "https://visitingjogja.jogjaprov.go.id (dibuka; tidak memuat info Ramayana)"
+      ],
+      "sumber_gagal": [
+        "https://ramayanaprambanan.com (gagal: getaddrinfo ENOTFOUND, domain tidak dapat di-resolve)",
+        "https://borobudurpark.com (gagal: HTTP 403 Forbidden)"
+      ],
+      "catatan": "PERTENTANGAN JADWAL: (1) Halaman InJourney ticketing (header) menyebut Selasa, Kamis, Jumat, Sabtu 17:30-19:30 WIB; tabel di halaman yang sama menyebut Ramayana Selasa/Kamis/Sabtu 19:30-21:00 (Mei-Nov/Des 2026) dan hanya Sabtu 17:30-18:30 (Amphi, Jan-Apr 2026); Jumat tercantum hanya untuk Roro Jonggrang, bukan Ramayana. (2) Hasil pencarian (cuplikan, tidak dibuka penuh) menyebut Trimurti indoor Selasa/Kamis/Sabtu 19:30-21:00 untuk Nov 2025-Apr 2026, yang bertentangan dengan tabel halaman (Amphi Jan-Apr, open air Nov-Des). (3) Artikel GoodNews 2023 menyebut Selasa/Kamis/Sabtu 19:30-21:30 WIB, panggung terbuka dengan latar Candi Prambanan; durasi selesai berbeda (21:30 vs 21:00). (4) Cuplikan Traveloka menyebut 19:00-20:30 (tidak dibuka). Sumber resmi paling kuat yang berhasil dibaca adalah halaman InJourney ticketing; jadwal yang dipakai adalah tabelnya, tetapi perlu verifikasi ulang ke pengelola. PERBEDAAN PANGGUNG: Open Air Theater (panggung terbuka) dengan latar candi; Amphi Theater (Jan-Apr) dengan musik rekaman; Gedung Trimurti (indoor, gamelan, tempat duduk bernomor). Halaman tidak menyebut jadwal baris untuk Trimurti indoor Ramayana, dan tidak menyatakan Trimurti tutup. KETERBATASAN HARGA: halaman InJourney tidak memuat angka harga IDR; harga per kelas tidak ditemukan dari sumber resmi. Angka Rp150.000-450.000 hanya dari artikel 2023 (tidak resmi). Traveloka menyebut mulai sekitar USD 9,20 (agen, tidak diverifikasi). KETERBATASAN SUMBER: ramayanaprambanan.com tidak bisa diakses (DNS gagal), borobudurpark.com memberi 403, sehingga pengelola resmi (PT Taman Wisata Candi) belum bisa dikonfirmasi langsung. Koordinat dan alamat tidak ditemukan di sumber yang dibuka; tidak diisi. Halaman menyebut aturan hujan: jika hujan pukul 19:30 pertunjukan mundur 15 menit; jika hujan sebelum adegan Anoman Obong mundur 15 menit; jika hujan setelah adegan itu pertunjukan dianggap selesai dan tidak ada refund. Halaman juga menyatakan jadwal dapat berubah tanpa pemberitahuan. Hari tutup khusus (libur, perbaikan) tidak ditemukan.",
+      "kategori_enum": "tari",
+      "status": "pending",
+      "perlu_tindak_lanjut": [
+        "Koordinat dan alamat mengikuti Candi Prambanan. Harga per kelas belum ada. Jadwal bertentangan antara header dan tabel di halaman tiket resmi; konfirmasi ke pengelola."
+      ]
+    },
+    {
+      "nama": "Jamu Ginggang",
+      "slug": "jamu-ginggang",
+      "kategori_usulan": "kuliner-jamu",
+      "jenis": "permanen",
+      "induk_lokasi": null,
+      "kabupaten": "Kota Yogyakarta",
+      "alamat": "Jl. Masjid No. 32, Kauman, Pakualaman, Kota Yogyakarta",
+      "lat": null,
+      "lng": null,
+      "deskripsi": "Jamu Ginggang adalah warung jamu tradisional di kawasan Pakualaman, Kota Yogyakarta, yang sudah berdiri sejak puluhan tahun lalu dan dikenal sebagai sentra jamu legendaris. Pengunjung dapat mampir untuk membeli dan meminum jamu langsung di warung, sekaligus berkonsultasi tentang keluhan kesehatan untuk mendapatkan racikan khusus. Warung ini tetap mempertahankan resep dan cara pengolahan tradisionalnya.",
+      "jam_buka": [
+        {
+          "hari": "Senin..Minggu",
+          "tutup": false,
+          "buka": "09:00",
+          "tutup_jam": "20:00",
+          "catatan": "Sumber hanya artikel Mojok terbitan 7 Maret 2021 (diperbarui 8 Maret 2021). Belum dikonfirmasi ke pengelola; anggap belum terverifikasi sampai ada cek langsung.",
+          "source_url": "https://mojok.co/liputan/jamu-ginggang-pakualaman-5-generasi-menjaga-tradisi/",
+          "checked_at": null
+        }
+      ],
+      "hari_tutup_khusus": [],
+      "tiket": [],
+      "jadwal_pertunjukan": [],
+      "situs_resmi": null,
+      "url_beli_tiket": null,
+      "sumber_dibuka": [
+        "https://mojok.co/liputan/jamu-ginggang-pakualaman-5-generasi-menjaga-tradisi/",
+        "https://ceritakawan.goodnewsfromindonesia.id/wisata/jamu-ginggang-sentra-jamu-legendaris-yogyakarta",
+        "https://visitingjogja.jogjaprov.go.id/en/18443/enjoying-jamu-as-part-of-the-wellness-culture-in-yogyakarta/",
+        "https://www.detik.com/jogja/kuliner/d-6905958/galian-kakung-dan-singset-jadi-andalan-jamu-ginggang-pakualaman/amp",
+        "https://visitingjogja.jogjaprov.go.id/en/16549/pakualaman-tourism-village/",
+        "https://www.goodnewsfromindonesia.id/network/content/jamu-ginggang-pakualaman-legenda-jamu-tradisional-yogyakarta-yang-bertahan-sejak-1950-xXXGIH"
+      ],
+      "sumber_gagal": [],
+      "catatan": "1) PENGALAMAN BUDAYA: TIDAK DITEMUKAN. Dari 6 halaman yang dibaca, tidak ada satu pun yang menyebut workshop meracik/membuat jamu, tur, atau program edukasi yang diselenggarakan Jamu Ginggang. Sumber hanya menyebut warung tempat membeli dan minum jamu, dan pengunjung dapat berkonsultasi untuk racikan khusus. Satu artikel (Mojok 2021) mencatat ada turis Prancis yang melihat proses pembuatan jamu, tetapi itu kejadian satu kali, bukan program. Workshop jamu di Yogyakarta yang ditemukan di Expedia dan Klook adalah penyelenggara lain, dan tidak ada yang menyebut Jamu Ginggang sebagai pengelola. Karena itu jenis 'pengalaman' belum didukung bukti; pertimbangkan jenis 'permanen' kecuali pengelola menyatakan ada program. 2) ALAMAT: 'Jl. Masjid No. 32' hanya muncul di artikel ceritakawan.goodnewsfromindonesia.id (27 Juli 2023). Detik (31 Agustus 2023) dan Visiting Jogja (6 Mei 2024) hanya menulis 'Jl. Masjid, Kauman, Pakualaman'. Artikel goodnewsfromindonesia (2021, dibaca lewat URL asli yang redirect 301 ke ceritakawan) memberi arah, bukan alamat formal. Artikel 2025 hanya menulis 'dekat kompleks Pakualaman'. Nomor 32 belum dikonfirmasi dari sumber kedua. 3) JAM BUKA: hanya dari Mojok (7 Maret 2021): 'buka setiap hari pukul 09.00-20.00 WIB'. Tidak ada jam dari sumber lebih baru atau resmi. Dianggap usang sampai dicek. 4) HARGA (bukan tiket, tidak dimasukkan ke field tiket): sumber 2021 menyebut jamu biasa sekitar Rp4.000-6.000, jamu telat bulan Rp25.000, paket komplit Rp26.000. Sudah lebih dari 5 tahun, belum dikonfirmasi. 5) SEJARAH (tidak wajib untuk field, tercatat untuk konteks): sumber berbeda menyebut resep berasal dari tabib Kadipaten Pakualaman tahun 1925, warung dari 1930, atau didirikan 1935 oleh Mbah Joyo; usaha disebut beroperasi sejak 1950. Pengelola saat ini disebut Rudy Supriyadi. 6) KOORDINAT: tidak diambil (tidak ada koordinat dari sumber yang dibuka). lat/lng null. 7) Tidak ditemukan situs resmi atau platform pembelian; situs_resmi dan url_beli_tiket null. 8) Halaman goodnewsfromindonesia kkn-inspiratif (URL awal) menghasilkan redirect 301 dan tidak diikuti; isinya dibaca dari URL tujuan ceritakawan. 9) Halaman Visiting Jogja (Pakualaman tourism village, 2020) hanya menyebut Jamu Ginggang sebagai oleh-oleh dan tanpa detail.",
+      "kategori_enum": "lainnya",
+      "status": "pending",
+      "perlu_tindak_lanjut": [
+        "Tidak ada bukti program pengalaman/workshop, jadi dicatat sebagai tempat permanen. Jam dari artikel 2021 (checked_at dikosongkan). Nomor alamat hanya satu sumber. Koordinat belum ditemukan."
+      ]
+    },
+    {
+      "nama": "Masjid Gedhe Kauman",
+      "slug": "masjid-gedhe-kauman",
+      "kategori_usulan": "masjid",
+      "jenis": "permanen",
+      "induk_lokasi": null,
+      "kabupaten": "Kota Yogyakarta",
+      "alamat": "Gang Monumen Syuhada, Prawirodirjan, Gondomanan, Kota Yogyakarta, Daerah Istimewa Yogyakarta 55132 (alamat dari OpenStreetMap, belum dikonfirmasi situs resmi)",
+      "lat": -7.8038203,
+      "lng": 110.3623919,
+      "deskripsi": "Masjid Gedhe Kauman adalah masjid raya Kasultanan Yogyakarta yang berdiri di sisi barat alun-alun utara, berdekatan dengan kompleks Keraton. Bangunannya beratap tumpang tiga dengan gaya Jawa dan memiliki mihrab, maksura, serta mimbar kayu jati yang khas. Masjid ini juga menjadi pusat kegiatan Ramadan dan bagian dari rangkaian tradisi Grebeg.",
+      "jam_buka": [],
+      "hari_tutup_khusus": [],
+      "tiket": [],
+      "jadwal_pertunjukan": [],
+      "situs_resmi": "https://www.masjidgedhe.or.id/",
+      "url_beli_tiket": null,
+      "sumber_dibuka": [
+        "https://www.kratonjogja.id/",
+        "https://tourism.kratonjogja.id/",
+        "https://visitingjogja.jogjaprov.go.id/8422/masjid-gedhe-kauman-pesona-islam-dalam-corak-budaya-jawa/",
+        "https://en.wikipedia.org/wiki/Kauman_Great_Mosque",
+        "https://nominatim.openstreetmap.org/search?format=json&limit=2&q=Masjid+Gedhe+Kauman+Yogyakarta"
+      ],
+      "sumber_gagal": [
+        "https://www.masjidgedhe.or.id/ (HTTP 403 via Firecrawl)"
+      ],
+      "catatan": "Jam kunjungan tidak ditemukan di sumber resmi yang berhasil dibaca (kratonjogja.id dan tourism.kratonjogja.id hanya memuat info umum Keraton, tanpa jam masjid), sehingga jam_buka dikosongkan. Situs masjidgedhe.or.id gagal dibuka (403), jadi situs_resmi dicantumkan dari Wikipedia tanpa sempat diverifikasi. Tidak ada loket tiket: masjid tidak memungut tiket, dan tidak ditemukan sumber resmi yang menyatakan tarif; keterangan 'gratis' hanya muncul di hasil pencarian pihak ketiga yang tidak dibuka, jadi tiket dikosongkan. Visitingjogja (halaman sejarah, berhak cipta 2016-2019) dipakai sebagai latar sejarah dan arsitektur, bukan fakta jam atau harga. Aturan kunjungan: tidak ditemukan sumber resmi; sumber pihak ketiga menyarankan kunjungan di luar waktu salat berjemaah dan menjaga sopan santun; jangan dijadikan fakta resmi tanpa sumber. Koordinat dari OpenStreetMap Nominatim (-7.8038203, 110.3623919) dan cocok dengan Wikipedia (7.803946 S, 110.362555 E). Penamaan 'Kauman' dan 'Gedhe' ditemukan di beberapa sumber dengan ejaan berbeda; nama resmi di Wikipedia: Mesjid Gedhe Kauman Karaton Ngayogyakarta Hadiningrat. Tanggal pendirian: 1773 menurut Wikipedia dan visitingjogja; visitingjogja juga menyebut berdiri 18 tahun setelah Giyanti (1755). Tidak ada pertentangan besar.",
+      "kategori_enum": "lainnya",
+      "status": "pending",
+      "perlu_tindak_lanjut": [
+        "Jam kunjungan dan tarif tidak ditemukan; masjidgedhe.or.id memberi 403."
+      ]
+    },
+    {
+      "nama": "Plengkung Gading",
+      "slug": "plengkung-gading",
+      "kategori_usulan": "benteng",
+      "jenis": "permanen",
+      "induk_lokasi": "Benteng Keraton Yogyakarta",
+      "kabupaten": "Kota Yogyakarta",
+      "alamat": "Jalan Gading, Patehan, Kraton, Kota Yogyakarta",
+      "lat": -7.8137,
+      "lng": 110.3629,
+      "deskripsi": "Plengkung Gading adalah gerbang lengkung bercat putih di tembok Benteng Keraton Yogyakarta, dikenal juga sebagai pintu masuk ke jeron benteng. Gerbang ini termasuk satu dari lima plengkung yang menghubungkan keraton dengan dunia luar, dan bentuknya dipertahankan hingga kini. Kawasannya sering dipakai untuk berfoto dengan suasana tempo dulu.",
+      "jam_buka": [],
+      "hari_tutup_khusus": [],
+      "tiket": [],
+      "jadwal_pertunjukan": [],
+      "situs_resmi": null,
+      "url_beli_tiket": null,
+      "sumber_dibuka": [
+        "https://visitingjogja.jogjaprov.go.id/31138",
+        "https://nominatim.openstreetmap.org/search?format=json&limit=2&q=Plengkung+Gading+Yogyakarta"
+      ],
+      "sumber_gagal": [],
+      "catatan": "(1) Sumber awal visitingjogja.jogjaprov.go.id/31138 dibuka dan dibaca (HTTP 200). Artikel itu bertanggal 6 Apr 2022 dan terakhir diubah 19 Sep 2023, jadi lebih dari 2 tahun lalu. Sesuai aturan, checked_at null. Artikel ini tidak memuat jam atau tiket, jadi tidak ada fakta bertanggal yang perlu disimpan. (2) Pertentangan nama: artikel resmi menyebut bahwa nama asli gerbang ini adalah Plengkung Nirbaya, yang terletak di selatan alun-alun selatan dan dulu dipakai sebagai jalur jenazah sultan menuju Imogiri. Artikel yang sama juga menyebut 'Plengkung Gading' untuk gerbang bercat putih ini. Artikel itu tidak menjelaskan secara pasti apakah keduanya satu gerbang. Perlu dicek ke sumber sejarah sebelum publikasi. (3) Koordinat -7.8137, 110.3629 diambil dari OpenStreetMap (Nominatim) untuk way berlabel 'Plengkung Nirbaya' di Jalan Gading, Patehan. Ini perkiraan dari OSM dan belum diverifikasi di peta resmi. Titik ini berada di dalam batas DIY. (4) Alamat 'Jalan Gading, Patehan, Kraton' juga berasal dari display_name OSM. (5) Tidak ada jam buka atau tiket: gerbang ini adalah bangunan terbuka, sehingga jam_buka dan tiket dibiarkan kosong. (6) Tidak ada situs resmi khusus untuk gerbang ini, jadi situs_resmi null.",
+      "kategori_enum": "lainnya",
+      "status": "pending",
+      "perlu_tindak_lanjut": [
+        "Nama resmi Plengkung Nirbaya; Gading nama populer (pengetahuan umum, belum diverifikasi sumber). Tidak ada jam/tiket. Koordinat perkiraan dari OSM; sumber artikel 2022."
+      ]
+    },
+    {
+      "nama": "Kampung Pecinan Ketandan",
+      "slug": "kampung-ketandan",
+      "kategori_usulan": "kawasan",
+      "jenis": "permanen",
+      "induk_lokasi": null,
+      "kabupaten": "Kota Yogyakarta",
+      "alamat": "Kampung Ketandan, Kec. Gondomanan, Kota Yogyakarta, DI Yogyakarta (sisi utara Pasar Beringharjo, kawasan Malioboro)",
+      "lat": -7.7974672,
+      "lng": 110.3667331,
+      "deskripsi": "Kampung Ketandan di Gondomanan, tepat di utara Pasar Beringharjo, adalah kawasan Pecinan lama Yogyakarta yang sejak abad ke-19 menjadi permukiman warga Tionghoa. Sebagian rumah kuno dengan atap melengkung dan perpaduan gaya Tionghoa, Eropa, dan Jawa masih bertahan, sementara toko emas dan perhiasan kini mendominasi perdagangan di sana.",
+      "jam_buka": [],
+      "hari_tutup_khusus": [],
+      "tiket": [],
+      "jadwal_pertunjukan": [],
+      "situs_resmi": null,
+      "url_beli_tiket": null,
+      "sumber_dibuka": [
+        "https://visitingjogja.jogjaprov.go.id/12817",
+        "https://nominatim.openstreetmap.org/search?format=json&limit=3&q=Ketandan+Gondomanan+Yogyakarta"
+      ],
+      "sumber_gagal": [],
+      "catatan": "Sumber utama: visitingjogja.jogjaprov.go.id/12817 (Dinas Pariwisata DIY). Artikel ini terbit 29 Des 2017 dan terakhir diubah 7 Sep 2020, jadi lebih dari 2 tahun lalu: isi deskripsi dan alamat dipakai sebagai konteks, tetapi checked_at dibiarkan null. Tidak ada jam buka atau tiket karena Ketandan adalah kawasan terbuka tanpa loket; jam_buka dan tiket dibiarkan []. Pencarian web tidak menemukan jam resmi kawasan, dan toko di dalamnya mengatur jam usahanya sendiri. Koordinat (-7.7974672, 110.3667331) adalah titik tengah node OSM 'Ketandan' (neighbourhood, bukan batas kawasan); perkiraan, bukan titik pasti. Kelurahan menurut OSM adalah Prawirodirjan, sedangkan artikel menyebut kecamatan Gondomanan; alamat ditulis sesuai artikel. Tidak ada situs resmi khusus kampung; situs_resmi dibiarkan null. Artikel menyebut pekan budaya Tionghoa yang ramai dikunjungi, tetapi tanggalnya tidak tercantum dan tidak dimasukkan.",
+      "kategori_enum": "lainnya",
+      "status": "pending",
+      "perlu_tindak_lanjut": [
+        "Hanya artikel 2017 (diubah 2020), semua fakta checked_at null. Koordinat titik tengah node OSM, bukan batas kawasan."
+      ]
+    },
+    {
+      "nama": "Living Museum Kotagede",
+      "slug": "kawasan-kotagede",
+      "kategori_usulan": "kawasan",
+      "jenis": "permanen",
+      "induk_lokasi": null,
+      "kabupaten": "Kota Yogyakarta",
+      "alamat": "Kecamatan Kotagede, Kota Yogyakarta, Daerah Istimewa Yogyakarta (pintu masuk: Museum Kotagede Intro Living Museum, Jl. Tegalgendu No.20, Prenggan)",
+      "lat": -7.8183105,
+      "lng": 110.3979409,
+      "deskripsi": "Kotagede adalah bekas pusat pemerintahan awal Kesultanan Mataram Islam yang kini masih menyimpan rumah-rumah tua, tradisi, dan kerajinan perak. Konsep Living Museum mengajak pengunjung menjelajah kampung dan melihat langsung kehidupan warganya, bukan hanya koleksi di balik kaca. Perjalanan biasanya dimulai dari Museum Kotagede: Intro Living Museum sebagai pusat informasi.",
+      "jam_buka": [
+        {
+          "hari": "Senin",
+          "tutup": true,
+          "buka": null,
+          "tutup_jam": null,
+          "catatan": "Museum tutup pada hari Senin (museum, bukan kawasan)",
+          "source_url": "https://timesindonesia.co.id/peristiwa-daerah/576193/kotagede-yogyakarta-jadi-living-museum-jejak-awal-mataram-islam-yang-hidup-bersama-warga",
+          "checked_at": "2026-11-26"
+        },
+        {
+          "hari": "Selasa",
+          "tutup": false,
+          "buka": "08:00",
+          "tutup_jam": "15:30",
+          "catatan": "Jam untuk Museum Kotagede: Intro Living Museum",
+          "source_url": "https://timesindonesia.co.id/peristiwa-daerah/576193/kotagede-yogyakarta-jadi-living-museum-jejak-awal-mataram-islam-yang-hidup-bersama-warga",
+          "checked_at": "2026-11-26"
+        },
+        {
+          "hari": "Rabu",
+          "tutup": false,
+          "buka": "08:00",
+          "tutup_jam": "15:30",
+          "catatan": "Jam untuk Museum Kotagede: Intro Living Museum",
+          "source_url": "https://timesindonesia.co.id/peristiwa-daerah/576193/kotagede-yogyakarta-jadi-living-museum-jejak-awal-mataram-islam-yang-hidup-bersama-warga",
+          "checked_at": "2026-11-26"
+        },
+        {
+          "hari": "Kamis",
+          "tutup": false,
+          "buka": "08:00",
+          "tutup_jam": "15:30",
+          "catatan": "Jam untuk Museum Kotagede: Intro Living Museum",
+          "source_url": "https://timesindonesia.co.id/peristiwa-daerah/576193/kotagede-yogyakarta-jadi-living-museum-jejak-awal-mataram-islam-yang-hidup-bersama-warga",
+          "checked_at": "2026-11-26"
+        },
+        {
+          "hari": "Jumat",
+          "tutup": false,
+          "buka": "08:00",
+          "tutup_jam": "14:00",
+          "catatan": "Jumat berakhir pukul 14.00 WIB",
+          "source_url": "https://timesindonesia.co.id/peristiwa-daerah/576193/kotagede-yogyakarta-jadi-living-museum-jejak-awal-mataram-islam-yang-hidup-bersama-warga",
+          "checked_at": "2026-11-26"
+        },
+        {
+          "hari": "Sabtu",
+          "tutup": false,
+          "buka": "08:00",
+          "tutup_jam": "15:30",
+          "catatan": "Jam untuk Museum Kotagede: Intro Living Museum",
+          "source_url": "https://timesindonesia.co.id/peristiwa-daerah/576193/kotagede-yogyakarta-jadi-living-museum-jejak-awal-mataram-islam-yang-hidup-bersama-warga",
+          "checked_at": "2026-11-26"
+        },
+        {
+          "hari": "Minggu",
+          "tutup": false,
+          "buka": "08:00",
+          "tutup_jam": "15:30",
+          "catatan": "Jam untuk Museum Kotagede: Intro Living Museum",
+          "source_url": "https://timesindonesia.co.id/peristiwa-daerah/576193/kotagede-yogyakarta-jadi-living-museum-jejak-awal-mataram-islam-yang-hidup-bersama-warga",
+          "checked_at": "2026-11-26"
+        }
+      ],
+      "hari_tutup_khusus": [
+        {
+          "keterangan": "Museum tutup pada hari libur nasional (RRI, Feb 2025)",
+          "source_url": "https://rri.co.id/en/art-and-culture/1312023/kotagede-living-museum-exploring-yogyakarta-s-history-and-innovation",
+          "checked_at": "2026-11-26"
+        }
+      ],
+      "tiket": [
+        {
+          "label": "Masuk Museum Kotagede: Intro Living Museum (gratis)",
+          "harga_idr": 0,
+          "catatan": "Tiket masuk gratis. Rombongan wajib reservasi terlebih dahulu; kontak reservasi belum ditemukan. Tidak ada tiket untuk kawasan kampung secara umum.",
+          "source_url": "https://timesindonesia.co.id/peristiwa-daerah/576193/kotagede-yogyakarta-jadi-living-museum-jejak-awal-mataram-islam-yang-hidup-bersama-warga",
+          "checked_at": "2026-11-26"
+        }
+      ],
+      "jadwal_pertunjukan": [],
+      "situs_resmi": null,
+      "url_beli_tiket": null,
+      "sumber_dibuka": [
+        "https://rri.co.id/en/art-and-culture/1312023/kotagede-living-museum-exploring-yogyakarta-s-history-and-innovation",
+        "https://timesindonesia.co.id/peristiwa-daerah/576193/kotagede-yogyakarta-jadi-living-museum-jejak-awal-mataram-islam-yang-hidup-bersama-warga",
+        "https://visitingjogja.jogjaprov.go.id/en/?p=18461",
+        "https://www.indonesia.travel/gb-en/destination/java/yogyakarta/kotagede-intro-living-museum/",
+        "https://www.indonesia.travel/id/id/destination/java/yogyakarta/museum-kotagede-intro-living-museum"
+      ],
+      "sumber_gagal": [
+        "https://www.indonesia.travel/id/id/destinasi/museum-kotagede (404, URL tebakan)"
+      ],
+      "catatan": "Kawasan hidup tanpa loket, jadi tidak ada jam buka atau tiket untuk kawasan kampung secara keseluruhan. Jam dan tiket di atas adalah milik Museum Kotagede: Intro Living Museum (pintu masuk kawasan, dikelola Dinas Kebudayaan DIY). Pertentangan data: RRI (Feb 2025) menyebut Selasa-Minggu 08.00-15.30 kecuali Senin dan hari libur nasional, tanpa catatan Jumat; TIMES Indonesia (1 Feb 2026) menyebut Jumat sampai 14.00 WIB, sehingga data TIMES dipakai karena lebih baru. Koordinat adalah titik pusat Kecamatan Kotagede dari OpenStreetMap Nominatim (-7.8183105, 110.3979409), perkiraan dan bukan batas kawasan cagar budaya. Koordinat tepat Museum Kotagede tidak ditemukan di Nominatim, jadi belum diisi. Alamat museum (Jl. Tegalgendu No.20, Prenggan) berasal dari RRI dan visitingjogja. Penetapan resmi Kotagede sebagai Kawasan Cagar Budaya DIY dan tanggalnya tidak ditemukan dalam sumber yang dibaca. Situs Dinas Kebudayaan DIY tidak ditemukan lewat pencarian. Aturan kunjungan ke permukiman warga (pakaian, sopan santun) belum ditemukan di sumber yang dibaca. Deskripsi ditulis ulang dari ringkasan sumber.",
+      "kategori_enum": "lainnya",
+      "status": "pending",
+      "perlu_tindak_lanjut": [
+        "Jam (Selasa-Minggu 08.00-15.30, Jumat sampai 14.00) dan gratis adalah milik Museum Kotagede (pusat informasi), bukan seluruh kawasan. Koordinat titik pusat kecamatan, bukan batas kawasan."
+      ]
+    },
+    {
+      "nama": "Taman Budaya Yogyakarta (TBY)",
+      "slug": "taman-budaya-yogyakarta",
+      "kategori_usulan": "pertunjukan",
+      "jenis": "permanen",
+      "induk_lokasi": null,
+      "kabupaten": "Kota Yogyakarta",
+      "alamat": "Jl. Sriwedani No.1, Ngupasan, Kec. Gondomanan, Kota Yogyakarta, DI Yogyakarta 55122",
+      "lat": -7.8001356,
+      "lng": 110.367656,
+      "deskripsi": "Taman Budaya Yogyakarta adalah pusat kegiatan seni dan budaya di Jalan Sriwedani, Kota Yogyakarta, dan menjadi tempat pameran, pertunjukan, serta festival. Gedungnya juga dipakai untuk pertemuan seni dan temu karya budaya tingkat nasional.",
+      "jam_buka": [],
+      "hari_tutup_khusus": [],
+      "tiket": [],
+      "jadwal_pertunjukan": [],
+      "situs_resmi": "https://tby.jogjaprov.go.id",
+      "url_beli_tiket": null,
+      "sumber_dibuka": [
+        "https://tby.jogjaprov.go.id",
+        "https://tby.jogjaprov.go.id/kontak-kami",
+        "https://tby.jogjaprov.go.id/layanan/index",
+        "https://tby.jogjaprov.go.id/reservasi/gedung/penggunaan",
+        "https://nominatim.openstreetmap.org/search?format=json&limit=2&q=Taman+Budaya+Yogyakarta"
+      ],
+      "sumber_gagal": [],
+      "catatan": "Alamat dan telepon (0274) 523512, 561914 dari halaman kontak resmi tby.jogjaprov.go.id/kontak-kami. Koordinat (-7.8001356, 110.3676560) dari OSM way 'Taman Budaya Yogyakarta' (nama dan alamat cocok). Beranda resmi memuat berita sampai Okt 2026 dan menampilkan agenda, tetapi tidak memuat jadwal pertunjukan rutin atau harga tiket. Karena itu jadwal_pertunjukan dan tiket dibiarkan []; jam buka tidak ditemukan di sumber resmi (halaman layanan dan kontak tidak memuatnya). Pencarian web menemukan jam 07:30-16:00 dan tiket gratis di situs travel pihak ketiga; tidak dimasukkan karena bukan sumber resmi dan belum diverifikasi. Event yang ada di halaman (Nandur Srawung XIII, TKTB XXV 2026) bersifat kegiatan sekali, bukan program rutin, sehingga tidak dimasukkan ke jadwal. Halaman beranda ber-copyright 2022 tetapi kontennya berita 2026. Bagian 'Agenda Terdekat' di beranda kosong saat dibaca. url_beli_tiket null karena tidak ada tautan tiket.",
+      "kategori_enum": "tari",
+      "status": "pending",
+      "perlu_tindak_lanjut": [
+        "Jam 07.30-16.00 dan gratis hanya dari situs travel pihak ketiga, tidak dimasukkan. Program rutin tidak ditemukan di sumber resmi."
+      ]
+    },
+    {
+      "nama": "Sekar Rinonce",
+      "slug": "sekar-rinonce",
+      "kategori_usulan": "pertunjukan",
+      "jenis": "pengalaman",
+      "induk_lokasi": "Kawasan Malioboro",
+      "kabupaten": "Kota Yogyakarta",
+      "alamat": null,
+      "lat": -7.79529,
+      "lng": 110.36573,
+      "deskripsi": "Sekar Rinonce adalah pentas seni dan budaya rutin yang diselenggarakan Dinas Kebudayaan Kota Yogyakarta di kawasan Malioboro. Pertunjukannya digelar di titik-titik ramai sehingga pengunjung bisa menonton sambil berjalan di pedestrian. Program ini juga menjadi wadah pembinaan kelompok seni di Kota Yogyakarta.",
+      "jam_buka": [],
+      "hari_tutup_khusus": [],
+      "tiket": [],
+      "jadwal_pertunjukan": [
+        {
+          "hari": "Selasa",
+          "jam": null,
+          "catatan": "Pentas rutin menurut Antara (2022): setiap Selasa dan Sabtu. Lokasi yang disebut: Teras Malioboro 2, Kepatihan regol barat, dan Pasar Beringharjo. Jam tampil tidak tertulis. Belum dikonfirmasi untuk 2026.",
+          "source_url": "https://antaranews.com/berita/3108025",
+          "checked_at": null
+        },
+        {
+          "hari": "Sabtu",
+          "jam": null,
+          "catatan": "Pentas rutin menurut Antara (2022): setiap Selasa dan Sabtu. Lokasi yang disebut: Teras Malioboro 2, Kepatihan regol barat, dan Pasar Beringharjo. Jam tampil tidak tertulis. Belum dikonfirmasi untuk 2026.",
+          "source_url": "https://antaranews.com/berita/3108025",
+          "checked_at": null
+        }
+      ],
+      "situs_resmi": null,
+      "url_beli_tiket": null,
+      "sumber_dibuka": [
+        "https://antaranews.com/berita/3108025",
+        "https://visitingjogja.jogjaprov.go.id/webdinas/wp-content/uploads/2026/08/AGENDA-DISPAR-MARET-2026.pdf"
+      ],
+      "sumber_gagal": [],
+      "catatan": "(1) Sumber utama adalah artikel Antara berjudul 'Yogyakarta gelar Sekar Rinonce untuk meriahkan kawasan Malioboro' bertanggal 9 September 2022 (lebih dari 2 tahun lalu), sehingga checked_at = null untuk jadwal dan lokasi. (2) Pencarian 2026 (WebSearch) tidak menemukan jadwal Sekar Rinonce tahun 2026. Agenda Disparda DIY Maret 2026 (PDF, dibuka) tidak memuat kata Sekar Rinonce. (3) Pertentangan lokasi: Mojok.co (hanya dari hasil pencarian, tidak dibuka) menyebut Teras Malioboro 1 dan 2 serta Pasar Beringharjo; Antara 2022 menyebut Teras Malioboro 2, Kepatihan regol barat, dan Pasar Beringharjo. (4) Koordinat adalah titik ruas Jalan Malioboro dari OSM Nominatim (-7.79529, 110.36573); ini perkiraan kawasan, bukan lokasi panggung. (5) Tidak ada harga tiket tertulis; pentas tidak dinyatakan berbayar atau gratis. (6) Untuk jadwal terbaru hubungi Dinas Kebudayaan Kota Yogyakarta.",
+      "kategori_enum": "tari",
+      "status": "pending",
+      "perlu_tindak_lanjut": [
+        "Jadwal (Selasa dan Sabtu, tiga lokasi) hanya dari Antara 9 Sep 2022, tidak terkonfirmasi 2026. Koordinat titik jalan Malioboro, bukan panggung."
+      ]
+    },
+    {
+      "nama": "Workshop Perak Kotagede",
+      "slug": "workshop-perak-kotagede",
+      "kategori_usulan": "workshop",
+      "jenis": "pengalaman",
+      "induk_lokasi": "Kotagede",
+      "kabupaten": "Kota Yogyakarta",
+      "alamat": null,
+      "lat": -7.82604,
+      "lng": 110.39792,
+      "deskripsi": "Pengunjung bisa mencoba membuat perhiasan perak sendiri bersama pengrajin lokal di Kotagede, pusat kerajinan perak yang sudah lama dikenal. Peserta memilih desain cincin, anting, atau liontin, lalu mengikuti proses membentuk, mengukir, menyolder, dan memoles. Sesi berlangsung sekitar dua jam dengan pemandu berbahasa Inggris.",
+      "jam_buka": [],
+      "hari_tutup_khusus": [],
+      "tiket": [
+        {
+          "label": "Silver Making with Local Artisan of Kotagede (sesi sekitar 2 jam, per tamu)",
+          "harga_idr": 850000,
+          "catatan": "Harga per tamu (per guest) tertulis di listing Airbnb, bukan harga paket per grup. Pembatalan gratis; pembatalan paling lambat 1 hari sebelum waktu mulai untuk refund penuh. Harga dari platform pemesanan, belum dikonfirmasi ke pengrajin langsung.",
+          "source_url": "https://www.airbnb.com/experiences/1255586",
+          "checked_at": "2026-11-26"
+        }
+      ],
+      "jadwal_pertunjukan": [],
+      "situs_resmi": null,
+      "url_beli_tiket": null,
+      "sumber_dibuka": [
+        "https://www.airbnb.com/experiences/1255586"
+      ],
+      "sumber_gagal": [
+        "https://www.hssilver.com (403, halaman verifikasi Cloudflare)",
+        "https://tomssilver.com (403, Firecrawl menolak: target resolve ke alamat privat)"
+      ],
+      "catatan": "(1) Penyedia yang dibuka: listing Airbnb 'Silver Making with Local Artisan of Kotagede' (host Lawang Pethuk, 5.0 dari 72 ulasan, ulasan terbaru September 2026). Halaman ini memuat harga Rp 850.000 per tamu, durasi sekitar 2 jam, dan bahasa 'Hosted in English'. (2) Pertentangan lokasi: halaman Airbnb menulis area Banguntapan dan titik sekitar Masjid Gede Mataram, Kotagede. Alamat pasti tidak tertulis, jadi alamat = null. (3) Koordinat adalah ruas Jalan Masjid Perak, Prenggan, Kotagede dari OSM Nominatim (-7.82604, 110.39792). Ini perkiraan area, bukan lokasi workshop. (4) Jam layanan tidak tertulis; sesi mengikuti booking. Jam_buka dikosongkan. (5) Situs resmi HS Silver dan Tom's Silver tidak bisa dibuka (403), jadi situs_resmi = null dan tidak ada harga atau jam yang diambil dari sana. (6) Dari hasil pencarian yang tidak dibuka (tidak dipakai sebagai fakta): Expedia Kanada menulis CA$50 untuk kursus perak 3 jam; listing Airbnb 6829730 Silver Jewelry Class di Kotagede menulis Rp 750.000 per tamu, 3 jam. Kedua harga ini dari platform berbeda dan belum diverifikasi. (7) Ada kabar tentang Kampung Wisata Purbayan (Jl. Canteng 29) dari detikJogja 2023; sumber itu sudah lebih dari 2 tahun, jadi tidak dipakai untuk fakta. (8) Tidak ada informasi reservasi langsung dari pengrajin. Booking hanya tersedia lewat Airbnb. Minimal peserta 10 tahun pada satu workshop, menurut hasil pencarian yang tidak dibuka; belum diverifikasi.",
+      "kategori_enum": "kerajinan",
+      "status": "pending",
+      "perlu_tindak_lanjut": [
+        "Rp850.000 per tamu, sekitar 2 jam, hanya dari listing Airbnb. Alamat pasti tidak ada; situs HS Silver dan Tom's Silver diblokir (403). Koordinat perkiraan."
+      ]
+    },
+    {
+      "nama": "Desa Wisata Tlatar",
+      "slug": "desa-wisata-tlatar",
+      "kategori_usulan": "desa-wisata",
+      "jenis": "pengalaman",
+      "induk_lokasi": null,
+      "kabupaten": "Sleman",
+      "alamat": "Tlatar Kandangan, Wonokerto, Turi, Sleman, Daerah Istimewa Yogyakarta",
+      "lat": -7.6087012,
+      "lng": 110.3788984,
+      "deskripsi": "Desa Wisata Tlatar Kandangan di Wonokerto, Turi, Sleman, menawarkan pengalaman pedesaan bersama warga. Pengunjung dapat mengikuti pelatihan karawitan, tradisi merti desa, dan melihat kesenian kuda kepang. Desa ini juga dikenal sebagai sentra salak dan menyediakan homestay.",
+      "jam_buka": [],
+      "hari_tutup_khusus": [],
+      "tiket": [],
+      "jadwal_pertunjukan": [],
+      "situs_resmi": null,
+      "url_beli_tiket": null,
+      "sumber_dibuka": [
+        "https://www.detik.com/jogja/plesir/d-8255235/7-tempat-wisata-pedesaan-di-sleman-yang-cocok-untuk-liburan-keluarga",
+        "https://www.detik.com/jogja/plesir/d-8242753/7-desa-wisata-di-sleman-yang-cocok-untuk-liburan-keluarga-di-pedesaan/amp"
+      ],
+      "sumber_gagal": [
+        "https://jadesta.com/atraksi/merti_desa_1 (dibuka, tetapi halaman ini tentang Desa Wisata Sambirejo, Prambanan, bukan Tlatar; tidak dipakai sebagai sumber fakta Tlatar)"
+      ],
+      "catatan": "LOKASI: Desa Wisata Tlatar Kandangan dikonfirmasi berada di Wonokerto, Turi, Sleman (detik 11 Des 2025, artikel d-8255235), bukan Tlatar di Boyolali. Koordinat dari Nominatim adalah titik permukiman 'Tlatar' (hamlet) di Wonokerto, Turi, tanpa verifikasi dari pengelola; perkiraan, perlu dicek. KEGIATAN (menurut detik d-8255235, 11 Des 2025, mengutip Jadesta Kemenparekraf untuk sentra salak): pelatihan karawitan, tradisi merti desa, kesenian kuda kepang, ikut panen dan pengolahan salak, dan homestay. Detik d-8242753 yang diberikan dalam brief dibuka, tetapi tidak menyebut Tlatar. HARGA PAKET: tidak ditemukan di sumber mana pun, jadi tiket dikosongkan. JAM LAYANAN: tidak ditemukan. KONTAK/RESERVASI: situs resmi dan akun Instagram/medsos desa wisata Tlatar tidak ditemukan lewat pencarian; belum ada nomor kontak. Hati-hati: harga di hasil pencarian untuk Pulesari, Sangurejo, dan Brayut berasal dari desa lain di Turi/Sleman dan tidak dipakai untuk Tlatar. Merti desa Sambirejo (Jadesta) juga bukan Tlatar.",
+      "kategori_enum": "gamelan",
+      "status": "pending",
+      "perlu_tindak_lanjut": [
+        "Lokasi di Wonokerto, Turi, Sleman (bukan Tlatar Boyolali). Harga paket dan jam tidak ditemukan. Koordinat titik permukiman, perkiraan."
+      ]
+    },
+    {
+      "nama": "Desa Wisata Kasongan",
+      "slug": "desa-wisata-kasongan",
+      "kategori_usulan": "desa-wisata",
+      "jenis": "pengalaman",
+      "induk_lokasi": "Kasongan, Bangunjiwo, Kasihan",
+      "kabupaten": "Bantul",
+      "alamat": "Padukuhan Kajen, Kalurahan Bangunjiwo, Kecamatan Kasihan, Kabupaten Bantul, DI Yogyakarta",
+      "lat": -7.8449,
+      "lng": 110.335,
+      "deskripsi": "Sentra kerajinan gerabah dan keramik di selatan Kota Yogyakarta, dengan galeri di sepanjang jalan utama dan tradisi membuat tanah liat yang diwariskan turun-temurun. Pengunjung dapat menyaksikan proses pembuatan gerabah dan mencoba membentuk tanah liat sendiri di galeri yang menyediakan kursus singkat.",
+      "jam_buka": [
+        {
+          "hari": "Senin-Minggu",
+          "tutup": false,
+          "buka": "09:00",
+          "tutup_jam": "21:00",
+          "catatan": "Sumber tidak bertanggal, jadi tidak diberi tanggal cek. Satu direktori (hasil pencarian, tidak dibuka) menyebut 09.00-16.00; konflik, konfirmasi ke galeri. Ini jam kawasan, bukan jam tiap galeri.",
+          "source_url": "https://www.indonesia.travel/id-id/travel-ideas/culture/kerajinan-lokal-dengan-harga-murah-kasongan-tempatnya/",
+          "checked_at": null
+        }
+      ],
+      "hari_tutup_khusus": [],
+      "tiket": [
+        {
+          "label": "Masuk kawasan desa",
+          "harga_idr": 0,
+          "catatan": "Tidak ada tarif masuk; hanya biaya parkir (nominal tidak tertulis). Sumber tidak bertanggal.",
+          "source_url": "https://www.indonesia.travel/id-id/travel-ideas/culture/kerajinan-lokal-dengan-harga-murah-kasongan-tempatnya/",
+          "checked_at": null
+        }
+      ],
+      "jadwal_pertunjukan": [],
+      "situs_resmi": null,
+      "url_beli_tiket": null,
+      "sumber_dibuka": [
+        "https://www.goodnewsfromindonesia.id/indonesiana/wisata/desa-wisata-kasongan-pusat-kerajinan-gerabah-legendaris-di-selatan-yogyakarta",
+        "https://www.indonesia.travel/id-id/travel-ideas/culture/kerajinan-lokal-dengan-harga-murah-kasongan-tempatnya/"
+      ],
+      "sumber_gagal": [],
+      "catatan": "Isi paket workshop: GNFI (3 Feb 2026) menyebut banyak galeri menawarkan paket wisata edukasi untuk siswa dan wisatawan umum, dengan kegiatan membentuk tanah liat di meja putar atau secara manual (asbak, vas kecil dibawa pulang). Indonesia.travel menyebut kursus singkat pembuatan gerabah yang hasilnya bisa dibawa pulang. Harga paket dan durasi tidak tertulis di sumber yang dibuka, sehingga tiket hanya berisi tarif masuk. Harga kendi kecil mulai Rp40 ribu (indonesia.travel, tidak bertanggal) adalah harga produk, bukan workshop, dan tidak dimasukkan. Kontak/reservasi: tidak ada di sumber yang dibuka; satu hasil pencarian menyebut akun Instagram @eduwisata_kasongan dari ulasan pihak ketiga, belum diverifikasi. Hasil pencarian yang tidak dibuka dan belum diverifikasi: paket tur satu hari dan setengah hari dari skripsi 2026, MuseumKu Gerabah, Workshop Ali Keramik, dan tarif di sebagian galeri. Jarak dari pusat kota berbeda antar sumber: GNFI sekitar 6 km dari Alun-Alun Utara, indonesia.travel sekitar 8 km, dan hasil pencarian lain sekitar 10 km dari Titik Nol. Lokasi: GNFI menyebut Padukuhan Kajen, Kalurahan Bangunjiwo; indonesia.travel menyebut Desa Bangunjiwo, Kecamatan Kasihan. Koordinat: Jalan Kasongan dari OSM Nominatim (-7.8449, 110.3350), titik perkiraan, bukan titik pusat desa; perlu dicek peta. Situs resmi dan jam tiap galeri belum ditemukan; dianjurkan konfirmasi ke galeri sebelum datang.",
+      "kategori_enum": "kerajinan",
+      "status": "pending",
+      "perlu_tindak_lanjut": [
+        "Jam 09-21 dan tanpa tarif masuk dari indonesia.travel tanpa tanggal (checked_at null); satu direktori menyebut 09-16. Harga workshop gerabah tidak ditemukan. Koordinat perkiraan."
+      ]
+    },
+    {
+      "nama": "Desa Wisata Krebet",
+      "slug": "desa-wisata-krebet",
+      "kategori_usulan": "desa-wisata",
+      "jenis": "pengalaman",
+      "induk_lokasi": null,
+      "kabupaten": "Bantul",
+      "alamat": "Sendangsari, Pajangan, Bantul, Daerah Istimewa Yogyakarta 55751",
+      "lat": -7.8588492,
+      "lng": 110.2997528,
+      "deskripsi": "Desa Wisata Krebet di Pajangan, Bantul, dikenal sebagai sentra batik kayu, yaitu teknik batik yang diterapkan pada kayu untuk membuat topeng, wayang, gantungan kunci, dan suvenir lain. Pengunjung bisa mengikuti workshop membatik kayu dan melihat langsung proses kerja para perajin. Desa ini juga menawarkan wisata alam seperti Jurang Pulosari dan Sendang Tirta Waluya.",
+      "jam_buka": [],
+      "hari_tutup_khusus": [],
+      "tiket": [
+        {
+          "label": "Paket edukasi membuat batik kayu (workshop)",
+          "harga_idr": null,
+          "catatan": "Paket disebut di sumber resmi, tetapi harga tidak tercantum. Harga per orang atau per paket belum diketahui. Konfirmasi ke pengelola.",
+          "source_url": "https://visitingjogja.jogjaprov.go.id/en/18595",
+          "checked_at": "2026-11-26"
+        },
+        {
+          "label": "Paket budaya (kunjungan ke rumah perajin, pertunjukan seni tradisional)",
+          "harga_idr": null,
+          "catatan": "Disebut di sumber resmi tanpa harga.",
+          "source_url": "https://visitingjogja.jogjaprov.go.id/en/18595",
+          "checked_at": "2026-11-26"
+        },
+        {
+          "label": "Paket wisata alam (air terjun Jurang Pulosari, jeep off-road)",
+          "harga_idr": null,
+          "catatan": "Disebut di sumber resmi tanpa harga.",
+          "source_url": "https://visitingjogja.jogjaprov.go.id/en/18595",
+          "checked_at": "2026-11-26"
+        },
+        {
+          "label": "Paket menginap (homestay)",
+          "harga_idr": null,
+          "catatan": "Disebut di sumber resmi tanpa harga.",
+          "source_url": "https://visitingjogja.jogjaprov.go.id/en/18595",
+          "checked_at": "2026-11-26"
+        }
+      ],
+      "jadwal_pertunjukan": [],
+      "situs_resmi": "https://www.krebet.com/",
+      "url_beli_tiket": null,
+      "sumber_dibuka": [
+        "https://visitingjogja.jogjaprov.go.id/en/18595",
+        "https://visitingjogja.jogjaprov.go.id/en/18595/krebet-tourism-village-bantul/"
+      ],
+      "sumber_gagal": [],
+      "catatan": "Harga: tidak ditemukan harga resmi untuk paket membuat batik kayu atau paket lain di visitingjogja, indonesia.travel, maupun pencarian web. Pencarian hanya menemukan harga reseller asing (Orbitz, Expedia, Travelocity) yang tidak dipakai karena bukan tarif desa. Jam buka tidak tercantum di sumber, sehingga jam_buka kosong. Kontak pengelola dari sumber resmi: admin Dewi Krebet, WhatsApp 0822-2323-6199 (dari tautan di visitingjogja, dinomori dari nomor 6282223236199); Instagram dan Facebook @desawisatakrebet; YouTube Desa Wisata Krebet. Koordinat: titik dari OpenStreetMap Nominatim pada Sekretariat Desa Wisata Krebet Pajangan (Jalan Bibis-Guosari, Sendangsari), bukan titik tengah desa. Dicek 2026-11-26. Sumber visitingjogja diperbarui 2025-12-31, jadi tidak lebih tua dari 2 tahun. Penghargaan dari sumber resmi: juara 1 ADWI 2024 kategori institusi dan SDM; Desa Wisata Terbaik DIY 2024. Jarak sekitar 17 km dari pusat Kota Yogyakarta menurut sumber. Pertentangan data: tidak ada. Beberapa hasil pencarian (goodnewsfromindonesia.id) belum dibuka dan tidak dipakai sebagai fakta.",
+      "kategori_enum": "kerajinan",
+      "status": "pending",
+      "perlu_tindak_lanjut": [
+        "Halaman visitingjogja (diperbarui 31 Des 2025) memuat paket tanpa harga. Kontak admin ada di catatan mentah. Koordinat dari sekretariat desa wisata."
+      ]
+    },
+    {
+      "nama": "Desa Wisata Nglanggeran",
+      "slug": "desa-wisata-nglanggeran",
+      "kategori_usulan": "desa-wisata",
+      "jenis": "pengalaman",
+      "induk_lokasi": null,
+      "kabupaten": "Gunungkidul",
+      "alamat": "Nglanggeran, Patuk, Kabupaten Gunungkidul, Daerah Istimewa Yogyakarta 55862",
+      "lat": -7.8558161,
+      "lng": 110.5185325,
+      "deskripsi": "Desa Wisata Nglanggeran di Patuk, Gunungkidul, dikelola warga dengan model berbasis masyarakat dan berawal dari kawasan Gunung Api Purba. Selain pendakian, pengunjung bisa belajar budaya Jawa, karawitan, jatilan, dan membuat batik topeng. Paket homestay dan edukasi yang dikelola warga juga mencakup kuliner khas seperti dodol kakao.",
+      "jam_buka": [],
+      "hari_tutup_khusus": [],
+      "tiket": [
+        {
+          "label": "Paket Edukasi Budaya & Seni Lokal (per orang)",
+          "harga_idr": 25000,
+          "catatan": "Mulai dari, per orang. Isi paket (apakah sudah termasuk karawitan atau workshop) perlu dikonfirmasi. Harga dapat berubah.",
+          "source_url": "https://www.indonesia.travel/id-id/destination/java/yogyakarta/nglanggeran-tourism-village/",
+          "checked_at": "2026-11-26"
+        },
+        {
+          "label": "Paket Edukasi Batik Topeng (per orang)",
+          "harga_idr": 50000,
+          "catatan": "Sekitar, per orang. Peserta membuat topeng sendiri dengan motif batik.",
+          "source_url": "https://www.indonesia.travel/id-id/destination/java/yogyakarta/nglanggeran-tourism-village/",
+          "checked_at": "2026-11-26"
+        },
+        {
+          "label": "Paket Edukasi Dodol Kakao (per orang)",
+          "harga_idr": 20000,
+          "catatan": "Mulai dari, per orang.",
+          "source_url": "https://www.indonesia.travel/id-id/destination/java/yogyakarta/nglanggeran-tourism-village/",
+          "checked_at": "2026-11-26"
+        },
+        {
+          "label": "Paket Edukasi Pembuatan Janur (per orang)",
+          "harga_idr": 15000,
+          "catatan": "Mulai dari, per orang.",
+          "source_url": "https://www.indonesia.travel/id-id/destination/java/yogyakarta/nglanggeran-tourism-village/",
+          "checked_at": "2026-11-26"
+        },
+        {
+          "label": "Paket Homestay (per orang)",
+          "harga_idr": 75000,
+          "catatan": "Mulai dari, per orang. Lebih dari 100 homestay di desa.",
+          "source_url": "https://www.indonesia.travel/id-id/destination/java/yogyakarta/nglanggeran-tourism-village/",
+          "checked_at": "2026-11-26"
+        },
+        {
+          "label": "Paket Live-In (satuan tidak tertulis di sumber)",
+          "harga_idr": 385000,
+          "catatan": "Mulai dari IDR 385.000. Sumber tidak menyebut per orang atau per paket.",
+          "source_url": "https://www.indonesia.travel/id-id/destination/java/yogyakarta/nglanggeran-tourism-village/",
+          "checked_at": "2026-11-26"
+        }
+      ],
+      "jadwal_pertunjukan": [],
+      "situs_resmi": "https://desawisatanglanggeran.id/",
+      "url_beli_tiket": null,
+      "sumber_dibuka": [
+        "https://visitingjogja.jogjaprov.go.id/42234",
+        "https://www.indonesia.travel/id-id/destination/java/yogyakarta/nglanggeran-tourism-village/"
+      ],
+      "sumber_gagal": [],
+      "catatan": "Fokus budaya: visitingjogja menyebut Workshop Batik Topeng, karawitan, kunjungan rumah tradisional, paket wisata budaya di Kampung Pitu, dan kuliner gudeg serta oseng mercon. Indonesia.travel menambahkan Jatilan dan unggah-ungguh, tetapi tanpa harga. Paket harga dari indonesia.travel bertanda 'mulai dari' dan 'harga dapat berubah'; halaman ini tidak bertanggal, tetapi memuat acara 2026, jadi dianggap berumur wajar. Pertentangan data: visitingjogja menyebut penghargaan UNWTO 2021 sebagai Desa Wisata Terbaik Dunia dan ADWI 2021 (7 desa mandiri inspiratif). Indonesia.travel menyebut ASEAN CBT Awards Januari 2017. Penghargaan tidak dimasukkan sebagai fakta karena dua sumber resmi berbeda dan belum dicek ke sumber ketiga. Harga homestay 2021 dari artikel Good News From Indonesia (Rp75.000-150.000 per malam) tidak dipakai karena sudah lebih dari 2 tahun. Kontak reservasi: +62 818-0260-6050 (indonesia.travel); situs desa desawisatanglanggeran.id (visitingjogja). Koordinat: titik tengah batas administratif desa dari OSM Nominatim (perkiraan, bukan titik layanan). Jarak sekitar 25 km dari Kota Yogyakarta menurut visitingjogja. Tidak ada transportasi umum menurut indonesia.travel. Jam buka dan hari tutup tidak tercantum, sehingga kosong. Sumber indonesia.travel dibuka lewat Firecrawl dan memuat harga yang sama dengan hasil pencarian.",
+      "kategori_enum": "lainnya",
+      "status": "pending",
+      "perlu_tindak_lanjut": [
+        "Harga paket dari indonesia.travel, 'mulai dari', per orang kecuali Live-In (satuan tidak tertulis). Penghargaan (UNWTO 2021 vs ASEAN CBT 2017) bertentangan antarsumber. Koordinat titik tengah desa."
+      ]
+    },
+    {
+      "nama": "Desa Wisata Widosari",
+      "slug": "desa-wisata-widosari",
+      "kategori_usulan": "desa-wisata",
+      "jenis": "pengalaman",
+      "induk_lokasi": null,
+      "kabupaten": "Kulon Progo",
+      "alamat": "Kalurahan Ngargosari, Kapanewon Samigaluh, Kabupaten Kulon Progo, DI Yogyakarta",
+      "lat": -7.6630222,
+      "lng": 110.1553494,
+      "deskripsi": "Desa Wisata Widosari berada di Kalurahan Ngargosari, Samigaluh, sekitar 900 meter di atas permukaan laut dengan udara yang sejuk. Pengunjung bisa belajar kesenian dan budaya setempat, mulai dari karawitan dan tari hingga wayang kulit, batik, serta upacara adat seperti Merti Desa dan Kenduri. Desa ini juga menawarkan live-in, wisata edukasi peternakan dan pertanian, serta pemandangan dari Puncak Widosari.",
+      "jam_buka": [],
+      "hari_tutup_khusus": [],
+      "tiket": [],
+      "jadwal_pertunjukan": [],
+      "situs_resmi": null,
+      "url_beli_tiket": null,
+      "sumber_dibuka": [
+        "https://visitingjogja.jogjaprov.go.id/42502/desa-wisata-widosari-pesona-alam-budaya-dan-edukasi-di-kulon-progo/",
+        "https://diy.jadesta.com/desa/widosari"
+      ],
+      "sumber_gagal": [],
+      "catatan": "1) Sumber resmi visitingjogja (artikel terbit 24 Apr 2025, dibaca 26 Nov 2026, tidak lebih tua dari 2 tahun) tidak memuat harga paket maupun jam layanan. Karena itu tiket dan jam_buka dibiarkan kosong, bukan diisi nol. Harga paket belum ditemukan. 2) Jadesta (diy.jadesta.com, tidak ada tanggal) menampilkan harga atraksi tanpa satuan yang konsisten: Trakking Puncak Widosari Rp 15, Outbound Rp 50, Edukasi Peternakan Domba Rp 100, Merti Desa Rp 50.000, Upacara Adat Kenduri Rp 2.000.000. Belum dipakai karena satuan tidak jelas dan sumber tidak bertanggal; perlu konfirmasi ke pengelola. 3) Hasil pencarian web menyebut tiket masuk Puncak Widosari Rp 6.000 per orang dari artikel 2022. Artikel itu tidak dibuka, jadi tidak dipakai. 4) Koordinat tidak ditemukan: pencarian OpenStreetMap Nominatim untuk Widosari di Samigaluh tidak menghasilkan tempat ini, sehingga lat dan lng null. 5) Kontak: akun Instagram resmi @desawisatawidosari (disebut di visitingjogja). Nomor telepon tidak ditemukan. situs_resmi null karena tidak ada situs web desa yang terverifikasi. 6) Fasilitas menurut Jadesta: area parkir, musholla, toilet umum, kamar mandi umum, tempat makan, kios suvenir, dan area selfie. Atraksi lain: Puncak Widosari, Kebun Teh Kemadon, Puncak Proman, Rajendra Farm, dan Wahana Edukasi Tanjung Sari. Paket Jadesta (budaya, seni pertunjukan, edukasi, alam) tercantum tanpa harga.",
+      "kategori_enum": "lainnya",
+      "status": "pending",
+      "perlu_tindak_lanjut": [
+        "Harga paket dan jam tidak ada di sumber resmi. Koordinat memakai pusat Kalurahan Ngargosari (perkiraan)."
+      ]
+    },
+    {
+      "nama": "Makam Raja-raja Imogiri",
+      "slug": "makam-raja-imogiri",
+      "kategori_usulan": "situs",
+      "jenis": "permanen",
+      "induk_lokasi": null,
+      "kabupaten": "Bantul",
+      "alamat": "Dusun Pajimatan, Kalurahan Girirejo, Kecamatan Imogiri, Kabupaten Bantul, DI Yogyakarta",
+      "lat": -7.9234,
+      "lng": 110.3905,
+      "deskripsi": "Kompleks pemakaman para penguasa Mataram, termasuk raja Kasultanan Ngayogyakarta dan Kasunanan Surakarta, yang dibangun sejak 1632 oleh Sultan Agung. Makam tersusun dalam beberapa kedhaton yang dicapai dengan menaiki ratusan anak tangga, dan tetap digunakan untuk ziarah dengan aturan berpakaian adat dan tata tertib tertentu.",
+      "jam_buka": [
+        {
+          "hari": "Senin",
+          "tutup": false,
+          "buka": "10:00",
+          "tutup_jam": "13:00",
+          "catatan": "Jam ziarah menurut sumber; dapat berbeda pada hari atau kegiatan khusus.",
+          "source_url": "https://www.detik.com/jogja/plesir/d-8192962/cara-berkunjung-ke-makam-raja-raja-imogiri-bantul-denah-aturan-dan-larangannya",
+          "checked_at": "2026-11-26"
+        },
+        {
+          "hari": "Selasa",
+          "tutup": true,
+          "buka": null,
+          "tutup_jam": null,
+          "catatan": "Tidak termasuk hari buka menurut sumber.",
+          "source_url": "https://www.detik.com/jogja/plesir/d-8192962/cara-berkunjung-ke-makam-raja-raja-imogiri-bantul-denah-aturan-dan-larangannya",
+          "checked_at": "2026-11-26"
+        },
+        {
+          "hari": "Rabu",
+          "tutup": true,
+          "buka": null,
+          "tutup_jam": null,
+          "catatan": "Tidak termasuk hari buka menurut sumber (lihat catatan umum soal kabar pembukaan Rabu).",
+          "source_url": "https://www.detik.com/jogja/plesir/d-8192962/cara-berkunjung-ke-makam-raja-raja-imogiri-bantul-denah-aturan-dan-larangannya",
+          "checked_at": "2026-11-26"
+        },
+        {
+          "hari": "Kamis",
+          "tutup": true,
+          "buka": null,
+          "tutup_jam": null,
+          "catatan": "Tidak termasuk hari buka menurut sumber.",
+          "source_url": "https://www.detik.com/jogja/plesir/d-8192962/cara-berkunjung-ke-makam-raja-raja-imogiri-bantul-denah-aturan-dan-larangannya",
+          "checked_at": "2026-11-26"
+        },
+        {
+          "hari": "Jumat",
+          "tutup": false,
+          "buka": "13:00",
+          "tutup_jam": "16:00",
+          "catatan": "Jam ziarah menurut sumber.",
+          "source_url": "https://www.detik.com/jogja/plesir/d-8192962/cara-berkunjung-ke-makam-raja-raja-imogiri-bantul-denah-aturan-dan-larangannya",
+          "checked_at": "2026-11-26"
+        },
+        {
+          "hari": "Sabtu",
+          "tutup": true,
+          "buka": null,
+          "tutup_jam": null,
+          "catatan": "Tidak termasuk hari buka menurut sumber.",
+          "source_url": "https://www.detik.com/jogja/plesir/d-8192962/cara-berkunjung-ke-makam-raja-raja-imogiri-bantul-denah-aturan-dan-larangannya",
+          "checked_at": "2026-11-26"
+        },
+        {
+          "hari": "Minggu",
+          "tutup": false,
+          "buka": "10:00",
+          "tutup_jam": "13:00",
+          "catatan": "Jam ziarah menurut sumber.",
+          "source_url": "https://www.detik.com/jogja/plesir/d-8192962/cara-berkunjung-ke-makam-raja-raja-imogiri-bantul-denah-aturan-dan-larangannya",
+          "checked_at": "2026-11-26"
+        }
+      ],
+      "hari_tutup_khusus": [
+        {
+          "keterangan": "Tutup selama satu bulan penuh pada bulan Ramadan.",
+          "source_url": "https://www.detik.com/jogja/plesir/d-8192962/cara-berkunjung-ke-makam-raja-raja-imogiri-bantul-denah-aturan-dan-larangannya",
+          "checked_at": "2026-11-26"
+        }
+      ],
+      "tiket": [],
+      "jadwal_pertunjukan": [],
+      "situs_resmi": null,
+      "url_beli_tiket": null,
+      "sumber_dibuka": [
+        "https://www.detik.com/jogja/plesir/d-8192962/cara-berkunjung-ke-makam-raja-raja-imogiri-bantul-denah-aturan-dan-larangannya",
+        "https://www.kratonjogja.id/",
+        "https://tourism.kratonjogja.id/",
+        "https://visitingjogja.jogjaprov.go.id/en/wp-json/wp/v2/posts/17539",
+        "https://mojok.co/esai/pemalakan-berkedok-retribusi-makam-imogiri-borok-jogja/"
+      ],
+      "sumber_gagal": [
+        "https://www.indonesia.travel/id/en/destinations/java/yogyakarta/imogiri (HTTP 404)"
+      ],
+      "catatan": "Jam, hari buka, dan aturan busana/larangan bersumber dari artikel detik (Selasa 04 Nov 2025, bukan sumber resmi). Detik mengutip situs Pemkab Bantul untuk denah dan mengutip Google Maps untuk jam; detik tidak memuat halaman resmi pengelola. Pembukaan khusus pada 1 Syawal, 8 Syawal, dan 10 Besar penanggalan Jawa disebut detik tanpa jam, belum dimasukkan sebagai jadwal. Busana: pria memakai busana adat peranakan dan wanita memakai semekan di area tertentu, disediakan pengelola (detik). Larangan menurut detik: membunyikan radio/tape/alat musik, berjualan di dalam benteng makam, memakai alas kaki di area tertentu, mengoperasikan alat komunikasi, membuat gaduh, mencoret atau merusak bangunan. Tarif masuk: tidak ada tarif resmi yang tertulis di sumber yang dibuka, sehingga tiket dibiarkan kosong. Mojok (diperbarui 1 Mei 2024, lebih dari 2 tahun lalu) melaporkan keluhan peziarah tentang retribusi per kompleks dan sewa busana hingga sekitar Rp700 ribu; ini klaim keluhan, bukan tarif resmi, dan tidak dijadikan fakta. Visitingjogja (post 2020) menyebut kompleks buka setiap hari dan sumbangan sukarela kepada juru kunci, yang bertentangan dengan jadwal detik; post itu lebih tua dan tidak dipakai untuk jam, checked_at tidak diisi dari sumber ini. Kratonjogja.id dan tourism.kratonjogja.id dibuka, tetapi tidak memuat informasi Imogiri. Kabar dari hasil pencarian (tidak dibuka) bahwa pengelola Pajimatan membuka kompleks pada hari Rabu untuk kegiatan tertentu belum diverifikasi. Koordinat: jalan Jalan Makam Pajimatan Imogiri dari OSM Nominatim (-7.9234, 110.3905), titik perkiraan di dekat kompleks, bukan titik tepat makam; perlu dicek peta. Situs resmi dan kontak pengelola belum ditemukan. Dianjurkan konfirmasi ke pengelola sebelum datang.",
+      "kategori_enum": "lainnya",
+      "status": "pending",
+      "perlu_tindak_lanjut": [
+        "Jam (Senin 10-13, Jumat 13-16, Minggu 10-13) dan aturan busana dari detik (Nov 2025), bukan sumber resmi; visitingjogja 2020 menyebut buka setiap hari. Tarif resmi tidak ditemukan. Koordinat perkiraan."
+      ]
+    },
+    {
+      "nama": "Rumah Sandi Purwoharjo",
+      "slug": "rumah-sandi-purwoharjo",
+      "kategori_usulan": "situs",
+      "jenis": "permanen",
+      "induk_lokasi": null,
+      "kabupaten": "Kulon Progo",
+      "alamat": "Kalurahan Purwoharjo, Kapanewon Samigaluh, Kabupaten Kulon Progo, DI Yogyakarta (alamat pasti belum dikonfirmasi)",
+      "lat": null,
+      "lng": null,
+      "deskripsi": "Rumah Sandi di kawasan Perbukitan Menoreh, Kulon Progo, dikenal sebagai situs sejarah persandian yang berkaitan dengan masa perjuangan kemerdekaan. Menurut catatan jurnal, situs ini diresmikan pada 29 Januari 2014 oleh Gubernur DIY dan Kepala Sandi Negara. Status kunjungan untuk umum belum terkonfirmasi.",
+      "jam_buka": [],
+      "hari_tutup_khusus": [],
+      "tiket": [],
+      "jadwal_pertunjukan": [],
+      "situs_resmi": null,
+      "url_beli_tiket": null,
+      "sumber_dibuka": [
+        "https://www.metrotvnews.com/read/kewCjwxe-menilik-nasib-rumah-joglo-saksi-perjuangan-kemerdekaan-di-samigaluh-kulon-progo"
+      ],
+      "sumber_gagal": [
+        "https://ejournal.upi.edu/index.php/Jithor/article/download/16434/9216 (diblokir verifikasi keamanan, tidak terbaca)"
+      ],
+      "catatan": "1) BELUM TERVERIFIKASI DIBUKA UNTUK UMUM. Metro TV (1 Apr 2026, dibaca 26 Nov 2026) menyebut bangunan Rumah Karyo Utomo, yang kini dikenal sebagai Rumah Sandi, sudah ditinggalkan penghuninya dan letaknya jauh dari akses. Keluarga meminta pemerintah atau BSSN membelinya dan BSSN belum memberi kepastian. Tidak ditemukan sumber resmi tentang jam kunjung, tiket, atau pengelola, jadi jam_buka dan tiket kosong. Sebaiknya verifikasi ke BSSN atau Dinas Pariwisata Kulon Progo sebelum dipublikasikan. 2) PERTENTANGAN LOKASI: Metro menyebut Rumah Karyo Utomo di Dusun Kaliwunglon, Desa Banjarsari, Samigaluh. Jurnal UPY (Karmawibangga, 2024, DOI 10.31316/karmawibangga.v6i2.1543) dan jurnal UPI menyebut Kalurahan Purwoharjo. Nama dan slug mengikuti brief (Purwoharjo), tetapi alamat perlu dikonfirmasi. 3) Museum Sandi berbeda dari Rumah Sandi menurut Metro: Metro menyebut Museum Sandi di Kecamatan Samigaluh sudah dimiliki BSSN. Museum Sandi di Yogyakarta (Jl. Faridan M. Noto 21, Kotabaru) muncul di hasil pencarian, tetapi belum dibuka dan bukan bagian dari data ini. 4) Jurnal UPI (Jithor, penulis Temoteus Prasetyo Hadi Atmoko, judul 'Pengembangan Wisata Sebagai Daya Tarik Situs Rumah Sandi di Perbukitan Menoreh Kulon Progo') tidak bisa dibuka karena verifikasi keamanan. Informasi diresmikan 29 Jan 2014 berasal dari abstrak di hasil pencarian, belum dicek di PDF. 5) Koordinat tidak ditemukan. Nominatim hanya mengenali Purwoharjo sebagai kalurahan (sekitar -7.6954, 110.1963), bukan titik situs, jadi lat dan lng dibiarkan null. 6) Sumber ketiga dari brief (dinas pariwisata Kulon Progo) belum ditemukan URL-nya. Peninggalan: sebagian perabot TB Simatupang dipindahkan ke Monjali (Sleman).",
+      "kategori_enum": "lainnya",
+      "status": "ditahan",
+      "perlu_tindak_lanjut": [
+        "DITAHAN: tidak terbukti dibuka untuk umum (Metro TV Apr 2026: bangunan ditinggalkan penghuninya). Lokasi bertentangan (Kaliwunglon/Banjarsari vs Purwoharjo). Konfirmasi ke BSSN/Dispar Kulon Progo sebelum dipakai."
+      ]
+    },
+    {
+      "nama": "Candi Sambisari",
+      "slug": "candi-sambisari",
+      "kategori_usulan": "candi",
+      "jenis": "permanen",
+      "induk_lokasi": null,
+      "kabupaten": "Sleman",
+      "alamat": "Jalan Masjid II, Dusun Sambisari, Desa Purwomartani, Kecamatan Kalasan, Kabupaten Sleman, DI Yogyakarta",
+      "lat": -7.7623668,
+      "lng": 110.446949,
+      "deskripsi": "Candi Hindu dari sekitar abad ke-9 yang berada sekitar 6,5 meter di bawah permukaan tanah, sehingga tidak terlihat dari jalan. Candi ini terkubur material letusan Merapi dan baru tampak setelah digali warga, kini berupa halaman persegi dengan tangga di empat sisi. Di dalam bangunan utamanya terdapat lingga-yoni sebagai simbol Siwa dan Durga.",
+      "jam_buka": [
+        {
+          "hari": "Senin",
+          "tutup": false,
+          "buka": "08:00",
+          "tutup_jam": "16:00",
+          "catatan": "Sumber tunggal: artikel GNFI 17 Feb 2025 (bukan situs resmi). Artikel GNFI 1 Okt 2024 menyebut buka setiap hari 07.00-17.00, sehingga bertentangan. Belum ada sumber resmi; checked_at null.",
+          "source_url": "https://www.goodnewsfromindonesia.id/2025/02/17/selain-prambanan-ini-3-candi-bersejarah-peninggalan-mataram-kuno-di-jogja",
+          "checked_at": null
+        },
+        {
+          "hari": "Selasa",
+          "tutup": false,
+          "buka": "08:00",
+          "tutup_jam": "16:00",
+          "catatan": "Lihat catatan Senin.",
+          "source_url": "https://www.goodnewsfromindonesia.id/2025/02/17/selain-prambanan-ini-3-candi-bersejarah-peninggalan-mataram-kuno-di-jogja",
+          "checked_at": null
+        },
+        {
+          "hari": "Rabu",
+          "tutup": false,
+          "buka": "08:00",
+          "tutup_jam": "16:00",
+          "catatan": "Lihat catatan Senin.",
+          "source_url": "https://www.goodnewsfromindonesia.id/2025/02/17/selain-prambanan-ini-3-candi-bersejarah-peninggalan-mataram-kuno-di-jogja",
+          "checked_at": null
+        },
+        {
+          "hari": "Kamis",
+          "tutup": false,
+          "buka": "08:00",
+          "tutup_jam": "16:00",
+          "catatan": "Lihat catatan Senin.",
+          "source_url": "https://www.goodnewsfromindonesia.id/2025/02/17/selain-prambanan-ini-3-candi-bersejarah-peninggalan-mataram-kuno-di-jogja",
+          "checked_at": null
+        },
+        {
+          "hari": "Jumat",
+          "tutup": false,
+          "buka": "08:00",
+          "tutup_jam": "16:00",
+          "catatan": "Lihat catatan Senin.",
+          "source_url": "https://www.goodnewsfromindonesia.id/2025/02/17/selain-prambanan-ini-3-candi-bersejarah-peninggalan-mataram-kuno-di-jogja",
+          "checked_at": null
+        },
+        {
+          "hari": "Sabtu",
+          "tutup": false,
+          "buka": "07:00",
+          "tutup_jam": "17:00",
+          "catatan": "Lihat catatan Senin.",
+          "source_url": "https://www.goodnewsfromindonesia.id/2025/02/17/selain-prambanan-ini-3-candi-bersejarah-peninggalan-mataram-kuno-di-jogja",
+          "checked_at": null
+        },
+        {
+          "hari": "Minggu",
+          "tutup": false,
+          "buka": "07:00",
+          "tutup_jam": "17:00",
+          "catatan": "Lihat catatan Senin.",
+          "source_url": "https://www.goodnewsfromindonesia.id/2025/02/17/selain-prambanan-ini-3-candi-bersejarah-peninggalan-mataram-kuno-di-jogja",
+          "checked_at": null
+        }
+      ],
+      "hari_tutup_khusus": [],
+      "tiket": [
+        {
+          "label": "Wisatawan nusantara, umum",
+          "harga_idr": 9750,
+          "catatan": "Tarif Perbup Sleman No. 119/2025 (ditetapkan 22 Des 2025), kelompok 'Wisata Candi selain Candi Ijo'. Tiket terusan 3 candi Rp19.750 dan 8 candi Rp39.750 (umum) juga tercantum; bukan khusus Sambisari.",
+          "source_url": "https://peraturan.bpk.go.id/Download/414051/perbup%20sleman%20No.119%20thn%202025.pdf",
+          "checked_at": "2026-11-26"
+        },
+        {
+          "label": "Wisatawan nusantara, pelajar",
+          "harga_idr": 3750,
+          "catatan": "Tarif Perbup Sleman No. 119/2025, kelompok 'selain Candi Ijo'.",
+          "source_url": "https://peraturan.bpk.go.id/Download/414051/perbup%20sleman%20No.119%20thn%202025.pdf",
+          "checked_at": "2026-11-26"
+        },
+        {
+          "label": "Wisatawan mancanegara",
+          "harga_idr": 19750,
+          "catatan": "Baris wisatawan mancanegara pada Perbup 119/2025 tidak mengecualikan Candi Ijo, jadi berlaku umum untuk candi-candi di kelompok tersebut.",
+          "source_url": "https://peraturan.bpk.go.id/Download/414051/perbup%20sleman%20No.119%20thn%202025.pdf",
+          "checked_at": "2026-11-26"
+        }
+      ],
+      "jadwal_pertunjukan": [],
+      "situs_resmi": null,
+      "url_beli_tiket": null,
+      "sumber_dibuka": [
+        "https://peraturan.bpk.go.id/Download/414051/perbup%20sleman%20No.119%20thn%202025.pdf",
+        "https://www.goodnewsfromindonesia.id/2025/02/17/selain-prambanan-ini-3-candi-bersejarah-peninggalan-mataram-kuno-di-jogja",
+        "https://www.goodnewsfromindonesia.id/indonesiana/wisata/berkunjung-ke-candi-sambisari",
+        "https://visitingjogja.jogjaprov.go.id/en/wp-json/wp/v2/posts/15374",
+        "https://visitingjogja.jogjaprov.go.id/en/wp-json/wp/v2/posts/17327",
+        "https://jogja.antaranews.com/berita/550061/dispar-sleman-bpcb-buka-dua-candi-untuk-wisatawan-libur-lebaran"
+      ],
+      "sumber_gagal": [
+        "https://www.trip.com/travel-guide/attraction/yogyakarta/candi-sambisari-20905631/ (HTTP 432 via Firecrawl)"
+      ],
+      "catatan": "Tarif: Perbup Sleman 119/2025 (resmi, Des 2025) dipakai sebagai acuan. Angka Rp5.000 (GNFI 2024) dan Rp6.000 (Antara 2022) lebih lama dan bertentangan; tidak dipakai. Jam buka: tidak ditemukan sumber resmi terbaru. Sumber yang ada bertentangan (GNFI 2025: Sen-Jum 08-16, Sab-Min 07-17; GNFI 2024: setiap hari 07-17; Dispar Sleman 2020 pada masa pandemi: masuk sampai 15.00, tutup 16.00). Semua jam_buka diberi checked_at null sampai dikonfirmasi ke Dispar Sleman / pengelola. Parkir (motor Rp2.000, mobil Rp5.000, sumber GNFI 2024) belum terverifikasi terhadap sumber resmi. Koordinat dari OSM Nominatim (node 'Candi Sambisari', Purwomartani, Kalasan), sudah dicek wilayahnya. Alamat dari halaman visitingjogja (2019), yang tetap relevan secara lokasi. Tidak ditemukan situs resmi pengelola, jadwal pertunjukan, atau hari tutup khusus. Belum dicek ke BPK Wilayah X / kemdikbud.",
+      "kategori_enum": "candi",
+      "status": "pending",
+      "perlu_tindak_lanjut": [
+        "Tiket dari Perbup Sleman No. 119/2025 (resmi). Jam bertentangan antar-GNFI (2024 vs 2025), tidak ada sumber resmi, checked_at null."
+      ]
+    },
+    {
+      "nama": "Candi Ijo",
+      "slug": "candi-ijo",
+      "kategori_usulan": "candi",
+      "jenis": "permanen",
+      "induk_lokasi": null,
+      "kabupaten": "Sleman",
+      "alamat": "Dusun Groyokan, Desa Sambirejo, Kecamatan Prambanan, Kabupaten Sleman, DI Yogyakarta",
+      "lat": -7.7837641,
+      "lng": 110.5114895,
+      "deskripsi": "Candi Hindu bercorak Mataram Kuno yang berdiri di perbukitan Gumuk Ijo, sekitar 410 meter di atas permukaan laut, sehingga dikenal sebagai candi tertinggi di Yogyakarta. Kompleksnya tersusun dari beberapa teras dengan candi utama dan tiga candi perwara. Pengunjung sering datang sore hari untuk menikmati panorama sawah dan matahari terbenam.",
+      "jam_buka": [
+        {
+          "hari": "Senin",
+          "tutup": false,
+          "buka": "06:00",
+          "tutup_jam": "17:30",
+          "catatan": "Sumber: Hipwee (2017) dan Viva (28 Mei 2022), keduanya lama dan tidak memuat jam dari pengelola. Tidak ada sumber resmi terbaru. Telkomsel dan Holidify menyebut 08.00-17.00 (bertentangan). checked_at null.",
+          "source_url": "https://www.viva.co.id/gaya-hidup/travel/1479156-candi-ijo",
+          "checked_at": null
+        },
+        {
+          "hari": "Selasa",
+          "tutup": false,
+          "buka": "06:00",
+          "tutup_jam": "17:30",
+          "catatan": "Lihat catatan Senin.",
+          "source_url": "https://www.viva.co.id/gaya-hidup/travel/1479156-candi-ijo",
+          "checked_at": null
+        },
+        {
+          "hari": "Rabu",
+          "tutup": false,
+          "buka": "06:00",
+          "tutup_jam": "17:30",
+          "catatan": "Lihat catatan Senin.",
+          "source_url": "https://www.viva.co.id/gaya-hidup/travel/1479156-candi-ijo",
+          "checked_at": null
+        },
+        {
+          "hari": "Kamis",
+          "tutup": false,
+          "buka": "06:00",
+          "tutup_jam": "17:30",
+          "catatan": "Lihat catatan Senin.",
+          "source_url": "https://www.viva.co.id/gaya-hidup/travel/1479156-candi-ijo",
+          "checked_at": null
+        },
+        {
+          "hari": "Jumat",
+          "tutup": false,
+          "buka": "06:00",
+          "tutup_jam": "17:30",
+          "catatan": "Lihat catatan Senin.",
+          "source_url": "https://www.viva.co.id/gaya-hidup/travel/1479156-candi-ijo",
+          "checked_at": null
+        },
+        {
+          "hari": "Sabtu",
+          "tutup": false,
+          "buka": "06:00",
+          "tutup_jam": "17:30",
+          "catatan": "Lihat catatan Senin.",
+          "source_url": "https://www.viva.co.id/gaya-hidup/travel/1479156-candi-ijo",
+          "checked_at": null
+        },
+        {
+          "hari": "Minggu",
+          "tutup": false,
+          "buka": "06:00",
+          "tutup_jam": "17:30",
+          "catatan": "Lihat catatan Senin.",
+          "source_url": "https://www.viva.co.id/gaya-hidup/travel/1479156-candi-ijo",
+          "checked_at": null
+        }
+      ],
+      "hari_tutup_khusus": [],
+      "tiket": [
+        {
+          "label": "Wisatawan nusantara, umum",
+          "harga_idr": 14750,
+          "catatan": "Tarif Perbup Sleman No. 119/2025 (ditetapkan 22 Des 2025), kelompok 'Wisatawan Nusantara Candi Ijo' (dipisah dari candi lain). Tiket terusan 3 candi Rp19.750 dan 8 candi Rp39.750 (umum) juga tercantum.",
+          "source_url": "https://peraturan.bpk.go.id/Download/414051/perbup%20sleman%20No.119%20thn%202025.pdf",
+          "checked_at": "2026-11-26"
+        },
+        {
+          "label": "Wisatawan nusantara, pelajar",
+          "harga_idr": 4750,
+          "catatan": "Tarif Perbup Sleman No. 119/2025, kelompok Candi Ijo.",
+          "source_url": "https://peraturan.bpk.go.id/Download/414051/perbup%20sleman%20No.119%20thn%202025.pdf",
+          "checked_at": "2026-11-26"
+        },
+        {
+          "label": "Wisatawan mancanegara",
+          "harga_idr": 19750,
+          "catatan": "Baris wisatawan mancanegara pada Perbup 119/2025 tidak mengecualikan Candi Ijo.",
+          "source_url": "https://peraturan.bpk.go.id/Download/414051/perbup%20sleman%20No.119%20thn%202025.pdf",
+          "checked_at": "2026-11-26"
+        }
+      ],
+      "jadwal_pertunjukan": [],
+      "situs_resmi": null,
+      "url_beli_tiket": null,
+      "sumber_dibuka": [
+        "https://peraturan.bpk.go.id/Download/414051/perbup%20sleman%20No.119%20thn%202025.pdf",
+        "https://www.viva.co.id/gaya-hidup/travel/1479156-candi-ijo",
+        "https://www.hipwee.com/narasi/sunset-menawan-di-candi-ijo-yogyakarta-dengan-harga-tiket-masuk-terjangkau/",
+        "https://www.goodnewsfromindonesia.id/2025/02/04/candi-ijo-spot-sunset-yang-wajib-dikunjungi-hanya-40-menit-dari-kota",
+        "https://visitingjogja.jogjaprov.go.id/en/wp-json/wp/v2/posts/17351"
+      ],
+      "sumber_gagal": [],
+      "catatan": "Tarif: Perbup Sleman 119/2025 (resmi, Des 2025) dipakai sebagai acuan; ini memisahkan Candi Ijo dari candi lain (umum Rp14.750 vs Rp9.750). Angka Rp5.000/Rp7.000 (Hipwee 2017, Viva 2022, GNFI 2025) dan Rp10.000/Rp15.000 untuk WNA dari sumber lama/media tidak dipakai, karena bertentangan dengan perbup. Jam buka: hanya sumber lama (Hipwee 2017, Viva 2022) menyebut 06.00-17.30, sementara Telkomsel dan Holidify menyebut 08.00-17.00; belum ada sumber resmi terbaru, jadi checked_at null. Parkir (motor Rp2.000, mobil Rp5.000, sumber GNFI 2025) belum terverifikasi resmi. Pengelola belum teridentifikasi dari sumber resmi. Koordinat dari OSM Nominatim (polygon 'Candi Ijo', Sambirejo, Prambanan); titik ini berupa centroid kawasan, bukan posisi candi persis, dan wilayahnya sudah dicek di dalam DIY. Alamat (Groyokan, Sambirejo) dari Hipwee 2017. Belum dicek ke BPK Wilayah X / kemdikbud atau dispar Sleman langsung.",
+      "kategori_enum": "candi",
+      "status": "pending",
+      "perlu_tindak_lanjut": [
+        "Tiket dari Perbup Sleman No. 119/2025 (resmi). Jam 06.00-17.30 hanya dari Hipwee 2017 dan Viva 2022; sumber lain 08.00-17.00. Koordinat centroid kawasan."
+      ]
+    },
+    {
+      "nama": "Candi Banyunibo",
+      "slug": "candi-banyunibo",
+      "kategori_usulan": "candi",
+      "jenis": "permanen",
+      "induk_lokasi": null,
+      "kabupaten": "Sleman",
+      "alamat": "Jalan Ratu Boko, Bokoharjo, Prambanan, Sleman, Daerah Istimewa Yogyakarta 55572",
+      "lat": -7.7779947,
+      "lng": 110.4940445,
+      "deskripsi": "Candi Banyunibo adalah situs candi bercorak Buddha yang berdiri di kawasan perbukitan dan lembah di Prambanan, Sleman. Suasananya sepi dan asri, sehingga berbeda dengan kompleks candi yang ramai di sekitar Prambanan. Namanya dipercaya berasal dari air yang menetes di sekitar kawasan candi.",
+      "jam_buka": [],
+      "hari_tutup_khusus": [],
+      "tiket": [
+        {
+          "label": "Tiket masuk",
+          "harga_idr": 5000,
+          "catatan": "Dari artikel GNFI (17 Juni 2026), bukan situs resmi. Belum dikonfirmasi ke pengelola atau Dinas Pariwisata Sleman.",
+          "source_url": "https://www.goodnewsfromindonesia.id/2026/06/17/candi-banyunibo-ketenangan-buddha-di-perbukitan-yogyakarta",
+          "checked_at": "2026-11-26"
+        },
+        {
+          "label": "Parkir motor",
+          "harga_idr": 2000,
+          "catatan": "Dari artikel GNFI (17 Juni 2026), bukan situs resmi.",
+          "source_url": "https://www.goodnewsfromindonesia.id/2026/06/17/candi-banyunibo-ketenangan-buddha-di-perbukitan-yogyakarta",
+          "checked_at": "2026-11-26"
+        }
+      ],
+      "jadwal_pertunjukan": [],
+      "situs_resmi": null,
+      "url_beli_tiket": null,
+      "sumber_dibuka": [
+        "https://www.goodnewsfromindonesia.id/2026/06/17/candi-banyunibo-ketenangan-buddha-di-perbukitan-yogyakarta"
+      ],
+      "sumber_gagal": [],
+      "catatan": "JAM BUKA TIDAK DITEMUKAN: tidak ada sumber yang memuat jam buka Candi Banyunibo. Hasil pencarian menyebut candi ini masuk daftar candi yang dibuka untuk wisatawan (Dispar Sleman, 2022), tetapi tanpa jam. Artikel Antara 2022 (https://jogja.antaranews.com/berita/550061/dispar-sleman-bpcb-buka-dua-candi-untuk-wisatawan-libur-lebaran) dibaca tetapi lebih dari 2 tahun, jadi tidak dipakai sebagai sumber fakta dan tidak menghasilkan checked_at. Tiket Rp5.000 dan parkir motor Rp2.000 hanya dari satu artikel blog GNFI 2026, bukan situs resmi; perlu verifikasi ke BPCB DIY atau Dinas Pariwisata Sleman. Tidak ada situs resmi tempat yang ditemukan. Koordinat dari OpenStreetMap Nominatim (osm_id 2075216043, 'Candi Banyunibo', Bokoharjo, Prambanan); belum dicek ke sumber resmi. Kawasan Cepit dan jarak sekitar 2 km dari Ratu Boko hanya dari artikel 2008 dan tidak dipakai. Pertentangan data: tidak ada.",
+      "kategori_enum": "candi",
+      "status": "pending",
+      "perlu_tindak_lanjut": [
+        "Jam buka tidak ditemukan. Tiket Rp5.000 dan parkir Rp2.000 hanya dari satu artikel GNFI Juni 2026, bukan resmi."
+      ]
+    },
+    {
+      "nama": "Museum Affandi",
+      "slug": "museum-affandi",
+      "kategori_usulan": "museum",
+      "jenis": "permanen",
+      "induk_lokasi": null,
+      "kabupaten": "Sleman",
+      "alamat": "Jl. Laksda Adisucipto No.167, Sleman, Daerah Istimewa Yogyakarta 55281",
+      "lat": -7.7827543,
+      "lng": 110.3963324,
+      "deskripsi": "Museum ini memamerkan karya-karya pelukis Affandi dan menjadi tempat untuk mengenal gaya serta perjalanan berkeseniannya. Pengunjung bisa menikmati koleksi lukisan dalam suasana yang tenang di tepi Jalan Laksda Adisucipto, Sleman. Lokasinya mudah dijangkau dengan TransJogja maupun kendaraan pribadi.",
+      "jam_buka": [
+        {
+          "hari": "Senin",
+          "tutup": false,
+          "buka": "09:00",
+          "tutup_jam": "16:00",
+          "catatan": "Situs resmi menulis buka setiap hari, 09:00 - 16:00.",
+          "source_url": "https://www.affandi.org/en/visit",
+          "checked_at": "2026-11-26"
+        },
+        {
+          "hari": "Selasa",
+          "tutup": false,
+          "buka": "09:00",
+          "tutup_jam": "16:00",
+          "catatan": "Situs resmi menulis buka setiap hari, 09:00 - 16:00.",
+          "source_url": "https://www.affandi.org/en/visit",
+          "checked_at": "2026-11-26"
+        },
+        {
+          "hari": "Rabu",
+          "tutup": false,
+          "buka": "09:00",
+          "tutup_jam": "16:00",
+          "catatan": "Situs resmi menulis buka setiap hari, 09:00 - 16:00.",
+          "source_url": "https://www.affandi.org/en/visit",
+          "checked_at": "2026-11-26"
+        },
+        {
+          "hari": "Kamis",
+          "tutup": false,
+          "buka": "09:00",
+          "tutup_jam": "16:00",
+          "catatan": "Situs resmi menulis buka setiap hari, 09:00 - 16:00.",
+          "source_url": "https://www.affandi.org/en/visit",
+          "checked_at": "2026-11-26"
+        },
+        {
+          "hari": "Jumat",
+          "tutup": false,
+          "buka": "09:00",
+          "tutup_jam": "16:00",
+          "catatan": "Situs resmi menulis buka setiap hari, 09:00 - 16:00.",
+          "source_url": "https://www.affandi.org/en/visit",
+          "checked_at": "2026-11-26"
+        },
+        {
+          "hari": "Sabtu",
+          "tutup": false,
+          "buka": "09:00",
+          "tutup_jam": "16:00",
+          "catatan": "Situs resmi menulis buka setiap hari, 09:00 - 16:00.",
+          "source_url": "https://www.affandi.org/en/visit",
+          "checked_at": "2026-11-26"
+        },
+        {
+          "hari": "Minggu",
+          "tutup": false,
+          "buka": "09:00",
+          "tutup_jam": "16:00",
+          "catatan": "Situs resmi menulis buka setiap hari, 09:00 - 16:00.",
+          "source_url": "https://www.affandi.org/en/visit",
+          "checked_at": "2026-11-26"
+        }
+      ],
+      "hari_tutup_khusus": [],
+      "tiket": [
+        {
+          "label": "Pengunjung domestik",
+          "harga_idr": 50000,
+          "catatan": "Harga sudah termasuk minuman ringan gratis dan suvenir (menurut situs resmi).",
+          "source_url": "https://www.affandi.org/en/visit",
+          "checked_at": "2026-11-26"
+        },
+        {
+          "label": "Pengunjung internasional",
+          "harga_idr": 100000,
+          "catatan": "Harga sudah termasuk minuman ringan gratis dan suvenir (menurut situs resmi).",
+          "source_url": "https://www.affandi.org/en/visit",
+          "checked_at": "2026-11-26"
+        },
+        {
+          "label": "Tambahan izin kamera DSLR",
+          "harga_idr": 30000,
+          "catatan": null,
+          "source_url": "https://www.affandi.org/en/visit",
+          "checked_at": "2026-11-26"
+        },
+        {
+          "label": "Tambahan izin kamera ponsel",
+          "harga_idr": 20000,
+          "catatan": null,
+          "source_url": "https://www.affandi.org/en/visit",
+          "checked_at": "2026-11-26"
+        }
+      ],
+      "jadwal_pertunjukan": [],
+      "situs_resmi": "https://www.affandi.org",
+      "url_beli_tiket": null,
+      "sumber_dibuka": [
+        "https://www.affandi.org/en/visit"
+      ],
+      "sumber_gagal": [],
+      "catatan": "Jam dan tiket dari halaman resmi affandi.org/en/visit (dibaca via Firecrawl, status sumber sesuai pembacaan 2026-11-26). Tiket: harga domestik dan internasional, serta tambahan kamera, tercantum di halaman yang sama. Tarif khusus untuk pelajar, lansia 60 tahun ke atas, dan rombongan (hingga 100 orang) disebut tersedia tanpa angka; pemesanan rombongan wajib di muka. Hari tutup khusus dan jadwal libur nasional tidak tercantum di halaman yang dibaca. Koordinat dari OpenStreetMap Nominatim (osm_id 191907719, nama 'Affandi Museum', Jl. Laksda Adisucipto 167); belum dicek ke sumber resmi. Alamat 'Jl. Laksda Adisucipto No.167' dan kode pos 55281 dari halaman resmi dan Nominatim. Kategori 'museum' sesuai usulan.",
+      "kategori_enum": "museum",
+      "status": "pending",
+      "perlu_tindak_lanjut": [
+        "Data dari situs resmi affandi.org. Koordinat dari OSM, belum dicek ke sumber resmi."
+      ]
+    },
+    {
+      "nama": "Museum Gunungapi Merapi",
+      "slug": "museum-gunungapi-merapi",
+      "kategori_usulan": "museum",
+      "jenis": "permanen",
+      "induk_lokasi": null,
+      "kabupaten": "Sleman",
+      "alamat": "Kapanewon Pakem, Sleman, Daerah Istimewa Yogyakarta",
+      "lat": null,
+      "lng": null,
+      "deskripsi": "Museum Gunungapi Merapi di Pakem, Sleman, adalah ruang belajar publik tentang vulkanologi dan kebencanaan Gunung Merapi. Pengunjung dapat melihat koleksi dan peralatan interaktif, termasuk simulator gempa vulkanik dan ruang pemutaran film erupsi. Museum ini dikelola oleh Pemerintah Kabupaten Sleman.",
+      "jam_buka": [],
+      "hari_tutup_khusus": [],
+      "tiket": [
+        {
+          "label": "Wisatawan Nusantara",
+          "harga_idr": 5000,
+          "catatan": "Tarif tetap menurut pemberitaan ANTARA saat museum dibuka kembali, 27 Des 2024. Belum diverifikasi ke pengelola.",
+          "source_url": "https://jogja.antaranews.com/berita/729522/museum-gunungapi-merapi-beroperasi-kembali",
+          "checked_at": "2026-11-26"
+        }
+      ],
+      "jadwal_pertunjukan": [],
+      "situs_resmi": null,
+      "url_beli_tiket": null,
+      "sumber_dibuka": [
+        "https://www.indonesia.travel/gb/en/destination/java/yogyakarta/museum-gunungapi-merapi",
+        "https://jogja.antaranews.com/berita/729522/museum-gunungapi-merapi-beroperasi-kembali",
+        "https://www.orami.co.id/magazine/museum-merapi"
+      ],
+      "sumber_gagal": [
+        "https://indonesia.travel/id/id/destinasi/detail/museum-gunungapi-merapi (404, halaman tidak ditemukan)"
+      ],
+      "catatan": "JAM BUKA: belum ada sumber resmi yang dibaca. Orami (4 Sep 2024, lebih dari 2 tahun) menyebut Selasa-Minggu 08.00-15.00 (Jumat 14.30); artikel lain (Merahputih, tanpa tanggal jelas) menyebut 08.00-15.30 WIB. Sumber bertentangan dan tidak bertanggal baru, sehingga jam_buka dikosongkan dan tidak boleh ditampilkan sebagai fakta. HARGA: tarif Rp5.000/Rp10.000 hanya dari ANTARA 27 Des 2024; belum dikonfirmasi ke Dinas Kebudayaan/pengelola. ALAMAT: nama jalan 'Jalan Boyong, Dusun Banteng, Kalurahan Hargobinangun' hanya muncul di hasil pencarian (ringkasan, tidak dibuka langsung), sehingga tidak dipakai. KOORDINAT: Nominatim tidak menemukan museum ini (dua kueri); hasil 'Museum Mini Merapi Sisa Hartaku' di Cangkringan adalah tempat lain dan TIDAK dipakai. Belum dibuka: BPPTKG dan situs Dinas Pariwisata/Kebudayaan Sleman (tidak ditemukan lewat pencarian). Deskripsi ditulis ulang dari halaman indonesia.travel versi Inggris. situs_resmi belum ditemukan.",
+      "kategori_enum": "museum",
+      "status": "pending",
+      "perlu_tindak_lanjut": [
+        "Tiket dari ANTARA 27 Des 2024. Jam bertentangan/lama, dikosongkan. Koordinat tidak ditemukan di OSM. BPPTKG dan Dispar Sleman belum dibuka."
+      ]
+    },
+    {
+      "nama": "Museum Puro Pakualaman",
+      "slug": "museum-puro-pakualaman",
+      "kategori_usulan": "museum",
+      "jenis": "permanen",
+      "induk_lokasi": null,
+      "kabupaten": "Kota Yogyakarta",
+      "alamat": "Jl. Laksda Adisucipto 167, Jogja (berada di dalam Kompleks Puro Pakualaman)",
+      "lat": -7.799382,
+      "lng": 110.3762343,
+      "deskripsi": "Museum ini menyimpan peninggalan Kadipaten Pakualaman, mulai dari singgasana dan keris hingga naskah dan busana para adipati dari masa Sri Paku Alam I sampai VII. Koleksinya ditata di tiga ruang di bagian depan timur kompleks istana, sehingga cocok sebagai wisata edukasi tentang budaya dan sistem pemerintahan Pakualaman.",
+      "jam_buka": [
+        {
+          "hari": "Senin..Kamis",
+          "tutup": false,
+          "buka": "08:00",
+          "tutup_jam": "13:00",
+          "catatan": "Menurut portal pariwisata resmi DIY. Sumber lain (Detik, 2023) menulis 09:00-14:30 untuk Senin-Jumat, lihat catatan.",
+          "source_url": "https://visitingjogja.jogjaprov.go.id/en/?p=17806",
+          "checked_at": null
+        },
+        {
+          "hari": "Jumat",
+          "tutup": false,
+          "buka": "08:00",
+          "tutup_jam": "11:00",
+          "catatan": "Menurut portal pariwisata resmi DIY.",
+          "source_url": "https://visitingjogja.jogjaprov.go.id/en/?p=17806",
+          "checked_at": null
+        },
+        {
+          "hari": "Sabtu..Minggu",
+          "tutup": false,
+          "buka": "08:00",
+          "tutup_jam": "13:00",
+          "catatan": "Menurut portal pariwisata resmi DIY. Detik (2023) menulis Sabtu 09:00-12:00 dan Minggu tutup.",
+          "source_url": "https://visitingjogja.jogjaprov.go.id/en/?p=17806",
+          "checked_at": null
+        }
+      ],
+      "hari_tutup_khusus": [
+        {
+          "keterangan": "Minggu tutup menurut Detik (2023). Portal resmi DIY justru mencantumkan Sabtu-Minggu buka 08:00-13:00, jadi perlu dikonfirmasi.",
+          "source_url": "https://www.detik.com/jogja/plesir/d-6909419/10-museum-di-jogja-pilihan-wisata-edukasi-di-kota-pelajar",
+          "checked_at": null
+        }
+      ],
+      "tiket": [
+        {
+          "label": "Tiket masuk",
+          "harga_idr": null,
+          "catatan": "Belum pasti. Detik (2023) pada paragraf museum menulis tidak dikenakan tiket masuk, tetapi pada pembuka artikel yang sama tertulis tiket Rp 50.000 untuk museum ini. Tidak ada harga dari sumber resmi. Dikonfirmasi dulu sebelum ditampilkan.",
+          "source_url": "https://www.detik.com/jogja/plesir/d-6909419/10-museum-di-jogja-pilihan-wisata-edukasi-di-kota-pelajar",
+          "checked_at": null
+        }
+      ],
+      "jadwal_pertunjukan": [],
+      "situs_resmi": null,
+      "url_beli_tiket": null,
+      "sumber_dibuka": [
+        "https://www.detik.com/jogja/plesir/d-6909419/10-museum-di-jogja-pilihan-wisata-edukasi-di-kota-pelajar",
+        "https://visitingjogja.jogjaprov.go.id/en/?p=17806"
+      ],
+      "sumber_gagal": [],
+      "catatan": "(1) Pertentangan jam: portal resmi DIY (artikel berbahasa Inggris, terbit 30 Nov 2020) menulis Senin-Kamis 08:00-13:00, Jumat 08:00-11:00, Sabtu-Minggu 08:00-13:00. Detik (2 Sep 2023) menulis Senin-Jumat 09:00-14:30, Sabtu 09:00-12:00, Minggu tutup. Keduanya sudah lebih dari 2 tahun lalu, jadi checked_at dibiarkan null dan jam ini belum boleh ditampilkan sebagai jam resmi. (2) Tiket: lihat catatan di tiket. (3) Situs resmi Kadipaten/Puro Pakualaman tidak ditemukan lewat pencarian, jadi situs_resmi null. Pencarian hanya menemukan artikel pihak ketiga dan blog lama (kalokaadventure.blogspot.com, 2011) yang menyebut jam berbeda, dan tidak dipakai. (4) Koordinat tidak ditemukan: pencarian Nominatim untuk 'Museum Puro Pakualaman' kosong. Hasil untuk 'Puro Pakualaman' hanya Masjid Gede Puro Pakualaman (sekitar -7.8011, 110.3753), yang bukan museum, jadi tidak dipakai. (5) Portal resmi juga menulis museum dibuka 29 Januari 1981 dan dikelola Bebadan Museum Puro Pakualaman; alamat portal: Kompleks Puro Pakualaman, gerbang Wiwara Kusuma.",
+      "kategori_enum": "museum",
+      "status": "pending",
+      "perlu_tindak_lanjut": [
+        "Harga dan jam bertentangan antarsumber dan sudah lebih dari 2 tahun (checked_at null). Koordinat dari titik Pura Pakualaman di OSM (perkiraan)."
+      ]
+    }
+  ],
+  "diperbarui": "2026-11-26"
+}

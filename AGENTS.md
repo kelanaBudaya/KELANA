@@ -1,6 +1,6 @@
 # KELANA — Agent Guide
 
-KELANA ("Kawan Eksplorasi Budaya Nusantara") is a native Android travel guide for cultural tourism across Indonesia. It launches with DI Yogyakarta only; other regions show as "coming soon" and open one at a time after the team has checked their official sources.
+KELANA ("Kawan Eksplorasi Budaya Nusantara") is a native Android travel guide for cultural tourism across Indonesia. It launched with DI Yogyakarta. A region opens in the app (status `available`) as soon as its data exists in the database: places with their official facts and, where the schema allows, events. Regions without data yet show as "coming soon".
 
 Design source of truth: the Claude Design artifact https://claude.ai/artifact/9CFY5pcyzvTJi9rVu49FN8 (same design as the Figma file, same screen numbers). Local copies and the screen map are in `docs/design/artifact/` (read its README first). Tokens there override `docs/design/FIGMA-FRAMES.md`: font is Plus Jakarta Sans (+ Fraunces for postcard and highlights), not Inter. Figma (`UI Design` page, node `42:2`) is a fallback only; its MCP exports are rate-limited. The PNGs in `docs/design/` are overview slides for context only.
 

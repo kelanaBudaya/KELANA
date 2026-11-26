@@ -1,0 +1,842 @@
+{
+  "provinsi": "Banten",
+  "dikumpulkan": "2026-11-26",
+  "status": "pending (belum disetujui manusia)",
+  "tempat": [
+    {
+      "nama": "Keraton Surosowan",
+      "slug": "keraton-surosowan",
+      "kategori_usulan": "keraton",
+      "jenis": "permanen",
+      "induk_lokasi": null,
+      "kabupaten": "Kota Serang",
+      "provinsi": "Banten",
+      "alamat": "Jl. Masjid Agung Banten, Kecamatan Kasemen, Kota Serang, Banten",
+      "lat": -6.0381641,
+      "lng": 106.1543798,
+      "deskripsi": "Reruntuhan istana pusat pemerintahan Kesultanan Banten yang berdiri di kawasan Banten Lama. Sisa denah ruang dan dinding bata yang luas masih terlihat, meski bangunan aslinya telah dihancurkan dan bahan-bahannya diambil kembali pada abad ke-19. Situs ini dikelola sebagai cagar budaya oleh Balai Pelestarian Kebudayaan Wilayah VIII.",
+      "jam_buka": [],
+      "hari_tutup_khusus": [],
+      "tiket": [],
+      "jadwal_pertunjukan": [],
+      "situs_resmi": null,
+      "url_beli_tiket": null,
+      "sumber_dibuka": [
+        "https://djkn.kemenkeu.go.id/kanwil-banten/baca-artikel/17595/Keraton-Surosowan-Peninggalan-Masa-Kejayaan-Kesultanan-Banten.html"
+      ],
+      "sumber_gagal": [],
+      "catatan": "Artikel DJKN (25 Apr 2025) dibaca dan dipakai untuk deskripsi, alamat, dan status cagar budaya. Artikel itu tidak memuat jam buka maupun harga tiket, sehingga jam_buka dan tiket dikosongkan (belum ada sumber resmi). Klaim 'terbuka setiap hari dan gratis' yang ada di alasan_layak awal tidak saya verifikasi dari halaman ini dan tidak dipakai sebagai fakta. Koordinat dari OpenStreetMap Nominatim (Keraton Surosowan, Kasemen, Serang, Banten), hasil cocok dengan wilayah. Situs resmi pengelola belum ditemukan di data ini (BPK Wilayah VIII, kebudayaan.kemdikbud.go.id/bpcbbanten, tidak dibuka dalam putaran ini).",
+      "status": "pending",
+      "bentuk": "tempat",
+      "kategori_enum": "lainnya"
+    },
+    {
+      "nama": "Masjid Agung Banten",
+      "slug": "masjid-agung-banten",
+      "kategori_usulan": "situs",
+      "jenis": "permanen",
+      "induk_lokasi": null,
+      "kabupaten": "Kota Serang",
+      "provinsi": "Banten",
+      "alamat": "Kelurahan Banten, Kecamatan Kasemen, Kota Serang, Banten",
+      "lat": -6.0359414,
+      "lng": 106.1541066,
+      "deskripsi": "Masjid kuno di kawasan Banten Lama yang dibangun pada abad ke-16 dan masih digunakan untuk ibadah harian. Bangunannya memadukan unsur arsitektur Jawa, Mughal, Belanda, dan Tionghoa dalam satu kompleks bersama makam para sultan Banten. Masjid ini sering dikunjungi peziarah dan wisatawan sejarah.",
+      "jam_buka": [],
+      "hari_tutup_khusus": [],
+      "tiket": [
+        {
+          "label": "Masuk",
+          "harga_idr": 0,
+          "catatan": "Gratis. Sumber media (GNFI), bukan sumber resmi pengelola; belum dikonfirmasi ke pengelola. Artikel menyebut masjid buka setiap hari dan bisa dikunjungi kapan saja sesuai waktu yang memungkinkan; jam pasti tidak tertulis.",
+          "source_url": "https://www.goodnewsfromindonesia.id/2026/06/19/masjid-agung-banten-akulturasi-5-budaya-dalam-salah-satu-masjid-tertua-di-nusantara",
+          "checked_at": "2026-11-26"
+        }
+      ],
+      "jadwal_pertunjukan": [],
+      "situs_resmi": null,
+      "url_beli_tiket": null,
+      "sumber_dibuka": [
+        "https://www.goodnewsfromindonesia.id/2026/06/19/masjid-agung-banten-akulturasi-5-budaya-dalam-salah-satu-masjid-tertua-di-nusantara"
+      ],
+      "sumber_gagal": [],
+      "catatan": "Satu-satunya sumber yang dibaca adalah artikel GNFI (19 Jun 2026), media, bukan situs resmi. Fakta gratis dimasukkan dengan checked_at karena halaman itu berhasil dibaca dan bertanggal baru; perlu dikonfirmasi ke pengelola sebelum publikasi. Jam buka HH:MM tidak ditemukan. Tahun pembangunan 1556 dan detail arsitektur hanya dari artikel itu. Koordinat dari OpenStreetMap Nominatim (Masjid Agung Banten, Kasemen, Serang); hasil pertama Nominatim salah (Masjid Agung Discovery, Tangerang Selatan) dan tidak dipakai. Halaman DJKN untuk Keraton Surosowan menyebut masjid ini berseberangan dengan keraton, sesuai lokasi koordinat.",
+      "status": "pending",
+      "bentuk": "tempat",
+      "kategori_enum": "lainnya"
+    },
+    {
+      "nama": "Keraton Kaibon",
+      "slug": "keraton-kaibon",
+      "kategori_usulan": "keraton",
+      "jenis": "permanen",
+      "induk_lokasi": null,
+      "kabupaten": "Kota Serang",
+      "provinsi": "Banten",
+      "alamat": "Kampung Kroya, Kelurahan Kasunyatan, Kecamatan Kasemen, Kota Serang, Banten",
+      "lat": -6.0438351,
+      "lng": 106.1600022,
+      "deskripsi": "Reruntuhan keraton kedua Kesultanan Banten yang dibangun sekitar 1815 untuk tempat tinggal ibu sultan. Yang tersisa berupa gerbang batu, pilar, dan sisa bangunan masjid di sisi gerbang. Situs ini ditetapkan sebagai cagar budaya di Kota Serang dan terbuka untuk dikunjungi.",
+      "jam_buka": [],
+      "hari_tutup_khusus": [],
+      "tiket": [
+        {
+          "label": "Masuk",
+          "harga_idr": 0,
+          "catatan": "Gratis. Sumber media (GNFI), bukan sumber resmi pengelola; belum dikonfirmasi ke pengelola. Artikel menyebut situs terbuka setiap hari sepanjang pagi hingga sore, tanpa jam HH:MM tertulis.",
+          "source_url": "https://www.goodnewsfromindonesia.id/2026/06/17/keraton-kaibon-menengok-kembali-sisa-kejayaan-kesultanan-banten",
+          "checked_at": "2026-11-26"
+        }
+      ],
+      "jadwal_pertunjukan": [],
+      "situs_resmi": null,
+      "url_beli_tiket": null,
+      "sumber_dibuka": [
+        "https://www.goodnewsfromindonesia.id/2026/06/17/keraton-kaibon-menengok-kembali-sisa-kejayaan-kesultanan-banten"
+      ],
+      "sumber_gagal": [],
+      "catatan": "Satu-satunya sumber yang dibaca adalah artikel GNFI (16 Jun 2026), media, bukan situs resmi. Fasilitas terbatas, disarankan membawa air minum (dari artikel). Jam buka HH:MM tidak tertulis, jam_buka dikosongkan. Koordinat dari OpenStreetMap Nominatim (Keraton Kaibon, Kasemen, Serang, Banten); hasil cocok dengan wilayah dan nama. Tahun pembangunan (sekitar 1815) dan penghancuran (1832) hanya dari artikel GNFI, belum dicek di sumber resmi.",
+      "status": "pending",
+      "bentuk": "tempat",
+      "kategori_enum": "lainnya"
+    },
+    {
+      "nama": "Benteng Speelwijk",
+      "slug": "benteng-speelwijk",
+      "provinsi": "Banten",
+      "kategori_usulan": "benteng",
+      "jenis": "permanen",
+      "induk_lokasi": null,
+      "kabupaten": "Kota Serang",
+      "alamat": "Kampung Pamarican, Desa Banten, Kecamatan Kasemen, Kota Serang, Banten",
+      "lat": -6.0312048,
+      "lng": 106.1506564,
+      "deskripsi": "Benteng persegi panjang yang dibangun VOC pada akhir abad ke-17 di Banten Lama, berdekatan dengan Masjid Agung Banten dan Keraton Surosowan. Kini kawasannya menjadi taman terbuka dengan parit, tembok tua, dan menara pengintai yang bisa dinaiki.",
+      "jam_buka": [
+        {
+          "hari": "Senin",
+          "tutup": false,
+          "buka": "00:00",
+          "tutup_jam": "23:59",
+          "catatan": "Sumber menyebut kawasan terbuka 24 jam setiap hari; ditulis sebagai 00:00-23:59 karena format skema harian.",
+          "source_url": "https://www.goodnewsfromindonesia.id/indonesiana/wisata/benteng-speelwijk-serang-benteng-pengawasan-voc-abad-ke-17-di-banten-lama",
+          "checked_at": "2026-11-26"
+        },
+        {
+          "hari": "Selasa",
+          "tutup": false,
+          "buka": "00:00",
+          "tutup_jam": "23:59",
+          "catatan": "Sama dengan Senin.",
+          "source_url": "https://www.goodnewsfromindonesia.id/indonesiana/wisata/benteng-speelwijk-serang-benteng-pengawasan-voc-abad-ke-17-di-banten-lama",
+          "checked_at": "2026-11-26"
+        },
+        {
+          "hari": "Rabu",
+          "tutup": false,
+          "buka": "00:00",
+          "tutup_jam": "23:59",
+          "catatan": "Sama dengan Senin.",
+          "source_url": "https://www.goodnewsfromindonesia.id/indonesiana/wisata/benteng-speelwijk-serang-benteng-pengawasan-voc-abad-ke-17-di-banten-lama",
+          "checked_at": "2026-11-26"
+        },
+        {
+          "hari": "Kamis",
+          "tutup": false,
+          "buka": "00:00",
+          "tutup_jam": "23:59",
+          "catatan": "Sama dengan Senin.",
+          "source_url": "https://www.goodnewsfromindonesia.id/indonesiana/wisata/benteng-speelwijk-serang-benteng-pengawasan-voc-abad-ke-17-di-banten-lama",
+          "checked_at": "2026-11-26"
+        },
+        {
+          "hari": "Jumat",
+          "tutup": false,
+          "buka": "00:00",
+          "tutup_jam": "23:59",
+          "catatan": "Sama dengan Senin.",
+          "source_url": "https://www.goodnewsfromindonesia.id/indonesiana/wisata/benteng-speelwijk-serang-benteng-pengawasan-voc-abad-ke-17-di-banten-lama",
+          "checked_at": "2026-11-26"
+        },
+        {
+          "hari": "Sabtu",
+          "tutup": false,
+          "buka": "00:00",
+          "tutup_jam": "23:59",
+          "catatan": "Sama dengan Senin.",
+          "source_url": "https://www.goodnewsfromindonesia.id/indonesiana/wisata/benteng-speelwijk-serang-benteng-pengawasan-voc-abad-ke-17-di-banten-lama",
+          "checked_at": "2026-11-26"
+        },
+        {
+          "hari": "Minggu",
+          "tutup": false,
+          "buka": "00:00",
+          "tutup_jam": "23:59",
+          "catatan": "Sama dengan Senin.",
+          "source_url": "https://www.goodnewsfromindonesia.id/indonesiana/wisata/benteng-speelwijk-serang-benteng-pengawasan-voc-abad-ke-17-di-banten-lama",
+          "checked_at": "2026-11-26"
+        }
+      ],
+      "hari_tutup_khusus": [],
+      "tiket": [
+        {
+          "label": "Tiket masuk kawasan benteng",
+          "harga_idr": 0,
+          "catatan": "Gratis menurut sumber. Biaya yang disebut sumber hanya untuk parkir dan wahana sewa: sepeda listrik sekitar Rp20.000 per 20 menit, becak wisata Rp20.000; mobil gowes dan odong-odong dikonfirmasi di lokasi.",
+          "source_url": "https://www.goodnewsfromindonesia.id/indonesiana/wisata/benteng-speelwijk-serang-benteng-pengawasan-voc-abad-ke-17-di-banten-lama",
+          "checked_at": "2026-11-26"
+        }
+      ],
+      "jadwal_pertunjukan": [],
+      "situs_resmi": null,
+      "url_beli_tiket": null,
+      "sumber_dibuka": [
+        "https://www.goodnewsfromindonesia.id/indonesiana/wisata/benteng-speelwijk-serang-benteng-pengawasan-voc-abad-ke-17-di-banten-lama",
+        "https://www.medcom.id/nasional/daerah/Rb1mVD3b-benteng-speelwijk-saksi-kejayaan-kesultanan-banten"
+      ],
+      "sumber_gagal": [],
+      "catatan": "Koordinat dari OpenStreetMap Nominatim (way historic=fort, display_name Benteng Speelwijk, Kasemen, Serang, Banten). Jam dan tiket dari artikel GNFI bertanggal 28 Sep 2026 (dibaca 2026-11-26); artikel itu tidak mencantumkan sumber resmi pengelola. Artikel Medcom (23 Nov 2020) dibaca hanya untuk latar sejarah dan deskripsi; karena lebih dari 2 tahun, tidak dipakai untuk checked_at. Brief menyebut ekskavasi BPCB April 2026 yang mungkin membatasi akses, tetapi ini belum terverifikasi dari halaman yang dibaca; perlu dicek sebelum publikasi. Tidak ada situs resmi pengelola yang dibaca, jadi harga dan jam belum dikonfirmasi pengelola resmi. Kontak pengelola tidak ditemukan.",
+      "status": "pending",
+      "bentuk": "tempat",
+      "kategori_enum": "lainnya"
+    },
+    {
+      "nama": "Museum Situs Kepurbakalaan Banten Lama",
+      "slug": "museum-situs-kepurbakalaan-banten-lama",
+      "provinsi": "Banten",
+      "kategori_usulan": "museum",
+      "jenis": "permanen",
+      "induk_lokasi": null,
+      "kabupaten": "Kota Serang",
+      "alamat": "Kawasan Situs Banten Lama, Kota Serang, Banten",
+      "lat": -6.0362376,
+      "lng": 106.1558862,
+      "deskripsi": "Museum yang dikelola BPCB Banten ini menyimpan lebih dari 1.000 benda temuan Banten Lama, dari masa prasejarah hingga kolonial. Museum diresmikan pada 15 Juli 1985 dan berada di kawasan bekas pusat pemerintahan Kesultanan Banten.",
+      "jam_buka": [],
+      "hari_tutup_khusus": [],
+      "tiket": [],
+      "jadwal_pertunjukan": [],
+      "situs_resmi": null,
+      "url_beli_tiket": null,
+      "sumber_dibuka": [
+        "https://www.indonesia.travel/id-id/destination/java/banten/museum-situs-kepurbakalaan-banten-lama/"
+      ],
+      "sumber_gagal": [
+        "https://www.indonesia.travel/id-id/destination/java/banten/museum-situs-kepurbakalaan-banten-lama/ (Firecrawl gagal: SCRAPE_ALL_ENGINES_FAILED; dibaca lewat WebFetch)"
+      ],
+      "catatan": "Koordinat dari OpenStreetMap Nominatim (Museum Banten Lama, Jalan Masjid Agung Banten, Kasemen, Serang, Banten); nama di OSM berbeda dari nama resmi, perlu dicek ulang. Halaman indonesia.travel tidak mencantumkan alamat lengkap, jam buka, harga tiket, atau hari tutup, sehingga jam_buka dan tiket dikosongkan. Halaman tidak bertanggal, jadi checked_at null. Pengelola: BPCB Banten; situs resmi dan kontak BPCB belum dibaca karena pencarian tidak tersedia.",
+      "status": "pending",
+      "bentuk": "tempat",
+      "kategori_enum": "museum"
+    },
+    {
+      "nama": "Vihara Avalokitesvara Banten Lama",
+      "slug": "vihara-avalokitesvara-banten-lama",
+      "provinsi": "Banten",
+      "kategori_usulan": "situs",
+      "jenis": "permanen",
+      "induk_lokasi": null,
+      "kabupaten": "Kota Serang",
+      "alamat": "Jalan Masjid Agung Banten, Kasemen, Kota Serang, Banten",
+      "lat": -6.0301657,
+      "lng": 106.1492426,
+      "deskripsi": "Vihara yang berada di kawasan Banten Lama, berseberangan dengan Benteng Speelwijk di Kampung Pamarican, Serang. Tempat ibadah ini menjadi bagian dari wajah kawasan sejarah Kesultanan Banten yang multikultural.",
+      "jam_buka": [],
+      "hari_tutup_khusus": [],
+      "tiket": [],
+      "jadwal_pertunjukan": [],
+      "situs_resmi": null,
+      "url_beli_tiket": null,
+      "sumber_dibuka": [
+        "https://www.medcom.id/nasional/daerah/Rb1mVD3b-benteng-speelwijk-saksi-kejayaan-kesultanan-banten"
+      ],
+      "sumber_gagal": [],
+      "catatan": "Keberadaan vihara hanya dikonfirmasi dari keterangan foto dan teks artikel Medcom (23 Nov 2020, lebih dari 2 tahun, jadi tidak dipakai untuk checked_at); artikel itu tidak memuat jam kunjung, aturan kunjungan, atau kontak. Koordinat dari OpenStreetMap Nominatim (Vihara Avalokitesvara, Jalan Masjid Agung Banten, Serang, Banten). Alamat berasal dari OSM. Jam kunjung, aturan kunjungan (mis. pakaian), dan kontak pengelola belum ditemukan; semua dikosongkan. Tidak ada halaman resmi vihara yang dibaca karena pencarian tidak tersedia. Kategori 'situs' dipakai karena daftar kategori tidak memuat tempat ibadah.",
+      "status": "pending",
+      "bentuk": "tempat",
+      "kategori_enum": "lainnya"
+    },
+    {
+      "nama": "Museum Negeri Banten",
+      "slug": "museum-negeri-banten",
+      "kategori_usulan": "museum",
+      "jenis": "permanen",
+      "provinsi": "Banten",
+      "induk_lokasi": null,
+      "kabupaten": "Kota Serang",
+      "alamat": "Gedung Islamic Center lantai 1, kompleks Masjid Agung Banten, depan Keraton Surosowan, Kecamatan Kasemen, Kota Serang, Banten",
+      "lat": -6.0381864,
+      "lng": 106.1585941,
+      "deskripsi": "Museum Negeri Banten menempati lantai satu Gedung Islamic Center di kompleks Masjid Agung Banten, tepat di depan Keraton Surosowan. Koleksinya mencakup fosil badak bercula satu, replika arca Ganesha, keris pusaka, uang kuno, dan hologram yang menceritakan sejarah Banten dari masa prasejarah hingga kemerdekaan.",
+      "jam_buka": [
+        {
+          "hari": "Senin",
+          "tutup": false,
+          "buka": "08:00",
+          "tutup_jam": "15:00",
+          "catatan": "Sumber menyebut Senin sampai Jumat; sumber tidak menyebut jam tersebut untuk hari lain.",
+          "source_url": "https://www.goodnewsfromindonesia.id/indonesiana/wisata/museum-negeri-banten-menjelajahi-identitas-budaya-di-kawasan-banten-lama",
+          "checked_at": "2026-11-26"
+        },
+        {
+          "hari": "Selasa",
+          "tutup": false,
+          "buka": "08:00",
+          "tutup_jam": "15:00",
+          "catatan": null,
+          "source_url": "https://www.goodnewsfromindonesia.id/indonesiana/wisata/museum-negeri-banten-menjelajahi-identitas-budaya-di-kawasan-banten-lama",
+          "checked_at": "2026-11-26"
+        },
+        {
+          "hari": "Rabu",
+          "tutup": false,
+          "buka": "08:00",
+          "tutup_jam": "15:00",
+          "catatan": null,
+          "source_url": "https://www.goodnewsfromindonesia.id/indonesiana/wisata/museum-negeri-banten-menjelajahi-identitas-budaya-di-kawasan-banten-lama",
+          "checked_at": "2026-11-26"
+        },
+        {
+          "hari": "Kamis",
+          "tutup": false,
+          "buka": "08:00",
+          "tutup_jam": "15:00",
+          "catatan": null,
+          "source_url": "https://www.goodnewsfromindonesia.id/indonesiana/wisata/museum-negeri-banten-menjelajahi-identitas-budaya-di-kawasan-banten-lama",
+          "checked_at": "2026-11-26"
+        },
+        {
+          "hari": "Jumat",
+          "tutup": false,
+          "buka": "08:00",
+          "tutup_jam": "15:00",
+          "catatan": null,
+          "source_url": "https://www.goodnewsfromindonesia.id/indonesiana/wisata/museum-negeri-banten-menjelajahi-identitas-budaya-di-kawasan-banten-lama",
+          "checked_at": "2026-11-26"
+        }
+      ],
+      "hari_tutup_khusus": [],
+      "tiket": [
+        {
+          "label": "Masuk umum",
+          "harga_idr": 0,
+          "catatan": "Gratis; pengunjung cukup mengisi buku registrasi.",
+          "source_url": "https://www.goodnewsfromindonesia.id/indonesiana/wisata/museum-negeri-banten-menjelajahi-identitas-budaya-di-kawasan-banten-lama",
+          "checked_at": "2026-11-26"
+        }
+      ],
+      "jadwal_pertunjukan": [],
+      "situs_resmi": null,
+      "url_beli_tiket": null,
+      "sumber_dibuka": [
+        "https://www.goodnewsfromindonesia.id/indonesiana/wisata/museum-negeri-banten-menjelajahi-identitas-budaya-di-kawasan-banten-lama",
+        "https://nominatim.openstreetmap.org/search?format=json&limit=2&q=Museum+Negeri+Banten+Serang"
+      ],
+      "sumber_gagal": [
+        "https://www.goodnewsfromindonesia.id/indonesiana/wisata/museum-negeri-banten-menjelajahi-identitas-budaya-di-kawasan-banten-lama (Firecrawl gagal: SCRAPE_ALL_ENGINES_FAILED; isi dibaca lewat WebFetch)"
+      ],
+      "catatan": "Sumber utama adalah artikel media GNFI (Good News From Indonesia), bukan situs resmi museum; situs resmi belum ditemukan dan pencarian web tidak tersedia pada putaran ini. Artikel bertanggal 26 Januari 2026 dan dibaca lewat WebFetch. Jam Sabtu dan Minggu tidak pasti: artikel hanya menyebut jadwal khusus atau koordinasi, jadi tidak diisi. Hari tutup tidak disebutkan. Alamat jalan (Jalan Brigadir Jenderal KH. Samun atau Jalan Masjid Agung Banten) belum dipastikan; koordinat diambil dari OSM Nominatim (node Jalan Masjid Agung Banten, Kasemen), cocok dengan lokasi di depan Keraton Surosowan yang disebut artikel, tetapi tetap perlu dicek. Nominatim juga memuat entri kedua di Jalan Brigadir Jenderal KH. Samun (Kotabaru, -6.1162, 106.1500), yang tidak dipakai. Kabupaten ditulis Kota Serang sesuai assignment dan kecamatan Kasemen.",
+      "status": "pending",
+      "bentuk": "tempat",
+      "kategori_enum": "museum"
+    },
+    {
+      "nama": "Mercusuar Cikoneng (Mercusuar Anyer)",
+      "slug": "mercusuar-cikoneng",
+      "kategori_usulan": "situs",
+      "jenis": "permanen",
+      "provinsi": "Banten",
+      "induk_lokasi": null,
+      "kabupaten": "Kabupaten Serang",
+      "alamat": "Kampung Bojong, Kecamatan Anyer, Kabupaten Serang, Banten",
+      "lat": -6.0706794,
+      "lng": 105.8852557,
+      "deskripsi": "Mercusuar Anyer berdiri di Kampung Bojong, Kecamatan Anyer, dan masih berfungsi membantu navigasi kapal di Selat Sunda. Menara setinggi sekitar 60 hingga 75 meter ini diyakini menjadi titik nol pembangunan jalan Anyer-Panarukan, dengan sisa pondasi bangunan lama yang kini menjadi tugu nol kilometer.",
+      "jam_buka": [],
+      "hari_tutup_khusus": [],
+      "tiket": [],
+      "jadwal_pertunjukan": [],
+      "situs_resmi": null,
+      "url_beli_tiket": null,
+      "sumber_dibuka": [
+        "https://www.goodnewsfromindonesia.id/indonesiana/nasional/mercusuar-yang-ada-sejak-1806",
+        "https://nominatim.openstreetmap.org/search?format=json&limit=3&q=Mercusuar+Cikoneng"
+      ],
+      "sumber_gagal": [],
+      "catatan": "Artikel GNFI bertanggal 15 Oktober 2019, sudah lebih dari dua tahun, sehingga semua fakta dari artikel ini tidak diberi checked_at. Artikel tidak memuat jam buka, harga tiket, atau aturan kunjungan, jadi jam_buka dan tiket dikosongkan. Dalam artikel, tahun pembangunan bertentangan: penjaga menyebut 1806, sedangkan tulisan di pintu masuk menyebut 1885 (bangunan dibangun ulang setelah pondasi lama hancur). Artikel juga menyebut menara bisa dinaiki melalui 286 anak tangga dalam 18 lantai, tetapi tidak menyebut apakah pengunjung boleh naik sekarang. Pengelola: Ditjen Perhubungan Laut (Hubla), terdaftar di Daftar Suar Indonesia nomor 2260. Tinggi menara berbeda: 75,5 meter menurut artikel, sekitar 60 meter menurut penjaga. Koordinat dari OSM Nominatim (Mercusuar Cikoneng, Pantaimarina/Cikoneng, Kab. Serang), cocok dengan lokasi yang disebut artikel; tetap perlu dicek di lapangan. Situs resmi dan kontak belum ditemukan.",
+      "status": "pending",
+      "bentuk": "tempat",
+      "kategori_enum": "lainnya"
+    },
+    {
+      "nama": "Kampung Adat Kanekes (Baduy)",
+      "slug": "kampung-adat-kanekes",
+      "kategori_usulan": "kawasan",
+      "jenis": "permanen",
+      "provinsi": "Banten",
+      "induk_lokasi": null,
+      "kabupaten": "Kabupaten Lebak",
+      "alamat": "Desa Kanekes, Kecamatan Leuwidamar, Kabupaten Lebak, Banten",
+      "lat": -6.5945617,
+      "lng": 106.225445,
+      "deskripsi": "Kanekes adalah kawasan adat Suku Baduy di Kecamatan Leuwidamar, Lebak. Wisatawan dapat berkunjung ke Baduy Luar dengan mematuhi aturan adat, sedangkan Baduy Dalam tertutup bagi pengunjung umum. Kunjungan dibatasi pada ketentuan adat seperti larangan membawa sabun kimia, alat elektronik, dan pengambilan gambar di Baduy Dalam.",
+      "jam_buka": [],
+      "hari_tutup_khusus": [],
+      "tiket": [],
+      "jadwal_pertunjukan": [],
+      "situs_resmi": null,
+      "url_beli_tiket": null,
+      "sumber_dibuka": [
+        "https://www.inews.id/travel/destinasi/larangan-saat-wisata-ke-baduy-apa-saja-yang-tidak-boleh-dibawa-dan-dilakukan",
+        "https://nominatim.openstreetmap.org/search?format=json&limit=1&q=Kanekes"
+      ],
+      "sumber_gagal": [
+        "https://www.inews.id/travel/destinasi/larangan-saat-wisata-ke-baduy-apa-saja-yang-tidak-boleh-dibawa-dan-dilakukan (Firecrawl gagal: SCRAPE_ALL_ENGINES_FAILED; isi dibaca lewat WebFetch)"
+      ],
+      "catatan": "Artikel iNews bertanggal 18 Juni 2025 dibaca lewat WebFetch. Artikel itu memuat aturan kunjungan (sampah, sabun kimia, menginap dengan pasangan, foto/video hanya di Baduy Luar, larangan radio, pengeras suara, gitar, senjata, dan menebang tanaman) tetapi tidak memuat jam buka, harga tiket, atau kontak resmi, sehingga jam_buka dan tiket dikosongkan. Hari tutup Kawalu hanya tercantum sebagai judul artikel terkait (desa adat ditutup tiga bulan selama Kawalu), belum dibaca langsung, jadi tidak diisi sebagai hari_tutup_khusus. Situs resmi pengelola dan kontak pemandu belum ditemukan karena pencarian web tidak tersedia. Koordinat berupa titik pusat Desa Kanekes dari OSM Nominatim (perkiraan, bukan titik masuk resmi). Alamat di atas adalah tingkat desa, bukan alamat loket.",
+      "status": "pending",
+      "bentuk": "tempat",
+      "kategori_enum": "lainnya"
+    },
+    {
+      "nama": "Museum Multatuli",
+      "slug": "museum-multatuli",
+      "provinsi": "Banten",
+      "kategori_usulan": "museum",
+      "jenis": "permanen",
+      "induk_lokasi": null,
+      "kabupaten": "Kabupaten Lebak",
+      "alamat": "Jalan Abdi Negara, Rangkasbitung, Kabupaten Lebak, Banten (alamat jalan dari OpenStreetMap)",
+      "lat": -6.3605216,
+      "lng": 106.2472601,
+      "deskripsi": "Museum sejarah di Rangkasbitung yang menempati bekas kantor wedana bergaya kolonial dari tahun 1923. Koleksinya menceritakan masa kolonial, gerakan antikolonial, dan kisah Multatuli (Eduard Douwes Dekker) beserta novel Max Havelaar yang terinspirasi dari pengalamannya di Lebak. Museum ini dibuka pada 11 Februari 2018 dan dikelola Pemerintah Kabupaten Lebak.",
+      "jam_buka": [],
+      "hari_tutup_khusus": [],
+      "tiket": [],
+      "jadwal_pertunjukan": [],
+      "situs_resmi": null,
+      "url_beli_tiket": null,
+      "sumber_dibuka": [
+        "https://www.indonesia.travel/gb-en/destination/java/banten/museum-multatuli/",
+        "https://nominatim.openstreetmap.org/search?format=json&limit=2&q=Museum+Multatuli+Rangkasbitung+Lebak"
+      ],
+      "sumber_gagal": [],
+      "catatan": "Deskripsi, kabupaten, pengelola (Pemkab Lebak), dan tanggal pembukaan berasal dari halaman indonesia.travel yang dibaca, tetapi halaman itu tidak bertanggal sehingga tidak diberi checked_at. Halaman tersebut TIDAK memuat jam buka atau tiket, sehingga jam_buka dan tiket dikosongkan. Klaim jam buka Senin dari data awal tidak ditemukan di halaman yang dibaca dan tidak dipakai. Koordinat berasal dari OpenStreetMap Nominatim (way 1050591125, display_name Museum Multatuli, Jalan Abdi Negara, Rangkasbitung, Lebak, Banten), bukan dari sumber resmi. Situs resmi pengelola belum ditemukan. Alun-Alun Timur disebut dalam data awal tetapi tidak tercantum di halaman yang dibaca, sehingga tidak dipakai.",
+      "status": "pending",
+      "bentuk": "tempat",
+      "kategori_enum": "museum"
+    },
+    {
+      "nama": "Makam Arya Sintok",
+      "slug": "makam-arya-sintok",
+      "kategori_usulan": "situs",
+      "jenis": "permanen",
+      "provinsi": "Banten",
+      "induk_lokasi": null,
+      "kabupaten": "Kota Cilegon",
+      "alamat": "Lingkungan Perigi, Kelurahan Cikerai, Kecamatan Cibeber, Kota Cilegon (dari artikel; alamat jalan tidak disebutkan)",
+      "lat": null,
+      "lng": null,
+      "deskripsi": "Makam yang dikaitkan dengan tokoh penyebar Islam di wilayah Cilegon menurut tradisi lisan setempat. Tempat ini dikunjungi peziarah yang ingin mengenal jejak sejarah dan spiritual daerah tersebut.",
+      "jam_buka": [],
+      "hari_tutup_khusus": [],
+      "tiket": [],
+      "jadwal_pertunjukan": [],
+      "situs_resmi": null,
+      "url_beli_tiket": null,
+      "sumber_dibuka": [
+        "https://ceritakawan.goodnewsfromindonesia.id/sejarah/jejak-sejarah-dan-spiritual-makam-arya-sintok-dan-sindang-ciputri-di-cilegon"
+      ],
+      "sumber_gagal": [
+        "https://www.goodnewsfromindonesia.id/2024/10/30/jejak-sejarah-dan-spiritual-makam-arya-sintok-dan-sindang-ciputri-di-cilegon (Firecrawl gagal semua mesin; redirect 301 ke ceritakawan, yang dibaca)"
+      ],
+      "catatan": "Artikel bertanggal 30 Okt 2024 (lebih dari 2 tahun lalu), sehingga checked_at dikosongkan. Sumber sejarah berupa cerita rakyat, bukan data resmi. Jam kunjungan dan tiket tidak ditemukan di sumber yang dibaca. Koordinat tidak ditemukan di Nominatim (pencarian 'Makam Arya Sintok Cilegon' kosong) dan tidak ada di artikel, sehingga lat/lng null. Aturan kunjungan (pakaian, hari) tidak ditemukan.",
+      "status": "pending",
+      "bentuk": "tempat",
+      "kategori_enum": "lainnya"
+    },
+    {
+      "nama": "Museum Benteng Heritage",
+      "slug": "museum-benteng-heritage",
+      "kategori_usulan": "museum",
+      "jenis": "permanen",
+      "provinsi": "Banten",
+      "induk_lokasi": null,
+      "kabupaten": "Kota Tangerang",
+      "alamat": "Jalan Cikepu, Sukasari, Tangerang, Banten 15520 (dari OSM Nominatim; lihat catatan soal perbedaan nama jalan)",
+      "lat": -6.1786898,
+      "lng": 106.6296439,
+      "deskripsi": "Museum khusus yang menampilkan sejarah dan kehidupan komunitas Tionghoa Benteng di Tangerang dalam sebuah bangunan tua berarsitektur Tionghoa. Museum ini juga menyelenggarakan program edukasi seperti heritage walk dan workshop.",
+      "jam_buka": [],
+      "hari_tutup_khusus": [],
+      "tiket": [],
+      "jadwal_pertunjukan": [],
+      "situs_resmi": "https://www.indonesia.travel/id-id/destination/java/banten/museum-benteng-heritage/",
+      "url_beli_tiket": null,
+      "sumber_dibuka": [
+        "https://www.indonesia.travel/id-id/destination/java/banten/museum-benteng-heritage/"
+      ],
+      "sumber_gagal": [],
+      "catatan": "Pertentangan: brief menyebut Jalan Kisamaun, OSM Nominatim menyebut Jalan Cikepu; alamat jalan belum terkonfirmasi dari sumber resmi. Koordinat dari OSM Nominatim (satu hasil, nama cocok, wilayah Tangerang Banten), bukan dari sumber resmi. Halaman indonesia.travel tidak memuat jam buka, tiket, atau hari tutup, sehingga array kosong. Halaman indonesia.travel tidak bertanggal; isi deskripsi dari halaman itu. NPNM 36.71.K.06.0025 dan peresmian 2011 disebut di halaman tersebut. Pemilik: Yayasan Benteng Heritage. Dari halaman tidak ada layanan kontak yang ditemukan.",
+      "status": "pending",
+      "bentuk": "tempat",
+      "kategori_enum": "museum"
+    },
+    {
+      "nama": "Klenteng Boen Tek Bio",
+      "slug": "klenteng-boen-tek-bio",
+      "kategori_usulan": "situs",
+      "jenis": "permanen",
+      "provinsi": "Banten",
+      "induk_lokasi": null,
+      "kabupaten": "Kota Tangerang",
+      "alamat": null,
+      "lat": -6.1790564,
+      "lng": 106.6296064,
+      "deskripsi": "Klenteng tua di Tangerang yang masih dipakai untuk ibadah. Tempat ini menjadi pusat perayaan Imlek dan tradisi gotong toapekong bagi komunitas Tionghoa setempat.",
+      "jam_buka": [],
+      "hari_tutup_khusus": [],
+      "tiket": [],
+      "jadwal_pertunjukan": [],
+      "situs_resmi": null,
+      "url_beli_tiket": null,
+      "sumber_dibuka": [],
+      "sumber_gagal": [
+        "https://kebudayaan.kemdikbud.go.id/bpcbbanten/tag/klenteng (Firecrawl: diblokir sebagai private/internal address; WebFetch: DNS tidak ditemukan)"
+      ],
+      "catatan": "Tidak ada sumber yang berhasil dibaca, sehingga alamat, tahun berdiri (1684 dari petunjuk discovery), dan deskripsi belum terverifikasi. Alamat dari discovery (Jalan Bhakti, Pasar Lama) belum dikonfirmasi. OSM Nominatim memberi 'Vihara Boen Tek Bio, Jalan Cilangkap, Sukasari, Tangerang' sebagai satu-satunya hasil yang namanya cocok; koordinat dari situ dan perlu dicek ulang. Jam buka dan tiket tidak ditemukan. Kontak dan reservasi tidak ditemukan.",
+      "status": "pending",
+      "bentuk": "tempat",
+      "kategori_enum": "lainnya"
+    },
+    {
+      "nama": "Museum Juang Taruna Tangerang",
+      "slug": "museum-juang-taruna-tangerang",
+      "provinsi": "Banten",
+      "kategori_usulan": "museum",
+      "jenis": "permanen",
+      "induk_lokasi": null,
+      "kabupaten": "Kota Tangerang",
+      "alamat": null,
+      "lat": -6.1688514,
+      "lng": 106.6378822,
+      "deskripsi": "Museum ini berada di kompleks Taman Makam Pahlawan Taruna di Tangerang dan memajang foto serta informasi sejarah perjuangan melawan penjajah di wilayah Tangerang. Pengunjung dapat mempelajari Pertempuran Lengkong, yang menewaskan sejumlah perwira tentara dan taruna Akademi Militer Tangerang.",
+      "jam_buka": [],
+      "hari_tutup_khusus": [],
+      "tiket": [
+        {
+          "label": "Masuk (tidak dipungut biaya sementara, menurut sumber 2016)",
+          "harga_idr": 0,
+          "catatan": "Sumber berumur sekitar sembilan tahun. Kebijakan terkini belum diverifikasi.",
+          "source_url": "https://www.merahputih.com/post/read/museum-juang-taruna-kebanjiran-pengunjung",
+          "checked_at": null
+        }
+      ],
+      "jadwal_pertunjukan": [],
+      "situs_resmi": null,
+      "url_beli_tiket": null,
+      "sumber_dibuka": [
+        "https://www.merahputih.com/post/read/museum-juang-taruna-kebanjiran-pengunjung"
+      ],
+      "sumber_gagal": [],
+      "catatan": "Satu-satunya sumber yang berhasil dibaca adalah berita merahputih.com tertanggal 11 November 2016 (peresmian museum). Berita itu menyebut jam buka 08.00 sampai 17.00 WIB, tetapi tidak menyebut hari buka, sehingga jam_buka dikosongkan dan jam tersebut tidak dicatat sebagai fakta terverifikasi. Tarif gratis juga hanya berlaku 'untuk sementara' pada 2016. Alamat tidak disebutkan di sumber; museum dikelola bersama Taman Makam Pahlawan Taruna. Koordinat adalah perkiraan dari titik Taman Makam Pahlawan Taruna (OSM Nominatim: -6.1688514, 106.6378822), belum koordinat museum itu sendiri. Pencarian nama museum di Nominatim tidak menghasilkan hasil. Situs resmi atau kanal pengelola tidak ditemukan karena WebSearch tidak tersedia pada putaran ini. checked_at seluruhnya null. Yang belum ditemukan: alamat, jam buka per hari, tarif terkini, situs resmi, kontak.",
+      "status": "pending",
+      "bentuk": "tempat",
+      "kategori_enum": "museum"
+    },
+    {
+      "nama": "Kawasan Pasar Lama Tangerang (Pecinan)",
+      "slug": "kawasan-pasar-lama-tangerang",
+      "provinsi": "Banten",
+      "kategori_usulan": "kawasan",
+      "jenis": "permanen",
+      "induk_lokasi": null,
+      "kabupaten": "Kota Tangerang",
+      "alamat": "Pasar Lama, pintu masuk di persimpangan Jl. Kisamaun dan Jl. Bakti Saham, Tangerang",
+      "lat": -6.1786597,
+      "lng": 106.6302705,
+      "deskripsi": "Pasar Lama di Tangerang berdiri di kawasan yang dikenal sebagai tempat permukiman Tionghoa tertua di Indonesia, yang keturunannya disebut Cina Benteng. Di sekitarnya terdapat jejak benteng Belanda abad ke-17 di tikungan Sungai Cisadane, dan kawasan ini dapat dijelajahi dengan berjalan kaki dari Stasiun Tangerang.",
+      "jam_buka": [],
+      "hari_tutup_khusus": [],
+      "tiket": [],
+      "jadwal_pertunjukan": [],
+      "situs_resmi": null,
+      "url_beli_tiket": null,
+      "sumber_dibuka": [
+        "https://www.thejakartapost.com/travel/2018/02/15/jakpost-guide-to-pasar-lama-tangerang"
+      ],
+      "sumber_gagal": [],
+      "catatan": "Satu-satunya sumber yang berhasil dibaca adalah artikel The Jakarta Post tertanggal 14 Februari 2018. Artikel itu menyebut pasar buka setiap hari, dan sebaiknya datang pagi karena banyak toko tutup setelah siang. Kepadatan biasanya sudah mulai terasa sekitar pukul 08.00. Informasi ini tidak dimasukkan ke jam_buka karena bukan jam resmi dan sumbernya berumur lebih dari dua tahun, sehingga checked_at harus null. Artikel juga menyebut sekitar lima menit jalan kaki dari Stasiun Tangerang (stasiun terakhir jalur Tangerang), dan menyebut ada wisata kuliner di Jl. Kisamaun. Tidak ada tiket masuk karena kawasan terbuka. Koordinat dicocokkan dengan OSM Nominatim: 'Pasar Lama Tangerang, Jalan Kisamaun, Sukasari, Tangerang, Banten' (-6.1786597, 106.6302705). Nama situs cagar seperti Boen Tek Bio tidak saya cocokkan dengan artikel; lokasinya di OSM ada di sekitar koordinat tersebut tetapi bukan sumber faktual. Pencarian di WebSearch tidak tersedia pada putaran ini. Belum ditemukan: situs resmi pengelola atau pemerintah daerah, status kawasan terkini, dan jam operasional resmi.",
+      "status": "pending",
+      "bentuk": "tempat",
+      "kategori_enum": "lainnya"
+    },
+    {
+      "nama": "Masjid Agung As-Salafie Caringin",
+      "slug": "masjid-agung-as-salafie-caringin",
+      "provinsi": "Banten",
+      "kategori_usulan": "situs",
+      "jenis": "permanen",
+      "induk_lokasi": null,
+      "kabupaten": "Kabupaten Pandeglang",
+      "alamat": "Desa Caringin, Kecamatan Labuan, Kabupaten Pandeglang, Banten",
+      "lat": -6.3572,
+      "lng": 105.8292,
+      "deskripsi": "Masjid tua yang berada di Desa Caringin, Kecamatan Labuan, Kabupaten Pandeglang, Banten. Rincian sejarah dan status pelestariannya belum dapat saya verifikasi dari sumber yang berhasil dibuka.",
+      "jam_buka": [],
+      "hari_tutup_khusus": [],
+      "tiket": [],
+      "jadwal_pertunjukan": [],
+      "situs_resmi": null,
+      "url_beli_tiket": null,
+      "sumber_dibuka": [
+        "https://id.wikipedia.org/wiki/Caringin,_Labuan,_Pandeglang"
+      ],
+      "sumber_gagal": [
+        "https://p2k.stekom.ac.id/ensiklopedia/Masjid_Caringin"
+      ],
+      "catatan": "Sumber utama yang diusulkan (p2k.stekom.ac.id) gagal dibuka: Firecrawl dan WebFetch sama-sama menerima 403 dari Cloudflare, sehingga semua klaim yang bersumber dari sana tidak dipakai. Klaim dari petunjuk awal (tahun berdiri 1884 atau sekitar 1893, status cagar budaya, menghadap Gunung Anak Krakatau, dan ramai sebagai destinasi wisata religi) belum terverifikasi dan tidak masuk ke deskripsi. Koordinat (-6.3572, 105.8292) adalah titik pusat Desa Caringin dari Wikipedia bahasa Indonesia, bukan koordinat masjid; artikel desa itu juga tidak menyebut masjid. Pencarian Nominatim untuk masjid hanya menghasilkan tempat dengan nama serupa di Garut dan Bandung, dan tidak ada yang berada di Banten, sehingga tidak dipakai. Koordinat masjid perlu dicek di peta sebelum publikasi. Jam kunjungan, tiket, dan aturan berpakaian tidak ditemukan di sumber yang berhasil dibaca. Pencarian WebSearch tidak tersedia pada putaran ini.",
+      "status": "pending",
+      "bentuk": "tempat",
+      "kategori_enum": "lainnya"
+    },
+    {
+      "nama": "Masjid Jami An-Nawawi Tanara",
+      "slug": "masjid-jami-an-nawawi-tanara",
+      "provinsi": "Banten",
+      "kategori_usulan": "situs",
+      "jenis": "permanen",
+      "induk_lokasi": null,
+      "kabupaten": "Kabupaten Serang",
+      "alamat": "Desa Tanara, Kecamatan Tanara, Kabupaten Serang, Banten",
+      "lat": null,
+      "lng": null,
+      "deskripsi": "Masjid Jami di Desa Tanara ini termasuk peninggalan yang dikaitkan dengan Syekh Nawawi al-Bantani, ulama asal Serang. Masjid ini masuk dalam rencana pengembangan wisata religi Tanara yang digagas Pemerintah Kabupaten Serang bersama Universitas Gadjah Mada. Masjid tetap digunakan untuk ibadah.",
+      "jam_buka": [],
+      "hari_tutup_khusus": [],
+      "tiket": [],
+      "jadwal_pertunjukan": [],
+      "situs_resmi": null,
+      "url_beli_tiket": null,
+      "sumber_dibuka": [
+        "https://ugm.ac.id/id/berita/22756-ugm-kembangkan-destinasi-wisata-religi-tokoh-islam-syekh-nawawi-al-bantani/"
+      ],
+      "sumber_gagal": [],
+      "catatan": "Satu-satunya sumber yang berhasil dibaca adalah berita UGM tanggal 28 Juli 2022 (lebih dari dua tahun), sehingga checked_at dibiarkan null. Berita itu menyebut masjid Jami' Tanara sebagai peninggalan Syekh Nawawi tanpa alamat rinci, jam, atau tiket. Koordinat tidak ditemukan: pencarian Nominatim 'Masjid Jami Tanara Serang Banten' hanya menghasilkan Masjid Jami Nurul Ishlah Tersaba (lokasi berbeda, ditolak), dan pencarian 'Tanara Kecamatan Tanara Serang' serta 'Desa Tanara Serang Banten' kosong. Aturan kunjungan dan jam buka tidak ditemukan di sumber yang dibaca. Deskripsi ditulis ulang dari berita UGM; sumber resmi pengelola belum dicek.",
+      "status": "pending",
+      "bentuk": "tempat",
+      "kategori_enum": "lainnya"
+    },
+    {
+      "nama": "Kasepuhan Cisungsang",
+      "slug": "kasepuhan-cisungsang",
+      "provinsi": "Banten",
+      "kategori_usulan": "desa-wisata",
+      "jenis": "pengalaman",
+      "induk_lokasi": null,
+      "kabupaten": "Kabupaten Lebak",
+      "alamat": "Cisungsang, Kabupaten Lebak, Banten",
+      "lat": -6.8046678,
+      "lng": 106.4235804,
+      "deskripsi": "Cisungsang adalah desa di Kabupaten Lebak, Banten, yang dikenal sebagai kampung adat Sunda Kasepuhan. Kunjungan ke kampung adat ini mengikuti aturan adat setempat. Rincian tradisi dan rumah adatnya belum diverifikasi dari sumber yang berhasil dibaca.",
+      "jam_buka": [],
+      "hari_tutup_khusus": [],
+      "tiket": [],
+      "jadwal_pertunjukan": [],
+      "situs_resmi": null,
+      "url_beli_tiket": null,
+      "sumber_dibuka": [],
+      "sumber_gagal": [
+        "https://kebudayaan.kemdikbud.go.id/bpnbjabar/tag/cisungsang (Firecrawl: diblokir 'resolves to a private/internal address'; WebFetch: getaddrinfo ENOTFOUND)"
+      ],
+      "catatan": "Kedua sumber resmi (BPNB Jabar) gagal dibuka, sehingga tidak ada fakta yang bisa diverifikasi dari halaman tersebut. Koordinat -6.8046678, 106.4235804 berasal dari Nominatim (display_name: Cisungsang, Lebak, Banten; tipe village) dan bersifat perkiraan pusat desa, bukan titik kampung adat. Klaim 'kampung adat Sunda Kasepuhan' dan keterangan kunjungan mengikuti aturan adat berasal dari teks discovery, bukan dari halaman yang dibaca, sehingga perlu dicek ulang. Jam kunjungan, tiket, kontak pengelola, dan aturan kunjungan tidak ditemukan. Kecamatan belum diketahui. Kategori dan jenis (desa-wisata, pengalaman) adalah usulan.",
+      "status": "pending",
+      "bentuk": "tempat",
+      "kategori_enum": "kerajinan"
+    }
+  ],
+  "event": [
+    {
+      "bentuk": "event",
+      "nama": "Seba Baduy",
+      "slug": "seba-baduy",
+      "provinsi": "Banten",
+      "jenis_event": "upacara",
+      "lokasi_induk": {
+        "nama": "Kabupaten Lebak, Banten (lokasi kegiatan rinci tidak tertulis di halaman)",
+        "alamat": null,
+        "kota_kabupaten": "Lebak",
+        "lat": null,
+        "lng": null
+      },
+      "deskripsi": "Seba Baduy adalah upacara adat tahunan masyarakat Baduy di Kabupaten Lebak, Banten, sebagai ungkapan syukur atas hasil panen dan bentuk ketaatan kepada pemerintah setempat. Rangkaiannya mencakup penyambutan delegasi Baduy, makan malam bersama, dan kegiatan pendamping yang terbuka untuk umum, seperti workshop tenun, pameran UMKM, dan wayang golek.",
+      "pola": "annual",
+      "hari_iso": null,
+      "tanggal": null,
+      "jam_mulai": null,
+      "jam_selesai": null,
+      "harga_dari_idr": 0,
+      "url_beli_tiket": null,
+      "situs_resmi": null,
+      "sumber": {
+        "source_url": "https://www.indonesia.travel/id-en/events/event-detail/seba-baduy-2026",
+        "checked_at": "2026-11-26"
+      },
+      "sumber_dibuka": [
+        "https://www.indonesia.travel/id-en/events/event-detail/seba-baduy-2026"
+      ],
+      "sumber_gagal": [],
+      "catatan": "Halaman indonesia.travel (Seba Baduy 2026) berhasil dibaca dan memuat tanggal 23-26 April 2026, serta tiket tertulis FREE; harga_dari_idr diisi 0 dari sumber itu. Tanggal 2026 sudah lewat, dan tanggal 2027 belum ada di sumber, jadi tanggal dibiarkan null; pola tahunan dengan bulan sekitar akhir April. Pendopo Pemkab Lebak sebagai lokasi penyambutan (dari discovery) tidak tertulis di halaman yang dibaca, sehingga tidak dipakai; koordinat tidak diambil. Jam per hari tidak tertulis. Situs resmi pengelola belum dicek; halaman indonesia.travel dipakai sebagai sumber.",
+      "status": "pending",
+      "kategori_enum": "lainnya"
+    },
+    {
+      "bentuk": "event",
+      "nama": "Seren Taun Kasepuhan Cisungsang",
+      "slug": "seren-taun-kasepuhan-cisungsang",
+      "provinsi": "Banten",
+      "jenis_event": "upacara",
+      "lokasi_induk": {
+        "nama": "Kasepuhan Cisungsang",
+        "alamat": null,
+        "kota_kabupaten": "Kabupaten Lebak",
+        "lat": null,
+        "lng": null
+      },
+      "deskripsi": "Seren Taun Kasepuhan Cisungsang adalah upacara tahunan masyarakat adat di Lebak sebagai ungkapan syukur atas hasil panen sekaligus wujud menjaga keselarasan dengan alam. Rangkaiannya kini juga memuat edukasi lingkungan, lokakarya tanaman herbal, dan ruang promosi produk UMKM warga. Tradisi leluhur dipadukan dengan pendekatan ekowisata dan penguatan ekonomi lokal.",
+      "pola": "annual",
+      "hari_iso": null,
+      "tanggal": null,
+      "jam_mulai": null,
+      "jam_selesai": null,
+      "harga_dari_idr": 0,
+      "url_beli_tiket": null,
+      "situs_resmi": null,
+      "sumber": {
+        "source_url": "https://www.indonesia.travel/id-en/events/event-detail/seren-taun-kasepuhan-cisungsang-2026",
+        "checked_at": "2026-11-26"
+      },
+      "sumber_dibuka": [
+        "https://www.indonesia.travel/id-en/events/event-detail/seren-taun-kasepuhan-cisungsang-2026"
+      ],
+      "sumber_gagal": [],
+      "catatan": "Halaman sumber (edisi 2026) menulis tanggal 29 September 2026 sampai 06 Oktober 2026 dan tiket FREE. Edisi itu sudah lewat per 26 Nov 2026; tanggal tahun berikutnya belum ada, perkiraan September-Oktober (annual, tanggal dibiarkan null). Jam acara tidak tercantum di sumber. Koordinat tidak ditemukan: sumber tidak memuat koordinat dan tiga variasi pencarian Nominatim (Kasepuhan Cisungsang Lebak Banten, Cisungsang Sobang Lebak, Kampung Cisungsang Lebak) kosong, sehingga lat/lng null. Sumber juga menautkan Instagram komunitas @kasepuhan_cisungsang (tidak dibuka, bukan situs resmi terverifikasi) dan Google Maps (shortlink, tidak dibuka). Alamat detail tidak ada di sumber.",
+      "status": "pending",
+      "kategori_enum": "lainnya"
+    },
+    {
+      "bentuk": "event",
+      "nama": "Festival Cisadane (Peh Cun dan Lomba Perahu Naga)",
+      "slug": "festival-cisadane",
+      "provinsi": "Banten",
+      "jenis_event": "festival",
+      "lokasi_induk": {
+        "nama": "Sungai Cisadane",
+        "alamat": null,
+        "kota_kabupaten": "Kota Tangerang",
+        "lat": -6.187853,
+        "lng": 106.632926
+      },
+      "deskripsi": "Festival Cisadane adalah perayaan budaya tahunan di Kota Tangerang yang menampilkan ritual Peh Cun, lomba perahu naga, pertunjukan tari tradisional, dan karnaval. Festival ini juga menghadirkan pameran UMKM serta atraksi air, termasuk lomba perahu naga tingkat pelajar dan kota.",
+      "pola": "annual",
+      "hari_iso": null,
+      "tanggal": null,
+      "jam_mulai": null,
+      "jam_selesai": null,
+      "harga_dari_idr": 0,
+      "url_beli_tiket": null,
+      "situs_resmi": null,
+      "sumber": {
+        "source_url": "https://www.indonesia.travel/id-en/events/event-detail/festival-cisadane-2026",
+        "checked_at": "2026-11-26"
+      },
+      "sumber_dibuka": [
+        "https://www.indonesia.travel/id-en/events/event-detail/festival-cisadane-2026"
+      ],
+      "sumber_gagal": [],
+      "catatan": "Halaman sumber (edisi 2026) menulis tanggal 14 Juni 2026 sampai 18 Juni 2026 dan tiket FREE. Edisi itu sudah lewat per 26 Nov 2026; perkiraan tahun berikutnya Juni (annual, tanggal dibiarkan null). Sumber menyebut kolaborasi dengan Event Digifest (atraksi air, video mapping) untuk edisi 2026, belum tentu berulang. Jam acara tidak tercantum di sumber. Koordinat dari Nominatim (Sungai Cisadane) adalah titik sungai perkiraan, bukan titik acara; sumber tidak memuat koordinat. Sumber juga menautkan Instagram @dinsoskotatng.official dan YouTube (tidak dibuka, belum diverifikasi sebagai situs resmi penyelenggara).",
+      "status": "pending",
+      "kategori_enum": "lainnya"
+    },
+    {
+      "bentuk": "event",
+      "nama": "Gebrag Ngadu Bedug",
+      "slug": "gebrag-ngadu-bedug",
+      "provinsi": "Banten",
+      "jenis_event": "festival",
+      "lokasi_induk": {
+        "nama": "Alun-alun Pandeglang",
+        "alamat": null,
+        "kota_kabupaten": "Kabupaten Pandeglang",
+        "lat": -6.3098033,
+        "lng": 106.1067856
+      },
+      "deskripsi": "Gebrag Ngadu Bedug 2026 menghidupkan kembali tradisi Ngadu Bedug, warisan budaya khas Pandeglang yang sempat berhenti lebih dari 30 tahun. Festival ini mengangkat tema 'Tang Ting Tung Dong: Colors of Sound in Straw' dan menampilkan atraksi utama adu bedug bersama berbagai pertunjukan seni. Acaranya gratis dan terbuka untuk wisatawan lokal maupun mancanegara.",
+      "pola": "annual",
+      "hari_iso": null,
+      "tanggal": null,
+      "jam_mulai": null,
+      "jam_selesai": null,
+      "harga_dari_idr": 0,
+      "url_beli_tiket": null,
+      "situs_resmi": null,
+      "sumber": {
+        "source_url": "https://www.indonesia.travel/id-en/events/event-detail/gebrag-ngadu-bedug-2026",
+        "checked_at": "2026-11-26"
+      },
+      "sumber_dibuka": [
+        "https://www.indonesia.travel/id-en/events/event-detail/gebrag-ngadu-bedug-2026"
+      ],
+      "sumber_gagal": [],
+      "catatan": "Halaman sumber (edisi 2026) menulis tanggal 29 Mei 2026 sampai 31 Mei 2026 dan tiket FREE. Edisi itu sudah lewat per 26 Nov 2026; perkiraan tahun berikutnya Mei-Juni (annual, tanggal dibiarkan null). Jam acara tidak tercantum di sumber. Halaman sumber hanya menulis 'Pandeglang Regency, Banten'; nama Alun-alun Pandeglang berasal dari petunjuk discovery dan Nominatim cocok dengan 'Alun Alun Pandeglang' (type square), tetapi venue spesifik belum dikonfirmasi sumber. Koordinat dari Nominatim. Sumber juga menautkan Instagram @gebragngadubedug dan YouTube (tidak dibuka). Sumber sempat menyebut edisi 2025 (7-9 Juni) di petunjuk discovery; tidak diverifikasi dan tidak dipakai.",
+      "status": "pending",
+      "kategori_enum": "lainnya"
+    },
+    {
+      "bentuk": "event",
+      "nama": "Benteng Culture Fest (BCF)",
+      "slug": "benteng-culture-fest",
+      "provinsi": "Banten",
+      "jenis_event": "festival",
+      "lokasi_induk": {
+        "nama": "Taman Elektrik, kawasan Pusat Pemerintahan Kota Tangerang",
+        "alamat": null,
+        "kota_kabupaten": "Kota Tangerang",
+        "lat": -6.1713528,
+        "lng": 106.6405835
+      },
+      "deskripsi": "Benteng Culture Fest adalah festival budaya tahunan Pemerintah Kota Tangerang yang menghadirkan kirab, karnaval, dan penampilan komunitas seni serta budaya dari berbagai daerah. Edisi 2026 dibuka secara resmi oleh Wali Kota pada malam 20 November di kawasan Pusat Pemerintahan Kota. Festival ini juga mengajak generasi muda mempelajari dan melestarikan budaya lokal.",
+      "pola": "annual",
+      "hari_iso": null,
+      "tanggal": null,
+      "jam_mulai": null,
+      "jam_selesai": null,
+      "harga_dari_idr": null,
+      "url_beli_tiket": null,
+      "situs_resmi": null,
+      "sumber": {
+        "source_url": "https://www.tangerangkota.go.id/berita/detail/71058/bcf-bertabur-atraksi-memukau-sachrudin-gaungkan-semangat-budaya-mendunia",
+        "checked_at": "2026-11-26"
+      },
+      "sumber_dibuka": [
+        "https://www.tangerangkota.go.id/berita/detail/71058/bcf-bertabur-atraksi-memukau-sachrudin-gaungkan-semangat-budaya-mendunia"
+      ],
+      "sumber_gagal": [],
+      "catatan": "Pola tahunan, bulan November. Edisi 2026 digelar 20-22 November 2026 menurut artikel Pemkot Tangerang (berita tanggal 21 Nov 2026); pembukaan Jumat 20 Nov 2026 malam dengan kirab budaya, karnaval (lebih dari 2.000 peserta), dan penampilan grup musik Kerispatih. Festival dirangkaikan dengan Festival Literasi dan merupakan kolaborasi Dinas Kebudayaan dan Pariwisata dengan Dinas Perpustakaan dan Arsip Daerah Kota Tangerang. Tanggal pasti edisi berikutnya belum ada, sehingga tanggal dibiarkan null. Jam harian, harga tiket, dan situs resmi festival tidak tertulis di artikel dan tidak ada halaman lain yang dibaca, jadi tidak diisi. Koordinat: pencarian Nominatim untuk 'Taman Elektrik' tidak menemukan hasil; koordinat yang dipakai adalah titik 'Pusat Pemerintahan Kota Tangerang' (Jalan Satria-Sudirman, Sukaasih, Tangerang, Banten) sebagai perkiraan, bukan koordinat Taman Elektrik persisnya. Lokasi induk dan alamat perlu dipastikan lagi.",
+      "status": "pending",
+      "kategori_enum": "lainnya"
+    }
+  ],
+  "dikeluarkan": [
+    {
+      "slug": "masjid-kuno-baitul-arsih",
+      "nama": "Masjid Kuno Baitul Arsih",
+      "alasan": "satu-satunya sumber Antara (tidak dipakai); tanpa data"
+    },
+    {
+      "slug": "makam-syekh-mansyur-cikadueun",
+      "nama": "Makam Syekh Mansyur Cikadueun",
+      "alasan": "sumber 403; tanpa data"
+    }
+  ]
+}

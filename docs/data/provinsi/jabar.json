@@ -1,0 +1,1203 @@
+{
+  "provinsi": "Jawa Barat",
+  "dikumpulkan": "2026-11-26",
+  "status": "pending (belum disetujui manusia)",
+  "tempat": [
+    {
+      "nama": "Keraton Kasepuhan",
+      "slug": "keraton-kasepuhan",
+      "provinsi": "Jawa Barat",
+      "kategori_usulan": "keraton",
+      "jenis": "permanen",
+      "induk_lokasi": null,
+      "kabupaten": "Kota Cirebon",
+      "alamat": "Jalan Kasepuhan No. 43, Kesepuhan, Lemahwungkuk, Kota Cirebon, Jawa Barat 45114",
+      "lat": -6.7263,
+      "lng": 108.5709,
+      "deskripsi": "Keraton Kasepuhan adalah istana kesultanan di Kota Cirebon dan salah satu situs sejarah terpenting di kota ini. Kompleksnya memuat bangunan seperti Sri Manganti dan gerbang gledegan, serta taman Dewandaru yang berbentuk melingkar dengan patung harimau putih sebagai lambang keluarga besar Pajajaran.",
+      "jam_buka": [],
+      "hari_tutup_khusus": [],
+      "tiket": [],
+      "jadwal_pertunjukan": [],
+      "situs_resmi": null,
+      "url_beli_tiket": null,
+      "sumber_dibuka": [
+        "https://id.wikipedia.org/wiki/Keraton_Kasepuhan",
+        "https://nominatim.openstreetmap.org/search?format=json&limit=2&q=Keraton+Kasepuhan+Cirebon"
+      ],
+      "sumber_gagal": [
+        "https://indonesia.travel/gb/en/destinations/java/cirebon/kasepuhan-palace (404 Resource Not Found)",
+        "https://indonesia.travel/gb/en/destinations/java/cirebon (404 Resource Not Found)",
+        "http://www.disparbud.jabarprov.go.id/wisata/dest-det.php?id=215 (Firecrawl: private/internal address; WebFetch: DNS tidak ditemukan)"
+      ],
+      "catatan": "Jam buka, tiket, dan hari tutup TIDAK ditemukan di sumber yang berhasil dibaca, sehingga dikosongkan (tampilkan 'Harga sedang dicek'). Sumber yang direncanakan (indonesia.travel) mengembalikan 404 dan halaman dinas Jawa Barat tidak bisa diakses. Koordinat dari Wikipedia Indonesia (6°43′35″S 108°34′15″E); Nominatim memberi -6.7276, 108.5718, selisih sekitar 200 m. Alamat dari Nominatim, belum dicocokkan dengan sumber resmi. Situs resmi pengelola belum ditemukan. Kecamatan dari Nominatim: Lemahwungkuk.",
+      "status": "pending",
+      "bentuk": "tempat",
+      "kategori_enum": "lainnya"
+    },
+    {
+      "nama": "Keraton Kanoman",
+      "slug": "keraton-kanoman",
+      "provinsi": "Jawa Barat",
+      "kategori_usulan": "keraton",
+      "jenis": "permanen",
+      "induk_lokasi": null,
+      "kabupaten": "Kota Cirebon",
+      "alamat": "Jalan Kanoman No. 40, Kota Cirebon, Jawa Barat",
+      "lat": -6.7228,
+      "lng": 108.5682,
+      "deskripsi": "Keraton Kanoman adalah salah satu keraton kesultanan Cirebon yang berdiri pada 1678, tidak jauh dari Keraton Kasepuhan. Kompleksnya masih dipakai untuk kegiatan adat dan keagamaan, dan di dalamnya tersimpan pusaka termasuk kereta kencana Paksi Naga Liman.",
+      "jam_buka": [
+        {
+          "hari": "Senin..Minggu",
+          "tutup": false,
+          "buka": "09:00",
+          "tutup_jam": "17:00",
+          "catatan": "Sumber tidak berasal dari instansi resmi dan tidak bertanggal. Tidak ada pembagian per hari di sumber.",
+          "source_url": "https://www.rumah123.com/explore/kota-cirebon/keraton-kanoman/",
+          "checked_at": null
+        }
+      ],
+      "hari_tutup_khusus": [],
+      "tiket": [
+        {
+          "label": "Tiket masuk",
+          "harga_idr": 10000,
+          "catatan": "Per orang. Sumber tidak resmi dan tidak bertanggal, perlu dikonfirmasi pengelola. Retribusi parkir disebut terpisah.",
+          "source_url": "https://www.rumah123.com/explore/kota-cirebon/keraton-kanoman/",
+          "checked_at": null
+        }
+      ],
+      "jadwal_pertunjukan": [],
+      "situs_resmi": null,
+      "url_beli_tiket": null,
+      "sumber_dibuka": [
+        "https://www.rumah123.com/explore/kota-cirebon/keraton-kanoman/",
+        "https://id.wikipedia.org/wiki/Keraton_Kanoman",
+        "https://nominatim.openstreetmap.org/search?format=json&limit=2&q=Keraton+Kanoman+Cirebon"
+      ],
+      "sumber_gagal": [
+        "http://www.disparbud.jabarprov.go.id/wisata/dest-det.php?id=217&lang (Firecrawl: private/internal address; WebFetch: DNS tidak ditemukan)"
+      ],
+      "catatan": "Jam (09:00-17:00 setiap hari) dan tiket (Rp10.000 per orang) hanya berasal dari artikel rumah123, portal properti yang tidak resmi dan tidak bertanggal, sehingga checked_at dikosongkan. Halaman dinas Jawa Barat tidak bisa diakses. Pertentangan: rumah123 menulis Jalan Kanoman No.40 di Kecamatan Lemahwungkuk, sedangkan Nominatim menulis Kecamatan Pekalipan. Koordinat dari Nominatim (display_name: Keraton Kanoman, 40, Jalan Kanoman, Pekalipan, Kota Cirebon); Wikipedia tidak memuat koordinat yang bisa dipakai. Situs resmi pengelola belum ditemukan.",
+      "status": "pending",
+      "bentuk": "tempat",
+      "kategori_enum": "lainnya"
+    },
+    {
+      "nama": "Keraton Kacirebonan",
+      "slug": "keraton-kacirebonan",
+      "provinsi": "Jawa Barat",
+      "kategori_usulan": "keraton",
+      "jenis": "permanen",
+      "induk_lokasi": null,
+      "kabupaten": "Kota Cirebon",
+      "alamat": "Jalan Pulasaren No. 49, Pulasaren, Pekalipan, Kota Cirebon, Jawa Barat 45116",
+      "lat": -6.7251,
+      "lng": 108.5654,
+      "deskripsi": "Keraton Kacirebonan berdiri di Pulasaren, Kota Cirebon, dan dahulu dipakai sebagai tempat tinggal para selir keraton Kasepuhan. Bangunan peninggalan sekitar tahun 1800-an ini menyimpan keris, wayang, perlengkapan perang, dan gamelan.",
+      "jam_buka": [
+        {
+          "hari": "Senin..Minggu",
+          "tutup": false,
+          "buka": "08:00",
+          "tutup_jam": "17:00",
+          "catatan": "Sumber agregator (Wanderlog) tidak resmi dan tidak bertanggal, serta tidak memberi jam per hari.",
+          "source_url": "https://wanderlog.com/place/details/134565/kacirebonan-palace",
+          "checked_at": null
+        }
+      ],
+      "hari_tutup_khusus": [],
+      "tiket": [
+        {
+          "label": "Tiket masuk reguler",
+          "harga_idr": 10000,
+          "catatan": "Per orang, dari deskripsi Wanderlog. Daftar pemesanan di Wanderlog menampilkan 'EUR 0.74', nilai konversi yang tidak dapat dipakai. Paket Tour de Keraton dan Lukis Topeng juga tercantum tanpa harga IDR.",
+          "source_url": "https://wanderlog.com/place/details/134565/kacirebonan-palace",
+          "checked_at": null
+        }
+      ],
+      "jadwal_pertunjukan": [],
+      "situs_resmi": null,
+      "url_beli_tiket": null,
+      "sumber_dibuka": [
+        "https://wanderlog.com/place/details/134565/kacirebonan-palace",
+        "https://id.wikipedia.org/wiki/Keraton_Kacirebonan",
+        "https://nominatim.openstreetmap.org/search?format=json&limit=2&q=Keraton+Kacirebonan+Cirebon"
+      ],
+      "sumber_gagal": [
+        "http://www.disparbud.jabarprov.go.id/wisata/dest-det.php?id=218&lang=id (Firecrawl: private/internal address; WebFetch: DNS tidak ditemukan)"
+      ],
+      "catatan": "Jam (08:00-17:00) dan tiket (Rp10.000) hanya dari agregator Wanderlog yang tidak resmi dan tidak bertanggal, sehingga checked_at dikosongkan dan perlu dikonfirmasi pengelola. Nomor WhatsApp di halaman Wanderlog (tautan wa.me) tidak dipakai sebagai kontak resmi. Halaman dinas Jawa Barat tidak bisa diakses. Alamat nomor 49 dari Nominatim; Wikipedia hanya menyebut Jalan Pulasaren, Kecamatan Pekalipan. Koordinat dari Nominatim (display_name: Keraton Kacirebonan, 49, Jalan Pulasaren, Pekalipan, Kota Cirebon). Situs resmi belum ditemukan.",
+      "status": "pending",
+      "bentuk": "tempat",
+      "kategori_enum": "lainnya"
+    },
+    {
+      "nama": "Gua Sunyaragi",
+      "slug": "gua-sunyaragi",
+      "kategori_usulan": "situs",
+      "jenis": "permanen",
+      "induk_lokasi": null,
+      "provinsi": "Jawa Barat",
+      "kabupaten": "Kota Cirebon",
+      "alamat": "Jl. By Pass Brigjen Dharsono, Kelurahan Sunyaragi, Kecamatan Kesambi, Kota Cirebon",
+      "lat": -6.7366534,
+      "lng": 108.5434319,
+      "deskripsi": "Gua Sunyaragi di Kota Cirebon adalah taman batu karang peninggalan Kesultanan Cirebon yang dulu dipakai sebagai tempat beristirahat dan bermeditasi para sultan. Bangunannya memadukan ornamen Islam, Hindu, dan Tiongkok, dan kini termasuk benda cagar budaya. Lokasinya berada di tengah kota sehingga mudah dijangkau untuk wisata sejarah.",
+      "jam_buka": [
+        {
+          "hari": "Senin..Minggu",
+          "tutup": false,
+          "buka": "08:00",
+          "tutup_jam": "17:30",
+          "catatan": "Menurut artikel GNFI (Desember 2022): dibuka setiap hari. Sumber lama, belum dikonfirmasi ulang.",
+          "source_url": "https://www.goodnewsfromindonesia.id/2022/12/19/gua-sunyaragi-situs-bersejarah-sejak-era-kesultanan-di-kota-cirebon",
+          "checked_at": null
+        }
+      ],
+      "hari_tutup_khusus": [],
+      "tiket": [
+        {
+          "label": "Retribusi masuk (sudah termasuk pemandu)",
+          "harga_idr": null,
+          "catatan": "Artikel menyebut kisaran Rp15.000 sampai Rp50.000 tanpa rincian; harga_idr dikosongkan karena berupa rentang. Sumber 2022, belum dikonfirmasi ulang.",
+          "source_url": "https://www.goodnewsfromindonesia.id/2022/12/19/gua-sunyaragi-situs-bersejarah-sejak-era-kesultanan-di-kota-cirebon",
+          "checked_at": null
+        }
+      ],
+      "jadwal_pertunjukan": [],
+      "situs_resmi": null,
+      "url_beli_tiket": null,
+      "sumber_dibuka": [
+        "https://www.goodnewsfromindonesia.id/2022/12/19/gua-sunyaragi-situs-bersejarah-sejak-era-kesultanan-di-kota-cirebon"
+      ],
+      "sumber_gagal": [],
+      "catatan": "Satu-satunya sumber yang dibaca adalah artikel GNFI bertanggal 19 Desember 2022, lebih dari 2 tahun sebelum 26 November 2026, sehingga jam dan retribusi tidak diberi checked_at (null). Tidak ditemukan situs resmi pengelola di tautan halaman tersebut, jadi situs_resmi null; belum ada sumber resmi yang dibuka. Koordinat dari OpenStreetMap Nominatim, hasil 'Taman Wisata Gua Sunyaragi' (kelas leisure park), bukan Gua Arga Jumut yang berada beberapa meter darinya. Kontak dan reservasi tidak ditemukan. Jam dan retribusi perlu dicek ulang ke pengelola sebelum publikasi.",
+      "status": "pending",
+      "bentuk": "tempat",
+      "kategori_enum": "lainnya"
+    },
+    {
+      "nama": "Museum Konferensi Asia Afrika",
+      "slug": "museum-konferensi-asia-afrika",
+      "kategori_usulan": "museum",
+      "jenis": "permanen",
+      "induk_lokasi": null,
+      "provinsi": "Jawa Barat",
+      "kabupaten": "Kota Bandung",
+      "alamat": "Gedung Merdeka, Jl. Asia Afrika No.65, Kelurahan Braga, Kecamatan Sumur Bandung, Kota Bandung",
+      "lat": -6.9210729,
+      "lng": 107.6096452,
+      "deskripsi": "Museum Konferensi Asia Afrika berada di Gedung Merdeka, Bandung, tempat Konferensi Asia Afrika 1955 digelar. Ruang pamernya menampilkan benda, dokumentasi, dan video seputar konferensi tersebut, termasuk kursi, mesin tik, dan kamera dari masa itu. Museum ini juga memiliki ruang audiovisual dan perpustakaan untuk arsip sejarah.",
+      "jam_buka": [
+        {
+          "hari": "Rabu..Minggu",
+          "tutup": false,
+          "buka": "09:00",
+          "tutup_jam": "12:00",
+          "catatan": "Sesi pagi. Artikel detik menyebut buka setiap hari Rabu sampai Minggu. Sumber Oktober 2024, belum dikonfirmasi ulang.",
+          "source_url": "https://www.detik.com/jabar/wisata/d-7595783/museum-asia-afrika-dokumentasi-tempat-berkumpulnya-petinggi-dunia",
+          "checked_at": null
+        },
+        {
+          "hari": "Rabu..Minggu",
+          "tutup": false,
+          "buka": "13:00",
+          "tutup_jam": "15:00",
+          "catatan": "Sesi siang. Sumber Oktober 2024, belum dikonfirmasi ulang.",
+          "source_url": "https://www.detik.com/jabar/wisata/d-7595783/museum-asia-afrika-dokumentasi-tempat-berkumpulnya-petinggi-dunia",
+          "checked_at": null
+        }
+      ],
+      "hari_tutup_khusus": [],
+      "tiket": [
+        {
+          "label": "Kunjungan gratis (wajib registrasi)",
+          "harga_idr": 0,
+          "catatan": "Pengunjung wajib registrasi pada laman khusus yang disediakan. Sumber Oktober 2024, belum dikonfirmasi ulang.",
+          "source_url": "https://www.detik.com/jabar/wisata/d-7595783/museum-asia-afrika-dokumentasi-tempat-berkumpulnya-petinggi-dunia",
+          "checked_at": null
+        }
+      ],
+      "jadwal_pertunjukan": [],
+      "situs_resmi": null,
+      "url_beli_tiket": null,
+      "sumber_dibuka": [
+        "https://www.detik.com/jabar/wisata/d-7595783/museum-asia-afrika-dokumentasi-tempat-berkumpulnya-petinggi-dunia"
+      ],
+      "sumber_gagal": [],
+      "catatan": "Satu-satunya sumber yang dibaca adalah artikel detikJabar bertanggal 20 Oktober 2024. Karena lebih dari 2 tahun sebelum 26 November 2026, jam dan registrasi tidak diberi checked_at (null). Artikel tidak menyebut hari Senin dan Selasa; keduanya tampak tutup dari kalimat 'buka setiap hari Rabu hingga minggu', tetapi itu tidak tertulis eksplisit. Tautan situs resmi tidak ditemukan di halaman, jadi situs_resmi null. Koordinat dari OpenStreetMap Nominatim, hasil 'Museum Konferensi Asia-Afrika' di Jalan Asia Afrika 65 (kelas tourism museum), wilayah Kota Bandung. Kontak tidak ditemukan. Jam dan registrasi sebaiknya dicek ulang ke pengelola sebelum publikasi.",
+      "status": "pending",
+      "bentuk": "tempat",
+      "kategori_enum": "museum"
+    },
+    {
+      "nama": "Museum Geologi Bandung",
+      "slug": "museum-geologi-bandung",
+      "kategori_usulan": "museum",
+      "jenis": "permanen",
+      "induk_lokasi": null,
+      "provinsi": "Jawa Barat",
+      "kabupaten": "Kota Bandung",
+      "alamat": "Jl. Diponegoro No.57, Cihaurgeulis, Cibeunying Kaler, Kota Bandung",
+      "lat": -6.9003424,
+      "lng": 107.620961,
+      "deskripsi": "Museum Geologi di Jalan Diponegoro, Bandung, menyimpan dan memamerkan fosil, batuan, dan mineral yang dikumpulkan sejak abad ke-19. Ruang pamernya mencakup sejarah kehidupan, geologi Indonesia, dan sumber daya geologi, dengan replika fosil T-Rex dan ruang imersif. Museum ini juga berfungsi sebagai pusat dokumentasi data geologi nasional.",
+      "jam_buka": [],
+      "hari_tutup_khusus": [],
+      "tiket": [],
+      "jadwal_pertunjukan": [],
+      "situs_resmi": null,
+      "url_beli_tiket": null,
+      "sumber_dibuka": [
+        "https://www.esdm.go.id/id/media-center/arsip-berita/museum-geologi-bandung-alternatif-wisata-edukasi-geologi"
+      ],
+      "sumber_gagal": [],
+      "catatan": "Artikel ESDM bertanggal 30 Desember 2025 hanya memuat deskripsi, alamat (Jalan Diponegoro), dan anjuran registrasi tiket daring melalui situs resmi atau aplikasi, tanpa jam buka maupun harga. Jam_buka dan tiket dikosongkan (tidak ada di sumber yang dibaca). Nama situs resmi atau aplikasi tidak disebut di artikel dan belum ditemukan karena pencarian web tidak tersedia, jadi situs_resmi null. Koordinat dari OpenStreetMap Nominatim, hasil 'Museum Geologi' di Jalan Diponegoro 57 (kelas tourism museum), wilayah Kota Bandung. Kontak tidak ditemukan.",
+      "status": "pending",
+      "bentuk": "tempat",
+      "kategori_enum": "museum"
+    },
+    {
+      "nama": "Museum Negeri Provinsi Jawa Barat Sri Baduga",
+      "slug": "museum-negeri-provinsi-jawa-barat-sri-baduga",
+      "kategori_usulan": "museum",
+      "jenis": "permanen",
+      "provinsi": "Jawa Barat",
+      "induk_lokasi": null,
+      "kabupaten": "Kota Bandung",
+      "alamat": "Jalan BKR Nomor 185, Kecamatan Astanaanyar, Kota Bandung, Jawa Barat",
+      "lat": -6.9377186,
+      "lng": 107.6035761,
+      "deskripsi": "Museum negeri ini menyimpan dan memamerkan benda budaya Jawa Barat, mulai dari baju adat pengantin dan mata uang masa kerajaan hingga koleksi fosil dan tengkorak. Gedung yang dulunya kantor Kawedanan Tegallega ini diresmikan sebagai museum negeri provinsi pada 1980 dan namanya mengacu pada raja Kerajaan Sunda, Sri Baduga Maharaja.",
+      "jam_buka": [
+        {
+          "hari": "Senin",
+          "tutup": true,
+          "buka": null,
+          "tutup_jam": null,
+          "catatan": "Umumnya tutup setiap Senin untuk perawatan koleksi, menurut artikel detikJabar.",
+          "source_url": "https://www.detik.com/jabar/wisata/d-8269348/menelusuri-ragam-koleksi-benda-bersejarah-di-museum-sri-baduga/amp",
+          "checked_at": "2026-11-26"
+        },
+        {
+          "hari": "Selasa",
+          "tutup": false,
+          "buka": "08:00",
+          "tutup_jam": "15:30",
+          "catatan": "Waktu kunjungan 08.00-15.30 WIB menurut artikel media (bukan situs resmi); pengelola dapat menyesuaikan sewaktu-waktu.",
+          "source_url": "https://www.detik.com/jabar/wisata/d-8269348/menelusuri-ragam-koleksi-benda-bersejarah-di-museum-sri-baduga/amp",
+          "checked_at": "2026-11-26"
+        },
+        {
+          "hari": "Rabu",
+          "tutup": false,
+          "buka": "08:00",
+          "tutup_jam": "15:30",
+          "catatan": "Lihat catatan hari Selasa.",
+          "source_url": "https://www.detik.com/jabar/wisata/d-8269348/menelusuri-ragam-koleksi-benda-bersejarah-di-museum-sri-baduga/amp",
+          "checked_at": "2026-11-26"
+        },
+        {
+          "hari": "Kamis",
+          "tutup": false,
+          "buka": "08:00",
+          "tutup_jam": "15:30",
+          "catatan": "Lihat catatan hari Selasa.",
+          "source_url": "https://www.detik.com/jabar/wisata/d-8269348/menelusuri-ragam-koleksi-benda-bersejarah-di-museum-sri-baduga/amp",
+          "checked_at": "2026-11-26"
+        },
+        {
+          "hari": "Jumat",
+          "tutup": false,
+          "buka": "08:00",
+          "tutup_jam": "15:30",
+          "catatan": "Lihat catatan hari Selasa.",
+          "source_url": "https://www.detik.com/jabar/wisata/d-8269348/menelusuri-ragam-koleksi-benda-bersejarah-di-museum-sri-baduga/amp",
+          "checked_at": "2026-11-26"
+        },
+        {
+          "hari": "Sabtu",
+          "tutup": false,
+          "buka": "08:00",
+          "tutup_jam": "15:30",
+          "catatan": "Lihat catatan hari Selasa.",
+          "source_url": "https://www.detik.com/jabar/wisata/d-8269348/menelusuri-ragam-koleksi-benda-bersejarah-di-museum-sri-baduga/amp",
+          "checked_at": "2026-11-26"
+        },
+        {
+          "hari": "Minggu",
+          "tutup": false,
+          "buka": "08:00",
+          "tutup_jam": "15:30",
+          "catatan": "Lihat catatan hari Selasa.",
+          "source_url": "https://www.detik.com/jabar/wisata/d-8269348/menelusuri-ragam-koleksi-benda-bersejarah-di-museum-sri-baduga/amp",
+          "checked_at": "2026-11-26"
+        }
+      ],
+      "hari_tutup_khusus": [
+        {
+          "keterangan": "Tutup pada hari libur nasional untuk keperluan perawatan koleksi (menurut artikel detikJabar).",
+          "source_url": "https://www.detik.com/jabar/wisata/d-8269348/menelusuri-ragam-koleksi-benda-bersejarah-di-museum-sri-baduga/amp",
+          "checked_at": "2026-11-26"
+        }
+      ],
+      "tiket": [],
+      "jadwal_pertunjukan": [],
+      "situs_resmi": null,
+      "url_beli_tiket": null,
+      "sumber_dibuka": [
+        "https://www.detik.com/jabar/wisata/d-8269348/menelusuri-ragam-koleksi-benda-bersejarah-di-museum-sri-baduga/amp",
+        "https://nominatim.openstreetmap.org/search?format=json&limit=2&q=Museum+Sri+Baduga+Bandung"
+      ],
+      "sumber_gagal": [],
+      "catatan": "Jam dan hari tutup berasal dari artikel detikJabar (21 Des 2025), bukan dari situs resmi pengelola; situs resmi tidak ditemukan karena pencarian web tidak tersedia pada putaran ini, sehingga jam perlu dicek ulang ke sumber resmi sebelum publikasi. Harga tiket tidak tercantum di sumber yang dibaca (kosong). Reservasi kunjungan grup besar lewat WhatsApp museum yang tertera di situs resmi/Instagram (nomor tidak dicatat). Koordinat dari OpenStreetMap Nominatim (way museum, display_name Astanaanyar, Kota Bandung); alamat resmi di artikel Jalan BKR 185, sedangkan OSM menulis Jalan Peta, sehingga posisi perlu dicocokkan. Sumber artikel menyebut koleksi fosil dan tengkorak, dan panggung kecil tempat latihan kesenian sekolah di area utama. Fasilitas musala dan tangga disabilitas disebut pengunjung dalam artikel.",
+      "status": "pending",
+      "bentuk": "tempat",
+      "kategori_enum": "museum"
+    },
+    {
+      "nama": "Gedung Sate",
+      "slug": "gedung-sate",
+      "kategori_usulan": "situs",
+      "jenis": "permanen",
+      "provinsi": "Jawa Barat",
+      "induk_lokasi": null,
+      "kabupaten": "Kota Bandung",
+      "alamat": "Jalan Diponegoro Nomor 22, Kecamatan Bandung Wetan, Kota Bandung, Jawa Barat",
+      "lat": -6.9024981,
+      "lng": 107.618775,
+      "deskripsi": "Gedung Sate adalah bangunan ikonik di Bandung yang mulai dibangun pada 1920 dan kini menjadi simbol pemerintahan dan arsitektur Jawa Barat. Di dalam kompleksnya ada Museum Gedung Sate yang menyajikan sejarah bangunan dengan konsep museum pintar berbasis teknologi interaktif.",
+      "jam_buka": [],
+      "hari_tutup_khusus": [],
+      "tiket": [
+        {
+          "label": "Museum Gedung Sate",
+          "harga_idr": 5000,
+          "catatan": "Tarif per orang, sesuai artikel resmi Pemprov Jawa Barat (Diskominfo). Jam buka museum tidak tercantum di artikel.",
+          "source_url": "https://jabarprov.go.id/en/berita/sambut-hut-ri-ke-81-kenali-sejarah-gedung-sate-di-museum-gedung-sate-25095",
+          "checked_at": "2026-11-26"
+        }
+      ],
+      "jadwal_pertunjukan": [],
+      "situs_resmi": null,
+      "url_beli_tiket": null,
+      "sumber_dibuka": [
+        "https://jabarprov.go.id/en/berita/sambut-hut-ri-ke-81-kenali-sejarah-gedung-sate-di-museum-gedung-sate-25095",
+        "https://nominatim.openstreetmap.org/search?format=json&limit=3&q=Gedung+Sate+Jalan+Diponegoro+Bandung"
+      ],
+      "sumber_gagal": [],
+      "catatan": "Artikel resmi Pemprov Jawa Barat bertanggal 13 Agustus 2026 memuat tarif museum Rp5.000 per orang dan penataan ulang area Gedung Sate-Gasibu; jam buka museum tidak disebut sehingga jam_buka dikosongkan. Nomor alamat 22 diambil dari OpenStreetMap (display_name Jalan Diponegoro), bukan dari artikel. Koordinat dari OSM Nominatim (way kantor pemerintah 'Gedung Sate', Bandung Wetan), cocok dengan lokasi bangunan. Hasil Nominatim lain bernama Gedung Sate adalah area parkir dan halte, tidak dipakai. Situs resmi pengelola tidak ditemukan karena pencarian web tidak tersedia pada putaran ini.",
+      "status": "pending",
+      "bentuk": "tempat",
+      "kategori_enum": "lainnya"
+    },
+    {
+      "nama": "Kampung Adat Cireundeu",
+      "slug": "kampung-adat-cireundeu",
+      "kategori_usulan": "kawasan",
+      "jenis": "permanen",
+      "provinsi": "Jawa Barat",
+      "induk_lokasi": null,
+      "kabupaten": "Kota Cimahi",
+      "alamat": "Kelurahan Leuwigajah, Kecamatan Cimahi Selatan, Kota Cimahi, Jawa Barat",
+      "lat": -6.914054,
+      "lng": 107.5215532,
+      "deskripsi": "Kampung Adat Cireundeu adalah permukiman masyarakat Sunda yang masih memegang tradisi leluhur di pinggiran Kota Cimahi. Warganya menjaga kepercayaan Sunda Wiwitan berdampingan dengan warga Muslim, dan dikenal dengan tradisi makan rasi.",
+      "jam_buka": [],
+      "hari_tutup_khusus": [],
+      "tiket": [],
+      "jadwal_pertunjukan": [],
+      "situs_resmi": null,
+      "url_beli_tiket": null,
+      "sumber_dibuka": [
+        "https://www.detik.com/jabar/budaya/d-6130960/kampung-adat-cirendeu-potret-keberagaman-di-sudut-kota-cimahi",
+        "https://nominatim.openstreetmap.org/search?format=json&limit=3&q=Cireundeu+Cimahi"
+      ],
+      "sumber_gagal": [],
+      "catatan": "Artikel detikJabar bertanggal 17 Juni 2022 (lebih dari 2 tahun lalu), sehingga checked_at dikosongkan dan isinya tidak dianggap fakta terkini. Tradisi makan rasi, jumlah warga (sekitar 400 KK, 60 KK penganut Sunda Wiwitan) hanya dari artikel lama. Klaim Cireundeu Festival dari alasan discovery tidak ditemukan di artikel yang dibaca, sehingga tidak dicantumkan. Jam kunjungan, tiket, dan kontak pengelola/adat tidak ditemukan; situs resmi tidak ditemukan karena pencarian web tidak tersedia pada putaran ini. Koordinat berasal dari node OSM untuk dusun Cireundeu (hamlet, Leuwigajah) sehingga hanya perkiraan posisi kampung. Kategori 'kampung-adat' dari assignment tidak ada di daftar kategori, dipetakan ke 'kawasan'.",
+      "status": "pending",
+      "bentuk": "tempat",
+      "kategori_enum": "lainnya"
+    },
+    {
+      "nama": "Candi Cangkuang",
+      "slug": "candi-cangkuang",
+      "kategori_usulan": "candi",
+      "jenis": "permanen",
+      "induk_lokasi": null,
+      "kabupaten": "Kabupaten Garut",
+      "provinsi": "Jawa Barat",
+      "alamat": "Kampung Pulo, Desa Cangkuang, Kecamatan Leles, Kabupaten Garut",
+      "lat": -7.102927,
+      "lng": 107.9188749,
+      "deskripsi": "Candi Hindu peninggalan abad ke-8 yang disebut sebagai satu-satunya candi Hindu di Jawa Barat yang sudah dipugar. Candi berdiri di pulau kecil di tengah Situ Cangkuang dan hanya bisa dicapai dengan rakit, dekat dengan permukiman adat Kampung Pulo.",
+      "jam_buka": [],
+      "hari_tutup_khusus": [],
+      "tiket": [],
+      "jadwal_pertunjukan": [],
+      "situs_resmi": null,
+      "url_beli_tiket": null,
+      "sumber_dibuka": [
+        "https://www.viva.co.id/arsip/618900-eksotisme-candi-hindu-di-tepi-danau-cangkuang"
+      ],
+      "sumber_gagal": [],
+      "catatan": "Sumber tunggal adalah artikel Viva (terbit 27 April 2015, lebih dari 2 tahun lalu), sehingga checked_at tidak diisi. Artikel itu tidak memuat jam buka, tiket, atau hari tutup; semua field tersebut kosong, bukan dianggap nihil. Alamat dan deskripsi berasal dari artikel lama; perlu dicek ulang ke pengelola. Koordinat dari OpenStreetMap Nominatim (osm node 1775520831, display_name 'Candi Cangkuang, Leles, Garut, Jawa Barat'), cocok dengan lokasi candi. Belum ada situs resmi pengelola yang terbaca. Kategori 'candi' adalah usulan, bukan hasil sumber.",
+      "status": "pending",
+      "bentuk": "tempat",
+      "kategori_enum": "candi"
+    },
+    {
+      "nama": "Kampung Naga",
+      "slug": "kampung-naga",
+      "kategori_usulan": "desa-wisata",
+      "jenis": "permanen",
+      "induk_lokasi": null,
+      "kabupaten": "Kabupaten Tasikmalaya",
+      "provinsi": "Jawa Barat",
+      "alamat": "Desa Neglasari, Kecamatan Salawu, Kabupaten Tasikmalaya",
+      "lat": null,
+      "lng": null,
+      "deskripsi": "Kampung adat Sunda di lembah Neglasari, Salawu, yang masih mempertahankan rumah panggung kayu dan tradisi leluhur meski mayoritas warganya beragama Islam. Pengunjung bisa menikmati pemandangan sawah dan perbukitan, serta belajar langsung tentang adat seperti upacara Menyepi dan Hajat Sasih.",
+      "jam_buka": [],
+      "hari_tutup_khusus": [],
+      "tiket": [
+        {
+          "label": "Parkir motor",
+          "harga_idr": 3000,
+          "catatan": "Bukan tiket masuk; pengunjung tidak dikenakan tiket masuk. Tarif dari artikel detik, bukan dari pengelola.",
+          "source_url": "https://www.detik.com/jabar/wisata/d-7334113/kampung-naga-tasikmalaya-asal-usul-daya-tarik-tradisi-dan-lokasi",
+          "checked_at": null
+        },
+        {
+          "label": "Parkir mobil",
+          "harga_idr": 10000,
+          "catatan": "Bukan tiket masuk. Tarif dari artikel detik.",
+          "source_url": "https://www.detik.com/jabar/wisata/d-7334113/kampung-naga-tasikmalaya-asal-usul-daya-tarik-tradisi-dan-lokasi",
+          "checked_at": null
+        },
+        {
+          "label": "Jasa pemandu",
+          "harga_idr": 150000,
+          "catatan": "Satuan (per orang atau per kelompok) tidak ditulis di artikel.",
+          "source_url": "https://www.detik.com/jabar/wisata/d-7334113/kampung-naga-tasikmalaya-asal-usul-daya-tarik-tradisi-dan-lokasi",
+          "checked_at": null
+        },
+        {
+          "label": "Jasa narasumber",
+          "harga_idr": 300000,
+          "catatan": "Satuan tidak ditulis di artikel.",
+          "source_url": "https://www.detik.com/jabar/wisata/d-7334113/kampung-naga-tasikmalaya-asal-usul-daya-tarik-tradisi-dan-lokasi",
+          "checked_at": null
+        },
+        {
+          "label": "Biaya makan",
+          "harga_idr": 35000,
+          "catatan": "Per orang, menurut artikel.",
+          "source_url": "https://www.detik.com/jabar/wisata/d-7334113/kampung-naga-tasikmalaya-asal-usul-daya-tarik-tradisi-dan-lokasi",
+          "checked_at": null
+        }
+      ],
+      "jadwal_pertunjukan": [],
+      "situs_resmi": null,
+      "url_beli_tiket": null,
+      "sumber_dibuka": [
+        "https://www.detik.com/jabar/wisata/d-7334113/kampung-naga-tasikmalaya-asal-usul-daya-tarik-tradisi-dan-lokasi"
+      ],
+      "sumber_gagal": [],
+      "catatan": "Sumber utama adalah artikel detikJabar bertanggal 10 Mei 2024, lebih dari 2 tahun lalu menurut batas tanggal hari ini (26 Nov 2026), sehingga checked_at null untuk semua tarif. Artikel tidak memuat jam buka atau hari tutup; field kosong, bukan nihil. Tarif parkir dan jasa berasal dari artikel, bukan dari pengelola; sebaiknya dicek ulang. Artikel juga menyebut aturan adat (misalnya larangan memasuki hutan keramat; pelanggar dikeluarkan dari kampung) dan hal ini belum bisa dijadikan fakta resmi. Koordinat belum didapat: pencarian Nominatim 'Kampung Naga Neglasari Salawu' hanya menghasilkan ruas Jalan Raya Salawu dan masjid kampung, bukan titik kampung. Kategori 'desa-wisata' adalah usulan.",
+      "status": "pending",
+      "bentuk": "tempat",
+      "kategori_enum": "kerajinan"
+    },
+    {
+      "nama": "Situs Karangkamulyan",
+      "slug": "situs-karangkamulyan",
+      "kategori_usulan": "situs",
+      "jenis": "permanen",
+      "induk_lokasi": null,
+      "kabupaten": "Ciamis",
+      "provinsi": "Jawa Barat",
+      "alamat": "Jalan Raya Karangkamulyan, Karangkamulyan, Cijeungjing, Ciamis, Jawa Barat 46271 (alamat dari OpenStreetMap)",
+      "lat": -7.3472428,
+      "lng": 108.4922399,
+      "deskripsi": "Situs Karangkamulyan merupakan kawasan peninggalan Kerajaan Galuh seluas sekitar 25 hektare yang berada di tepi jalan raya Ciamis-Banjar, di antara pertemuan sungai Cimuntur dan Citanduy. Di dalamnya terdapat batu-batu tegak, dolmen, arca, dan sisa punden berundak, serta mata air Cikahuripan yang oleh masyarakat setempat dianggap suci. Lokasinya berada di kawasan hutan lindung.",
+      "jam_buka": [],
+      "hari_tutup_khusus": [],
+      "tiket": [],
+      "jadwal_pertunjukan": [],
+      "situs_resmi": null,
+      "url_beli_tiket": null,
+      "sumber_dibuka": [
+        "https://www.detik.com/jabar/budaya/d-5988774/menelisik-situs-karangkamulyan-di-ciamis-yang-punya-air-ajaib",
+        "https://id.wikipedia.org/wiki/Situs_Karangkamulyan",
+        "https://nominatim.openstreetmap.org/search?format=json&limit=2&q=Situs+Karangkamulyan+Ciamis"
+      ],
+      "sumber_gagal": [],
+      "catatan": "Jam buka, harga tiket, dan hari tutup TIDAK ditemukan di halaman yang berhasil dibaca; sumber resmi pengelola belum tercapai (WebSearch tidak tersedia pada putaran ini), jadi kolom tersebut kosong. Artikel detik (18 Mar 2022) dan Wikipedia id dipakai sebagai latar; detik adalah artikel berumur lebih dari 2 tahun sehingga tidak ada checked_at. Luas 25,5 hektare dan lokasi di kawasan hutan lindung berasal dari Wikipedia id, bukan dari detik. Koordinat: Nominatim OSM (-7.3472428, 108.4922399) berdekatan dengan Wikipedia id (7°20,84' LS, 108°29,376' BT, kira-kira -7.3473, 108.4896); selisih sekitar 300 m, perlu dicek di lapangan. Nama jalan dan alamat dari OSM. Klaim 'air ajaib' pada judul detik tidak dicantumkan sebagai fakta.",
+      "status": "pending",
+      "bentuk": "tempat",
+      "kategori_enum": "lainnya"
+    },
+    {
+      "nama": "Candi Batu Kalde",
+      "slug": "candi-batu-kalde",
+      "kategori_usulan": "candi",
+      "jenis": "permanen",
+      "induk_lokasi": null,
+      "kabupaten": "Pangandaran",
+      "provinsi": "Jawa Barat",
+      "alamat": "Kawasan Cagar Alam Pananjung, Desa/Kecamatan Pangandaran, Kabupaten Pangandaran, Jawa Barat (dari artikel detik)",
+      "lat": null,
+      "lng": null,
+      "deskripsi": "Batu Kalde berada di dalam kawasan Cagar Alam Pananjung, Pangandaran, dan dianggap sebagai sisa bangunan candi dari masa Kerajaan Sunda. Peninggalannya berupa fragmen struktur dari batu kapur, seperti arca, yoni, dan lingga, dan sebagian bangunannya tertimbun tanah. Situs ini dikaitkan dengan tokoh Raja Galuh Prabu Linggawesi, dan sumber setempat menyebutnya sebagai tempat peribadatan atau peristirahatan terakhir raja.",
+      "jam_buka": [],
+      "hari_tutup_khusus": [],
+      "tiket": [],
+      "jadwal_pertunjukan": [],
+      "situs_resmi": null,
+      "url_beli_tiket": null,
+      "sumber_dibuka": [
+        "https://www.detik.com/jabar/budaya/d-5977790/melihat-sisa-peninggalan-candi-masa-kerajaan-sunda-di-pangandaran",
+        "https://id.wikipedia.org/wiki/Cagar_Alam_Pananjung"
+      ],
+      "sumber_gagal": [
+        "https://id.wikipedia.org/wiki/Candi_Batu_Kalde (404)",
+        "https://id.wikipedia.org/wiki/Situs_Batu_Kalde (404)",
+        "https://id.wikipedia.org/wiki/Batu_Kalde_Pangandaran (404)"
+      ],
+      "catatan": "Koordinat TIDAK ditemukan: Nominatim OSM tidak mengembalikan hasil untuk 'Batu Kalde Pangandaran', 'Batu Kalde', dan 'Candi Batu Kalde Pangandaran'; lat/lng dibiarkan null dan tidak ditebak. Titik Pananjung dari Nominatim (-7.681, 108.648) hanya level desa dan tidak dipakai. Jam buka, tiket, dan aturan kunjungan kawasan cagar alam TIDAK ditemukan di halaman yang dibaca; kolom kosong. Artikel detik (11 Mar 2022) berumur lebih dari 2 tahun sehingga checked_at null. Pada artikel itu, status 'candi' hanya diasumsikan oleh pemandu wisata, dan sumber lain menyebut situs ini tempat pemakaman; deskripsi ditulis dengan nada hati-hati. Wikipedia id untuk Cagar Alam Pananjung tidak menyebut Batu Kalde. Verifikasi alamat dan akses di sumber resmi pengelola kawasan.",
+      "status": "pending",
+      "bentuk": "tempat",
+      "kategori_enum": "candi"
+    },
+    {
+      "nama": "Museum Prabu Geusan Ulun",
+      "slug": "museum-prabu-geusan-ulun",
+      "kategori_usulan": "museum",
+      "jenis": "permanen",
+      "induk_lokasi": null,
+      "kabupaten": "Sumedang",
+      "provinsi": "Jawa Barat",
+      "alamat": "Jalan Prabu Geusan Ulun No. 40, Sumedang, Jawa Barat (Wikipedia id); Wikipedia en menulis 'Geusan Ulun Road 40B'",
+      "lat": -6.8611463,
+      "lng": 107.9212367,
+      "deskripsi": "Museum Prabu Geusan Ulun berada di Sumedang dan menempati bekas kediaman Prabu Geusan Ulun, raja Sumedang Larang. Koleksinya meliputi senjata tradisional Sunda serta mahkota dan perhiasan kerajaan. Museum ini menjadi salah satu tempat untuk mempelajari sejarah Sumedang.",
+      "jam_buka": [],
+      "hari_tutup_khusus": [],
+      "tiket": [],
+      "jadwal_pertunjukan": [],
+      "situs_resmi": null,
+      "url_beli_tiket": null,
+      "sumber_dibuka": [
+        "https://en.wikipedia.org/wiki/Prabu_Geusan_Ulun_Museum",
+        "https://id.wikipedia.org/wiki/Keraton_Sumedang_Larang (diarahkan dari Museum Prabu Geusan Ulun)",
+        "https://nominatim.openstreetmap.org/search?format=json&limit=2&q=Museum+Prabu+Geusan+Ulun+Sumedang"
+      ],
+      "sumber_gagal": [],
+      "catatan": "Jam buka dan harga tiket TIDAK ditemukan di halaman yang dibaca; kolom kosong, dan belum ada sumber resmi pengelola yang dibaca. Pertentangan alamat: Wikipedia en 'Geusan Ulun Road 40B' vs Wikipedia id 'Jl. Prabu Geusan Ulun No. 40'; alamat id dipakai sebagai alamat utama karena lebih rinci, perlu dicek. Wikipedia id memuat artikel ini di bawah judul 'Keraton Sumedang Larang' (museum di dalam kompleks keraton), sehingga nama tempat resmi perlu dikonfirmasi. Wikipedia en ditandai 'relies on a single source' dan tidak bertanggal, sehingga checked_at null. Koordinat dari Nominatim OSM (-6.8611463, 107.9212367), nama 'Museum Prabu Geusan Ulun, Jalan Pangeran Geusan Ulun, Kotakulon, Sumedang'; titik ini hasil pencarian OSM, bukan koordinat resmi pengelola. Pada Wikipedia en, koleksi disebut 'crown jewels'; kata 'mahkota' di deskripsi mengikuti sumber itu.",
+      "status": "pending",
+      "bentuk": "tempat",
+      "kategori_enum": "museum"
+    },
+    {
+      "nama": "Situs Gunung Padang",
+      "slug": "situs-gunung-padang",
+      "kategori_usulan": "situs",
+      "jenis": "permanen",
+      "induk_lokasi": null,
+      "kabupaten": "Kabupaten Cianjur",
+      "provinsi": "Jawa Barat",
+      "alamat": "Perbatasan Dusun Gunungpadang dan Panggulan, Desa Karyamukti, Kecamatan Campaka, Kabupaten Cianjur",
+      "lat": -6.9940342,
+      "lng": 107.0562583,
+      "deskripsi": "Situs punden berundak dari batu andesit yang berada di perbukitan Campaka, Cianjur, dan dikenal sebagai salah satu kompleks megalitikum terbesar di Asia Tenggara. Warga setempat sejak lama menganggapnya tempat keramat. Pengunjung dapat mendaki area situs dan menikmati udara sejuk di ketinggian.",
+      "jam_buka": [
+        {
+          "hari": "Senin",
+          "tutup": false,
+          "buka": "08:00",
+          "tutup_jam": "16:30",
+          "catatan": "Menurut artikel Orami (Juli 2024), belum dikonfirmasi ke sumber resmi",
+          "source_url": "https://www.orami.co.id/magazine/gunung-padang",
+          "checked_at": null
+        },
+        {
+          "hari": "Selasa",
+          "tutup": false,
+          "buka": "08:00",
+          "tutup_jam": "16:30",
+          "catatan": "Menurut artikel Orami (Juli 2024), belum dikonfirmasi ke sumber resmi",
+          "source_url": "https://www.orami.co.id/magazine/gunung-padang",
+          "checked_at": null
+        },
+        {
+          "hari": "Rabu",
+          "tutup": false,
+          "buka": "08:00",
+          "tutup_jam": "16:30",
+          "catatan": "Menurut artikel Orami (Juli 2024), belum dikonfirmasi ke sumber resmi",
+          "source_url": "https://www.orami.co.id/magazine/gunung-padang",
+          "checked_at": null
+        },
+        {
+          "hari": "Kamis",
+          "tutup": false,
+          "buka": "08:00",
+          "tutup_jam": "16:30",
+          "catatan": "Menurut artikel Orami (Juli 2024), belum dikonfirmasi ke sumber resmi",
+          "source_url": "https://www.orami.co.id/magazine/gunung-padang",
+          "checked_at": null
+        },
+        {
+          "hari": "Jumat",
+          "tutup": false,
+          "buka": "13:00",
+          "tutup_jam": "16:30",
+          "catatan": "Menurut artikel Orami (Juli 2024), belum dikonfirmasi ke sumber resmi",
+          "source_url": "https://www.orami.co.id/magazine/gunung-padang",
+          "checked_at": null
+        },
+        {
+          "hari": "Sabtu",
+          "tutup": false,
+          "buka": "08:00",
+          "tutup_jam": "16:30",
+          "catatan": "Menurut artikel Orami (Juli 2024), belum dikonfirmasi ke sumber resmi",
+          "source_url": "https://www.orami.co.id/magazine/gunung-padang",
+          "checked_at": null
+        },
+        {
+          "hari": "Minggu",
+          "tutup": false,
+          "buka": "08:00",
+          "tutup_jam": "16:30",
+          "catatan": "Menurut artikel Orami (Juli 2024), belum dikonfirmasi ke sumber resmi",
+          "source_url": "https://www.orami.co.id/magazine/gunung-padang",
+          "checked_at": null
+        }
+      ],
+      "hari_tutup_khusus": [],
+      "tiket": [
+        {
+          "label": "Tiket Pos Pertama",
+          "harga_idr": 5000,
+          "catatan": "Tertulis di Orami (Juli 2024). Belum jelas apakah ini terpisah dari tiket masuk",
+          "source_url": "https://www.orami.co.id/magazine/gunung-padang",
+          "checked_at": null
+        },
+        {
+          "label": "Tiket masuk",
+          "harga_idr": 5000,
+          "catatan": "Tertulis di Orami (Juli 2024), belum dikonfirmasi ke sumber resmi",
+          "source_url": "https://www.orami.co.id/magazine/gunung-padang",
+          "checked_at": null
+        }
+      ],
+      "jadwal_pertunjukan": [],
+      "situs_resmi": null,
+      "url_beli_tiket": null,
+      "sumber_dibuka": [
+        "https://www.orami.co.id/magazine/gunung-padang"
+      ],
+      "sumber_gagal": [],
+      "catatan": "Jam dan tiket hanya dari Orami (artikel 11 Juli 2024, lebih dari 2 tahun, bukan sumber resmi), jadi checked_at dibiarkan null dan nilainya perlu dikonfirmasi. Alamat juga dari artikel yang sama. Pertentangan: Orami menyebut kecamatan Campaka, sedangkan Nominatim menulis Cimenteng, Cianjur. Koordinat adalah titik OSM 'Situs Gunung Padang' (Nominatim), cocok dengan wilayah Cianjur. Nomor telepon yang tertulis di Orami, (021) 3805678, memakai kode area Jakarta sehingga belum bisa dipastikan. Tidak ditemukan halaman resmi pengelola dalam putaran ini. Pencarian web tidak tersedia.",
+      "status": "pending",
+      "bentuk": "tempat",
+      "kategori_enum": "lainnya"
+    },
+    {
+      "nama": "Kasepuhan Ciptagelar (Kampung Gede)",
+      "slug": "kasepuhan-ciptagelar",
+      "kategori_usulan": "desa-wisata",
+      "jenis": "permanen",
+      "induk_lokasi": null,
+      "kabupaten": "Kabupaten Sukabumi",
+      "provinsi": "Jawa Barat",
+      "alamat": "Desa Sirnaresmi, Kecamatan Cisolok, Kabupaten Sukabumi",
+      "lat": null,
+      "lng": null,
+      "deskripsi": "Kasepuhan adat di Cisolok, Sukabumi, yang setiap tahun menggelar upacara Seren Taun sebagai ungkapan syukur setelah panen. Dalam perayaan itu pengunjung dapat menyaksikan kesenian tradisional serta penyerahan padi ke lumbung adat. Jalan menuju kampung menanjak dan berbatu.",
+      "jam_buka": [],
+      "hari_tutup_khusus": [],
+      "tiket": [],
+      "jadwal_pertunjukan": [],
+      "situs_resmi": null,
+      "url_beli_tiket": null,
+      "sumber_dibuka": [
+        "https://www.detik.com/jabar/budaya/d-8145148/ketika-syukur-naik-ke-langit-gelar-alam"
+      ],
+      "sumber_gagal": [],
+      "catatan": "Ketidaksesuaian nama: sumber yang dibaca (detikJabar, Oktober 2025) membahas Kasepuhan Adat Banten Kidul Gelar Alam di Desa Sirnaresmi, Kecamatan Cisolok, bukan Ciptagelar. Nama di assignment perlu dicek ulang; deskripsi dan alamat di sini mengikuti artikel tersebut. Koordinat dikosongkan: Nominatim untuk 'Kasepuhan Ciptagelar' memberi titik (-6.8027, 106.4982) dengan nama 'Gelar Alarm—Cihamerang', yang belum terbukti cocok. Seren Taun: upacara tahunan setelah panen. Artikel menyebut puncak Minggu 5 Oktober 2025 (ke-657); tanggal 2026 belum ada di sumber. Tidak ada jam, tiket, atau kontak resmi yang dibaca. Untuk kunjungan perlu konfirmasi ke pengelola kasepuhan. Pencarian web tidak tersedia.",
+      "status": "pending",
+      "bentuk": "tempat",
+      "kategori_enum": "kerajinan"
+    },
+    {
+      "nama": "Museum Kepresidenan Republik Indonesia Balai Kirti",
+      "slug": "museum-kepresidenan-republik-indonesia-balai-kir",
+      "kategori_usulan": "museum",
+      "jenis": "permanen",
+      "provinsi": "Jawa Barat",
+      "induk_lokasi": null,
+      "kabupaten": "Kota Bogor",
+      "alamat": "Komplek Istana Kepresidenan Bogor, Jl. Ir. Haji Juanda No. 1, Paledang, Bogor, Jawa Barat 16122",
+      "lat": -6.5981005,
+      "lng": 106.7955936,
+      "deskripsi": "Museum ini berada di dalam kompleks Istana Kepresidenan Bogor dan menampilkan sejarah pemerintahan Indonesia lewat kisah para presiden, dari presiden pertama hingga keenam. Galeri kebangsaan dan galeri kepresidenan dilalui bersama pemandu yang menjelaskan isi museum. Kunjungan tidak dipungut biaya, tetapi pengunjung perlu mendaftar terlebih dahulu.",
+      "jam_buka": [
+        {
+          "hari": "Senin",
+          "tutup": true,
+          "buka": null,
+          "tutup_jam": null,
+          "catatan": "Tutup setiap hari Senin dan hari libur nasional (menurut artikel GNFI, bukan situs resmi)",
+          "source_url": "https://www.goodnewsfromindonesia.id/2025/01/09/museum-istana-negara-dan-surya-kencana-destinasi-sejarah-dan-budaya-di-jantung-bogor",
+          "checked_at": "2026-11-26"
+        },
+        {
+          "hari": "Selasa",
+          "tutup": false,
+          "buka": "09:00",
+          "tutup_jam": "15:00",
+          "catatan": null,
+          "source_url": "https://www.goodnewsfromindonesia.id/2025/01/09/museum-istana-negara-dan-surya-kencana-destinasi-sejarah-dan-budaya-di-jantung-bogor",
+          "checked_at": "2026-11-26"
+        },
+        {
+          "hari": "Rabu",
+          "tutup": false,
+          "buka": "09:00",
+          "tutup_jam": "15:00",
+          "catatan": null,
+          "source_url": "https://www.goodnewsfromindonesia.id/2025/01/09/museum-istana-negara-dan-surya-kencana-destinasi-sejarah-dan-budaya-di-jantung-bogor",
+          "checked_at": "2026-11-26"
+        },
+        {
+          "hari": "Kamis",
+          "tutup": false,
+          "buka": "09:00",
+          "tutup_jam": "15:00",
+          "catatan": null,
+          "source_url": "https://www.goodnewsfromindonesia.id/2025/01/09/museum-istana-negara-dan-surya-kencana-destinasi-sejarah-dan-budaya-di-jantung-bogor",
+          "checked_at": "2026-11-26"
+        },
+        {
+          "hari": "Jumat",
+          "tutup": false,
+          "buka": "09:00",
+          "tutup_jam": "15:00",
+          "catatan": null,
+          "source_url": "https://www.goodnewsfromindonesia.id/2025/01/09/museum-istana-negara-dan-surya-kencana-destinasi-sejarah-dan-budaya-di-jantung-bogor",
+          "checked_at": "2026-11-26"
+        },
+        {
+          "hari": "Sabtu",
+          "tutup": false,
+          "buka": "09:00",
+          "tutup_jam": "14:00",
+          "catatan": null,
+          "source_url": "https://www.goodnewsfromindonesia.id/2025/01/09/museum-istana-negara-dan-surya-kencana-destinasi-sejarah-dan-budaya-di-jantung-bogor",
+          "checked_at": "2026-11-26"
+        },
+        {
+          "hari": "Minggu",
+          "tutup": false,
+          "buka": "09:00",
+          "tutup_jam": "14:00",
+          "catatan": null,
+          "source_url": "https://www.goodnewsfromindonesia.id/2025/01/09/museum-istana-negara-dan-surya-kencana-destinasi-sejarah-dan-budaya-di-jantung-bogor",
+          "checked_at": "2026-11-26"
+        }
+      ],
+      "hari_tutup_khusus": [
+        {
+          "keterangan": "Hari libur nasional (tutup, menurut artikel GNFI 9 Jan 2025)",
+          "source_url": "https://www.goodnewsfromindonesia.id/2025/01/09/museum-istana-negara-dan-surya-kencana-destinasi-sejarah-dan-budaya-di-jantung-bogor",
+          "checked_at": "2026-11-26"
+        }
+      ],
+      "tiket": [
+        {
+          "label": "Masuk (tanpa tiket)",
+          "harga_idr": 0,
+          "catatan": "Tidak dipungut biaya, tetapi wajib mendaftar atau mengajukan permohonan kunjungan daring sebelum datang. Aturan pakaian rapi berlaku karena lokasinya di area Istana.",
+          "source_url": "https://museumkepresidenan.id/",
+          "checked_at": "2026-11-26"
+        }
+      ],
+      "jadwal_pertunjukan": [],
+      "situs_resmi": "https://museumkepresidenan.id/",
+      "url_beli_tiket": null,
+      "sumber_dibuka": [
+        "https://www.goodnewsfromindonesia.id/2025/01/09/museum-istana-negara-dan-surya-kencana-destinasi-sejarah-dan-budaya-di-jantung-bogor",
+        "https://museumkepresidenan.id/",
+        "https://museumkepresidenan.id/pengumuman/tata-cara-berkunjung/",
+        "https://id.wikipedia.org/wiki/Museum_Kepresidenan_Republik_Indonesia_Balai_Kirti"
+      ],
+      "sumber_gagal": [],
+      "catatan": "Jam buka hanya berasal dari artikel GNFI (9 Jan 2025), karena halaman resmi yang dibaca (beranda museumkepresidenan.id dan pengumuman tata cara berkunjung, tertanggal Juli 2022) tidak memuat jam buka. Verifikasi jam ke pengelola sebelum rilis. Tiket gratis menurut beranda situs resmi. Kontak di beranda: telepon 02518381097, email muspresbalaikirti@gmail.com. Museum diresmikan 18 Okt 2014 (Wikipedia). Koordinat dari OSM Nominatim (display_name: Museum Kepresidenan Balai Kirti, Jalan Insinyur Haji Djuanda, Paledang, Bogor Tengah, Bogor); Wikipedia mencatat 6°35′54″S 106°47′39″E, selisih sekitar 200 m, masih di kompleks yang sama. Alamat berasal dari beranda situs resmi. Nama di judul artikel GNFI memakai 'Museum Istana Negara' sebagai bagian judul, tetapi isi artikel yang dipakai hanya untuk Balai Kirti.",
+      "status": "pending",
+      "bentuk": "tempat",
+      "kategori_enum": "museum"
+    },
+    {
+      "nama": "Vihara Dhanagun",
+      "slug": "vihara-dhanagun-bogor",
+      "kategori_usulan": "situs",
+      "jenis": "permanen",
+      "provinsi": "Jawa Barat",
+      "induk_lokasi": null,
+      "kabupaten": "Kota Bogor",
+      "alamat": "Jalan Otto Iskandardinata, Paledang, Bogor Tengah, Bogor, Jawa Barat 16122 (alamat dari OSM Nominatim, belum dicocokkan dengan sumber resmi)",
+      "lat": -6.6031623,
+      "lng": 106.7992338,
+      "deskripsi": "",
+      "jam_buka": [],
+      "hari_tutup_khusus": [],
+      "tiket": [],
+      "jadwal_pertunjukan": [],
+      "situs_resmi": null,
+      "url_beli_tiket": null,
+      "sumber_dibuka": [
+        "https://www.orami.co.id/magazine/klenteng-bersejarah-di-jabodetabek"
+      ],
+      "sumber_gagal": [
+        "https://id.wikipedia.org/wiki/Vihara_Dhanagun (404, halaman kosong)"
+      ],
+      "catatan": "Deskripsi, jam buka, dan tiket tidak ditemukan dan dikosongkan. Artikel Orami (24 Apr 2024, lebih dari 2 tahun lalu) tidak menyebut Vihara Dhanagun sama sekali. Yang dibahas Orami adalah Klenteng Hok Tek Bio di Ciampea (Kabupaten Bogor, bukan Kota Bogor), sehingga label 'Klenteng Hok Tek Bio' dari brief tidak didukung sumber yang dibaca dan tidak dipakai sebagai nama. Keterangan dari brief (klenteng di Suryakencana, cagar budaya, ramai saat Imlek) tidak terverifikasi dan tidak dipakai. Koordinat dan alamat dari OSM Nominatim (display_name: Vihara Dhanagun, Jalan Otto Iskandardinata, Paledang, Bogor Tengah, Bogor); nama tempat cocok di Bogor, tetapi tipe tempat ibadahnya (vihara atau klenteng) perlu dikonfirmasi ke sumber yang menyebut Dhanagun. Kategori 'situs' dipakai sebagai usulan; belum ada sumber yang menyebut status cagar budaya.",
+      "status": "pending",
+      "bentuk": "tempat",
+      "kategori_enum": "lainnya"
+    }
+  ],
+  "event": [
+    {
+      "bentuk": "event",
+      "nama": "Pertunjukan Angklung dan Kesenian Sunda Saung Angklung Udjo",
+      "slug": "pertunjukan-angklung-dan-kesenian-sunda-saung-an",
+      "provinsi": "Jawa Barat",
+      "jenis_event": "pertunjukan",
+      "lokasi_induk": {
+        "nama": "Saung Angklung Udjo",
+        "alamat": "Jl. Padasuka No. 118, Pasirlayung, Bandung",
+        "kota_kabupaten": "Kota Bandung",
+        "lat": -6.8982695,
+        "lng": 107.6552971
+      },
+      "deskripsi": "Pertunjukan rutin musik angklung dan kesenian Sunda di Saung Angklung Udjo, Bandung, dengan sesi interaktif saat penonton diajak memainkan angklung bersama. Angklung tercatat dalam daftar warisan budaya takbenda UNESCO, sebagaimana disebut di situs resmi pengelola.",
+      "pola": "daily",
+      "hari_iso": null,
+      "tanggal": null,
+      "jam_mulai": "15:30",
+      "jam_selesai": "17:00",
+      "harga_dari_idr": 60000,
+      "url_beli_tiket": null,
+      "situs_resmi": "https://angklung-udjo.co.id/",
+      "sumber": {
+        "source_url": "https://angklung-udjo.co.id/",
+        "checked_at": "2026-11-26"
+      },
+      "sumber_dibuka": [
+        "https://angklung-udjo.co.id/",
+        "https://angklung-udjo.co.id/heritage/venue",
+        "https://angklung-udjo.co.id/tickets/buy"
+      ],
+      "sumber_gagal": [],
+      "catatan": "Jadwal dan tiket dari situs resmi (beranda, dibaca 26 Nov 2026). Jadwal reguler: setiap hari 15.30-17.00 WIB; Sabtu tambahan 13.00 dan 15.30 WIB; Minggu tambahan 10.00 dan 15.30 WIB. Pertunjukan dengan reservasi: sesi pagi 10.00-11.30, siang 13.00-14.30, sore 15.30-17.00 WIB. Tiket dari situs resmi: domestik dewasa Rp85.000 dan pelajar Rp60.000; internasional dewasa Rp120.000 dan pelajar Rp85.000. harga_dari_idr diisi Rp60.000 (tarif pelajar domestik, terendah yang tertulis). Halaman pemesanan online (tickets/buy) menyatakan pemesanan sedang ditutup sementara dan mengarahkan ke WhatsApp admin (wa.me/6282182821200), sehingga url_beli_tiket dikosongkan. Alamat dan nama lokasi dari halaman venue resmi; koordinat dari OSM Nominatim (display_name: Saung Angklung Udjo, Jalan Padasuka, Pasirlayung, Kota Bandung). Jam lama dari discovery (10.00, 13.00, 15.30) tidak dipakai karena sudah digantikan jadwal situs resmi. Ulasan pengunjung tentang harga tiket di tiket.com atau Traveloka tidak dipakai sebagai fakta.",
+      "status": "pending",
+      "kategori_enum": "tari"
+    },
+    {
+      "bentuk": "event",
+      "nama": "Pertunjukan dan Workshop Wayang Golek Saung Cepot",
+      "slug": "pertunjukan-dan-workshop-wayang-golek-saung-cepo",
+      "provinsi": "Jawa Barat",
+      "jenis_event": "pertunjukan",
+      "lokasi_induk": {
+        "nama": "Saung Cepot",
+        "alamat": "Jalan Omega No. 11, Kompleks Unpad Cigadung II, Bandung",
+        "kota_kabupaten": "Kota Bandung",
+        "lat": -6.8780144,
+        "lng": 107.6261176
+      },
+      "deskripsi": "Saung Cepot di Kompleks Unpad Cigadung, Bandung, memadukan seni, budaya, dan pendidikan dalam satu tempat. Pengunjung dapat menyaksikan pertunjukan wayang golek yang diiringi gamelan dan sinden, serta mengikuti workshop pembuatan wayang dari awal hingga akhir. Tempat ini juga memiliki galeri karya seni dan kegiatan lain seperti tari jaipong dan latihan gamelan.",
+      "pola": null,
+      "hari_iso": null,
+      "tanggal": null,
+      "jam_mulai": null,
+      "jam_selesai": null,
+      "harga_dari_idr": null,
+      "url_beli_tiket": null,
+      "situs_resmi": null,
+      "sumber": {
+        "source_url": "https://jabarprov.go.id/en/berita/saung-cepot-destinasi-wisata-budaya-yang-wajib-dikunjungi-di-kota-bandung-14716",
+        "checked_at": null
+      },
+      "sumber_dibuka": [
+        "https://jabarprov.go.id/en/berita/saung-cepot-destinasi-wisata-budaya-yang-wajib-dikunjungi-di-kota-bandung-14716"
+      ],
+      "sumber_gagal": [],
+      "catatan": "Nama di brief 'Rumah Cepot' diganti 'Saung Cepot' sesuai sumber. Satu-satunya sumber yang berhasil dibaca adalah artikel Diskominfo Kota Bandung (dipublikasikan 7 Agustus 2024). Karena lebih dari 2 tahun lalu, checked_at dibiarkan null dan fakta di artikel tidak dianggap terkini. Jadwal pertunjukan, jam, harga tiket, kontak, dan situs resmi tidak ditemukan dalam sumber yang dibaca, sehingga dikosongkan. Pola (rutin/sekali) belum terverifikasi; cek akun resmi venue. Koordinat: Nominatim tidak mengenali 'Saung Cepot' secara langsung. Koordinat di atas adalah perkiraan dari OSM untuk lapangan di Kompleks Unpad Cigadung II (bukan posisi pasti Saung Cepot). Perlu dikonfirmasi sebelum dipakai.",
+      "status": "pending",
+      "kategori_enum": "tari"
+    },
+    {
+      "bentuk": "event",
+      "nama": "Upacara Adat Seren Taun Cigugur",
+      "slug": "upacara-adat-seren-taun-cigugur",
+      "provinsi": "Jawa Barat",
+      "jenis_event": "upacara",
+      "lokasi_induk": {
+        "nama": "Paseban Tri Panca Tunggal, Cigugur",
+        "alamat": "Paseban Tri Panca Tunggal, Kecamatan Cigugur",
+        "kota_kabupaten": "Kabupaten Kuningan",
+        "lat": -6.9702709,
+        "lng": 108.4562982
+      },
+      "deskripsi": "Seren Taun di Paseban Tri Panca Tunggal, Cigugur, Kuningan, adalah upacara adat syukur panen yang digelar setiap tahun. Puncaknya diisi prosesi penumbukan padi, arak-arakan budaya, dan pertunjukan seni seperti wayang golek. Upacara ini juga menjadi ruang perjumpaan lintas keyakinan dan budaya.",
+      "pola": "annual",
+      "hari_iso": null,
+      "tanggal": null,
+      "jam_mulai": null,
+      "jam_selesai": null,
+      "harga_dari_idr": null,
+      "url_beli_tiket": null,
+      "situs_resmi": null,
+      "sumber": {
+        "source_url": "https://rri.co.id/cirebon/budaya/2478022/seren-taun-1959-saka-di-cigugur-kuningan-ruang-persaudaraan-miniatur-indonesia",
+        "checked_at": "2026-11-26"
+      },
+      "sumber_dibuka": [
+        "https://rri.co.id/cirebon/budaya/2478022/seren-taun-1959-saka-di-cigugur-kuningan-ruang-persaudaraan-miniatur-indonesia",
+        "https://www.goodnewsfromindonesia.id/2026/01/28/acara-festival-di-jawa-barat-2026"
+      ],
+      "sumber_gagal": [],
+      "catatan": "Artikel RRI (dipublikasikan 8 Juni 2026) menyebut puncak Seren Taun 22 Rayagung 1959 Saka pada Senin 8 Juni 2026 di Paseban Tri Panca Tunggal, Cigugur, dan menyebut rangkaian dimulai 3 Juni 2026. Artikel yang sama menyebut wisatawan memadati kawasan Paseban pada puncak acara. Jadwal Calendar of Events Jawa Barat 2026 (Goodnews, 28 Jan 2026) mencantumkan Seren Taun Cigugur di bulan Juni, sehingga pola tahunan sekitar Juni. Tanggal 2027 belum tersedia, jadi tanggal dibiarkan null. Harga dan jam tidak disebutkan di sumber yang dibaca. Koordinat adalah perkiraan pusat Desa Cigugur dari OSM, bukan koordinat pasti Paseban Tri Panca Tunggal. Kontak dan reservasi tidak ditemukan. Situs resmi Paseban belum ditemukan dalam sumber yang dibaca.",
+      "status": "pending",
+      "kategori_enum": "lainnya"
+    },
+    {
+      "bentuk": "event",
+      "nama": "Upacara Seren Taun Kasepuhan Gelar Alam (Ciptagelar)",
+      "slug": "upacara-seren-taun-kasepuhan-gelar-alam",
+      "provinsi": "Jawa Barat",
+      "jenis_event": "upacara",
+      "lokasi_induk": {
+        "nama": "Kampung Adat Ciptagelar (Kasepuhan Gelar Alam)",
+        "alamat": null,
+        "kota_kabupaten": "Kabupaten Sukabumi",
+        "lat": -6.8026868,
+        "lng": 106.4981908
+      },
+      "deskripsi": "Seren Taun Kasepuhan Gelar Alam adalah upacara syukur panen tahunan yang digelar masyarakat adat Kasepuhan Ciptagelar di Sukabumi. Upacara ini masuk dalam kalender acara Jawa Barat 2026 dan masih dijalankan sebagai tradisi adat yang hidup. Pengunjung perlu mengikuti tata krama adat setempat.",
+      "pola": "annual",
+      "hari_iso": null,
+      "tanggal": null,
+      "jam_mulai": null,
+      "jam_selesai": null,
+      "harga_dari_idr": null,
+      "url_beli_tiket": null,
+      "situs_resmi": null,
+      "sumber": {
+        "source_url": "https://www.goodnewsfromindonesia.id/2026/01/28/acara-festival-di-jawa-barat-2026",
+        "checked_at": "2026-11-26"
+      },
+      "sumber_dibuka": [
+        "https://www.goodnewsfromindonesia.id/2026/01/28/acara-festival-di-jawa-barat-2026"
+      ],
+      "sumber_gagal": [],
+      "catatan": "Tabel Calendar of Events Jawa Barat 2026 (dipublikasikan 28 Jan 2026) mencantumkan 'Seren Taun Kasepuhan Gelaralam' di bulan September, Kab. Sukabumi. Tanggal pasti 2026 belum ada, sehingga tanggal null. Klaim laporan 2025 yang menyebut 4 Oktober dari brief belum diverifikasi (tidak ada sumber yang dibaca), jadi tidak dipakai. Izin dan tata krama kunjungan ke kampung adat belum terverifikasi dari sumber yang dibaca. Harga, jam, kontak, dan situs resmi tidak ditemukan. Koordinat dari Nominatim (Kasepuhan Ciptagelar, Cihamerang, Kab. Sukabumi, Jawa Barat), sudah dicek wilayahnya sesuai.",
+      "status": "pending",
+      "kategori_enum": "lainnya"
+    },
+    {
+      "bentuk": "event",
+      "nama": "Upacara Ngalaksa dengan Tarawangsa Rancakalong",
+      "slug": "upacara-ngalaksa-dengan-tarawangsa-rancakalong",
+      "provinsi": "Jawa Barat",
+      "jenis_event": "upacara",
+      "lokasi_induk": {
+        "nama": "Desa Wisata Rancakalong, Kecamatan Rancakalong (Geoteater Rancakalong dalam pemberitaan)",
+        "alamat": null,
+        "kota_kabupaten": "Kabupaten Sumedang",
+        "lat": -6.8361771,
+        "lng": 107.8372232
+      },
+      "deskripsi": "Ngalaksa adalah tradisi masyarakat Sunda di Kecamatan Rancakalong sebagai ungkapan syukur atas hasil panen padi. Rangkaiannya mencakup upacara adat, pertunjukan seni tradisional, dan doa bersama. Acara ini juga menjadi sarana menjaga gotong royong dan kearifan lokal.",
+      "pola": "annual",
+      "hari_iso": null,
+      "tanggal": null,
+      "jam_mulai": null,
+      "jam_selesai": null,
+      "harga_dari_idr": null,
+      "url_beli_tiket": null,
+      "situs_resmi": null,
+      "sumber": {
+        "source_url": "https://rri.co.id/bandung/budaya/2455506/melestarikan-tradisi-upacara-ngalaksa-rancakalong-sumedang",
+        "checked_at": "2026-11-26"
+      },
+      "sumber_dibuka": [
+        "https://rri.co.id/bandung/budaya/2455506/melestarikan-tradisi-upacara-ngalaksa-rancakalong-sumedang"
+      ],
+      "sumber_gagal": [],
+      "catatan": "Artikel RRI (terbit 30 Mei 2026) melaporkan Ngalaksa 2026 digelar pada 10 Mei 2026 dan pembukaannya berlangsung di Geoteater Rancakalong. Jadi pola tahunan dengan waktu sekitar Mei menurut edisi 2026; tanggal pasti edisi 2027 belum ada. Artikel tidak menyebut Tarawangsa secara eksplisit (hanya kesenian tradisional Sunda seperti tari dan musik), sehingga nama Tarawangsa dari usulan awal belum terkonfirmasi. Klaim pembukaan 2 Juli 2024 dari usulan awal tidak diverifikasi dan tidak dipakai. Koordinat berupa titik pusat desa dari OpenStreetMap Nominatim (perkiraan tingkat desa, bukan lokasi geoteater). Alamat, jam, dan harga tidak ditemukan di sumber yang dibaca.",
+      "status": "pending",
+      "kategori_enum": "lainnya"
+    },
+    {
+      "bentuk": "event",
+      "nama": "Upacara Panjang Jimat Keraton Kasepuhan dan Kanoman",
+      "slug": "upacara-panjang-jimat-keraton-kasepuhan-dan-kano",
+      "provinsi": "Jawa Barat",
+      "jenis_event": "upacara",
+      "lokasi_induk": {
+        "nama": "Keraton Kasepuhan Cirebon (Bangsal Panembahan dan Langgar Agung)",
+        "alamat": "Jalan Kasepuhan, Lemahwungkuk, Kota Cirebon",
+        "kota_kabupaten": "Kota Cirebon",
+        "lat": -6.727572,
+        "lng": 108.5718273
+      },
+      "deskripsi": "Panjang Jimat adalah upacara tahunan di lingkungan keraton Cirebon untuk memperingati Maulid Nabi Muhammad SAW. Prosesinya berupa iring-iringan perlengkapan upacara dengan lantunan salawat menuju Langgar Agung, dilanjutkan pembacaan Al-Barzanji. Setiap bawaan dalam iring-iringan memiliki makna simbolis tersendiri.",
+      "pola": "annual",
+      "hari_iso": null,
+      "tanggal": null,
+      "jam_mulai": null,
+      "jam_selesai": null,
+      "harga_dari_idr": null,
+      "url_beli_tiket": null,
+      "situs_resmi": null,
+      "sumber": {
+        "source_url": "https://www.detik.com/jabar/budaya/d-7543706/tradisi-panjang-jimat-cara-keraton-kasepuhan-cirebon-peringati-maulid-nabi",
+        "checked_at": null
+      },
+      "sumber_dibuka": [
+        "https://www.detik.com/jabar/budaya/d-7543706/tradisi-panjang-jimat-cara-keraton-kasepuhan-cirebon-peringati-maulid-nabi"
+      ],
+      "sumber_gagal": [],
+      "catatan": "Artikel detik terbit 17 September 2024 dan menyebut upacara berlangsung malam Senin 16 September 2024; karena lebih dari 2 tahun, checked_at dikosongkan. Artikel hanya menyebut Keraton Kasepuhan (Bangsal Panembahan, Langgar Agung), tidak menyebut Keraton Kanoman maupun Prabayaksa; nama Kanoman dari usulan awal belum terkonfirmasi dan tidak dipakai di lokasi. Klaim malam 12 Rabiul Awal dari usulan awal tidak ditemukan di artikel yang dibaca; tanggal Hijriah ini tidak dicantumkan sebagai fakta. Edisi 2026 belum diverifikasi. Koordinat dari OpenStreetMap Nominatim (Keraton Kasepuhan, Kota Cirebon), sudah dicek display_name-nya. Jam dan harga tidak relevan dan tidak ditemukan.",
+      "status": "pending",
+      "kategori_enum": "lainnya"
+    },
+    {
+      "bentuk": "event",
+      "nama": "Festival Cap Go Meh Bogor (Bogor Street Festival)",
+      "slug": "festival-cap-go-meh-bogor",
+      "provinsi": "Jawa Barat",
+      "jenis_event": "festival",
+      "lokasi_induk": {
+        "nama": "Kawasan Pecinan Suryakencana (rute dari Vihara Dhanagun)",
+        "alamat": null,
+        "kota_kabupaten": "Kota Bogor",
+        "lat": -6.6031623,
+        "lng": 106.7992338
+      },
+      "deskripsi": "Festival Cap Go Meh di Bogor menampilkan pawai dan pertunjukan budaya Tionghoa dan Sunda di kawasan pecinan Suryakencana. Acara ini berlangsung sekitar Februari sampai Maret mengikuti kalender Imlek. Rute dimulai dari Vihara Dhanagun.",
+      "pola": "annual",
+      "hari_iso": null,
+      "tanggal": null,
+      "jam_mulai": null,
+      "jam_selesai": null,
+      "harga_dari_idr": null,
+      "url_beli_tiket": null,
+      "situs_resmi": null,
+      "sumber": {
+        "source_url": "",
+        "checked_at": null
+      },
+      "sumber_dibuka": [],
+      "sumber_gagal": [
+        "https://www.indonesia.travel/nl/en/event-festivals/don-t-miss-the-exciting-bogor-cap-go-meh-street-festival"
+      ],
+      "catatan": "Sumber usulan (indonesia.travel) tidak bisa dibuka (404 di Firecrawl dan WebFetch), sehingga tanggal edisi 2026 (3 Maret) dan klaim CoE Jabar 2026 tidak diverifikasi dan dikosongkan. Pola tahunan mengikuti Imlek (sekitar Februari-Maret) berdasarkan usulan awal yang belum diverifikasi; jadwal edisi 2027 belum ada di sumber yang bisa dibaca. Koordinat adalah titik Vihara Dhanagun dari OpenStreetMap Nominatim (display_name sudah dicek: Bogor Tengah, Kota Bogor), bukan titik tengah Suryakencana; perkiraan, bukan lokasi rute resmi. Deskripsi disusun ulang dari usulan awal dan belum dicocokkan dengan sumber yang bisa dibuka. Jam, harga, dan situs resmi tidak ditemukan.",
+      "status": "pending",
+      "kategori_enum": "lainnya"
+    },
+    {
+      "bentuk": "event",
+      "nama": "Pentas Malam Mingguan Kesenian Cirebon (tari topeng, tarling)",
+      "slug": "pentas-malam-mingguan-kesenian-cirebon",
+      "provinsi": "Jawa Barat",
+      "jenis_event": "pertunjukan",
+      "lokasi_induk": {
+        "nama": "Balai Kota Cirebon",
+        "alamat": null,
+        "kota_kabupaten": "Kota Cirebon",
+        "lat": null,
+        "lng": null
+      },
+      "deskripsi": "Pentas rutin malam Sabtu dari Disbudpar Kota Cirebon yang memberi panggung bagi sanggar seni lokal. Acaranya memadukan kesenian tradisional seperti tari topeng dan tarling dengan sentuhan modern.",
+      "pola": "weekly",
+      "hari_iso": 6,
+      "tanggal": null,
+      "jam_mulai": null,
+      "jam_selesai": null,
+      "harga_dari_idr": null,
+      "url_beli_tiket": null,
+      "situs_resmi": null,
+      "sumber": {
+        "source_url": "https://www.detik.com/jabar/cirebon-raya/d-7096001/malmingan-di-balai-kota-jurus-pemkot-cirebon-lestarikan-tari-topeng",
+        "checked_at": null
+      },
+      "sumber_dibuka": [
+        "https://www.detik.com/jabar/cirebon-raya/d-7096001/malmingan-di-balai-kota-jurus-pemkot-cirebon-lestarikan-tari-topeng"
+      ],
+      "sumber_gagal": [],
+      "catatan": "Sumber dibaca tetapi artikel bertanggal 18 Des 2023 (lebih dari 2 tahun lalu), sehingga checked_at = null. Lokasi di artikel adalah Balai Kota Cirebon ('Acaranya di Balai Kota'), bukan Alun-alun Kejaksan seperti dalam petunjuk awal; pindah lokasi belum terverifikasi dari sumber yang dibaca. Hari Sabtu malam berdasarkan nama 'Malam Mingguan'; jam, jadwal 2025-2026, dan kontak pengelola tidak ditemukan. Koordinat tidak diisi karena lokasi terkini belum terkonfirmasi. Perlu cek ke Disbudpar Kota Cirebon.",
+      "status": "pending",
+      "kategori_enum": "tari"
+    },
+    {
+      "bentuk": "event",
+      "nama": "Upacara Adat Ngarot Lelea",
+      "slug": "upacara-adat-ngarot-lelea",
+      "provinsi": "Jawa Barat",
+      "jenis_event": "upacara",
+      "lokasi_induk": {
+        "nama": "Desa Lelea",
+        "alamat": "Kecamatan Lelea, Kabupaten Indramayu",
+        "kota_kabupaten": "Kabupaten Indramayu",
+        "lat": -6.419885,
+        "lng": 108.2505027
+      },
+      "deskripsi": "Tradisi Ngarot di Desa Lelea adalah ungkapan syukur sekaligus penanda dimulainya musim tanam padi. Acaranya berupa arak-arakan keliling desa dengan peserta muda-mudi berbusana adat, diiringi kesenian tradisional.",
+      "pola": "annual",
+      "hari_iso": null,
+      "tanggal": null,
+      "jam_mulai": null,
+      "jam_selesai": null,
+      "harga_dari_idr": null,
+      "url_beli_tiket": null,
+      "situs_resmi": null,
+      "sumber": {
+        "source_url": "https://rri.co.id/budaya/2620315/mengenal-ngarot-tradisi-unik-warga-indramayu-menyambut-musim-tanam",
+        "checked_at": "2026-11-26"
+      },
+      "sumber_dibuka": [
+        "https://rri.co.id/budaya/2620315/mengenal-ngarot-tradisi-unik-warga-indramayu-menyambut-musim-tanam"
+      ],
+      "sumber_gagal": [],
+      "catatan": "Menurut Pemkab Indramayu (dikutip RRI, 2 Agt 2026): dilaksanakan setiap minggu ketiga Desember dan selalu pada hari Rabu. Tanggal pasti tahun 2026 belum diumumkan, sehingga tanggal = null. Jam mulai dan lokasi acara tidak disebut di sumber. Koordinat adalah titik pusat Desa Lelea dari OpenStreetMap (Nominatim), perkiraan dan bukan lokasi acara. Sumber hanya satu berita RRI; belum ada situs resmi pemkab yang dibaca.",
+      "status": "pending",
+      "kategori_enum": "lainnya"
+    }
+  ],
+  "dikeluarkan": [
+    {
+      "slug": "kampung-dukuh",
+      "nama": "Kampung Dukuh",
+      "alasan": "sumber 404; tanpa data"
+    },
+    {
+      "slug": "benteng-palasari",
+      "nama": "Benteng Palasari",
+      "alasan": "sumber 404; tanpa data"
+    },
+    {
+      "slug": "workshop-membatik-di-sentra-batik-trusmi",
+      "nama": "Workshop Membatik di Sentra Batik Trusmi",
+      "alasan": "satu-satunya sumber Antara 2016; status operasional tidak diketahui"
+    }
+  ]
+}

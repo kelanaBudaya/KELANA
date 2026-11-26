@@ -1,0 +1,1068 @@
+{
+  "provinsi": "Jawa Tengah",
+  "dikumpulkan": "2026-11-26",
+  "status": "pending (belum disetujui manusia)",
+  "tempat": [
+    {
+      "nama": "Candi Borobudur",
+      "slug": "candi-borobudur",
+      "kategori_usulan": "candi",
+      "jenis": "permanen",
+      "provinsi": "Jawa Tengah",
+      "induk_lokasi": null,
+      "kabupaten": "Magelang",
+      "alamat": "Desa Borobudur, Kabupaten Magelang, Jawa Tengah (alamat dari OpenStreetMap/Nominatim, belum dari halaman resmi)",
+      "lat": -7.6064052,
+      "lng": 110.2045392,
+      "deskripsi": "Candi Borobudur adalah candi Buddha bertingkat yang berdiri di Magelang, Jawa Tengah, dan termasuk situs warisan dunia UNESCO. Bangunan ini menjadi salah satu tujuan wisata budaya dan religi paling dikenal di Indonesia.",
+      "jam_buka": [],
+      "hari_tutup_khusus": [],
+      "tiket": [],
+      "jadwal_pertunjukan": [],
+      "situs_resmi": null,
+      "url_beli_tiket": null,
+      "sumber_dibuka": [],
+      "sumber_gagal": [
+        "https://www.kompas.tv/lifestyle/424111/harga-tiket-dan-pembatasan-pengunjung-candi-borobudur-terbaru-cara-beli-dan-jam-buka (Firecrawl HTTP 403, WebFetch HTTP 403)",
+        "https://www.borobudurpark.com (Firecrawl HTTP 521, WebFetch HTTP 521)"
+      ],
+      "catatan": "Tidak ada halaman sumber yang berhasil dibaca, jadi seluruh fakta resmi (jam buka, tiket, hari tutup, URL beli tiket, situs resmi) dikosongkan dan tidak ada checked_at. Koordinat dan alamat berasal dari OpenStreetMap Nominatim (display_name 'Candi Borobudur, Desa Borobudur, Magelang, Jawa Tengah'), dan koordinat cocok dengan wilayah Magelang. Deskripsi ditulis ulang tanpa verifikasi sumber (fakta bahwa candi ini Buddha, bertingkat, dan UNESCO perlu dicek ulang). Kisaran jam dan harga tiket tidak diisi karena tidak tersedia dari sumber yang terbaca; perlu dicek ulang dari situs pengelola.",
+      "status": "pending",
+      "bentuk": "tempat",
+      "kategori_enum": "candi"
+    },
+    {
+      "nama": "Keraton Surakarta Hadiningrat",
+      "slug": "keraton-surakarta-hadiningrat",
+      "kategori_usulan": "keraton",
+      "jenis": "permanen",
+      "provinsi": "Jawa Tengah",
+      "induk_lokasi": null,
+      "kabupaten": "Surakarta",
+      "alamat": "Jl. Sasono Mulyo, Baluwarti, Kecamatan Pasar Kliwon, Kota Surakarta, Jawa Tengah",
+      "lat": -7.578,
+      "lng": 110.8273,
+      "deskripsi": "Keraton Surakarta Hadiningrat adalah istana aktif Kasunanan Surakarta yang terletak di Kota Surakarta, Jawa Tengah. Di dalam kompleksnya terdapat museum yang menyimpan pusaka, gamelan, kereta, dan naskah kuno.",
+      "jam_buka": [],
+      "hari_tutup_khusus": [],
+      "tiket": [],
+      "jadwal_pertunjukan": [],
+      "situs_resmi": null,
+      "url_beli_tiket": null,
+      "sumber_dibuka": [
+        "https://www.indonesia.travel/id-id/destination/java/central-java/keraton-surakarta/ (dibaca via WebFetch; Firecrawl HTTP 403)"
+      ],
+      "sumber_gagal": [],
+      "catatan": "Halaman indonesia.travel memuat alamat tetapi tidak memuat jam buka, harga tiket, atau hari tutup; halaman itu sendiri menyatakan jam kunjungan dan tiket dapat berubah dan harus dicek ke pengelola, sehingga fakta tersebut dikosongkan. Halaman itu tidak menyebut situs resmi keraton; tautan Visit Jawa Tengah di halaman tersebut tidak diklaim sebagai situs resmi, sehingga situs_resmi dikosongkan. Koordinat dari OpenStreetMap Nominatim (node 'Keraton Surakarta Hadiningrat', Baluwarti, Surakarta), perlu dicek ulang di peta. Deskripsi ditulis ulang berdasarkan keterangan di indonesia.travel (keraton aktif, museum berisi pusaka, gamelan, kereta, naskah kuno).",
+      "status": "pending",
+      "bentuk": "tempat",
+      "kategori_enum": "lainnya"
+    },
+    {
+      "nama": "Pura Mangkunegaran",
+      "slug": "pura-mangkunegaran",
+      "kategori_usulan": "keraton",
+      "jenis": "permanen",
+      "provinsi": "Jawa Tengah",
+      "induk_lokasi": null,
+      "kabupaten": "Surakarta",
+      "alamat": "Kelurahan Keprabon, Kecamatan Banjarsari, Surakarta, Jawa Tengah (alamat dari Wikipedia dan OpenStreetMap)",
+      "lat": -7.56639,
+      "lng": 110.82306,
+      "deskripsi": "Pura Mangkunegaran adalah kompleks istana di Kota Surakarta, Jawa Tengah, yang menjadi kediaman resmi Adipati Mangkunegara dan keluarganya. Di dalam kompleks ini terdapat museum yang memamerkan benda-benda kerajaan Mangkunegaran dan menjadi salah satu pusat budaya Jawa.",
+      "jam_buka": [],
+      "hari_tutup_khusus": [],
+      "tiket": [],
+      "jadwal_pertunjukan": [],
+      "situs_resmi": null,
+      "url_beli_tiket": null,
+      "sumber_dibuka": [
+        "https://en.wikipedia.org/wiki/Mangkunegaran_Palace (dialihkan ke Pura_Mangkunegaran; dibaca via Firecrawl HTTP 200)"
+      ],
+      "sumber_gagal": [
+        "https://en.wikipedia.com/wiki/Mangkunegaran_Palace (domain tidak dapat diakses; diganti dengan en.wikipedia.org)",
+        "https://mangkunegaran.com (Firecrawl HTTP 522, WebFetch HTTP 522)",
+        "http://puromangkunegaran.com/ (situs resmi yang disebut Wikipedia; Firecrawl HTTP 594, tidak dapat dibaca)"
+      ],
+      "catatan": "Sumber dari brief (en.wikipedia.com) tidak dapat diakses; halaman yang berhasil dibaca adalah en.wikipedia.org. Situs resmi yang disebut Wikipedia (puromangkunegaran.com) gagal dibaca, sehingga situs_resmi dikosongkan. Jam buka, tiket, dan hari tutup tidak ditemukan di halaman yang terbaca, sehingga dikosongkan dan tidak ada checked_at. Koordinat 7.56639 S, 110.82306 E dari infobox Wikipedia, dan cocok dengan OpenStreetMap Nominatim (Pura Mangkunegaran Surakarta, Keprabon, Surakarta). Deskripsi ditulis ulang berdasarkan Wikipedia (istana resmi Adipati Mangkunegara, museum benda kerajaan).",
+      "status": "pending",
+      "bentuk": "tempat",
+      "kategori_enum": "lainnya"
+    },
+    {
+      "nama": "Museum Radya Pustaka",
+      "slug": "museum-radya-pustaka",
+      "kategori_usulan": "museum",
+      "jenis": "permanen",
+      "induk_lokasi": null,
+      "provinsi": "Jawa Tengah",
+      "kabupaten": "Surakarta",
+      "alamat": "Jalan Brigadir Jenderal Slamet Riyadi, Timuran, Surakarta, Jawa Tengah 57132",
+      "lat": -7.568661,
+      "lng": 110.8144172,
+      "deskripsi": "Museum tertua di Indonesia yang berdiri sejak 1890 ini menyimpan arca batu dan perunggu dari masa Hindu-Buddha, keris, senjata tradisional, alat musik, serta wayang kulit dan wayang beber. Koleksinya juga mencakup keramik dan naskah. Lokasinya di Jalan Slamet Riyadi, tidak jauh dari Taman Sriwedari.",
+      "jam_buka": [
+        {
+          "hari": "Senin",
+          "tutup": true,
+          "buka": null,
+          "tutup_jam": null,
+          "catatan": "Tidak disebut secara eksplisit; disimpulkan dari rentang 'Selasa sampai Minggu'.",
+          "source_url": "https://visitjawatengah.jatengprov.go.id/en/destinations/radyapustaka-museum",
+          "checked_at": null
+        },
+        {
+          "hari": "Selasa",
+          "tutup": false,
+          "buka": "08:30",
+          "tutup_jam": "13:00",
+          "catatan": "Zona waktu WIB.",
+          "source_url": "https://visitjawatengah.jatengprov.go.id/en/destinations/radyapustaka-museum",
+          "checked_at": null
+        },
+        {
+          "hari": "Rabu",
+          "tutup": false,
+          "buka": "08:30",
+          "tutup_jam": "13:00",
+          "catatan": "Zona waktu WIB.",
+          "source_url": "https://visitjawatengah.jatengprov.go.id/en/destinations/radyapustaka-museum",
+          "checked_at": null
+        },
+        {
+          "hari": "Kamis",
+          "tutup": false,
+          "buka": "08:30",
+          "tutup_jam": "13:00",
+          "catatan": "Zona waktu WIB.",
+          "source_url": "https://visitjawatengah.jatengprov.go.id/en/destinations/radyapustaka-museum",
+          "checked_at": null
+        },
+        {
+          "hari": "Jumat",
+          "tutup": false,
+          "buka": "08:30",
+          "tutup_jam": "13:00",
+          "catatan": "Zona waktu WIB.",
+          "source_url": "https://visitjawatengah.jatengprov.go.id/en/destinations/radyapustaka-museum",
+          "checked_at": null
+        },
+        {
+          "hari": "Sabtu",
+          "tutup": false,
+          "buka": "08:30",
+          "tutup_jam": "13:00",
+          "catatan": "Zona waktu WIB.",
+          "source_url": "https://visitjawatengah.jatengprov.go.id/en/destinations/radyapustaka-museum",
+          "checked_at": null
+        },
+        {
+          "hari": "Minggu",
+          "tutup": false,
+          "buka": "08:30",
+          "tutup_jam": "13:00",
+          "catatan": "Zona waktu WIB.",
+          "source_url": "https://visitjawatengah.jatengprov.go.id/en/destinations/radyapustaka-museum",
+          "checked_at": null
+        }
+      ],
+      "hari_tutup_khusus": [],
+      "tiket": [],
+      "jadwal_pertunjukan": [],
+      "situs_resmi": null,
+      "url_beli_tiket": null,
+      "sumber_dibuka": [
+        "https://visitjawatengah.jatengprov.go.id/en/destinations/radyapustaka-museum",
+        "https://nominatim.openstreetmap.org/search?format=json&limit=2&q=Museum+Radya+Pustaka+Surakarta"
+      ],
+      "sumber_gagal": [],
+      "catatan": "Jam dan telepon (0271 712306) diambil dari halaman Visit Jawa Tengah (en). Halaman itu tidak bertanggal; checked_at diisi karena halaman berhasil dibaca dan tidak tampak jelas lama, tetapi jam perlu dikonfirmasi ulang ke pengelola. Teks sumber menulis rentang 'Tuesdays Sundays' tanpa tanda pisah, jadi dibaca sebagai Selasa sampai Minggu. Tidak ditemukan harga tiket. Koordinat dari OpenStreetMap Nominatim (display_name: Jalan Brigadir Jenderal Slamet Riyadi, Timuran, Surakarta), cocok dengan nama museum. Kode pos 57132 dari Nominatim. Situs resmi museum tidak ditemukan di sumber yang dibaca. [verifikasi] checked_at jam dikosongkan: halaman sumber tidak bertanggal.",
+      "status": "pending",
+      "bentuk": "tempat",
+      "kategori_enum": "museum"
+    },
+    {
+      "nama": "Museum Sangiran",
+      "slug": "museum-sangiran",
+      "kategori_usulan": "museum",
+      "jenis": "permanen",
+      "induk_lokasi": null,
+      "provinsi": "Jawa Tengah",
+      "kabupaten": "Sragen",
+      "alamat": "Kebayanan I, Ngebung, Kec. Kalijambe, Kabupaten Sragen, Jawa Tengah 57275",
+      "lat": null,
+      "lng": null,
+      "deskripsi": "Museum ini berada di klaster Ngebung kawasan Situs Manusia Purba Sangiran dan dikelola oleh badan pelestarian warisan kebudayaan di bawah kementerian. Ruang pamernya menampilkan temuan fosil manusia purba beserta hewan purba dari lokasi penelitian di kawasan tersebut. Kawasan Sangiran memiliki lima klaster museum dengan tema masing-masing.",
+      "jam_buka": [
+        {
+          "hari": "Senin",
+          "tutup": true,
+          "buka": null,
+          "tutup_jam": null,
+          "catatan": null,
+          "source_url": "https://artsandculture.google.com/partner/sangiran-early-man-museum",
+          "checked_at": "2026-11-26"
+        },
+        {
+          "hari": "Selasa",
+          "tutup": false,
+          "buka": "08:00",
+          "tutup_jam": "16:00",
+          "catatan": "Jam dari listing Google Arts & Culture (klaster Ngebung).",
+          "source_url": "https://artsandculture.google.com/partner/sangiran-early-man-museum",
+          "checked_at": "2026-11-26"
+        },
+        {
+          "hari": "Rabu",
+          "tutup": false,
+          "buka": "08:00",
+          "tutup_jam": "16:00",
+          "catatan": "Jam dari listing Google Arts & Culture (klaster Ngebung).",
+          "source_url": "https://artsandculture.google.com/partner/sangiran-early-man-museum",
+          "checked_at": "2026-11-26"
+        },
+        {
+          "hari": "Kamis",
+          "tutup": false,
+          "buka": "08:00",
+          "tutup_jam": "16:00",
+          "catatan": "Jam dari listing Google Arts & Culture (klaster Ngebung).",
+          "source_url": "https://artsandculture.google.com/partner/sangiran-early-man-museum",
+          "checked_at": "2026-11-26"
+        },
+        {
+          "hari": "Jumat",
+          "tutup": false,
+          "buka": "08:00",
+          "tutup_jam": "16:00",
+          "catatan": "Jam dari listing Google Arts & Culture (klaster Ngebung).",
+          "source_url": "https://artsandculture.google.com/partner/sangiran-early-man-museum",
+          "checked_at": "2026-11-26"
+        },
+        {
+          "hari": "Sabtu",
+          "tutup": false,
+          "buka": "08:00",
+          "tutup_jam": "16:00",
+          "catatan": "Jam dari listing Google Arts & Culture (klaster Ngebung).",
+          "source_url": "https://artsandculture.google.com/partner/sangiran-early-man-museum",
+          "checked_at": "2026-11-26"
+        },
+        {
+          "hari": "Minggu",
+          "tutup": false,
+          "buka": "08:00",
+          "tutup_jam": "16:00",
+          "catatan": "Jam dari listing Google Arts & Culture (klaster Ngebung).",
+          "source_url": "https://artsandculture.google.com/partner/sangiran-early-man-museum",
+          "checked_at": "2026-11-26"
+        }
+      ],
+      "hari_tutup_khusus": [],
+      "tiket": [],
+      "jadwal_pertunjukan": [],
+      "situs_resmi": "https://kebudayaan.kemdikbud.go.id/bpsmpsangiran",
+      "url_beli_tiket": null,
+      "sumber_dibuka": [
+        "https://artsandculture.google.com/partner/sangiran-early-man-museum"
+      ],
+      "sumber_gagal": [
+        "https://kebudayaan.kemdikbud.go.id/bpsmpsangiran (Firecrawl menolak sebagai alamat private/internal; WebFetch gagal DNS, ENOTFOUND)",
+        "https://nominatim.openstreetmap.org/search?format=json&limit=2&q=Museum+Sangiran+Sragen (tiga kueri Nominatim tidak mengembalikan hasil)"
+      ],
+      "catatan": "Halaman Google Arts & Culture menyebut museum ini sebagai klaster Ngebung (dari lima klaster: Krikilan, Dayu, Ngebung, Bukuran, Manyarejo), jadi jam dan alamat berlaku untuk klaster Ngebung saja. Koordinat tidak ditemukan di OpenStreetMap, sehingga lat/lng dibiarkan null. Situs resmi dan tiket tidak berhasil dibuka atau tidak ditemukan. Klaim UNESCO dari brief tidak ditemukan di halaman yang dibaca, jadi tidak dimasukkan ke deskripsi. Nama dipertahankan 'Museum Sangiran' sesuai brief.",
+      "status": "pending",
+      "bentuk": "tempat",
+      "kategori_enum": "museum"
+    },
+    {
+      "nama": "Candi Sukuh",
+      "slug": "candi-sukuh",
+      "kategori_usulan": "candi",
+      "jenis": "permanen",
+      "induk_lokasi": null,
+      "provinsi": "Jawa Tengah",
+      "kabupaten": "Karanganyar",
+      "alamat": "Berjo, Karanganyar, Jawa Tengah",
+      "lat": -7.6273152,
+      "lng": 111.1315373,
+      "deskripsi": "Candi Hindu dari abad ke-15 di lereng Gunung Lawu ini memperlihatkan bentuk bangunan yang tidak biasa dibanding candi Jawa lain. Relief Garudeya, Sudamala, dan Dewaruci menggambarkan kompleksitas kehidupan manusia, sementara arca lingga dan yoni menjadi simbol yang menonjol. Jalur menuju candi sama dengan jalur ke Air Terjun Jumog.",
+      "jam_buka": [],
+      "hari_tutup_khusus": [],
+      "tiket": [],
+      "jadwal_pertunjukan": [],
+      "situs_resmi": null,
+      "url_beli_tiket": null,
+      "sumber_dibuka": [
+        "https://visitjawatengah.jatengprov.go.id/en/destinations/candi-sukuh",
+        "https://nominatim.openstreetmap.org/search?format=json&limit=2&q=Candi+Sukuh+Karanganyar"
+      ],
+      "sumber_gagal": [
+        "https://www.goodnewsfromindonesia.id/2016/03/24/candi-sukuh-sebuah-warisan-nenek-moyang-di-lereng-gunung-lawu (Firecrawl gagal semua engine saat dibuka ulang; hanya potongan awal artikel 2016 terbaca dan tidak dipakai sebagai fakta)",
+        "https://candisukuh.com/ (Firecrawl menolak sebagai alamat private/internal)",
+        "https://visitjawatengah.jatengprov.go.id/destinations/candi-sukuh (404)"
+      ],
+      "catatan": "Deskripsi ditulis ulang dari halaman Visit Jawa Tengah (en), yang tidak bertanggal; halaman itu tidak memuat jam buka atau tiket, sehingga keduanya dikosongkan. Brief menyebut jam buka harian menurut sumber Orami, tetapi sumber itu tidak dibuka dan tidak dipakai. Klaim kemiripan dengan piramida Maya berasal dari halaman Visit Jawa Tengah dan belum diverifikasi, jadi tidak dimasukkan ke deskripsi. Koordinat dari OpenStreetMap Nominatim (display_name: Candi Sukuh, Gunung Lawu Via Tahura, Berjo, Karanganyar), cocok dengan nama candi. Karena tidak ada jam dan tiket yang terverifikasi, checked_at tidak diisi pada item mana pun.",
+      "status": "pending",
+      "bentuk": "tempat",
+      "kategori_enum": "candi"
+    },
+    {
+      "nama": "Candi Cetho",
+      "slug": "candi-cetho",
+      "kategori_usulan": "candi",
+      "jenis": "permanen",
+      "induk_lokasi": null,
+      "provinsi": "Jawa Tengah",
+      "kabupaten": "Karanganyar",
+      "alamat": "Dusun Ceto, Desa Gumeng, Kecamatan Jenawi, Kabupaten Karanganyar, Jawa Tengah",
+      "lat": -7.595736,
+      "lng": 111.158131,
+      "deskripsi": "Candi Cetho adalah candi berundak dari masa akhir Majapahit yang diperkirakan selesai dibangun sekitar tahun 1475 Masehi. Kompleks yang tersusun dari beberapa teras ini masih didatangi umat Hindu untuk sembahyang dan juga dipakai penganut kepercayaan Kejawen. Lokasinya di kawasan lereng Gunung Lawu.",
+      "jam_buka": [],
+      "hari_tutup_khusus": [],
+      "tiket": [],
+      "jadwal_pertunjukan": [],
+      "situs_resmi": null,
+      "url_beli_tiket": null,
+      "sumber_dibuka": [
+        "https://www.goodnewsfromindonesia.id/indonesiana/wisata/candi-cetho-peninggalan-kerajaan-majapahit-di-karanganyar"
+      ],
+      "sumber_gagal": [],
+      "catatan": "Sumber utama artikel GNFI bertanggal 28 Okt 2021 (lebih tua dari 2 tahun), jadi checked_at dibiarkan null untuk semua fakta. Artikel menulis 'Kecamatan Jemawi', kemungkinan 'Jenawi'; alamat memakai ejaan Jenawi. Koordinat dari OpenStreetMap Nominatim (display_name: Candi Cetho, Gumeng, Karanganyar, Jawa Tengah); titik perkiraan kompleks, belum dicek ke peta resmi. Jam buka dan tiket tidak ditemukan di sumber yang dibuka; situs resmi pengelola belum ditemukan. Aturan kunjungan menurut artikel: pengunjung memakai kain kampuh atau poleng saat masuk area candi (belum dikonfirmasi pengelola). Sumber sejarah yang dikutip artikel (Cagar Budaya Kemdikbud) tidak dibuka.",
+      "status": "pending",
+      "bentuk": "tempat",
+      "kategori_enum": "candi"
+    },
+    {
+      "nama": "Kompleks Candi Arjuna Dieng",
+      "slug": "kompleks-candi-arjuna-dieng",
+      "kategori_usulan": "candi",
+      "jenis": "permanen",
+      "induk_lokasi": null,
+      "provinsi": "Jawa Tengah",
+      "kabupaten": "Banjarnegara",
+      "alamat": "Karangsari, Desa Dieng Kulon, Kecamatan Batur, Kabupaten Banjarnegara, Jawa Tengah",
+      "lat": -7.205028,
+      "lng": 109.906919,
+      "deskripsi": "Kompleks Candi Arjuna di Dataran Tinggi Dieng terdiri dari beberapa candi Hindu peninggalan Wangsa Sanjaya dari abad ke-8 Masehi, dengan Candi Arjuna sebagai candi utama. Kawasan ini dikelola BPCB Jawa Tengah bersama Pemerintah Kabupaten Banjarnegara. Halamannya juga dipakai untuk upacara Galungan dan ruwatan dalam Dieng Culture Festival.",
+      "jam_buka": [],
+      "hari_tutup_khusus": [],
+      "tiket": [
+        {
+          "label": "Tiket masuk kompleks Candi Arjuna (berlaku untuk semua candi di kompleks)",
+          "harga_idr": 10000,
+          "catatan": "Harga hanya dari artikel media GNFI (20 Des 2024), bukan dari loket resmi; konfirmasi ke pengelola sebelum dipublikasikan. Jam buka tidak ditemukan.",
+          "source_url": "https://www.goodnewsfromindonesia.id/indonesiana/sejarah/candi-arjuna-jejak-penyebaran-agama-hindu-tertua-di-dataran-tinggi-dieng",
+          "checked_at": "2026-11-26"
+        }
+      ],
+      "jadwal_pertunjukan": [],
+      "situs_resmi": null,
+      "url_beli_tiket": null,
+      "sumber_dibuka": [
+        "https://www.goodnewsfromindonesia.id/indonesiana/sejarah/candi-arjuna-jejak-penyebaran-agama-hindu-tertua-di-dataran-tinggi-dieng"
+      ],
+      "sumber_gagal": [],
+      "catatan": "Sumber utama artikel GNFI bertanggal 20 Des 2024; checked_at tiket diisi karena masih dalam batas 2 tahun, tetapi ini sumber media, bukan halaman resmi. Jam buka tidak ada di sumber yang dibuka. Kompleks dikelola BPCB Jawa Tengah bersama Pemkab Banjarnegara menurut artikel; situs resmi pengelola belum ditemukan. Koordinat dari OpenStreetMap Nominatim (display_name: Candi Arjuna, Dieng Kulon, Banjarnegara, Jawa Tengah); titik perkiraan, belum dicek ke peta resmi. Alamat dari artikel (Karangsari), Nominatim menulis Jalan Dieng, Pawuhan. Festival dan upacara yang disebut artikel bersifat musiman, tanggal 2025-2026 belum dipastikan.",
+      "status": "pending",
+      "bentuk": "tempat",
+      "kategori_enum": "candi"
+    },
+    {
+      "nama": "Lawang Sewu",
+      "slug": "lawang-sewu",
+      "kategori_usulan": "situs",
+      "jenis": "permanen",
+      "induk_lokasi": null,
+      "provinsi": "Jawa Tengah",
+      "kabupaten": "Kota Semarang",
+      "alamat": "Jalan Pemuda, Sekayu, Semarang Tengah, Kota Semarang, Jawa Tengah",
+      "lat": -6.983979,
+      "lng": 110.410791,
+      "deskripsi": "Lawang Sewu adalah bangunan kolonial di Kota Semarang yang dibangun pada 1904-1907 sebagai kantor pusat perusahaan kereta api NIS. Namanya berarti seribu pintu, merujuk pada banyaknya pintu dan jendela yang juga berfungsi sebagai ventilasi alami. Kini bangunan ini menjadi destinasi sejarah dengan museum perkeretaapian dan ruang pameran.",
+      "jam_buka": [],
+      "hari_tutup_khusus": [],
+      "tiket": [],
+      "jadwal_pertunjukan": [],
+      "situs_resmi": null,
+      "url_beli_tiket": null,
+      "sumber_dibuka": [
+        "https://rri.co.id/semarang/wisata/2298549/lawang-sewu-simbol-sejarah-dan-keindahan-arsitektur-semarang"
+      ],
+      "sumber_gagal": [],
+      "catatan": "Artikel RRI bertanggal 31 Mar 2026. Artikel tidak memuat jam buka maupun harga tiket, jadi jam_buka dan tiket dibiarkan kosong; pengunjung 2,1 juta yang disebut dalam brief awal tidak ditemukan di artikel dan tidak dimasukkan. Alamat dan koordinat dari OpenStreetMap Nominatim (dua hasil: Jalan Pemuda dan Jalan Inspeksi; dipilih Jalan Pemuda); artikel RRI tidak menyebut alamat, belum dicek ke sumber resmi. Kategori 'situs' dipakai sesuai usulan; fungsi museum perkeretaapian juga bisa dipertimbangkan. Situs resmi pengelola belum ditemukan, dan sumber resmi jam serta tiket perlu dicek sebelum dipublikasikan.",
+      "status": "pending",
+      "bentuk": "tempat",
+      "kategori_enum": "lainnya"
+    },
+    {
+      "nama": "Kota Lama Semarang",
+      "slug": "kota-lama-semarang",
+      "provinsi": "Jawa Tengah",
+      "kategori_usulan": "kawasan",
+      "jenis": "permanen",
+      "induk_lokasi": null,
+      "kabupaten": "Kota Semarang",
+      "alamat": "Jalan Cendrawasih No. 1A, Purwodinatan, Semarang Tengah, Kota Semarang, Jawa Tengah",
+      "lat": -6.96723,
+      "lng": 110.4268983,
+      "deskripsi": "Kawasan peninggalan masa kolonial Belanda di Semarang yang dulu menjadi pusat perdagangan dan pelabuhan. Kanal-kanal dan gedung tuanya membuat kawasan ini dijuluki Little Netherland. Sebagian bangunannya kini dipakai sebagai galeri, hotel, dan kantor, dan area ini terbuka sebagai ruang publik.",
+      "jam_buka": [],
+      "hari_tutup_khusus": [],
+      "tiket": [],
+      "jadwal_pertunjukan": [],
+      "situs_resmi": null,
+      "url_beli_tiket": null,
+      "sumber_dibuka": [
+        "https://www.goodnewsfromindonesia.id/2022/10/21/15-wisata-semarang-bertema-sejarah-siap-mengungkit-masa-lalu",
+        "https://id.wikipedia.org/wiki/Kota_Lama_Semarang"
+      ],
+      "sumber_gagal": [],
+      "catatan": "Tidak ada sumber resmi (pengelola/dinas) yang dibuka, jadi situs_resmi kosong. Jam buka dan tiket tidak ditemukan di halaman yang dibaca: kawasan terbuka tanpa loket, jadi jam_buka dan tiket dikosongkan. Alamat dari Wikipedia (Jalan Cendrawasih No. 1A, Purwodinatan, Semarang Tengah); hasil Nominatim menyebut Kota Lama, Tanjung Mas, Semarang Utara. Alamat ini belum dicocokkan dengan sumber resmi. Koordinat dari Nominatim (poligon kawasan, pusat area); Wikipedia memberi 6.9667 S, 110.428 E, selisih sekitar 200 m. Sumber GNFI terbit Oktober 2022 dan Wikipedia tidak bertanggal, jadi tidak ada checked_at. Deskripsi ditulis ulang dari ringkasan kedua sumber.",
+      "status": "pending",
+      "bentuk": "tempat",
+      "kategori_enum": "lainnya"
+    },
+    {
+      "nama": "Klenteng Sam Poo Kong",
+      "slug": "klenteng-sam-poo-kong",
+      "provinsi": "Jawa Tengah",
+      "kategori_usulan": "situs",
+      "jenis": "permanen",
+      "induk_lokasi": null,
+      "kabupaten": "Kota Semarang",
+      "alamat": "Jalan Simongan No. 129, Bongsari, Semarang Barat, Kota Semarang, Jawa Tengah",
+      "lat": -6.9958722,
+      "lng": 110.3983842,
+      "deskripsi": "Kelenteng di kawasan Simongan, Semarang Barat, yang dibangun untuk mengenang Laksamana Cheng Ho dan kisah singgahnya di pantai setempat. Bangunannya didominasi warna merah dengan patung besar Cheng Ho di halaman depan. Selain tempat ibadah, kelenteng ini juga dikunjungi sebagai tempat wisata sejarah dan edukasi.",
+      "jam_buka": [],
+      "hari_tutup_khusus": [],
+      "tiket": [],
+      "jadwal_pertunjukan": [],
+      "situs_resmi": null,
+      "url_beli_tiket": null,
+      "sumber_dibuka": [
+        "https://www.orami.co.id/magazine/sam-poo-kong"
+      ],
+      "sumber_gagal": [
+        "https://id.wikipedia.org/wiki/Klenteng_Sam_Poo_Kong (HTTP 404)"
+      ],
+      "catatan": "Jam buka, tiket, dan jadwal tidak ditemukan di halaman yang dibaca (artikel Orami, Agustus 2022), jadi dikosongkan. Pertentangan alamat: Orami menyebut Jalan Simongan No. 129, Bongsari, sedangkan Nominatim memberi Jalan Condrokusumo Raya, Bongsari, Semarang Barat; alamat Orami dipakai karena sumber artikel, belum dicocokkan dengan sumber resmi. Koordinat dari Nominatim (poligon bangunan kelenteng). Tidak ada situs resmi pengelola yang dibuka. Kategori 'situs' dipilih karena enum tidak memuat 'klenteng'. Artikel Orami terbit Agustus 2022 dan tidak menyediakan checked_at, dan tidak ada fakta resmi yang diambil darinya selain deskripsi.",
+      "status": "pending",
+      "bentuk": "tempat",
+      "kategori_enum": "lainnya"
+    },
+    {
+      "nama": "Museum Jawa Tengah Ranggawarsita",
+      "slug": "museum-jawa-tengah-ranggawarsita",
+      "provinsi": "Jawa Tengah",
+      "kategori_usulan": "museum",
+      "jenis": "permanen",
+      "induk_lokasi": null,
+      "kabupaten": "Kota Semarang",
+      "alamat": "Jalan Abdul Rahman Saleh No. 1, Kalibanteng Kulon, Semarang Barat, Kota Semarang, Jawa Tengah",
+      "lat": -6.9860374,
+      "lng": 110.3839468,
+      "deskripsi": "Museum provinsi Jawa Tengah di Semarang Barat yang menyimpan koleksi sejarah, alam, arkeologi, dan kebudayaan. Bangunan berbentuk joglo di dekat Bundaran Kalibanteng menjadi penanda bagi pengunjung dari arah Jakarta. Museum ini dibuka untuk umum sejak 1989 dan dikenal sebagai museum terlengkap di Semarang.",
+      "jam_buka": [
+        {
+          "hari": "Senin..Minggu",
+          "tutup": false,
+          "buka": "08:00",
+          "tutup_jam": "16:00",
+          "catatan": "Termasuk akhir pekan dan libur nasional, menurut artikel Orami (Agustus 2022). Belum dicek ke sumber resmi.",
+          "source_url": "https://www.orami.co.id/magazine/museum-ranggawarsita",
+          "checked_at": null
+        }
+      ],
+      "hari_tutup_khusus": [],
+      "tiket": [
+        {
+          "label": "Dewasa",
+          "harga_idr": 4000,
+          "catatan": "Menurut artikel Orami (Agustus 2022); harga bisa sudah berubah.",
+          "source_url": "https://www.orami.co.id/magazine/museum-ranggawarsita",
+          "checked_at": null
+        },
+        {
+          "label": "Anak-anak",
+          "harga_idr": 2000,
+          "catatan": "Menurut artikel Orami (Agustus 2022); harga bisa sudah berubah.",
+          "source_url": "https://www.orami.co.id/magazine/museum-ranggawarsita",
+          "checked_at": null
+        }
+      ],
+      "jadwal_pertunjukan": [],
+      "situs_resmi": null,
+      "url_beli_tiket": null,
+      "sumber_dibuka": [
+        "https://www.orami.co.id/magazine/museum-ranggawarsita",
+        "https://id.wikipedia.org/wiki/Museum_Jawa_Tengah_Ranggawarsita"
+      ],
+      "sumber_gagal": [],
+      "catatan": "Jam dan harga hanya dari artikel Orami Agustus 2022, lebih dari 2 tahun lalu, sehingga checked_at null dan belum diverifikasi ke situs resmi museum atau dinas. Telepon yang tercantum di artikel: 024 7602389 (untuk reservasi sebelum kedatangan). Koordinat dari Nominatim, dicocokkan dengan Wikipedia (-6.985946, 110.383871), selisih sekitar 10 m. Alamat dari artikel Orami dan Wikipedia (Jalan Abdul Rahman Saleh 1). Tidak ada situs resmi pengelola yang dibuka. Tidak ditemukan hari tutup khusus. Nama di sumber ditulis berbeda: Ranggawarsita dan Ronggowarsito.",
+      "status": "pending",
+      "bentuk": "tempat",
+      "kategori_enum": "museum"
+    },
+    {
+      "nama": "Candi Gedong Songo",
+      "slug": "candi-gedong-songo",
+      "provinsi": "Jawa Tengah",
+      "kategori_usulan": "candi",
+      "jenis": "permanen",
+      "induk_lokasi": null,
+      "kabupaten": "Kabupaten Semarang",
+      "alamat": "Kecamatan Bandungan, Kabupaten Semarang, Jawa Tengah (alamat menurut artikel sumber)",
+      "lat": -7.2063743,
+      "lng": 110.340176,
+      "deskripsi": "Kawasan wisata cagar budaya dengan sembilan candi yang dibuka kembali untuk umum pada Maret 2024 setelah program revitalisasi Kementerian PUPR. Pengunjung juga dapat menikmati suasana sejuk pegunungan dan wisata berkuda di kawasan ini.",
+      "jam_buka": [],
+      "hari_tutup_khusus": [],
+      "tiket": [],
+      "jadwal_pertunjukan": [],
+      "situs_resmi": null,
+      "url_beli_tiket": null,
+      "sumber_dibuka": [
+        "https://lingkarjateng.id/2024/03/bupati-semarang-resmikan-dtw-candi-gedong-songo-usai-revitalisasi"
+      ],
+      "sumber_gagal": [],
+      "catatan": "Satu-satunya sumber yang berhasil dibaca adalah artikel berita Lingkarjateng.id tanggal 8 Maret 2024 tentang peresmian DTW Candi Gedong Songo setelah revitalisasi (anggaran Rp23 miliar). Artikel itu tidak memuat jam buka, tiket, atau hari tutup, sehingga field tersebut dikosongkan dan checked_at tidak diisi untuk fakta apa pun. Pertentangan lokasi: artikel menyebut Kecamatan Bandungan, Kabupaten Semarang; hasil Nominatim (display_name 'Kawasan Candi Gedong Songo, Darum, Sumowono, Kabupaten Semarang') menyebut Sumowono; koordinat berasal dari Nominatim dan perlu dicek ulang. Kabupaten Semarang, bukan Kota Semarang; discovery awal menulis 'Semarang' dan 'Desa Candi, Ambarawa' yang tidak didukung oleh sumber yang dibaca. Jam kunjungan, harga tiket, dan kontak pengelola belum ditemukan; perlu pengecekan ke Dinas Pariwisata Kabupaten Semarang atau kanal resmi pengelola. Kategori usulan candi; alamat masih perlu dikonfirmasi.",
+      "status": "pending",
+      "bentuk": "tempat",
+      "kategori_enum": "candi"
+    },
+    {
+      "nama": "Masjid Agung Demak",
+      "slug": "masjid-agung-demak",
+      "provinsi": "Jawa Tengah",
+      "kategori_usulan": "situs",
+      "jenis": "permanen",
+      "induk_lokasi": null,
+      "kabupaten": "Kabupaten Demak",
+      "alamat": "Kampung Kauman, Kelurahan Bintoro, Kabupaten Demak, Jawa Tengah (sekitar alun-alun kota)",
+      "lat": -6.8946963,
+      "lng": 110.6373455,
+      "deskripsi": "Masjid bersejarah peninggalan Kesultanan Demak yang dikenal sebagai salah satu pusat penyebaran Islam di Jawa. Arsitekturnya memadukan unsur Islam dan tradisi Jawa, antara lain atap tumpang tiga, dan kompleksnya memiliki museum.",
+      "jam_buka": [],
+      "hari_tutup_khusus": [],
+      "tiket": [],
+      "jadwal_pertunjukan": [],
+      "situs_resmi": null,
+      "url_beli_tiket": null,
+      "sumber_dibuka": [
+        "https://www.indonesia.travel/id-id/travel-ideas/pilgrimage/masjid-agung-demak/"
+      ],
+      "sumber_gagal": [
+        "https://www.indonesia.travel/id-id/travel-ideas/pilgrimage/masjid-agung-demak/ (Firecrawl gagal: SCRAPE_ALL_ENGINES_FAILED; halaman kemudian dibaca dengan WebFetch)"
+      ],
+      "catatan": "Halaman indonesia.travel dibaca lewat WebFetch (ringkasan, bukan teks verbatim) dan tidak memuat jam kunjungan maupun harga tiket, sehingga jam_buka dan tiket dikosongkan dan checked_at tidak diisi. Halaman tidak mencantumkan tanggal terbit atau pembaruan. Alamat: halaman menyebut Kampung Kauman, Kelurahan Bintoro; hasil Nominatim (display_name) menyebut Jalan Kyai Singkil, Sorogenen, Demak; keduanya belum dikonfirmasi silang. Koordinat dari Nominatim (way OSM Masjid Agung Demak, Demak, Jawa Tengah). Halaman menyebut Dinas Pariwisata Kabupaten Demak sebagai rujukan jam dan tiket; sumber itu belum dibaca dan belum diperiksa. Aturan kunjungan (pakaian, waktu ibadah) belum diverifikasi.",
+      "status": "pending",
+      "bentuk": "tempat",
+      "kategori_enum": "lainnya"
+    },
+    {
+      "nama": "Menara Kudus",
+      "slug": "menara-kudus",
+      "provinsi": "Jawa Tengah",
+      "kategori_usulan": "situs",
+      "jenis": "permanen",
+      "induk_lokasi": null,
+      "kabupaten": "Kabupaten Kudus",
+      "alamat": null,
+      "lat": null,
+      "lng": null,
+      "deskripsi": "Masjid kuno di Kudus yang ditandai menara setinggi sekitar 18 meter dengan gaya campuran Hindu-Jawa dan Islam. Di belakang masjid terdapat makam Sunan Kudus yang ramai dikunjungi peziarah.",
+      "jam_buka": [],
+      "hari_tutup_khusus": [],
+      "tiket": [],
+      "jadwal_pertunjukan": [],
+      "situs_resmi": null,
+      "url_beli_tiket": null,
+      "sumber_dibuka": [
+        "https://www.nu.or.id/daerah/berkunjung-ke-menara-kudus-pilihan-liburan-tepat-akhir-pekan-33rkO"
+      ],
+      "sumber_gagal": [],
+      "catatan": "Satu-satunya sumber yang dibaca adalah artikel NU Online tanggal 15 Oktober 2022. Karena lebih dari 2 tahun lalu, checked_at dibiarkan null. Artikel tidak memuat jam kunjungan, tiket, atau alamat jalan, sehingga field tersebut kosong; artikel hanya menyebut kota Kudus dan makam Sunan Kudus di belakang masjid. Koordinat tidak ditemukan: Nominatim untuk 'Menara Kudus' hanya mengembalikan RM Menara Kudus di Sleman, DIY (salah tempat, tidak dipakai), dan query 'Masjid Menara Kudus' serta 'Menara Kudus Kauman Kudus' kosong. Lat/lng dibiarkan null. Perlu dicari ulang koordinat dan alamat dari sumber lain. Keterangan 'sekitar 1549' dan 'Wali' dari discovery awal tidak tercantum di artikel yang dibaca, sehingga tidak dipakai.",
+      "status": "pending",
+      "bentuk": "tempat",
+      "kategori_enum": "lainnya"
+    },
+    {
+      "nama": "Museum R.A. Kartini",
+      "slug": "museum-r-a-kartini",
+      "kategori_usulan": "museum",
+      "jenis": "permanen",
+      "provinsi": "Jawa Tengah",
+      "induk_lokasi": null,
+      "kabupaten": "Jepara",
+      "alamat": "Kompleks Pendapa Kabupaten Jepara, Jawa Tengah",
+      "lat": -6.5885648,
+      "lng": 110.667249,
+      "deskripsi": "Museum ini menampilkan perjalanan hidup dan pemikiran R.A. Kartini di kompleks Pendapa Kabupaten Jepara, kota kelahirannya. Koleksinya ditata dalam lima zona, mulai dari latar geografis Jepara sampai ruang berkesenian Kartini. Penataan ulang museum ini diumumkan pemerintah daerah pada November 2025.",
+      "jam_buka": [],
+      "hari_tutup_khusus": [],
+      "tiket": [],
+      "jadwal_pertunjukan": [],
+      "situs_resmi": null,
+      "url_beli_tiket": null,
+      "sumber_dibuka": [
+        "https://jatengprov.go.id/?p=180890"
+      ],
+      "sumber_gagal": [],
+      "catatan": "Jam dan tiket belum terverifikasi. Berita jatengprov.go.id (18 Nov 2025, checked_at 2026-11-26 tidak dipakai karena jam di berita hanya untuk promo masuk gratis 13.00-17.00 WIB sampai 1 Jan 2026, yang sudah lewat). Jam operasional dan harga normal tidak ditemukan di sumber yang dibaca. Alamat: artikel hanya menyebut kompleks Pendapa Kabupaten Jepara; OpenStreetMap (Nominatim) mencatat Jalan Alun-Alun Jepara / Jalan Patimura, Tepus, Jepara. Koordinat dari OSM (dua entri OSM untuk museum yang sama, lokasinya berdekatan; diambil yang pertama). Situs resmi dan kontak pengelola tidak ditemukan. Merchandise dan rencana pembangunan lanjutan disebut di berita, tidak dicatat sebagai fakta layanan.",
+      "status": "pending",
+      "bentuk": "tempat",
+      "kategori_enum": "museum"
+    },
+    {
+      "nama": "Museum Batik Pekalongan",
+      "slug": "museum-batik-pekalongan",
+      "kategori_usulan": "museum",
+      "jenis": "permanen",
+      "provinsi": "Jawa Tengah",
+      "induk_lokasi": null,
+      "kabupaten": "Pekalongan",
+      "alamat": "Jalan Jetayu No. 1, Sampangan, Pekalongan, Jawa Tengah",
+      "lat": -6.878642,
+      "lng": 109.675579,
+      "deskripsi": "Museum khusus batik yang dikelola Pemerintah Kota Pekalongan dan dibuka sejak 2006 di gedung peninggalan kolonial Belanda. Koleksinya mencakup kain batik dari berbagai daerah, termasuk wayang beber bermotif batik, serta alat membatik seperti canting. Museum ini juga menjadi pusat data, riset, dan edukasi tentang batik pesisir Pekalongan.",
+      "jam_buka": [],
+      "hari_tutup_khusus": [],
+      "tiket": [],
+      "jadwal_pertunjukan": [],
+      "situs_resmi": null,
+      "url_beli_tiket": null,
+      "sumber_dibuka": [
+        "https://www.indonesia.travel/au-en/destination/java/central-java/uptd-museum-batik-pekalongan"
+      ],
+      "sumber_gagal": [],
+      "catatan": "Jam operasional, harga tiket, dan kontak tidak ditemukan di halaman indonesia.travel yang dibaca (halaman ini tidak memuat jam atau tiket), sehingga tidak diisi dan checked_at tidak diisi. Sumber indonesia.travel bukan situs resmi pengelola; situs pengelola (Pemkot Pekalongan) tidak dibuka karena URL-nya tidak ada di assignment dan pencarian web tidak tersedia. Alamat dan koordinat dari OpenStreetMap (Nominatim: Jalan Jetayu, Sampangan, Pekalongan). Halaman sumber tidak bertanggal; nilai tahun 2006 hanya sebagai latar sejarah, bukan fakta yang dicek ulang.",
+      "status": "pending",
+      "bentuk": "tempat",
+      "kategori_enum": "museum"
+    },
+    {
+      "nama": "Kampung Batik Laweyan",
+      "slug": "kampung-batik-laweyan",
+      "kategori_usulan": "kawasan",
+      "jenis": "permanen",
+      "provinsi": "Jawa Tengah",
+      "induk_lokasi": null,
+      "kabupaten": "Surakarta",
+      "alamat": null,
+      "lat": null,
+      "lng": null,
+      "deskripsi": "Salah satu kampung batik tertua di Surakarta, dengan rumah-rumah saudagar berarsitektur campuran Jawa, Eropa, Tionghoa, dan Islam, serta gang sempit dan tembok tinggi. Banyak warganya membuat dan menjual batik, dan kampung ini menawarkan kursus membatik singkat dan workshop intensif.",
+      "jam_buka": [],
+      "hari_tutup_khusus": [],
+      "tiket": [],
+      "jadwal_pertunjukan": [],
+      "situs_resmi": null,
+      "url_beli_tiket": null,
+      "sumber_dibuka": [
+        "https://visitjawatengah.jatengprov.go.id/en/shopping/laweyan-batik-village"
+      ],
+      "sumber_gagal": [],
+      "catatan": "Halaman visitjawatengah (status HTTP 200) tidak memuat harga kursus, jadwal workshop, atau jam kunjungan kampung, sehingga tiket dan jam tidak diisi. Kursus membatik (sekitar 2 jam) dan workshop intensif disebut tanpa harga; kontak yang disebut hanya Forum Pengembangan Kampung Batik Laweyan, nomor tidak tercantum di halaman. Halaman tidak bertanggal. Jam 10.00-24.00 pada halaman itu untuk Wedangan Rumah Nenek (rumah makan di kawasan), bukan jam kampung, sehingga tidak dicatat sebagai jam kampung. Koordinat: Nominatim hanya menghasilkan Solia Zigna (hotel di Jl. Dr. Rajiman Widiodiningrat, Laweyan), bukan kampung, sehingga lat/lng dikosongkan. Alamat jalan kampung belum terverifikasi.",
+      "status": "pending",
+      "bentuk": "tempat",
+      "kategori_enum": "lainnya"
+    },
+    {
+      "nama": "Benteng Pendem",
+      "slug": "benteng-pendem",
+      "kategori_usulan": "benteng",
+      "jenis": "permanen",
+      "provinsi": "Jawa Tengah",
+      "induk_lokasi": null,
+      "kabupaten": "Cilacap",
+      "alamat": "Jalan Karang, Kelurahan Cilacap, Kecamatan Cilacap, Kabupaten Cilacap, Jawa Tengah (alamat dari OSM Nominatim, belum dari sumber resmi)",
+      "lat": -7.7491116,
+      "lng": 109.0172596,
+      "deskripsi": "Benteng Pendem adalah benteng berbentuk segi lima peninggalan Belanda di Kabupaten Cilacap, dibangun pada 1861-1879 untuk melindungi pelabuhan Cilacap. Di dalamnya masih ada barak, klinik, dan bangunan penjara, serta parit yang digali ulang. Sejak dibuka untuk umum pada 1987, benteng ini menjadi objek wisata utama di Cilacap.",
+      "jam_buka": [],
+      "hari_tutup_khusus": [],
+      "tiket": [],
+      "jadwal_pertunjukan": [],
+      "situs_resmi": null,
+      "url_beli_tiket": null,
+      "sumber_dibuka": [
+        "https://en.wikipedia.org/wiki/Benteng_Pendem_(Cilacap)"
+      ],
+      "sumber_gagal": [],
+      "catatan": "Sumber hanya Wikipedia Bahasa Inggris, tanpa tanggal pembaruan, dengan isi sejarah lama (dibuka 1987); karena itu tidak ada checked_at dan tidak ada fakta yang dipublikasikan dari halaman ini selain deskripsi historis. Jam buka dan harga tiket TIDAK ditemukan di halaman yang dibaca; tidak ada situs resmi pengelola yang bisa dibuka (pencarian web tidak tersedia pada putaran ini). Klaim 'fasilitas parkir dan pusat informasi' dari petunjuk awal belum diverifikasi dan tidak dipakai. Koordinat: Wikipedia 7.7492056 S, 109.0170861 E dan OSM Nominatim 7.7491116 S, 109.0172596 E; selisih sekitar 200 m, cocok untuk lokasi kompleks benteng. Alamat dari OSM, bukan dari sumber resmi.",
+      "status": "pending",
+      "bentuk": "tempat",
+      "kategori_enum": "lainnya"
+    },
+    {
+      "nama": "Benteng Van der Wijck",
+      "slug": "benteng-van-der-wijck",
+      "kategori_usulan": "benteng",
+      "jenis": "permanen",
+      "provinsi": "Jawa Tengah",
+      "induk_lokasi": null,
+      "kabupaten": "Kebumen",
+      "alamat": "Jalan Sapta Marga No. 100, Sidayutengah, Sidayu, Gombong, Kabupaten Kebumen, Jawa Tengah 54416",
+      "lat": -7.5992992,
+      "lng": 109.5178918,
+      "deskripsi": "Benteng Van der Wijck di Gombong, Kebumen, adalah peninggalan kolonial Belanda dengan denah segi delapan dan dinding bata setebal 1,4 meter. Sejak 2000 pengelolaannya beralih ke swasta dan area ini dikembangkan sebagai objek wisata sejarah dan rekreasi keluarga. Pengunjung dapat naik kereta mini yang berjalan di atas benteng.",
+      "jam_buka": [
+        {
+          "hari": "Senin..Minggu",
+          "tutup": false,
+          "buka": "08:00",
+          "tutup_jam": "17:00",
+          "catatan": "Artikel menyebut buka setiap hari tanpa pengecualian hari libur. Sumber media, belum dikonfirmasi ke pengelola.",
+          "source_url": "https://www.goodnewsfromindonesia.id/2026/05/13/benteng-van-der-wijck-kebumen-satu-satunya-benteng-oktagon-di-indonesia-dengan-kereta-di-atasnya",
+          "checked_at": "2026-11-26"
+        }
+      ],
+      "hari_tutup_khusus": [],
+      "tiket": [
+        {
+          "label": "Tiket masuk per orang (termasuk akses benteng, kereta mini di area, kolam renang)",
+          "harga_idr": 25000,
+          "catatan": "Per orang. Sumber media, belum dikonfirmasi ke pengelola.",
+          "source_url": "https://www.goodnewsfromindonesia.id/2026/05/13/benteng-van-der-wijck-kebumen-satu-satunya-benteng-oktagon-di-indonesia-dengan-kereta-di-atasnya",
+          "checked_at": "2026-11-26"
+        },
+        {
+          "label": "Kereta mini di atas benteng (sekitar 15 menit per sesi)",
+          "harga_idr": 5000,
+          "catatan": "Artikel menulis 'sekitar Rp5.000 per orang'. Tarif terpisah dari tiket masuk.",
+          "source_url": "https://www.goodnewsfromindonesia.id/2026/05/13/benteng-van-der-wijck-kebumen-satu-satunya-benteng-oktagon-di-indonesia-dengan-kereta-di-atasnya",
+          "checked_at": "2026-11-26"
+        }
+      ],
+      "jadwal_pertunjukan": [],
+      "situs_resmi": null,
+      "url_beli_tiket": null,
+      "sumber_dibuka": [
+        "https://www.goodnewsfromindonesia.id/2026/05/13/benteng-van-der-wijck-kebumen-satu-satunya-benteng-oktagon-di-indonesia-dengan-kereta-di-atasnya"
+      ],
+      "sumber_gagal": [],
+      "catatan": "Semua fakta jam dan tiket berasal dari satu artikel media (Good News From Indonesia, rubrik Indonesiana, terbit 13 Mei 2026), bukan dari pengelola. Tidak ada situs resmi pengelola yang bisa dibaca. Tiket sudah termasuk kolam renang dan kereta mini, parkir motor Rp3.000 dan mobil Rp5.000 (artikel), wahana lain sekitar Rp10.000 per wahana. Ketidakcocokan: artikel menulis alamat Jalan Sapta Marga No. 100, sedangkan titik OSM Nominatim berada di Jalan Secata, Gombong; koordinat perlu dicek di lapangan. Kondisi dan fasilitas benteng perlu dicek, sesuai petunjuk awal. Sumber dibaca melalui Firecrawl.",
+      "status": "pending",
+      "bentuk": "tempat",
+      "kategori_enum": "lainnya"
+    }
+  ],
+  "event": [
+    {
+      "bentuk": "event",
+      "nama": "Sekaten Solo",
+      "slug": "sekaten-solo",
+      "provinsi": "Jawa Tengah",
+      "jenis_event": "festival",
+      "lokasi_induk": {
+        "nama": "Alun-alun Utara Keraton Surakarta dan halaman Masjid Agung Surakarta",
+        "alamat": null,
+        "kota_kabupaten": "Surakarta",
+        "lat": -7.5743027,
+        "lng": 110.8267177
+      },
+      "deskripsi": "Sekaten adalah rangkaian tradisi tahunan Keraton Surakarta Hadiningrat yang memadukan syiar Islam dan budaya Jawa, ditutup dengan Grebeg Maulud dan arak-arakan gunungan. Selama Agustus digelar pasar malam di Alun-alun Utara dan Sekaten Art Festival di kawasan Siti Hinggil. Gamelan pusaka dibunyikan di Masjid Agung Surakarta.",
+      "pola": "annual",
+      "hari_iso": null,
+      "tanggal": null,
+      "jam_mulai": null,
+      "jam_selesai": null,
+      "harga_dari_idr": null,
+      "url_beli_tiket": null,
+      "situs_resmi": null,
+      "sumber": {
+        "source_url": "https://rri.co.id/surakarta/budaya/2620035/sekaten-2026-resmi-dimulai-perkuat-syiar-islam-berbudaya-nusantara",
+        "checked_at": "2026-11-26"
+      },
+      "sumber_dibuka": [
+        "https://rri.co.id/surakarta/budaya/2620035/sekaten-2026-resmi-dimulai-perkuat-syiar-islam-berbudaya-nusantara"
+      ],
+      "sumber_gagal": [],
+      "catatan": "Jadwal 2026 (Tahun Be 1960/2026) dari RRI, terbit 2 Agustus 2026: pembukaan Minggu 2 Agustus pukul 15.30 WIB di Pagelaran Keraton; Jamasan Kyai Guntursari dan Kyai Gunturmadu Rabu 12 Agustus; Miyosaken Gangsa Sekaten Rabu 19 Agustus; gamelan pusaka di Bangsal Pagongan Masjid Agung sampai Selasa 25 Agustus; Ngonduraken Gangsa dan Grebeg Maulud (Gunungan) Rabu 26 Agustus. Pasar malam Sabtu 1 sampai Minggu 30 Agustus 2026 di Alun-alun Utara dan halaman Masjid Agung. Artikel ini TIDAK menyebut perselisihan dua kubu keraton atau jadwal Alun-alun Selatan mulai 25 Juli seperti di petunjuk awal; klaim itu tidak diverifikasi dan tidak dipakai. Jam mulai dan harga pasar malam tidak ditemukan. Jadwal 2026 sudah lewat per 2026-11-26; tanggal 2027 belum ada, sehingga tanggal dikosongkan dan perkiraan waktu hanya bulan Agustus. Koordinat adalah titik Masjid Agung Surakarta dari OSM Nominatim, bukan titik Alun-alun Utara.",
+      "status": "pending",
+      "kategori_enum": "lainnya"
+    },
+    {
+      "bentuk": "event",
+      "nama": "Kirab Malam 1 Suro (Kebo Bule Kyai Slamet)",
+      "slug": "kirab-malam-1-suro",
+      "provinsi": "Jawa Tengah",
+      "jenis_event": "upacara",
+      "lokasi_induk": {
+        "nama": "Keraton Kasunanan Surakarta dan rute kirab di pusat kota Surakarta",
+        "alamat": null,
+        "kota_kabupaten": "Surakarta",
+        "lat": -7.5779301,
+        "lng": 110.8272326
+      },
+      "deskripsi": null,
+      "pola": "annual",
+      "hari_iso": null,
+      "tanggal": null,
+      "jam_mulai": null,
+      "jam_selesai": null,
+      "harga_dari_idr": null,
+      "url_beli_tiket": null,
+      "situs_resmi": null,
+      "sumber": {
+        "source_url": "",
+        "checked_at": null
+      },
+      "sumber_dibuka": [],
+      "sumber_gagal": [
+        "https://tirto.id/jadwal-kirab-kebo-bule-kyai-slamet-2026-dan-rutenya-hxE1"
+      ],
+      "catatan": "Tidak ada halaman sumber yang berhasil dibaca: Firecrawl dan WebFetch sama-sama ditolak dengan HTTP 403 (tirto.id). Karena itu tanggal 2026 (malam 1 Suro, sekitar 23.30 WIB), rute, dan jam dari hasil penemuan awal TIDAK dicantumkan sebagai fakta; pola tahunan juga berasal dari petunjuk awal, bukan dari halaman yang dibaca. Deskripsi dikosongkan karena belum ada konten yang terverifikasi. Koordinat adalah titik Keraton Kasunanan Surakarta dari OpenStreetMap Nominatim (display_name: keraton kasunanan, Pasar Kliwon, Surakarta, Jawa Tengah), bukan titik rute kirab. Alamat belum ditemukan. Jadwal resmi dari pengelola keraton belum dikonfirmasi.",
+      "status": "pending",
+      "kategori_enum": "lainnya"
+    },
+    {
+      "bentuk": "event",
+      "nama": "Solo Batik Carnival",
+      "slug": "solo-batik-carnival",
+      "provinsi": "Jawa Tengah",
+      "jenis_event": "festival",
+      "lokasi_induk": {
+        "nama": "Jalan utama pusat Kota Surakarta (rute parade sekitar 3 km)",
+        "alamat": null,
+        "kota_kabupaten": "Surakarta",
+        "lat": null,
+        "lng": null
+      },
+      "deskripsi": "Parade kostum karnaval berbahan batik di jalan utama pusat Kota Surakarta, dengan penampilan tari dan koreografi artistik dari komunitas, seniman, dan delegasi daerah. Kostum dibuat dari batik yang diolah secara kreatif, dan tema tahun ini menonjolkan potensi wisata Surakarta.",
+      "pola": "annual",
+      "hari_iso": null,
+      "tanggal": null,
+      "jam_mulai": null,
+      "jam_selesai": null,
+      "harga_dari_idr": 0,
+      "url_beli_tiket": null,
+      "situs_resmi": "https://www.indonesia.travel/id-en/events/event-detail/solo-batik-carnival-2026",
+      "sumber": {
+        "source_url": "https://www.indonesia.travel/id-en/events/event-detail/solo-batik-carnival-2026",
+        "checked_at": "2026-11-26"
+      },
+      "sumber_dibuka": [
+        "https://www.indonesia.travel/id-en/events/event-detail/solo-batik-carnival-2026"
+      ],
+      "sumber_gagal": [],
+      "catatan": "Tanggal 10-11 Juli 2026 dan tiket GRATIS tercantum di halaman indonesia.travel (situs resmi pariwisata nasional), yang dibaca hari ini. Belum dikonfirmasi oleh panitia. Panjang rute parade sekitar 3 km. Pola tahunan (minggu kedua Juli) berasal dari halaman yang sama. Jam acara tidak tercantum. Koordinat tidak ditemukan: Nominatim tidak mengembalikan hasil untuk Solo Batik Carnival Surakarta. Akun Instagram dan YouTube resmi tercantum di halaman, tidak disalin sebagai situs resmi. Halaman mencantumkan tautan Google Maps yang tidak diikuti. Situs resmi yang dicatat adalah halaman indonesia.travel, bukan situs panitia.",
+      "status": "pending",
+      "kategori_enum": "lainnya"
+    },
+    {
+      "bentuk": "event",
+      "nama": "Dugderan Semarang",
+      "slug": "dugderan-semarang",
+      "provinsi": "Jawa Tengah",
+      "jenis_event": "upacara",
+      "lokasi_induk": {
+        "nama": "Pusat kota Semarang (rute karnaval dan kawasan Masjid Kauman/Alun-alun)",
+        "alamat": null,
+        "kota_kabupaten": "Semarang",
+        "lat": -6.9717528,
+        "lng": 110.4237209
+      },
+      "deskripsi": "Dugderan adalah tradisi tahunan di Kota Semarang untuk menyambut datangnya bulan Ramadan. Namanya berasal dari bunyi bedug besar (dug) dan letusan meriam (der) yang mengiringi arak-arakan di pusat kota. Tradisi ini menjadi penanda kegembiraan warga menjelang puasa.",
+      "pola": "annual",
+      "hari_iso": null,
+      "tanggal": null,
+      "jam_mulai": null,
+      "jam_selesai": null,
+      "harga_dari_idr": null,
+      "url_beli_tiket": null,
+      "situs_resmi": null,
+      "sumber": {
+        "source_url": "https://visitjawatengah.jatengprov.go.id/en/event/dugderan",
+        "checked_at": null
+      },
+      "sumber_dibuka": [
+        "https://visitjawatengah.jatengprov.go.id/en/event/dugderan"
+      ],
+      "sumber_gagal": [],
+      "catatan": "Halaman resmi Visit Jawa Tengah berhasil dibuka (HTTP 200), tetapi halaman itu bertanggal 11 Apr 2021 dan deskripsinya memakai kata 'before the pandemic', jadi checked_at dikosongkan sesuai aturan tanggal. Halaman itu tidak memuat jadwal 2026, rute, atau jam, dan tidak memuat koordinat. Klaim dari discovery bahwa karnaval 2026 jatuh pada Senin 16 Februari 2026 belum terverifikasi dari sumber yang dibaca, jadi tidak dipakai. Halaman lama menyebut pawai digelar dua hari sebelum puasa; tanggal dan bulan pasti tahun depan belum ada (diperkirakan sekitar Februari atau Maret, mengikuti awal Ramadan). Koordinat adalah perkiraan: Nominatim tidak menemukan entri 'Dugderan Semarang', sehingga titik yang dipakai adalah Alun-alun Semarang (Kauman, Semarang Tengah) dari OpenStreetMap, dekat rute dan Masjid Kauman. Rute karnaval belum diverifikasi. Sumber resmi Pemkot Semarang belum dicari karena pencarian web tidak tersedia pada putaran ini.",
+      "status": "pending",
+      "kategori_enum": "lainnya"
+    },
+    {
+      "bentuk": "event",
+      "nama": "Dieng Culture Festival",
+      "slug": "dieng-culture-festival",
+      "provinsi": "Jawa Tengah",
+      "jenis_event": "festival",
+      "lokasi_induk": {
+        "nama": "Dataran Tinggi Dieng, Dieng Kulon (venue Arjuna, Pandawa, dan Gatotkaca menurut discovery, belum terverifikasi)",
+        "alamat": "Karangsari, Dieng Kulon, Batur, Banjarnegara, Jawa Tengah",
+        "kota_kabupaten": "Banjarnegara",
+        "lat": -7.2011721,
+        "lng": 109.9083638
+      },
+      "deskripsi": "Dieng Culture Festival adalah festival budaya tahunan yang digelar di Dataran Tinggi Dieng, Banjarnegara. Acara utamanya adalah ruwatan anak berambut gimbal, disertai kirab budaya, doa bersama, dan pertunjukan seni tradisional. Festival ini juga menampilkan pameran UMKM dan konser musik di alam terbuka.",
+      "pola": "annual",
+      "hari_iso": null,
+      "tanggal": null,
+      "jam_mulai": null,
+      "jam_selesai": null,
+      "harga_dari_idr": null,
+      "url_beli_tiket": null,
+      "situs_resmi": "https://festivaldieng.id/",
+      "sumber": {
+        "source_url": "https://www.indonesia.travel/gb/en/events/event-detail/dieng-culture-festival-2026",
+        "checked_at": "2026-11-26"
+      },
+      "sumber_dibuka": [
+        "https://www.indonesia.travel/gb/en/events/event-detail/dieng-culture-festival-2026"
+      ],
+      "sumber_gagal": [],
+      "catatan": "Halaman indonesia.travel berhasil dibaca dan memuat tanggal edisi 2026: 28 sampai 30 Agustus 2026 (edisi itu sudah lewat per 2026-11-26; tanggal edisi berikutnya belum ada). Alamat diambil dari halaman: 'Karangsari, Dieng Kulon, Batur, Banjarnegara, Central Java 12345'; kode pos 12345 kemungkinan placeholder dan tidak dipakai. Halaman menyebut situs resmi https://festivaldieng.id/ dan media sosial, tetapi situs itu belum dibuka, jadi belum diverifikasi; kolom situs_resmi memakai tautan dari halaman sumber. Harga tiket tidak disebut di halaman, sehingga harga_dari_idr dan url_beli_tiket dikosongkan. Koordinat adalah perkiraan dari OpenStreetMap: titik pusat Desa Dieng Kulon (Nominatim), bukan titik venue pasti. Nama venue Arjuna, Pandawa, dan Gatotkaca berasal dari discovery dan tidak ada di halaman yang dibaca, sehingga tidak dipakai di lokasi_induk.nama.",
+      "status": "pending",
+      "kategori_enum": "lainnya"
+    },
+    {
+      "bentuk": "event",
+      "nama": "Perayaan Waisak Borobudur",
+      "slug": "perayaan-waisak-borobudur",
+      "provinsi": "Jawa Tengah",
+      "jenis_event": "upacara",
+      "lokasi_induk": {
+        "nama": "Kompleks Candi Borobudur (rangkaian juga di Candi Mendut menurut discovery, belum terverifikasi)",
+        "alamat": null,
+        "kota_kabupaten": "Magelang",
+        "lat": -7.6064052,
+        "lng": 110.2045392
+      },
+      "deskripsi": "Perayaan Trisuci Waisak di kawasan Candi Borobudur, Magelang, dibuka untuk umum setiap tahun. Rangkaiannya meliputi prosesi penyambutan biksu, meditasi bersama, sunrise pradaksina, dan pelepasan lentera perdamaian pada malam hari. Pasar rakyat dan pertunjukan budaya juga digelar selama perayaan.",
+      "pola": "annual",
+      "hari_iso": null,
+      "tanggal": null,
+      "jam_mulai": null,
+      "jam_selesai": null,
+      "harga_dari_idr": null,
+      "url_beli_tiket": null,
+      "situs_resmi": null,
+      "sumber": {
+        "source_url": "https://rri.co.id/nasional/2451731/rangkaian-waisak-2026-di-borobudur-hadirkan-meditasi-hingga-malam-seribu-lampion",
+        "checked_at": "2026-11-26"
+      },
+      "sumber_dibuka": [
+        "https://rri.co.id/nasional/2451731/rangkaian-waisak-2026-di-borobudur-hadirkan-meditasi-hingga-malam-seribu-lampion"
+      ],
+      "sumber_gagal": [],
+      "catatan": "Artikel RRI (dimuat 29 Mei 2026) berhasil dibaca. Isinya: prosesi penyambutan 30 Mei 2026 pukul 08.00; doa dan meditasi saat Waisak pukul 15.44 WIB; rangkaian kegiatan 29 sampai 30 Mei 2026 (pasar Medang, pertunjukan budaya, UMKM); pelepasan lentera perdamaian pada malam hari, tanpa tanggal pasti. Angka 'puncak 31 Mei 2026' dan 'rangkaian 19 Mei sampai 6 Juni' dari discovery tidak ada di artikel dan tidak dipakai. Tiket lampion belum diketahui: artikel menautkan 'Cara Daftar Ikut Festival Lampion Waisak Borobudur 2026' (rri.co.id/nasional/2447234), tetapi tautan itu belum dibuka, jadi harga dan pendaftaran dikosongkan. Jam buka candi tidak disebut di artikel. Jadwal tahun berikutnya belum ada; mengikuti bulan purnama Waisak (Mei atau Juni). Koordinat dari OpenStreetMap (Nominatim, poligon Candi Borobudur), bukan perkiraan. Provinsi: Jawa Tengah, bukan DIY.",
+      "status": "pending",
+      "kategori_enum": "lainnya"
+    },
+    {
+      "bentuk": "event",
+      "nama": "Wayang Orang Sriwedari",
+      "slug": "wayang-orang-sriwedari",
+      "provinsi": "Jawa Tengah",
+      "jenis_event": "pertunjukan",
+      "lokasi_induk": {
+        "nama": "Gedung Wayang Orang Sriwedari",
+        "alamat": "Jl. Kebangkitan Nasional No. 15, Sriwedari, Surakarta",
+        "kota_kabupaten": "Surakarta",
+        "lat": -7.5692413,
+        "lng": 110.8126467
+      },
+      "deskripsi": "Wayang orang Sriwedari sudah dipentaskan sejak 1910 pada masa Paku Buwono X dan menjadi salah satu pertunjukan wayang orang tertua yang masih berjalan di Surakarta. Pertunjukan dimainkan oleh pemain manusia berkostum tokoh, dengan kisah yang umumnya diambil dari Ramayana dan Mahabharata. Jadwal tayang terkini perlu dicek ke akun Instagram resminya sebelum berkunjung.",
+      "pola": "weekly",
+      "hari_iso": null,
+      "tanggal": null,
+      "jam_mulai": "19:30",
+      "jam_selesai": null,
+      "harga_dari_idr": null,
+      "url_beli_tiket": null,
+      "situs_resmi": null,
+      "sumber": {
+        "source_url": "https://visitjawatengah.jatengprov.go.id/en/article/the-schedule-of-wayang-orang-and-ketoprak-performances-in-jawa-tengah",
+        "checked_at": null
+      },
+      "sumber_dibuka": [
+        "https://visitjawatengah.jatengprov.go.id/en/article/the-schedule-of-wayang-orang-and-ketoprak-performances-in-jawa-tengah"
+      ],
+      "sumber_gagal": [],
+      "catatan": "Artikel sumber bertanggal 09 Jan 2023, sehingga checked_at dikosongkan (null). Artikel itu menyebut Senin-Sabtu pukul 19.30 WIB, sedangkan brief menyebut Kamis-Sabtu menurut liputan 2022-2026: pertentangan ini belum bisa diselesaikan, jadi hari_iso null dan pola weekly. Jadwal 2025-2026 belum terkonfirmasi; cek akun Instagram @wayang_orang_sriwedari yang disebut sumber (belum dibuka). Harga tiket tidak ditemukan di sumber yang dibaca. Koordinat dari OpenStreetMap Nominatim (objek Gedung Wayang Orang, Jl. Kebangkitan Nasional, Sriwedari).",
+      "status": "pending",
+      "kategori_enum": "tari"
+    },
+    {
+      "bentuk": "event",
+      "nama": "Wayang Orang Ngesti Pandowo",
+      "slug": "wayang-orang-ngesti-pandowo",
+      "provinsi": "Jawa Tengah",
+      "jenis_event": "pertunjukan",
+      "lokasi_induk": {
+        "nama": "Gedung Ki Narto Sabdo, Taman Budaya Raden Saleh",
+        "alamat": "Jl. Sriwijaya No. 29, Semarang",
+        "kota_kabupaten": "Semarang",
+        "lat": -7.0029657,
+        "lng": 110.42442
+      },
+      "deskripsi": "Kelompok wayang orang Ngesti Pandowo berdiri sejak 1937 dan tampil di Semarang sejak 1950. Pementasan dilakukan di Gedung Ki Narto Sabdo, Taman Budaya Raden Saleh. Jadwal terbaru belum terkonfirmasi, sehingga sebaiknya dicek ulang sebelum berkunjung.",
+      "pola": "weekly",
+      "hari_iso": 6,
+      "tanggal": null,
+      "jam_mulai": "20:00",
+      "jam_selesai": null,
+      "harga_dari_idr": null,
+      "url_beli_tiket": null,
+      "situs_resmi": null,
+      "sumber": {
+        "source_url": "https://visitjawatengah.jatengprov.go.id/en/article/the-schedule-of-wayang-orang-and-ketoprak-performances-in-jawa-tengah",
+        "checked_at": null
+      },
+      "sumber_dibuka": [
+        "https://visitjawatengah.jatengprov.go.id/en/article/the-schedule-of-wayang-orang-and-ketoprak-performances-in-jawa-tengah"
+      ],
+      "sumber_gagal": [],
+      "catatan": "Jadwal Sabtu 20.00 WIB berasal dari artikel bertanggal 09 Jan 2023 yang mengutip Instagram @disbudparkotasemarang untuk tahun 2023, sehingga checked_at null. Brief menyebut frekuensi pernah dikurangi; belum bisa diverifikasi dari sumber yang berhasil dibaca. Cek ulang jadwal ke akun Instagram resmi Disbud Kota Semarang. Harga tiket tidak ditemukan. Koordinat adalah titik OpenStreetMap Nominatim untuk Taman Budaya Raden Saleh Semarang (kompleks gedung, bukan titik gedung Ki Narto Sabdo secara spesifik): perkiraan.",
+      "status": "pending",
+      "kategori_enum": "tari"
+    },
+    {
+      "bentuk": "event",
+      "nama": "Kelas Membatik di Kampung Batik Laweyan",
+      "slug": "kelas-membatik-di-kampung-batik-laweyan",
+      "provinsi": "Jawa Tengah",
+      "jenis_event": "workshop",
+      "lokasi_induk": {
+        "nama": "Kampung Batik Laweyan",
+        "alamat": null,
+        "kota_kabupaten": "Surakarta",
+        "lat": null,
+        "lng": null
+      },
+      "deskripsi": "Kampung Batik Laweyan di Surakarta adalah salah satu sentra batik tertua di kota ini, dengan bangunan berpadu gaya Jawa, Eropa, Tionghoa, dan Islam. Pengunjung dapat mengikuti kelas membatik sekitar dua jam, atau workshop batik tulis dan cap yang lebih intensif. Pendaftaran dilakukan langsung ke Forum Pengembangan Kampung Batik Laweyan.",
+      "pola": "once",
+      "hari_iso": null,
+      "tanggal": null,
+      "jam_mulai": null,
+      "jam_selesai": null,
+      "harga_dari_idr": null,
+      "url_beli_tiket": null,
+      "situs_resmi": null,
+      "sumber": {
+        "source_url": "https://visitjawatengah.jatengprov.go.id/en/shopping/laweyan-batik-village",
+        "checked_at": null
+      },
+      "sumber_dibuka": [
+        "https://visitjawatengah.jatengprov.go.id/en/shopping/laweyan-batik-village"
+      ],
+      "sumber_gagal": [],
+      "catatan": "Kelas berdasarkan reservasi, tidak ada jadwal tetap. Pola 'once' dan tanggal null dipakai hanya karena skema tidak punya opsi reservasi: perlu konfirmasi. Halaman sumber tidak memuat tanggal terbit, sehingga checked_at null. Jadwal, harga, dan nomor kontak tidak tercantum di halaman yang dibaca; kontak Forum Pengembangan Kampung Batik Laweyan belum ditemukan. Klaim RRI (Maret 2026) dari brief belum dibuka dan tidak dipakai. Koordinat tidak ditemukan: hasil Nominatim untuk 'Kampung Batik Laweyan' adalah hotel lain, jadi dikosongkan.",
+      "status": "pending",
+      "kategori_enum": "kerajinan"
+    }
+  ],
+  "dikeluarkan": [
+    {
+      "slug": "grebeg-sudiro",
+      "nama": "Grebeg Sudiro",
+      "alasan": "sumber 404; tanpa data"
+    }
+  ]
+}
