@@ -64,71 +64,29 @@ private fun ticket(price: Long?, checked: LocalDate?) =
     OfficialFact(TicketPrice("Dewasa", price, null), sourceUrl = null, checkedAt = checked)
 
 class PetaProjectionTest {
-    private val safe = PIN_SAFE_AREA
-
-    @Test fun cornersMapToSafeAreaCorners() {
-        val b = PETA_BOUNDS
-        val nw = projectToUnit(b.north, b.west)
-        val se = projectToUnit(b.south, b.east)
-        assertEquals(safe.left, nw.x, 1e-5f)
-        assertEquals(safe.top, nw.y, 1e-5f)
-        assertEquals(safe.right, se.x, 1e-5f)
-        assertEquals(safe.bottom, se.y, 1e-5f)
+    @Test fun boundsOfEmptyListIsNull() {
+        assertNull(boundsOf(emptyList()))
     }
 
-    @Test fun centreMapsToCentreOfSafeArea() {
-        val b = PETA_BOUNDS
-        val c = projectToUnit((b.north + b.south) / 2, (b.west + b.east) / 2)
-        assertEquals((safe.left + safe.right) / 2, c.x, 1e-5f)
-        assertEquals((safe.top + safe.bottom) / 2, c.y, 1e-5f)
+    @Test fun boundsCoverAllPlaces() {
+        val b = boundsOf(listOf(-7.75 to 110.49, -7.83 to 110.36, -7.80 to 110.40))!!
+        assertEquals(-7.75, b.north, 1e-9)
+        assertEquals(-7.83, b.south, 1e-9)
+        assertEquals(110.36, b.west, 1e-9)
+        assertEquals(110.49, b.east, 1e-9)
+        assertEquals(-7.79, b.centerLat, 1e-9)
+        assertEquals(110.425, b.centerLng, 1e-9)
     }
 
-    @Test fun northIsUpAndEastIsRight() {
-        val a = projectToUnit(-7.75, 110.36)
-        val b = projectToUnit(-7.83, 110.48)
-        assertTrue(a.y < b.y)
-        assertTrue(a.x < b.x)
+    @Test fun singlePlaceIsAPointAndNeedsAFixedZoom() {
+        assertTrue(boundsOf(listOf(-7.8 to 110.4))!!.isPoint())
+        assertFalse(boundsOf(listOf(-7.75 to 110.49, -7.83 to 110.36))!!.isPoint())
     }
 
-    @Test fun outsideTheBoundsIsClampedToTheSafeArea() {
-        val far = projectToUnit(lat = 10.0, lng = 200.0)
-        assertEquals(safe.right, far.x, 1e-5f)
-        assertEquals(safe.top, far.y, 1e-5f)
-        val farOther = projectToUnit(lat = -50.0, lng = 0.0)
-        assertEquals(safe.left, farOther.x, 1e-5f)
-        assertEquals(safe.bottom, farOther.y, 1e-5f)
-    }
-
-    @Test fun farApartPinsAreNotMoved() {
-        val seeds = listOf(PinSeed("a", 0.2f, 0.2f), PinSeed("b", 0.8f, 0.6f))
-        val out = layoutPins(seeds, 390f, 844f)
-        assertEquals(0.2f * 390f, out[0].xDp, 1e-3f)
-        assertEquals(0.8f * 390f, out[1].xDp, 1e-3f)
-        assertEquals(0.6f * 844f, out[1].yDp, 1e-3f)
-    }
-
-    @Test fun overlappingPinsAreSeparated() {
-        val seeds = listOf(PinSeed("a", 0.5f, 0.4f), PinSeed("b", 0.51f, 0.41f), PinSeed("c", 0.5f, 0.4f))
-        val out = layoutPins(seeds, 390f, 844f)
-        for (i in out.indices) for (j in i + 1 until out.size) {
-            val separated = kotlin.math.abs(out[i].xDp - out[j].xDp) >= PIN_MIN_DX_DP - 0.01f ||
-                kotlin.math.abs(out[i].yDp - out[j].yDp) >= PIN_MIN_DY_DP - 0.01f
-            assertTrue("pins ${out[i].key} and ${out[j].key} still overlap", separated)
-        }
-    }
-
-    @Test fun nudgedPinsStayInsideTheSafeArea() {
-        val seeds = List(8) { PinSeed("p$it", 0.89f, 0.71f) }
-        val out = layoutPins(seeds, 390f, 844f)
-        out.forEach {
-            assertTrue(it.xDp in safe.left * 390f..safe.right * 390f)
-            assertTrue(it.yDp in safe.top * 844f..safe.bottom * 844f)
-        }
-    }
-
-    @Test fun layoutIsDeterministic() {
-        val seeds = List(5) { PinSeed("p$it", 0.5f, 0.4f) }
-        assertEquals(layoutPins(seeds, 390f, 844f), layoutPins(seeds, 390f, 844f))
+    @Test fun tileConfigIsOneOsmRasterTemplate() {
+        assertTrue(TILE_URL_TEMPLATE.contains("{z}") && TILE_URL_TEMPLATE.contains("{x}") && TILE_URL_TEMPLATE.contains("{y}"))
+        assertTrue(osmStyleJson().contains(TILE_URL_TEMPLATE))
+        assertTrue(TILE_USER_AGENT.isNotBlank())
     }
 
     @Test fun pinLabelsAreShortened() {

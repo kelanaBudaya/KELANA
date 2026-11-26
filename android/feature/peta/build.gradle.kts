@@ -3,5 +3,7 @@ plugins {
 }
 
 dependencies {
+    implementation(libs.maplibre.android)
+    implementation(libs.okhttp)
     testImplementation(project(":core:data"))
 }
