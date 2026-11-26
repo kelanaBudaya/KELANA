@@ -24,6 +24,15 @@ import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.layout.navigationBarsPadding
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.ModalBottomSheet
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
+import id.kelana.core.designsystem.component.KelanaButton
+import id.kelana.core.designsystem.component.KelanaButtonVariant
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -140,6 +149,15 @@ internal fun HomeContent(
     greeting: GreetingName = GreetingName.None,
 ) {
     val colors = KelanaTheme.colors
+    var showChallenge by rememberSaveable { mutableStateOf(false) }
+    if (showChallenge) {
+        ChallengeSheet(
+            weekly = state.weekly,
+            onDismiss = { showChallenge = false },
+            onStamp = { showChallenge = false; callbacks.onQuickAction(QuickAction.AmbilCap) },
+            onPassport = { showChallenge = false; callbacks.onPassport() },
+        )
+    }
     LazyColumn(modifier = modifier.fillMaxWidth().background(colors.background)) {
         item { HomeHeader(state, avatarInitials, greeting, callbacks) }
         item { PassportCard(state, callbacks, Modifier.pullUp(Overlap).padding(horizontal = 16.dp)) }
@@ -156,7 +174,9 @@ internal fun HomeContent(
         item { PicksSection(state.featuredPlaces, callbacks.onPlace, callbacks.onSeeAll, Modifier) }
         item {
             ChallengeCard(
-                Modifier.padding(start = 16.dp, end = 16.dp, top = 24.dp, bottom = 24.dp),
+                state.weekly,
+                onClick = { showChallenge = true },
+                modifier = Modifier.padding(start = 16.dp, end = 16.dp, top = 24.dp, bottom = 24.dp),
             )
         }
     }
@@ -540,13 +560,14 @@ private fun PickCard(place: Place, onClick: () -> Unit) {
     }
 }
 
-/** Weekly challenge card. PROVISIONAL static content: stamps and challenges are Phase 3. */
+/** Weekly challenge card: real progress (server-confirmed stamps this week). Tapping opens [ChallengeSheet]. */
 @Composable
-private fun ChallengeCard(modifier: Modifier = Modifier) {
+private fun ChallengeCard(weekly: WeeklyProgress, onClick: () -> Unit, modifier: Modifier = Modifier) {
     val colors = KelanaTheme.colors
     val shape = RoundedCornerShape(KelanaRadii.listCard)
     Row(
-        modifier.fillMaxWidth().clip(shape).background(colors.white).border(1.dp, colors.outline, shape).padding(14.dp),
+        modifier.fillMaxWidth().clip(shape).background(colors.white).border(1.dp, colors.outline, shape)
+            .clickable(role = Role.Button, onClick = onClick).padding(14.dp),
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.spacedBy(12.dp),
     ) {
@@ -566,7 +587,7 @@ private fun ChallengeCard(modifier: Modifier = Modifier) {
                 color = colors.warnText,
             )
             Text(
-                stringResource(R.string.challenge_title, PLACEHOLDER_CHALLENGE_GOAL),
+                stringResource(R.string.challenge_title, weekly.target),
                 modifier = Modifier.padding(top = 2.dp),
                 style = MaterialTheme.typography.titleSmall.copy(fontSize = 15.sp, fontWeight = FontWeight.ExtraBold),
                 color = colors.ink,
@@ -577,16 +598,66 @@ private fun ChallengeCard(modifier: Modifier = Modifier) {
                     .semantics { contentDescription = progressCd },
             ) {
                 Box(
-                    Modifier.fillMaxWidth(PLACEHOLDER_CHALLENGE_DONE.toFloat() / PLACEHOLDER_CHALLENGE_GOAL)
+                    Modifier.fillMaxWidth(weekly.fraction)
                         .height(8.dp).clip(CircleShape).background(colors.accentOrange),
                 )
             }
             Text(
-                stringResource(R.string.challenge_progress, PLACEHOLDER_CHALLENGE_DONE, PLACEHOLDER_CHALLENGE_GOAL),
+                stringResource(R.string.challenge_progress, weekly.done, weekly.target),
                 modifier = Modifier.padding(top = 4.dp),
                 style = MaterialTheme.typography.labelMedium.copy(fontWeight = FontWeight.Normal),
                 color = colors.muted,
             )
+        }
+    }
+}
+
+/** Weekly challenge sheet: goal, real progress and two actions. No reward line: no badge system exists yet. */
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+internal fun ChallengeSheet(weekly: WeeklyProgress, onDismiss: () -> Unit, onStamp: () -> Unit, onPassport: () -> Unit) {
+    val colors = KelanaTheme.colors
+    ModalBottomSheet(onDismissRequest = onDismiss, containerColor = colors.surface) {
+        Column(Modifier.navigationBarsPadding().padding(horizontal = 20.dp).padding(bottom = 16.dp)) {
+            Text(
+                stringResource(R.string.challenge_label),
+                style = MaterialTheme.typography.headlineSmall,
+                color = colors.ink,
+            )
+            Text(
+                stringResource(R.string.challenge_title, weekly.target),
+                modifier = Modifier.padding(top = 6.dp),
+                style = MaterialTheme.typography.bodyLarge,
+                color = colors.ink,
+            )
+            val progressCd = stringResource(R.string.challenge_progress_cd)
+            Box(
+                Modifier.padding(top = 16.dp).fillMaxWidth().height(10.dp).clip(CircleShape).background(colors.backgroundWarm)
+                    .semantics { contentDescription = progressCd },
+            ) {
+                Box(Modifier.fillMaxWidth(weekly.fraction).height(10.dp).clip(CircleShape).background(colors.accentOrange))
+            }
+            Text(
+                stringResource(R.string.challenge_sheet_progress, weekly.done, weekly.target),
+                modifier = Modifier.padding(top = 6.dp),
+                style = MaterialTheme.typography.labelMedium,
+                color = colors.muted,
+            )
+            if (weekly.isComplete) {
+                Text(
+                    stringResource(R.string.challenge_sheet_done),
+                    modifier = Modifier.padding(top = 2.dp),
+                    style = MaterialTheme.typography.labelMedium.copy(fontWeight = FontWeight.Bold),
+                    color = colors.ink,
+                )
+            }
+            Row(Modifier.padding(top = 20.dp), horizontalArrangement = Arrangement.spacedBy(10.dp)) {
+                KelanaButton(stringResource(R.string.action_stamp), onStamp, Modifier.weight(1f))
+                KelanaButton(
+                    stringResource(R.string.challenge_sheet_passport), onPassport, Modifier.weight(1f),
+                    variant = KelanaButtonVariant.Outline,
+                )
+            }
         }
     }
 }
