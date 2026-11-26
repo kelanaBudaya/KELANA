@@ -1,0 +1,236 @@
+[
+ {
+  "address": "Jl. Rotowijayan Blok No.1, Panembahan, Kecamatan Kraton, Kota Yogyakarta, Daerah Istimewa Yogyakarta",
+  "category": "lainnya",
+  "id": "35880bf2-b2a9-45c4-9264-b86fc1addd74",
+  "lat": -7.805689,
+  "lng": 110.36406,
+  "name": "Keraton Ngayogyakarta Hadiningrat",
+  "slug": "keraton-yogyakarta"
+ },
+ {
+  "address": "Jl. Pangurakan No. 6, Yogyakarta 55122 (Unit I, Alun-alun Utara)",
+  "category": "museum",
+  "id": "df6dc5ff-30a8-40df-9a50-cf6d18c39422",
+  "lat": -7.8021367,
+  "lng": 110.3637812,
+  "name": "Museum Negeri Sonobudoyo",
+  "slug": "museum-sonobudoyo"
+ },
+ {
+  "address": "Jalan Tamanan, Patehan, Kecamatan Kraton, Kota Yogyakarta, Daerah Istimewa Yogyakarta 55133",
+  "category": "lainnya",
+  "id": "157b22f1-b791-4b47-8adc-bb221058da9c",
+  "lat": -7.8100322,
+  "lng": 110.3591533,
+  "name": "Taman Sari",
+  "slug": "taman-sari"
+ },
+ {
+  "address": "Jl. Boyong - Kaliurang KM 25, Harjobinangun, Kaliurang Barat, Pakem, Sleman, DI Yogyakarta",
+  "category": "museum",
+  "id": "53624a45-6263-4aed-9a73-bd14eb217289",
+  "lat": -7.597973,
+  "lng": 110.423174,
+  "name": "Museum Ullen Sentalu",
+  "slug": "museum-ullen-sentalu"
+ },
+ {
+  "address": "Jalan Margo Mulyo No. 6, Yogyakarta 55121",
+  "category": "museum",
+  "id": "f78a5774-9471-4d2b-b6f4-5986ec88572b",
+  "lat": -7.8003,
+  "lng": 110.3663,
+  "name": "Museum Benteng Vredeburg",
+  "slug": "benteng-vredeburg"
+ },
+ {
+  "address": "Jl. Laksda Adisucipto 167, Jogja (berada di dalam Kompleks Puro Pakualaman)",
+  "category": "museum",
+  "id": "a3f21ee5-4e33-43f1-a866-230d07859ff7",
+  "lat": -7.799382,
+  "lng": 110.3762343,
+  "name": "Museum Puro Pakualaman",
+  "slug": "museum-puro-pakualaman"
+ },
+ {
+  "address": "Bokoharjo dan Sambirejo, Kecamatan Prambanan, Kabupaten Sleman, Daerah Istimewa Yogyakarta",
+  "category": "lainnya",
+  "id": "22065b8b-9860-4a7c-b1d0-e3a43b9c0149",
+  "lat": -7.770512,
+  "lng": 110.4894642,
+  "name": "Situs Ratu Boko",
+  "slug": "situs-ratu-boko"
+ },
+ {
+  "address": "Kecamatan Kotagede, Kota Yogyakarta, Daerah Istimewa Yogyakarta (pintu masuk: Museum Kotagede Intro Living Museum, Jl. Tegalgendu No.20, Prenggan)",
+  "category": "lainnya",
+  "id": "7992bbbc-e964-4bec-8a26-cae2d297f4a9",
+  "lat": -7.8183105,
+  "lng": 110.3979409,
+  "name": "Living Museum Kotagede",
+  "slug": "kawasan-kotagede"
+ },
+ {
+  "address": "Bokoharjo, Kecamatan Prambanan, Kabupaten Sleman, DI Yogyakarta (pintu administrasi berada di Tlogo, Klaten, Jawa Tengah)",
+  "category": "candi",
+  "id": "41aa7fcf-29cf-45e4-98ba-2dc2936ca07a",
+  "lat": -7.75202,
+  "lng": 110.491465,
+  "name": "Candi Prambanan",
+  "slug": "candi-prambanan"
+ },
+ {
+  "address": "Gang Monumen Syuhada, Prawirodirjan, Gondomanan, Kota Yogyakarta, Daerah Istimewa Yogyakarta 55132",
+  "category": "lainnya",
+  "id": "345f850d-4cd7-4c1f-89c6-c26ddcd06ce6",
+  "lat": -7.8038203,
+  "lng": 110.3623919,
+  "name": "Masjid Gedhe Kauman",
+  "slug": "masjid-gedhe-kauman"
+ },
+ {
+  "address": "Jalan Gading, Patehan, Kraton, Kota Yogyakarta",
+  "category": "lainnya",
+  "id": "4aab6221-9622-4930-ba74-401e2a9d746d",
+  "lat": -7.8137,
+  "lng": 110.3629,
+  "name": "Plengkung Gading",
+  "slug": "plengkung-gading"
+ },
+ {
+  "address": "Kampung Ketandan, Kec. Gondomanan, Kota Yogyakarta, DI Yogyakarta (sisi utara Pasar Beringharjo, kawasan Malioboro)",
+  "category": "lainnya",
+  "id": "2a9767be-3eb5-4020-babc-c3ffad18d96c",
+  "lat": -7.7974672,
+  "lng": 110.3667331,
+  "name": "Kampung Pecinan Ketandan",
+  "slug": "kampung-ketandan"
+ },
+ {
+  "address": "Jl. Sriwedani No.1, Ngupasan, Kec. Gondomanan, Kota Yogyakarta, DI Yogyakarta 55122",
+  "category": "tari",
+  "id": "fc5e91f3-2d4e-4cf6-afdc-fd9705d1ad67",
+  "lat": -7.8001356,
+  "lng": 110.367656,
+  "name": "Taman Budaya Yogyakarta (TBY)",
+  "slug": "taman-budaya-yogyakarta"
+ },
+ {
+  "address": null,
+  "category": "tari",
+  "id": "972367ca-3181-4fad-86d2-d572f68d675d",
+  "lat": -7.79529,
+  "lng": 110.36573,
+  "name": "Sekar Rinonce",
+  "slug": "sekar-rinonce"
+ },
+ {
+  "address": null,
+  "category": "kerajinan",
+  "id": "2c09c8b2-e386-4b9e-b6e1-c209ac1945a5",
+  "lat": -7.82604,
+  "lng": 110.39792,
+  "name": "Workshop Perak Kotagede",
+  "slug": "workshop-perak-kotagede"
+ },
+ {
+  "address": "Tlatar Kandangan, Wonokerto, Turi, Sleman, Daerah Istimewa Yogyakarta",
+  "category": "gamelan",
+  "id": "153f2cc8-7d0d-4de4-9b6e-c96b43e82ed4",
+  "lat": -7.6087012,
+  "lng": 110.3788984,
+  "name": "Desa Wisata Tlatar",
+  "slug": "desa-wisata-tlatar"
+ },
+ {
+  "address": "Padukuhan Kajen, Kalurahan Bangunjiwo, Kecamatan Kasihan, Kabupaten Bantul, DI Yogyakarta",
+  "category": "kerajinan",
+  "id": "b7a65c52-84bb-40fa-8313-3812de875a42",
+  "lat": -7.8449,
+  "lng": 110.335,
+  "name": "Desa Wisata Kasongan",
+  "slug": "desa-wisata-kasongan"
+ },
+ {
+  "address": "Sendangsari, Pajangan, Bantul, Daerah Istimewa Yogyakarta 55751",
+  "category": "kerajinan",
+  "id": "7c762eb9-45eb-401b-992c-2a072df0f2be",
+  "lat": -7.8588492,
+  "lng": 110.2997528,
+  "name": "Desa Wisata Krebet",
+  "slug": "desa-wisata-krebet"
+ },
+ {
+  "address": "Nglanggeran, Patuk, Kabupaten Gunungkidul, Daerah Istimewa Yogyakarta 55862",
+  "category": "lainnya",
+  "id": "6e20c00f-35d0-41d8-878d-965e25225a32",
+  "lat": -7.8558161,
+  "lng": 110.5185325,
+  "name": "Desa Wisata Nglanggeran",
+  "slug": "desa-wisata-nglanggeran"
+ },
+ {
+  "address": "Kalurahan Ngargosari, Kapanewon Samigaluh, Kabupaten Kulon Progo, DI Yogyakarta",
+  "category": "lainnya",
+  "id": "21002e80-3107-4aa1-9db6-1b58878c5ef9",
+  "lat": -7.6630222,
+  "lng": 110.1553494,
+  "name": "Desa Wisata Widosari",
+  "slug": "desa-wisata-widosari"
+ },
+ {
+  "address": "Dusun Pajimatan, Kalurahan Girirejo, Kecamatan Imogiri, Kabupaten Bantul, DI Yogyakarta",
+  "category": "lainnya",
+  "id": "4b78a147-1af7-49bf-ac83-664986b45066",
+  "lat": -7.9234,
+  "lng": 110.3905,
+  "name": "Makam Raja-raja Imogiri",
+  "slug": "makam-raja-imogiri"
+ },
+ {
+  "address": "Jalan Masjid II, Dusun Sambisari, Desa Purwomartani, Kecamatan Kalasan, Kabupaten Sleman, DI Yogyakarta",
+  "category": "candi",
+  "id": "a0ae9e4e-f0ac-4c1f-b3cf-43a84eb9bd61",
+  "lat": -7.7623668,
+  "lng": 110.446949,
+  "name": "Candi Sambisari",
+  "slug": "candi-sambisari"
+ },
+ {
+  "address": "Dusun Groyokan, Desa Sambirejo, Kecamatan Prambanan, Kabupaten Sleman, DI Yogyakarta",
+  "category": "candi",
+  "id": "393199b3-9054-44eb-8e0f-06a1027b4bc6",
+  "lat": -7.7837641,
+  "lng": 110.5114895,
+  "name": "Candi Ijo",
+  "slug": "candi-ijo"
+ },
+ {
+  "address": "Jalan Ratu Boko, Bokoharjo, Prambanan, Sleman, Daerah Istimewa Yogyakarta 55572",
+  "category": "candi",
+  "id": "b8b45097-2492-49a1-bab7-9fea2b5290d8",
+  "lat": -7.7779947,
+  "lng": 110.4940445,
+  "name": "Candi Banyunibo",
+  "slug": "candi-banyunibo"
+ },
+ {
+  "address": "Jl. Laksda Adisucipto No.167, Sleman, Daerah Istimewa Yogyakarta 55281",
+  "category": "museum",
+  "id": "25fd9e8b-0afc-4c5c-aec5-ebd7aed958e7",
+  "lat": -7.7827543,
+  "lng": 110.3963324,
+  "name": "Museum Affandi",
+  "slug": "museum-affandi"
+ },
+ {
+  "address": "Kapanewon Pakem, Sleman, Daerah Istimewa Yogyakarta",
+  "category": "museum",
+  "id": "172e060d-89f3-4c20-91f1-0e654632247b",
+  "lat": -7.6159272,
+  "lng": 110.4243329,
+  "name": "Museum Gunungapi Merapi",
+  "slug": "museum-gunungapi-merapi"
+ }
+]
