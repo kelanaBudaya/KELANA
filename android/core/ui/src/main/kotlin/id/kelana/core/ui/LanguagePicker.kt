@@ -1,7 +1,6 @@
 package id.kelana.core.ui
 
 import androidx.annotation.StringRes
-import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -16,17 +15,13 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.RadioButton
 import androidx.compose.material3.RadioButtonDefaults
-import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.Role
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import id.kelana.core.designsystem.theme.KelanaShapes
 import id.kelana.core.designsystem.theme.KelanaSpacing
 import id.kelana.core.designsystem.theme.KelanaTheme
 import id.kelana.core.model.AppLanguage
@@ -43,7 +38,7 @@ fun AppLanguage.labelRes(): Int = when (this) {
 }
 
 /**
- * Bottom sheet with the three language options as radio rows (shared by Profil > Bahasa). Picking an option applies
+ * Bottom sheet with the three language options as radio rows (Profil > Bahasa). Picking an option applies
  * it at once, so the sheet closes right after [onSelect].
  */
 @OptIn(ExperimentalMaterial3Api::class)
@@ -85,60 +80,4 @@ fun LanguageSheet(
             }
         }
     }
-}
-
-/**
- * Compact "Bahasa  [Indonesia] [English]" pill row for the dark Mulai screen (white text on the primary colour).
- * While the choice is [AppLanguage.SYSTEM] the pill of the language the device currently shows is highlighted.
- */
-@Composable
-fun LanguagePillRow(
-    selected: AppLanguage,
-    onSelect: (AppLanguage) -> Unit,
-    modifier: Modifier = Modifier,
-) {
-    val deviceShowsEnglish = LocalConfiguration.current.locales.get(0)?.language == "en"
-    val active = if (selected == AppLanguage.SYSTEM) {
-        if (deviceShowsEnglish) AppLanguage.EN else AppLanguage.ID
-    } else {
-        selected
-    }
-    Row(
-        modifier = modifier.selectableGroup(),
-        horizontalArrangement = Arrangement.spacedBy(KelanaSpacing.sm),
-        verticalAlignment = Alignment.CenterVertically,
-    ) {
-        Text(
-            text = stringResource(R.string.language_row_title),
-            style = MaterialTheme.typography.labelMedium,
-            color = KelanaTheme.colors.skyText,
-            modifier = Modifier.padding(end = KelanaSpacing.xs),
-        )
-        listOf(AppLanguage.ID, AppLanguage.EN).forEach { option -> LanguagePill(option, option == active) { onSelect(option) } }
-    }
-}
-
-@Composable
-private fun LanguagePill(language: AppLanguage, active: Boolean, onClick: () -> Unit) {
-    val colors = KelanaTheme.colors
-    Surface(
-        modifier = Modifier.heightIn(min = 48.dp).selectable(selected = active, role = Role.RadioButton, onClick = onClick),
-        shape = KelanaShapes.chip,
-        color = if (active) colors.stampYellow else androidx.compose.ui.graphics.Color.Transparent,
-        border = if (active) null else BorderStroke(1.dp, colors.skyText),
-    ) {
-        Row(Modifier.padding(horizontal = KelanaSpacing.md), verticalAlignment = Alignment.CenterVertically) {
-            Text(
-                text = stringResource(language.labelRes()),
-                style = MaterialTheme.typography.labelLarge,
-                color = if (active) colors.navy else colors.white,
-            )
-        }
-    }
-}
-
-@Preview(widthDp = 390, showBackground = true, backgroundColor = 0xFF1B3A8A)
-@Composable
-private fun LanguagePillRowPreview() {
-    KelanaTheme { LanguagePillRow(selected = AppLanguage.ID, onSelect = {}, modifier = Modifier.padding(16.dp)) }
 }

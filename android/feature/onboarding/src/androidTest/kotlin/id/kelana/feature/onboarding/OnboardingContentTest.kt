@@ -66,9 +66,13 @@ class OnboardingContentTest {
     }
 
     @Test
-    fun mulai_start_advancesToFirstKenalanPage() {
+    fun mulai_start_opensLanguageStep_thenNextOpensFirstKenalan() {
         setIntroPager()
         rule.onNodeWithText(str(R.string.mulai_start)).performClick()
+        rule.onNodeWithText(str(R.string.bahasa_title)).assertIsDisplayed()
+        rule.onNodeWithText("English").assertIsDisplayed()
+        rule.onNodeWithText("Bahasa Indonesia").assertIsDisplayed()
+        rule.onNodeWithText(str(R.string.intro_next)).performClick()
         rule.onNodeWithText(str(R.string.intro1_title)).assertIsDisplayed()
     }
 
@@ -77,6 +81,7 @@ class OnboardingContentTest {
         var started = 0
         setIntroPager { started++ }
         rule.onNodeWithText(str(R.string.mulai_start)).performClick()
+        rule.onNodeWithText(str(R.string.intro_next)).performClick() // language step
         rule.onNodeWithText(str(R.string.intro_next)).performClick()
         rule.onNodeWithText(str(R.string.intro2_title)).assertIsDisplayed()
         rule.onNodeWithText(str(R.string.intro_next)).performClick()

@@ -87,6 +87,25 @@ class OnboardingTest {
     }
 
     @Test
+    fun languageStepHasItsOwnPageAndIsNotMulaiOrKenalan() {
+        val state = IntroUiState.forPage(LanguagePage)
+        assertTrue(state.isLanguage)
+        assertFalse(state.isMulai)
+        assertNull(state.intro)
+        assertNull(state.nextPage)
+        assertFalse(IntroUiState.forPage(MulaiPage).isLanguage)
+        assertTrue((1..3).none { IntroUiState.forPage(it).isLanguage })
+    }
+
+    @Test
+    fun stepOrderIsMulaiThenLanguageThenKenalan() {
+        // The screen navigates Mulai -> LanguagePage -> OfficialInfo; Kenalan keeps pages 1..3 and indicator 1..3.
+        assertEquals(listOf(0, 4, 1, 2, 3), listOf(MulaiPage, LanguagePage, IntroPage.OfficialInfo.page, 2, 3))
+        assertEquals(3, IntroUiState.forPage(LanguagePage).stepCount)
+        assertEquals(0, IntroPage.OfficialInfo.step)
+    }
+
+    @Test
     fun introPagesAdvanceOneToThreeThenStop() {
         assertEquals(2, IntroUiState.forPage(1).nextPage)
         assertEquals(3, IntroUiState.forPage(2).nextPage)

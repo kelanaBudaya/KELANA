@@ -8,6 +8,9 @@
     <string name="mulai_logo_description">kelana logo</string>
 
     <!-- Kenalan (01.02 to 01.04) -->
+    <string name="bahasa_title">Choose language</string>
+    <string name="bahasa_body">You can change it later in Profile.</string>
+    <string name="bahasa_illustration">Illustration: two speech bubbles</string>
     <string name="intro_skip">Skip</string>
     <string name="intro_next">Next</string>
     <string name="intro_progress">Step %1$d of %2$d</string>
