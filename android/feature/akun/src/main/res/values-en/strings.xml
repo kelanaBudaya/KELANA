@@ -105,4 +105,16 @@
     <string name="hapus_akun_error_failed">Your account could not be deleted. Try again later.</string>
     <string name="hapus_akun_error_not_configured">The account service is not available in this build.</string>
     <string name="hapus_akun_error_not_signed_in">You need to sign in to delete your account.</string>
+    <string name="email_field_nickname">Nickname</string>
+    <string name="email_nickname_hint">Optional, up to %1$d characters. Used for your greeting.</string>
+    <string name="nickname_error_too_long">Too long, up to %1$d characters.</string>
+    <string name="profil_section_akun">ACCOUNT</string>
+    <string name="profil_row_nama">Name</string>
+    <string name="profil_row_nama_kosong">Not set</string>
+    <string name="profil_nama_dialog_title">Change name</string>
+    <string name="profil_nama_simpan">Save</string>
+    <string name="profil_nama_batal">Cancel</string>
+    <string name="profil_nama_error_blank">Name cannot be empty.</string>
+    <string name="profil_nama_error_network">No signal. Your name was not saved, try again.</string>
+    <string name="profil_nama_error_failed">Could not save your name. Try again later.</string>
 </resources>

@@ -23,9 +23,11 @@ internal class FakeEmailAuthRepository(var result: EmailAuthResult = EmailAuthRe
     var signUpCalls = 0
     var lastEmail: String? = null
     var lastPassword: String? = null
+    var lastDisplayName: String? = null
 
-    override suspend fun signUp(email: String, password: String): EmailAuthResult {
+    override suspend fun signUp(email: String, password: String, displayName: String?): EmailAuthResult {
         signUpCalls++
+        lastDisplayName = displayName
         lastEmail = email
         lastPassword = password
         return result

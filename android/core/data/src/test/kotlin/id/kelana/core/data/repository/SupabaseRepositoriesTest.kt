@@ -340,6 +340,7 @@ class SupabaseRepositoriesTest {
         override val sessionState: Flow<SessionState> = MutableStateFlow(state)
         override suspend fun signInWithGoogle(idToken: String, nonce: String) = AuthResult.Failed
         override suspend fun signOut() = Unit
+        override suspend fun updateDisplayName(name: String) = AuthResult.Success
     }
 
     private val draft = ReportDraft("p1", ReportReason.PlaceClosed, "  Tutup  ")

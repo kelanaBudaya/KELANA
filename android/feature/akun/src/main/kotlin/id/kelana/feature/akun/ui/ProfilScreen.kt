@@ -19,11 +19,16 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.text.KeyboardActions
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.TextButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -45,6 +50,7 @@ import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.semantics.disabled
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
@@ -60,6 +66,7 @@ import id.kelana.core.designsystem.theme.KelanaSizes
 import id.kelana.core.designsystem.theme.KelanaSpacing
 import id.kelana.core.designsystem.theme.KelanaTheme
 import id.kelana.core.model.AppLanguage
+import id.kelana.core.model.AuthValidation
 import id.kelana.core.model.SessionUser
 import id.kelana.core.ui.LanguageSheet
 import id.kelana.core.ui.flagRes
@@ -96,6 +103,10 @@ internal fun ProfilScreen(
         onNotifikasi = onNotifikasi,
         onLanguage = viewModel::onLanguageSelected,
         onHapusAkun = onHapusAkun,
+        onEditName = viewModel::onEditName,
+        onNameChange = viewModel::onNameChange,
+        onSaveName = viewModel::onSaveName,
+        onDismissName = viewModel::onDismissName,
     )
 }
 
@@ -114,6 +125,10 @@ internal fun ProfilContent(
     onNotifikasi: () -> Unit = {},
     onHapusAkun: () -> Unit = {},
     onLanguage: (AppLanguage) -> Unit = {},
+    onEditName: () -> Unit = {},
+    onNameChange: (String) -> Unit = {},
+    onSaveName: () -> Unit = {},
+    onDismissName: () -> Unit = {},
 ) {
     val colors = KelanaTheme.colors
     var showLanguageSheet by rememberSaveable { mutableStateOf(false) }
@@ -125,6 +140,16 @@ internal fun ProfilContent(
                 showLanguageSheet = false
             },
             onDismiss = { showLanguageSheet = false },
+        )
+    }
+    state.nameDraft?.let { draft ->
+        NameDialog(
+            draft = draft,
+            error = state.nameError,
+            isSaving = state.isSavingName,
+            onChange = onNameChange,
+            onSave = onSaveName,
+            onDismiss = onDismissName,
         )
     }
     Column(
@@ -155,6 +180,7 @@ internal fun ProfilContent(
                 onSignOut = onSignOut,
                 onNotifikasi = onNotifikasi,
                 onHapusAkun = onHapusAkun,
+                onEditName = onEditName,
                 onLanguage = { showLanguageSheet = true },
             )
         }
@@ -273,6 +299,7 @@ private fun SignedInBody(
     onSignOut: () -> Unit,
     onNotifikasi: () -> Unit,
     onHapusAkun: () -> Unit,
+    onEditName: () -> Unit,
     onLanguage: () -> Unit,
 ) {
     Column(
@@ -280,7 +307,16 @@ private fun SignedInBody(
             .padding(horizontal = KelanaSpacing.gutterWide)
             .padding(top = 18.dp),
     ) {
-        SectionLabel(R.string.profil_section_perjalanan, topPadding = 0.dp)
+        SectionLabel(R.string.profil_section_akun, topPadding = 0.dp)
+        ProfilRow(
+            R.drawable.akun_ic_cap,
+            R.string.profil_row_nama,
+            subtitle = null,
+            subtitleText = state.displayName ?: stringResource(R.string.profil_row_nama_kosong),
+            onClick = onEditName,
+        )
+
+        SectionLabel(R.string.profil_section_perjalanan, topPadding = 16.dp)
         // Paspor is the way into the passport from here now that the stats card is hidden.
         ProfilRow(R.drawable.akun_ic_cap, R.string.profil_row_paspor, subtitle = null, onClick = onPaspor)
         ProfilRow(
@@ -340,6 +376,69 @@ private fun SectionLabel(@StringRes text: Int, topPadding: Dp) {
     )
 }
 
+/** Small dialog to edit the display name. Save is disabled while saving; the error line shows what went wrong. */
+@Composable
+private fun NameDialog(
+    draft: String,
+    error: NameError?,
+    isSaving: Boolean,
+    onChange: (String) -> Unit,
+    onSave: () -> Unit,
+    onDismiss: () -> Unit,
+) {
+    val colors = KelanaTheme.colors
+    AlertDialog(
+        onDismissRequest = onDismiss,
+        containerColor = colors.surface,
+        title = { Text(stringResource(R.string.profil_nama_dialog_title), color = colors.ink) },
+        text = {
+            Column(verticalArrangement = Arrangement.spacedBy(KelanaSpacing.sm)) {
+                OutlinedTextField(
+                    value = draft,
+                    onValueChange = onChange,
+                    modifier = Modifier.fillMaxWidth(),
+                    enabled = !isSaving,
+                    singleLine = true,
+                    label = { Text(stringResource(R.string.email_field_nickname)) },
+                    isError = error == NameError.Blank || error == NameError.TooLong,
+                    shape = KelanaShapes.input,
+                    colors = fieldColors(),
+                    keyboardOptions = KeyboardOptions(imeAction = ImeAction.Done),
+                    keyboardActions = KeyboardActions(onDone = { onSave() }),
+                    supportingText = {
+                        Text(
+                            text = stringResource(
+                                error?.messageRes() ?: R.string.email_nickname_hint,
+                                AuthValidation.MAX_DISPLAY_NAME_LENGTH,
+                            ),
+                            color = if (error != null) colors.danger else colors.muted,
+                        )
+                    },
+                )
+                if (isSaving) {
+                    CircularProgressIndicator(color = colors.primary, modifier = Modifier.size(24.dp), strokeWidth = 2.dp)
+                }
+            }
+        },
+        confirmButton = {
+            KelanaButton(text = stringResource(R.string.profil_nama_simpan), onClick = onSave, enabled = !isSaving)
+        },
+        dismissButton = {
+            TextButton(onClick = onDismiss, enabled = !isSaving) {
+                Text(stringResource(R.string.profil_nama_batal), color = colors.muted)
+            }
+        },
+    )
+}
+
+@StringRes
+private fun NameError.messageRes(): Int = when (this) {
+    NameError.Blank -> R.string.profil_nama_error_blank
+    NameError.TooLong -> R.string.nickname_error_too_long
+    NameError.Network -> R.string.profil_nama_error_network
+    NameError.Failed -> R.string.profil_nama_error_failed
+}
+
 /** Pengaturan > Bahasa: shows the current choice and opens the language sheet. */
 @Composable
 private fun LanguageRow(language: AppLanguage, onClick: () -> Unit) {
@@ -362,6 +461,7 @@ private fun ProfilRow(
     @StringRes subtitle: Int? = null,
     onClick: (() -> Unit)? = null,
     destructive: Boolean = false,
+    subtitleText: String? = null,
 ) {
     val colors = KelanaTheme.colors
     val enabled = onClick != null
@@ -395,8 +495,8 @@ private fun ProfilRow(
                     style = MaterialTheme.typography.titleSmall.copy(fontSize = 15.sp),
                     color = if (destructive) colors.danger else colors.ink,
                 )
-                subtitle?.let {
-                    Text(text = stringResource(it), style = Caption, color = colors.muted)
+                (subtitleText ?: subtitle?.let { stringResource(it) })?.let {
+                    Text(text = it, style = Caption, color = colors.muted, maxLines = 1, overflow = TextOverflow.Ellipsis)
                 }
             }
             Image(painter = painterResource(R.drawable.akun_ic_chevron), contentDescription = null)

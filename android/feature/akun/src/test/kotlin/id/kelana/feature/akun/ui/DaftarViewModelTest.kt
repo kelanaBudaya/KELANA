@@ -13,6 +13,7 @@ import org.junit.After
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertFalse
 import org.junit.Assert.assertNull
+import org.junit.Assert.assertTrue
 import org.junit.Before
 import org.junit.Test
 
@@ -99,5 +100,35 @@ class DaftarViewModelTest {
         vm.onSubmit()
         assertEquals(EmailAuthError.Network, vm.state.value.formError)
         assertFalse(vm.state.value.isLoading)
+    }
+
+    @Test
+    fun nickname_isTrimmedAndPassedOnSignUp() {
+        val vm = filled()
+        vm.onNicknameChange("  Sari  ")
+        vm.onSubmit()
+        assertEquals("Sari", repo.lastDisplayName)
+    }
+
+    @Test
+    fun blankNickname_passesNull() {
+        val vm = filled()
+        vm.onNicknameChange("   ")
+        vm.onSubmit()
+        assertEquals(1, repo.signUpCalls)
+        assertNull(repo.lastDisplayName)
+    }
+
+    @Test
+    fun nicknameOver40Chars_blocksSubmit_andExactly40Passes() {
+        val vm = filled()
+        vm.onNicknameChange("a".repeat(41))
+        vm.onSubmit()
+        assertTrue(vm.state.value.nicknameTooLong)
+        assertEquals(0, repo.signUpCalls)
+        vm.onNicknameChange("a".repeat(40))
+        assertFalse(vm.state.value.nicknameTooLong)
+        vm.onSubmit()
+        assertEquals("a".repeat(40), repo.lastDisplayName)
     }
 }

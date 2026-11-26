@@ -13,12 +13,12 @@ class SupabaseEmailAuthRepository @Inject constructor(
     private val api: EmailAuthApi,
 ) : EmailAuthRepository {
 
-    override suspend fun signUp(email: String, password: String): EmailAuthResult {
+    override suspend fun signUp(email: String, password: String, displayName: String?): EmailAuthResult {
         val mail = email.trim()
         if (!AuthValidation.isValidEmail(mail)) return failure(EmailAuthFailure.InvalidEmail)
         if (!AuthValidation.isValidPassword(password)) return failure(EmailAuthFailure.WeakPassword)
         return try {
-            if (api.signUp(mail, password)) EmailAuthResult.Success else failure(EmailAuthFailure.ConfirmationRequired)
+            if (api.signUp(mail, password, AuthValidation.normalizeDisplayName(displayName))) EmailAuthResult.Success else failure(EmailAuthFailure.ConfirmationRequired)
         } catch (e: CancellationException) {
             throw e
         } catch (e: Exception) {

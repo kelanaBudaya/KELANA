@@ -38,6 +38,7 @@ class MasukViewModelTest {
             return result
         }
         override suspend fun signOut() = Unit
+        override suspend fun updateDisplayName(name: String) = AuthResult.Success
     }
 
     private class FakeAppLanguageRepository(initial: AppLanguage = AppLanguage.ID) : AppLanguageRepository {

@@ -1,5 +1,8 @@
 package id.kelana.feature.akun.ui
 
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.assertIsNotEnabled
 import androidx.compose.ui.test.junit4.createComposeRule
@@ -118,5 +121,35 @@ class ProfilContentTest {
         rule.onNodeWithText(str(R.string.profil_guest_masuk)).performClick()
         assertEquals(listOf("masuk"), calls)
         rule.onNodeWithText(str(R.string.profil_row_hapus)).assertDoesNotExist()
+    }
+
+    @Test
+    fun signedIn_namaRow_showsCurrentName_andOpensDialog() {
+        var state by mutableStateOf(signedIn)
+        rule.setContent {
+            KelanaTheme {
+                ProfilContent(
+                    state = state,
+                    onBack = {}, onPaspor = {}, onDaerah = {}, onMasuk = {}, onSignOut = {},
+                    onEditName = { state = state.copy(nameDraft = "Sari Dewi") },
+                )
+            }
+        }
+        rule.onNodeWithText(str(R.string.profil_row_nama)).performScrollTo().assertIsDisplayed()
+        rule.onNodeWithText(str(R.string.profil_row_nama)).performClick()
+        rule.onNodeWithText(str(R.string.profil_nama_dialog_title)).assertIsDisplayed()
+        rule.onNodeWithText(str(R.string.profil_nama_simpan)).assertIsDisplayed()
+    }
+
+    @Test
+    fun namaDialog_saving_disablesSave() {
+        show(signedIn.copy(nameDraft = "Sari", isSavingName = true))
+        rule.onNodeWithText(str(R.string.profil_nama_simpan)).assertIsNotEnabled()
+    }
+
+    @Test
+    fun guest_hasNoNamaRow() {
+        show(ProfilUiState(isLoading = false, user = null))
+        rule.onNodeWithText(str(R.string.profil_row_nama)).assertDoesNotExist()
     }
 }

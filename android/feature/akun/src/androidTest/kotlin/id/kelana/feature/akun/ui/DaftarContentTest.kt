@@ -24,7 +24,7 @@ private class FakeEmailAuth : EmailAuthRepository {
     var signUps = 0
     var signIns = 0
 
-    override suspend fun signUp(email: String, password: String): EmailAuthResult {
+    override suspend fun signUp(email: String, password: String, displayName: String?): EmailAuthResult {
         signUps++
         return EmailAuthResult.Success
     }
@@ -49,6 +49,7 @@ class DaftarContentTest {
                     onEmailChange = vm::onEmailChange,
                     onPasswordChange = vm::onPasswordChange,
                     onConfirmChange = vm::onConfirmChange,
+                    onNicknameChange = vm::onNicknameChange,
                     onTogglePasswordVisible = vm::onTogglePasswordVisible,
                     onSubmit = vm::onSubmit,
                     onBack = {},

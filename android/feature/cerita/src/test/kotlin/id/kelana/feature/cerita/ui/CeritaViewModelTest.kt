@@ -31,6 +31,7 @@ internal class FakeSession(initial: SessionState) : SessionRepository {
     override val sessionState: Flow<SessionState> = state
     override suspend fun signInWithGoogle(idToken: String, nonce: String) = AuthResult.Success
     override suspend fun signOut() = Unit
+    override suspend fun updateDisplayName(name: String) = AuthResult.Success
 }
 
 internal class CountingStories(initial: List<Story> = emptyList()) : StoryRepository {

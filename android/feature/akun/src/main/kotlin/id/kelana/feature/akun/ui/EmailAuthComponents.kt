@@ -41,7 +41,7 @@ import id.kelana.feature.akun.R
 private val MinTarget = 48.dp
 
 @Composable
-private fun fieldColors() = KelanaTheme.colors.let { colors ->
+internal fun fieldColors() = KelanaTheme.colors.let { colors ->
     OutlinedTextFieldDefaults.colors(
         focusedBorderColor = colors.primary,
         unfocusedBorderColor = colors.outline,
@@ -73,6 +73,7 @@ internal fun AuthTextField(
     visualTransformation: VisualTransformation = VisualTransformation.None,
     enabled: Boolean = true,
     supportingText: String? = null,
+    isError: Boolean = false,
     trailing: @Composable (() -> Unit)? = null,
 ) {
     val colors = KelanaTheme.colors
@@ -86,7 +87,7 @@ internal fun AuthTextField(
         enabled = enabled,
         singleLine = true,
         label = { Text(label) },
-        isError = error != null,
+        isError = error != null || isError,
         shape = KelanaShapes.input,
         colors = fieldColors(),
         textStyle = MaterialTheme.typography.bodyMedium,
@@ -95,7 +96,7 @@ internal fun AuthTextField(
         trailingIcon = trailing,
         // Only composed when there is something to say, so no empty line is reserved under the field.
         supportingText = message?.let { text ->
-            { Text(text, color = if (error != null) colors.danger else colors.muted) }
+            { Text(text, color = if (error != null || isError) colors.danger else colors.muted) }
         },
     )
 }

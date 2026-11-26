@@ -5,6 +5,8 @@ import io.github.jan.supabase.auth.providers.builtin.Email
 import io.github.jan.supabase.exceptions.HttpRequestException
 import io.github.jan.supabase.exceptions.RestException
 import io.ktor.client.plugins.HttpRequestTimeoutException
+import kotlinx.serialization.json.buildJsonObject
+import kotlinx.serialization.json.put
 import java.io.IOException
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -19,10 +21,11 @@ class SupabaseEmailAuthApi @Inject constructor(
 ) : EmailAuthApi {
     private val auth get() = (provider.client ?: throw AuthNotConfiguredException()).auth
 
-    override suspend fun signUp(email: String, password: String): Boolean {
+    override suspend fun signUp(email: String, password: String, displayName: String?): Boolean {
         auth.signUpWith(Email) {
             this.email = email
             this.password = password
+            if (displayName != null) data = buildJsonObject { put("full_name", displayName) }
         }
         return auth.currentSessionOrNull() != null
     }
