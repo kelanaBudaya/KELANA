@@ -71,6 +71,7 @@ import id.kelana.core.ui.session.rememberRequireLogin
 import id.kelana.feature.rencana.R
 import id.kelana.feature.rencana.domain.Availability
 import id.kelana.feature.rencana.domain.ClosedStop
+import java.time.LocalDate
 import java.time.LocalTime
 
 @Composable
@@ -80,7 +81,8 @@ internal fun RencanaScreen(navigate: (Any) -> Unit, viewModel: RencanaViewModel 
     RencanaContent(
         state = state,
         onEdit = { navigate(SusunGraphRoute) },
-        onOpenRoute = { navigate(PetaRuteRoute) },
+        onOpenRoute = { navigate(PetaRuteRoute(state.plan?.date?.toString())) },
+        onSelectDay = viewModel::selectDay,
         onOpenClosed = { closed -> navigate(TempatTutupRoute(closed.stop.placeId, state.plan?.date.toString())) },
         onTakeStamp = { requireLogin { navigate(PasporRoute) } },
         onRemind = { eventId -> requireLogin { navigate(PengingatRoute(eventId)) } },
@@ -105,6 +107,7 @@ internal fun RencanaContent(
     onOpenPlace: (String) -> Unit = {},
     onRemoveFromBackpack: (String) -> Unit = {},
     onRetry: () -> Unit = {},
+    onSelectDay: (LocalDate) -> Unit = {},
 ) {
     val colors = KelanaTheme.colors
     val plan = state.plan
@@ -140,12 +143,13 @@ internal fun RencanaContent(
             return@LazyColumn
         }
         item { PlanHeader(state, onEdit) }
+        if (state.showDayPicker) item { DayPicker(state, onSelectDay) }
         if (state.isOffline) item { OfflineBanner() }
         state.closedStops.firstOrNull()?.let { closed ->
             item { ClosedPrompt(closed, onOpenClosed, Modifier.padding(start = 16.dp, end = 16.dp, top = 12.dp)) }
         }
         if (plan.stops.isNotEmpty()) {
-            item { RouteCard(plan.stops.size, state.isToday, onOpenRoute) }
+            item { RouteCard(plan.stops.size, state.isToday, state.dayNumber.takeUnless { state.isDefaultDay }, onOpenRoute) }
             item { Timeline(state, plan.stops, onTakeStamp, onRemind) }
             plan.stops.firstOrNull { it.isEvent }?.let { show ->
                 val minAdvice = show.arrivalAdviceMin
@@ -168,14 +172,7 @@ internal fun RencanaContent(
                 }
             }
         } else {
-            item {
-                Text(
-                    text = stringResource(R.string.rencana_day_empty),
-                    modifier = Modifier.padding(start = 20.dp, end = 20.dp, top = 24.dp),
-                    style = MaterialTheme.typography.bodyMedium,
-                    color = colors.muted,
-                )
-            }
+            item { EmptyDayCard(Modifier.padding(start = 16.dp, end = 16.dp, top = 24.dp)) }
         }
         if (plan.noShowFound) {
             item {
@@ -214,7 +211,7 @@ private fun PlanHeader(state: RencanaUiState, onEdit: () -> Unit) {
     ) {
         Column(Modifier.weight(1f)) {
             Text(
-                text = stringResource(if (state.isToday) R.string.rencana_title_today else R.string.rencana_title_upcoming),
+                text = planTitle(state),
                 style = MaterialTheme.typography.headlineMedium,
                 color = colors.ink,
             )
@@ -281,7 +278,7 @@ private fun ClosedPrompt(closed: ClosedStop, onOpen: (ClosedStop) -> Unit, modif
 
 /** "RUTE HARI INI" card. PROVISIONAL art: the artifact draws a map blob with scattered marks; a flat navy panel here. */
 @Composable
-private fun RouteCard(count: Int, isToday: Boolean, onOpen: () -> Unit) {
+private fun RouteCard(count: Int, isToday: Boolean, otherDay: Int?, onOpen: () -> Unit) {
     val colors = KelanaTheme.colors
     Box(
         modifier = Modifier
@@ -298,7 +295,11 @@ private fun RouteCard(count: Int, isToday: Boolean, onOpen: () -> Unit) {
         ArtMark(R.drawable.rencana_veh_walk, 30, 168, 40, 200f)
         Column(Modifier.align(Alignment.BottomStart).padding(start = 18.dp, bottom = 18.dp).width(180.dp)) {
             Text(
-                stringResource(if (isToday) R.string.rencana_route_label_today else R.string.rencana_route_label_upcoming),
+                when {
+                    isToday -> stringResource(R.string.rencana_route_label_today)
+                    otherDay != null -> stringResource(R.string.rencana_route_label_day, otherDay)
+                    else -> stringResource(R.string.rencana_route_label_upcoming)
+                },
                 style = MaterialTheme.typography.labelMedium.copy(fontWeight = FontWeight.ExtraBold, letterSpacing = 0.6.sp),
                 color = colors.creamYellow,
             )

@@ -40,7 +40,6 @@
     <string name="rencana_travel_ride">Ojek online</string>
     <string name="rencana_travel_estimate">%1$s · perkiraan %2$d menit</string>
     <string name="rencana_arrival_advice">Tiba di %1$s paling lambat %2$s. Pengelola menyarankan datang %3$d–%4$d menit sebelum pentas mulai.</string>
-    <string name="rencana_day_empty">Belum ada tempat yang cocok untuk hari ini. Coba ubah pilihanmu.</string>
     <string name="rencana_no_show">Belum ada pentas resmi dengan jadwal terperiksa pada tanggal ini.</string>
     <string name="rencana_susun_progress">%1$d/%2$d</string>
     <string name="rencana_susun_progress_label">Pertanyaan %1$d dari %2$d</string>

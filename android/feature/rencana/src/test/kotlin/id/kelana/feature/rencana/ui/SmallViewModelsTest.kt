@@ -66,6 +66,17 @@ class PetaRuteViewModelTest {
     }
 
     @Test
+    fun aGivenDateShowsThatDaysRoute() = runTest {
+        val choices = choices(start = LocalTime.of(10, 0)).copy(startDate = TestToday, endDate = TestToday.plusDays(1))
+        val trip = PlanBuilder().buildTrip(choices, places.all, emptyList(), TestToday)
+        PetaRuteViewModel(repo(places, cache = FakeCache(trip)), TestClock, TestToday.plusDays(1)).uiState.test {
+            val s = settled()
+            assertEquals(trip.days[1].stops, s.stops)
+            assertEquals(trip.days[1].stops.firstOrNull(), s.next)
+        }
+    }
+
+    @Test
     fun afterTheLastStopThereIsNothingNext() = runTest {
         val trip = PlanBuilder().buildTrip(
             choices(start = LocalTime.of(6, 0), end = LocalTime.of(10, 0)),

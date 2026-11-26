@@ -1,6 +1,7 @@
 package id.kelana.feature.rencana.ui
 
 import androidx.compose.runtime.Immutable
+import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -25,20 +26,28 @@ data class PetaRuteUiState(
     val next: PlanStop? = null,
 )
 
-/** Route view of the plan of today (or the next planned day). Reads the cached plan, so it works offline. */
+/**
+ * Route view of the plan of [date] (the day picked in the Rencana tab), or of today / the next planned day when [date]
+ * is null or not part of the trip. Reads the cached plan, so it works offline.
+ */
 @HiltViewModel
 class PetaRuteViewModel(
     plans: PlanRepository,
     private val clock: Clock,
+    private val date: LocalDate? = null,
 ) : ViewModel() {
 
+    /** The route argument is stored in the handle under the field name of `PetaRuteRoute`. */
     @Inject
-    constructor(plans: PlanRepository) : this(plans, Clock.system(ZoneId.of("Asia/Jakarta")))
+    constructor(plans: PlanRepository, savedStateHandle: SavedStateHandle) :
+        this(plans, Clock.system(ZoneId.of("Asia/Jakarta")), parseIsoDate(savedStateHandle.get<String>("date")))
 
     val uiState: StateFlow<PetaRuteUiState> = plans.trip.map { trip ->
         val today = LocalDate.now(clock)
         val now = LocalTime.now(clock)
-        val day = trip?.days?.firstOrNull { it.date == today } ?: trip?.days?.firstOrNull { it.date.isAfter(today) }
+        val day = trip?.days?.firstOrNull { it.date == date }
+            ?: trip?.days?.firstOrNull { it.date == today }
+            ?: trip?.days?.firstOrNull { it.date.isAfter(today) }
         val stops = day?.stops.orEmpty()
         val next = if (day?.date == today) stops.firstOrNull { it.end > now } else stops.firstOrNull()
         PetaRuteUiState(isLoading = false, stops = stops, next = next)

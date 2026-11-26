@@ -20,7 +20,8 @@ class RencanaRoutesTest {
         roundTrip(SusunKendaraanRoute.serializer(), SusunKendaraanRoute)
         roundTrip(SusunKebutuhanRoute.serializer(), SusunKebutuhanRoute)
         roundTrip(MenyusunRoute.serializer(), MenyusunRoute)
-        roundTrip(PetaRuteRoute.serializer(), PetaRuteRoute)
+        roundTrip(PetaRuteRoute.serializer(), PetaRuteRoute())
+        roundTrip(PetaRuteRoute.serializer(), PetaRuteRoute("2026-11-28"))
         roundTrip(PengingatRoute.serializer(), PengingatRoute("roro-jonggrang-jumat"))
         roundTrip(TempatTutupRoute.serializer(), TempatTutupRoute("keraton-yogyakarta", "2026-11-20"))
     }
@@ -31,6 +32,7 @@ class RencanaRoutesTest {
             """{"placeId":"keraton-yogyakarta","date":"2026-11-20"}""",
             Json.encodeToString(TempatTutupRoute.serializer(), TempatTutupRoute("keraton-yogyakarta", "2026-11-20")),
         )
+        assertEquals("""{"date":"2026-11-28"}""", Json.encodeToString(PetaRuteRoute.serializer(), PetaRuteRoute("2026-11-28")))
         assertEquals("""{"eventId":"e1"}""", Json.encodeToString(PengingatRoute.serializer(), PengingatRoute("e1")))
     }
 }

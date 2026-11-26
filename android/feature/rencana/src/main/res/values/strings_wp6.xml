@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="rencana_title_day">Rencana Hari %1$d</string>
+    <string name="rencana_route_label_day">RUTE HARI %1$d</string>
+    <string name="rencana_day_chip">Hari %1$d</string>
+    <string name="rencana_day_chip_desc">Hari %1$d, %2$s</string>
+    <string name="rencana_day_empty_title">Belum ada tempat untuk hari ini</string>
+    <string name="rencana_day_empty_body">Semua tempat yang cocok sudah masuk di hari lain.</string>
+</resources>
