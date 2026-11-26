@@ -46,7 +46,7 @@ class PetaRuteViewModelTest {
 
     @Test
     fun noPlanMeansNoRoute() = runTest {
-        PetaRuteViewModel(repo(places), TestClock).uiState.test {
+        PetaRuteViewModel(repo(places), NoRoutes, TestClock).uiState.test {
             val s = settled()
             assertTrue(s.stops.isEmpty())
             assertNull(s.next)
@@ -58,7 +58,7 @@ class PetaRuteViewModelTest {
         // Window from 10:00 with a relaxed pace: a 10:00-11:30, b after the break. Now is 10:40, so "a" is next.
         val trip = PlanBuilder().buildTrip(choices(start = LocalTime.of(10, 0)), places.all, emptyList(), TestToday)
         val cache = FakeCache(trip)
-        PetaRuteViewModel(repo(places, cache = cache), TestClock).uiState.test {
+        PetaRuteViewModel(repo(places, cache = cache), NoRoutes, TestClock).uiState.test {
             val s = settled()
             assertEquals(2, s.stops.size)
             assertEquals(s.stops.first(), s.next)
@@ -71,7 +71,7 @@ class PetaRuteViewModelTest {
             choices(start = LocalTime.of(6, 0), end = LocalTime.of(10, 0)),
             places.all, emptyList(), TestToday,
         )
-        PetaRuteViewModel(repo(places, cache = FakeCache(trip)), TestClock).uiState.test {
+        PetaRuteViewModel(repo(places, cache = FakeCache(trip)), NoRoutes, TestClock).uiState.test {
             val s = settled()
             assertTrue(s.stops.isNotEmpty())
             assertNull(s.next)

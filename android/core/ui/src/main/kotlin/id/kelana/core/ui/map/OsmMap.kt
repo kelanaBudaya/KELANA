@@ -48,8 +48,8 @@ private const val MAP_PADDING_BOTTOM_PX = 560
  * The OpenStreetMap view (MapLibre, raster tiles from [TILE_URL_TEMPLATE]) with one pin per marker, shared by every
  * screen that shows a map. Pins are Compose nodes laid over the map and repositioned from the map projection whenever
  * the camera moves, so they keep the design's marker look and accessibility semantics. The camera frames
- * [framedPoints] (lat, lng pairs) once. Markers are tappable only when [onMarkerTap] is given. When [routeKeys] has two
- * or more keys, a [routeColor] line joins those markers in that order, under the pins. No location component is used:
+ * [framedPoints] (lat, lng pairs) once. Markers are tappable only when [onMarkerTap] is given. When [routePath] (lat, lng
+ * points, any number) has two or more points, a [routeColor] line follows it, under the pins. No location component is used:
  * the map shows places only (location is read only from "Ambil cap"). Show a [MapAttribution] next to it.
  */
 @Composable
@@ -59,7 +59,7 @@ fun OsmMap(
     selectedKey: String?,
     modifier: Modifier = Modifier,
     onMarkerTap: ((String) -> Unit)? = null,
-    routeKeys: List<String> = emptyList(),
+    routePath: List<Pair<Double, Double>> = emptyList(),
     routeColor: Color = Color.Unspecified,
 ) {
     val context = LocalContext.current
@@ -73,13 +73,19 @@ fun OsmMap(
     var map by remember { mutableStateOf<MapLibreMap?>(null) }
     var screenPoints by remember { mutableStateOf<Map<String, Offset>>(emptyMap()) }
     var fitted by remember { mutableStateOf(false) }
+    var routeScreenPoints by remember { mutableStateOf<List<Offset>>(emptyList()) }
     val currentMarkers by rememberUpdatedState(markers)
+    val currentRoute by rememberUpdatedState(thinPath(routePath))
 
     fun refreshPoints() {
         val m = map ?: return
         screenPoints = currentMarkers.associate {
             val pt = m.projection.toScreenLocation(LatLng(it.lat, it.lng))
             it.key to Offset(pt.x, pt.y)
+        }
+        routeScreenPoints = currentRoute.map {
+            val pt = m.projection.toScreenLocation(LatLng(it.first, it.second))
+            Offset(pt.x, pt.y)
         }
     }
 
@@ -145,18 +151,15 @@ fun OsmMap(
         fitted = true
         refreshPoints()
     }
-    LaunchedEffect(map, markers) { refreshPoints() }
+    LaunchedEffect(map, markers, routePath) { refreshPoints() }
 
     Box(modifier.fillMaxSize().clipToBounds()) {
         AndroidView(factory = { mapView }, modifier = Modifier.fillMaxSize())
-        if (routeKeys.size >= 2) {
+        if (routeScreenPoints.size >= 2) {
             Canvas(Modifier.fillMaxSize()) {
                 val path = Path()
-                var started = false
-                for (key in routeKeys) {
-                    val pt = screenPoints[key] ?: continue
-                    if (started) path.lineTo(pt.x, pt.y) else path.moveTo(pt.x, pt.y)
-                    started = true
+                routeScreenPoints.forEachIndexed { i, pt ->
+                    if (i == 0) path.moveTo(pt.x, pt.y) else path.lineTo(pt.x, pt.y)
                 }
                 drawPath(path, routeColor, style = Stroke(width = 4.dp.toPx(), cap = StrokeCap.Round, join = StrokeJoin.Round))
             }
@@ -185,4 +188,15 @@ private fun installUserAgent() {
             }
             .build(),
     )
+}
+
+private const val MAX_ROUTE_POINTS = 2000
+
+/** Keeps every n-th point (and always the last) when a path is very long, so projecting it stays cheap. */
+internal fun thinPath(path: List<Pair<Double, Double>>): List<Pair<Double, Double>> {
+    if (path.size <= MAX_ROUTE_POINTS) return path
+    val step = (path.size + MAX_ROUTE_POINTS - 1) / MAX_ROUTE_POINTS
+    val out = path.filterIndexed { i, _ -> i % step == 0 }.toMutableList()
+    if (out.last() != path.last()) out += path.last()
+    return out
 }
