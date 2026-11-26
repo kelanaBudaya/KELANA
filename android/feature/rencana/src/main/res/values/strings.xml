@@ -89,7 +89,7 @@
     <string name="rencana_pace_packed_hint">Hingga 5 tempat sehari dengan jeda singkat.</string>
     <string name="rencana_kendaraan_title">Kamu berkeliling naik apa?</string>
     <string name="rencana_kendaraan_hint">Waktu tempuh antar tempat menyesuaikan pilihanmu.</string>
-    <string name="rencana_vehicle_transit">Jalan kaki dan Trans Jogja</string>
+    <string name="rencana_vehicle_transit">Jalan kaki dan transportasi umum</string>
     <string name="rencana_vehicle_transit_hint">Waktu tempuh diperkirakan dari jarak antar tempat</string>
     <string name="rencana_vehicle_private">Kendaraan pribadi</string>
     <string name="rencana_vehicle_private_hint">Waktu tempuh diperkirakan dengan kendaraan pribadi</string>

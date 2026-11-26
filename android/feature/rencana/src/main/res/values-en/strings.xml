@@ -89,7 +89,7 @@
     <string name="rencana_pace_packed_hint">Up to 5 places a day with short breaks.</string>
     <string name="rencana_kendaraan_title">How will you get around?</string>
     <string name="rencana_kendaraan_hint">Travel time between places follows your choice.</string>
-    <string name="rencana_vehicle_transit">On foot and Trans Jogja</string>
+    <string name="rencana_vehicle_transit">Walking and public transport</string>
     <string name="rencana_vehicle_transit_hint">Travel time is estimated from the distance between places</string>
     <string name="rencana_vehicle_private">Private vehicle</string>
     <string name="rencana_vehicle_private_hint">Travel time is estimated for a private vehicle</string>

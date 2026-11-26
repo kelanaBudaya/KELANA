@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="rencana_vehicle_ride">Ojek online</string>
+    <string name="rencana_vehicle_ride_hint">Waktu tempuh diperkirakan dengan ojek, termasuk waktu menunggu</string>
+</resources>
