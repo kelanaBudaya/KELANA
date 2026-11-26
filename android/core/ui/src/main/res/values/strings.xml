@@ -12,4 +12,9 @@
     <string name="official_site_open">Buka situs</string>
     <string name="official_site_cancel">Batal</string>
     <string name="official_site_preview_label">Candi Prambanan</string>
+    <string name="language_row_title">Bahasa</string>
+    <string name="language_system">Ikuti sistem</string>
+    <string name="language_name_id">Bahasa Indonesia</string>
+    <string name="language_name_en">English</string>
+    <string name="language_sheet_title">Bahasa</string>
 </resources>

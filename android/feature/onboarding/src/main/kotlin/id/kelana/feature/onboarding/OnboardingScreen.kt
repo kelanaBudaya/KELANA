@@ -87,11 +87,13 @@ import id.kelana.core.designsystem.theme.FrauncesFontFamily
 import id.kelana.core.designsystem.theme.KelanaShapes
 import id.kelana.core.designsystem.theme.KelanaSpacing
 import id.kelana.core.designsystem.theme.KelanaTheme
+import id.kelana.core.model.AppLanguage
 import id.kelana.core.model.Region
 import id.kelana.core.model.RegionStatus
 import id.kelana.core.navigation.IntroRoute
 import id.kelana.core.navigation.MasukRoute
 import id.kelana.core.navigation.PilihDaerahRoute
+import id.kelana.core.ui.LanguagePillRow
 import kotlin.math.max
 import kotlin.math.min
 import kotlin.math.roundToInt
@@ -124,9 +126,12 @@ internal fun IntroScreen(
             onFinished()
         }
     }
+    val language by viewModel.language.collectAsState()
     val state = IntroUiState.forPage(route.page)
     IntroContent(
         state = state,
+        language = language,
+        onLanguage = viewModel::setLanguage,
         onNext = { next -> navigate(IntroRoute(next)) },
         onSkip = { navigate(PilihDaerahRoute) },
         onStartFromJogja = viewModel::startFromJogja,
@@ -143,10 +148,17 @@ internal fun IntroContent(
     onStartFromJogja: () -> Unit,
     onOtherRegion: () -> Unit,
     onHaveAccount: () -> Unit,
+    language: AppLanguage = AppLanguage.SYSTEM,
+    onLanguage: (AppLanguage) -> Unit = {},
 ) {
     val intro = state.intro
     if (state.isMulai || intro == null) {
-        MulaiContent(onStart = { onNext(IntroPage.OfficialInfo.page) }, onHaveAccount = onHaveAccount)
+        MulaiContent(
+            onStart = { onNext(IntroPage.OfficialInfo.page) },
+            onHaveAccount = onHaveAccount,
+            language = language,
+            onLanguage = onLanguage,
+        )
     } else {
         KenalanContent(intro, onNext, onSkip, onStartFromJogja, onOtherRegion, state.stepCount)
     }
@@ -157,7 +169,12 @@ internal fun IntroContent(
  * and below the block is split 1.32 : 1 (the same ratio) so other screen heights keep the block centered-ish.
  */
 @Composable
-private fun MulaiContent(onStart: () -> Unit, onHaveAccount: () -> Unit) {
+private fun MulaiContent(
+    onStart: () -> Unit,
+    onHaveAccount: () -> Unit,
+    language: AppLanguage,
+    onLanguage: (AppLanguage) -> Unit,
+) {
     val colors = KelanaTheme.colors
     Box(Modifier.fillMaxSize().background(colors.primary)) {
         Image(
@@ -216,6 +233,15 @@ private fun MulaiContent(onStart: () -> Unit, onHaveAccount: () -> Unit) {
                 }
             }
         }
+        // Not in the artifact (no language screen there): a compact row in the top corner, so the layout is untouched.
+        LanguagePillRow(
+            selected = language,
+            onSelect = onLanguage,
+            modifier = Modifier
+                .align(Alignment.TopEnd)
+                .statusBarsPadding()
+                .padding(top = 8.dp, end = KelanaSpacing.gutterWide),
+        )
     }
 }
 

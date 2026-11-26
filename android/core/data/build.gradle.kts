@@ -48,6 +48,7 @@ dependencies {
     implementation(libs.ktor.client.okhttp)
     implementation(libs.kotlinx.serialization.json)
     implementation(libs.androidx.datastore.preferences)
+    implementation(libs.androidx.appcompat)
 
     testImplementation(libs.kotlinx.coroutines.test)
     testImplementation(libs.turbine)

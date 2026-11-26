@@ -1,6 +1,8 @@
 package id.kelana.feature.onboarding
 
 import app.cash.turbine.test
+import id.kelana.core.model.AppLanguage
+import id.kelana.core.model.AppLanguageRepository
 import id.kelana.core.model.Place
 import id.kelana.core.model.PlaceCategory
 import id.kelana.core.model.PlaceRepository
@@ -39,6 +41,14 @@ private class TestRegions : RegionRepository {
     }
 }
 
+private class TestLanguages(initial: AppLanguage = AppLanguage.SYSTEM) : AppLanguageRepository {
+    val current = MutableStateFlow(initial)
+    override val language: Flow<AppLanguage> = current
+    override fun set(language: AppLanguage) {
+        current.value = language
+    }
+}
+
 private class TestPlaces : PlaceRepository {
     private val list = (1..6).map {
         Place(
@@ -55,11 +65,13 @@ private class TestPlaces : PlaceRepository {
 @OptIn(ExperimentalCoroutinesApi::class)
 class OnboardingTest {
     private lateinit var regions: TestRegions
+    private lateinit var languages: TestLanguages
 
     @Before
     fun setUp() {
         Dispatchers.setMain(UnconfinedTestDispatcher())
         regions = TestRegions()
+        languages = TestLanguages()
     }
 
     @After
@@ -99,13 +111,30 @@ class OnboardingTest {
 
     @Test
     fun startFromJogjaSelectsDiyAndFinishes() = runTest {
-        val vm = IntroViewModel(regions)
+        val vm = IntroViewModel(regions, languages)
         vm.finished.test {
             assertFalse(awaitItem())
             vm.startFromJogja()
             assertTrue(awaitItem())
         }
         assertEquals("DIY", regions.selectedRegionId.let { (it as MutableStateFlow).value })
+    }
+
+    @Test
+    fun languageDefaultsToSystemAndFollowsSelection() = runTest {
+        val vm = IntroViewModel(regions, languages)
+        assertEquals(AppLanguage.SYSTEM, vm.language.value)
+        vm.setLanguage(AppLanguage.EN)
+        assertEquals(AppLanguage.EN, vm.language.value)
+        assertEquals(AppLanguage.EN, languages.current.value)
+        vm.setLanguage(AppLanguage.ID)
+        assertEquals(AppLanguage.ID, vm.language.value)
+    }
+
+    @Test
+    fun languageStartsFromTheRememberedChoice() {
+        val vm = IntroViewModel(regions, TestLanguages(AppLanguage.EN))
+        assertEquals(AppLanguage.EN, vm.language.value)
     }
 
     // ----- Pilih daerah -----

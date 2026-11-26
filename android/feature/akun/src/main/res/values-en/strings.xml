@@ -45,6 +45,8 @@
     <string name="email_error_generic">Something went wrong. Try again.</string>
     <string name="profil_back">Back</string>
     <string name="profil_section_perjalanan">JOURNEY</string>
+    <string name="profil_section_pengaturan">SETTINGS</string>
+    <string name="profil_row_bahasa">Language</string>
     <string name="profil_section_bantuan">HELP</string>
     <string name="profil_row_paspor">Passport</string>
     <string name="profil_row_daerah">Region</string>
