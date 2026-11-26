@@ -47,6 +47,7 @@ import androidx.compose.ui.semantics.clearAndSetSemantics
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.LineBreak
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -301,8 +302,9 @@ private fun TitleCard(place: Place) {
         Text(
             text = place.description,
             modifier = Modifier.padding(top = 10.dp),
-            style = MaterialTheme.typography.bodyMedium,
+            style = MaterialTheme.typography.bodyMedium.copy(lineBreak = LineBreak.Paragraph),
             color = colors.ink,
+            textAlign = TextAlign.Justify,
         )
     }
 }
