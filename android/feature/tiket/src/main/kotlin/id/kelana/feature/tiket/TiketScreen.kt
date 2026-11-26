@@ -299,7 +299,9 @@ private fun TiketRow(
                 maxLines = 2,
                 overflow = TextOverflow.Ellipsis,
             )
-            val price = visiblePrice(item)?.let { stringResource(R.string.tiket_price_from, formatRupiah(it)) }
+            val price = visiblePrice(item)?.let {
+                if (it == 0L) stringResource(R.string.tiket_price_free) else stringResource(R.string.tiket_price_from, formatRupiah(it))
+            }
             val subtitle = listOfNotNull(item.placeName, price).joinToString(" · ")
             if (subtitle.isNotEmpty()) {
                 Text(
