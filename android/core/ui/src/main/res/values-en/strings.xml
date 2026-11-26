@@ -16,6 +16,6 @@
     <string name="language_name_en">English</string>
     <string name="language_sheet_title">Language</string>
     <string name="map_pin_selected">Selected</string>
-    <string name="map_attribution">&#169; OpenStreetMap contributors</string>
-    <string name="map_attribution_cd">Map copyright: OpenStreetMap contributors. Open the copyright page.</string>
+    <string name="map_attribution">OpenFreeMap &#169; OpenMapTiles Data from OpenStreetMap</string>
+    <string name="map_attribution_cd">Map copyright: OpenFreeMap, OpenMapTiles, data from OpenStreetMap contributors. Open the OpenStreetMap copyright page; OpenFreeMap is at openfreemap.org.</string>
 </resources>

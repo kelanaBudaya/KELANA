@@ -45,7 +45,7 @@ private const val MAP_PADDING_SIDE_PX = 100
 private const val MAP_PADDING_BOTTOM_PX = 560
 
 /**
- * The OpenStreetMap view (MapLibre, raster tiles from [TILE_URL_TEMPLATE]) with one pin per marker, shared by every
+ * The OpenStreetMap view (MapLibre, bundled muted OpenFreeMap style, see [mutedStyleJson]) with one pin per marker, shared by every
  * screen that shows a map. Pins are Compose nodes laid over the map and repositioned from the map projection whenever
  * the camera moves, so they keep the design's marker look and accessibility semantics. The camera frames
  * [framedPoints] (lat, lng pairs) once. Markers are tappable only when [onMarkerTap] is given. When [routeKeys] has two
@@ -118,7 +118,7 @@ fun OsmMap(
             }
             m.setMinZoomPreference(8.0)
             m.setMaxZoomPreference(18.0)
-            m.setStyle(Style.Builder().fromJson(osmStyleJson()))
+            m.setStyle(Style.Builder().fromJson(mutedStyleJson(context)))
             m.addOnCameraMoveListener { refreshPoints() }
             m.addOnCameraIdleListener { refreshPoints() }
             map = m
@@ -176,7 +176,7 @@ fun OsmMap(
     }
 }
 
-/** One OkHttp client for tile requests, carrying the identifying User-Agent OSM requires. */
+/** One OkHttp client for tile requests, carrying the identifying User-Agent OpenFreeMap asks for. */
 private fun installUserAgent() {
     HttpRequestUtil.setOkHttpClient(
         OkHttpClient.Builder()

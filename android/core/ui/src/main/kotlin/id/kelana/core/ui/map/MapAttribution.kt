@@ -18,7 +18,7 @@ import id.kelana.core.designsystem.theme.KelanaShapes
 import id.kelana.core.designsystem.theme.KelanaTheme
 import id.kelana.core.ui.R
 
-/** The OpenStreetMap attribution text, required by the OSM licence; opens the copyright page. Show it with every [OsmMap]. */
+/** The OpenFreeMap / OpenMapTiles / OpenStreetMap attribution; opens the OSM copyright page (ODbL credit). Show it with every [OsmMap]. */
 @Composable
 fun MapAttribution(modifier: Modifier = Modifier) {
     val uriHandler = LocalUriHandler.current
