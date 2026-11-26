@@ -6,7 +6,8 @@ package id.kelana.core.model
  * not expose the session itself.
  */
 interface EmailAuthRepository {
-    suspend fun signUp(email: String, password: String): EmailAuthResult
+    /** [displayName] is the optional nickname, stored as user metadata `full_name`; null or blank = not set. */
+    suspend fun signUp(email: String, password: String, displayName: String? = null): EmailAuthResult
 
     suspend fun signIn(email: String, password: String): EmailAuthResult
 }

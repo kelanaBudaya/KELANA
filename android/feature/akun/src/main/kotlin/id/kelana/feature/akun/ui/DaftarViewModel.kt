@@ -20,6 +20,8 @@ data class DaftarUiState(
     val email: String = "",
     val password: String = "",
     val confirmPassword: String = "",
+    val nickname: String = "",
+    val nicknameTooLong: Boolean = false,
     val passwordVisible: Boolean = false,
     val isLoading: Boolean = false,
     val emailError: EmailAuthError? = null,
@@ -56,6 +58,9 @@ class DaftarViewModel @Inject constructor(
     fun onConfirmChange(value: String) =
         _state.update { it.copy(confirmPassword = value, confirmError = null, formError = null) }
 
+    fun onNicknameChange(value: String) =
+        _state.update { it.copy(nickname = value, nicknameTooLong = false, formError = null) }
+
     fun onTogglePasswordVisible() = _state.update { it.copy(passwordVisible = !it.passwordVisible) }
 
     fun onSubmit() {
@@ -69,9 +74,16 @@ class DaftarViewModel @Inject constructor(
         } else {
             null
         }
-        if (emailError != null || passwordError != null || confirmError != null) {
+        val nickname = AuthValidation.normalizeDisplayName(current.nickname)
+        val nicknameTooLong = (nickname?.length ?: 0) > AuthValidation.MAX_DISPLAY_NAME_LENGTH
+        if (emailError != null || passwordError != null || confirmError != null || nicknameTooLong) {
             _state.update {
-                it.copy(emailError = emailError, passwordError = passwordError, confirmError = confirmError)
+                it.copy(
+                    emailError = emailError,
+                    passwordError = passwordError,
+                    confirmError = confirmError,
+                    nicknameTooLong = nicknameTooLong,
+                )
             }
             return
         }
@@ -79,7 +91,7 @@ class DaftarViewModel @Inject constructor(
             it.copy(isLoading = true, emailError = null, passwordError = null, confirmError = null, formError = null)
         }
         viewModelScope.launch {
-            when (val result = emailAuth.signUp(email, current.password)) {
+            when (val result = emailAuth.signUp(email, current.password, nickname)) {
                 EmailAuthResult.Success -> {
                     _state.update { it.copy(isLoading = false) }
                     _events.trySend(DaftarEvent.SignedIn)

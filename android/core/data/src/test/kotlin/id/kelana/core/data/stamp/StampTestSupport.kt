@@ -76,6 +76,7 @@ class FakeSession(initial: SessionState) : SessionRepository {
     val state = MutableStateFlow(initial)
     override val sessionState: Flow<SessionState> = state
     override suspend fun signInWithGoogle(idToken: String, nonce: String): AuthResult = AuthResult.Success
+    override suspend fun updateDisplayName(name: String): AuthResult = AuthResult.Success
     override suspend fun signOut() { state.value = SessionState.Guest }
 }
 

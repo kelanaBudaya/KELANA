@@ -14,7 +14,10 @@ private class FakeEmailAuthApi : EmailAuthApi {
     var signUpLeavesSession = true
     val calls = mutableListOf<String>()
 
-    override suspend fun signUp(email: String, password: String): Boolean {
+    var lastDisplayName: String? = null
+
+    override suspend fun signUp(email: String, password: String, displayName: String?): Boolean {
+        lastDisplayName = displayName
         calls += "signUp"
         error?.let { throw it }
         return signUpLeavesSession
@@ -91,6 +94,16 @@ class SupabaseEmailAuthRepositoryTest {
         assertEquals(EmailAuthResult.Success, repo.signUp(" a@b.co ", "abcdefg1"))
         assertEquals(EmailAuthResult.Success, repo.signIn("a@b.co", "abcdefg1"))
         assertEquals(listOf("signUp", "signIn"), api.calls)
+    }
+
+    @Test
+    fun signUpPassesTrimmedNicknameAndNullWhenBlank() = runTest {
+        repo.signUp("a@b.co", "abcdefg1", "  Sari  ")
+        assertEquals("Sari", api.lastDisplayName)
+        repo.signUp("a@b.co", "abcdefg1", "   ")
+        assertEquals(null, api.lastDisplayName)
+        repo.signUp("a@b.co", "abcdefg1")
+        assertEquals(null, api.lastDisplayName)
     }
 
     @Test

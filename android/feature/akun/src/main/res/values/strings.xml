@@ -102,4 +102,17 @@
     <string name="hapus_akun_error_failed">Akunmu belum bisa dihapus. Coba lagi nanti.</string>
     <string name="hapus_akun_error_not_configured">Layanan akun belum tersedia di versi ini.</string>
     <string name="hapus_akun_error_not_signed_in">Kamu perlu masuk dulu untuk menghapus akun.</string>
+    <string name="email_field_nickname">Nama panggilan</string>
+    <string name="email_nickname_hint">Opsional, maksimal %1$d karakter. Dipakai untuk sapaan.</string>
+    <string name="profil_name_hint">Maksimal %1$d karakter. Dipakai untuk sapaan.</string>
+    <string name="nickname_error_too_long">Terlalu panjang, maksimal %1$d karakter.</string>
+    <string name="profil_section_akun">AKUN</string>
+    <string name="profil_row_nama">Nama</string>
+    <string name="profil_row_nama_kosong">Belum diisi</string>
+    <string name="profil_nama_dialog_title">Ubah nama</string>
+    <string name="profil_nama_simpan">Simpan</string>
+    <string name="profil_nama_batal">Batal</string>
+    <string name="profil_nama_error_blank">Nama tidak boleh kosong.</string>
+    <string name="profil_nama_error_network">Tidak ada sinyal. Namamu belum disimpan, coba lagi.</string>
+    <string name="profil_nama_error_failed">Nama belum bisa disimpan. Coba lagi nanti.</string>
 </resources>

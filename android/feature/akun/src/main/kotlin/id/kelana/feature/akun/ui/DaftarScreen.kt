@@ -23,6 +23,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import id.kelana.core.designsystem.component.KelanaBackTopBar
 import id.kelana.core.designsystem.theme.KelanaSpacing
 import id.kelana.core.designsystem.theme.KelanaTheme
+import id.kelana.core.model.AuthValidation
 import id.kelana.feature.akun.R
 
 @Composable
@@ -45,6 +46,7 @@ internal fun DaftarScreen(
         onEmailChange = viewModel::onEmailChange,
         onPasswordChange = viewModel::onPasswordChange,
         onConfirmChange = viewModel::onConfirmChange,
+        onNicknameChange = viewModel::onNicknameChange,
         onTogglePasswordVisible = viewModel::onTogglePasswordVisible,
         onSubmit = viewModel::onSubmit,
         onBack = onBack,
@@ -59,6 +61,7 @@ internal fun DaftarContent(
     onEmailChange: (String) -> Unit,
     onPasswordChange: (String) -> Unit,
     onConfirmChange: (String) -> Unit,
+    onNicknameChange: (String) -> Unit,
     onTogglePasswordVisible: () -> Unit,
     onSubmit: () -> Unit,
     onBack: () -> Unit,
@@ -110,8 +113,22 @@ internal fun DaftarContent(
                 visible = state.passwordVisible,
                 onToggleVisible = onTogglePasswordVisible,
                 error = state.confirmError,
+                imeAction = ImeAction.Next,
+                enabled = !state.isLoading,
+            )
+            // Optional; last in the form so the required fields keep their order.
+            AuthTextField(
+                value = state.nickname,
+                onValueChange = onNicknameChange,
+                label = stringResource(R.string.email_field_nickname),
+                error = null,
                 imeAction = ImeAction.Done,
                 enabled = !state.isLoading,
+                supportingText = stringResource(
+                    if (state.nicknameTooLong) R.string.nickname_error_too_long else R.string.email_nickname_hint,
+                    AuthValidation.MAX_DISPLAY_NAME_LENGTH,
+                ),
+                isError = state.nicknameTooLong,
             )
             state.formError?.let { FormErrorText(it) }
             SubmitButton(
@@ -133,7 +150,7 @@ internal fun DaftarContent(
 @Composable
 private fun DaftarPreview() {
     KelanaTheme {
-        DaftarContent(DaftarUiState(), {}, {}, {}, {}, {}, {}, {})
+        DaftarContent(DaftarUiState(), {}, {}, {}, {}, {}, {}, {}, {})
     }
 }
 
@@ -150,7 +167,7 @@ private fun DaftarErrorPreview() {
                 passwordError = EmailAuthError.WeakPassword,
                 formError = EmailAuthError.Network,
             ),
-            {}, {}, {}, {}, {}, {}, {},
+            {}, {}, {}, {}, {}, {}, {}, {},
         )
     }
 }
@@ -161,7 +178,7 @@ private fun DaftarLoadingPreview() {
     KelanaTheme {
         DaftarContent(
             DaftarUiState(email = "nama@contoh.id", password = "rahasia123", confirmPassword = "rahasia123", isLoading = true),
-            {}, {}, {}, {}, {}, {}, {},
+            {}, {}, {}, {}, {}, {}, {}, {},
         )
     }
 }

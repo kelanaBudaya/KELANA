@@ -5,6 +5,8 @@ import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import id.kelana.core.model.AppLanguage
 import id.kelana.core.model.AppLanguageRepository
+import id.kelana.core.model.AuthResult
+import id.kelana.core.model.AuthValidation
 import id.kelana.core.model.SessionRepository
 import id.kelana.core.model.SessionState
 import id.kelana.core.model.SessionUser
@@ -24,7 +26,14 @@ data class ProfilUiState(
     val user: SessionUser? = null,
     val isSigningOut: Boolean = false,
     val language: AppLanguage = AppLanguage.ID,
+    /** Text in the "Nama" dialog; null while the dialog is closed. */
+    val nameDraft: String? = null,
+    val nameError: NameError? = null,
+    val isSavingName: Boolean = false,
 ) {
+    /** The saved display name only (no email fallback), for the "Nama" row. */
+    val displayName: String? get() = user?.displayName?.trim()?.takeIf { it.isNotEmpty() }
+
     val isGuest: Boolean get() = !isLoading && user == null
 
     /** Real name from the account, falling back to the email. Never invented. */
@@ -38,6 +47,9 @@ data class ProfilUiState(
         get() = name.orEmpty().split(' ', '@', '.').filter { it.isNotBlank() }.take(2)
             .joinToString("") { it.first().uppercase() }
 }
+
+/** Why saving the name failed; the screen maps each to a string. */
+enum class NameError { Blank, TooLong, Network, Failed }
 
 sealed interface ProfilEvent {
     /** The user is signed out: the app goes back to Jelajah. */
@@ -77,6 +89,49 @@ class ProfilViewModel @Inject constructor(
 
     /** Applies the language at once; the platform recreates the screen in the new language. */
     fun onLanguageSelected(language: AppLanguage) = appLanguage.set(language)
+
+    fun onEditName() {
+        if (_state.value.user == null) return // guests never edit a name
+        _state.update { it.copy(nameDraft = it.displayName.orEmpty(), nameError = null) }
+    }
+
+    fun onNameChange(value: String) {
+        if (_state.value.isSavingName) return
+        _state.update { it.copy(nameDraft = value, nameError = null) }
+    }
+
+    fun onDismissName() {
+        if (_state.value.isSavingName) return
+        _state.update { it.copy(nameDraft = null, nameError = null) }
+    }
+
+    fun onSaveName() {
+        val current = _state.value
+        val draft = current.nameDraft ?: return
+        if (current.isSavingName || current.user == null) return
+        val name = draft.trim()
+        val invalid = when {
+            name.isEmpty() -> NameError.Blank
+            name.length > AuthValidation.MAX_DISPLAY_NAME_LENGTH -> NameError.TooLong
+            else -> null
+        }
+        if (invalid != null) {
+            _state.update { it.copy(nameError = invalid) }
+            return
+        }
+        _state.update { it.copy(isSavingName = true, nameError = null) }
+        viewModelScope.launch {
+            val result = session.updateDisplayName(name)
+            _state.update {
+                when (result) {
+                    // The new name reaches the header through sessionState.
+                    AuthResult.Success -> it.copy(isSavingName = false, nameDraft = null, nameError = null)
+                    AuthResult.NetworkError -> it.copy(isSavingName = false, nameError = NameError.Network)
+                    else -> it.copy(isSavingName = false, nameError = NameError.Failed)
+                }
+            }
+        }
+    }
 
     fun onSignOut() {
         if (_state.value.isSigningOut || _state.value.user == null) return
