@@ -5,7 +5,7 @@
     <string name="peta_filter_open_today">Buka hari ini</string>
     <string name="peta_filter_has_cap">Ada cap</string>
     <string name="peta_hint">Ketuk titik untuk melihat info tempat.</string>
-    <string name="peta_footnote">Peta ilustrasi, tidak sesuai skala.</string>
+    <string name="peta_footnote">Peta dari OpenStreetMap.</string>
     <string name="peta_filter_no_match">Tidak ada tempat untuk filter ini. Pilih filter lain.</string>
     <string name="peta_pin_selected">Dipilih</string>
     <string name="peta_card_hours_from">Buka %1$s</string>
@@ -26,4 +26,6 @@
     <string name="peta_error_title">Peta belum bisa dimuat</string>
     <string name="peta_error_body">Periksa sambunganmu, lalu coba lagi.</string>
     <string name="peta_retry">Coba lagi</string>
+    <string name="peta_attribution">&#169; OpenStreetMap contributors</string>
+    <string name="peta_attribution_cd">Hak cipta peta: OpenStreetMap contributors. Buka halaman hak cipta.</string>
 </resources>

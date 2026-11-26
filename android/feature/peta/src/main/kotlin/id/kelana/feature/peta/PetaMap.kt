@@ -6,11 +6,8 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.defaultMinSize
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -18,13 +15,11 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.graphicsLayer
-import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.Role
@@ -38,51 +33,6 @@ import androidx.compose.ui.unit.dp
 import id.kelana.core.designsystem.theme.KelanaRadii
 import id.kelana.core.designsystem.theme.KelanaTheme
 import id.kelana.core.model.PlaceCategory
-
-/** Width of the pin box (drop plus label), PROVISIONAL, matches [PIN_MIN_DX_DP] minus a gap. */
-private val PinWidth = 76.dp
-private val DropSize = 44.dp
-
-/**
- * The illustrated map (vector drawable stretched over the whole screen) with one tappable pin per place.
- * Pin positions come from [projectToUnit] and [layoutPins]; see PetaProjection.kt.
- */
-@Composable
-internal fun PetaMap(
-    pins: List<PetaPlace>,
-    selectedId: String?,
-    onPinTap: (String) -> Unit,
-    modifier: Modifier = Modifier,
-) {
-    BoxWithConstraints(modifier.fillMaxSize()) {
-        val widthDp = maxWidth.value
-        val heightDp = maxHeight.value
-        Image(
-            painter = painterResource(R.drawable.peta_map_bg),
-            contentDescription = null,
-            modifier = Modifier.fillMaxSize(),
-            contentScale = ContentScale.FillBounds,
-        )
-        val positions = remember(pins, widthDp, heightDp) {
-            val seeds = pins.map {
-                val p = projectToUnit(it.place.lat, it.place.lng)
-                PinSeed(it.place.id, p.x, p.y)
-            }
-            layoutPins(seeds, widthDp, heightDp).associateBy { it.key }
-        }
-        // The selected pin is drawn last so it stays on top of its neighbours.
-        val ordered = pins.sortedBy { it.place.id == selectedId }
-        for (pin in ordered) {
-            val pos = positions[pin.place.id] ?: continue
-            MapPin(
-                place = pin,
-                selected = pin.place.id == selectedId,
-                onClick = { onPinTap(pin.place.id) },
-                modifier = Modifier.offset(x = (pos.xDp - PinWidth.value / 2).dp, y = (pos.yDp - DropSize.value / 2).dp),
-            )
-        }
-    }
-}
 
 @DrawableRes
 private fun PinGlyph.drawable(): Int = when (this) {
