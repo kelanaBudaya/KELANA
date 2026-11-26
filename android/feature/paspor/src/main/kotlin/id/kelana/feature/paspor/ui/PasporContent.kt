@@ -65,7 +65,7 @@ import id.kelana.core.designsystem.R as DsR
 
 private val IdLocale: Locale = Locale.forLanguageTag("id-ID")
 private val StickerWidth = 96.dp
-private val StickerHeight = 70.dp
+private val StickerHeight = 80.dp
 
 internal class PasporActions(
     val onBack: () -> Unit,
