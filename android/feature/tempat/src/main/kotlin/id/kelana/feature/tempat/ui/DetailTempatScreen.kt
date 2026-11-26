@@ -38,7 +38,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.layout.ContentScale
+import coil3.compose.AsyncImage
 import androidx.compose.ui.layout.layout
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -150,6 +152,7 @@ internal fun DetailTempatScreen(
                     onAllStories = { requireLogin { navigate(CeritaRoute) } },
                     events = state.events,
                     photoCount = state.photoCount,
+                    coverUrl = state.coverUrl,
                     onOpenEvent = { navigate(DetailPentasRoute(it)) },
                     videosSlot = { PlaceVideosSection() },
                     modifier = Modifier.padding(padding),
@@ -174,9 +177,10 @@ internal fun DetailTempatContent(
     onOpenEvent: (String) -> Unit = {},
     videosSlot: @Composable () -> Unit = {},
     photoCount: Int = 0,
+    coverUrl: String? = null,
 ) {
     Column(modifier.fillMaxSize().verticalScroll(rememberScrollState())) {
-        PlaceHeader(place = place, photoCount = photoCount, onBack = onBack, onPhotos = onPhotos)
+        PlaceHeader(place = place, photoCount = photoCount, coverUrl = coverUrl, onBack = onBack, onPhotos = onPhotos)
         TitleCard(place)
         CapBanner(capCode = place.capCode, onStamp = onStamp)
         InfoResmiCard(place = place, today = today, onTicketSite = onTicketSite)
@@ -190,18 +194,37 @@ internal fun DetailTempatContent(
 
 /** Illustrated header (250 dp) with the round back and save buttons and the "Lihat N foto" pill (only when there are photos). */
 @Composable
-private fun PlaceHeader(place: Place, photoCount: Int, onBack: () -> Unit, onPhotos: () -> Unit) {
+private fun PlaceHeader(place: Place, photoCount: Int, coverUrl: String?, onBack: () -> Unit, onPhotos: () -> Unit) {
     val colors = KelanaTheme.colors
     // PROVISIONAL: visual-only toggle. Saving places is not wired to any storage yet.
     var saved by rememberSaveable { mutableStateOf(false) }
     Box(Modifier.fillMaxWidth().height(HeaderHeight).background(colors.skyText)) {
-        // PROVISIONAL: one shared illustration for every place until per-place covers exist.
-        Image(
-            painter = painterResource(R.drawable.tempat_cover_art),
+        // Cover = the place's first gallery photo; the shared illustration stays as placeholder, error and no-photo
+        // fallback. Attribution is deliberately NOT drawn here (clean header): CC licences require it where the image
+        // is used, so the cover opens the gallery (same destination as the chip), which shows it with every photo.
+        val fallback = painterResource(R.drawable.tempat_cover_art)
+        AsyncImage(
+            model = coverUrl,
             contentDescription = stringResource(R.string.tempat_header_cover, place.name),
-            modifier = Modifier.fillMaxSize(),
+            modifier = Modifier.fillMaxSize().then(
+                if (coverUrl != null && photoCount > 0) Modifier.clickable(role = Role.Button, onClick = onPhotos) else Modifier,
+            ),
             contentScale = ContentScale.Crop,
+            placeholder = fallback,
+            error = fallback,
+            fallback = fallback,
         )
+        if (coverUrl != null) {
+            // Scrims keep the buttons (top) and the photo chip (bottom) legible on any photo.
+            Box(
+                Modifier.fillMaxWidth().height(96.dp).align(Alignment.TopStart)
+                    .background(Brush.verticalGradient(listOf(colors.inkDeep.copy(alpha = 0.55f), Color.Transparent))),
+            )
+            Box(
+                Modifier.fillMaxWidth().height(96.dp).align(Alignment.BottomStart)
+                    .background(Brush.verticalGradient(listOf(Color.Transparent, colors.inkDeep.copy(alpha = 0.55f)))),
+            )
+        }
         RoundIconButton(
             iconRes = R.drawable.tempat_ic_chevron_back,
             description = stringResource(R.string.tempat_back),

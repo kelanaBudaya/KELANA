@@ -37,6 +37,8 @@ data class DetailTempatUiState(
     val events: List<Event> = emptyList(),
     /** Published open-licensed photos of [place]; 0 while loading, on error, or when there are none (chip hidden). */
     val photoCount: Int = 0,
+    /** Full-size URL of the first gallery photo (sort order 0) for the header cover; null = show the illustration. */
+    val coverUrl: String? = null,
 )
 
 /**
@@ -62,11 +64,11 @@ class DetailTempatViewModel(
 
     val uiState: StateFlow<DetailTempatUiState> = reload
         .flatMapLatest {
-            combine(places.place(placeId), hostedEvents(), photoCount()) { place, hosted, photoCount ->
+            combine(places.place(placeId), hostedEvents(), photoSummary()) { place, hosted, photo ->
                     if (place == null) {
                         DetailTempatUiState(PlaceLoadStatus.NotFound)
                     } else {
-                        DetailTempatUiState(PlaceLoadStatus.Loaded, place, hosted, photoCount)
+                        DetailTempatUiState(PlaceLoadStatus.Loaded, place, hosted, photo.first, photo.second)
                     }
                 }
                 .onStart { emit(DetailTempatUiState(PlaceLoadStatus.Loading)) }
@@ -95,14 +97,14 @@ class DetailTempatViewModel(
             .onStart { emit(emptyList()) }
     }
 
-    /** Optional content: any failure counts as 0 so the header chip simply stays hidden. */
-    private fun photoCount(): Flow<Int> = photos.photos(placeId)
-        .map { it.size }
+    /** Optional content: (count, cover url). Any failure counts as (0, null): chip hidden, illustration cover. */
+    private fun photoSummary(): Flow<Pair<Int, String?>> = photos.photos(placeId)
+        .map { list -> list.size to list.firstOrNull()?.url }
         .catch { e ->
             if (e is CancellationException) throw e
-            emit(0)
+            emit(0 to null)
         }
-        .onStart { emit(0) }
+        .onStart { emit(0 to null) }
 
     private fun nextDate(event: Event, today: LocalDate): LocalDate? =
         when (val r = event.schedule.value.recurrence) {

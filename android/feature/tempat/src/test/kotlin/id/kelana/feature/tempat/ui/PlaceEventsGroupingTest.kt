@@ -36,4 +36,27 @@ class PlaceEventsGroupingTest {
         assertEquals("Selasa–Sabtu", weekdaysLabel(DayOfWeek.values().filter { it.value in 2..6 }))
         assertEquals("Selasa, Kamis", weekdaysLabel(listOf(DayOfWeek.THURSDAY, DayOfWeek.TUESDAY)))
     }
+
+    private val tueToSat = listOf(
+        weekly("tue", DayOfWeek.TUESDAY), weekly("wed", DayOfWeek.WEDNESDAY), weekly("thu", DayOfWeek.THURSDAY),
+        weekly("fri", DayOfWeek.FRIDAY), weekly("sat", DayOfWeek.SATURDAY),
+    )
+
+    @Test
+    fun `group opens today's member when today is one of the days`() {
+        // 2026-11-26 is a Thursday.
+        assertEquals("thu", groupTarget(EventGroup(tueToSat), LocalDate.of(2026, 11, 26)).id)
+    }
+
+    @Test
+    fun `group opens the first day of next week when today is after the last day`() {
+        // 2026-11-29 is a Sunday: next occurrence is Tuesday.
+        assertEquals("tue", groupTarget(EventGroup(tueToSat), LocalDate.of(2026, 11, 29)).id)
+    }
+
+    @Test
+    fun `single event is its own target`() {
+        val once = sampleHostedEvent("o", "Festival", Recurrence.Once(LocalDate.of(2026, 12, 1)), null)
+        assertEquals("o", groupTarget(EventGroup(listOf(once)), LocalDate.of(2026, 11, 26)).id)
+    }
 }

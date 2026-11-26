@@ -32,6 +32,7 @@ import id.kelana.feature.tempat.R
 import java.time.DayOfWeek
 import java.time.LocalDate
 import java.time.LocalTime
+import java.time.ZoneId
 import java.time.format.DateTimeFormatter
 import java.time.format.TextStyle
 import java.util.Locale
@@ -48,6 +49,7 @@ internal fun PlaceEventsSection(
     events: List<Event>,
     onOpenEvent: (String) -> Unit,
     modifier: Modifier = Modifier,
+    today: LocalDate = LocalDate.now(ZoneId.of("Asia/Jakarta")),
 ) {
     if (events.isEmpty()) return
     val colors = KelanaTheme.colors
@@ -63,7 +65,7 @@ internal fun PlaceEventsSection(
             verticalArrangement = Arrangement.spacedBy(10.dp),
         ) {
             groupWeeklyEvents(events).forEach { group ->
-                EventItem(group = group, onClick = { onOpenEvent(group.events.first().id) })
+                EventItem(group = group, onClick = { onOpenEvent(groupTarget(group, today).id) })
             }
         }
     }
@@ -118,6 +120,13 @@ internal fun groupWeeklyEvents(events: List<Event>): List<EventGroup> {
         EventGroup(grouped.getValue(key).sortedBy { (it.schedule.value.recurrence as Recurrence.Weekly).weekday })
     }
 }
+
+/**
+ * The member a grouped row opens: the one whose next occurrence (on or after [today]) is soonest, so the detail
+ * shows the right weekday. A single event, or a row without a computable occurrence, falls back to the first member.
+ */
+internal fun groupTarget(group: EventGroup, today: LocalDate): Event =
+    group.events.minByOrNull { e -> e.nextOccurrences(today, 1).firstOrNull() ?: LocalDate.MAX } ?: group.events.first()
 
 /** "Setiap hari · 19.30", "Setiap Selasa–Sabtu · 20.00" or "Jumat, 20 November · 19.00". */
 @Composable
