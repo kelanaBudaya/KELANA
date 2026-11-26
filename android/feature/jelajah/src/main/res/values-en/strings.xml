@@ -18,8 +18,8 @@
     <string name="tile_museum">Museum</string>
     <string name="tile_candi">Temple</string>
     <string name="tile_tari">Dance</string>
-    <string name="tile_topeng">Mask</string>
-    <string name="tile_gamelan">Gamelan</string>
+    <string name="tile_pentas">Performances</string>
+    <string name="tile_seni_musik">Traditional Musics</string>
     <string name="tile_tiket">Official tickets</string>
     <string name="tile_peta">Map</string>
     <string name="tile_semua">All</string>
@@ -49,8 +49,8 @@
     <string name="kategori_subtitle_museum">%1$d museums in Yogyakarta</string>
     <string name="kategori_subtitle_candi">Sites, reliefs and their stories</string>
     <string name="kategori_subtitle_tari">Performances with official schedules</string>
-    <string name="kategori_subtitle_topeng">Mask performances and collections</string>
-    <string name="kategori_subtitle_gamelan">Wayang, karawitan and stage music</string>
+    <string name="kategori_subtitle_pentas">Traditional performances and cultural stage shows</string>
+    <string name="kategori_subtitle_seni_musik">Wayang, karawitan and stage music</string>
     <string name="kategori_subtitle_other">Selected cultural places</string>
     <string name="kategori_unknown">Category</string>
     <string name="filter_open_today">Open today</string>

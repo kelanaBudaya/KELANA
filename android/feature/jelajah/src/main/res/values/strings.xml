@@ -18,8 +18,8 @@
     <string name="tile_museum">Museum</string>
     <string name="tile_candi">Candi</string>
     <string name="tile_tari">Tari</string>
-    <string name="tile_topeng">Topeng</string>
-    <string name="tile_gamelan">Gamelan</string>
+    <string name="tile_pentas">Pentas</string>
+    <string name="tile_seni_musik">Seni Musik</string>
     <string name="tile_tiket">Tiket resmi</string>
     <string name="tile_peta">Peta</string>
     <string name="tile_semua">Semua</string>
@@ -49,8 +49,8 @@
     <string name="kategori_subtitle_museum">%1$d museum di Yogyakarta</string>
     <string name="kategori_subtitle_candi">Situs, relief, dan kisahnya</string>
     <string name="kategori_subtitle_tari">Pentas dengan jadwal resmi</string>
-    <string name="kategori_subtitle_topeng">Pentas dan koleksi topeng</string>
-    <string name="kategori_subtitle_gamelan">Wayang, karawitan, dan iringan pentas</string>
+    <string name="kategori_subtitle_pentas">Pertunjukan tradisional dan pentas budaya</string>
+    <string name="kategori_subtitle_seni_musik">Wayang, karawitan, dan iringan pentas</string>
     <string name="kategori_subtitle_other">Tempat budaya pilihan</string>
     <string name="kategori_unknown">Kategori</string>
     <string name="filter_open_today">Buka hari ini</string>

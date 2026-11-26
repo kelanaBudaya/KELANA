@@ -599,8 +599,8 @@ export type Database = {
         | "museum"
         | "candi"
         | "tari"
-        | "topeng"
-        | "gamelan"
+        | "pentas"
+        | "seni_musik"
         | "kerajinan"
         | "lainnya"
       recurrence_kind: "once" | "weekly" | "daily"
@@ -743,8 +743,8 @@ export const Constants = {
         "museum",
         "candi",
         "tari",
-        "topeng",
-        "gamelan",
+        "pentas",
+        "seni_musik",
         "kerajinan",
         "lainnya",
       ],

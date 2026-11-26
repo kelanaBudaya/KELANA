@@ -132,7 +132,7 @@ class ViewModelTests {
 
     @Test fun tilesRouteByRouteObject() {
         assertEquals(KategoriRoute("museum"), tileRoute(HomeTile.Museum))
-        assertEquals(KategoriRoute("topeng"), tileRoute(HomeTile.Topeng))
+        assertEquals(KategoriRoute("pentas"), tileRoute(HomeTile.Pentas))
         assertEquals(SemuaTempatRoute, tileRoute(HomeTile.Semua))
         assertEquals(PetaRoute, tileRoute(HomeTile.Peta))
         assertEquals(TiketRoute, tileRoute(HomeTile.Tiket))
@@ -208,7 +208,7 @@ class ViewModelTests {
     }
 
     @Test fun kategoriWithoutPlacesIsEmpty() = runTest {
-        val vm = KategoriViewModel(places, PlaceCategory.Topeng) { friday }
+        val vm = KategoriViewModel(places, PlaceCategory.Pentas) { friday }
         vm.state.test {
             val s = awaitUntil { !it.isLoading }
             assertTrue(s.isCategoryEmpty)
@@ -273,8 +273,8 @@ class ViewModelTests {
         val vm = SemuaTempatViewModel(places) { friday }
         vm.state.test {
             awaitUntil { !it.isLoading }
-            vm.onCategoryChange(PlaceCategory.Topeng)
-            assertTrue(awaitUntil { it.category == PlaceCategory.Topeng }.isEmpty)
+            vm.onCategoryChange(PlaceCategory.Pentas)
+            assertTrue(awaitUntil { it.category == PlaceCategory.Pentas }.isEmpty)
             cancelAndIgnoreRemainingEvents()
         }
     }

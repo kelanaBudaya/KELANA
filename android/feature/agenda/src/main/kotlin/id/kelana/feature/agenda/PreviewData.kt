@@ -40,7 +40,7 @@ internal object PreviewData {
         id = "macapat-sabtu",
         placeName = "Keraton Yogyakarta",
         title = "Macapat, Bangsal Srimanganti",
-        category = PlaceCategory.Gamelan,
+        category = PlaceCategory.SeniMusik,
         performers = emptyList(),
         arrivalAdviceMin = null,
         arrivalAdviceMax = null,

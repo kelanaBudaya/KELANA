@@ -74,7 +74,7 @@ internal fun categoryArt(category: PlaceCategory, isEvent: Boolean): Int = when 
     category == PlaceCategory.Museum -> R.drawable.rencana_cat_museum
     category == PlaceCategory.Candi -> R.drawable.rencana_cat_candi
     category == PlaceCategory.Kerajinan -> R.drawable.rencana_cat_kerajinan
-    category == PlaceCategory.Topeng -> R.drawable.rencana_cat_topeng
+    category == PlaceCategory.Pentas -> R.drawable.rencana_cat_pentas
     category == PlaceCategory.Lainnya -> R.drawable.rencana_cat_keraton
     else -> R.drawable.rencana_cat_pentas
 }

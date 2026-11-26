@@ -58,8 +58,8 @@ class JelajahContentTest {
     fun home_tileTap_reportsTile() {
         val tapped = mutableListOf<HomeTile>()
         rule.setContent { KelanaTheme { HomeContent(PreviewData.homeState(), "", callbacks(onTile = { tapped += it })) } }
-        rule.onNodeWithText(str(HomeTile.Topeng.label)).performClick()
-        assertEquals(listOf(HomeTile.Topeng), tapped)
+        rule.onNodeWithText(str(HomeTile.Pentas.label)).performClick()
+        assertEquals(listOf(HomeTile.Pentas), tapped)
     }
 
     @Test
@@ -146,15 +146,15 @@ class JelajahContentTest {
     }
 
     @Test
-    fun kategoriTopeng_empty_showsKabariAkuState() {
+    fun kategoriPentas_empty_showsKabariAkuState() {
         var notified = 0
-        val state = KategoriUiState(category = PlaceCategory.Topeng, isLoading = false, totalCount = 0)
+        val state = KategoriUiState(category = PlaceCategory.Pentas, isLoading = false, totalCount = 0)
         rule.setContent {
             KelanaTheme {
                 KategoriContent(state, onBack = {}, onOpenTodayChange = {}, onPlace = {}, onNotifyMe = { notified++ })
             }
         }
-        rule.onNodeWithText(str(R.string.kategori_empty_title, str(id.kelana.core.ui.R.string.category_topeng).lowercase())).assertIsDisplayed()
+        rule.onNodeWithText(str(R.string.kategori_empty_title, str(id.kelana.core.ui.R.string.category_pentas).lowercase())).assertIsDisplayed()
         rule.onNodeWithText(str(R.string.kategori_empty_body)).assertIsDisplayed()
         rule.onNodeWithText(str(R.string.kabari_aku)).performClick()
         assertEquals(1, notified)

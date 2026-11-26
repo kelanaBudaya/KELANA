@@ -68,7 +68,6 @@
     <string name="rencana_minat_pentas">Shows</string>
     <string name="rencana_minat_kerajinan">Crafts</string>
     <string name="rencana_minat_keraton">Sites &amp; more</string>
-    <string name="rencana_minat_topeng">Masks</string>
     <string name="rencana_waktu_title">What time do you start and finish?</string>
     <string name="rencana_waktu_hint">An evening show is included if it falls inside this range.</string>
     <string name="rencana_waktu_start">Start</string>
