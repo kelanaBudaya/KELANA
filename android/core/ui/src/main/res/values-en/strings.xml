@@ -15,4 +15,21 @@
     <string name="language_name_id">Bahasa Indonesia</string>
     <string name="language_name_en">English</string>
     <string name="language_sheet_title">Language</string>
+    <string name="map_pin_selected">Selected</string>
+    <plurals name="map_cluster_cd">
+        <item quantity="one">%1$d place: %2$s</item>
+        <item quantity="other">%1$d places: %2$s</item>
+    </plurals>
+    <string name="map_cluster_names_more">%1$s, and %2$d more</string>
+    <string name="map_cluster_action_zoom">Zoom in</string>
+    <string name="map_cluster_action_list">Show list of places</string>
+    <plurals name="map_cluster_sheet_title">
+        <item quantity="one">%d place at this spot</item>
+        <item quantity="other">%d places at this spot</item>
+    </plurals>
+    <string name="map_cluster_count_overflow">99+</string>
+    <string name="map_attribution">OpenFreeMap &#169; OpenMapTiles Data from OpenStreetMap</string>
+    <string name="map_attribution_title">Map copyright</string>
+    <string name="map_attribution_open">Open OpenStreetMap copyright</string>
+    <string name="map_attribution_close">Close</string>
 </resources>

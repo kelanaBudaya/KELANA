@@ -6,18 +6,15 @@ import android.content.Intent
 import android.net.Uri
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.heightIn
-import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.statusBarsPadding
@@ -28,27 +25,17 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.draw.drawBehind
-import androidx.compose.ui.draw.rotate
-import androidx.compose.ui.geometry.Offset
-import androidx.compose.ui.graphics.StrokeCap
-import androidx.compose.ui.graphics.StrokeJoin
-import androidx.annotation.DrawableRes
-import androidx.compose.ui.graphics.drawscope.Stroke
-import androidx.compose.ui.graphics.Path
-import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -57,6 +44,9 @@ import id.kelana.core.designsystem.theme.KelanaSizes
 import id.kelana.core.designsystem.theme.KelanaTheme
 import id.kelana.core.model.PlanStop
 import id.kelana.core.ui.formatClock
+import id.kelana.core.ui.map.MapMarker
+import id.kelana.core.ui.map.OsmMap
+import id.kelana.core.ui.map.pinLabel
 import id.kelana.feature.rencana.R
 
 @Composable
@@ -78,9 +68,8 @@ private fun openInMapsApp(context: Context, stop: PlanStop) {
 }
 
 /**
- * Route view (PetaRuteIlustratif.dc.html). PROVISIONAL: the map SDK (MapLibre) is owned by :feature:peta and may not be
- * imported here, so the map area is a flat placeholder with the numbered markers placed from the stops' coordinates
- * (schematic, not a real map). Replace the placeholder box with the shared map component when it exists.
+ * Route view (PetaRuteIlustratif.dc.html) on the same OpenStreetMap view as the Peta tab ([OsmMap], from :core:ui):
+ * numbered pins for the stops, joined in plan order by the orange route line; the next stop is the selected pin.
  */
 @Composable
 internal fun PetaRuteContent(
@@ -90,20 +79,7 @@ internal fun PetaRuteContent(
 ) {
     val colors = KelanaTheme.colors
     Box(Modifier.fillMaxSize().background(colors.mapBackdrop)) {
-        Image(painterResource(R.drawable.rencana_map_base), contentDescription = null, modifier = Modifier.fillMaxSize(), contentScale = ContentScale.Crop)
-        SchematicMap(state, Modifier.fillMaxSize())
-        Text(
-            stringResource(R.string.rencana_map_placeholder),
-            modifier = Modifier
-                .align(Alignment.TopCenter)
-                .statusBarsPadding()
-                .padding(top = 20.dp)
-                .clip(KelanaShapes.chip)
-                .background(colors.surface)
-                .padding(horizontal = 12.dp, vertical = 6.dp),
-            style = MaterialTheme.typography.labelMedium,
-            color = colors.muted,
-        )
+        RouteMap(state, Modifier.fillMaxSize())
         Box(
             modifier = Modifier
                 .statusBarsPadding()
@@ -195,85 +171,39 @@ private fun arrivalLine(stop: PlanStop): String? {
     return stringResource(R.string.rencana_map_arrive_before, formatClock(schedule.value.start.minusMinutes(advice.toLong())))
 }
 
-/**
- * Pins placed by the relative position of the stops' coordinates (schematic, not a real map), joined by the route line
- * in stop order (orange, 4 dp, round, as in the artifact).
- */
+/** The stops as numbered pins ("1 Vredeburg") with the route line in stop order. Pins are not tappable here. */
 @Composable
-private fun SchematicMap(state: PetaRuteUiState, modifier: Modifier) {
+private fun RouteMap(state: PetaRuteUiState, modifier: Modifier) {
     val colors = KelanaTheme.colors
     val stops = state.stops
-    if (stops.isEmpty()) return
-    val routeColor = colors.accentOrange
-    BoxWithConstraints(modifier.padding(horizontal = 48.dp, vertical = 120.dp)) {
-        val minLat = stops.minOf { it.lat }
-        val maxLat = stops.maxOf { it.lat }
-        val minLng = stops.minOf { it.lng }
-        val maxLng = stops.maxOf { it.lng }
-        val nextIndex = state.next?.let { n -> stops.indexOfFirst { it.key == n.key } } ?: -1
-        val fractions = stops.map { stop ->
-            val fx = if (maxLng > minLng) ((stop.lng - minLng) / (maxLng - minLng)).toFloat() else 0.5f
-            val fy = if (maxLat > minLat) ((maxLat - stop.lat) / (maxLat - minLat)).toFloat() else 0.5f
-            fx to fy
-        }
-        Box(
-            Modifier.fillMaxSize().drawBehind {
-                if (fractions.size < 2) return@drawBehind
-                val path = Path()
-                fractions.forEachIndexed { i, (fx, fy) ->
-                    val x = (size.width - MarkerWidth.toPx()) * fx + MarkerWidth.toPx() / 2
-                    val y = (size.height - MarkerHeight.toPx()) * fy + PinSize.toPx() / 2
-                    if (i == 0) path.moveTo(x, y) else path.lineTo(x, y)
-                }
-                drawPath(path, routeColor, style = Stroke(width = 4.dp.toPx(), cap = StrokeCap.Round, join = StrokeJoin.Round))
-            },
-        )
-        stops.forEachIndexed { index, stop ->
-            val (fx, fy) = fractions[index]
-            val color = when {
-                nextIndex >= 0 && index < nextIndex -> colors.successText
-                index == nextIndex -> colors.accentOrange
-                else -> colors.primary
-            }
-            Marker(
-                number = index + 1,
-                label = stop.placeName,
-                art = categoryArt(stop.category, stop.isEvent),
-                color = color,
-                modifier = Modifier.offset(x = (maxWidth - MarkerWidth) * fx, y = (maxHeight - MarkerHeight) * fy),
+    val nextKey = state.next?.key
+    val nextIndex = stops.indexOfFirst { it.key == nextKey }
+    val markers = remember(stops, nextIndex, colors) {
+        stops.mapIndexed { index, stop ->
+            MapMarker(
+                key = stop.key,
+                lat = stop.lat,
+                lng = stop.lng,
+                label = "${index + 1} ${pinLabel(stop.placeName)}",
+                description = "${index + 1}. ${stop.eventTitle ?: stop.placeName}",
+                glyph = categoryArt(stop.category, stop.isEvent),
+                accent = when {
+                    nextIndex >= 0 && index < nextIndex -> colors.successText
+                    index == nextIndex -> colors.accentOrange
+                    else -> colors.primary
+                },
             )
         }
     }
-}
-
-private val MarkerWidth: Dp = 96.dp
-private val MarkerHeight: Dp = 72.dp
-private val PinSize: Dp = 44.dp
-
-/** Teardrop pin (44 dp, 3 dp border, corner 4 dp at the point) with the category icon, and a "n Name" pill below. */
-@Composable
-private fun Marker(number: Int, label: String, @DrawableRes art: Int, color: Color, modifier: Modifier) {
-    val colors = KelanaTheme.colors
-    val pin = RoundedCornerShape(topStart = 22.dp, topEnd = 22.dp, bottomEnd = 22.dp, bottomStart = 4.dp)
-    Column(modifier.size(width = MarkerWidth, height = MarkerHeight), horizontalAlignment = Alignment.CenterHorizontally) {
-        Box(
-            modifier = Modifier
-                .size(PinSize)
-                .rotate(-45f)
-                .clip(pin)
-                .background(colors.surface)
-                .border(3.dp, color, pin),
-            contentAlignment = Alignment.Center,
-        ) {
-            Image(painterResource(art), contentDescription = null, modifier = Modifier.size(26.dp).rotate(45f))
-        }
-        Text(
-            text = "$number $label",
-            modifier = Modifier.padding(top = 6.dp).clip(KelanaShapes.chip).background(color).padding(horizontal = 8.dp, vertical = 2.dp),
-            style = MaterialTheme.typography.labelSmall.copy(fontWeight = FontWeight.ExtraBold),
-            color = colors.white,
-            maxLines = 1,
-            overflow = TextOverflow.Ellipsis,
+    val framed = remember(stops) { stops.map { it.lat to it.lng } }
+    val routePath = remember(state.routePath) { state.routePath.map { it.lat to it.lng } }
+    Box(modifier) {
+        OsmMap(
+            markers = markers,
+            framedPoints = framed,
+            selectedKey = nextKey,
+            routePath = routePath,
+            routeColor = colors.accentOrange,
         )
     }
 }

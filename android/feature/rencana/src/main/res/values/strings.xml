@@ -131,7 +131,6 @@
     <string name="rencana_reminder_one_hour">1 jam sebelum mulai</string>
     <string name="rencana_reminder_thirty">30 menit sebelum mulai</string>
     <string name="rencana_reminder_calendar">Tambahkan juga ke kalender ponsel</string>
-    <string name="rencana_map_placeholder">Peta menyusul (tampilan skematis)</string>
     <string name="rencana_map_next">BERIKUTNYA</string>
     <string name="rencana_map_open_app">Buka di aplikasi peta</string>
     <string name="rencana_map_empty">Belum ada rute. Susun rencana dulu.</string>

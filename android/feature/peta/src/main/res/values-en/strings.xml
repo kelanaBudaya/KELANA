@@ -7,7 +7,6 @@
     <string name="peta_hint">Tap a point to see place info.</string>
     <string name="peta_footnote">Map data from OpenStreetMap.</string>
     <string name="peta_filter_no_match">No places match this filter. Pick another one.</string>
-    <string name="peta_pin_selected">Selected</string>
     <string name="peta_card_hours_from">Opens %1$s</string>
     <string name="peta_card_hours_closed">Closed today</string>
     <string name="peta_card_hours_checking">Opening hours being checked</string>
@@ -25,6 +24,4 @@
     <string name="peta_error_title">The map could not load</string>
     <string name="peta_error_body">Check your connection, then try again.</string>
     <string name="peta_retry">Try again</string>
-    <string name="peta_attribution">&#169; OpenStreetMap contributors</string>
-    <string name="peta_attribution_cd">Map copyright: OpenStreetMap contributors. Open the copyright page.</string>
 </resources>

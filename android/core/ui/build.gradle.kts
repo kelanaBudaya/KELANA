@@ -11,7 +11,10 @@ dependencies {
     implementation(libs.androidx.hilt.navigation.compose)
     implementation(libs.androidx.lifecycle.viewmodel.compose)
     implementation(libs.androidx.browser)
+    implementation(libs.maplibre.android)
+    implementation(libs.okhttp)
 
     testImplementation(libs.kotlinx.coroutines.test)
     testImplementation(libs.turbine)
+    testImplementation(libs.kotlinx.serialization.json)
 }

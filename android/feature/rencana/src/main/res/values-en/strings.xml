@@ -131,7 +131,6 @@
     <string name="rencana_reminder_one_hour">1 hour before it starts</string>
     <string name="rencana_reminder_thirty">30 minutes before it starts</string>
     <string name="rencana_reminder_calendar">Also add to the phone calendar</string>
-    <string name="rencana_map_placeholder">Map coming (schematic view)</string>
     <string name="rencana_map_next">NEXT UP</string>
     <string name="rencana_map_open_app">Open in map app</string>
     <string name="rencana_map_empty">No route yet. Build a plan first.</string>

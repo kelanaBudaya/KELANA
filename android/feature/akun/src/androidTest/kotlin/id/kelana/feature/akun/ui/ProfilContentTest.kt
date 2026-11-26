@@ -72,7 +72,8 @@ class ProfilContentTest {
             R.string.profil_row_hapus,
             R.string.profil_keluar,
         ).forEach { rule.onNodeWithText(str(it)).performScrollTo().performClick() }
-        rule.onNodeWithContentDescription(str(R.string.profil_back)).performClick()
+        // The header scrolls with the list, so after scrolling down to "Keluar" it has to be scrolled back into view.
+        rule.onNodeWithContentDescription(str(R.string.profil_back)).performScrollTo().performClick()
         assertEquals(listOf("paspor", "daerah", "notifikasi", "hapus", "keluar", "back"), calls)
     }
 
@@ -88,6 +89,21 @@ class ProfilContentTest {
         show(ProfilUiState(isLoading = false, user = null))
         rule.onNodeWithText(str(R.string.profil_row_bahasa)).performScrollTo().assertIsDisplayed()
     }
+
+    private fun assertAboutMapRowOpensAndClosesTheCredit(state: ProfilUiState) {
+        show(state)
+        rule.onNodeWithText(str(R.string.profil_row_peta)).performScrollTo().performClick()
+        rule.onNodeWithText(str(id.kelana.core.ui.R.string.map_attribution)).assertIsDisplayed()
+        rule.onNodeWithText(str(id.kelana.core.ui.R.string.map_attribution_close)).performClick()
+        rule.onNodeWithText(str(id.kelana.core.ui.R.string.map_attribution)).assertDoesNotExist()
+    }
+
+    @Test
+    fun signedIn_aboutMapRow_opensTheMapCreditDialog() = assertAboutMapRowOpensAndClosesTheCredit(signedIn)
+
+    @Test
+    fun guest_aboutMapRow_opensTheMapCreditDialog() =
+        assertAboutMapRowOpensAndClosesTheCredit(ProfilUiState(isLoading = false, user = null))
 
     @Test
     fun signingOut_disablesKeluar() {

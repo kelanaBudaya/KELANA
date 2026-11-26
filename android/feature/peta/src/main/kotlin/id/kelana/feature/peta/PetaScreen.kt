@@ -30,7 +30,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.Role
@@ -129,7 +128,6 @@ internal fun PetaScreen(
                             onOpenInMaps = { openInMapsApp(context, selected.place) },
                         )
                     }
-                    Attribution(Modifier.align(Alignment.End))
                     HintBar(noMatch = state.pins.isEmpty())
                 }
             }
@@ -200,24 +198,6 @@ private fun PetaFilter.labelRes(): Int = when (this) {
     PetaFilter.All -> R.string.peta_filter_all
     PetaFilter.OpenToday -> R.string.peta_filter_open_today
     PetaFilter.HasCap -> R.string.peta_filter_has_cap
-}
-
-/** The OpenStreetMap attribution text, required by the OSM licence; opens the copyright page. */
-@Composable
-private fun Attribution(modifier: Modifier = Modifier) {
-    val uriHandler = LocalUriHandler.current
-    val cd = stringResource(R.string.peta_attribution_cd)
-    Text(
-        text = stringResource(R.string.peta_attribution),
-        style = MaterialTheme.typography.labelSmall,
-        color = KelanaTheme.colors.ink,
-        modifier = modifier
-            .clip(KelanaShapes.card)
-            .background(KelanaTheme.colors.white.copy(alpha = 0.85f))
-            .clickable(role = Role.Button) { runCatching { uriHandler.openUri(ATTRIBUTION_URL) } }
-            .semantics { contentDescription = cd }
-            .padding(horizontal = 8.dp, vertical = 4.dp),
-    )
 }
 
 /** Hint with the footnote: stamp icon, 13/18 text, translucent card (KatPeta.dc.html bottom bar). */
