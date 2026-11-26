@@ -197,13 +197,13 @@ private fun RouteMap(state: PetaRuteUiState, modifier: Modifier) {
         }
     }
     val framed = remember(stops) { stops.map { it.lat to it.lng } }
-    val routeKeys = remember(stops) { stops.map { it.key } }
+    val routePath = remember(state.routePath) { state.routePath.map { it.lat to it.lng } }
     Box(modifier) {
         OsmMap(
             markers = markers,
             framedPoints = framed,
             selectedKey = nextKey,
-            routeKeys = routeKeys,
+            routePath = routePath,
             routeColor = colors.accentOrange,
         )
         MapAttribution(
