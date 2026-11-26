@@ -51,7 +51,7 @@ import id.kelana.core.ui.label
 @DrawableRes
 private fun PlaceCategory?.heroBackground(): Int = when (this) {
     PlaceCategory.Museum -> R.drawable.jelajah_art_hero_museum
-    PlaceCategory.Candi, PlaceCategory.Topeng -> R.drawable.jelajah_art_hero_candi
+    PlaceCategory.Candi, PlaceCategory.Pentas -> R.drawable.jelajah_art_hero_candi
     else -> R.drawable.jelajah_art_hero_tari
 }
 
@@ -128,8 +128,8 @@ private fun PlaceCategory?.subtitleRes(): Int = when (this) {
     PlaceCategory.Museum -> R.string.kategori_subtitle_museum
     PlaceCategory.Candi -> R.string.kategori_subtitle_candi
     PlaceCategory.Tari -> R.string.kategori_subtitle_tari
-    PlaceCategory.Topeng -> R.string.kategori_subtitle_topeng
-    PlaceCategory.Gamelan -> R.string.kategori_subtitle_gamelan
+    PlaceCategory.Pentas -> R.string.kategori_subtitle_pentas
+    PlaceCategory.SeniMusik -> R.string.kategori_subtitle_seni_musik
     else -> R.string.kategori_subtitle_other
 }
 
@@ -206,7 +206,7 @@ internal fun KategoriContent(
         heroBackground = state.category.heroBackground(),
         heroPieces = {
             state.category?.let { ArtPiece(it.art(), 110.dp, 250.dp, 30.dp, 0f) }
-            ArtPiece(R.drawable.jelajah_art_topeng, 44.dp, 318.dp, 150.dp, -10f)
+            ArtPiece(R.drawable.jelajah_art_pentas, 44.dp, 318.dp, 150.dp, -10f)
         },
         onBack = onBack,
         modifier = modifier,
@@ -306,7 +306,7 @@ private fun KategoriListPreview() {
 private fun KategoriEmptyPreview() {
     KelanaTheme {
         KategoriContent(
-            state = KategoriUiState(PlaceCategory.Topeng, false),
+            state = KategoriUiState(PlaceCategory.Pentas, false),
             onBack = {}, onOpenTodayChange = {}, onPlace = {}, onNotifyMe = {},
         )
     }
@@ -339,7 +339,7 @@ private fun SemuaTempatPreview() {
 private fun SemuaTempatEmptyPreview() {
     KelanaTheme {
         SemuaTempatContent(
-            state = SemuaTempatUiState(false, PlaceCategory.Topeng, false, 3, emptyList()),
+            state = SemuaTempatUiState(false, PlaceCategory.Pentas, false, 3, emptyList()),
             onBack = {}, onCategoryChange = {}, onOpenTodayChange = {}, onPlace = {},
         )
     }

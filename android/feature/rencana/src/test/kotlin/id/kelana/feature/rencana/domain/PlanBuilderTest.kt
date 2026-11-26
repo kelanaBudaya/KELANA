@@ -432,16 +432,17 @@ class PlanBuilderTest {
     }
 
     @Test
-    fun pentasSelectsTariAndGamelanVenuesAndStillAtMostOneShowPerDay() {
+    fun pentasSelectsTariPentasAndSeniMusikVenuesAndStillAtMostOneShowPerDay() {
         val places = listOf(
             place("tari1", PlaceCategory.Tari, hours = open821),
-            place("gam1", PlaceCategory.Gamelan, hours = open821),
+            place("gam1", PlaceCategory.SeniMusik, hours = open821),
+            place("pen1", PlaceCategory.Pentas, hours = open821),
             place("pram", PlaceCategory.Candi, hours = open821),
         )
         val events = listOf(show("e1", "pram"), show("e2", "pram", start = t(20)))
         val plan = builder.build(choices(setOf(Interest.Pentas), pace = Pace.Packed, end = t(22)), Friday, places, events)
         val visits = plan.stops.filter { !it.isEvent }.map { it.placeId }.toSet()
-        assertEquals(setOf("tari1", "gam1"), visits)
+        assertEquals(setOf("tari1", "gam1", "pen1"), visits)
         assertEquals(1, plan.stops.count { it.isEvent })
     }
 

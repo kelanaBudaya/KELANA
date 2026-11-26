@@ -38,8 +38,8 @@ internal fun PlaceCategory.tint(colors: KelanaColors): Color = when (this) {
     PlaceCategory.Museum -> colors.skyText
     PlaceCategory.Candi -> colors.peach
     PlaceCategory.Tari -> colors.creamYellow
-    PlaceCategory.Topeng -> colors.peach
-    PlaceCategory.Gamelan -> colors.creamYellow
+    PlaceCategory.Pentas -> colors.peach
+    PlaceCategory.SeniMusik -> colors.creamYellow
     PlaceCategory.Kerajinan -> colors.backgroundWarm
     PlaceCategory.Lainnya -> colors.backgroundWarm
 }
@@ -50,8 +50,8 @@ internal fun PlaceCategory.art(): Int = when (this) {
     PlaceCategory.Museum -> R.drawable.jelajah_art_museum
     PlaceCategory.Candi -> R.drawable.jelajah_art_candi
     PlaceCategory.Tari -> R.drawable.jelajah_art_tari
-    PlaceCategory.Topeng -> R.drawable.jelajah_art_topeng
-    PlaceCategory.Gamelan -> R.drawable.jelajah_art_gamelan
+    PlaceCategory.Pentas -> R.drawable.jelajah_art_pentas
+    PlaceCategory.SeniMusik -> R.drawable.jelajah_art_seni_musik
     PlaceCategory.Kerajinan -> R.drawable.jelajah_art_batik
     PlaceCategory.Lainnya -> R.drawable.jelajah_art_semua
 }
