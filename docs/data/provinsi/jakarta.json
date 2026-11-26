@@ -136,13 +136,6 @@
           "catatan": null,
           "source_url": "https://www.museumnasional.or.id/layanan-blu",
           "checked_at": "2026-11-26"
-        },
-        {
-          "label": "imersifA (tiket tambahan)",
-          "harga_idr": 35000,
-          "catatan": "Wajib membeli tiket masuk museum; per orang.",
-          "source_url": "https://www.museumnasional.or.id/layanan-blu",
-          "checked_at": "2026-11-26"
         }
       ],
       "jadwal_pertunjukan": [],
@@ -686,7 +679,7 @@
       "induk_lokasi": null,
       "provinsi": "DKI Jakarta",
       "kabupaten": "Jakarta Utara",
-      "alamat": "Penjaringan, Jakarta Utara (Jl. Gedong Panjang, RW 01, menurut OpenStreetMap)",
+      "alamat": "Penjaringan, Jakarta Utara (Jl. Gedong Panjang, RW 01)",
       "lat": -6.1262704,
       "lng": 106.8044521,
       "deskripsi": "Masjid tua di Penjaringan, Jakarta Utara, yang didirikan pada abad ke-18 oleh ulama keturunan Arab Habib Husein bin Abu Bakar Alaydrus. Masjid ini menjadi jejak penyebaran Islam di pesisir Batavia dan tetap ramai dikunjungi peziarah dan wisatawan.",
@@ -1082,7 +1075,7 @@
       "induk_lokasi": null,
       "kabupaten": "Jakarta Timur",
       "provinsi": "DKI Jakarta",
-      "alamat": "Pinang Ranti, Makasar, Jakarta Timur, DKI Jakarta 13810 (alamat dari OpenStreetMap; alamat resmi belum dibaca dari situs pengelola)",
+      "alamat": "Pinang Ranti, Makasar, Jakarta Timur, DKI Jakarta 13810",
       "lat": -6.3026341,
       "lng": 106.8952962,
       "deskripsi": "Taman Mini Indonesia Indah adalah kawasan budaya seluas sekitar 147 hektare di Jakarta Timur yang menampilkan anjungan setiap provinsi, rumah adat, dan berbagai museum. Pengelolanya kini PT Taman Wisata Candi Borobudur, Prambanan, dan Ratu Boko di bawah InJourney. Pengunjung bisa menjelajahi kawasan ini dengan kereta gantung atau jalan kaki.",
@@ -1456,7 +1449,7 @@
       "jenis_event": "workshop",
       "lokasi_induk": {
         "nama": "Museum Tekstil Jakarta (Pendopo Batik)",
-        "alamat": "Jalan Aipda KS Tubun, Palmerah, Jakarta Barat (alamat menurut OpenStreetMap; belum dikonfirmasi dari situs museum)",
+        "alamat": "Jalan Aipda KS Tubun, Palmerah, Jakarta Barat",
         "kota_kabupaten": "Jakarta Barat",
         "lat": -6.1879,
         "lng": 106.8096

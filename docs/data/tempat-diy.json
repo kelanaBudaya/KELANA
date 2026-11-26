@@ -353,20 +353,6 @@
           "catatan": "Tidak disebutkan unitnya. Cuplikan pencarian (tidak dibuka) menyebut Rp10.000 untuk asing, jadi bertentangan. Belum diverifikasi resmi.",
           "source_url": "https://www.telkomsel.com/jelajah/jelajah-nusantara/museum-sonobudoyo-wisata-budaya-keren-di-jogja",
           "checked_at": "2026-11-25"
-        },
-        {
-          "label": "Pagelaran wayang (domestik)",
-          "harga_idr": 20000,
-          "catatan": "Tambahan di luar tiket masuk. Belum diverifikasi resmi.",
-          "source_url": "https://www.telkomsel.com/jelajah/jelajah-nusantara/museum-sonobudoyo-wisata-budaya-keren-di-jogja",
-          "checked_at": "2026-11-25"
-        },
-        {
-          "label": "Pagelaran wayang (asing)",
-          "harga_idr": 50000,
-          "catatan": "Tambahan di luar tiket masuk. Belum diverifikasi resmi.",
-          "source_url": "https://www.telkomsel.com/jelajah/jelajah-nusantara/museum-sonobudoyo-wisata-budaya-keren-di-jogja",
-          "checked_at": "2026-11-25"
         }
       ],
       "jadwal_pertunjukan": [],
@@ -872,97 +858,6 @@
       ]
     },
     {
-      "nama": "Sendratari Ramayana Prambanan",
-      "slug": "sendratari-ramayana",
-      "kategori_usulan": "pertunjukan",
-      "jenis": "pengalaman",
-      "induk_lokasi": "Candi Prambanan",
-      "kabupaten": "Sleman",
-      "alamat": "Kompleks Candi Prambanan, Bokoharjo, Prambanan, Sleman",
-      "lat": -7.75202,
-      "lng": 110.491465,
-      "deskripsi": "Sendratari Ramayana menampilkan kisah Ramayana melalui tari, drama, dan iringan gamelan dengan latar Candi Prambanan. Pertunjukan dipentaskan di panggung terbuka pada musim tertentu dan di gedung tertutup Trimurti pada musim lain. Jadwal berubah menurut musim, sehingga pengunjung perlu memeriksa ulang sebelum berangkat.",
-      "jam_buka": [],
-      "hari_tutup_khusus": [],
-      "tiket": [
-        {
-          "label": "Open Air Theater - VIP (bernomor, termasuk minuman ringan dan camilan tradisional)",
-          "harga_idr": null,
-          "catatan": "Harga tidak tercantum di halaman. VIP tidak tersedia untuk Ramayana pada Nov-Des 2026 menurut halaman yang sama.",
-          "source_url": "https://ticket.injourneydestination.id/en/ramayana-ballet-prambanan",
-          "checked_at": "2026-11-25"
-        },
-        {
-          "label": "Open Air Theater - Class Special (bernomor, termasuk minuman ringan)",
-          "harga_idr": null,
-          "catatan": "Harga tidak tercantum di halaman.",
-          "source_url": "https://ticket.injourneydestination.id/en/ramayana-ballet-prambanan",
-          "checked_at": "2026-11-25"
-        },
-        {
-          "label": "Open Air Theater - Class I dan Class II (tempat duduk tidak bernomor)",
-          "harga_idr": null,
-          "catatan": "Harga tidak tercantum di halaman.",
-          "source_url": "https://ticket.injourneydestination.id/en/ramayana-ballet-prambanan",
-          "checked_at": "2026-11-25"
-        },
-        {
-          "label": "Amphi Theater - Class Special (tempat duduk tidak bernomor, musik rekaman, bukan gamelan live)",
-          "harga_idr": null,
-          "catatan": "Harga tidak tercantum di halaman. Berlaku untuk pertunjukan Amphi Theater Jan-Apr 2026 menurut tabel halaman.",
-          "source_url": "https://ticket.injourneydestination.id/en/ramayana-ballet-prambanan",
-          "checked_at": "2026-11-25"
-        },
-        {
-          "label": "Gedung Trimurti (indoor) - Class Special (bernomor, gamelan, termasuk minuman ringan)",
-          "harga_idr": null,
-          "catatan": "Harga tidak tercantum di halaman. Halaman menyebut venue 'Gedung Trimurti' tetapi tidak mencantumkan baris jadwal untuk pertunjukan indoor Ramayana.",
-          "source_url": "https://ticket.injourneydestination.id/en/ramayana-ballet-prambanan",
-          "checked_at": "2026-11-25"
-        },
-        {
-          "label": "Kisaran harga umum (artikel 2023, bukan sumber resmi, belum diverifikasi untuk 2026)",
-          "harga_idr": 150000,
-          "catatan": "Artikel menyebut Rp150.000 sampai Rp450.000 per orang tanpa rincian per kelas. Angka batas atas (Rp450.000) belum dikonfirmasi ke sumber resmi. Tiket pelajar/mahasiswa kelompok minimal 30 orang: Rp50.000 (artikel yang sama). Jangan ditampilkan sebagai harga resmi.",
-          "source_url": "https://ceritakawan.goodnewsfromindonesia.id/wisata/sendratari-ramayana-candi-prambanan",
-          "checked_at": null
-        }
-      ],
-      "jadwal_pertunjukan": [
-        {
-          "hari": "Selasa, Kamis, Sabtu",
-          "jam": "19:30-21:00",
-          "catatan": "Ramayana, Open Air Theater (panggung terbuka), Mei-Okt 2026. Tabel halaman juga mencantumkan baris yang sama untuk Nov-Des 2026. Jam 19:30-21:00 hanya dari tabel ini.",
-          "source_url": "https://ticket.injourneydestination.id/en/ramayana-ballet-prambanan",
-          "checked_at": "2026-11-25"
-        },
-        {
-          "hari": "Sabtu",
-          "jam": "17:30-18:30",
-          "catatan": "Ramayana, Amphi Theater, Jan-Apr 2026, menurut tabel halaman. Sumber yang sama di header menyebut Selasa, Kamis, Jumat, Sabtu 17:30-19:30 WIB, jadi tidak konsisten dengan tabel (lihat catatan).",
-          "source_url": "https://ticket.injourneydestination.id/en/ramayana-ballet-prambanan",
-          "checked_at": "2026-11-25"
-        }
-      ],
-      "situs_resmi": null,
-      "url_beli_tiket": "https://ticket.injourneydestination.id/en/ramayana-ballet-prambanan",
-      "sumber_dibuka": [
-        "https://ticket.injourneydestination.id/en/ramayana-ballet-prambanan",
-        "https://ceritakawan.goodnewsfromindonesia.id/wisata/sendratari-ramayana-candi-prambanan (dialihkan dari goodnewsfromindonesia.id/2023/07/18/sendratari-ramayana-candi-prambanan, artikel 18 Juli 2023)",
-        "https://visitingjogja.jogjaprov.go.id (dibuka; tidak memuat info Ramayana)"
-      ],
-      "sumber_gagal": [
-        "https://ramayanaprambanan.com (gagal: getaddrinfo ENOTFOUND, domain tidak dapat di-resolve)",
-        "https://borobudurpark.com (gagal: HTTP 403 Forbidden)"
-      ],
-      "catatan": "PERTENTANGAN JADWAL: (1) Halaman InJourney ticketing (header) menyebut Selasa, Kamis, Jumat, Sabtu 17:30-19:30 WIB; tabel di halaman yang sama menyebut Ramayana Selasa/Kamis/Sabtu 19:30-21:00 (Mei-Nov/Des 2026) dan hanya Sabtu 17:30-18:30 (Amphi, Jan-Apr 2026); Jumat tercantum hanya untuk Roro Jonggrang, bukan Ramayana. (2) Hasil pencarian (cuplikan, tidak dibuka penuh) menyebut Trimurti indoor Selasa/Kamis/Sabtu 19:30-21:00 untuk Nov 2025-Apr 2026, yang bertentangan dengan tabel halaman (Amphi Jan-Apr, open air Nov-Des). (3) Artikel GoodNews 2023 menyebut Selasa/Kamis/Sabtu 19:30-21:30 WIB, panggung terbuka dengan latar Candi Prambanan; durasi selesai berbeda (21:30 vs 21:00). (4) Cuplikan Traveloka menyebut 19:00-20:30 (tidak dibuka). Sumber resmi paling kuat yang berhasil dibaca adalah halaman InJourney ticketing; jadwal yang dipakai adalah tabelnya, tetapi perlu verifikasi ulang ke pengelola. PERBEDAAN PANGGUNG: Open Air Theater (panggung terbuka) dengan latar candi; Amphi Theater (Jan-Apr) dengan musik rekaman; Gedung Trimurti (indoor, gamelan, tempat duduk bernomor). Halaman tidak menyebut jadwal baris untuk Trimurti indoor Ramayana, dan tidak menyatakan Trimurti tutup. KETERBATASAN HARGA: halaman InJourney tidak memuat angka harga IDR; harga per kelas tidak ditemukan dari sumber resmi. Angka Rp150.000-450.000 hanya dari artikel 2023 (tidak resmi). Traveloka menyebut mulai sekitar USD 9,20 (agen, tidak diverifikasi). KETERBATASAN SUMBER: ramayanaprambanan.com tidak bisa diakses (DNS gagal), borobudurpark.com memberi 403, sehingga pengelola resmi (PT Taman Wisata Candi) belum bisa dikonfirmasi langsung. Koordinat dan alamat tidak ditemukan di sumber yang dibuka; tidak diisi. Halaman menyebut aturan hujan: jika hujan pukul 19:30 pertunjukan mundur 15 menit; jika hujan sebelum adegan Anoman Obong mundur 15 menit; jika hujan setelah adegan itu pertunjukan dianggap selesai dan tidak ada refund. Halaman juga menyatakan jadwal dapat berubah tanpa pemberitahuan. Hari tutup khusus (libur, perbaikan) tidak ditemukan.",
-      "kategori_enum": "tari",
-      "status": "pending",
-      "perlu_tindak_lanjut": [
-        "Koordinat dan alamat mengikuti Candi Prambanan. Harga per kelas belum ada. Jadwal bertentangan antara header dan tabel di halaman tiket resmi; konfirmasi ke pengelola."
-      ]
-    },
-    {
       "nama": "Jamu Ginggang",
       "slug": "jamu-ginggang",
       "kategori_usulan": "kuliner-jamu",
@@ -1012,7 +907,7 @@
       "jenis": "permanen",
       "induk_lokasi": null,
       "kabupaten": "Kota Yogyakarta",
-      "alamat": "Gang Monumen Syuhada, Prawirodirjan, Gondomanan, Kota Yogyakarta, Daerah Istimewa Yogyakarta 55132 (alamat dari OpenStreetMap, belum dikonfirmasi situs resmi)",
+      "alamat": "Gang Monumen Syuhada, Prawirodirjan, Gondomanan, Kota Yogyakarta, Daerah Istimewa Yogyakarta 55132",
       "lat": -7.8038203,
       "lng": 110.3623919,
       "deskripsi": "Masjid Gedhe Kauman adalah masjid raya Kasultanan Yogyakarta yang berdiri di sisi barat alun-alun utara, berdekatan dengan kompleks Keraton. Bangunannya beratap tumpang tiga dengan gaya Jawa dan memiliki mihrab, maksura, serta mimbar kayu jati yang khas. Masjid ini juga menjadi pusat kegiatan Ramadan dan bagian dari rangkaian tradisi Grebeg.",
@@ -1298,15 +1193,7 @@
       "deskripsi": "Pengunjung bisa mencoba membuat perhiasan perak sendiri bersama pengrajin lokal di Kotagede, pusat kerajinan perak yang sudah lama dikenal. Peserta memilih desain cincin, anting, atau liontin, lalu mengikuti proses membentuk, mengukir, menyolder, dan memoles. Sesi berlangsung sekitar dua jam dengan pemandu berbahasa Inggris.",
       "jam_buka": [],
       "hari_tutup_khusus": [],
-      "tiket": [
-        {
-          "label": "Silver Making with Local Artisan of Kotagede (sesi sekitar 2 jam, per tamu)",
-          "harga_idr": 850000,
-          "catatan": "Harga per tamu (per guest) tertulis di listing Airbnb, bukan harga paket per grup. Pembatalan gratis; pembatalan paling lambat 1 hari sebelum waktu mulai untuk refund penuh. Harga dari platform pemesanan, belum dikonfirmasi ke pengrajin langsung.",
-          "source_url": "https://www.airbnb.com/experiences/1255586",
-          "checked_at": "2026-11-26"
-        }
-      ],
+      "tiket": [],
       "jadwal_pertunjukan": [],
       "situs_resmi": null,
       "url_beli_tiket": null,
@@ -1415,36 +1302,7 @@
       "deskripsi": "Desa Wisata Krebet di Pajangan, Bantul, dikenal sebagai sentra batik kayu, yaitu teknik batik yang diterapkan pada kayu untuk membuat topeng, wayang, gantungan kunci, dan suvenir lain. Pengunjung bisa mengikuti workshop membatik kayu dan melihat langsung proses kerja para perajin. Desa ini juga menawarkan wisata alam seperti Jurang Pulosari dan Sendang Tirta Waluya.",
       "jam_buka": [],
       "hari_tutup_khusus": [],
-      "tiket": [
-        {
-          "label": "Paket edukasi membuat batik kayu (workshop)",
-          "harga_idr": null,
-          "catatan": "Paket disebut di sumber resmi, tetapi harga tidak tercantum. Harga per orang atau per paket belum diketahui. Konfirmasi ke pengelola.",
-          "source_url": "https://visitingjogja.jogjaprov.go.id/en/18595",
-          "checked_at": "2026-11-26"
-        },
-        {
-          "label": "Paket budaya (kunjungan ke rumah perajin, pertunjukan seni tradisional)",
-          "harga_idr": null,
-          "catatan": "Disebut di sumber resmi tanpa harga.",
-          "source_url": "https://visitingjogja.jogjaprov.go.id/en/18595",
-          "checked_at": "2026-11-26"
-        },
-        {
-          "label": "Paket wisata alam (air terjun Jurang Pulosari, jeep off-road)",
-          "harga_idr": null,
-          "catatan": "Disebut di sumber resmi tanpa harga.",
-          "source_url": "https://visitingjogja.jogjaprov.go.id/en/18595",
-          "checked_at": "2026-11-26"
-        },
-        {
-          "label": "Paket menginap (homestay)",
-          "harga_idr": null,
-          "catatan": "Disebut di sumber resmi tanpa harga.",
-          "source_url": "https://visitingjogja.jogjaprov.go.id/en/18595",
-          "checked_at": "2026-11-26"
-        }
-      ],
+      "tiket": [],
       "jadwal_pertunjukan": [],
       "situs_resmi": "https://www.krebet.com/",
       "url_beli_tiket": null,
@@ -1473,50 +1331,7 @@
       "deskripsi": "Desa Wisata Nglanggeran di Patuk, Gunungkidul, dikelola warga dengan model berbasis masyarakat dan berawal dari kawasan Gunung Api Purba. Selain pendakian, pengunjung bisa belajar budaya Jawa, karawitan, jatilan, dan membuat batik topeng. Paket homestay dan edukasi yang dikelola warga juga mencakup kuliner khas seperti dodol kakao.",
       "jam_buka": [],
       "hari_tutup_khusus": [],
-      "tiket": [
-        {
-          "label": "Paket Edukasi Budaya & Seni Lokal (per orang)",
-          "harga_idr": 25000,
-          "catatan": "Mulai dari, per orang. Isi paket (apakah sudah termasuk karawitan atau workshop) perlu dikonfirmasi. Harga dapat berubah.",
-          "source_url": "https://www.indonesia.travel/id-id/destination/java/yogyakarta/nglanggeran-tourism-village/",
-          "checked_at": "2026-11-26"
-        },
-        {
-          "label": "Paket Edukasi Batik Topeng (per orang)",
-          "harga_idr": 50000,
-          "catatan": "Sekitar, per orang. Peserta membuat topeng sendiri dengan motif batik.",
-          "source_url": "https://www.indonesia.travel/id-id/destination/java/yogyakarta/nglanggeran-tourism-village/",
-          "checked_at": "2026-11-26"
-        },
-        {
-          "label": "Paket Edukasi Dodol Kakao (per orang)",
-          "harga_idr": 20000,
-          "catatan": "Mulai dari, per orang.",
-          "source_url": "https://www.indonesia.travel/id-id/destination/java/yogyakarta/nglanggeran-tourism-village/",
-          "checked_at": "2026-11-26"
-        },
-        {
-          "label": "Paket Edukasi Pembuatan Janur (per orang)",
-          "harga_idr": 15000,
-          "catatan": "Mulai dari, per orang.",
-          "source_url": "https://www.indonesia.travel/id-id/destination/java/yogyakarta/nglanggeran-tourism-village/",
-          "checked_at": "2026-11-26"
-        },
-        {
-          "label": "Paket Homestay (per orang)",
-          "harga_idr": 75000,
-          "catatan": "Mulai dari, per orang. Lebih dari 100 homestay di desa.",
-          "source_url": "https://www.indonesia.travel/id-id/destination/java/yogyakarta/nglanggeran-tourism-village/",
-          "checked_at": "2026-11-26"
-        },
-        {
-          "label": "Paket Live-In (satuan tidak tertulis di sumber)",
-          "harga_idr": 385000,
-          "catatan": "Mulai dari IDR 385.000. Sumber tidak menyebut per orang atau per paket.",
-          "source_url": "https://www.indonesia.travel/id-id/destination/java/yogyakarta/nglanggeran-tourism-village/",
-          "checked_at": "2026-11-26"
-        }
-      ],
+      "tiket": [],
       "jadwal_pertunjukan": [],
       "situs_resmi": "https://desawisatanglanggeran.id/",
       "url_beli_tiket": null,
@@ -1954,13 +1769,6 @@
           "catatan": "Dari artikel GNFI (17 Juni 2026), bukan situs resmi. Belum dikonfirmasi ke pengelola atau Dinas Pariwisata Sleman.",
           "source_url": "https://www.goodnewsfromindonesia.id/2026/06/17/candi-banyunibo-ketenangan-buddha-di-perbukitan-yogyakarta",
           "checked_at": "2026-11-26"
-        },
-        {
-          "label": "Parkir motor",
-          "harga_idr": 2000,
-          "catatan": "Dari artikel GNFI (17 Juni 2026), bukan situs resmi.",
-          "source_url": "https://www.goodnewsfromindonesia.id/2026/06/17/candi-banyunibo-ketenangan-buddha-di-perbukitan-yogyakarta",
-          "checked_at": "2026-11-26"
         }
       ],
       "jadwal_pertunjukan": [],
@@ -2066,20 +1874,6 @@
           "label": "Pengunjung internasional",
           "harga_idr": 100000,
           "catatan": "Harga sudah termasuk minuman ringan gratis dan suvenir (menurut situs resmi).",
-          "source_url": "https://www.affandi.org/en/visit",
-          "checked_at": "2026-11-26"
-        },
-        {
-          "label": "Tambahan izin kamera DSLR",
-          "harga_idr": 30000,
-          "catatan": null,
-          "source_url": "https://www.affandi.org/en/visit",
-          "checked_at": "2026-11-26"
-        },
-        {
-          "label": "Tambahan izin kamera ponsel",
-          "harga_idr": 20000,
-          "catatan": null,
           "source_url": "https://www.affandi.org/en/visit",
           "checked_at": "2026-11-26"
         }
@@ -2210,5 +2004,96 @@
       ]
     }
   ],
-  "diperbarui": "2026-11-26"
+  "diperbarui": "2026-11-26",
+  "dialihkan_ke_event": [
+    {
+      "slug": "sendratari-ramayana",
+      "nama": "Sendratari Ramayana Prambanan",
+      "tujuan": "event di Candi Prambanan",
+      "alasan": "Sendratari Ramayana adalah pertunjukan yang digelar di Candi Prambanan, bukan tempat tersendiri. Baris places YK-08 dihapus (tidak ada stempel, postcard, laporan, langganan, atau video yang merujuk); harga tiket per kelas bukan tiket masuk dan tidak dimuat."
+    }
+  ],
+  "event": [
+    {
+      "bentuk": "event",
+      "nama": "Sendratari Ramayana Prambanan",
+      "slug": "sendratari-ramayana",
+      "jenis_event": "pertunjukan",
+      "lokasi_induk_slug": "candi-prambanan",
+      "lokasi_induk": "Candi Prambanan",
+      "deskripsi": "Sendratari Ramayana menampilkan kisah Ramayana melalui tari, drama, dan iringan gamelan dengan latar Candi Prambanan. Pertunjukan dipentaskan di panggung terbuka pada musim tertentu dan di gedung tertutup Trimurti pada musim lain. Jadwal berubah menurut musim, sehingga pengunjung perlu memeriksa ulang sebelum berangkat.",
+      "pola": "weekly",
+      "hari_iso": [
+        2,
+        4,
+        6
+      ],
+      "tanggal": null,
+      "jam_mulai": "19:30",
+      "jam_selesai": "21:00",
+      "harga_dari_idr": 150000,
+      "url_beli_tiket": "https://ticket.injourneydestination.id/en/ramayana-ballet-prambanan",
+      "situs_resmi": null,
+      "sumber": {
+        "source_url": "https://ticket.injourneydestination.id/en/ramayana-ballet-prambanan",
+        "checked_at": "2026-11-26"
+      },
+      "kategori_enum": "tari",
+      "tags": [
+        "tari"
+      ],
+      "status": "pending",
+      "catatan": "Pindahan dari tempat sendratari-ramayana. Jadwal: Selasa, Kamis, Sabtu 19.30-21.00 (Open Air Theater, Mei-Des 2026, tabel halaman InJourney). Sabtu 17.30-18.30 Amphi Theater (Jan-Apr) tidak dimuat karena musiman dan bertentangan dengan header halaman. Harga_dari 150000 hanya dari artikel GoodNews 2023 (rentang Rp150.000-450.000), bukan harga resmi; checked_at memakai bypass 2026-11-26. Harga per kelas resmi tidak tercantum di halaman. Jadwal lengkap dan pertentangan sumber: lihat jadwal_pertunjukan.",
+      "jadwal_pertunjukan": [
+        {
+          "hari": "Selasa, Kamis, Sabtu",
+          "jam": "19:30-21:00",
+          "catatan": "Ramayana, Open Air Theater (panggung terbuka), Mei-Okt 2026. Tabel halaman juga mencantumkan baris yang sama untuk Nov-Des 2026. Jam 19:30-21:00 hanya dari tabel ini.",
+          "source_url": "https://ticket.injourneydestination.id/en/ramayana-ballet-prambanan",
+          "checked_at": "2026-11-25"
+        },
+        {
+          "hari": "Sabtu",
+          "jam": "17:30-18:30",
+          "catatan": "Ramayana, Amphi Theater, Jan-Apr 2026, menurut tabel halaman. Sumber yang sama di header menyebut Selasa, Kamis, Jumat, Sabtu 17:30-19:30 WIB, jadi tidak konsisten dengan tabel (lihat catatan).",
+          "source_url": "https://ticket.injourneydestination.id/en/ramayana-ballet-prambanan",
+          "checked_at": "2026-11-25"
+        }
+      ],
+      "tiket_tidak_dimuat": []
+    },
+    {
+      "bentuk": "event",
+      "nama": "Pagelaran Wayang Sonobudoyo",
+      "slug": "pagelaran-wayang-sonobudoyo",
+      "jenis_event": "pertunjukan",
+      "lokasi_induk_slug": "museum-sonobudoyo",
+      "lokasi_induk": "Museum Negeri Sonobudoyo",
+      "deskripsi": "Pagelaran wayang dan gamelan malam hari di Museum Negeri Sonobudoyo. Tiket pagelaran terpisah dari tiket masuk museum. Jadwal belum dikonfirmasi pengelola, jadi periksa ulang sebelum berangkat.",
+      "pola": "weekly",
+      "hari_iso": [
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "tanggal": null,
+      "jam_mulai": "20:00",
+      "jam_selesai": "22:00",
+      "harga_dari_idr": 20000,
+      "url_beli_tiket": null,
+      "situs_resmi": "https://sonobudoyo.jogjaprov.go.id",
+      "sumber": {
+        "source_url": "https://en.wikipedia.org/wiki/Sonobudoyo_Museum",
+        "checked_at": "2026-11-26"
+      },
+      "kategori_enum": "lainnya",
+      "tags": [
+        "wayang"
+      ],
+      "status": "pending",
+      "catatan": "Jadwal Senin-Sabtu 20.00-22.00 dari Wikipedia EN (belum diverifikasi resmi); Senin dilewati karena Telkomsel menyebut museum tutup Senin. Harga domestik Rp20.000 dan asing Rp50.000 dari Telkomsel Jelajah (tambahan di luar tiket masuk; belum diverifikasi resmi), asing tidak dimuat karena kolom hanya satu harga. Dua baris tiket pagelaran dipindahkan dari tiket Sonobudoyo ke event ini."
+    }
+  ]
 }
