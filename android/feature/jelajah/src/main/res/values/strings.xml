@@ -4,6 +4,8 @@
     <string name="home_search_cd">Buka pencarian</string>
     <string name="home_bell_cd">Notifikasi</string>
     <string name="home_avatar_cd">Profil</string>
+    <string name="home_greeting_name">Halo, %1$s!</string>
+    <string name="home_greeting">Halo!</string>
     <string name="home_headline">Mau berkelana ke mana hari ini?</string>
     <string name="home_date_line">%1$s · %2$s</string>
     <string name="home_passport_title">Paspor budayamu</string>
@@ -29,8 +31,7 @@
     <string name="challenge_label">Tantangan pekan ini</string>
     <string name="challenge_title">Kumpulkan %1$d cap, buka cap edisi Jurnal</string>
     <string name="challenge_progress">%1$d dari %2$d · berakhir Minggu</string>
-    <string name="coming_soon">Segera hadir</string>
-    <string name="badge_checking">Sedang dicek</string>
+    <string name="badge_visit_today">Kunjungi Hari Ini</string>
     <string name="cari_hint">Cari tempat atau pentas</string>
     <string name="cari_clear_cd">Hapus pencarian</string>
     <string name="cari_filter_all">Semua</string>
@@ -42,7 +43,6 @@
     <string name="cari_empty_title">Tidak ada hasil</string>
     <string name="cari_empty_body">Coba kata kunci lain atau jelajahi lewat kategori.</string>
     <string name="event_when">%1$s %2$s</string>
-    <string name="event_checking">Jadwal sedang dicek</string>
     <string name="kategori_subtitle_museum">%1$d museum di Yogyakarta</string>
     <string name="kategori_subtitle_candi">Situs, relief, dan kisahnya</string>
     <string name="kategori_subtitle_tari">Pentas dengan jadwal resmi</string>

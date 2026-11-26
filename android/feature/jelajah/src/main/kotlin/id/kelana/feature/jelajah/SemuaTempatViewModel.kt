@@ -33,7 +33,7 @@ class SemuaTempatViewModel internal constructor(
 ) : ViewModel() {
 
     @Inject
-    constructor(placeRepository: PlaceRepository) : this(placeRepository, { LocalDate.now() })
+    constructor(placeRepository: PlaceRepository) : this(placeRepository, { todayInJakarta() })
 
     private val date = today()
     private val category = MutableStateFlow<PlaceCategory?>(null)

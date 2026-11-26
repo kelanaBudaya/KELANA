@@ -4,6 +4,8 @@
     <string name="home_search_cd">Open search</string>
     <string name="home_bell_cd">Notifications</string>
     <string name="home_avatar_cd">Profile</string>
+    <string name="home_greeting_name">Hi, %1$s!</string>
+    <string name="home_greeting">Hi!</string>
     <string name="home_headline">Where do you want to explore today?</string>
     <string name="home_date_line">%1$s · %2$s</string>
     <string name="home_passport_title">Your cultural passport</string>
@@ -29,8 +31,7 @@
     <string name="challenge_label">This week’s challenge</string>
     <string name="challenge_title">Collect %1$d stamps, unlock the Jurnal edition stamp</string>
     <string name="challenge_progress">%1$d of %2$d · ends Sunday</string>
-    <string name="coming_soon">Coming soon</string>
-    <string name="badge_checking">Being checked</string>
+    <string name="badge_visit_today">Visit Today</string>
     <string name="cari_hint">Search places or shows</string>
     <string name="cari_clear_cd">Clear search</string>
     <string name="cari_filter_all">All</string>
@@ -42,7 +43,6 @@
     <string name="cari_empty_title">No results</string>
     <string name="cari_empty_body">Try another keyword or browse by category.</string>
     <string name="event_when">%1$s %2$s</string>
-    <string name="event_checking">Schedule being checked</string>
     <string name="kategori_subtitle_museum">%1$d museums in Yogyakarta</string>
     <string name="kategori_subtitle_candi">Sites, reliefs and their stories</string>
     <string name="kategori_subtitle_tari">Performances with official schedules</string>

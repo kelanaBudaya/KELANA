@@ -29,6 +29,7 @@ import id.kelana.core.designsystem.theme.KelanaTheme
 import id.kelana.core.designsystem.theme.KelanaColors
 import id.kelana.core.model.Place
 import id.kelana.core.model.PlaceCategory
+import java.time.LocalDate
 
 /** Category tile / cover colours of the artifact (JelajahIlustratif tiles, KatMuseum rows). */
 internal fun PlaceCategory.tint(colors: KelanaColors): Color = when (this) {
@@ -91,15 +92,15 @@ internal fun PlaceCover(category: PlaceCategory, compact: Boolean = true, modifi
     }
 }
 
-/** Amber "... sedang dicek" pill shown instead of any value that has no check date. */
+/** Green "Kunjungi Hari Ini" pill, shown only when the checked hours say the place is open today. */
 @Composable
-internal fun CheckingPill(text: String, modifier: Modifier = Modifier) {
+internal fun VisitTodayPill(modifier: Modifier = Modifier) {
     val colors = KelanaTheme.colors
     Text(
-        text = text,
-        modifier = modifier.clip(KelanaShapes.badge).background(colors.creamYellow).padding(horizontal = 8.dp, vertical = 3.dp),
+        text = stringResource(R.string.badge_visit_today),
+        modifier = modifier.clip(KelanaShapes.badge).background(colors.successSurface).padding(horizontal = 8.dp, vertical = 3.dp),
         style = MaterialTheme.typography.labelMedium,
-        color = colors.warnText,
+        color = colors.successText,
     )
 }
 
@@ -115,12 +116,11 @@ internal fun CapPill(code: String, modifier: Modifier = Modifier) {
     )
 }
 
-/** "Sedang dicek" pill only while no hour fact has a check date (the date itself is not shown), plus the stamp code. */
+/** "Kunjungi Hari Ini" when open on [today] (checked hours only), plus the stamp code. No status pill otherwise. */
 @Composable
-internal fun PlaceCheckedBadge(place: Place) {
-    val checkedAt = place.latestCheckedAt()
+internal fun PlaceCheckedBadge(place: Place, today: LocalDate?) {
     Row(horizontalArrangement = androidx.compose.foundation.layout.Arrangement.spacedBy(6.dp)) {
-        if (checkedAt == null) CheckingPill(stringResource(R.string.badge_checking))
+        if (isVisitToday(place, today)) VisitTodayPill()
         if (place.capCode.isNotBlank()) CapPill(place.capCode)
     }
 }
@@ -131,6 +131,7 @@ internal fun PlaceItem(
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
     size: PlaceCardSize = PlaceCardSize.List,
+    today: LocalDate? = null,
 ) {
     PlaceCard(
         title = place.name,
@@ -138,7 +139,7 @@ internal fun PlaceItem(
         onClick = onClick,
         modifier = modifier,
         size = size,
-        badge = { PlaceCheckedBadge(place) },
+        badge = { PlaceCheckedBadge(place, today) },
         cover = { PlaceCover(place.category, compact = size == PlaceCardSize.List) },
     )
 }

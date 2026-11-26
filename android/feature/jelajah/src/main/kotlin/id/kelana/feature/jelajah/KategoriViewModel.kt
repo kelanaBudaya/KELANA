@@ -43,7 +43,7 @@ class KategoriViewModel internal constructor(
     /** Type-safe navigation stores the route argument under its property name, "category". */
     @Inject
     constructor(placeRepository: PlaceRepository, handle: SavedStateHandle) :
-        this(placeRepository, handle.get<String>("category")?.let(PlaceCategory::fromKey), { LocalDate.now() })
+        this(placeRepository, handle.get<String>("category")?.let(PlaceCategory::fromKey), { todayInJakarta() })
 
     private val date = today()
     private val openTodayOnly = MutableStateFlow(false)
