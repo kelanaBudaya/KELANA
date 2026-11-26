@@ -87,6 +87,14 @@ class MappersTest {
     }
 
     @Test
+    fun cachedPlaceWithLegacyCategoryKeyMapsToTheRenamedCategory() {
+        val cached = placeDto().copy(category = "topeng").toEntity()!!
+        assertEquals(PlaceCategory.Pentas, toPlaces(listOf(cached), emptyList()).single().category)
+        val gamelan = placeDto().copy(category = "gamelan").toEntity()!!
+        assertEquals(PlaceCategory.SeniMusik, toPlaces(listOf(gamelan), emptyList()).single().category)
+    }
+
+    @Test
     fun event_weeklyUsesIsoWeekday() {
         val ev = eventDto(recurrence = "weekly", weekday = 1).toEvent()!!
         assertEquals(Recurrence.Weekly(DayOfWeek.MONDAY), ev.schedule.value.recurrence)

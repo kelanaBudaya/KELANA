@@ -208,7 +208,7 @@ internal object SampleData {
         ),
         event(
             "macapat-sabtu", "keraton-yogyakarta", "Keraton Yogyakarta", "Macapat, Bangsal Srimanganti",
-            "Tembang macapat di Bangsal Srimanganti. Hari contoh.", PlaceCategory.Gamelan,
+            "Tembang macapat di Bangsal Srimanganti. Hari contoh.", PlaceCategory.SeniMusik,
             DayOfWeek.SATURDAY, LocalTime.of(9, 0), LocalTime.of(11, 0), null, null,
         ),
         event(

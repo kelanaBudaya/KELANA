@@ -247,7 +247,7 @@ private fun rowArt(category: PlaceCategory): RowArt {
     return when (category) {
         PlaceCategory.Tari -> RowArt(R.drawable.tiket_art_tari, colors.creamYellow)
         PlaceCategory.Kerajinan -> RowArt(R.drawable.tiket_art_batik, colors.peach)
-        PlaceCategory.Museum, PlaceCategory.Gamelan, PlaceCategory.Topeng ->
+        PlaceCategory.Museum, PlaceCategory.SeniMusik, PlaceCategory.Pentas ->
             RowArt(R.drawable.tiket_art_building_blue, colors.skyText)
         PlaceCategory.Candi, PlaceCategory.Lainnya -> RowArt(R.drawable.tiket_art_building, colors.backgroundWarm)
     }

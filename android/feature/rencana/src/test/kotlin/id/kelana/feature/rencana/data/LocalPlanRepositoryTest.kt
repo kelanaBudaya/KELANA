@@ -104,7 +104,7 @@ class LocalPlanRepositoryTest {
 
     @Test
     fun nothingThatFitsIsReportedAndNotSaved() = runTest {
-        assertEquals(BuildResult.NothingFits, plans.build(choices(setOf(Interest.Topeng))))
+        assertEquals(BuildResult.NothingFits, plans.build(choices(setOf(Interest.Pentas))))
         assertNull(cache.tripState.value)
     }
 

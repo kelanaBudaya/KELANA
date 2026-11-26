@@ -20,7 +20,7 @@ Dikumpulkan lewat pencarian web (2026-11-25 dan 2026-11-26; pembacaan halaman pu
 | Taman Budaya Yogyakarta (TBY) | permanen | tari | Kota Yogyakarta | sedang dicek | sedang dicek | ya | pending |
 | Sekar Rinonce | pengalaman | tari | Kota Yogyakarta | sedang dicek | sedang dicek | ya | pending |
 | Workshop Perak Kotagede | pengalaman | kerajinan | Kota Yogyakarta | sedang dicek | ya | ya | pending |
-| Desa Wisata Tlatar | pengalaman | gamelan | Sleman | sedang dicek | sedang dicek | ya | pending |
+| Desa Wisata Tlatar | pengalaman | seni_musik | Sleman | sedang dicek | sedang dicek | ya | pending |
 | Desa Wisata Kasongan | pengalaman | kerajinan | Bantul | sedang dicek | sedang dicek | ya | pending |
 | Desa Wisata Krebet | pengalaman | kerajinan | Bantul | sedang dicek | sedang dicek | ya | pending |
 | Desa Wisata Nglanggeran | pengalaman | lainnya | Gunungkidul | sedang dicek | ya | ya | pending |

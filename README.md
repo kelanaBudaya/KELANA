@@ -10,7 +10,7 @@ KELANA membantu wisatawan menjelajahi tempat dan pertunjukan budaya dengan infor
 
 ## 1. Fitur Utama
 
-- **Jelajah** tempat budaya (museum, candi, keraton, kerajinan) dan kategori pertunjukan (tari, wayang/topeng, gamelan).
+- **Jelajah** tempat budaya (museum, candi, keraton, kerajinan) dan kategori pertunjukan (tari, pentas, seni musik).
 - **Info resmi + tanggal periksa**: tanpa tanggal periksa, aplikasi menampilkan "sedang dicek", bukan angka yang belum diverifikasi.
 - **Agenda budaya**: jadwal pentas per hari, dengan detail pentas dan tombol ke situs tiket resmi.
 - **Rencana harian**: pertanyaan singkat (6 langkah) menghasilkan urutan kunjungan yang sesuai jam buka resmi.
@@ -34,7 +34,7 @@ KELANA membantu wisatawan menjelajahi tempat dan pertunjukan budaya dengan infor
 |---|---|
 | 1. Mulai | Buka aplikasi → lewati 3 halaman perkenalan → **Pilih wilayah** → ketuk **Berkelana di DI Yogyakarta**. |
 | 2. Masuk (opsional) | Ketuk **Masuk** lalu pilih Google atau email + password (min. 8 karakter, huruf dan angka). Atau pilih **Jelajah dulu tanpa akun**. |
-| 3. Jelajah | Tab **Jelajah**: pilih kategori (Museum, Candi, Tari, Topeng, Gamelan) atau cari tempat. Ketuk kartu tempat untuk melihat **Info resmi** beserta tanggal diperiksa. |
+| 3. Jelajah | Tab **Jelajah**: pilih kategori (Museum, Candi, Tari, Pentas, Seni Musik) atau cari tempat. Ketuk kartu tempat untuk melihat **Info resmi** beserta tanggal diperiksa. |
 | 4. Agenda | Tab **Agenda**: pilih tanggal, saring (Tari, Wayang, Ramah anak), ketuk pentas untuk detail. **Beli tiket resmi** membuka situs penjual resmi. |
 | 5. Rencana | Tab **Rencana** → tombol untuk menyusun rencana pertama → jawab 6 pertanyaan (tanggal, teman jalan, minat, jam dan tempo, kendaraan, kebutuhan khusus) → **Susun rencanaku**. |
 | 6. Ambil cap | Datang ke tempatnya → buka halaman tempat → ketuk banner cap → izinkan lokasi → **Cap sekarang**. Wajib login. |

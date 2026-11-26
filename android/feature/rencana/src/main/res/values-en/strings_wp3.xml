@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="rencana_minat_semua">All types</string>
-    <string name="rencana_minat_semua_hint">Museums, temples, sites, crafts and shows</string>
     <string name="rencana_waktu_too_short">Leave at least 2 hours between start and end.</string>
     <string name="rencana_waktu_hour">hour</string>
     <string name="rencana_waktu_minute">minute</string>
