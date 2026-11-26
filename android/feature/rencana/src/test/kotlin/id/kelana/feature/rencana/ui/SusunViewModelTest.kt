@@ -128,27 +128,53 @@ class SusunViewModelTest {
     }
 
     @Test
-    fun timeWindowMovesInHalfHoursAndKeepsAtLeastTwoHours() {
+    fun setStartAndEndRoundToFiveMinutesAndClamp() {
         val vm = viewModel()
-        vm.shiftStart(1)
-        assertEquals(LocalTime.of(8, 30), vm.uiState.value.windowStart)
-        vm.shiftEnd(-1)
-        assertEquals(LocalTime.of(20, 30), vm.uiState.value.windowEnd)
-        // push the end down to 10:30 (2 h after 8:30), then one more step is refused
-        repeat(40) { vm.shiftEnd(-1) }
-        assertEquals(LocalTime.of(10, 30), vm.uiState.value.windowEnd)
-        assertTrue(vm.uiState.value.canContinueWaktu)
-        vm.shiftStart(1)
-        assertEquals(LocalTime.of(8, 30), vm.uiState.value.windowStart)
+        vm.setStart(LocalTime.of(9, 17))
+        assertEquals(LocalTime.of(9, 15), vm.uiState.value.windowStart)
+        vm.setEnd(LocalTime.of(18, 59))
+        assertEquals(LocalTime.of(18, 55), vm.uiState.value.windowEnd)
+        vm.setStart(LocalTime.of(3, 0))
+        assertEquals(LocalTime.of(5, 0), vm.uiState.value.windowStart)
+        vm.setEnd(LocalTime.of(23, 59))
+        assertEquals(LocalTime.of(23, 55), vm.uiState.value.windowEnd)
     }
 
     @Test
-    fun timeWindowStaysInsideTheDay() {
+    fun windowUnderTwoHoursBlocksContinueButKeepsValue() {
         val vm = viewModel()
-        repeat(40) { vm.shiftStart(-1) }
-        assertEquals(LocalTime.of(5, 0), vm.uiState.value.windowStart)
-        repeat(40) { vm.shiftEnd(1) }
-        assertEquals(LocalTime.of(23, 30), vm.uiState.value.windowEnd)
+        assertFalse(vm.uiState.value.windowTooShort)
+        vm.setStart(LocalTime.of(10, 0))
+        vm.setEnd(LocalTime.of(11, 30))
+        assertEquals(LocalTime.of(11, 30), vm.uiState.value.windowEnd)
+        assertTrue(vm.uiState.value.windowTooShort)
+        assertFalse(vm.uiState.value.canContinueWaktu)
+        vm.setEnd(LocalTime.of(12, 0))
+        assertFalse(vm.uiState.value.windowTooShort)
+        assertTrue(vm.uiState.value.canContinueWaktu)
+    }
+
+    @Test
+    fun semuaIsExclusive() {
+        val vm = viewModel()
+        vm.toggleInterest(Interest.Museum)
+        vm.toggleInterest(Interest.Candi)
+        vm.toggleInterest(Interest.Semua)
+        assertEquals(setOf(Interest.Semua), vm.uiState.value.interests)
+        vm.toggleInterest(Interest.Candi)
+        assertEquals(setOf(Interest.Candi), vm.uiState.value.interests)
+        vm.toggleInterest(Interest.Semua)
+        vm.toggleInterest(Interest.Semua)
+        assertTrue(vm.uiState.value.interests.isEmpty())
+    }
+
+    @Test
+    fun semuaShowsTheShowStage() {
+        val vm = viewModel()
+        assertFalse(vm.uiState.value.showsShowStage)
+        vm.toggleInterest(Interest.Semua)
+        assertTrue(vm.uiState.value.showsShowStage)
+        assertTrue(vm.uiState.value.canContinueMinat)
     }
 
     @Test

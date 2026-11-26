@@ -80,7 +80,7 @@ fun NavGraphBuilder.rencanaScreens(navController: NavController, navigate: (Any)
         composable<SusunWaktuRoute> { entry ->
             val vm = wizardViewModel(navController, entry)
             val state by vm.uiState.collectAsState()
-            SusunWaktuContent(state, vm::shiftStart, vm::shiftEnd, vm::selectPace, onBack) { navigate(SusunKendaraanRoute) }
+            SusunWaktuContent(state, vm::setStart, vm::setEnd, vm::selectPace, onBack) { navigate(SusunKendaraanRoute) }
         }
         composable<SusunKendaraanRoute> { entry ->
             val vm = wizardViewModel(navController, entry)

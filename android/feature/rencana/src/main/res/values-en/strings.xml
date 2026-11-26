@@ -72,14 +72,14 @@
     <string name="rencana_minat_candi">Temple</string>
     <string name="rencana_minat_pentas">Shows</string>
     <string name="rencana_minat_kerajinan">Crafts</string>
-    <string name="rencana_minat_keraton">Palace</string>
+    <string name="rencana_minat_keraton">Sites &amp; more</string>
     <string name="rencana_minat_topeng">Masks</string>
     <string name="rencana_waktu_title">What time do you start and finish?</string>
     <string name="rencana_waktu_hint">An evening show is included if it falls inside this range.</string>
     <string name="rencana_waktu_start">Start</string>
     <string name="rencana_waktu_end">End</string>
-    <string name="rencana_waktu_earlier">%1$s 30 minutes earlier</string>
-    <string name="rencana_waktu_later">%1$s 30 minutes later</string>
+    <string name="rencana_waktu_earlier">%1$s earlier</string>
+    <string name="rencana_waktu_later">%1$s later</string>
     <string name="rencana_waktu_pace_title">What pace do you want?</string>
     <string name="rencana_pace_relaxed">Relaxed</string>
     <string name="rencana_pace_moderate">Moderate</string>

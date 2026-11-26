@@ -59,6 +59,9 @@ data class SusunUiState(
     val canContinueTeman: Boolean get() = companion != null
     val canContinueMinat: Boolean get() = interests.isNotEmpty()
     val canContinueWaktu: Boolean get() = minutesBetween(windowStart, windowEnd) >= MinWindowMinutes
+
+    /** The wheels move freely, so the window can end up shorter than [MinWindowMinutes]; the screen then warns. */
+    val windowTooShort: Boolean get() = !canContinueWaktu
     val canSubmit: Boolean get() = canContinueTanggal && canContinueTeman && canContinueMinat && canContinueWaktu && !isBuilding
 
     val canGoPreviousMonth: Boolean get() = visibleMonth.isAfter(YearMonth.from(today))
@@ -89,9 +92,9 @@ data class SusunUiState(
         val DefaultStart: LocalTime = LocalTime.of(8, 0)
         val DefaultEnd: LocalTime = LocalTime.of(21, 0)
         const val MinWindowMinutes = 120
-        const val StepMinutes = 30
+        const val MinuteStep = 5
         val EarliestStart: LocalTime = LocalTime.of(5, 0)
-        val LatestEnd: LocalTime = LocalTime.of(23, 30)
+        val LatestEnd: LocalTime = LocalTime.of(23, 55)
 
         private fun minutesBetween(a: LocalTime, b: LocalTime): Int = (b.toSecondOfDay() - a.toSecondOfDay()) / 60
     }
@@ -151,26 +154,35 @@ class SusunViewModel(
 
     // ---- 3/6 interests ----
 
+    /**
+     * "Semua jenis" is exclusive: choosing it replaces every other interest, and choosing any other interest removes it.
+     */
     fun toggleInterest(interest: Interest) = _state.update {
-        it.copy(interests = if (interest in it.interests) it.interests - interest else it.interests + interest)
+        val next = when {
+            interest in it.interests -> it.interests - interest
+            interest == Interest.Semua -> setOf(Interest.Semua)
+            else -> it.interests - Interest.Semua + interest
+        }
+        it.copy(interests = next)
     }
 
     // ---- 4/6 time window and pace ----
 
-    /** Moves the start by [steps] x 30 minutes, keeping at least [SusunUiState.MinWindowMinutes] before the end. */
-    fun shiftStart(steps: Int) = _state.update { s ->
-        val moved = minutesOf(s.windowStart) + steps * SusunUiState.StepMinutes
-        val ok = moved >= minutesOf(SusunUiState.EarliestStart) &&
-            moved <= minutesOf(s.windowEnd) - SusunUiState.MinWindowMinutes
-        if (ok) s.copy(windowStart = timeOf(moved)) else s
-    }
+    /**
+     * Sets the start, rounded down to [SusunUiState.MinuteStep] minutes and clamped to the day. A window shorter than
+     * [SusunUiState.MinWindowMinutes] is kept (the wheel must move freely); [SusunUiState.canContinueWaktu] blocks it.
+     */
+    fun setStart(time: LocalTime) = _state.update { it.copy(windowStart = snapToStep(time)) }
 
-    /** Moves the end by [steps] x 30 minutes, keeping at least [SusunUiState.MinWindowMinutes] after the start. */
-    fun shiftEnd(steps: Int) = _state.update { s ->
-        val moved = minutesOf(s.windowEnd) + steps * SusunUiState.StepMinutes
-        val ok = moved <= minutesOf(SusunUiState.LatestEnd) &&
-            moved >= minutesOf(s.windowStart) + SusunUiState.MinWindowMinutes
-        if (ok) s.copy(windowEnd = timeOf(moved)) else s
+    /** Sets the end, same rules as [setStart]. */
+    fun setEnd(time: LocalTime) = _state.update { it.copy(windowEnd = snapToStep(time)) }
+
+    private fun snapToStep(time: LocalTime): LocalTime {
+        val step = SusunUiState.MinuteStep
+        val minutes = minutesOf(time) / step * step
+        val low = minutesOf(SusunUiState.EarliestStart)
+        val high = minutesOf(SusunUiState.LatestEnd)
+        return timeOf(minutes.coerceIn(low, high))
     }
 
     fun selectPace(pace: Pace) = _state.update { it.copy(pace = pace) }
