@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Kendaraan pribadi: car seen from the front. Same palette, viewport and chunky style as rencana_veh_bus. -->
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
-    android:width="24dp" android:height="24dp" android:viewportWidth="38.26" android:viewportHeight="38.94">
-  <path android:pathData="M16.45 0.35c-25.45,5.01 -19.61,42.41 5.43,38.28 10.13,-1.67 17.33,-11.87 16.27,-21.97 -1.12,-10.71 -11.04,-18.41 -21.7,-16.31z" android:fillColor="#FF468A5E" android:fillType="evenOdd" />
-  <path android:pathData="M27.06 17.71c1.26,-1.19 4.57,-4.74 0.98,-5.6 -2.15,-0.65 -7.02,6.06 -10.24,9.43 -1.82,1.89 -3.48,-1.07 -5.77,-2.53 -2.35,-1.5 -4.99,0.46 -1.71,3.96 7.62,8.64 8.28,3.46 16.73,-5.26z" android:fillColor="#FFFEFEFE" android:fillType="evenOdd" />
+    android:width="50dp" android:height="50dp" android:viewportWidth="61.0" android:viewportHeight="64.0">
+  <path android:pathData="M18 5H43Q47 5 48.5 9L52 26Q57 28 57 33V48Q57 51 54 51H7Q4 51 4 48V33Q4 28 9 26L12.5 9Q14 5 18 5ZM17.5 11L15 25H46L43.5 11ZM9 38a4 4 0 1 0 8 0a4 4 0 1 0 -8 0ZM44 38a4 4 0 1 0 8 0a4 4 0 1 0 -8 0ZM23 40H38V45H23Z" android:fillColor="#FF1A3885" android:fillType="evenOdd" />
+  <path android:pathData="M9 49H20V57Q20 61 16 61H13Q9 61 9 57ZM41 49H52V57Q52 61 48 61H45Q41 61 41 57Z" android:fillColor="#FF1A3885" android:fillType="evenOdd" />
 </vector>
