@@ -83,7 +83,6 @@ import id.kelana.core.ui.formatTimeRange
 import id.kelana.core.ui.label
 import id.kelana.core.ui.session.rememberRequireLogin
 import id.kelana.feature.tempat.R
-import id.kelana.feature.tempat.domain.OFFICIAL_PHOTO_COUNT
 import id.kelana.feature.tempat.domain.HoursSummary
 import id.kelana.feature.tempat.domain.closedDaysFact
 import id.kelana.feature.tempat.domain.hoursSummary
@@ -150,6 +149,7 @@ internal fun DetailTempatScreen(
                     onReport = { navigate(LaporkanRoute(place.id)) },
                     onAllStories = { requireLogin { navigate(CeritaRoute) } },
                     events = state.events,
+                    photoCount = state.photoCount,
                     onOpenEvent = { navigate(DetailPentasRoute(it)) },
                     videosSlot = { PlaceVideosSection() },
                     modifier = Modifier.padding(padding),
@@ -173,9 +173,10 @@ internal fun DetailTempatContent(
     events: List<Event> = emptyList(),
     onOpenEvent: (String) -> Unit = {},
     videosSlot: @Composable () -> Unit = {},
+    photoCount: Int = 0,
 ) {
     Column(modifier.fillMaxSize().verticalScroll(rememberScrollState())) {
-        PlaceHeader(place = place, onBack = onBack, onPhotos = onPhotos)
+        PlaceHeader(place = place, photoCount = photoCount, onBack = onBack, onPhotos = onPhotos)
         TitleCard(place)
         CapBanner(capCode = place.capCode, onStamp = onStamp)
         InfoResmiCard(place = place, today = today, onTicketSite = onTicketSite)
@@ -187,9 +188,9 @@ internal fun DetailTempatContent(
     }
 }
 
-/** Illustrated header (250 dp) with the round back and save buttons and the "Lihat N foto resmi" pill. */
+/** Illustrated header (250 dp) with the round back and save buttons and the "Lihat N foto" pill (only when there are photos). */
 @Composable
-private fun PlaceHeader(place: Place, onBack: () -> Unit, onPhotos: () -> Unit) {
+private fun PlaceHeader(place: Place, photoCount: Int, onBack: () -> Unit, onPhotos: () -> Unit) {
     val colors = KelanaTheme.colors
     // PROVISIONAL: visual-only toggle. Saving places is not wired to any storage yet.
     var saved by rememberSaveable { mutableStateOf(false) }
@@ -223,7 +224,7 @@ private fun PlaceHeader(place: Place, onBack: () -> Unit, onPhotos: () -> Unit) 
             )
         }
         // 48 dp touch target around the 32 dp pill.
-        Box(
+        if (photoCount > 0) Box(
             Modifier
                 .align(Alignment.BottomStart)
                 .padding(start = KelanaSpacing.gutter, bottom = 6.dp)
@@ -242,7 +243,7 @@ private fun PlaceHeader(place: Place, onBack: () -> Unit, onPhotos: () -> Unit) 
                 Image(painterResource(R.drawable.tempat_ic_media), contentDescription = null, Modifier.size(18.dp))
                 Spacer(Modifier.width(6.dp))
                 Text(
-                    text = stringResource(R.string.tempat_photos_chip, OFFICIAL_PHOTO_COUNT),
+                    text = stringResource(R.string.tempat_photos_chip, photoCount),
                     style = MaterialTheme.typography.labelMedium.copy(fontWeight = FontWeight.Bold),
                     color = colors.white,
                 )

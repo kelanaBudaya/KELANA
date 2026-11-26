@@ -11,6 +11,8 @@ import id.kelana.core.model.OfficialFact
 import id.kelana.core.model.OpeningHours
 import id.kelana.core.model.Place
 import id.kelana.core.model.PlaceCategory
+import id.kelana.core.model.PlacePhoto
+import id.kelana.core.model.PlacePhotoRepository
 import id.kelana.core.model.PlaceRepository
 import id.kelana.core.model.Recurrence
 import id.kelana.core.model.TicketPrice
@@ -97,8 +99,13 @@ class DetailTempatViewModelTest {
         date.atTime(10, 0).atZone(ZoneId.of("Asia/Jakarta")).toInstant(), ZoneId.of("Asia/Jakarta"),
     )
 
-    private fun vm(repo: PlaceRepository, events: EventRepository = FakeEvents()) =
-        DetailTempatViewModel(SavedStateHandle(mapOf("placeId" to "p1")), repo, events, clock)
+    private class FakePhotos(private val count: Int = 0, private val fail: Boolean = false) : PlacePhotoRepository {
+        override fun photos(placeId: String): Flow<List<PlacePhoto>> =
+            if (fail) flow { error("boom") } else flowOf((1..count).map { testPhoto(it) })
+    }
+
+    private fun vm(repo: PlaceRepository, events: EventRepository = FakeEvents(), photos: PlacePhotoRepository = FakePhotos()) =
+        DetailTempatViewModel(SavedStateHandle(mapOf("placeId" to "p1")), repo, events, photos, clock)
 
     private suspend fun app.cash.turbine.ReceiveTurbine<DetailTempatUiState>.awaitLoaded(): DetailTempatUiState {
         var item = awaitItem()
@@ -208,6 +215,34 @@ class DetailTempatViewModelTest {
             var item = awaitLoaded()
             while (item.events.isEmpty()) item = awaitItem()
             assertEquals(listOf("today"), item.events.map { it.id })
+            cancelAndIgnoreRemainingEvents()
+        }
+    }
+
+    @Test
+    fun photoCount_comes_from_repository() = runTest {
+        vm(FakePlaces(place(date)), photos = FakePhotos(count = 3)).uiState.test {
+            var item = awaitLoaded()
+            while (item.photoCount == 0) item = awaitItem()
+            assertEquals(3, item.photoCount)
+            cancelAndIgnoreRemainingEvents()
+        }
+    }
+
+    @Test
+    fun noPhotos_meansZeroCount() = runTest {
+        vm(FakePlaces(place(date)), photos = FakePhotos(count = 0)).uiState.test {
+            assertEquals(0, awaitLoaded().photoCount)
+            cancelAndIgnoreRemainingEvents()
+        }
+    }
+
+    @Test
+    fun photosFailure_hidesChipButKeepsPlace() = runTest {
+        vm(FakePlaces(place(date)), photos = FakePhotos(fail = true)).uiState.test {
+            val item = awaitLoaded()
+            assertEquals("Museum Uji", item.place?.name)
+            assertEquals(0, item.photoCount)
             cancelAndIgnoreRemainingEvents()
         }
     }

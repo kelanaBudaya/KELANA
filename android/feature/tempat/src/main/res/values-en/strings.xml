@@ -6,7 +6,7 @@
     <string name="tempat_open_map">Open in Google Maps</string>
     <string name="tempat_unsave">Remove from saved</string>
     <string name="tempat_header_cover">Cover illustration of %1$s</string>
-    <string name="tempat_photos_chip">See %1$d official photos</string>
+    <string name="tempat_photos_chip">See %1$d photos</string>
     <string name="tempat_cap_badge">Stamp %1$s</string>
     <string name="tempat_cap_label">STAMP %1$s IS WAITING</string>
     <string name="tempat_cap_headline">Visit the place, then collect the stamp here</string>
@@ -57,14 +57,18 @@
     <string name="tempat_error_title">The place could not be loaded</string>
     <string name="tempat_error_body">Something went wrong while loading. Try again.</string>
     <string name="tempat_retry">Try again</string>
-    <!-- Official photos -->
-    <string name="foto_resmi_title">Official photos · %1$d of %2$d</string>
+    <!-- Photo gallery -->
+    <string name="foto_resmi_title">Photo gallery · %1$d of %2$d</string>
+    <string name="foto_resmi_title_plain">Photo gallery</string>
     <string name="foto_resmi_close">Close</string>
-    <string name="foto_resmi_hero">Photo %1$d from the site manager</string>
-    <string name="foto_resmi_badge">Official documentation</string>
-    <string name="foto_resmi_caption_pending">Photo caption being checked</string>
+    <string name="foto_resmi_hero">Photo %1$d</string>
     <string name="foto_resmi_thumb">Photo %1$d</string>
-    <string name="foto_resmi_note">Visitor photos live in postcards and videos. This section is for photos from the site manager only.</string>
+    <string name="foto_resmi_source">View source</string>
+    <string name="foto_resmi_empty">No photos for this place yet</string>
+    <string name="foto_resmi_error_title">Photos could not be loaded</string>
+    <string name="foto_resmi_error_body">Check your connection and try again.</string>
+    <string name="foto_resmi_retry">Try again</string>
+    <string name="foto_resmi_note">Openly licensed photos from Wikimedia Commons. Visitor photos live in postcards and videos.</string>
     <!-- Report -->
     <string name="laporkan_title">Report</string>
     <string name="laporkan_question">What should we check?</string>

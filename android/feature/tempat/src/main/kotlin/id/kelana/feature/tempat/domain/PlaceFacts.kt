@@ -6,9 +6,6 @@ import id.kelana.core.model.Place
 import java.time.DayOfWeek
 import java.time.LocalTime
 
-/** PROVISIONAL: the number of official photos is fixed until the photo source exists (the frame says 4). */
-const val OFFICIAL_PHOTO_COUNT = 4
-
 /** The opening-hours fact of [today], or null when the place has none for that weekday. */
 fun todayHours(hours: List<OfficialFact<OpeningHours>>, today: DayOfWeek): OfficialFact<OpeningHours>? =
     hours.firstOrNull { it.value.weekday == today }

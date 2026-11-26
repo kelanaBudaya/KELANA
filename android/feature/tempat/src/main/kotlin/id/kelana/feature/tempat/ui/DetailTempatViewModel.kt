@@ -7,6 +7,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import id.kelana.core.model.Event
 import id.kelana.core.model.EventRepository
 import id.kelana.core.model.Place
+import id.kelana.core.model.PlacePhotoRepository
 import id.kelana.core.model.PlaceRepository
 import id.kelana.core.model.Recurrence
 import kotlinx.coroutines.CancellationException
@@ -34,6 +35,8 @@ data class DetailTempatUiState(
     val place: Place? = null,
     /** Events hosted at [place], ready to show. Empty while loading, on error, or when there are none. */
     val events: List<Event> = emptyList(),
+    /** Published open-licensed photos of [place]; 0 while loading, on error, or when there are none (chip hidden). */
+    val photoCount: Int = 0,
 )
 
 /**
@@ -47,22 +50,23 @@ class DetailTempatViewModel(
     savedStateHandle: SavedStateHandle,
     private val places: PlaceRepository,
     private val events: EventRepository,
+    private val photos: PlacePhotoRepository,
     private val clock: Clock,
 ) : ViewModel() {
     @Inject
-    constructor(savedStateHandle: SavedStateHandle, places: PlaceRepository, events: EventRepository) :
-        this(savedStateHandle, places, events, Clock.system(ZoneId.of("Asia/Jakarta")))
+    constructor(savedStateHandle: SavedStateHandle, places: PlaceRepository, events: EventRepository, photos: PlacePhotoRepository) :
+        this(savedStateHandle, places, events, photos, Clock.system(ZoneId.of("Asia/Jakarta")))
 
     private val placeId: String = savedStateHandle.get<String>("placeId").orEmpty()
     private val reload = MutableStateFlow(0)
 
     val uiState: StateFlow<DetailTempatUiState> = reload
         .flatMapLatest {
-            combine(places.place(placeId), hostedEvents()) { place, hosted ->
+            combine(places.place(placeId), hostedEvents(), photoCount()) { place, hosted, photoCount ->
                     if (place == null) {
                         DetailTempatUiState(PlaceLoadStatus.NotFound)
                     } else {
-                        DetailTempatUiState(PlaceLoadStatus.Loaded, place, hosted)
+                        DetailTempatUiState(PlaceLoadStatus.Loaded, place, hosted, photoCount)
                     }
                 }
                 .onStart { emit(DetailTempatUiState(PlaceLoadStatus.Loading)) }
@@ -90,6 +94,15 @@ class DetailTempatViewModel(
             // Do not hold the place back while events load.
             .onStart { emit(emptyList()) }
     }
+
+    /** Optional content: any failure counts as 0 so the header chip simply stays hidden. */
+    private fun photoCount(): Flow<Int> = photos.photos(placeId)
+        .map { it.size }
+        .catch { e ->
+            if (e is CancellationException) throw e
+            emit(0)
+        }
+        .onStart { emit(0) }
 
     private fun nextDate(event: Event, today: LocalDate): LocalDate? =
         when (val r = event.schedule.value.recurrence) {
