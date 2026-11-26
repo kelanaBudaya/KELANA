@@ -27,7 +27,7 @@ Design source of truth: the Claude Design artifact https://claude.ai/artifact/9C
 - MVVM + Clean Architecture; Coroutines + Flow; Hilt
 - Retrofit + OkHttp + kotlinx.serialization; Room + DataStore (offline cache for places, today's plan, passport)
 - Coil (images), Media3 ExoPlayer (visitor video), CameraX or Photo Picker (postcards)
-- Maps: **MapLibre + OpenStreetMap**, styled to match the Figma illustrated look. Do not add the Google Maps SDK. Show the "© OpenStreetMap contributors" attribution on every map. The public OSM tile server is for development only: use a tile provider or own tile server before public launch.
+- Maps: **MapLibre + OpenStreetMap**, styled to match the Figma illustrated look. Do not add the Google Maps SDK. Place detail may link out to Google Maps (icon in the header, `geo:` intent with a web fallback) to check a place's location; this is a plain link with the place's coordinates, not an SDK and not the user's location. Show the "© OpenStreetMap contributors" attribution on every map. The public OSM tile server is for development only: use a tile provider or own tile server before public launch.
 - Notifications: FCM for server pushes, WorkManager/AlarmManager for local "time to leave" reminders
 - Postcard: render a Compose layout to Bitmap, share via FileProvider (IG Stories intent, TikTok Share Kit, WhatsApp `ACTION_SEND`)
 - Backend (same repo): Supabase (Postgres + PostGIS, Auth, Storage, Edge Functions); video on Cloudflare Stream or Mux; admin CMS in Next.js

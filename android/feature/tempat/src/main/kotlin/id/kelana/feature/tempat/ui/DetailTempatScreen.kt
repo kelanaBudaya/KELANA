@@ -53,6 +53,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.compose.ui.platform.LocalContext
+import id.kelana.core.ui.openInGoogleMaps
 import id.kelana.core.designsystem.component.KelanaButton
 import id.kelana.core.designsystem.component.KelanaButtonVariant
 import id.kelana.core.designsystem.component.formatCheckedDate
@@ -205,13 +207,21 @@ private fun PlaceHeader(place: Place, onBack: () -> Unit, onPhotos: () -> Unit) 
             onClick = onBack,
             modifier = Modifier.align(Alignment.TopStart).padding(start = 14.dp, top = 12.dp),
         )
-        RoundIconButton(
-            iconRes = if (saved) R.drawable.ic_bookmark else R.drawable.tempat_ic_bookmark_art,
-            description = stringResource(if (saved) R.string.tempat_unsave else R.string.tempat_save),
-            onClick = { saved = !saved },
-            modifier = Modifier.align(Alignment.TopEnd).padding(end = 14.dp, top = 12.dp),
-            iconSize = 22.dp,
-        )
+        Row(Modifier.align(Alignment.TopEnd).padding(end = 14.dp, top = 12.dp)) {
+            val context = LocalContext.current
+            RoundIconButton(
+                iconRes = R.drawable.tempat_ic_map_pin,
+                description = stringResource(R.string.tempat_open_map),
+                onClick = { openInGoogleMaps(context, place.lat, place.lng, place.name) },
+                iconSize = 22.dp,
+            )
+            RoundIconButton(
+                iconRes = if (saved) R.drawable.ic_bookmark else R.drawable.tempat_ic_bookmark_art,
+                description = stringResource(if (saved) R.string.tempat_unsave else R.string.tempat_save),
+                onClick = { saved = !saved },
+                iconSize = 22.dp,
+            )
+        }
         // 48 dp touch target around the 32 dp pill.
         Box(
             Modifier

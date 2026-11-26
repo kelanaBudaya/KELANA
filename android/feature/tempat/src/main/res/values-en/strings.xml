@@ -3,6 +3,7 @@
     <!-- Place detail -->
     <string name="tempat_back">Back</string>
     <string name="tempat_save">Save place</string>
+    <string name="tempat_open_map">Open in Google Maps</string>
     <string name="tempat_unsave">Remove from saved</string>
     <string name="tempat_header_cover">Cover illustration of %1$s</string>
     <string name="tempat_photos_chip">See %1$d official photos</string>

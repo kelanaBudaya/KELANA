@@ -3,6 +3,7 @@
     <!-- Detail tempat -->
     <string name="tempat_back">Kembali</string>
     <string name="tempat_save">Simpan tempat</string>
+    <string name="tempat_open_map">Buka di Google Maps</string>
     <string name="tempat_unsave">Hapus dari simpanan</string>
     <string name="tempat_header_cover">Ilustrasi sampul %1$s</string>
     <string name="tempat_photos_chip">Lihat %1$d foto resmi</string>
