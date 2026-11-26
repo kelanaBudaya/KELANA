@@ -51,9 +51,10 @@ class TiketContentTest {
     }
 
     @Test
-    fun priceWithCheckDate_showsPriceAndDiperiksaDate() {
+    fun priceWithCheckDate_showsPriceAndNoCheckDate() {
         setContent(TiketUiState(isLoading = false, items = listOf(withDate)))
-        rule.onNodeWithText(str(R.string.tiket_checked, formatCheckedDate(checked))).assertIsDisplayed()
+        rule.onNodeWithText("Diperiksa", substring = true).assertDoesNotExist()
+        rule.onNodeWithText(formatCheckedDate(checked), substring = true).assertDoesNotExist()
         rule.onNodeWithText(str(R.string.tiket_price_from, formatRupiah(150_000)), substring = true).assertIsDisplayed()
         rule.onNodeWithText(str(R.string.tiket_price_pending)).assertDoesNotExist()
     }
@@ -78,7 +79,7 @@ class TiketContentTest {
     fun mixedRows_showOneBadgeOfEachKind() {
         setContent(TiketUiState(isLoading = false, items = listOf(withDate, withoutDate)))
         rule.onAllNodesWithText(str(R.string.tiket_price_pending)).assertCountEquals(1)
-        rule.onAllNodesWithText(str(R.string.tiket_checked, formatCheckedDate(checked))).assertCountEquals(1)
+        rule.onAllNodesWithText(formatCheckedDate(checked), substring = true).assertCountEquals(0)
     }
 
     @Test

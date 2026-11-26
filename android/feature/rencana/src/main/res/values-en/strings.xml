@@ -27,11 +27,11 @@
     <string name="rencana_reminder_action">Remind me</string>
     <string name="rencana_reminder_set">Reminder: %1$s</string>
     <string name="rencana_access_unverified">Access not confirmed by the operator</string>
-    <string name="rencana_hours_checked">Open %1$s · Checked %2$s</string>
+    <string name="rencana_hours_value">Open %1$s</string>
     <string name="rencana_hours_checking">Opening hours are being checked</string>
-    <string name="rencana_price_checked">Ticket %1$s · Checked %2$s</string>
+    <string name="rencana_price_value">Ticket %1$s</string>
     <string name="rencana_price_checking">Price is being checked</string>
-    <string name="rencana_schedule_checked">Schedule %1$s · Checked %2$s</string>
+    <string name="rencana_schedule_value">Schedule %1$s</string>
     <string name="rencana_schedule_checking">Schedule is being checked</string>
     <string name="rencana_travel_adjacent">The places are next to each other</string>
     <string name="rencana_travel_walk">On foot</string>

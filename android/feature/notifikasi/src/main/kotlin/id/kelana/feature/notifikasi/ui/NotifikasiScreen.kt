@@ -269,7 +269,7 @@ private fun NotificationRow(item: NotificationItem, onClick: () -> Unit) {
 }
 
 private val PreviewItems = listOf(
-    NotificationItem("1", NotificationCategory.Rencana, "Waktunya berangkat ke Prambanan", "Sendratari Roro Jonggrang mulai 19.30 di Prambanan. Jadwal diperiksa 20 Nov 2026.", LocalTime.of(17, 40), true, "prambanan", "roro"),
+    NotificationItem("1", NotificationCategory.Rencana, "Waktunya berangkat ke Prambanan", "Sendratari Roro Jonggrang mulai 19.30 di Prambanan.", LocalTime.of(17, 40), true, "prambanan", "roro"),
     NotificationItem("2", NotificationCategory.Paspor, "Cap YK-02 masuk paspormu", "Kamu sudah berkelana ke Museum Sonobudoyo!", LocalTime.of(10, 5), false, "sonobudoyo", null),
 )
 

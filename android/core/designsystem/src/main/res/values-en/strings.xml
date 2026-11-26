@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="ds_back">Back</string>
-    <string name="ds_verified_checked">Checked %1$s</string>
     <string name="ds_preview_button">Continue</string>
     <string name="ds_preview_card_title">Prambanan Temple</string>
     <string name="ds_preview_card_body">The largest Hindu temple in Indonesia.</string>

@@ -26,11 +26,9 @@ import id.kelana.core.designsystem.component.PlaceCard
 import id.kelana.core.designsystem.component.PlaceCardSize
 import id.kelana.core.designsystem.theme.KelanaShapes
 import id.kelana.core.designsystem.theme.KelanaTheme
-import id.kelana.core.designsystem.component.formatCheckedDate
 import id.kelana.core.designsystem.theme.KelanaColors
 import id.kelana.core.model.Place
 import id.kelana.core.model.PlaceCategory
-import java.time.LocalDate
 
 /** Category tile / cover colours of the artifact (JelajahIlustratif tiles, KatMuseum rows). */
 internal fun PlaceCategory.tint(colors: KelanaColors): Color = when (this) {
@@ -93,24 +91,6 @@ internal fun PlaceCover(category: PlaceCategory, compact: Boolean = true, modifi
     }
 }
 
-/** Green "Diperiksa 20 Nov 2026" pill: stamp icon 14 dp, radius 4, 12/600. */
-@Composable
-internal fun CheckedPill(checkedAt: LocalDate, modifier: Modifier = Modifier) {
-    val colors = KelanaTheme.colors
-    Row(
-        modifier.clip(KelanaShapes.badge).background(colors.successSurface).padding(horizontal = 8.dp, vertical = 3.dp),
-        verticalAlignment = Alignment.CenterVertically,
-    ) {
-        Art(R.drawable.jelajah_art_badge_stamp, 14.dp)
-        Text(
-            text = stringResource(R.string.badge_checked, formatCheckedDate(checkedAt)),
-            modifier = Modifier.padding(start = 4.dp),
-            style = MaterialTheme.typography.labelMedium,
-            color = colors.successText,
-        )
-    }
-}
-
 /** Amber "... sedang dicek" pill shown instead of any value that has no check date. */
 @Composable
 internal fun CheckingPill(text: String, modifier: Modifier = Modifier) {
@@ -135,16 +115,12 @@ internal fun CapPill(code: String, modifier: Modifier = Modifier) {
     )
 }
 
-/** "Diperiksa <tanggal>" when any hour fact was checked, otherwise "Sedang dicek". Never a value without a date. */
+/** "Sedang dicek" pill only while no hour fact has a check date (the date itself is not shown), plus the stamp code. */
 @Composable
 internal fun PlaceCheckedBadge(place: Place) {
     val checkedAt = place.latestCheckedAt()
     Row(horizontalArrangement = androidx.compose.foundation.layout.Arrangement.spacedBy(6.dp)) {
-        if (checkedAt != null) {
-            CheckedPill(checkedAt)
-        } else {
-            CheckingPill(stringResource(R.string.badge_checking))
-        }
+        if (checkedAt == null) CheckingPill(stringResource(R.string.badge_checking))
         if (place.capCode.isNotBlank()) CapPill(place.capCode)
     }
 }

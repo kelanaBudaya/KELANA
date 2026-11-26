@@ -20,17 +20,9 @@ import id.kelana.core.designsystem.theme.KelanaTheme
 import id.kelana.core.ui.formatRupiah
 import id.kelana.core.ui.formatTimeRange
 import java.time.LocalDate
-import java.time.format.DateTimeFormatter
-import java.util.Locale
-
-private val IdLocale: Locale = Locale.forLanguageTag("id-ID")
-
-/** "20 Nov 2026" (id-ID). */
-internal fun formatCheckDate(date: LocalDate): String =
-    DateTimeFormatter.ofPattern("d MMM yyyy", IdLocale).format(date)
 
 /**
- * Card of the selected place: name, today's hours and price (official facts, with their check date or the
+ * Card of the selected place: name, today's hours and price (official facts, or the
  * "sedang dicek" wording), at most one status badge, "Lihat detail" and the optional maps-app link.
  */
 @Composable
@@ -69,13 +61,6 @@ internal fun PlaceCard(
                 style = Caption,
                 color = colors.muted,
             )
-            facts.checkedAt?.let {
-                Text(
-                    text = stringResource(R.string.peta_card_checked, formatCheckDate(it)),
-                    style = Caption,
-                    color = colors.muted,
-                )
-            }
             when (badgeFor(place.showToday, place.openToday)) {
                 PetaBadge.ShowTonight -> StatusBadge(stringResource(R.string.peta_badge_show))
                 PetaBadge.OpenToday -> StatusBadge(stringResource(R.string.peta_badge_open))

@@ -13,7 +13,7 @@
     <string name="notif_reminder_title_leave">Time to head to %1$s</string>
     <string name="notif_reminder_title_hour">One hour to go: %1$s</string>
     <string name="notif_reminder_title_half">30 minutes to go: %1$s</string>
-    <string name="notif_reminder_body">%1$s starts at %2$s at %3$s. Schedule checked %4$s.</string>
+    <string name="notif_reminder_body">%1$s starts at %2$s at %3$s.</string>
     <string name="notif_reminder_body_checking">%1$s at %2$s. Its official schedule is being checked.</string>
     <string name="notif_reminder_title_unknown">Show reminder</string>
     <string name="notif_reminder_body_unknown">Time to get ready for the show you picked.</string>

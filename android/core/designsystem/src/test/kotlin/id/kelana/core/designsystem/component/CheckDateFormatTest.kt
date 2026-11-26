@@ -4,7 +4,7 @@ import java.time.LocalDate
 import org.junit.Assert.assertEquals
 import org.junit.Test
 
-class VerifiedBadgeTest {
+class CheckDateFormatTest {
     @Test
     fun formatsCheckDateWithIndonesianMonth() {
         assertEquals("20 Nov 2026", formatCheckedDate(LocalDate.of(2026, 11, 20)))

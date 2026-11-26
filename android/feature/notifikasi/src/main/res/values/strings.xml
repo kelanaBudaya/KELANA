@@ -13,7 +13,7 @@
     <string name="notif_reminder_title_leave">Waktunya berangkat ke %1$s</string>
     <string name="notif_reminder_title_hour">Satu jam lagi: %1$s</string>
     <string name="notif_reminder_title_half">30 menit lagi: %1$s</string>
-    <string name="notif_reminder_body">%1$s mulai %2$s di %3$s. Jadwal diperiksa %4$s.</string>
+    <string name="notif_reminder_body">%1$s mulai %2$s di %3$s.</string>
     <string name="notif_reminder_body_checking">%1$s di %2$s. Jadwal resminya sedang dicek.</string>
     <string name="notif_reminder_title_unknown">Pengingat pentas</string>
     <string name="notif_reminder_body_unknown">Waktunya bersiap untuk pentas yang kamu pilih.</string>

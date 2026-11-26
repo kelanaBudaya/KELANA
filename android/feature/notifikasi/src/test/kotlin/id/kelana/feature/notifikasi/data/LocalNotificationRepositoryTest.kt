@@ -97,7 +97,7 @@ class LocalNotificationRepositoryTest {
         assertEquals("${R.string.notif_reminder_title_hour}|Sendratari Roro Jonggrang", all[1].title)
         assertEquals("${R.string.notif_reminder_title_leave}|Prambanan", all[2].title)
         // The show time is written with its check date.
-        assertEquals("${R.string.notif_reminder_body}|Sendratari Roro Jonggrang|19.30|Prambanan|20 Nov 2026", all[0].body)
+        assertEquals("${R.string.notif_reminder_body}|Sendratari Roro Jonggrang|19.30|Prambanan", all[0].body)
     }
 
     @Test

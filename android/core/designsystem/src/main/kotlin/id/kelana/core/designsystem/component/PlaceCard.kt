@@ -44,7 +44,7 @@ enum class PlaceCardSize {
  * Place card with a cover slot. The caller draws the cover (illustration or image) in [cover].
  * Sizes from JelajahIlustratif (grid cover 156 x 112, radius 16) and KatMuseum (list row: padding 12, radius 20,
  * 1 dp hairline, 60 dp thumb with radius 16, title 16/800, subtitle 13/18 muted). Grid cover aspect 156:112.
- * [badge] sits under the subtitle, for example a [VerifiedBadge].
+ * [badge] sits under the subtitle, for example a status pill.
  */
 @Composable
 fun PlaceCard(
@@ -181,7 +181,6 @@ private fun PlaceCardPreview() {
                 subtitle = stringResource(R.string.ds_preview_card_body),
                 onClick = {},
                 size = PlaceCardSize.List,
-                badge = { VerifiedBadge(checkedAt = java.time.LocalDate.of(2026, 11, 20)) },
                 cover = {},
             )
         }

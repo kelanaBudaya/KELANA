@@ -63,6 +63,5 @@
     <string name="home_stamp_code">YK</string>
     <string name="home_stamp_cd">Stiker YK</string>
     <string name="challenge_progress_cd">Progres tantangan</string>
-    <string name="badge_checked">Diperiksa %1$s</string>
     <string name="badge_cap">Cap %1$s</string>
 </resources>

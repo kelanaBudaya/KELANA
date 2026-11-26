@@ -22,7 +22,7 @@ internal fun visibleFactValue(value: String?, checkedAt: LocalDate?): String? =
     if (checkedAt == null) null else value
 
 /**
- * One official fact: [label], then the value with "Diperiksa <tanggal>" ([VerifiedBadge]).
+ * One official fact: [label], then the value (the check date is gated on, not rendered).
  * Without [checkedAt] the value is hidden and "Sedang dicek" is shown instead.
  * Prefer the `OfficialFactRow(label, fact, format)` overload in :core:ui, which takes an `OfficialFact`.
  * Layout: label 13/18 muted (bodySmall), value 16/800 ink (titleMedium, KatMuseum row title), badge below.
@@ -38,14 +38,13 @@ fun OfficialFactRow(
     val shown = visibleFactValue(value, checkedAt)
     Column(modifier.fillMaxWidth()) {
         Text(text = label, style = MaterialTheme.typography.bodySmall, color = colors.muted)
-        if (shown != null && checkedAt != null) {
+        if (shown != null) {
             Text(
                 text = shown,
                 modifier = Modifier.padding(top = KelanaSpacing.xs),
                 style = MaterialTheme.typography.titleMedium,
                 color = colors.ink,
             )
-            VerifiedBadge(checkedAt = checkedAt, modifier = Modifier.padding(top = KelanaSpacing.xs))
         } else {
             Text(
                 text = stringResource(R.string.ds_fact_pending),

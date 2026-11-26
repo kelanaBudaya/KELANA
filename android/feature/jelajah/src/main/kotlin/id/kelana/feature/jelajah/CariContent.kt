@@ -218,7 +218,6 @@ private fun EventResult(occurrence: EventOccurrence, onClick: () -> Unit) {
         place = event.placeName,
         whenText = whenText,
         onClick = onClick,
-        badge = (shown as? FactDisplay.Checked)?.let { checked -> { CheckedPill(checkedAt = checked.checkedAt) } },
         leading = { PlaceCover(event.category) },
     )
 }

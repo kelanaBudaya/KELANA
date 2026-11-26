@@ -63,6 +63,5 @@
     <string name="home_stamp_code">YK</string>
     <string name="home_stamp_cd">YK sticker</string>
     <string name="challenge_progress_cd">Challenge progress</string>
-    <string name="badge_checked">Checked %1$s</string>
     <string name="badge_cap">Stamp %1$s</string>
 </resources>
