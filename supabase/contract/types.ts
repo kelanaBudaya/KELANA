@@ -69,6 +69,7 @@ export type Database = {
           event_date: string | null
           id: string
           is_sample: boolean
+          on_site_available: boolean
           performers: string[]
           place_id: string
           price_from_idr: number | null
@@ -91,6 +92,7 @@ export type Database = {
           event_date?: string | null
           id?: string
           is_sample?: boolean
+          on_site_available?: boolean
           performers?: string[]
           place_id: string
           price_from_idr?: number | null
@@ -113,6 +115,7 @@ export type Database = {
           event_date?: string | null
           id?: string
           is_sample?: boolean
+          on_site_available?: boolean
           performers?: string[]
           place_id?: string
           price_from_idr?: number | null
@@ -490,6 +493,7 @@ export type Database = {
           id: string
           is_sample: boolean
           label: string
+          on_site_available: boolean
           place_id: string
           price_idr: number | null
           review_status: Database["public"]["Enums"]["review_status"]
@@ -501,6 +505,7 @@ export type Database = {
           id?: string
           is_sample?: boolean
           label: string
+          on_site_available?: boolean
           place_id: string
           price_idr?: number | null
           review_status?: Database["public"]["Enums"]["review_status"]
@@ -512,6 +517,7 @@ export type Database = {
           id?: string
           is_sample?: boolean
           label?: string
+          on_site_available?: boolean
           place_id?: string
           price_idr?: number | null
           review_status?: Database["public"]["Enums"]["review_status"]

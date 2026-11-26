@@ -44,9 +44,32 @@ data class TiketItem(
     val sellerUrl: String?,
     val priceFromIdr: Long?,
     val checkedAt: LocalDate?,
-) {
-    val sellerHost: String? get() = httpsHost(sellerUrl)
+    /** True when the ticket can be bought at the venue ticket counter. */
+    val onSite: Boolean = false,
+)
+
+/** The extra line under the price of a row. */
+enum class TiketNote { AlsoAtCounter, BuyAtCounter }
+
+/** What a row shows besides title and price: an optional [note] and whether it leads to the official site. */
+internal data class RowPresentation(val note: TiketNote?, val opensSeller: Boolean)
+
+/**
+ * Pure display rule: on-site with a seller -> "also sold at the counter" (site action stays); on-site without a
+ * seller -> "buy at the counter" and no action; seller only -> action; neither -> price only.
+ */
+internal fun rowPresentation(onSite: Boolean, sellerUrl: String?): RowPresentation {
+    val hasSeller = sellerUrl != null
+    val note = when {
+        onSite && hasSeller -> TiketNote.AlsoAtCounter
+        onSite -> TiketNote.BuyAtCounter
+        else -> null
+    }
+    return RowPresentation(note, opensSeller = hasSeller)
 }
+
+/** The price a row may show: only with a check date (AGENTS.md), otherwise null ("Harga sedang dicek"). */
+internal fun visiblePrice(item: TiketItem): Long? = item.priceFromIdr?.takeIf { item.checkedAt != null }
 
 /** "Semua" is `filter == null`. */
 @Immutable
@@ -105,6 +128,7 @@ class TiketViewModel(
                             sellerUrl = httpsOnly(fact.value.sellerUrl),
                             priceFromIdr = if (priced) fact.value.priceFromIdr else null,
                             checkedAt = if (priced) fact.checkedAt else null,
+                            onSite = fact.value.onSiteAvailable,
                         )
                     }
                     Source.Loaded(placeList.mapNotNull(::placeItem) + shows) as Source
@@ -160,6 +184,7 @@ internal fun placeItem(place: Place): TiketItem? {
         sellerUrl = seller,
         priceFromIdr = best?.value?.priceIdr,
         checkedAt = best?.checkedAt,
+        onSite = place.tickets.any { it.value.onSiteAvailable },
     )
 }
 

@@ -120,6 +120,17 @@ class MappersTest {
     }
 
     @Test
+    fun onSiteAvailable_defaultsToFalseAndIsMapped() {
+        assertEquals(false, ticketDto().toFact().value.onSiteAvailable)
+        assertEquals(true, ticketDto().copy(onSiteAvailable = true).toFact().value.onSiteAvailable)
+        assertEquals(false, eventDto().toEvent()!!.ticket.value.onSiteAvailable)
+        assertEquals(true, eventDto().copy(onSiteAvailable = true).toEvent()!!.ticket.value.onSiteAvailable)
+        val json = kotlinx.serialization.json.Json { ignoreUnknownKeys = true }
+        val missing = json.decodeFromString<TicketPriceDto>("""{"place_id":"p","label":"x"}""")
+        assertEquals(false, missing.onSiteAvailable)
+    }
+
+    @Test
     fun event_withoutCheckDate_isChecking() {
         val ev = eventDto().copy(checkedAt = null).toEvent()!!
         assertEquals(FactDisplay.Checking, ev.schedule.display())

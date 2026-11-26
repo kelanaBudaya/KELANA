@@ -40,7 +40,7 @@ class SupabaseRemoteDataSource @Inject constructor(
             .select(Columns.raw("place_id,starts_on,ends_on,reason,source_url,checked_at"))
             .decodeList<ClosureDto>()
         val tickets = c.from("ticket_prices")
-            .select(Columns.raw("place_id,label,price_idr,seller_url,source_url,checked_at"))
+            .select(Columns.raw("place_id,label,price_idr,seller_url,on_site_available,source_url,checked_at"))
             .decodeList<TicketPriceDto>()
         return PlacesPayload(places, hours, closures, tickets)
     }
@@ -51,7 +51,7 @@ class SupabaseRemoteDataSource @Inject constructor(
             .select(
                 Columns.raw(
                     "id,place_id,title,description,category,recurrence,event_date,weekday,start_time,end_time," +
-                        "price_from_idr,seller_url,source_url,checked_at,performers,arrival_advice_min," +
+                        "price_from_idr,seller_url,on_site_available,source_url,checked_at,performers,arrival_advice_min," +
                         "arrival_advice_max,tags,places(name,regions(code))",
                 ),
             )
