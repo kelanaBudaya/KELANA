@@ -149,6 +149,7 @@ internal fun DetailTempatScreen(
                     onAllStories = { requireLogin { navigate(CeritaRoute) } },
                     events = state.events,
                     onOpenEvent = { navigate(DetailPentasRoute(it)) },
+                    videosSlot = { PlaceVideosSection() },
                     modifier = Modifier.padding(padding),
                 )
             }
@@ -169,6 +170,7 @@ internal fun DetailTempatContent(
     modifier: Modifier = Modifier,
     events: List<Event> = emptyList(),
     onOpenEvent: (String) -> Unit = {},
+    videosSlot: @Composable () -> Unit = {},
 ) {
     Column(modifier.fillMaxSize().verticalScroll(rememberScrollState())) {
         PlaceHeader(place = place, onBack = onBack, onPhotos = onPhotos)
@@ -177,6 +179,7 @@ internal fun DetailTempatContent(
         InfoResmiCard(place = place, today = today, onTicketSite = onTicketSite)
         PlaceEventsSection(events = events, onOpenEvent = onOpenEvent)
         StoriesSection(onAllStories = onAllStories)
+        videosSlot()
         ReportRow(onReport = onReport)
         Spacer(Modifier.height(KelanaSpacing.lg))
     }
