@@ -96,8 +96,8 @@ internal fun CapBerhasilContent(
                     ScenePiece(s, R.drawable.paspor_art_berhasil_3, 26f, 250f, 56f, -8f)
                     if (place != null) {
                         CapSticker(
-                            label = stampLabel(place.name, IdLocale),
-                            code = place.capCode,
+                            label = place.stickerTitle(IdLocale),
+                            code = stringResource(R.string.paspor_sticker_number, place.capCode),
                             icon = place.category.stampIcon(),
                             tone = StickerTone.Blue,
                             width = s.dp(210f),

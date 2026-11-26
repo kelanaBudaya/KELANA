@@ -53,7 +53,7 @@ class NotificationContentResolver(
         } else {
             ResolvedNotification(
                 NotificationCategory.Paspor,
-                text.get(R.string.notif_stamp_title, place.capCode),
+                text.get(R.string.notif_stamp_title, place.stampLabel),
                 text.get(R.string.notif_stamp_body, place.name),
                 placeId = place.id,
             )

@@ -121,7 +121,7 @@ internal fun CapPill(code: String, modifier: Modifier = Modifier) {
 internal fun PlaceCheckedBadge(place: Place, today: LocalDate?) {
     Row(horizontalArrangement = androidx.compose.foundation.layout.Arrangement.spacedBy(6.dp)) {
         if (isVisitToday(place, today)) VisitTodayPill()
-        if (place.capCode.isNotBlank()) CapPill(place.capCode)
+        if (place.capCode.isNotBlank()) CapPill(place.stampLabel)
     }
 }
 

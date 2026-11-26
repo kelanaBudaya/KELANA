@@ -30,6 +30,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.drawText
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Constraints
 import androidx.compose.ui.unit.IntOffset
@@ -39,6 +40,7 @@ import id.kelana.core.designsystem.theme.FrauncesFontFamily
 import id.kelana.core.designsystem.theme.JakartaFontFamily
 import id.kelana.core.designsystem.theme.KelanaColors
 import id.kelana.core.model.PostcardStyle
+import id.kelana.core.model.stampLabelOf
 import id.kelana.feature.postcard.domain.CardContent
 import id.kelana.feature.postcard.domain.ShareFormat
 import kotlin.math.PI
@@ -387,9 +389,16 @@ private fun DrawScope.drawSticker(
             val icon = TOWER_PATHS
             val iconH = 18f
             val iconScale = iconH / 60f
-            val code = measurer.layout(content.capCode, jakarta(11f, FontWeight.ExtraBold, palette.stickerText, line = 13f, spacing = 0.8f), w - 16f)
+            val stampText = stampLabelOf(content.stampName, content.capCode)
+            val longStamp = stampText.length > 8
+            val code = if (longStamp) {
+                measurer.layout(stampText, jakarta(8f, FontWeight.ExtraBold, palette.stickerText, line = 9f, spacing = 0.3f).copy(textAlign = TextAlign.Center), w - 16f, maxLines = 2)
+            } else {
+                measurer.layout(stampText, jakarta(11f, FontWeight.ExtraBold, palette.stickerText, line = 13f, spacing = 0.8f), w - 16f)
+            }
             val name = measurer.layout(content.placeName.uppercase(), jakarta(8f, FontWeight.Bold, palette.stickerText, line = 10f), w - 16f)
-            val total = iconH + 2f + 13f + 2f + 10f
+            val stampH = code.lineCount * (if (longStamp) 9f else 13f)
+            val total = iconH + 2f + stampH + 2f + 10f
             var y = (h - total) / 2f
             withTransform({
                 translate((w - 57.85f * iconScale) / 2f, y)
@@ -397,7 +406,7 @@ private fun DrawScope.drawSticker(
             }) { icon.forEach { drawPath(it, palette.stickerText) } }
             y += iconH + 2f
             drawText(code, topLeft = Offset((w - code.textWidth()) / 2f, y))
-            y += 13f + 2f
+            y += stampH + 2f
             drawText(name, topLeft = Offset((w - name.textWidth()) / 2f, y))
         }
     }

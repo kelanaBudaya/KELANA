@@ -28,6 +28,7 @@
     <string name="paspor_retry">Coba lagi</string>
     <string name="paspor_close">Tutup</string>
     <string name="paspor_sticker_word">CAP</string>
+    <string name="paspor_sticker_number">No. %1$s</string>
     <string name="paspor_place_missing_title">Tempat tidak ditemukan</string>
     <string name="paspor_place_missing_body">Tempat ini tidak ada di daftar. Kembali dan pilih tempat lain.</string>
 

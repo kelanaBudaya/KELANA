@@ -270,7 +270,7 @@ internal fun CapSticker(
                 ),
                 color = ink,
                 textAlign = TextAlign.Center,
-                maxLines = 1,
+                maxLines = 2,
                 overflow = TextOverflow.Ellipsis,
             )
             Text(
@@ -304,6 +304,10 @@ internal fun stampLabel(name: String, locale: java.util.Locale): String {
     val short = if (rest.isNotBlank() && first.lowercase(locale) in GenericLeadWords) rest else trimmed
     return short.uppercase(locale)
 }
+
+/** Sticker title: the catchy stamp name when the place has one, otherwise the short place name. */
+internal fun id.kelana.core.model.Place.stickerTitle(locale: java.util.Locale): String =
+    stampName?.takeIf { it.isNotBlank() }?.uppercase(locale) ?: stampLabel(name, locale)
 
 private val GenericLeadWords = setOf("museum", "candi")
 

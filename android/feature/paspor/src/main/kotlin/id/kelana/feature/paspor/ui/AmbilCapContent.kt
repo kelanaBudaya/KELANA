@@ -180,7 +180,7 @@ private fun IzinLokasiSheet(place: Place, actions: AmbilCapActions, modifier: Mo
                     ScenePiece(s, R.drawable.paspor_art_footprint, 150f, 150f, 58f, 170f)
                     ScenePiece(s, R.drawable.paspor_art_museum, 214f, 36f, 92f, 5f)
                     CapSticker(
-                        label = place.capCode,
+                        label = place.stampLabel,
                         code = stringResource(R.string.paspor_sticker_word),
                         icon = place.category.stampIcon(),
                         tone = StickerTone.Blue,
@@ -321,19 +321,19 @@ private fun ReadyContent(place: Place, working: CapStep.Working?, actions: Ambil
             horizontalArrangement = Arrangement.spacedBy(16.dp),
         ) {
             CapSticker(
-                label = stampLabel(place.name, IdLocale),
-                code = place.capCode,
+                label = place.stickerTitle(IdLocale),
+                code = stringResource(R.string.paspor_sticker_number, place.capCode),
                 icon = place.category.stampIcon(),
                 tone = StickerTone.Blue,
                 width = 112.dp,
                 height = 82.dp,
                 iconSize = 24.dp,
                 modifier = Modifier.rotate(-5f),
-                labelSize = stampLabelSize(stampLabel(place.name, IdLocale)),
+                labelSize = stampLabelSize(place.stickerTitle(IdLocale)),
             )
             Column {
                 Text(
-                    stringResource(R.string.paspor_ambil_sticker_title, place.capCode),
+                    stringResource(R.string.paspor_ambil_sticker_title, place.stampLabel),
                     style = MaterialTheme.typography.titleLarge,
                     color = colors.ink,
                 )
@@ -616,15 +616,15 @@ private fun PendingContent(place: Place, step: CapStep.WaitingSignal, actions: A
                 ScenePiece(s, R.drawable.paspor_art_footprint, 92f, 90f, 40f, 210f)
                 ScenePiece(s, R.drawable.paspor_art_footprint, 144f, 60f, 40f, 200f)
                 CapSticker(
-                    label = stampLabel(place.name, IdLocale),
-                    code = place.capCode,
+                    label = place.stickerTitle(IdLocale),
+                    code = stringResource(R.string.paspor_sticker_number, place.capCode),
                     icon = place.category.stampIcon(),
                     tone = StickerTone.Blue,
                     width = s.dp(112f),
                     height = s.dp(82f),
                     iconSize = 24.dp,
                     modifier = Modifier.offset(s.dp(210f), s.dp(60f)).rotate(6f),
-                    labelSize = stampLabelSize(stampLabel(place.name, IdLocale)),
+                    labelSize = stampLabelSize(place.stickerTitle(IdLocale)),
                 )
             }
         }

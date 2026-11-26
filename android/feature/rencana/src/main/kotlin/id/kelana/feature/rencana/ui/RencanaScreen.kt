@@ -487,7 +487,7 @@ private fun StopRow(
                     Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(6.dp)) {
                         Image(painterResource(R.drawable.rencana_check), contentDescription = null, modifier = Modifier.size(20.dp))
                         Text(
-                            stringResource(R.string.rencana_take_stamp, stop.capCode),
+                            stringResource(R.string.rencana_take_stamp, stop.stampLabel),
                             style = MaterialTheme.typography.titleSmall.copy(fontWeight = FontWeight.ExtraBold),
                             color = colors.white,
                         )

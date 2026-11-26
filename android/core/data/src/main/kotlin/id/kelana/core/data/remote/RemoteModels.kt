@@ -23,6 +23,7 @@ data class PlaceDto(
     val name: String,
     val category: String,
     @SerialName("cap_code") val capCode: String,
+    @SerialName("stamp_name") val stampName: String? = null,
     val lat: Double? = null,
     val lng: Double? = null,
     val address: String? = null,

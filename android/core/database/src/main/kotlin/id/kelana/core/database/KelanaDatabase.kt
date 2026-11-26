@@ -17,7 +17,7 @@ import id.kelana.core.database.entity.PlaceEntity
 import id.kelana.core.database.entity.PlaceFactEntity
 import id.kelana.core.database.entity.RegionEntity
 
-/** Version 2 adds the public-content cache, version 3 the pending stamp row and the own-stamp cache, version 4 the place region code, version 5 the place photo cache (migration 4 to 5 keeps the pending stamp queue). Older versions are dropped on upgrade. */
+/** Version 2 adds the public-content cache, version 3 the pending stamp row and the own-stamp cache, version 4 the place region code, version 5 the place photo cache (migration 4 to 5 keeps the pending stamp queue), version 6 the place stamp name (migration 5 to 6 keeps it too). Older versions are dropped on upgrade. */
 @Database(
     entities = [
         PlaceholderEntity::class,
@@ -30,7 +30,7 @@ import id.kelana.core.database.entity.RegionEntity
         OwnStampEntity::class,
         PlacePhotoEntity::class,
     ],
-    version = 5,
+    version = 6,
     exportSchema = false,
 )
 abstract class KelanaDatabase : RoomDatabase() {

@@ -284,15 +284,15 @@ private fun StampCell(item: PassportItem, index: Int, modifier: Modifier, onClic
     ) {
         if (item.isCollected) {
             CapSticker(
-                label = stampLabel(place.name, IdLocale),
-                code = place.capCode,
+                label = place.stickerTitle(IdLocale),
+                code = stringResource(R.string.paspor_sticker_number, place.capCode),
                 icon = place.category.stampIcon(),
                 tone = stickerToneFor(index),
                 width = StickerWidth,
                 height = StickerHeight,
                 iconSize = 18.dp,
                 modifier = Modifier.rotate(if (index % 2 == 0) -5f else 4f),
-                labelSize = stampLabelSize(stampLabel(place.name, IdLocale)),
+                labelSize = stampLabelSize(place.stickerTitle(IdLocale)),
             )
         } else {
             val dash = colors.divider

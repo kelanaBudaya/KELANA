@@ -250,7 +250,7 @@ private fun PlacePicker(places: List<StampedPlace>, onPlace: (String) -> Unit) {
             ) {
                 Column(Modifier.weight(1f)) {
                     Text(item.place.name, style = MaterialTheme.typography.titleMedium, color = colors.ink)
-                    Text(item.place.capCode, style = MaterialTheme.typography.bodySmall, color = colors.muted)
+                    Text(item.place.stampLabel, style = MaterialTheme.typography.bodySmall, color = colors.muted)
                 }
             }
         }
@@ -266,7 +266,7 @@ private fun FormBody(state: TulisUiState, place: Place, actions: TulisActions) {
                 .weight(1f)
                 .verticalScroll(rememberScrollState()),
         ) {
-            PhotoBox(state = state, capCode = place.capCode, actions = actions)
+            PhotoBox(state = state, stampLabel = place.stampLabel, actions = actions)
 
             // Seberapa berkesan?
             Column(Modifier.padding(start = 20.dp, end = 20.dp, top = 18.dp)) {
@@ -346,7 +346,7 @@ private fun SectionTitle(text: String) {
 
 /** Photo area: 220 high, radius 20, dashed 2 px #B9C4DA border, white fill (artifact). With a photo it shows the photo. */
 @Composable
-private fun PhotoBox(state: TulisUiState, capCode: String, actions: TulisActions) {
+private fun PhotoBox(state: TulisUiState, stampLabel: String, actions: TulisActions) {
     val colors = KelanaTheme.colors
     var chooseSource by remember { mutableStateOf(false) }
     val dashColor = colors.dashMuted
@@ -414,7 +414,7 @@ private fun PhotoBox(state: TulisUiState, capCode: String, actions: TulisActions
             }
         }
         CapSticker(
-            capCode = capCode,
+            stampLabel = stampLabel,
             modifier = Modifier
                 .align(Alignment.TopEnd)
                 .offset(x = 6.dp, y = (-10).dp)
@@ -465,15 +465,16 @@ private fun PhotoBox(state: TulisUiState, capCode: String, actions: TulisActions
  * The perforation is approximated with a rounded shape; the white outline and shadow are drawn.
  */
 @Composable
-private fun CapSticker(capCode: String, modifier: Modifier = Modifier) {
+private fun CapSticker(stampLabel: String, modifier: Modifier = Modifier) {
     val colors = KelanaTheme.colors
     val shape = RoundedCornerShape(6.dp)
-    val description = stringResource(R.string.postcard_sticker_cd, capCode)
+    val description = stringResource(R.string.postcard_sticker_cd, stampLabel)
     Column(
         modifier = modifier
             .semantics(mergeDescendants = true) { contentDescription = description }
             .shadow(3.dp, shape)
-            .size(width = 78.dp, height = 56.dp)
+            .width(78.dp)
+            .heightIn(min = 56.dp)
             .clip(shape)
             .background(colors.primary)
             .border(BorderStroke(2.5.dp, colors.white), shape)
@@ -488,16 +489,17 @@ private fun CapSticker(capCode: String, modifier: Modifier = Modifier) {
             }
         }
         Text(
-            text = capCode,
+            text = stampLabel,
             style = TextStyle(
                 fontFamily = JakartaFontFamily,
-                fontSize = 11.sp,
-                lineHeight = 13.sp,
+                fontSize = if (stampLabel.length > 8) 8.sp else 11.sp,
+                lineHeight = if (stampLabel.length > 8) 9.sp else 13.sp,
                 fontWeight = FontWeight.ExtraBold,
-                letterSpacing = 0.8.sp,
+                letterSpacing = if (stampLabel.length > 8) 0.3.sp else 0.8.sp,
+                textAlign = TextAlign.Center,
             ),
             color = colors.skyText,
-            maxLines = 1,
+            maxLines = 2,
         )
         Text(
             text = stringResource(R.string.postcard_sticker_cap),
