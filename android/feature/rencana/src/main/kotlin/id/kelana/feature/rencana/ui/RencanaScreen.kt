@@ -47,7 +47,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
-import id.kelana.core.designsystem.component.VerifiedBadge
 import id.kelana.core.designsystem.theme.KelanaShapes
 import id.kelana.core.designsystem.theme.KelanaSizes
 import id.kelana.core.designsystem.theme.KelanaTheme
@@ -605,7 +604,6 @@ private fun TonightCard(occurrence: EventOccurrence, onOpen: (String) -> Unit) {
                 style = MaterialTheme.typography.labelMedium.copy(fontWeight = FontWeight.Normal),
                 color = colors.warnTextDeep,
             )
-            schedule.checkedAt?.let { VerifiedBadge(it, Modifier.padding(top = 2.dp)) }
         }
         Image(painterResource(R.drawable.rencana_ic_chevron), contentDescription = null, modifier = Modifier.size(18.dp), colorFilter = ColorFilter.tint(colors.warnTextDeep))
     }

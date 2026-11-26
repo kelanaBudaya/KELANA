@@ -15,7 +15,6 @@
     <string name="peta_card_price_free">Gratis</string>
     <string name="peta_card_price_checking">Harga sedang dicek</string>
     <string name="peta_card_line">%1$s · %2$s</string>
-    <string name="peta_card_checked">Diperiksa %1$s</string>
     <string name="peta_badge_show">Pentas malam ini</string>
     <string name="peta_badge_open">Buka hari ini</string>
     <string name="peta_open_detail">Lihat detail</string>

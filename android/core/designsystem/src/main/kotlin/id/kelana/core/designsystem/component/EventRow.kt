@@ -27,13 +27,12 @@ import id.kelana.core.designsystem.theme.KelanaShapes
 import id.kelana.core.designsystem.theme.KelanaSizes
 import id.kelana.core.designsystem.theme.KelanaSpacing
 import id.kelana.core.designsystem.theme.KelanaTheme
-import java.time.LocalDate
 
 /**
  * One performance in the agenda or in search results (frame 02.01, "Wayang kulit" row).
  * [place] is the venue, [whenText] the already formatted time such as "Kamis 09.00-11.00".
  * Sizes follow the KatMuseum list row: radius 20, 12 dp padding, 60 dp leading tile with radius 16, title 16/800.
- * [badge] sits under the time, for example a [VerifiedBadge].
+ * [badge] sits under the time, for example a status pill.
  */
 @Composable
 fun EventRow(
@@ -112,7 +111,6 @@ private fun EventRowPreview() {
             whenText = stringResource(R.string.ds_preview_event_when),
             onClick = {},
             modifier = Modifier.padding(KelanaSpacing.gutter),
-            badge = { VerifiedBadge(checkedAt = LocalDate.of(2026, 11, 20)) },
         )
     }
 }

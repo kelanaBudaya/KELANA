@@ -101,9 +101,9 @@ class PetaScreenTest {
     }
 
     @Test
-    fun placeCard_checkedFacts_showDiperiksaDateAndBadge() {
+    fun placeCard_checkedFacts_showBadgeAndNoCheckDate() {
         setScreen(PetaUiState(isLoading = false, allPlaces = places, selectedId = "a", today = today))
-        rule.onNodeWithText(str(R.string.peta_card_checked, formatCheckDate(today))).assertIsDisplayed()
+        rule.onNodeWithText("Diperiksa", substring = true).assertDoesNotExist()
         rule.onNodeWithText(str(R.string.peta_badge_show)).assertIsDisplayed()
     }
 

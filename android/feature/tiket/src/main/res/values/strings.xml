@@ -9,7 +9,6 @@
     <string name="tiket_filter_class">Kelas</string>
     <string name="tiket_banner">KELANA tidak menjual tiket. Kami mengarahkanmu ke kanal resmi pengelola, jadi uangmu langsung sampai ke mereka.</string>
     <string name="tiket_price_from">mulai %1$s</string>
-    <string name="tiket_checked">Diperiksa %1$s</string>
     <string name="tiket_price_pending">Harga sedang dicek</string>
     <string name="tiket_open_action">Ke situs tiket resmi</string>
     <string name="tiket_loading">Memuat tiket</string>

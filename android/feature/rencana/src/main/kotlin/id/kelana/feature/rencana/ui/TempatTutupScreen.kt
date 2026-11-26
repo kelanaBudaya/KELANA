@@ -40,7 +40,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import id.kelana.core.designsystem.component.KelanaButton
-import id.kelana.core.designsystem.component.VerifiedBadge
 import id.kelana.core.designsystem.theme.KelanaSizes
 import id.kelana.core.designsystem.theme.KelanaTheme
 import id.kelana.core.model.Closure
@@ -189,15 +188,13 @@ internal fun TempatTutupContent(
     }
 }
 
-/** Why the place is closed, with the check date of the fact it comes from. */
+/** Why the place is closed, (the check date is not rendered). */
 @Composable
 private fun ClosedExplanation(stop: PlanStop, availability: Availability?) {
     val colors = KelanaTheme.colors
-    val date: LocalDate?
     val text: String = when (availability) {
         is Availability.TemporarilyClosed -> {
             val closure = availability.closure
-            date = closure.checkedAt
             val reason = closure.value.reason ?: stringResource(R.string.rencana_closed_reason_default)
             stringResource(
                 R.string.rencana_closed_reason_period,
@@ -207,15 +204,12 @@ private fun ClosedExplanation(stop: PlanStop, availability: Availability?) {
             )
         }
         Availability.ClosedThatDay -> {
-            date = null
             stringResource(R.string.rencana_closed_reason_weekday, stop.placeName)
         }
         is Availability.Open -> {
-            date = availability.hours.checkedAt
             stringResource(R.string.rencana_closed_reason_hours_moved, formatClock(availability.opens), formatClock(availability.closes))
         }
         Availability.Unknown, null -> {
-            date = null
             stringResource(R.string.rencana_closed_reason_unknown)
         }
     }
@@ -225,7 +219,6 @@ private fun ClosedExplanation(stop: PlanStop, availability: Availability?) {
         style = MaterialTheme.typography.bodySmall.copy(lineHeight = 19.sp),
         color = colors.muted,
     )
-    if (date != null) VerifiedBadge(date, Modifier.padding(top = 6.dp))
 }
 
 @Composable

@@ -25,7 +25,6 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import id.kelana.core.designsystem.component.formatCheckedDate
 import id.kelana.core.designsystem.theme.KelanaShapes
 import id.kelana.core.designsystem.theme.KelanaTheme
 import id.kelana.core.model.FactDisplay
@@ -96,7 +95,7 @@ internal fun travelText(mode: TravelMode, minutes: Int): String {
     return stringResource(R.string.rencana_travel_estimate, label, minutes)
 }
 
-/** Opening hours of a place stop with their check date, or "sedang dicek". Shows nothing for a show. */
+/** Opening hours of a place stop, or "sedang dicek" (the check date is not rendered). Shows nothing for a show. */
 @Composable
 internal fun hoursText(stop: PlanStop): String? {
     val fact = stop.hours ?: return null
@@ -109,9 +108,8 @@ internal fun hoursText(stop: PlanStop): String? {
                 stringResource(R.string.rencana_hours_checking)
             } else {
                 stringResource(
-                    R.string.rencana_hours_checked,
+                    R.string.rencana_hours_value,
                     formatTimeRange(opens, closes),
-                    formatCheckedDate(display.checkedAt),
                 )
             }
         }
@@ -130,7 +128,7 @@ internal fun priceText(stop: PlanStop): String? {
         is FactDisplay.Checked -> {
             val value = display.value
             when {
-                value != null -> stringResource(R.string.rencana_price_checked, formatRupiah(value), formatCheckedDate(display.checkedAt))
+                value != null -> stringResource(R.string.rencana_price_value, formatRupiah(value))
                 stop.isEvent -> null
                 else -> stringResource(R.string.rencana_price_checking)
             }
@@ -139,7 +137,7 @@ internal fun priceText(stop: PlanStop): String? {
     }
 }
 
-/** Time label of a stop: the official show time (with its check date shown in [hoursText] line), or the planned visit. */
+/** Time label of a stop: the official show time , or the planned visit. */
 @Composable
 internal fun stopTimeText(stop: PlanStop): String {
     val schedule = stop.schedule
@@ -152,15 +150,14 @@ internal fun stopTimeText(stop: PlanStop): String {
     return formatTimeRange(stop.start, stop.end)
 }
 
-/** "Jadwal 19.30–20.30 · Diperiksa 20 Nov 2026" for a show stop, null for a place stop. */
+/** "Jadwal 19.30–20.30" for a show stop, null for a place stop. */
 @Composable
 internal fun scheduleText(stop: PlanStop): String? {
     val schedule = stop.schedule ?: return null
     return when (val display = schedule.display()) {
         is FactDisplay.Checked -> stringResource(
-            R.string.rencana_schedule_checked,
+            R.string.rencana_schedule_value,
             formatTimeRange(display.value.start, display.value.end),
-            formatCheckedDate(display.checkedAt),
         )
         FactDisplay.Checking -> stringResource(R.string.rencana_schedule_checking)
     }

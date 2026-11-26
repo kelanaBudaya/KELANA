@@ -19,7 +19,7 @@ data class OfficialFact<out T>(
 
 /** Render state of an [OfficialFact]. */
 sealed interface FactDisplay<out T> {
-    /** Show the value together with "Diperiksa <checkedAt>". */
+    /** Show the value; [checkedAt] gates it but is not rendered. */
     data class Checked<out T>(val value: T, val checkedAt: LocalDate, val sourceUrl: String?) : FactDisplay<T>
 
     /** No check date: show "sedang dicek" and no value. */

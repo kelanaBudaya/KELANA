@@ -726,7 +726,7 @@ private fun BottomActions(onPostcard: () -> Unit, inPlan: Boolean, onAddPlan: ()
                 horizontalArrangement = Arrangement.Center,
             ) {
                 Image(
-                    painterResource(if (inPlan) R.drawable.tempat_ic_check else R.drawable.tempat_ic_plus),
+                    painterResource(if (inPlan) R.drawable.tempat_ic_check_line else R.drawable.tempat_ic_plus),
                     contentDescription = null,
                     Modifier.size(20.dp),
                     colorFilter = if (inPlan) ColorFilter.tint(colors.successTextDeep) else null,

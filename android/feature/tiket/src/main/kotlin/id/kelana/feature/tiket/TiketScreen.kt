@@ -29,7 +29,6 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -50,7 +49,6 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 import id.kelana.core.designsystem.component.EmptyState
 import id.kelana.core.designsystem.component.KelanaChip
-import id.kelana.core.designsystem.component.formatCheckedDate
 import id.kelana.core.designsystem.theme.KelanaShapes
 import id.kelana.core.designsystem.theme.KelanaSizes
 import id.kelana.core.designsystem.theme.KelanaSpacing
@@ -318,27 +316,11 @@ private fun TiketRow(
     }
 }
 
-/** "Diperiksa 20 Nov 2026" in green, or "Harga sedang dicek" in yellow when there is no check date. */
+/** "Harga sedang dicek" in yellow when there is no check date; with a date nothing is shown (the date is not rendered). */
 @Composable
 private fun PriceBadge(checkedAt: LocalDate?, modifier: Modifier = Modifier) {
     val colors = KelanaTheme.colors
-    if (checkedAt != null) {
-        val text = stringResource(R.string.tiket_checked, remember(checkedAt) { formatCheckedDate(checkedAt) })
-        Row(
-            modifier = modifier
-                .background(colors.successSurface, KelanaShapes.badge)
-                .padding(horizontal = 8.dp, vertical = 3.dp),
-            verticalAlignment = Alignment.CenterVertically,
-        ) {
-            Image(painterResource(R.drawable.tiket_ic_check), contentDescription = null, modifier = Modifier.size(14.dp))
-            Text(
-                text = text,
-                modifier = Modifier.padding(start = 4.dp),
-                style = MaterialTheme.typography.labelMedium,
-                color = colors.successText,
-            )
-        }
-    } else {
+    if (checkedAt == null) {
         Text(
             text = stringResource(R.string.tiket_price_pending),
             modifier = modifier

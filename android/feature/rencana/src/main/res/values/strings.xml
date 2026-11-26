@@ -27,11 +27,11 @@
     <string name="rencana_reminder_action">Ingatkan aku</string>
     <string name="rencana_reminder_set">Pengingat: %1$s</string>
     <string name="rencana_access_unverified">Akses belum dipastikan pengelola</string>
-    <string name="rencana_hours_checked">Buka %1$s · Diperiksa %2$s</string>
+    <string name="rencana_hours_value">Buka %1$s</string>
     <string name="rencana_hours_checking">Jam buka sedang dicek</string>
-    <string name="rencana_price_checked">Tiket %1$s · Diperiksa %2$s</string>
+    <string name="rencana_price_value">Tiket %1$s</string>
     <string name="rencana_price_checking">Harga sedang dicek</string>
-    <string name="rencana_schedule_checked">Jadwal %1$s · Diperiksa %2$s</string>
+    <string name="rencana_schedule_value">Jadwal %1$s</string>
     <string name="rencana_schedule_checking">Jadwal sedang dicek</string>
     <string name="rencana_travel_adjacent">Tempatnya berdekatan</string>
     <string name="rencana_travel_walk">Jalan kaki</string>

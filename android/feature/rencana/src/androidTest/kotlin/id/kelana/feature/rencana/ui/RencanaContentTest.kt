@@ -67,17 +67,18 @@ class RencanaContentTest {
     // ---- Rencana hari ini ----
 
     @Test
-    fun rencanaFilled_showsStopsWithOfficialFactsAndCheckDates() {
+    fun rencanaFilled_showsStopsWithOfficialFactsAndNoCheckDates() {
         setRencana(PreviewRencana.filled())
         rule.onNodeWithText(str(R.string.rencana_title_today)).assertIsDisplayed()
         rule.onNodeWithText("Keraton Yogyakarta").assertExists()
         val hours = str(
-            R.string.rencana_hours_checked,
+            R.string.rencana_hours_value,
             formatTimeRange(LocalTime.of(9, 0), LocalTime.of(15, 0)),
-            formatCheckedDate(checked),
         )
         rule.onNodeWithText(hours).assertExists()
-        rule.onNodeWithText(str(R.string.rencana_price_checked, formatRupiah(25_000), formatCheckedDate(checked))).assertExists()
+        rule.onNodeWithText(str(R.string.rencana_price_value, formatRupiah(25_000))).assertExists()
+        rule.onNodeWithText("Diperiksa", substring = true).assertDoesNotExist()
+        rule.onNodeWithText(formatCheckedDate(checked), substring = true).assertDoesNotExist()
     }
 
     @Test

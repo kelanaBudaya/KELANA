@@ -83,7 +83,6 @@ class NotificationContentResolver(
                 show.title,
                 formatTime(fact.value.start),
                 show.placeName,
-                CHECKED_FORMAT.format(checked),
             )
         }
         return ResolvedNotification(NotificationCategory.Rencana, title, body, placeId = show.placeId, eventId = show.id)
@@ -94,6 +93,5 @@ class NotificationContentResolver(
     private companion object {
         val ID: Locale = Locale.forLanguageTag("id-ID")
         val TIME_FORMAT: DateTimeFormatter = DateTimeFormatter.ofPattern("HH.mm", ID)
-        val CHECKED_FORMAT: DateTimeFormatter = DateTimeFormatter.ofPattern("d MMM yyyy", ID)
     }
 }

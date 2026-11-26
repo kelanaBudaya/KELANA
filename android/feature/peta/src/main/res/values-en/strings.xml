@@ -15,7 +15,6 @@
     <string name="peta_card_price_free">Free</string>
     <string name="peta_card_price_checking">Price being checked</string>
     <string name="peta_card_line">%1$s · %2$s</string>
-    <string name="peta_card_checked">Checked %1$s</string>
     <string name="peta_badge_show">Show tonight</string>
     <string name="peta_badge_open">Open today</string>
     <string name="peta_open_detail">View details</string>
