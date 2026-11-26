@@ -394,6 +394,10 @@ verify_jwt = true
 [functions.export-account]
 verify_jwt = true
 
+# Rute jalan via Valhalla publik + cache Postgres. Anon key atau JWT pengguna (tamu boleh); service role hanya di dalam fungsi.
+[functions.route]
+verify_jwt = true
+
 # [edge_runtime.secrets]
 # secret_key = "env(SECRET_VALUE)"
 
