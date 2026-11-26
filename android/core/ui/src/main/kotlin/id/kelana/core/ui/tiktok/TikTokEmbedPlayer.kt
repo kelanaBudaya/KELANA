@@ -116,6 +116,8 @@ fun TikTokEmbedPlayer(
                 setBackgroundColor(android.graphics.Color.TRANSPARENT)
                 overScrollMode = View.OVER_SCROLL_NEVER
                 settings.javaScriptEnabled = true
+                // TikTok's player reads localStorage; without DOM storage it throws "Cannot read properties of null (reading 'getItem')" and never renders.
+                settings.domStorageEnabled = true
                 settings.allowFileAccess = false
                 settings.allowContentAccess = false
                 settings.mediaPlaybackRequiresUserGesture = !options.autoplay
