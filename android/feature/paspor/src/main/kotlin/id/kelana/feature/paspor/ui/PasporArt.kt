@@ -290,7 +290,7 @@ internal fun PlaceCategory.stampIcon(): Int = when (this) {
     PlaceCategory.Candi -> R.drawable.paspor_art_candi
     PlaceCategory.Kerajinan -> R.drawable.paspor_art_batik
     PlaceCategory.Lainnya -> R.drawable.paspor_art_keraton
-    PlaceCategory.Tari, PlaceCategory.Topeng, PlaceCategory.Gamelan -> R.drawable.paspor_art_tugu
+    PlaceCategory.Tari, PlaceCategory.Pentas, PlaceCategory.SeniMusik -> R.drawable.paspor_art_tugu
 }
 
 /**

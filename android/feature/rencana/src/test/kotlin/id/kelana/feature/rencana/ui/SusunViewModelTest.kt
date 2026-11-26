@@ -287,11 +287,11 @@ class SusunViewModelTest {
         val before = cache.tripState.value
         val again = viewModel()
         again.selectCompanion(TravelGroup.Solo)
-        again.toggleInterest(Interest.Topeng) // no topeng place exists
+        again.toggleInterest(Interest.Pentas) // no pentas/tari/seni musik place and no show exists
         again.startBuild()
         assertEquals(BuildOutcome.NothingFits, again.uiState.value.outcome)
         assertEquals(before, cache.tripState.value)
-        assertTrue(places.all.none { it.category == PlaceCategory.Topeng })
+        assertTrue(places.all.none { it.category in Interest.Pentas.categories })
     }
 
     @Test

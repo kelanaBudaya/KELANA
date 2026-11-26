@@ -30,8 +30,8 @@ fun PlaceCategory.labelRes(): Int = when (this) {
     PlaceCategory.Museum -> R.string.category_museum
     PlaceCategory.Candi -> R.string.category_candi
     PlaceCategory.Tari -> R.string.category_tari
-    PlaceCategory.Topeng -> R.string.category_topeng
-    PlaceCategory.Gamelan -> R.string.category_gamelan
+    PlaceCategory.Pentas -> R.string.category_pentas
+    PlaceCategory.SeniMusik -> R.string.category_seni_musik
     PlaceCategory.Kerajinan -> R.string.category_kerajinan
     PlaceCategory.Lainnya -> R.string.category_lainnya
 }

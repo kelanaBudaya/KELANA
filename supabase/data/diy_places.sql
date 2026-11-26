@@ -212,7 +212,7 @@ delete from public.ticket_prices where place_id = (select id from public.places 
 
 -- Desa Wisata Tlatar
 insert into public.places (region_id, slug, name, category, cap_code, passport_order, cap_radius_m, location, address, description, is_sample)
-select r.id, 'desa-wisata-tlatar', 'Desa Wisata Tlatar', 'gamelan'::public.place_category, 'YK-17', 17, 150, extensions.st_setsrid(extensions.st_makepoint(110.3788984, -7.6087012), 4326)::extensions.geography, 'Tlatar Kandangan, Wonokerto, Turi, Sleman, Daerah Istimewa Yogyakarta', 'Desa Wisata Tlatar Kandangan di Wonokerto, Turi, Sleman, menawarkan pengalaman pedesaan bersama warga. Pengunjung dapat mengikuti pelatihan karawitan, tradisi merti desa, dan melihat kesenian kuda kepang. Desa ini juga dikenal sebagai sentra salak dan menyediakan homestay.', false
+select r.id, 'desa-wisata-tlatar', 'Desa Wisata Tlatar', 'seni_musik'::public.place_category, 'YK-17', 17, 150, extensions.st_setsrid(extensions.st_makepoint(110.3788984, -7.6087012), 4326)::extensions.geography, 'Tlatar Kandangan, Wonokerto, Turi, Sleman, Daerah Istimewa Yogyakarta', 'Desa Wisata Tlatar Kandangan di Wonokerto, Turi, Sleman, menawarkan pengalaman pedesaan bersama warga. Pengunjung dapat mengikuti pelatihan karawitan, tradisi merti desa, dan melihat kesenian kuda kepang. Desa ini juga dikenal sebagai sentra salak dan menyediakan homestay.', false
 from public.regions r where r.code = 'DIY'
 on conflict (slug) do update set name = excluded.name, category = excluded.category, cap_radius_m = excluded.cap_radius_m, location = excluded.location, address = excluded.address, description = excluded.description;
 delete from public.opening_hours where place_id = (select id from public.places where slug = 'desa-wisata-tlatar');

@@ -247,7 +247,7 @@ private fun rowArt(category: PlaceCategory): RowArt {
     return when (category) {
         PlaceCategory.Tari -> RowArt(R.drawable.tiket_art_tari, colors.creamYellow)
         PlaceCategory.Kerajinan -> RowArt(R.drawable.tiket_art_batik, colors.peach)
-        PlaceCategory.Museum, PlaceCategory.Gamelan, PlaceCategory.Topeng ->
+        PlaceCategory.Museum, PlaceCategory.SeniMusik, PlaceCategory.Pentas ->
             RowArt(R.drawable.tiket_art_building_blue, colors.skyText)
         PlaceCategory.Candi, PlaceCategory.Lainnya -> RowArt(R.drawable.tiket_art_building, colors.backgroundWarm)
     }
@@ -299,7 +299,9 @@ private fun TiketRow(
                 maxLines = 2,
                 overflow = TextOverflow.Ellipsis,
             )
-            val price = visiblePrice(item)?.let { stringResource(R.string.tiket_price_from, formatRupiah(it)) }
+            val price = visiblePrice(item)?.let {
+                if (it == 0L) stringResource(R.string.tiket_price_free) else stringResource(R.string.tiket_price_from, formatRupiah(it))
+            }
             val subtitle = listOfNotNull(item.placeName, price).joinToString(" · ")
             if (subtitle.isNotEmpty()) {
                 Text(

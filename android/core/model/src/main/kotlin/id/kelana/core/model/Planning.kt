@@ -21,8 +21,8 @@ enum class Interest(val categories: Set<PlaceCategory>, val includesShows: Boole
     Museum(setOf(PlaceCategory.Museum)),
     Candi(setOf(PlaceCategory.Candi)),
 
-    /** Shows (events), plus the venues that host them: tari and gamelan places. */
-    Pentas(setOf(PlaceCategory.Tari, PlaceCategory.Gamelan), includesShows = true),
+    /** Shows (events), plus the venues that host them: tari, pentas and seni musik places. */
+    Pentas(setOf(PlaceCategory.Tari, PlaceCategory.Pentas, PlaceCategory.SeniMusik), includesShows = true),
     Kerajinan(setOf(PlaceCategory.Kerajinan)),
 
     /**
@@ -30,7 +30,6 @@ enum class Interest(val categories: Set<PlaceCategory>, val includesShows: Boole
      * keraton, puro, taman and every other site are filed under [PlaceCategory.Lainnya].
      */
     Keraton(setOf(PlaceCategory.Lainnya)),
-    Topeng(setOf(PlaceCategory.Topeng)),
 
     /** "Semua jenis": every place category and shows. Must stay the last constant. */
     Semua(PlaceCategory.entries.toSet(), includesShows = true),

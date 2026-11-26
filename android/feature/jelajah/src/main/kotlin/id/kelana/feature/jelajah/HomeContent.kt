@@ -69,8 +69,8 @@ internal enum class HomeTile(@StringRes val label: Int) {
     Museum(R.string.tile_museum),
     Candi(R.string.tile_candi),
     Tari(R.string.tile_tari),
-    Topeng(R.string.tile_topeng),
-    Gamelan(R.string.tile_gamelan),
+    Pentas(R.string.tile_pentas),
+    SeniMusik(R.string.tile_seni_musik),
     Tiket(R.string.tile_tiket),
     Peta(R.string.tile_peta),
     Semua(R.string.tile_semua),
@@ -397,7 +397,7 @@ private fun TileGrid(onTile: (HomeTile) -> Unit, modifier: Modifier = Modifier) 
                             style = MaterialTheme.typography.labelMedium.copy(fontWeight = FontWeight.Bold),
                             color = colors.ink,
                             textAlign = TextAlign.Center,
-                            maxLines = 1,
+                            maxLines = 2,
                         )
                     }
                 }
@@ -408,8 +408,8 @@ private fun TileGrid(onTile: (HomeTile) -> Unit, modifier: Modifier = Modifier) 
 
 private fun HomeTile.tint(colors: KelanaColors): Color = when (this) {
     HomeTile.Museum, HomeTile.Tiket -> colors.skyText
-    HomeTile.Candi, HomeTile.Topeng -> colors.peach
-    HomeTile.Tari, HomeTile.Gamelan -> colors.creamYellow
+    HomeTile.Candi, HomeTile.Pentas -> colors.peach
+    HomeTile.Tari, HomeTile.SeniMusik -> colors.creamYellow
     HomeTile.Peta -> colors.successSurface
     HomeTile.Semua -> colors.backgroundWarm
 }
@@ -419,8 +419,8 @@ private val HomeTile.art: Int
         HomeTile.Museum -> R.drawable.jelajah_art_museum
         HomeTile.Candi -> R.drawable.jelajah_art_candi
         HomeTile.Tari -> R.drawable.jelajah_art_tari
-        HomeTile.Topeng -> R.drawable.jelajah_art_topeng
-        HomeTile.Gamelan -> R.drawable.jelajah_art_gamelan
+        HomeTile.Pentas -> R.drawable.jelajah_art_pentas
+        HomeTile.SeniMusik -> R.drawable.jelajah_art_seni_musik
         HomeTile.Tiket -> R.drawable.jelajah_art_tiket
         HomeTile.Peta -> R.drawable.jelajah_art_peta
         HomeTile.Semua -> R.drawable.jelajah_art_semua
@@ -443,7 +443,7 @@ private fun TonightBanner(occurrence: EventOccurrence, onClick: () -> Unit, modi
             contentScale = ContentScale.FillBounds,
         )
         ArtPiece(R.drawable.jelajah_art_tari, 96.dp, 214.dp, 30.dp, -6f)
-        ArtPiece(R.drawable.jelajah_art_gamelan, 58.dp, 290.dp, 96.dp, 8f)
+        ArtPiece(R.drawable.jelajah_art_seni_musik, 58.dp, 290.dp, 96.dp, 8f)
         ArtPiece(R.drawable.jelajah_art_agenda, 40.dp, 182.dp, 108.dp, -10f)
         Column(Modifier.fillMaxHeight().padding(start = 18.dp, top = 18.dp, end = 170.dp)) {
             Text(
