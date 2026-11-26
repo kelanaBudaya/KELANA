@@ -3,7 +3,6 @@ package id.kelana.feature.tempat.domain
 import id.kelana.core.model.OfficialFact
 import id.kelana.core.model.OpeningHours
 import id.kelana.core.model.Place
-import java.net.URI
 import java.time.DayOfWeek
 import java.time.LocalTime
 
@@ -24,15 +23,6 @@ fun closedDaysFact(hours: List<OfficialFact<OpeningHours>>): OfficialFact<List<D
     val checkedAt = if (hours.any { it.checkedAt == null }) null else hours.mapNotNull { it.checkedAt }.minOrNull()
     return OfficialFact(value = closed, sourceUrl = hours.firstNotNullOfOrNull { it.sourceUrl }, checkedAt = checkedAt)
 }
-
-/** Host of the first checked source of the place's official facts, for the "Sumber" note. Null when none. */
-fun sourceHost(place: Place): String? {
-    val urls = place.hours.checkedUrls() + place.tickets.checkedUrls() + place.closures.checkedUrls()
-    return urls.firstNotNullOfOrNull { url -> runCatching { URI(url).host }.getOrNull()?.removePrefix("www.") }
-}
-
-private fun <T> List<OfficialFact<T>>.checkedUrls(): List<String> =
-    filter { it.checkedAt != null }.mapNotNull { it.sourceUrl }
 
 /** First ticket seller URL that belongs to a checked ticket fact. */
 fun officialSellerUrl(place: Place): String? =
@@ -65,9 +55,3 @@ fun hoursSummary(hours: List<OfficialFact<OpeningHours>>): OfficialFact<HoursSum
         checkedAt = checkedAt,
     )
 }
-
-/** Oldest check date among the place's checked official facts (hours, tickets, closures); null when none is checked. */
-fun infoCheckedAt(place: Place): java.time.LocalDate? =
-    (place.hours.map { it.checkedAt } + place.tickets.map { it.checkedAt } + place.closures.map { it.checkedAt })
-        .filterNotNull()
-        .minOrNull()

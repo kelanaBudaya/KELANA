@@ -21,14 +21,12 @@
     <string name="tempat_open_every_day">Buka setiap hari</string>
     <string name="tempat_ticket_label">Tiket masuk</string>
     <string name="tempat_ticket_item">%1$s %2$s</string>
-    <string name="tempat_ticket_item_pending">%1$s: harga sedang dicek</string>
     <string name="tempat_ticket_pending">Harga sedang dicek</string>
-    <string name="tempat_ticket_join">" · "</string>
+    <string name="tempat_ticket_free">Gratis</string>
     <string name="tempat_closed_days">Hari tutup</string>
     <string name="tempat_closure">Tutup sementara</string>
     <string name="tempat_closure_range">%1$s – %2$s</string>
     <string name="tempat_closure_with_reason">%1$s (%2$s)</string>
-    <string name="tempat_source">Sumber: %1$s</string>
     <string name="tempat_ticket_site">Buka situs tiket resmi</string>
     <string name="tempat_stories_title">Cerita pengunjung</string>
     <string name="tempat_stories_all">Lihat semua</string>
@@ -51,7 +49,6 @@
     <string name="foto_resmi_hero">Foto %1$d dari pengelola</string>
     <string name="foto_resmi_badge">Dokumentasi resmi</string>
     <string name="foto_resmi_caption_pending">Keterangan foto sedang dicek</string>
-    <string name="foto_resmi_source_pending">Foto dari pengelola · sedang dicek</string>
     <string name="foto_resmi_thumb">Foto %1$d</string>
     <string name="foto_resmi_note">Foto pengunjung ada di postcard dan video. Bagian ini khusus foto dari pengelola.</string>
     <!-- Laporkan -->

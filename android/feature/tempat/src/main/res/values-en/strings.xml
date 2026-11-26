@@ -21,14 +21,12 @@
     <string name="tempat_open_every_day">Open every day</string>
     <string name="tempat_ticket_label">Admission</string>
     <string name="tempat_ticket_item">%1$s %2$s</string>
-    <string name="tempat_ticket_item_pending">%1$s: price being checked</string>
     <string name="tempat_ticket_pending">Price being checked</string>
-    <string name="tempat_ticket_join">" · "</string>
+    <string name="tempat_ticket_free">Free</string>
     <string name="tempat_closed_days">Closed days</string>
     <string name="tempat_closure">Temporarily closed</string>
     <string name="tempat_closure_range">%1$s – %2$s</string>
     <string name="tempat_closure_with_reason">%1$s (%2$s)</string>
-    <string name="tempat_source">Source: %1$s</string>
     <string name="tempat_ticket_site">Open official ticket site</string>
     <string name="tempat_stories_title">Visitor stories</string>
     <string name="tempat_stories_all">See all</string>
@@ -51,7 +49,6 @@
     <string name="foto_resmi_hero">Photo %1$d from the site manager</string>
     <string name="foto_resmi_badge">Official documentation</string>
     <string name="foto_resmi_caption_pending">Photo caption being checked</string>
-    <string name="foto_resmi_source_pending">Photo from the site manager · being checked</string>
     <string name="foto_resmi_thumb">Photo %1$d</string>
     <string name="foto_resmi_note">Visitor photos live in postcards and videos. This section is for photos from the site manager only.</string>
     <!-- Report -->

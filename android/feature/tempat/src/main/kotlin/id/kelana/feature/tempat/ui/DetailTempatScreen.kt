@@ -75,7 +75,6 @@ import id.kelana.core.navigation.LaporkanRoute
 import id.kelana.core.navigation.OfficialSiteRoute
 import id.kelana.core.navigation.PostcardRoute
 import id.kelana.core.navigation.RencanaRoute
-import id.kelana.core.ui.formatRupiah
 import id.kelana.core.ui.formatTimeRange
 import id.kelana.core.ui.label
 import id.kelana.core.ui.session.rememberRequireLogin
@@ -84,23 +83,20 @@ import id.kelana.feature.tempat.domain.OFFICIAL_PHOTO_COUNT
 import id.kelana.feature.tempat.domain.HoursSummary
 import id.kelana.feature.tempat.domain.closedDaysFact
 import id.kelana.feature.tempat.domain.hoursSummary
-import id.kelana.feature.tempat.domain.infoCheckedAt
 import id.kelana.feature.tempat.domain.officialSellerUrl
-import id.kelana.feature.tempat.domain.sourceHost
 import id.kelana.feature.tempat.domain.todayHours
 import java.time.DayOfWeek
 import java.time.LocalDate
 import java.time.LocalTime
 import java.time.format.TextStyle
 import java.util.Locale
-import id.kelana.core.designsystem.R as DsR
 
 // Sizes read from DetailIlustratif.dc.html that have no token in :core:designsystem.
 private val HeaderHeight = 250.dp
 private val HeaderOverlap = 18.dp
 private val TitleCardRadius = 24.dp
 private val BannerHeight = 112.dp
-private val RowTile = 40.dp
+internal val RowTile = 40.dp
 
 @Composable
 internal fun DetailTempatScreen(
@@ -415,7 +411,7 @@ private fun Sticker(capCode: String, modifier: Modifier = Modifier) {
 
 /**
  * "Info resmi" card: hours, tickets, closed days. Every value is shown only when its fact has a check date;
- * otherwise the row says "sedang dicek". The header badge carries the oldest check date of the shown facts.
+ * otherwise the row says "sedang dicek". Check dates and sources stay in the data and are not displayed.
  */
 @Composable
 private fun InfoResmiCard(place: Place, today: DayOfWeek, onTicketSite: (String) -> Unit) {
@@ -429,7 +425,7 @@ private fun InfoResmiCard(place: Place, today: DayOfWeek, onTicketSite: (String)
             .border(1.dp, colors.outline, KelanaShapes.listCard)
             .padding(start = KelanaSpacing.gutter, end = KelanaSpacing.gutter, top = KelanaSpacing.md, bottom = KelanaSpacing.xs),
     ) {
-        InfoHeader(checkedAt = infoCheckedAt(place))
+        InfoHeader()
 
         // Jam buka: weekly summary when the hours form one run, otherwise today's hours.
         val summary = hoursSummary(place.hours)
@@ -470,15 +466,6 @@ private fun InfoResmiCard(place: Place, today: DayOfWeek, onTicketSite: (String)
             }
         }
 
-        sourceHost(place)?.let { host ->
-            RowDivider()
-            Text(
-                text = stringResource(R.string.tempat_source, host),
-                modifier = Modifier.padding(vertical = 10.dp),
-                style = MaterialTheme.typography.labelMedium.copy(fontWeight = FontWeight.Normal, lineHeight = 17.sp),
-                color = colors.muted,
-            )
-        }
         officialSellerUrl(place)?.let { url ->
             KelanaButton(
                 text = stringResource(R.string.tempat_ticket_site),
@@ -491,42 +478,7 @@ private fun InfoResmiCard(place: Place, today: DayOfWeek, onTicketSite: (String)
 }
 
 @Composable
-private fun InfoHeader(checkedAt: LocalDate?) {
-    val colors = KelanaTheme.colors
-    Row(
-        Modifier.fillMaxWidth().padding(bottom = KelanaSpacing.sm),
-        horizontalArrangement = Arrangement.SpaceBetween,
-        verticalAlignment = Alignment.CenterVertically,
-    ) {
-        Row(verticalAlignment = Alignment.CenterVertically) {
-            Image(painterResource(R.drawable.tempat_ic_info), contentDescription = null, Modifier.size(22.dp))
-            Text(
-                text = stringResource(R.string.tempat_info_title),
-                modifier = Modifier.padding(start = 6.dp),
-                style = MaterialTheme.typography.titleMedium,
-                color = colors.ink,
-            )
-        }
-        val (bg, fg, text) = if (checkedAt != null) {
-            Triple(colors.successSurface, colors.successText, stringResource(DsR.string.ds_verified_checked, formatCheckedDate(checkedAt)))
-        } else {
-            Triple(colors.creamYellow, colors.warnText, stringResource(R.string.tempat_info_checking))
-        }
-        Row(
-            Modifier.clip(KelanaShapes.badge).background(bg).padding(horizontal = KelanaSpacing.sm, vertical = 3.dp),
-            verticalAlignment = Alignment.CenterVertically,
-        ) {
-            if (checkedAt != null) {
-                Image(painterResource(R.drawable.tempat_ic_check), contentDescription = null, Modifier.size(14.dp))
-                Spacer(Modifier.width(KelanaSpacing.xs))
-            }
-            Text(text = text, style = MaterialTheme.typography.labelMedium, color = fg)
-        }
-    }
-}
-
-@Composable
-private fun RowDivider() = HorizontalDivider(color = KelanaTheme.colors.outline)
+internal fun RowDivider() = HorizontalDivider(color = KelanaTheme.colors.outline)
 
 /** One info row: icon tile, label, value. The value is rendered only for a checked fact. */
 @Composable
@@ -544,11 +496,11 @@ private fun <T> FactRow(
 }
 
 @Composable
-private fun PendingRow(@DrawableRes icon: Int, tile: Color, label: String, text: String) =
+internal fun PendingRow(@DrawableRes icon: Int, tile: Color, label: String, text: String) =
     ValueRow(icon, tile, label, text, pending = true)
 
 @Composable
-private fun ValueRow(@DrawableRes icon: Int, tile: Color, label: String, value: String, pending: Boolean) {
+internal fun ValueRow(@DrawableRes icon: Int, tile: Color, label: String, value: String, pending: Boolean) {
     val colors = KelanaTheme.colors
     RowDivider()
     Row(
@@ -574,32 +526,6 @@ private fun ValueRow(@DrawableRes icon: Int, tile: Color, label: String, value: 
             style = MaterialTheme.typography.titleSmall,
             color = if (pending) colors.warnText else colors.ink,
             textAlign = TextAlign.End,
-        )
-    }
-}
-
-@Composable
-private fun TicketsRow(tickets: List<OfficialFact<TicketPrice>>) {
-    val colors = KelanaTheme.colors
-    val label = stringResource(R.string.tempat_ticket_label)
-    val parts = tickets.map { fact ->
-        val price = fact.takeIf { it.checkedAt != null }?.value?.priceIdr
-        if (price != null) {
-            stringResource(R.string.tempat_ticket_item, fact.value.label, formatRupiah(price))
-        } else {
-            stringResource(R.string.tempat_ticket_item_pending, fact.value.label)
-        }
-    }
-    val anyShown = tickets.any { it.checkedAt != null && it.value.priceIdr != null }
-    if (parts.isEmpty() || !anyShown) {
-        PendingRow(R.drawable.tempat_ic_ticket, colors.creamYellow, label, stringResource(R.string.tempat_ticket_pending))
-    } else {
-        ValueRow(
-            R.drawable.tempat_ic_ticket,
-            colors.creamYellow,
-            label,
-            parts.joinToString(stringResource(R.string.tempat_ticket_join)),
-            pending = false,
         )
     }
 }

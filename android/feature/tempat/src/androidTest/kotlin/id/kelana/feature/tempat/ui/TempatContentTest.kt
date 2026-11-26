@@ -10,7 +10,6 @@ import androidx.compose.ui.test.performClick
 import androidx.compose.ui.test.performScrollTo
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
-import id.kelana.core.designsystem.component.formatCheckedDate
 import id.kelana.core.designsystem.theme.KelanaTheme
 import id.kelana.core.model.OfficialFact
 import id.kelana.core.model.OpeningHours
@@ -27,7 +26,6 @@ import org.junit.runner.RunWith
 import java.time.DayOfWeek
 import java.time.LocalDate
 import java.time.LocalTime
-import id.kelana.core.designsystem.R as DsR
 
 /** Stateless Detail tempat and Laporkan content with fixed states: no Hilt, no network. */
 @RunWith(AndroidJUnit4::class)
@@ -77,13 +75,14 @@ class TempatContentTest {
     }
 
     @Test
-    fun detail_checkedFact_showsDiperiksaDateAndValues() {
+    fun detail_checkedFact_showsValuesAndNoCheckDate() {
         setDetail(place(checked = true))
-        val badge = str(DsR.string.ds_verified_checked, formatCheckedDate(checkedDate))
-        rule.onNodeWithText(badge).assertExists()
-        val tickets = listOf("Dewasa ${formatRupiah(10_000)}", "Anak-anak ${formatRupiah(5_000)}")
-            .joinToString(str(R.string.tempat_ticket_join))
-        rule.onNodeWithText(tickets).assertExists()
+        rule.onNodeWithText("Diperiksa", substring = true).assertDoesNotExist()
+        rule.onNodeWithText("example.org", substring = true).assertDoesNotExist()
+        rule.onNodeWithText("Dewasa").assertExists()
+        rule.onNodeWithText(formatRupiah(10_000)).assertExists()
+        rule.onNodeWithText("Anak-anak").assertExists()
+        rule.onNodeWithText(formatRupiah(5_000)).assertExists()
         rule.onNodeWithText(str(R.string.tempat_ticket_pending)).assertDoesNotExist()
         rule.onNodeWithText("08.00", substring = true).assertExists()
     }
@@ -91,8 +90,8 @@ class TempatContentTest {
     @Test
     fun detail_uncheckedFact_showsSedangDicekAndNoValue() {
         setDetail(place(checked = false))
-        // Header badge, opening hours row and closed-days row.
-        rule.onAllNodesWithText(str(R.string.tempat_info_checking), ignoreCase = true).assertCountEquals(3)
+        // Opening hours row and closed-days row.
+        rule.onAllNodesWithText(str(R.string.tempat_info_checking), ignoreCase = true).assertCountEquals(2)
         rule.onNodeWithText(str(R.string.tempat_ticket_pending)).assertExists()
         rule.onNodeWithText(formatRupiah(10_000), substring = true).assertDoesNotExist()
         rule.onNodeWithText(formatRupiah(5_000), substring = true).assertDoesNotExist()
