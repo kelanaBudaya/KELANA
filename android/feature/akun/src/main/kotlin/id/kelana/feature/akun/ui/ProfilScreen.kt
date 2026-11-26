@@ -322,7 +322,8 @@ private fun SignedInBody(
         ProfilRow(
             R.drawable.akun_ic_daerah,
             R.string.profil_row_daerah,
-            R.string.profil_row_daerah_value,
+            subtitle = null,
+            subtitleText = state.regionName ?: stringResource(R.string.profil_row_daerah_kosong),
             onClick = onDaerah,
         )
         // Not built yet: rendered like the artifact but inert.

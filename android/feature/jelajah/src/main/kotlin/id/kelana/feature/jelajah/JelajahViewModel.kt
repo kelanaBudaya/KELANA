@@ -23,6 +23,10 @@ data class JelajahUiState(
     val isLoading: Boolean = true,
     val date: LocalDate? = null,
     val regionName: String? = null,
+    /** Casual name of the selected region for running text ("Jogja"); null until a region is selected. */
+    val regionShortName: String? = null,
+    /** Stamp-code prefix of the selected region's places ("YK", "JTM"); shown on the passport sticker. */
+    val stampCode: String = "",
     /** Next checked event today that has not started yet; null hides the banner. */
     val tonightEvent: EventOccurrence? = null,
     val featuredPlaces: List<Place> = emptyList(),
@@ -53,15 +57,16 @@ class JelajahViewModel internal constructor(
     val state: StateFlow<JelajahUiState> = combine(
         places.places(),
         events.eventsOn(start.toLocalDate()),
-        regions.regions(),
-        regions.selectedRegionId,
+        regions.selectedRegion(),
         stamps.stamps(),
-    ) { allPlaces, todays, allRegions, selectedId, ownStamps ->
+    ) { allPlaces, todays, region, ownStamps ->
         val placeIds = allPlaces.map { it.id.lowercase() }.toSet()
         JelajahUiState(
             isLoading = false,
             date = start.toLocalDate(),
-            regionName = allRegions.firstOrNull { it.id == selectedId }?.name,
+            regionName = region?.name,
+            regionShortName = region?.shortName,
+            stampCode = region?.let { stampCodePrefix(allPlaces, it.id) }.orEmpty(),
             tonightEvent = todays.firstOrNull { it.startsAfter(start) },
             featuredPlaces = allPlaces,
             stampCount = ownStamps.map { it.placeId.lowercase() }.distinct().count { it in placeIds },
@@ -70,6 +75,14 @@ class JelajahViewModel internal constructor(
         )
     }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), JelajahUiState())
 }
+
+/**
+ * The stamp-code prefix shared by the places of one region ("YK-02" gives "YK"). Falls back to the
+ * region code when there is no place or the first place's code has no usable prefix.
+ */
+internal fun stampCodePrefix(places: List<Place>, regionId: String): String =
+    places.firstOrNull()?.capCode?.substringBefore('-', missingDelimiterValue = "")?.trim()?.takeIf { it.isNotEmpty() }
+        ?: regionId
 
 /** Only an event whose schedule has a check date may show its time; it must not have started yet. */
 private fun EventOccurrence.startsAfter(now: LocalDateTime): Boolean {

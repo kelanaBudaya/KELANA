@@ -9,8 +9,10 @@
     <string name="home_headline">Mau berkelana ke mana hari ini?</string>
     <string name="home_date_line">%1$s · %2$s</string>
     <string name="home_passport_title">Paspor budayamu</string>
-    <string name="home_passport_count">%1$d cap dari %2$d di Jogja</string>
-    <string name="home_passport_empty">Kumpulkan capmu di Jogja</string>
+    <string name="home_passport_count">%1$d cap dari %2$d di %3$s</string>
+    <string name="home_passport_count_noregion">%1$d cap dari %2$d</string>
+    <string name="home_passport_empty">Kumpulkan capmu di %1$s</string>
+    <string name="home_passport_empty_noregion">Kumpulkan capmu</string>
     <string name="action_stamp">Ambil cap</string>
     <string name="action_plan">Rencana</string>
     <string name="action_agenda">Agenda</string>
@@ -46,7 +48,8 @@
     <string name="cari_empty_title">Tidak ada hasil</string>
     <string name="cari_empty_body">Coba kata kunci lain atau jelajahi lewat kategori.</string>
     <string name="event_when">%1$s %2$s</string>
-    <string name="kategori_subtitle_museum">%1$d museum di Yogyakarta</string>
+    <string name="kategori_subtitle_museum">%1$d museum di %2$s</string>
+    <string name="kategori_subtitle_museum_noregion">%1$d museum</string>
     <string name="kategori_subtitle_candi">Situs, relief, dan kisahnya</string>
     <string name="kategori_subtitle_tari">Pentas dengan jadwal resmi</string>
     <string name="kategori_subtitle_pentas">Pertunjukan tradisional dan pentas budaya</string>
@@ -61,10 +64,10 @@
     <string name="filter_empty_title">Belum ada tempat yang cocok</string>
     <string name="filter_empty_body">Coba matikan filter atau pilih kategori lain.</string>
     <string name="semua_title">Semua tempat</string>
-    <string name="semua_subtitle">%1$d tempat di DI Yogyakarta</string>
+    <string name="semua_subtitle">%1$d tempat di %2$s</string>
+    <string name="semua_subtitle_noregion">%1$d tempat</string>
     <string name="back_cd">Kembali</string>
-    <string name="home_stamp_code">YK</string>
-    <string name="home_stamp_cd">Stiker YK</string>
+    <string name="home_stamp_cd">Stiker %1$s</string>
     <string name="challenge_progress_cd">Progres tantangan</string>
     <string name="badge_cap">Cap %1$s</string>
 </resources>

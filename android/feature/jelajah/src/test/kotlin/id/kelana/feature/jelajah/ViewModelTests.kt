@@ -7,6 +7,8 @@ import id.kelana.core.data.repository.FakePlaceRepository
 import id.kelana.core.data.repository.FakeRegionRepository
 import id.kelana.core.data.stamp.FakeStampRepository
 import id.kelana.core.model.Stamp
+import id.kelana.core.model.Region
+import id.kelana.core.model.RegionStatus
 import id.kelana.core.model.PlaceCategory
 import id.kelana.core.navigation.KategoriRoute
 import id.kelana.core.navigation.PasporRoute
@@ -31,6 +33,16 @@ import java.time.LocalDate
 import java.time.LocalDateTime
 
 /** Sample data: places checked 2026-11-20; 2026-11-20 is a Friday (Roro Jonggrang 19.30), 2026-11-23 a Monday. */
+private class TwoRegions(vararg all: Region) : id.kelana.core.model.RegionRepository {
+    private val list = all.toList()
+    private val selected = kotlinx.coroutines.flow.MutableStateFlow<String?>(null)
+    override fun regions() = kotlinx.coroutines.flow.flowOf(list)
+    override val selectedRegionId: kotlinx.coroutines.flow.Flow<String?> = selected
+    override suspend fun select(regionId: String) {
+        selected.value = regionId
+    }
+}
+
 @OptIn(ExperimentalCoroutinesApi::class)
 class ViewModelTests {
     private val friday = LocalDate.of(2026, 11, 20)
@@ -38,6 +50,8 @@ class ViewModelTests {
     private val places = FakePlaceRepository()
     private val events = FakeEventRepository()
     private val regions = FakeRegionRepository()
+    private val jogja = Region("DIY", "DI Yogyakarta", RegionStatus.Available, shortName = "Jogja")
+    private val jatim = Region("JTM", "Jawa Timur", RegionStatus.Available, shortName = "Jatim")
 
     @Before fun setUp() = Dispatchers.setMain(UnconfinedTestDispatcher())
 
@@ -194,10 +208,48 @@ class ViewModelTests {
         }
     }
 
+    // Region-aware text
+
+    @Test fun homeTextFollowsTheSelectedRegion() = runTest {
+        val repo = TwoRegions(jogja, jatim)
+        val vm = JelajahViewModel(FakePlaceRepository(repo), events, repo, FakeStampRepository()) { LocalDateTime.of(friday, java.time.LocalTime.of(18, 0)) }
+        vm.state.test {
+            repo.select("DIY")
+            val diy = awaitUntil { it.regionShortName == "Jogja" }
+            assertEquals("DI Yogyakarta", diy.regionName)
+            assertEquals("YK", diy.stampCode)
+            repo.select("JTM")
+            val jtm = awaitUntil { it.regionShortName == "Jatim" }
+            assertEquals("Jawa Timur", jtm.regionName)
+            // No places for JTM in the sample data: the sticker falls back to the region code.
+            assertEquals("JTM", jtm.stampCode)
+            cancelAndIgnoreRemainingEvents()
+        }
+    }
+
+    @Test fun kategoriAndSemuaSubtitleFollowTheSelectedRegion() = runTest {
+        val repo = TwoRegions(jogja, jatim)
+        val kategori = KategoriViewModel(FakePlaceRepository(repo), repo, PlaceCategory.Museum) { friday }
+        val semua = SemuaTempatViewModel(FakePlaceRepository(repo), repo) { friday }
+        repo.select("DIY")
+        kategori.state.test {
+            assertEquals("Jogja", awaitUntil { it.regionShortName != null }.regionShortName)
+            repo.select("JTM")
+            assertEquals("Jatim", awaitUntil { it.regionShortName == "Jatim" }.regionShortName)
+            cancelAndIgnoreRemainingEvents()
+        }
+        semua.state.test {
+            assertEquals("Jatim", awaitUntil { it.regionShortName != null }.regionShortName)
+            repo.select("DIY")
+            assertEquals("Jogja", awaitUntil { it.regionShortName == "Jogja" }.regionShortName)
+            cancelAndIgnoreRemainingEvents()
+        }
+    }
+
     // Kategori
 
     @Test fun kategoriListsOnlyItsCategory() = runTest {
-        val vm = KategoriViewModel(places, PlaceCategory.Museum) { friday }
+        val vm = KategoriViewModel(places, regions, PlaceCategory.Museum) { friday }
         vm.state.test {
             val s = awaitUntil { !it.isLoading }
             assertEquals(4, s.places.size)
@@ -208,7 +260,7 @@ class ViewModelTests {
     }
 
     @Test fun kategoriWithoutPlacesIsEmpty() = runTest {
-        val vm = KategoriViewModel(places, PlaceCategory.Pentas) { friday }
+        val vm = KategoriViewModel(places, regions, PlaceCategory.Pentas) { friday }
         vm.state.test {
             val s = awaitUntil { !it.isLoading }
             assertTrue(s.isCategoryEmpty)
@@ -219,13 +271,13 @@ class ViewModelTests {
 
     @Test fun kategoriOpenTodayFilterUsesCheckedHours() = runTest {
         // Every sample museum is closed on Monday and open on Friday.
-        val onFriday = KategoriViewModel(places, PlaceCategory.Museum) { friday }
+        val onFriday = KategoriViewModel(places, regions, PlaceCategory.Museum) { friday }
         onFriday.onOpenTodayChange(true)
         onFriday.state.test {
             assertEquals(4, awaitUntil { it.openTodayOnly && !it.isLoading }.places.size)
             cancelAndIgnoreRemainingEvents()
         }
-        val onMonday = KategoriViewModel(places, PlaceCategory.Museum) { monday }
+        val onMonday = KategoriViewModel(places, regions, PlaceCategory.Museum) { monday }
         onMonday.state.test {
             awaitUntil { !it.isLoading }
             onMonday.onOpenTodayChange(true)
@@ -237,7 +289,7 @@ class ViewModelTests {
     }
 
     @Test fun kategoriWithUnknownKeyIsEmpty() = runTest {
-        val vm = KategoriViewModel(places, null) { friday }
+        val vm = KategoriViewModel(places, regions, null) { friday }
         vm.state.test {
             val s = awaitUntil { !it.isLoading }
             assertNull(s.category)
@@ -249,7 +301,7 @@ class ViewModelTests {
     // Semua tempat
 
     @Test fun semuaListsEveryPlace() = runTest {
-        val vm = SemuaTempatViewModel(places) { friday }
+        val vm = SemuaTempatViewModel(places, regions) { friday }
         vm.state.test {
             val s = awaitUntil { !it.isLoading }
             assertEquals(10, s.places.size)
@@ -259,7 +311,7 @@ class ViewModelTests {
     }
 
     @Test fun semuaFiltersByCategory() = runTest {
-        val vm = SemuaTempatViewModel(places) { friday }
+        val vm = SemuaTempatViewModel(places, regions) { friday }
         vm.state.test {
             awaitUntil { !it.isLoading }
             vm.onCategoryChange(PlaceCategory.Candi)
@@ -270,7 +322,7 @@ class ViewModelTests {
     }
 
     @Test fun semuaEmptyWhenCategoryHasNoPlace() = runTest {
-        val vm = SemuaTempatViewModel(places) { friday }
+        val vm = SemuaTempatViewModel(places, regions) { friday }
         vm.state.test {
             awaitUntil { !it.isLoading }
             vm.onCategoryChange(PlaceCategory.Pentas)
@@ -280,7 +332,7 @@ class ViewModelTests {
     }
 
     @Test fun semuaOpenTodayExcludesClosedPlaces() = runTest {
-        val vm = SemuaTempatViewModel(places) { monday }
+        val vm = SemuaTempatViewModel(places, regions) { monday }
         vm.state.test {
             awaitUntil { !it.isLoading }
             vm.onOpenTodayChange(true)

@@ -123,9 +123,21 @@ private fun PlaceList(places: List<Place>, today: java.time.LocalDate?, onPlace:
     }
 }
 
+@Composable
+private fun kategoriSubtitle(state: KategoriUiState): String {
+    val shortName = state.regionShortName
+    return when {
+        // Only the museum line names the region; the others are region-free.
+        state.category == PlaceCategory.Museum && shortName != null ->
+            stringResource(R.string.kategori_subtitle_museum, state.totalCount, shortName)
+        state.category == PlaceCategory.Museum ->
+            stringResource(R.string.kategori_subtitle_museum_noregion, state.totalCount)
+        else -> stringResource(state.category.subtitleRes())
+    }
+}
+
 @StringRes
 private fun PlaceCategory?.subtitleRes(): Int = when (this) {
-    PlaceCategory.Museum -> R.string.kategori_subtitle_museum
     PlaceCategory.Candi -> R.string.kategori_subtitle_candi
     PlaceCategory.Tari -> R.string.kategori_subtitle_tari
     PlaceCategory.Pentas -> R.string.kategori_subtitle_pentas
@@ -201,7 +213,7 @@ internal fun KategoriContent(
     val name = state.category?.label() ?: stringResource(R.string.kategori_unknown)
     ListScaffold(
         title = name,
-        subtitle = stringResource(state.category.subtitleRes(), state.totalCount),
+        subtitle = kategoriSubtitle(state),
         headerColor = state.category?.tint(colors) ?: colors.backgroundWarm,
         heroBackground = state.category.heroBackground(),
         heroPieces = {
@@ -248,7 +260,9 @@ internal fun SemuaTempatContent(
     val colors = KelanaTheme.colors
     ListScaffold(
         title = stringResource(R.string.semua_title),
-        subtitle = stringResource(R.string.semua_subtitle, state.totalCount),
+        subtitle = state.regionShortName
+            ?.let { stringResource(R.string.semua_subtitle, state.totalCount, it) }
+            ?: stringResource(R.string.semua_subtitle_noregion, state.totalCount),
         headerColor = colors.backgroundWarm,
         heroBackground = R.drawable.jelajah_art_hero_semua,
         heroPieces = {

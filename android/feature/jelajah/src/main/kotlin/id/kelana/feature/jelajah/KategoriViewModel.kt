@@ -7,6 +7,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import id.kelana.core.model.Place
 import id.kelana.core.model.PlaceCategory
 import id.kelana.core.model.PlaceRepository
+import id.kelana.core.model.RegionRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
@@ -25,6 +26,8 @@ data class KategoriUiState(
     val totalCount: Int = 0,
     val places: List<Place> = emptyList(),
     val today: LocalDate? = null,
+    /** Casual name of the selected region for the subtitle ("Jateng"); null when none is selected. */
+    val regionShortName: String? = null,
 ) {
     /** The category has no place at all (for example Pentas): show the "Kabari aku" state. */
     val isCategoryEmpty: Boolean get() = !isLoading && totalCount == 0
@@ -36,14 +39,15 @@ data class KategoriUiState(
 @HiltViewModel
 class KategoriViewModel internal constructor(
     placeRepository: PlaceRepository,
+    regions: RegionRepository,
     private val category: PlaceCategory?,
     today: () -> LocalDate,
 ) : ViewModel() {
 
     /** Type-safe navigation stores the route argument under its property name, "category". */
     @Inject
-    constructor(placeRepository: PlaceRepository, handle: SavedStateHandle) :
-        this(placeRepository, handle.get<String>("category")?.let(PlaceCategory::fromKey), { todayInJakarta() })
+    constructor(placeRepository: PlaceRepository, regions: RegionRepository, handle: SavedStateHandle) :
+        this(placeRepository, regions, handle.get<String>("category")?.let(PlaceCategory::fromKey), { todayInJakarta() })
 
     private val date = today()
     private val openTodayOnly = MutableStateFlow(false)
@@ -51,7 +55,8 @@ class KategoriViewModel internal constructor(
     val state: StateFlow<KategoriUiState> = combine(
         category?.let(placeRepository::placesByCategory) ?: flowOf(emptyList()),
         openTodayOnly,
-    ) { all, openOnly ->
+        regions.selectedRegion(),
+    ) { all, openOnly, region ->
         KategoriUiState(
             category = category,
             isLoading = false,
@@ -59,6 +64,7 @@ class KategoriViewModel internal constructor(
             totalCount = all.size,
             places = if (openOnly) all.filter { it.isOpenOn(date) } else all,
             today = date,
+            regionShortName = region?.shortName,
         )
     }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), KategoriUiState(category = category))
 

@@ -6,6 +6,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import id.kelana.core.model.Place
 import id.kelana.core.model.PlaceCategory
 import id.kelana.core.model.PlaceRepository
+import id.kelana.core.model.RegionRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
@@ -22,6 +23,8 @@ data class SemuaTempatUiState(
     val totalCount: Int = 0,
     val places: List<Place> = emptyList(),
     val today: LocalDate? = null,
+    /** Casual name of the selected region for the subtitle ("Jatim"); null when none is selected. */
+    val regionShortName: String? = null,
 ) {
     val isEmpty: Boolean get() = !isLoading && places.isEmpty()
 }
@@ -29,11 +32,12 @@ data class SemuaTempatUiState(
 @HiltViewModel
 class SemuaTempatViewModel internal constructor(
     placeRepository: PlaceRepository,
+    regions: RegionRepository,
     today: () -> LocalDate,
 ) : ViewModel() {
 
     @Inject
-    constructor(placeRepository: PlaceRepository) : this(placeRepository, { todayInJakarta() })
+    constructor(placeRepository: PlaceRepository, regions: RegionRepository) : this(placeRepository, regions, { todayInJakarta() })
 
     private val date = today()
     private val category = MutableStateFlow<PlaceCategory?>(null)
@@ -43,7 +47,8 @@ class SemuaTempatViewModel internal constructor(
         placeRepository.places(),
         category,
         openTodayOnly,
-    ) { all, selected, openOnly ->
+        regions.selectedRegion(),
+    ) { all, selected, openOnly, region ->
         SemuaTempatUiState(
             isLoading = false,
             category = selected,
@@ -53,6 +58,7 @@ class SemuaTempatViewModel internal constructor(
                 .filter { selected == null || it.category == selected }
                 .filter { !openOnly || it.isOpenOn(date) },
             today = date,
+            regionShortName = region?.shortName,
         )
     }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), SemuaTempatUiState())
 

@@ -4,6 +4,9 @@ import app.cash.turbine.test
 import id.kelana.core.model.AppLanguage
 import id.kelana.core.model.AppLanguageRepository
 import id.kelana.core.model.AuthResult
+import id.kelana.core.model.Region
+import id.kelana.core.model.RegionRepository
+import id.kelana.core.model.RegionStatus
 import id.kelana.core.model.SessionRepository
 import id.kelana.core.model.SessionState
 import id.kelana.core.model.SessionUser
@@ -56,6 +59,20 @@ class ProfilViewModelTest {
         }
     }
 
+    private class FakeRegionRepository(initial: String? = null) : RegionRepository {
+        val selected = MutableStateFlow(initial)
+        override fun regions(): Flow<List<Region>> = MutableStateFlow(
+            listOf(
+                Region("DIY", "DI Yogyakarta", RegionStatus.Available, shortName = "Jogja"),
+                Region("JTM", "Jawa Timur", RegionStatus.Available, shortName = "Jatim"),
+            ),
+        )
+        override val selectedRegionId: Flow<String?> = selected
+        override suspend fun select(regionId: String) {
+            selected.value = regionId
+        }
+    }
+
     private val user = SessionUser(id = "u1", email = "nama@contoh.id", displayName = "Muhammad Haikal")
 
     @Before
@@ -65,8 +82,21 @@ class ProfilViewModelTest {
     fun tearDown() = Dispatchers.resetMain()
 
     @Test
+    fun regionName_followsTheSelectedRegion() = runTest {
+        val regions = FakeRegionRepository()
+        val vm = ProfilViewModel(FakeSessionRepository(SessionState.Guest), FakeAppLanguageRepository(), regions)
+        vm.state.test {
+            assertNull(awaitItem().regionName)
+            regions.select("DIY")
+            assertEquals("DI Yogyakarta", awaitItem().regionName)
+            regions.select("JTM")
+            assertEquals("Jawa Timur", awaitItem().regionName)
+        }
+    }
+
+    @Test
     fun signedIn_showsRealNameEmailAndInitials() {
-        val vm = ProfilViewModel(FakeSessionRepository(SessionState.SignedIn(user)), FakeAppLanguageRepository())
+        val vm = ProfilViewModel(FakeSessionRepository(SessionState.SignedIn(user)), FakeAppLanguageRepository(), FakeRegionRepository())
         val state = vm.state.value
         assertFalse(state.isLoading)
         assertFalse(state.isGuest)
@@ -77,14 +107,14 @@ class ProfilViewModelTest {
 
     @Test
     fun signedInWithoutDisplayName_fallsBackToEmailAndHidesDuplicateLine() {
-        val vm = ProfilViewModel(FakeSessionRepository(SessionState.SignedIn(user.copy(displayName = null))), FakeAppLanguageRepository())
+        val vm = ProfilViewModel(FakeSessionRepository(SessionState.SignedIn(user.copy(displayName = null))), FakeAppLanguageRepository(), FakeRegionRepository())
         assertEquals("nama@contoh.id", vm.state.value.name)
         assertNull(vm.state.value.email)
     }
 
     @Test
     fun loading_isLoadingAndNotGuest() {
-        val vm = ProfilViewModel(FakeSessionRepository(SessionState.Loading), FakeAppLanguageRepository())
+        val vm = ProfilViewModel(FakeSessionRepository(SessionState.Loading), FakeAppLanguageRepository(), FakeRegionRepository())
         assertTrue(vm.state.value.isLoading)
         assertFalse(vm.state.value.isGuest)
     }
@@ -92,7 +122,7 @@ class ProfilViewModelTest {
     @Test
     fun guest_hasNoUserAndSignOutDoesNothing() = runTest {
         val repo = FakeSessionRepository(SessionState.Guest)
-        val vm = ProfilViewModel(repo, FakeAppLanguageRepository())
+        val vm = ProfilViewModel(repo, FakeAppLanguageRepository(), FakeRegionRepository())
         assertTrue(vm.state.value.isGuest)
         assertNull(vm.state.value.user)
         vm.onSignOut()
@@ -102,7 +132,7 @@ class ProfilViewModelTest {
     @Test
     fun signOut_callsRepositoryOnce_emitsSignedOut_andKeepsProfileUntilNavigation() = runTest {
         val repo = FakeSessionRepository(SessionState.SignedIn(user))
-        val vm = ProfilViewModel(repo, FakeAppLanguageRepository())
+        val vm = ProfilViewModel(repo, FakeAppLanguageRepository(), FakeRegionRepository())
         vm.events.test {
             vm.onSignOut()
             vm.onSignOut() // a second tap while signing out is ignored
@@ -118,7 +148,7 @@ class ProfilViewModelTest {
     @Test
     fun language_showsRememberedChoiceAndSetAppliesIt() = runTest {
         val languages = FakeAppLanguageRepository(AppLanguage.EN)
-        val vm = ProfilViewModel(FakeSessionRepository(SessionState.Guest), languages)
+        val vm = ProfilViewModel(FakeSessionRepository(SessionState.Guest), languages, FakeRegionRepository())
         assertEquals(AppLanguage.EN, vm.state.value.language)
         vm.state.test {
             assertEquals(AppLanguage.EN, awaitItem().language)
@@ -129,14 +159,14 @@ class ProfilViewModelTest {
     }
 
     private fun signedInVm(repo: FakeSessionRepository = FakeSessionRepository(SessionState.SignedIn(user))) =
-        ProfilViewModel(repo, FakeAppLanguageRepository())
+        ProfilViewModel(repo, FakeAppLanguageRepository(), FakeRegionRepository())
 
     @Test
     fun editName_opensDialogWithCurrentName_andGuestCannotOpenIt() {
         val vm = signedInVm()
         vm.onEditName()
         assertEquals("Muhammad Haikal", vm.state.value.nameDraft)
-        val guest = ProfilViewModel(FakeSessionRepository(SessionState.Guest), FakeAppLanguageRepository())
+        val guest = ProfilViewModel(FakeSessionRepository(SessionState.Guest), FakeAppLanguageRepository(), FakeRegionRepository())
         guest.onEditName()
         assertNull(guest.state.value.nameDraft)
     }

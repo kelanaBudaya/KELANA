@@ -44,14 +44,14 @@ class JelajahContentTest {
     fun home_guestWithoutStamps_showsPassportEmptyText() {
         val guest = PreviewData.homeState().copy(stampCount = 0, stampTotal = 0)
         rule.setContent { KelanaTheme { HomeContent(guest, "", callbacks()) } }
-        rule.onNodeWithText(str(R.string.home_passport_empty)).assertIsDisplayed()
+        rule.onNodeWithText(str(R.string.home_passport_empty, "Jogja")).assertIsDisplayed()
     }
 
     @Test
     fun home_passportWithStamps_showsRealCounts() {
         val state = PreviewData.homeState().copy(stampCount = 2, stampTotal = 3)
         rule.setContent { KelanaTheme { HomeContent(state, "AB", callbacks()) } }
-        rule.onNodeWithText(str(R.string.home_passport_count, 2, 3)).assertIsDisplayed()
+        rule.onNodeWithText(str(R.string.home_passport_count, 2, 3, "Jogja")).assertIsDisplayed()
     }
 
     @Test

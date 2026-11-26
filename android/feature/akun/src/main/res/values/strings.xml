@@ -53,7 +53,7 @@
     <string name="profil_section_bantuan">BANTUAN</string>
     <string name="profil_row_paspor">Paspor</string>
     <string name="profil_row_daerah">Daerah</string>
-    <string name="profil_row_daerah_value">DI Yogyakarta</string>
+    <string name="profil_row_daerah_kosong">Belum dipilih</string>
     <string name="profil_row_kebutuhan">Kebutuhan perjalanan</string>
     <string name="profil_row_kebutuhan_sub">Kursi roda, jeda istirahat</string>
     <string name="profil_row_notifikasi">Notifikasi</string>
