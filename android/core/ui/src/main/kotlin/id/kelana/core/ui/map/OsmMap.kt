@@ -38,7 +38,7 @@ import org.maplibre.android.maps.Style
 import org.maplibre.android.module.http.HttpRequestUtil
 
 /** Distance from the top of the pin column to the drop's tip (rotated square: centre + half diagonal). */
-private val TipOffset = DropSize / 2 + DropSize * 0.7071f
+private val TipOffset = PinTopInset + DropSize / 2 + DropSize * 0.7071f
 
 private const val MAP_PADDING_TOP_PX = 220
 private const val MAP_PADDING_SIDE_PX = 100

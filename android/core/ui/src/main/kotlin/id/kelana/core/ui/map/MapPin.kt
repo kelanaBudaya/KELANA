@@ -50,6 +50,12 @@ data class MapMarker(
 internal val PinWidth = 76.dp
 internal val DropSize = 44.dp
 
+/**
+ * Space above the drop. The drop is a square rotated 45 degrees, so its top corner sticks out of its own 44 dp box by
+ * (diagonal - side) / 2 = about 9 dp; without this room the clip of the pin cuts the top off.
+ */
+internal val PinTopInset = 10.dp
+
 /** Teardrop pin (44 dp, 3 dp border, tip down) with a short label under it, as in KatPeta.dc.html. */
 @Composable
 internal fun MapPin(
@@ -72,7 +78,8 @@ internal fun MapPin(
                 contentDescription = marker.description
                 this.selected = selected
                 if (selected) stateDescription = selectedText
-            },
+            }
+            .padding(top = PinTopInset),
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         Box(

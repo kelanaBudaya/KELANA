@@ -17,5 +17,8 @@
     <string name="language_sheet_title">Bahasa</string>
     <string name="map_pin_selected">Dipilih</string>
     <string name="map_attribution">OpenFreeMap &#169; OpenMapTiles Data from OpenStreetMap</string>
-    <string name="map_attribution_cd">Hak cipta peta: OpenFreeMap, OpenMapTiles, data dari OpenStreetMap contributors. Buka halaman hak cipta OpenStreetMap; OpenFreeMap ada di openfreemap.org.</string>
+    <string name="map_attribution_cd">Info dan hak cipta peta</string>
+    <string name="map_attribution_title">Hak cipta peta</string>
+    <string name="map_attribution_open">Buka hak cipta OpenStreetMap</string>
+    <string name="map_attribution_close">Tutup</string>
 </resources>
