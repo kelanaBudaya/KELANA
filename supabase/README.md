@@ -19,7 +19,7 @@ Local keys printed by `supabase start` stay out of git.
 ## Tables
 
 regions, places, opening_hours, closures, ticket_prices, events, profiles (1:1 with auth.users),
-stamps, postcards, videos, reports, subscriptions. RPCs: `place_facts(place_id)` (client),
+stamps, postcards, videos, reports, subscriptions; admin: staff, fact_reviews, fact_history (see below). RPCs: `place_facts(place_id)` (client),
 `stamp_distance(place_id, lat, lng)` (service role only, for verify-stamp), `release_check()`.
 
 Event recurrence: `once` (event_date), `weekly` (ISO weekday 1=Senin..7=Minggu), `daily` (neither).
@@ -36,6 +36,21 @@ Times are Asia/Jakarta wall-clock. Cancelled dates go in `closures`.
 - Postcards and videos: any logged-in user can read them immediately; inserting needs `user_id = self` and a stamp for the same place. A postcard with `is_public = false` is visible to its author only (`postcards.rating` 1 to 5 or null, `card_style` `jurnal`/`cap`/`peta`).
 - Visitor stories are for logged-in users only; the guest browse set above is the whole guest surface.
 - Own rows only for editing/deleting postcards, videos, reports, subscriptions, profile.
+
+## Admin panel: staff, four-eyes, history (migration 20261123090000)
+
+The web panel in `admin/` signs in as the staff member (anon key + session, never the service role). See `admin/README.md` for adding staff.
+
+- `staff` (user_id, role `checker` | `reviewer` | `admin`, region_id null = all, display_name). Rows are inserted by the project owner in the SQL editor; there is no insert/update/delete policy. Staff can read the staff list. Helpers: `is_staff()`, `current_staff_role()`, `is_staff_for_place(place_id)`.
+- `fact_reviews` (one row per fact: internal_note, manager_confirmation, has_conflict, due_on, checker, reviewer, content snapshots). Separate from the fact tables so internal data never reaches travellers (`place_facts` returns whole fact rows). Readable by staff of the place's region; written only through the RPCs.
+- `fact_history`: append-only (before, after, source_url, changed_by = `auth.uid()` or null for scraper/dashboard, changed_at), written by triggers on every insert/update/delete of a fact and on every check and review. Triggers reject update, delete and truncate for every role, postgres included; API roles have no write privilege at all. No foreign keys, so it outlives deleted places and accounts.
+- **Four-eyes rule (database-enforced):** a `BEFORE INSERT OR UPDATE` trigger on `opening_hours`, `closures`, `ticket_prices`, `events` lets a row become or stay `published` with changed content only when `fact_reviews` has a checker and a different reviewer whose snapshots equal the row's current content (all columns except `review_status` and `checked_at`). A guard trigger on `fact_reviews` only lets the caller (`auth.uid()`) set themselves as checker or reviewer, requires reviewer/admin role for the review, and computes the snapshots itself, so service_role and postgres cannot forge a review either. Consequences:
+  - Inserting an already `published` fact is refused for every role except the owner roles `postgres`/`supabase_admin` (seed and migrations). The scraper (service role) inserts `pending`.
+  - Changing a value of a published fact is refused unless the row goes back to `pending`. Refreshing only `checked_at` of an unchanged published fact is allowed ("an unchanged re-check just refreshes checkedAt").
+  - A value change after the check makes the check stale; the reviewer gets `stale_check` and the fact must be checked again.
+- RPCs (authenticated, each checks the staff row and region): `staff_fact_queue()`, `staff_summary()`, `staff_save_fact(kind, id, patch, note, confirmation, has_conflict, due_on)` (a content change sends the fact back to pending), `mark_fact_checked(kind, id)` (needs `source_url` and `checked_at`), `publish_fact(kind, id)` (reviewer/admin, not the checker: approves and publishes in one transaction). Errors: `four_eyes_required`, `stale_check`, `reviewer_role_required`, `not_staff`, `fact_not_pending`, `check_needs_source_and_date`.
+- Unchanged for travellers: no new policy on the fact tables (staff read pending facts only through `staff_fact_queue()`, so a staff account in the Android app still sees published facts only). `reports` gets one extra select policy for staff of the reported place's region (read-only). Report photos stay private to the reporter.
+- Tests: `tests/admin.test.sql`.
 
 ## Storage
 
@@ -99,12 +114,41 @@ DENO_DIR=D:/deno-cache D:/Devtools/deno/deno.exe check index.ts
 
 Deploy (needs the user): `supabase functions deploy verify-stamp`, then `supabase secrets set ...`.
 
+## Edge Function delete-account (Hapus akun)
+
+`functions/delete-account/` (Deno). `POST /functions/v1/delete-account` with body `{ "confirm": "HAPUS" }`, `verify_jwt = true` in `config.toml`. The account deleted is always the JWT's user; any id in the body is ignored. Pure logic in `account.ts`, HTTP in `handler.ts`, wiring in `index.ts`.
+
+What it does: removes the caller's postcard photos (bucket `postcards`, folder `<user_id>/`) through the Storage API, then hard-deletes the auth user with the service role. The database cascades profiles, stamps, postcards, videos and subscriptions, and keeps the caller's reports with `user_id` set to null (migration `20261123080000_account_deletion.sql`); report photos stay with them. Any failing step answers 500 and the user is not deleted, so the client keeps its session and may retry. Answers: 200 `{ "status": "deleted" }`, 400 `bad_request`, 401 `unauthorized`, 405, 500 `server_error`. Logs never carry the user id.
+
+Env (provided by the platform): `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY`. The service role key stays on the server.
+
+## Edge Function export-account (Unduh dataku dulu)
+
+`functions/export-account/` (Deno). `POST /functions/v1/export-account` (body ignored), `verify_jwt = true` in `config.toml`. Pure logic in `export.ts`, HTTP in `handler.ts`, wiring in `index.ts`.
+
+What it does: returns one JSON document (`format: "kelana-account-export"`, `version: 1`) with the caller's own data: account (id, email, created), profile (display name, home region), stamps (place and time), postcards (message, rating, card style, visibility, photo link), videos (caption, duration, visibility), reports they sent, and "Kabari aku" subscriptions. No location (none is stored), no other user's rows, no internal columns (`is_sample`, Storage paths, stream ids). Photo links are signed URLs that expire after 10 minutes (`PHOTO_URL_TTL_S`), made only for objects in the caller's own folder.
+
+Who reads what: the user id comes from the verified JWT only. The function reads with a client that carries the caller's JWT and the anon key, so RLS applies, and every query also filters on that id; `export.ts` drops any row of another owner again and copies fields by allowlist. No service role is used. Answers: 200 the document (`cache-control: no-store`), 401 `unauthorized`, 405, 500 `server_error` (a failed read fails the whole export; a photo that cannot be signed only loses its link). The Android app saves the file through the Storage Access Framework as `kelana-dataku-<yyyy-MM-dd>.json`.
+
+Env (provided by the platform): `SUPABASE_URL`, `SUPABASE_ANON_KEY`.
+
+Tests and deploy for both functions (tests use injected fakes, no network):
+
+```
+cd supabase/functions/delete-account && DENO_DIR=D:/deno-cache D:/Devtools/deno/deno.exe test delete_account_test.ts
+cd supabase/functions/export-account && DENO_DIR=D:/deno-cache D:/Devtools/deno/deno.exe test export_account_test.ts
+supabase functions deploy delete-account
+supabase functions deploy export-account
+```
+
+Deploy needs the user (linked project). Keep `verify_jwt = true`; never deploy either with `--no-verify-jwt`.
+
 ## Android feature module -> endpoints
 
 | Module | Endpoints (guest = no login needed) |
 |---|---|
 | onboarding | GET regions (guest), PATCH profiles (home_region_id, login) |
-| akun | Supabase Auth (Google / phone OTP), GET/PATCH/DELETE profiles (login) |
+| akun | Supabase Auth (Google / phone OTP), GET/PATCH/DELETE profiles (login), POST functions/v1/delete-account and functions/v1/export-account (login) |
 | jelajah | GET places (guest), GET events (guest), GET stamps (login, header card; hide for guests) |
 | tempat | GET places (guest), RPC place_facts (guest), GET postcards/videos by place (login), POST reports (login) |
 | cerita | login only: GET/POST/PATCH/DELETE postcards and videos, Realtime on both tables, POST reports |

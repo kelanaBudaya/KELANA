@@ -12,6 +12,8 @@ class AndroidComposeConventionPlugin : Plugin<Project> {
 
             val configureCompose: CommonExtension<*, *, *, *, *, *>.() -> Unit = {
                 buildFeatures.compose = true
+                // Only modules that get the androidTest dependencies below are instrumented.
+                defaultConfig.testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
             }
             pluginManager.withPlugin("com.android.library") {
                 extensions.configure<com.android.build.api.dsl.LibraryExtension> { configureCompose() }
@@ -28,6 +30,12 @@ class AndroidComposeConventionPlugin : Plugin<Project> {
                 add("implementation", lib("androidx-compose-material3"))
                 add("implementation", lib("androidx-compose-ui-tooling-preview"))
                 add("debugImplementation", lib("androidx-compose-ui-tooling"))
+                // Compose UI tests (src/androidTest), run on a device or emulator with connectedDebugAndroidTest.
+                add("androidTestImplementation", bom)
+                add("androidTestImplementation", lib("androidx-compose-ui-test-junit4"))
+                add("androidTestImplementation", lib("androidx-test-ext-junit"))
+                add("androidTestImplementation", lib("androidx-test-runner"))
+                add("debugImplementation", lib("androidx-compose-ui-test-manifest"))
             }
         }
     }

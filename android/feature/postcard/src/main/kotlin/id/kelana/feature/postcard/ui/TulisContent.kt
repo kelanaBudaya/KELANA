@@ -349,7 +349,7 @@ private fun SectionTitle(text: String) {
 private fun PhotoBox(state: TulisUiState, capCode: String, actions: TulisActions) {
     val colors = KelanaTheme.colors
     var chooseSource by remember { mutableStateOf(false) }
-    val dashColor = DashBlue
+    val dashColor = colors.dashMuted
     val shape = RoundedCornerShape(20.dp)
     val photoBitmap = remember(state.photo) {
         state.photo?.let { BitmapFactory.decodeByteArray(it.bytes, 0, it.bytes.size)?.asImageBitmap() }
@@ -459,8 +459,6 @@ private fun PhotoBox(state: TulisUiState, capCode: String, actions: TulisActions
         )
     }
 }
-
-private val DashBlue = androidx.compose.ui.graphics.Color(0xFFB9C4DA) // #B9C4DA, only seen in this artifact file
 
 /**
  * "YK-02 / CAP" sticker (artifact: 78 x 56, perforated edge, white outline, blue fill #24458F, drop shadow).

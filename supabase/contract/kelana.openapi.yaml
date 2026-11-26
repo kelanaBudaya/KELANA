@@ -7,6 +7,7 @@ info:
     - PostgREST (`/rest/v1`), generated from the Postgres schema in `supabase/migrations`.
     - Edge Function `POST /functions/v1/verify-stamp` (implemented in `supabase/functions/verify-stamp`).
     - Edge Function `POST /functions/v1/delete-account` (implemented in `supabase/functions/delete-account`), user JWT only.
+    - Edge Function `POST /functions/v1/export-account` (implemented in `supabase/functions/export-account`), user JWT only.
 
     Every request needs `apikey: <anon key>`. Guests (no login, Postgres role `anon`)
     may browse: GET regions, places, opening_hours, closures, ticket_prices, events and
@@ -296,6 +297,24 @@ paths:
         '400': { description: 'Body is not { "confirm": "HAPUS" }' }
         '401': { description: Missing or invalid user JWT }
         '500': { description: Server fault, nothing reported back }
+  /functions/v1/export-account:
+    post:
+      operationId: exportAccount
+      summary: Export the caller's own data as JSON (implemented in supabase/functions/export-account)
+      description: |
+        "Unduh dataku dulu" on the Hapus akun sheet. The data exported is always the JWT's user; the body is ignored.
+        The function reads as the caller (their JWT + the anon key, RLS applies; no service role) and also filters
+        every query on the caller's id. It contains no location (none is stored), no other user's rows and no
+        internal columns. Photo links are signed URLs valid for 10 minutes, only for objects in the caller's own
+        folder. A failed read answers 500 (no partial document). The app saves the answer as
+        `kelana-dataku-<yyyy-MM-dd>.json` through the Storage Access Framework.
+      responses:
+        '200':
+          description: 'The export document, sent with cache-control no-store.'
+          content: { application/json: { schema: { $ref: '#/components/schemas/AccountExport' } } }
+        '401': { description: Missing or invalid user JWT }
+        '405': { description: Not POST }
+        '500': { description: Server fault, nothing reported back }
 components:
   securitySchemes:
     anonKey: { type: apiKey, in: header, name: apikey }
@@ -545,3 +564,98 @@ components:
       required: [status]
       properties:
         status: { type: string, const: deleted }
+    AccountExportPlace:
+      type: object
+      required: [id, name, capCode]
+      properties:
+        id: { type: string, format: uuid }
+        name: { type: [string, 'null'] }
+        capCode: { type: [string, 'null'] }
+    AccountExportPhoto:
+      type: [object, 'null']
+      required: [url, expiresAt]
+      properties:
+        url: { type: string, description: 'Signed Storage URL' }
+        expiresAt: { type: string, format: date-time, description: '10 minutes after exportedAt' }
+    AccountExport:
+      type: object
+      required: [format, version, exportedAt, account, profile, stamps, postcards, videos, reports, subscriptions]
+      properties:
+        format: { type: string, const: kelana-account-export }
+        version: { type: integer, const: 1 }
+        exportedAt: { type: string, format: date-time }
+        account:
+          type: object
+          required: [id, email, createdAt]
+          properties:
+            id: { type: string, format: uuid }
+            email: { type: [string, 'null'] }
+            createdAt: { type: [string, 'null'], format: date-time }
+        profile:
+          type: [object, 'null']
+          properties:
+            displayName: { type: [string, 'null'] }
+            homeRegion:
+              type: [object, 'null']
+              properties:
+                code: { type: [string, 'null'] }
+                name: { type: [string, 'null'] }
+            createdAt: { type: [string, 'null'], format: date-time }
+        stamps:
+          type: array
+          items:
+            type: object
+            required: [place, stampedAt]
+            properties:
+              place: { $ref: '#/components/schemas/AccountExportPlace' }
+              stampedAt: { type: string, format: date-time }
+        postcards:
+          type: array
+          items:
+            type: object
+            required: [id, place, message, rating, cardStyle, visibility, photo, createdAt]
+            properties:
+              id: { type: string, format: uuid }
+              place: { $ref: '#/components/schemas/AccountExportPlace' }
+              message: { type: string }
+              rating: { type: [integer, 'null'] }
+              cardStyle: { type: [string, 'null'] }
+              visibility: { type: string, enum: [public, private] }
+              photo: { $ref: '#/components/schemas/AccountExportPhoto' }
+              createdAt: { type: string, format: date-time }
+        videos:
+          type: array
+          items:
+            type: object
+            required: [id, place, caption, durationS, visibility, createdAt]
+            properties:
+              id: { type: string, format: uuid }
+              place: { $ref: '#/components/schemas/AccountExportPlace' }
+              caption: { type: [string, 'null'] }
+              durationS: { type: [integer, 'null'] }
+              visibility: { type: string, const: public }
+              createdAt: { type: string, format: date-time }
+        reports:
+          type: array
+          items:
+            type: object
+            required: [id, reason, details, place, postcardId, videoId, photo, createdAt]
+            properties:
+              id: { type: string, format: uuid }
+              reason: { $ref: '#/components/schemas/ReportReason' }
+              details: { type: [string, 'null'] }
+              place: { oneOf: [{ $ref: '#/components/schemas/AccountExportPlace' }, { type: 'null' }] }
+              postcardId: { type: [string, 'null'], format: uuid }
+              videoId: { type: [string, 'null'], format: uuid }
+              photo: { $ref: '#/components/schemas/AccountExportPhoto' }
+              createdAt: { type: string, format: date-time }
+        subscriptions:
+          type: array
+          items:
+            type: object
+            required: [id, category, place, createdAt]
+            properties:
+              id: { type: string, format: uuid }
+              category: { oneOf: [{ $ref: '#/components/schemas/PlaceCategory' }, { type: 'null' }] }
+              place: { oneOf: [{ $ref: '#/components/schemas/AccountExportPlace' }, { type: 'null' }] }
+              createdAt: { type: string, format: date-time }

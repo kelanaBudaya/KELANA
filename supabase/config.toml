@@ -386,6 +386,14 @@ deno_version = 2
 [functions.verify-stamp]
 verify_jwt = true
 
+# Hapus akun. The function takes the user id from the JWT only; the gateway also rejects calls without a valid JWT.
+[functions.delete-account]
+verify_jwt = true
+
+# Unduh dataku dulu. Reads as the caller (JWT + anon key, RLS applies); no service role.
+[functions.export-account]
+verify_jwt = true
+
 # [edge_runtime.secrets]
 # secret_key = "env(SECRET_VALUE)"
 

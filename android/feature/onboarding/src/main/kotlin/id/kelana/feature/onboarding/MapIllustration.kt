@@ -1,7 +1,6 @@
 package id.kelana.feature.onboarding
 
 import androidx.compose.foundation.Canvas
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
@@ -16,6 +15,7 @@ import androidx.compose.ui.graphics.drawscope.rotate
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.onClick
 import androidx.compose.ui.semantics.role
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.unit.dp
@@ -91,8 +91,12 @@ internal fun islandLabel(region: Region): String? =
     islandNameRes(region.id)?.let { stringResource(R.string.island_label, stringResource(it)) }
 
 /**
- * One pin. The 48 dp box is the touch target; the pin tip is at the position given by the caller (box centre + 14 dp
- * down). Selected: teardrop with halo, 22 dp. Others: 12 dp dot with a white edge (PilihDaerah.dc.html).
+ * One pin. The 48 dp box is its accessibility bounds; the pin tip is at the position given by the caller (box centre +
+ * 14 dp down). Selected: teardrop with halo, 22 dp. Others: 12 dp dot with a white edge (PilihDaerah.dc.html).
+ *
+ * The box does not handle touches itself: neighbouring pins (Jawa Tengah and DI Yogyakarta are about 17 dp apart) have
+ * overlapping boxes, so the topmost box would win every tap. The map picks the pin nearest to the tap instead (see
+ * [nearestPin]); TalkBack still gets a click action here.
  */
 @Composable
 internal fun RegionPinMarker(
@@ -110,8 +114,11 @@ internal fun RegionPinMarker(
             .semantics {
                 contentDescription = description
                 role = Role.Button
-            }
-            .clickable(onClick = onClick),
+                onClick {
+                    onClick()
+                    true
+                }
+            },
         contentAlignment = Alignment.Center,
     ) {
         val halo = colors.ink.copy(alpha = 0.18f)

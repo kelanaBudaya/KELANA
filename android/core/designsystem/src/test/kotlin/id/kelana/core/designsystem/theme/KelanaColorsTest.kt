@@ -36,6 +36,20 @@ class KelanaColorsTest {
     }
 
     @Test
+    fun phase9SemanticTokensPinTheOldAdHocValues() {
+        assertEquals(Color(0xFFB84439), colors.dangerStrong)
+        assertEquals(Color(0xFFFBE7E5), colors.dangerSurface)
+        assertEquals(Color(0xFFE5B9B4), colors.dangerDisabled)
+        assertEquals(Color(0xFFFFE6D6), colors.peachSoft)
+        assertEquals(Color(0xFFEEF0F3), colors.badgeClosedBackground)
+        assertEquals(Color(0xFFB9B09E), colors.dashWarm)
+        assertEquals(Color(0xFFB9C4DA), colors.dashMuted)
+        assertEquals(Color(0xFF24345A), colors.galleryPanel)
+        assertEquals(Color(0xFF3A4A70), colors.galleryTileBorder)
+        assertEquals(Color(0xFFDCEAF7), colors.mapBackdrop)
+    }
+
+    @Test
     fun activeTabPillMatchesSkyText() {
         assertEquals(colors.skyText, colors.tabActivePill)
     }

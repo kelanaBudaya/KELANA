@@ -81,7 +81,14 @@
     <string name="hapus_akun_kept_header">Tetap tersimpan, tanpa namamu</string>
     <string name="hapus_akun_reports">Laporan info salah yang pernah kamu kirim</string>
     <string name="hapus_akun_download">Unduh dataku dulu</string>
-    <string name="hapus_akun_download_unavailable">Belum tersedia</string>
+    <string name="hapus_akun_download_preparing">Menyiapkan datamu…</string>
+    <string name="hapus_akun_download_retry">Coba unduh lagi</string>
+    <string name="hapus_akun_download_saved">Datamu sudah tersimpan sebagai file JSON.</string>
+    <string name="hapus_akun_download_error_network">Tidak ada sinyal. Datamu belum diunduh.</string>
+    <string name="hapus_akun_download_error_failed">Datamu belum bisa diunduh. Coba lagi nanti.</string>
+    <string name="hapus_akun_download_error_not_configured">Layanan akun belum tersedia di versi ini.</string>
+    <string name="hapus_akun_download_error_not_signed_in">Kamu perlu masuk dulu untuk mengunduh datamu.</string>
+    <string name="hapus_akun_download_error_save">File belum tersimpan. Coba lagi dan pilih tempat lain.</string>
     <string name="hapus_akun_confirm_label">Ketik %1$s untuk melanjutkan</string>
     <string name="hapus_akun_cancel">Batal</string>
     <string name="hapus_akun_submit">Hapus akun</string>
