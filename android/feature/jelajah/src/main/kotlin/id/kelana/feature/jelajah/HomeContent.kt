@@ -520,7 +520,7 @@ private fun PickCard(place: Place, onClick: () -> Unit) {
         verticalArrangement = Arrangement.spacedBy(8.dp),
     ) {
         Box(Modifier.fillMaxWidth().aspectRatio(156f / 112f).clip(KelanaShapes.card)) {
-            PlaceCover(place.category, compact = false)
+            PlaceCoverPhoto(place, compact = false)
         }
         Text(
             place.name,

@@ -27,6 +27,7 @@ import id.kelana.core.navigation.PostcardRoute
 import id.kelana.core.navigation.RencanaRoute
 import id.kelana.core.navigation.SemuaTempatRoute
 import id.kelana.core.navigation.TiketRoute
+import id.kelana.core.ui.photo.ProvidePlaceCovers
 import id.kelana.core.ui.session.SessionViewModel
 import id.kelana.core.ui.session.rememberRequireLogin
 
@@ -80,6 +81,7 @@ internal fun JelajahScreen(navigate: (Any) -> Unit) {
     val sessionState by session.sessionState.collectAsState()
     val requireLogin = rememberRequireLogin(navigate, session)
 
+    ProvidePlaceCovers {
     Scaffold(
         contentWindowInsets = WindowInsets(0, 0, 0, 0),
     ) { padding ->
@@ -108,20 +110,23 @@ internal fun JelajahScreen(navigate: (Any) -> Unit) {
             ),
         )
     }
+    }
 }
 
 @Composable
 internal fun CariScreen(navigate: (Any) -> Unit, onBack: () -> Unit) {
     val viewModel: CariViewModel = hiltViewModel()
     val state by viewModel.state.collectAsState()
-    CariContent(
-        state = state,
-        onBack = onBack,
-        onQueryChange = viewModel::onQueryChange,
-        onFilterChange = viewModel::onFilterChange,
-        onPlace = { navigate(DetailTempatRoute(it.id)) },
-        onEvent = { navigate(DetailPentasRoute(it.event.id)) },
-    )
+    ProvidePlaceCovers {
+        CariContent(
+            state = state,
+            onBack = onBack,
+            onQueryChange = viewModel::onQueryChange,
+            onFilterChange = viewModel::onFilterChange,
+            onPlace = { navigate(DetailTempatRoute(it.id)) },
+            onEvent = { navigate(DetailPentasRoute(it.event.id)) },
+        )
+    }
 }
 
 @Composable
@@ -131,25 +136,29 @@ internal fun KategoriScreen(route: KategoriRoute, navigate: (Any) -> Unit, onBac
     val viewModel: KategoriViewModel = hiltViewModel()
     val state by viewModel.state.collectAsState()
     val requireLogin = rememberRequireLogin(navigate)
-    KategoriContent(
-        state = state,
-        onBack = onBack,
-        onOpenTodayChange = viewModel::onOpenTodayChange,
-        onPlace = { navigate(DetailTempatRoute(it.id)) },
-        // "Kabari aku" needs an account; the subscription itself is not built yet (does nothing after login).
-        onNotifyMe = { requireLogin {} },
-    )
+    ProvidePlaceCovers {
+        KategoriContent(
+            state = state,
+            onBack = onBack,
+            onOpenTodayChange = viewModel::onOpenTodayChange,
+            onPlace = { navigate(DetailTempatRoute(it.id)) },
+            // "Kabari aku" needs an account; the subscription itself is not built yet (does nothing after login).
+            onNotifyMe = { requireLogin {} },
+        )
+    }
 }
 
 @Composable
 internal fun SemuaTempatScreen(navigate: (Any) -> Unit, onBack: () -> Unit) {
     val viewModel: SemuaTempatViewModel = hiltViewModel()
     val state by viewModel.state.collectAsState()
-    SemuaTempatContent(
-        state = state,
-        onBack = onBack,
-        onCategoryChange = viewModel::onCategoryChange,
-        onOpenTodayChange = viewModel::onOpenTodayChange,
-        onPlace = { navigate(DetailTempatRoute(it.id)) },
-    )
+    ProvidePlaceCovers {
+        SemuaTempatContent(
+            state = state,
+            onBack = onBack,
+            onCategoryChange = viewModel::onCategoryChange,
+            onOpenTodayChange = viewModel::onOpenTodayChange,
+            onPlace = { navigate(DetailTempatRoute(it.id)) },
+        )
+    }
 }
