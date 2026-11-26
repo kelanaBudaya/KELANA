@@ -37,6 +37,7 @@
     <string name="rencana_travel_walk">On foot</string>
     <string name="rencana_travel_transit">Public transport</string>
     <string name="rencana_travel_car">Private vehicle</string>
+    <string name="rencana_travel_ride">Ride-hailing motorbike</string>
     <string name="rencana_travel_estimate">%1$s · about %2$d min</string>
     <string name="rencana_arrival_advice">Arrive at %1$s by %2$s at the latest. The operator suggests coming %3$d–%4$d minutes before the show starts.</string>
     <string name="rencana_day_empty">Nothing fits this day yet. Try changing your answers.</string>

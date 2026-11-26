@@ -366,6 +366,7 @@ private fun Timeline(
                                     TravelMode.Walk -> R.drawable.rencana_veh_walk
                                     TravelMode.Transit -> R.drawable.rencana_veh_bus
                                     TravelMode.Car -> R.drawable.rencana_veh_car
+                                    TravelMode.RideHailing -> R.drawable.rencana_veh_ojek
                                 },
                             ),
                             contentDescription = null,

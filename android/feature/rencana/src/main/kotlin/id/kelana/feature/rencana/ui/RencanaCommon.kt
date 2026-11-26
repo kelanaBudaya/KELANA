@@ -90,6 +90,7 @@ internal fun travelText(mode: TravelMode, minutes: Int): String {
             TravelMode.Walk -> R.string.rencana_travel_walk
             TravelMode.Transit -> R.string.rencana_travel_transit
             TravelMode.Car -> R.string.rencana_travel_car
+            TravelMode.RideHailing -> R.string.rencana_travel_ride
         },
     )
     return stringResource(R.string.rencana_travel_estimate, label, minutes)

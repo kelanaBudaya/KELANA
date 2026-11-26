@@ -46,7 +46,7 @@ private enum class StageState { Done, Running, Pending }
 
 /** Checklist labels for the answers, in order. Opening hours and travel time are always there. */
 private fun stageLabels(state: SusunUiState): List<Int> = buildList {
-    add(if (Interest.Pentas in state.interests) R.string.rencana_stage_shows else R.string.rencana_stage_hours)
+    add(if (state.interests.any { it.includesShows }) R.string.rencana_stage_shows else R.string.rencana_stage_hours)
     if (state.showsRestStage) add(if (state.companion == TravelGroup.Family) R.string.rencana_stage_rest_family else R.string.rencana_stage_rest)
     add(R.string.rencana_stage_travel)
     if (state.showsAccessStage) add(R.string.rencana_stage_access)

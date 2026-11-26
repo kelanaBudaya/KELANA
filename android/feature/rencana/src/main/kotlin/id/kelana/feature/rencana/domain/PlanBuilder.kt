@@ -57,7 +57,9 @@ data class ReplanResult(val plan: DayPlan, val replacement: PlanStop?)
  * 2. **Closed places are skipped.** A checked [Closure] covering the date ([SkipReason.TemporarilyClosed], checked
  *    first) or a weekly `isClosed` day ([SkipReason.ClosedThatDay]).
  * 3. **Interests.** A place is a candidate when its category is selected (see [Interest.categories]). [Interest.Pentas]
- *    selects shows instead: at most one show per day, the earliest one that starts and ends inside the time window.
+ *    also selects shows ([Interest.includesShows]): at most one show per day, the earliest one that starts and ends
+ *    inside the time window. [Interest.Pentas] = shows plus the tari and gamelan venues as visits; [Interest.Semua] =
+ *    every category plus shows.
  * 4. **Time window.** Nothing starts before `windowStart` (or `notBefore` when re-planning) and nothing ends after
  *    `windowEnd`. A visit is planned only if the whole visit lies inside the place's opening hours of that day
  *    ("never outside its hours"). A show uses its own checked start time and end (90 minutes when the end is unknown).
@@ -70,21 +72,38 @@ data class ReplanResult(val plan: DayPlan, val replacement: PlanStop?)
  *    companion is a family or "more rests" is chosen.
  * 8. **Travel (PROVISIONAL estimates).** Straight-line distance x 1.3. Walk 4.5 km/h; transit 15 km/h plus 10 min wait
  *    (transit only when the stretch is longer than 1.2 km, otherwise walk); private vehicle 20 km/h plus 5 min. Walk
- *    only: a stretch longer than 2.5 km makes the place (or show) ineligible.
+ *    only: a stretch longer than 2.5 km makes the place (or show) ineligible. Ride-hailing (ojek online): a stretch of
+ *    1 km or less is walked, longer ones are `RideHailing` at 20 km/h plus 8 min wait (PROVISIONAL). No price is ever
+ *    attached to a leg; it is not an official fact.
  * 9. **Needs.** There is no accessibility fact in the data, so with "wheelchair" or "avoid stairs" every stop is
  *    flagged [PlanStop.accessUnverified] ("access not confirmed by the operator").
+ *
+ * 10. **Trip.** [buildTrip] plans the days in date order. Each day excludes the places visited and the shows planned on
+ *    earlier days, so a place is visited at most once per trip and a show is planned at most once per trip (a show and
+ *    a visit at the same venue stay independent). The pace limits the stops of each day. Earlier days get first pick
+ *    (greedy, deterministic), so later days may have fewer stops or none. Places excluded because an earlier day used
+ *    them are not reported in [DayPlan.skipped]. [DayPlan.noShowFound] may be true on a later day because every show
+ *    was already used. A trip is "nothing fits" only when every day is empty.
  *
  * Everything not planned that matched the interests is listed in [DayPlan.skipped] with the reason.
  */
 class PlanBuilder {
 
     /** One plan per date of the choices (at most [MAX_DAYS]). */
-    fun buildTrip(choices: PlanChoices, places: List<Place>, events: List<Event>, builtOn: LocalDate): TripPlan =
-        TripPlan(
-            choices = choices,
-            days = choices.dates.take(MAX_DAYS).map { build(choices, it, places, events) },
-            builtOn = builtOn,
-        )
+    fun buildTrip(choices: PlanChoices, places: List<Place>, events: List<Event>, builtOn: LocalDate): TripPlan {
+        val usedPlaces = mutableSetOf<String>()
+        val usedEvents = mutableSetOf<String>()
+        val days = choices.dates.take(MAX_DAYS).map { date ->
+            val day = build(
+                choices, date, places, events,
+                excludedPlaceIds = usedPlaces.toSet(),
+                excludedEventIds = usedEvents.toSet(),
+            )
+            day.stops.forEach { if (it.isEvent) usedEvents += it.eventId!! else usedPlaces += it.placeId }
+            day
+        }
+        return TripPlan(choices = choices, days = days, builtOn = builtOn)
+    }
 
     /** Availability of [place] on [date]. */
     fun availability(place: Place, date: LocalDate): Availability {
@@ -100,7 +119,8 @@ class PlanBuilder {
     }
 
     /**
-     * Plans one day. [excludedPlaceIds] are never planned (and not reported as skipped). [notBefore] moves the start of
+     * Plans one day. [excludedPlaceIds] are never planned (and not reported as skipped); [excludedEventIds] are shows
+     * that are never planned (already used on another day). [notBefore] moves the start of
      * the window later (live re-plan). [origin] is where the traveller is coming from (the last stop already done);
      * [includeShow] false keeps shows out (a show of the day was already part of the plan).
      */
@@ -110,6 +130,7 @@ class PlanBuilder {
         places: List<Place>,
         events: List<Event>,
         excludedPlaceIds: Set<String> = emptySet(),
+        excludedEventIds: Set<String> = emptySet(),
         notBefore: LocalTime? = null,
         origin: PlanStop? = null,
         includeShow: Boolean = true,
@@ -120,9 +141,9 @@ class PlanBuilder {
         val breakMin = choices.pace.breakMinutes +
             if (choices.companion == TravelGroup.Family || SpecialNeed.MoreRests in choices.needs) EXTRA_REST_MINUTES else 0
         val accessFlag = SpecialNeed.Wheelchair in choices.needs || SpecialNeed.AvoidStairs in choices.needs
-        val wantsShows = Interest.Pentas in choices.interests && includeShow
+        val wantsShows = choices.interests.any { it.includesShows } && includeShow
 
-        val show = if (wantsShows) pickShow(date, events, byId, windowStart, windowEnd) else null
+        val show = if (wantsShows) pickShow(date, events, byId, windowStart, windowEnd, excludedEventIds) else null
         val maxPlaces = choices.pace.maxStops - if (show != null) 1 else 0
 
         val wanted = choices.interests.flatMap { it.categories }.toSet()
@@ -200,7 +221,7 @@ class PlanBuilder {
     /**
      * Live re-plan after [closedPlaceId] turned out closed. Stops that ended before [now] are kept as they were; the
      * rest of the day is rebuilt without the closed place (and without places already done), starting at [now] from the
-     * last finished stop. [ReplanResult.replacement] is the first new place that was not in [current].
+     * last finished stop. [excludedPlaceIds] and [excludedEventIds] are stops planned on other days of the trip. [ReplanResult.replacement] is the first new place that was not in [current].
      */
     fun replan(
         current: DayPlan,
@@ -209,10 +230,12 @@ class PlanBuilder {
         places: List<Place>,
         events: List<Event>,
         now: LocalTime? = null,
+        excludedPlaceIds: Set<String> = emptySet(),
+        excludedEventIds: Set<String> = emptySet(),
     ): ReplanResult {
         val done = if (now == null) emptyList() else
             current.stops.filter { it.end.minutes() <= now.minutes() && it.placeId != closedPlaceId }
-        val excluded = (done.filter { !it.isEvent }.map { it.placeId } + closedPlaceId).toSet()
+        val excluded = (done.filter { !it.isEvent }.map { it.placeId } + closedPlaceId).toSet() + excludedPlaceIds
         val from = listOfNotNull(now, done.lastOrNull()?.end).maxByOrNull { it.minutes() }
         val rebuilt = build(
             choices = choices,
@@ -220,6 +243,7 @@ class PlanBuilder {
             places = places,
             events = events,
             excludedPlaceIds = excluded,
+            excludedEventIds = excludedEventIds,
             notBefore = from,
             origin = done.lastOrNull(),
             includeShow = done.none { it.isEvent },
@@ -309,8 +333,9 @@ class PlanBuilder {
         byId: Map<String, Place>,
         windowStart: Int,
         windowEnd: Int,
+        excludedEventIds: Set<String>,
     ): Show? = events
-        .filter { it.schedule.checkedAt != null && it.occursOn(date) }
+        .filter { it.id !in excludedEventIds && it.schedule.checkedAt != null && it.occursOn(date) }
         .mapNotNull { event ->
             val place = byId[event.placeId] ?: return@mapNotNull null
             val start = event.schedule.value.start.minutes()
@@ -326,11 +351,13 @@ class PlanBuilder {
             Vehicle.WalkOnly -> TravelMode.Walk
             Vehicle.PrivateVehicle -> TravelMode.Car
             Vehicle.TransitAndWalk -> if (km <= TRANSIT_MIN_KM) TravelMode.Walk else TravelMode.Transit
+            Vehicle.RideHailing -> if (km <= RIDE_WALK_MAX_KM) TravelMode.Walk else TravelMode.RideHailing
         }
         val minutes = when (mode) {
             TravelMode.Walk -> km / WALK_KMH * 60
             TravelMode.Transit -> km / TRANSIT_KMH * 60 + TRANSIT_WAIT_MIN
             TravelMode.Car -> km / CAR_KMH * 60 + CAR_PARKING_MIN
+            TravelMode.RideHailing -> km / RIDE_KMH * 60 + RIDE_WAIT_MIN
         }
         return Hop(Travel(mode, ceil(minutes).toInt().coerceAtLeast(1)), vehicle == Vehicle.WalkOnly && km > WALK_ONLY_MAX_KM)
     }
@@ -360,6 +387,9 @@ class PlanBuilder {
         private const val TRANSIT_WAIT_MIN = 10
         private const val CAR_KMH = 20.0
         private const val CAR_PARKING_MIN = 5
+        private const val RIDE_KMH = 20.0
+        private const val RIDE_WAIT_MIN = 8
+        private const val RIDE_WALK_MAX_KM = 1.0
         private const val TRANSIT_MIN_KM = 1.2
         private const val WALK_ONLY_MAX_KM = 2.5
         private const val EARTH_KM = 6371.0

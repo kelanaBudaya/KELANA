@@ -67,6 +67,7 @@ class LocalPlanRepository(
     override suspend fun previewReplacement(date: LocalDate, closedPlaceId: String): PlanStop? {
         val trip = cache.trip.first() ?: return null
         val day = trip.days.firstOrNull { it.date == date } ?: return null
+        val otherDays = stopIdsOfOtherDays(trip, date)
         return builder.replan(
             current = day,
             choices = trip.choices,
@@ -74,6 +75,8 @@ class LocalPlanRepository(
             places = places.places().first(),
             events = eventsFor(date, date),
             now = nowFor(date),
+            excludedPlaceIds = otherDays.first,
+            excludedEventIds = otherDays.second,
         ).replacement
     }
 
@@ -83,6 +86,7 @@ class LocalPlanRepository(
         val day = trip.days.firstOrNull { it.date == date } ?: return ReplanOutcome.NotFound
         if (day.stops.none { it.placeId == closedPlaceId && !it.isEvent }) return ReplanOutcome.NotFound
         val (newDay, replacement) = if (replace) {
+            val otherDays = stopIdsOfOtherDays(trip, date)
             val result = builder.replan(
                 current = day,
                 choices = trip.choices,
@@ -90,6 +94,8 @@ class LocalPlanRepository(
                 places = places.places().first(),
                 events = eventsFor(date, date),
                 now = nowFor(date),
+                excludedPlaceIds = otherDays.first,
+                excludedEventIds = otherDays.second,
             )
             result.plan to result.replacement
         } else {
@@ -104,6 +110,12 @@ class LocalPlanRepository(
 
     private suspend fun eventsFor(from: LocalDate, to: LocalDate): List<Event> =
         events.eventsBetween(from, to).first().map { it.event }.distinctBy { it.id }
+
+    /** Place ids and event ids planned on the other days of [trip]: a re-plan must not repeat them. */
+    private fun stopIdsOfOtherDays(trip: TripPlan, date: LocalDate): Pair<Set<String>, Set<String>> {
+        val stops = trip.days.filter { it.date != date }.flatMap { it.stops }
+        return stops.filter { !it.isEvent }.map { it.placeId }.toSet() to stops.mapNotNull { it.eventId }.toSet()
+    }
 
     private fun nowFor(date: LocalDate): LocalTime? = if (date == LocalDate.now(clock)) LocalTime.now(clock) else null
 }

@@ -64,7 +64,7 @@ data class SusunUiState(
     val canGoPreviousMonth: Boolean get() = visibleMonth.isAfter(YearMonth.from(today))
 
     /** Which optional checklist items of the Menyusun screen apply to the answers. */
-    val showsShowStage: Boolean get() = Interest.Pentas in interests
+    val showsShowStage: Boolean get() = interests.any { it.includesShows }
     val showsRestStage: Boolean get() = companion == TravelGroup.Family || SpecialNeed.MoreRests in needs
     val showsAccessStage: Boolean get() = SpecialNeed.Wheelchair in needs || SpecialNeed.AvoidStairs in needs
 

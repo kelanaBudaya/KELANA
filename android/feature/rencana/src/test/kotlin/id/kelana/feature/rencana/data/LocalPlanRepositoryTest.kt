@@ -85,4 +85,26 @@ class LocalPlanRepositoryTest {
         assertEquals(ReplanOutcome.NotFound, plans.applyReplan(TestToday, "zzz", replace = false))
         assertEquals(ReplanOutcome.NotFound, plans.applyReplan(TestToday.plusDays(1), "a", replace = false))
     }
+
+    @Test
+    fun previewReplacementDoesNotReturnAPlaceOfAnotherDay() = runTest {
+        val day2 = TestToday.plusDays(1)
+        val four = FakePlaces(
+            listOf(
+                place("a", lat = -7.800, hours = open),
+                place("b", lat = -7.801, hours = open),
+                place("c", lat = -7.802, hours = open),
+                place("d", lat = -7.803, hours = open),
+            ),
+        )
+        val repo = repo(four, FakeEvents(emptyList()), cache, connectivity)
+        val ch = choices(pace = id.kelana.core.model.Pace.Relaxed).copy(endDate = day2)
+        val built = repo.build(ch) as BuildResult.Built
+        assertEquals(listOf(3, 1), built.trip.days.map { it.stops.size })
+        val closed = built.trip.days[1].stops.single().placeId
+        val closure = OfficialFact(Closure(day2, day2, "x"), null, TestToday)
+        four.all = four.all.map { if (it.id == closed) it.copy(closures = listOf(closure)) else it }
+        // The three other places are all planned on day 1, so there is nothing left to offer on day 2.
+        assertNull(repo.previewReplacement(day2, closed))
+    }
 }
