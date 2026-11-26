@@ -55,19 +55,23 @@ fun KelanaAppContent(appViewModel: AppViewModel = hiltViewModel()) {
         destination?.hasRoute(tab.routeClass) == true
     }
 
+    // One way into a tab, for the bottom bar and for in-screen shortcuts (e.g. the Agenda button on the passport card).
+    // A plain navigate() to a tab leaves a back stack the bottom bar cannot leave (Explore did nothing after Agenda).
+    val navigateToTab: (TopLevelTab) -> Unit = { tab ->
+        navController.navigate(tab.route) {
+            popUpTo(navController.graph.findStartDestination().id) { saveState = true }
+            launchSingleTop = true
+            restoreState = true
+        }
+    }
+
     Scaffold(
         modifier = Modifier.fillMaxSize(),
         bottomBar = {
             if (selectedTab != null) {
                 KelanaBottomBar(
                     selected = selectedTab,
-                    onTabClick = { tab ->
-                        navController.navigate(tab.route) {
-                            popUpTo(navController.graph.findStartDestination().id) { saveState = true }
-                            launchSingleTop = true
-                            restoreState = true
-                        }
-                    },
+                    onTabClick = navigateToTab,
                 )
             }
         },
@@ -82,7 +86,10 @@ fun KelanaAppContent(appViewModel: AppViewModel = hiltViewModel()) {
             // otherwise every screen that calls statusBarsPadding() / navigationBarsPadding() adds them a second time.
             modifier = Modifier.padding(padding).consumeWindowInsets(padding),
         ) {
-            val navigate: (Any) -> Unit = { route -> navController.navigate(route) }
+            val navigate: (Any) -> Unit = { route ->
+                val tab = TopLevelTab.entries.firstOrNull { it.route == route }
+                if (tab != null) navigateToTab(tab) else navController.navigate(route)
+            }
             val onBack: () -> Unit = { navController.popBackStack() }
 
             jelajahScreens(navigate = navigate, onBack = onBack)
