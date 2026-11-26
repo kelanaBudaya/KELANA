@@ -80,7 +80,7 @@ class JelajahContentTest {
                 HomeContent(state, "", callbacks(onPassport = { passport++ }, onQuickAction = { actions += it }))
             }
         }
-        rule.onNode(hasScrollAction()).performScrollToNode(hasText(str(R.string.challenge_label).uppercase()))
+        rule.onAllNodes(hasScrollAction())[0].performScrollToNode(hasText(str(R.string.challenge_label).uppercase()))
         rule.onNodeWithText(str(R.string.challenge_label).uppercase()).performClick()
         rule.onNodeWithText(str(R.string.challenge_sheet_progress, 2, 3)).assertIsDisplayed()
         rule.onNodeWithText(str(R.string.challenge_sheet_passport)).performClick()
