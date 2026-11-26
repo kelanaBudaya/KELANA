@@ -55,8 +55,8 @@ internal fun tileRoute(tile: HomeTile): Any = when (tile) {
     HomeTile.Museum -> KategoriRoute.of(PlaceCategory.Museum)
     HomeTile.Candi -> KategoriRoute.of(PlaceCategory.Candi)
     HomeTile.Tari -> KategoriRoute.of(PlaceCategory.Tari)
-    HomeTile.Topeng -> KategoriRoute.of(PlaceCategory.Topeng)
-    HomeTile.Gamelan -> KategoriRoute.of(PlaceCategory.Gamelan)
+    HomeTile.Pentas -> KategoriRoute.of(PlaceCategory.Pentas)
+    HomeTile.SeniMusik -> KategoriRoute.of(PlaceCategory.SeniMusik)
     HomeTile.Semua -> SemuaTempatRoute
     HomeTile.Tiket -> TiketRoute
     HomeTile.Peta -> PetaRoute

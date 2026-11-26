@@ -26,7 +26,7 @@ data class KategoriUiState(
     val places: List<Place> = emptyList(),
     val today: LocalDate? = null,
 ) {
-    /** The category has no place at all (for example Topeng): show the "Kabari aku" state. */
+    /** The category has no place at all (for example Pentas): show the "Kabari aku" state. */
     val isCategoryEmpty: Boolean get() = !isLoading && totalCount == 0
 
     /** The category has places but the filter hides all of them. */

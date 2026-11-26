@@ -58,7 +58,7 @@ data class ReplanResult(val plan: DayPlan, val replacement: PlanStop?)
  *    first) or a weekly `isClosed` day ([SkipReason.ClosedThatDay]).
  * 3. **Interests.** A place is a candidate when its category is selected (see [Interest.categories]). [Interest.Pentas]
  *    also selects shows ([Interest.includesShows]): at most one show per day, the earliest one that starts and ends
- *    inside the time window. [Interest.Pentas] = shows plus the tari and gamelan venues as visits; [Interest.Semua] =
+ *    inside the time window. [Interest.Pentas] = shows plus the tari, pentas and seni musik venues as visits; [Interest.Semua] =
  *    every category plus shows.
  * 4. **Time window.** Nothing starts before `windowStart` (or `notBefore` when re-planning) and nothing ends after
  *    `windowEnd`. A visit is planned only if the whole visit lies inside the place's opening hours of that day
@@ -68,7 +68,7 @@ data class ReplanResult(val plan: DayPlan, val replacement: PlanStop?)
  *    time (tie: earliest start, then id). If a show is planned, a place is chosen only when the traveller can still
  *    reach the show on time after it; the show is always last.
  * 7. **Durations (PROVISIONAL estimates, not official facts).** Visit 90 min for museum, candi and keraton/other,
- *    60 min for kerajinan, topeng, tari and gamelan. Break between stops: `pace.breakMinutes`, plus 15 when the
+ *    60 min for kerajinan, pentas, tari and seni musik. Break between stops: `pace.breakMinutes`, plus 15 when the
  *    companion is a family or "more rests" is chosen.
  * 8. **Travel (PROVISIONAL estimates).** Straight-line distance x 1.3. Walk 4.5 km/h; transit 15 km/h plus 10 min wait
  *    (transit only when the stretch is longer than 1.2 km, otherwise walk); private vehicle 20 km/h plus 5 min. Walk
@@ -373,7 +373,7 @@ class PlanBuilder {
 
     private fun visitMinutes(category: PlaceCategory): Int = when (category) {
         PlaceCategory.Museum, PlaceCategory.Candi, PlaceCategory.Lainnya -> 90
-        PlaceCategory.Kerajinan, PlaceCategory.Topeng, PlaceCategory.Tari, PlaceCategory.Gamelan -> 60
+        PlaceCategory.Kerajinan, PlaceCategory.Pentas, PlaceCategory.Tari, PlaceCategory.SeniMusik -> 60
     }
 
     companion object {
