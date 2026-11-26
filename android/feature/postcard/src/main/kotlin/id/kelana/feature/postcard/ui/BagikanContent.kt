@@ -211,6 +211,9 @@ private val PreviewCard = CardContent(
     style = PostcardStyle.Jurnal,
     stampedAt = Instant.parse("2026-11-20T03:00:00Z"),
     photoJpeg = null,
+    regionName = "DI Yogyakarta",
+    regionCode = "DIY",
+    regionShortName = "Jogja",
 )
 
 @Preview(showBackground = true, widthDp = 390, heightDp = 900)

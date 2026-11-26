@@ -51,6 +51,7 @@ class PasporContentTest {
         initials = "SD",
         regionName = "DI Yogyakarta",
         regionCode = "DIY",
+        regionShortName = "Jogja",
         items = listOf(
             PassportItem(sono, Instant.parse("2026-11-20T03:00:00Z")),
             PassportItem(prambanan, null),
@@ -62,7 +63,7 @@ class PasporContentTest {
     fun grid_showsEarnedAndEmptyStamps() {
         show(partial())
         rule.onNodeWithText(str(R.string.paspor_count_title, 1, 3)).assertExists()
-        rule.onNodeWithText(str(R.string.paspor_remaining, 2)).assertExists()
+        rule.onNodeWithText(str(R.string.paspor_remaining, 2, "Jogja")).assertExists()
         rule.onNodeWithContentDescription(str(R.string.paspor_stamp_collected_cd, sono.name))
             .performScrollTo().assertIsDisplayed()
         rule.onNodeWithContentDescription(str(R.string.paspor_stamp_missing_cd, prambanan.name))
@@ -97,7 +98,7 @@ class PasporContentTest {
     @Test
     fun allStamped_showsCompleteMessage() {
         show(partial().copy(items = listOf(PassportItem(sono, Instant.parse("2026-11-20T03:00:00Z")))))
-        rule.onNodeWithText(str(R.string.paspor_complete)).assertExists()
+        rule.onNodeWithText(str(R.string.paspor_complete, "Jogja")).assertExists()
     }
 
     @Test

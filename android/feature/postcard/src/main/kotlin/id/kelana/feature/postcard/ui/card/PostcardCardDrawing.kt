@@ -42,6 +42,7 @@ import id.kelana.core.designsystem.theme.KelanaColors
 import id.kelana.core.model.PostcardStyle
 import id.kelana.feature.postcard.domain.CardContent
 import id.kelana.feature.postcard.domain.ShareFormat
+import id.kelana.feature.postcard.domain.fitFontSize
 import kotlin.math.PI
 import kotlin.math.max
 import kotlin.math.min
@@ -195,7 +196,15 @@ private fun DrawScope.drawBody(
 ) {
     // Header: "KELANA / JURNAL" left, region right.
     val kicker = measurer.layout(texts.kicker, jakarta(10f, FontWeight.ExtraBold, palette.kickerLeft, spacing = 0.8f), 130f)
-    val region = measurer.layout(texts.region, jakarta(10f, FontWeight.ExtraBold, palette.kickerRight, spacing = 0.8f), 100f)
+    // Long names ("DI YOGYAKARTA", "JAWA TENGAH") shrink to the room left of the kicker instead of being cut off.
+    val regionRoom = CARD_W - 32f - kicker.textWidth() - 8f
+    val regionAtBase = measurer.layout(texts.region, jakarta(10f, FontWeight.ExtraBold, palette.kickerRight, spacing = 0.8f), CARD_W)
+    val regionSize = fitFontSize(10f, regionAtBase.textWidth(), regionRoom, min = 6f)
+    val region = if (regionSize == 10f) regionAtBase else measurer.layout(
+        texts.region,
+        jakarta(regionSize, FontWeight.ExtraBold, palette.kickerRight, spacing = 0.8f * regionSize / 10f),
+        CARD_W,
+    )
     drawText(kicker, topLeft = Offset(16f, 16f))
     drawText(region, topLeft = Offset(CARD_W - 16f - region.textWidth(), 16f))
 
@@ -205,17 +214,17 @@ private fun DrawScope.drawBody(
     val pw = 214f
     val inner = 194f
     val photoH = 168f
-    val headline = measurer.layout(
-        texts.headline,
-        TextStyle(
-            fontFamily = FrauncesFontFamily,
-            fontWeight = FontWeight.Bold,
-            fontSize = 24.sp,
-            lineHeight = 26.sp,
-            color = Colors.stampBrown,
-        ),
-        inner,
+    fun headlineStyle(size: Float) = TextStyle(
+        fontFamily = FrauncesFontFamily,
+        fontWeight = FontWeight.Bold,
+        fontSize = size.sp,
+        lineHeight = 26.sp,
+        color = Colors.stampBrown,
     )
+    // One line in a 26 high slot: a longer region name shrinks the headline instead of being ellipsized.
+    val headlineAtBase = measurer.layout(texts.headline, headlineStyle(24f), CARD_W)
+    val headlineSize = fitFontSize(24f, headlineAtBase.textWidth(), inner, min = 14f)
+    val headline = measurer.layout(texts.headline, headlineStyle(headlineSize), inner)
     val starSize = 12f
     val stars = content.rating ?: 0
     val starsWidth = if (stars > 0) stars * starSize + (stars - 1) * 2f + 4f else 0f

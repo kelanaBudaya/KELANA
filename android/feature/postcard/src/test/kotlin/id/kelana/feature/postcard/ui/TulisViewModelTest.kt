@@ -11,7 +11,10 @@ import id.kelana.core.model.PostcardStyle
 import id.kelana.core.model.SessionState
 import id.kelana.core.model.Stamp
 import id.kelana.feature.postcard.FakePhotoProcessor
+import id.kelana.feature.postcard.FakeRegions
 import id.kelana.feature.postcard.FakeSessionRepository
+import id.kelana.feature.postcard.ListPlaces
+import id.kelana.feature.postcard.placeIn
 import id.kelana.feature.postcard.domain.PostcardShareSession
 import kotlinx.coroutines.CompletableDeferred
 import kotlinx.coroutines.Dispatchers
@@ -56,7 +59,7 @@ class TulisViewModelTest {
         val handle = SavedStateHandle(if (placeId == null) emptyMap() else mapOf("placeId" to placeId))
         return TulisViewModel(
             handle, FakePlaceRepository(), FakeStampRepository(stamps), FakeSessionRepository(session),
-            postcards, photos, share,
+            postcards, photos, share, id.kelana.feature.postcard.FakeRegions(),
         ).keepActive(this)
     }
 
@@ -231,7 +234,7 @@ class TulisViewModelTest {
         val handle = SavedStateHandle(mapOf("placeId" to sonobudoyo))
         val m = TulisViewModel(
             handle, FakePlaceRepository(), FakeStampRepository(listOf(Stamp(sonobudoyo, t0))),
-            FakeSessionRepository(), slow, photos, share,
+            FakeSessionRepository(), slow, photos, share, id.kelana.feature.postcard.FakeRegions(),
         ).keepActive(this)
         m.ready()
         m.onMessageChanged("halo")
@@ -277,5 +280,30 @@ class TulisViewModelTest {
         assertFalse(m.uiState.value.canPublish)
         photos.gate!!.complete(Unit)
         assertTrue(m.uiState.value.canPublish)
+    }
+
+    @Test fun card_region_follows_the_region_of_the_stamped_place() = runTest {
+        for ((regionId, name, short) in listOf(
+            Triple("DIY", "DI Yogyakarta", "Jogja"),
+            Triple("JTG", "Jawa Tengah", "Jateng"),
+            Triple("JTM", "Jawa Timur", "Jatim"),
+        )) {
+            val place = placeIn(regionId)
+            val session = PostcardShareSession()
+            val m = TulisViewModel(
+                SavedStateHandle(mapOf("placeId" to place.id)), ListPlaces(listOf(place)),
+                FakeStampRepository(listOf(Stamp(place.id, t0))), FakeSessionRepository(), postcards, photos, session,
+                // The selected region is deliberately another one: the place decides.
+                FakeRegions(selected = "DIY".takeIf { regionId != "DIY" } ?: "JTM"),
+            ).keepActive(this)
+            m.ready()
+            m.onMessageChanged("halo")
+            m.onPublish()
+            val card = session.card!!
+            assertEquals(name, card.regionName)
+            assertEquals(name.uppercase(), card.regionLabel)
+            assertEquals(regionId, card.regionCode)
+            assertEquals(short, card.regionShortName)
+        }
     }
 }

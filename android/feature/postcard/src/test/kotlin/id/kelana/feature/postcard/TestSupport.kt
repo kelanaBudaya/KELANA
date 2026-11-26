@@ -1,7 +1,13 @@
 package id.kelana.feature.postcard
 
 import id.kelana.core.model.AuthResult
+import id.kelana.core.model.Place
+import id.kelana.core.model.PlaceCategory
+import id.kelana.core.model.PlaceRepository
 import id.kelana.core.model.PostcardPhoto
+import id.kelana.core.model.Region
+import id.kelana.core.model.RegionRepository
+import id.kelana.core.model.RegionStatus
 import id.kelana.core.model.SessionRepository
 import id.kelana.core.model.SessionState
 import id.kelana.core.model.SessionUser
@@ -12,6 +18,7 @@ import id.kelana.feature.postcard.domain.ShareFormat
 import kotlinx.coroutines.CompletableDeferred
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.flowOf
 
 val SignedInState = SessionState.SignedIn(SessionUser("user-1", "a@test.invalid", "Ayu"))
 
@@ -57,4 +64,29 @@ class FakeCardExporter(
         gate?.await()
         return saveResult
     }
+}
+
+/** Regions with short names; the selection is whatever the test passes. */
+class FakeRegions(selected: String? = "DIY") : RegionRepository {
+    private val all = listOf(
+        Region("DIY", "DI Yogyakarta", RegionStatus.Available, 1, "Jogja"),
+        Region("JTG", "Jawa Tengah", RegionStatus.Available, 2, "Jateng"),
+        Region("JTM", "Jawa Timur", RegionStatus.Available, 3, "Jatim"),
+    )
+    private val selectedState = MutableStateFlow(selected)
+    override fun regions(): Flow<List<Region>> = flowOf(all)
+    override val selectedRegionId: Flow<String?> = selectedState
+    override suspend fun select(regionId: String) {
+        selectedState.value = regionId
+    }
+}
+
+fun placeIn(regionId: String?, id: String = "place-$regionId") =
+    Place(id, id, "Tempat $id", PlaceCategory.Museum, "XX-01", 0.0, 0.0, "", "", id, regionId = regionId)
+
+class ListPlaces(private val list: List<Place>) : PlaceRepository {
+    override fun places(): Flow<List<Place>> = flowOf(list)
+    override fun place(id: String): Flow<Place?> = flowOf(list.firstOrNull { it.id == id })
+    override fun placesByCategory(category: PlaceCategory): Flow<List<Place>> = flowOf(emptyList())
+    override fun search(query: String): Flow<List<Place>> = flowOf(emptyList())
 }

@@ -32,6 +32,9 @@ class BagikanViewModelTest {
         style = PostcardStyle.Jurnal,
         stampedAt = Instant.parse("2026-11-20T03:00:00Z"),
         photoJpeg = null,
+        regionName = "DI Yogyakarta",
+        regionCode = "DIY",
+        regionShortName = "Jogja",
     )
     private val exporter = FakeCardExporter()
     private val session = PostcardShareSession().also { it.put(card) }

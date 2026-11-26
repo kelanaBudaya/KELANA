@@ -39,4 +39,23 @@ class PostcardLogicTest {
         // 23:00 UTC on the 20th is already the 21st in Yogyakarta.
         assertEquals("21 NOV 2026", formatVisitedDate(Instant.parse("2026-11-20T23:00:00Z"), wib))
     }
+
+    private fun card(name: String, code: String, short: String) = CardContent(
+        placeName = "Tempat", capCode = "X-01", message = "m", rating = null, style = id.kelana.core.model.PostcardStyle.Jurnal,
+        stampedAt = null, photoJpeg = null, regionName = name, regionCode = code, regionShortName = short,
+    )
+
+    @Test fun card_region_texts_come_from_the_region() {
+        val c = card("Jawa Tengah", "JTG", "Jateng")
+        assertEquals("JAWA TENGAH", c.regionLabel)
+        assertEquals("JTG", c.regionCode)
+        assertEquals("Jateng", c.regionShortName)
+        assertEquals("DI YOGYAKARTA", card("DI Yogyakarta", "DIY", "Jogja").regionLabel)
+    }
+
+    @Test fun fitting_keeps_the_base_size_when_it_fits_and_shrinks_in_proportion_otherwise() {
+        assertEquals(10f, fitFontSize(10f, 80f, 100f, 6f), 0f)
+        assertEquals(8f, fitFontSize(10f, 125f, 100f, 6f), 0.001f)
+        assertEquals(6f, fitFontSize(10f, 400f, 100f, 6f), 0f) // never below the minimum
+    }
 }

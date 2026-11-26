@@ -29,6 +29,8 @@ data class CapBerhasilUiState(
     val total: Int = 0,
     val stampedAt: Instant? = null,
     val regionCode: String? = null,
+    /** Short name of the region of the stamped place ("Jogja"), for the kicker. */
+    val regionShortName: String? = null,
 ) {
     val remaining: Int get() = (total - collected).coerceAtLeast(0)
 }
@@ -45,17 +47,22 @@ class CapBerhasilViewModel @Inject constructor(
     val uiState: StateFlow<CapBerhasilUiState> = combine(
         places.places().catch { emit(emptyList()) },
         stamps.stamps().catch { emit(emptyList()) },
+        regions.regions().catch { emit(emptyList()) },
         regions.selectedRegionId,
-    ) { allPlaces, ownStamps, regionId ->
+    ) { allPlaces, ownStamps, allRegions, selectedId ->
         val passport = buildPassport(allPlaces, ownStamps)
         val item = passport.firstOrNull { it.place.id.equals(placeId, ignoreCase = true) }
+        // The region of the stamped place; the selected region only when the place has none.
+        val regionId = item?.place?.regionId ?: selectedId
+        val region = allRegions.firstOrNull { it.id == regionId }
         CapBerhasilUiState(
             isLoading = false,
             place = item?.place,
             collected = passport.collectedCount(),
             total = passport.size,
             stampedAt = item?.stampedAt,
-            regionCode = regionId,
+            regionCode = region?.id ?: regionId,
+            regionShortName = region?.shortName,
         )
     }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), CapBerhasilUiState())
 }
