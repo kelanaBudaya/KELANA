@@ -8,7 +8,9 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.cancel
+import kotlinx.coroutines.cancelAndJoin
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.runBlocking
 import org.junit.After
@@ -84,7 +86,8 @@ class DataStorePlanBackpackRepositoryTest {
         val file = File(folder.root, "p.preferences_pb")
         val first = DataStorePlanBackpackRepository(open(file))
         first.addPlace("a-b")
-        scopes.first().cancel()
+        // Wait for the first store to release the file; DataStore refuses two active stores on one file.
+        scopes.first().coroutineContext[Job]!!.cancelAndJoin()
         assertEquals(listOf("a-b"), DataStorePlanBackpackRepository(open(file)).placeIds().first())
     }
 }
