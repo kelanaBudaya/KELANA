@@ -32,7 +32,6 @@
     <string name="detail_schedule_once_no_end">%1$s, pukul %2$s</string>
     <string name="detail_price_from">Mulai %1$s</string>
     <string name="detail_price_free">Gratis atau tanpa tiket</string>
-    <string name="detail_source_note">Sumber: %1$s, dibuka %2$s</string>
     <string name="detail_story_heading">Kisahnya</string>
     <string name="detail_buy_ticket">Beli tiket resmi</string>
     <string name="agenda_tag_tari">Tari</string>
@@ -44,7 +43,6 @@
     <string name="agenda_tonight_label">%1$s · %2$s</string>
     <string name="agenda_ends_at">%1$s · selesai %2$s</string>
     <string name="agenda_place_when">%1$s · %2$s</string>
-    <string name="agenda_checked">Diperiksa %1$s</string>
     <string name="detail_back_cd">Kembali</string>
     <string name="detail_checking">Sedang dicek</string>
     <string name="detail_manners_heading">Tata krama menonton</string>

@@ -442,7 +442,6 @@ private fun OccurrenceRow(occurrence: EventOccurrence, onOpen: (String) -> Unit,
                     style = MaterialTheme.typography.bodySmall,
                     color = colors.muted,
                 )
-                event.schedule.checkedAt?.let { CheckedBadge(it, Modifier.padding(top = 2.dp)) }
             }
             Image(painterResource(R.drawable.agenda_ic_chevron), contentDescription = null, modifier = Modifier.size(18.dp))
         }

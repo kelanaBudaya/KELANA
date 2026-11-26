@@ -122,13 +122,32 @@ class AgendaContentTest {
     }
 
     @Test
-    fun detailPentas_checkedSchedule_showsCheckDateInBadge() {
+    fun detailPentas_checkedFacts_showValuesAndNoCheckDateOrSource() {
         rule.setContent {
             KelanaTheme { DetailPentasContent(toFound(PreviewData.roro), onBack = {}, onBuyTicket = { _, _ -> }) }
         }
         rule.onNodeWithText(PreviewData.roro.title).assertExists()
-        // The check date shows on the schedule badge, the ticket badge and the source line.
-        rule.onAllNodesWithText(formatCheckedDate(PreviewData.today), substring = true).onFirst().assertExists()
+        rule.onNodeWithText("19.30", substring = true).assertExists()
+        // No check date badge, no check date under a value, no source line (product decision).
+        rule.onNodeWithText("Diperiksa", substring = true).assertDoesNotExist()
+        rule.onNodeWithText("Checked", substring = true).assertDoesNotExist()
+        rule.onNodeWithText(formatCheckedDate(PreviewData.today), substring = true).assertDoesNotExist()
+        rule.onNodeWithText("Sumber", substring = true).assertDoesNotExist()
+        rule.onNodeWithText("Source", substring = true).assertDoesNotExist()
+        rule.onNodeWithText("example.org", substring = true).assertDoesNotExist()
+    }
+
+    @Test
+    fun agenda_list_showsNoCheckDateOrSource() {
+        rule.setContent {
+            KelanaTheme {
+                AgendaContent(PreviewData.agendaState, onSelectDate = {}, onSelectFilter = {}, onOpenEvent = {}, onOpenMap = {})
+            }
+        }
+        rule.onNodeWithText(PreviewData.roro.title).assertIsDisplayed()
+        rule.onNodeWithText("Diperiksa", substring = true).assertDoesNotExist()
+        rule.onNodeWithText("Checked", substring = true).assertDoesNotExist()
+        rule.onNodeWithText(formatCheckedDate(PreviewData.today), substring = true).assertDoesNotExist()
     }
 
     @Test
@@ -145,6 +164,9 @@ class AgendaContentTest {
         rule.onNodeWithText("19.30", substring = true).assertDoesNotExist()
         rule.onNodeWithText("150", substring = true).assertDoesNotExist()
         rule.onNodeWithText(formatCheckedDate(PreviewData.today), substring = true).assertDoesNotExist()
+        rule.onNodeWithText("Diperiksa", substring = true).assertDoesNotExist()
+        rule.onNodeWithText("Checked", substring = true).assertDoesNotExist()
+        rule.onNodeWithText("example.org", substring = true).assertDoesNotExist()
         rule.onAllNodesWithText(str(R.string.detail_checking)).assertCountEquals(2)
     }
 
