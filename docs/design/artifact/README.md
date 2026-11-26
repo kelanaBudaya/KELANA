@@ -75,3 +75,11 @@ Rencana tab and planner (Phase 6, feature `rencana`; screen numbers are not mapp
 
 ## Definition of done for visual match
 Compare the screen's code and (when a render exists) its screenshot against the matching file here, element by element: copy, sizes, colors, radii, spacing, states. Report which file you compared and how.
+
+## Deviations (Rencana)
+Decided by the user, so the app intentionally differs from these artifact screens:
+- `SusunWaktu`: start and end time use alarm-style scrolling wheels instead of plus/minus buttons.
+- `SusunKendaraan`: the transit option reads "Jalan kaki dan transportasi umum" (not Trans Jogja) and a fourth option "Ojek online" is added.
+- `SusunMinat`: a "Semua jenis" card is added and "Keraton" is relabelled "Situs & lainnya".
+- `RencanaHariIni`: the "Tidak masuk rencana" list is hidden.
+- Offline: building and re-planning work from the cache; there is no full-screen offline state, only a status banner. Error states (build failed, no place data) reuse the `TanpaInternet` layout.

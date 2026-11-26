@@ -16,10 +16,8 @@ import androidx.navigation.compose.dialog
 import androidx.navigation.compose.navigation
 import id.kelana.core.navigation.IzinNotifRoute
 import id.kelana.core.navigation.MenyusunRoute
-import id.kelana.core.navigation.PasporRoute
 import id.kelana.core.navigation.PengingatRoute
 import id.kelana.core.navigation.PetaRuteRoute
-import id.kelana.core.navigation.RencanaOfflineRoute
 import id.kelana.core.navigation.RencanaRoute
 import id.kelana.core.navigation.SusunGraphRoute
 import id.kelana.core.navigation.SusunKebutuhanRoute
@@ -33,7 +31,6 @@ import id.kelana.feature.rencana.ui.BuildOutcome
 import id.kelana.feature.rencana.ui.MenyusunContent
 import id.kelana.feature.rencana.ui.PengingatScreen
 import id.kelana.feature.rencana.ui.PetaRuteScreen
-import id.kelana.feature.rencana.ui.RencanaOfflineScreen
 import id.kelana.feature.rencana.ui.RencanaScreen
 import id.kelana.feature.rencana.ui.SusunKebutuhanContent
 import id.kelana.feature.rencana.ui.SusunKendaraanContent
@@ -46,7 +43,7 @@ import id.kelana.feature.rencana.ui.TempatTutupScreen
 
 /**
  * Registers every destination of the Rencana tab: the tab itself, the six planner questions (one nested graph so they
- * share a [SusunViewModel]), Menyusun, Pengingat, TempatTutup, the offline state and the route view. Called by :app only.
+ * share a [SusunViewModel]), Menyusun, Pengingat, TempatTutup, and the route view. Called by :app only.
  *
  * [navController] is needed to scope the wizard ViewModel to its graph and to pop back to the tab when a plan is built.
  * [navigate] takes a route object from :core:navigation; [onBack] pops the back stack.
@@ -80,7 +77,7 @@ fun NavGraphBuilder.rencanaScreens(navController: NavController, navigate: (Any)
         composable<SusunWaktuRoute> { entry ->
             val vm = wizardViewModel(navController, entry)
             val state by vm.uiState.collectAsState()
-            SusunWaktuContent(state, vm::shiftStart, vm::shiftEnd, vm::selectPace, onBack) { navigate(SusunKendaraanRoute) }
+            SusunWaktuContent(state, vm::setStart, vm::setEnd, vm::selectPace, onBack) { navigate(SusunKendaraanRoute) }
         }
         composable<SusunKendaraanRoute> { entry ->
             val vm = wizardViewModel(navController, entry)
@@ -95,8 +92,8 @@ fun NavGraphBuilder.rencanaScreens(navController: NavController, navigate: (Any)
                 onToggle = vm::toggleNeed,
                 onNone = vm::clearNeeds,
                 onBack = onBack,
-                // Building needs the server: without signal show the offline state instead of the loading screen.
-                onSubmit = { navigate(if (vm.canBuildNow()) MenyusunRoute else RencanaOfflineRoute) },
+                // Building works offline from the on-device cache: always go to Menyusun.
+                onSubmit = { navigate(MenyusunRoute) },
             )
         }
         composable<MenyusunRoute> { entry ->
@@ -110,11 +107,7 @@ fun NavGraphBuilder.rencanaScreens(navController: NavController, navigate: (Any)
                         vm.consumeOutcome()
                         navController.popBackStack<RencanaRoute>(inclusive = false)
                     }
-                    BuildOutcome.Offline -> {
-                        vm.consumeOutcome()
-                        navController.navigate(RencanaOfflineRoute) { popUpTo<MenyusunRoute> { inclusive = true } }
-                    }
-                    BuildOutcome.NothingFits, null -> Unit
+                    BuildOutcome.NothingFits, BuildOutcome.NoData, BuildOutcome.Failed, null -> Unit
                 }
             }
             MenyusunContent(
@@ -123,6 +116,7 @@ fun NavGraphBuilder.rencanaScreens(navController: NavController, navigate: (Any)
                     vm.consumeOutcome()
                     onBack()
                 },
+                onRetry = vm::retryBuild,
             )
         }
     }
@@ -135,13 +129,6 @@ fun NavGraphBuilder.rencanaScreens(navController: NavController, navigate: (Any)
             onBack = onBack,
             onDone = { navController.popBackStack<RencanaRoute>(inclusive = false) },
             onChooseOtherDay = { navigate(SusunGraphRoute) },
-            onOpenPaspor = { navigate(PasporRoute) },
-        )
-    }
-    composable<RencanaOfflineRoute> {
-        RencanaOfflineScreen(
-            onOpenPlan = { navController.popBackStack<RencanaRoute>(inclusive = false) },
-            onOpenPaspor = { navigate(PasporRoute) },
         )
     }
     composable<PetaRuteRoute> { PetaRuteScreen(onBack = onBack) }

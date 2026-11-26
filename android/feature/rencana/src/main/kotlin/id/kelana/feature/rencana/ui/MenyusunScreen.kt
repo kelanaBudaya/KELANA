@@ -46,7 +46,7 @@ private enum class StageState { Done, Running, Pending }
 
 /** Checklist labels for the answers, in order. Opening hours and travel time are always there. */
 private fun stageLabels(state: SusunUiState): List<Int> = buildList {
-    add(if (Interest.Pentas in state.interests) R.string.rencana_stage_shows else R.string.rencana_stage_hours)
+    add(if (state.interests.any { it.includesShows }) R.string.rencana_stage_shows else R.string.rencana_stage_hours)
     if (state.showsRestStage) add(if (state.companion == TravelGroup.Family) R.string.rencana_stage_rest_family else R.string.rencana_stage_rest)
     add(R.string.rencana_stage_travel)
     if (state.showsAccessStage) add(R.string.rencana_stage_access)
@@ -58,8 +58,29 @@ internal fun MenyusunContent(
     state: SusunUiState,
     onRetryBack: () -> Unit,
     modifier: Modifier = Modifier,
+    onRetry: () -> Unit = {},
 ) {
     val colors = KelanaTheme.colors
+    if (state.outcome == BuildOutcome.NoData || state.outcome == BuildOutcome.Failed) {
+        // Error states reuse the offline screen layout (TanpaInternetIlustratif).
+        val noData = state.outcome == BuildOutcome.NoData
+        RencanaStatusContent(
+            title = stringResource(if (noData) R.string.rencana_nodata_title else R.string.rencana_buildfail_title),
+            body = stringResource(
+                when {
+                    !noData -> R.string.rencana_buildfail_body
+                    state.outcomeOffline -> R.string.rencana_nodata_body_offline
+                    else -> R.string.rencana_nodata_body_online
+                },
+            ),
+            primaryText = stringResource(R.string.rencana_retry),
+            onPrimary = onRetry,
+            modifier = modifier,
+            secondaryText = stringResource(R.string.rencana_status_back),
+            onSecondary = onRetryBack,
+        )
+        return
+    }
     val labels = stageLabels(state)
     Column(modifier = modifier.fillMaxSize().background(colors.background).statusBarsPadding()) {
         Box(
@@ -165,6 +186,18 @@ private fun previewBuilding() = SusunUiState(
 @Preview(showBackground = true, widthDp = 390, heightDp = 844)
 @Composable
 private fun BuildingPreview() = KelanaTheme { MenyusunContent(previewBuilding(), {}) }
+
+@Preview(showBackground = true, widthDp = 390, heightDp = 844)
+@Composable
+private fun NoDataOfflinePreview() = KelanaTheme {
+    MenyusunContent(previewBuilding().copy(isBuilding = false, outcome = BuildOutcome.NoData, outcomeOffline = true), {})
+}
+
+@Preview(showBackground = true, widthDp = 390, heightDp = 844)
+@Composable
+private fun BuildFailedPreview() = KelanaTheme {
+    MenyusunContent(previewBuilding().copy(isBuilding = false, outcome = BuildOutcome.Failed), {})
+}
 
 @Preview(showBackground = true, widthDp = 390, heightDp = 844)
 @Composable

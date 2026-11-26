@@ -3,10 +3,13 @@ package id.kelana.feature.rencana.ui
 import id.kelana.core.model.Interest
 import id.kelana.core.model.Pace
 import id.kelana.core.model.PlaceCategory
+import id.kelana.core.model.PlanChoices
 import id.kelana.core.model.SpecialNeed
 import id.kelana.core.model.TravelGroup
 import id.kelana.core.model.Vehicle
+import id.kelana.feature.rencana.domain.BuildResult
 import id.kelana.feature.rencana.domain.PlanBuilder
+import id.kelana.feature.rencana.domain.PlanRepository
 import id.kelana.feature.rencana.domain.hoursFacts
 import id.kelana.feature.rencana.domain.place
 import kotlinx.coroutines.test.runTest
@@ -29,7 +32,7 @@ class SusunViewModelTest {
     private val cache = FakeCache()
     private val connectivity = FakeConnectivity()
 
-    private fun viewModel() = SusunViewModel(repo(places, FakeEvents(emptyList()), cache, connectivity), connectivity, TestClock, stageDelayMs = 0)
+    private fun viewModel() = SusunViewModel(repo(places, FakeEvents(emptyList()), cache), connectivity, TestClock, stageDelayMs = 0)
 
     private fun SusunViewModel.fillAnswers() {
         selectCompanion(TravelGroup.Solo)
@@ -128,27 +131,53 @@ class SusunViewModelTest {
     }
 
     @Test
-    fun timeWindowMovesInHalfHoursAndKeepsAtLeastTwoHours() {
+    fun setStartAndEndRoundToFiveMinutesAndClamp() {
         val vm = viewModel()
-        vm.shiftStart(1)
-        assertEquals(LocalTime.of(8, 30), vm.uiState.value.windowStart)
-        vm.shiftEnd(-1)
-        assertEquals(LocalTime.of(20, 30), vm.uiState.value.windowEnd)
-        // push the end down to 10:30 (2 h after 8:30), then one more step is refused
-        repeat(40) { vm.shiftEnd(-1) }
-        assertEquals(LocalTime.of(10, 30), vm.uiState.value.windowEnd)
-        assertTrue(vm.uiState.value.canContinueWaktu)
-        vm.shiftStart(1)
-        assertEquals(LocalTime.of(8, 30), vm.uiState.value.windowStart)
+        vm.setStart(LocalTime.of(9, 17))
+        assertEquals(LocalTime.of(9, 15), vm.uiState.value.windowStart)
+        vm.setEnd(LocalTime.of(18, 59))
+        assertEquals(LocalTime.of(18, 55), vm.uiState.value.windowEnd)
+        vm.setStart(LocalTime.of(3, 0))
+        assertEquals(LocalTime.of(5, 0), vm.uiState.value.windowStart)
+        vm.setEnd(LocalTime.of(23, 59))
+        assertEquals(LocalTime.of(23, 55), vm.uiState.value.windowEnd)
     }
 
     @Test
-    fun timeWindowStaysInsideTheDay() {
+    fun windowUnderTwoHoursBlocksContinueButKeepsValue() {
         val vm = viewModel()
-        repeat(40) { vm.shiftStart(-1) }
-        assertEquals(LocalTime.of(5, 0), vm.uiState.value.windowStart)
-        repeat(40) { vm.shiftEnd(1) }
-        assertEquals(LocalTime.of(23, 30), vm.uiState.value.windowEnd)
+        assertFalse(vm.uiState.value.windowTooShort)
+        vm.setStart(LocalTime.of(10, 0))
+        vm.setEnd(LocalTime.of(11, 30))
+        assertEquals(LocalTime.of(11, 30), vm.uiState.value.windowEnd)
+        assertTrue(vm.uiState.value.windowTooShort)
+        assertFalse(vm.uiState.value.canContinueWaktu)
+        vm.setEnd(LocalTime.of(12, 0))
+        assertFalse(vm.uiState.value.windowTooShort)
+        assertTrue(vm.uiState.value.canContinueWaktu)
+    }
+
+    @Test
+    fun semuaIsExclusive() {
+        val vm = viewModel()
+        vm.toggleInterest(Interest.Museum)
+        vm.toggleInterest(Interest.Candi)
+        vm.toggleInterest(Interest.Semua)
+        assertEquals(setOf(Interest.Semua), vm.uiState.value.interests)
+        vm.toggleInterest(Interest.Candi)
+        assertEquals(setOf(Interest.Candi), vm.uiState.value.interests)
+        vm.toggleInterest(Interest.Semua)
+        vm.toggleInterest(Interest.Semua)
+        assertTrue(vm.uiState.value.interests.isEmpty())
+    }
+
+    @Test
+    fun semuaShowsTheShowStage() {
+        val vm = viewModel()
+        assertFalse(vm.uiState.value.showsShowStage)
+        vm.toggleInterest(Interest.Semua)
+        assertTrue(vm.uiState.value.showsShowStage)
+        assertTrue(vm.uiState.value.canContinueMinat)
     }
 
     @Test
@@ -172,14 +201,6 @@ class SusunViewModelTest {
         assertEquals(3, vm.stageCountNow())
         vm.toggleNeed(SpecialNeed.Wheelchair)
         assertEquals(4, vm.stageCountNow())
-    }
-
-    @Test
-    fun canBuildNowFollowsConnectivity() {
-        val vm = viewModel()
-        assertTrue(vm.canBuildNow())
-        connectivity.state.value = false
-        assertFalse(vm.canBuildNow())
     }
 
     @Test
@@ -208,13 +229,54 @@ class SusunViewModelTest {
     }
 
     @Test
-    fun buildOfflineReportsOfflineAndChangesNothing() = runTest {
+    fun buildOfflineBuildsFromCache() = runTest {
         val vm = viewModel()
         vm.fillAnswers()
         connectivity.state.value = false
         vm.startBuild()
-        assertEquals(BuildOutcome.Offline, vm.uiState.value.outcome)
+        assertEquals(BuildOutcome.Built, vm.uiState.value.outcome)
+        assertNotNull(cache.tripState.value)
+    }
+
+    @Test
+    fun buildFailureReportsFailed() = runTest {
+        val throwing = object : PlanRepository by repo(places, FakeEvents(emptyList()), cache) {
+            override suspend fun build(choices: PlanChoices): BuildResult = throw IllegalStateException("boom")
+        }
+        val vm = SusunViewModel(throwing, connectivity, TestClock, stageDelayMs = 0)
+        vm.fillAnswers()
+        vm.startBuild()
+        assertEquals(BuildOutcome.Failed, vm.uiState.value.outcome)
+        assertFalse(vm.uiState.value.isBuilding)
         assertNull(cache.tripState.value)
+    }
+
+    @Test
+    fun noDataRemembersOfflineForCopy() = runTest {
+        val empty = FakePlaces(emptyList())
+        val vm = SusunViewModel(repo(empty, FakeEvents(emptyList()), cache), connectivity, TestClock, stageDelayMs = 0)
+        vm.fillAnswers()
+        vm.startBuild()
+        assertEquals(BuildOutcome.NoData, vm.uiState.value.outcome)
+        assertFalse(vm.uiState.value.outcomeOffline)
+        vm.consumeOutcome()
+        connectivity.state.value = false
+        vm.startBuild()
+        assertEquals(BuildOutcome.NoData, vm.uiState.value.outcome)
+        assertTrue(vm.uiState.value.outcomeOffline)
+    }
+
+    @Test
+    fun retryBuildRunsAgain() = runTest {
+        val late = FakePlaces(emptyList())
+        val vm = SusunViewModel(repo(late, FakeEvents(emptyList()), cache), connectivity, TestClock, stageDelayMs = 0)
+        vm.fillAnswers()
+        vm.startBuild()
+        assertEquals(BuildOutcome.NoData, vm.uiState.value.outcome)
+        late.all = places.all
+        vm.retryBuild()
+        assertEquals(BuildOutcome.Built, vm.uiState.value.outcome)
+        assertNotNull(cache.tripState.value)
     }
 
     @Test

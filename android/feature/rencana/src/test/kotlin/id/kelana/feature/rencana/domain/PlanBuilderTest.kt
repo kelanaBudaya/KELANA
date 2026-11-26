@@ -27,6 +27,8 @@ import org.junit.Test
 import java.time.DayOfWeek
 import java.time.LocalDate
 import java.time.LocalTime
+import kotlin.math.PI
+import kotlin.math.ceil
 
 internal val Checked: LocalDate = LocalDate.of(2026, 11, 20)
 
@@ -394,5 +396,128 @@ class PlanBuilderTest {
         assertEquals(TravelMode.Transit, removed.stops[1].travel!!.mode)
         val removedFirst = builder.removeStop(plan, "a", Vehicle.TransitAndWalk)
         assertNull(removedFirst.stops.first().travel)
+    }
+
+    private val open821 = hoursFacts(t(8), t(21))
+
+    private fun dailyShow(id: String, placeId: String) = show(id, placeId).let {
+        it.copy(schedule = it.schedule.copy(value = it.schedule.value.copy(recurrence = Recurrence.Daily)))
+    }
+
+    private fun sevenMuseums() = (1..7).map { place("m$it", lat = -7.800 - it * 0.0001, hours = open821) }
+
+    private fun trip(ch: PlanChoices, places: List<Place>, events: List<Event> = emptyList()) =
+        builder.buildTrip(ch.copy(endDate = ch.startDate.plusDays(2)), places, events, builtOn = Friday)
+
+    @Test
+    fun rideHailingWalksShortStretchesAndOtherwiseUsesRideHailingWithoutPrice() {
+        val far = listOf(
+            place("a", lat = -7.80, hours = open821, price = 12_345),
+            place("b", lat = -7.83, hours = open821, price = 12_345),
+        )
+        val farPlan = builder.build(choices(vehicle = Vehicle.RideHailing, end = t(22)), Friday, far, emptyList())
+        val leg = farPlan.stops[1].travel!!
+        assertEquals(TravelMode.RideHailing, leg.mode)
+        val km = 0.03 * PI / 180 * 6371.0 * 1.3
+        assertEquals(ceil(km / 20.0 * 60 + 8).toInt(), leg.minutes)
+        // The price of a stop only comes from the place's own tickets.
+        assertEquals(12_345L, farPlan.stops[1].price!!.value)
+
+        val near = listOf(
+            place("a", lat = -7.8000, hours = open821),
+            place("b", lat = -7.8034, hours = open821),
+        )
+        val nearPlan = builder.build(choices(vehicle = Vehicle.RideHailing, end = t(22)), Friday, near, emptyList())
+        assertEquals(TravelMode.Walk, nearPlan.stops[1].travel!!.mode)
+    }
+
+    @Test
+    fun pentasSelectsTariAndGamelanVenuesAndStillAtMostOneShowPerDay() {
+        val places = listOf(
+            place("tari1", PlaceCategory.Tari, hours = open821),
+            place("gam1", PlaceCategory.Gamelan, hours = open821),
+            place("pram", PlaceCategory.Candi, hours = open821),
+        )
+        val events = listOf(show("e1", "pram"), show("e2", "pram", start = t(20)))
+        val plan = builder.build(choices(setOf(Interest.Pentas), pace = Pace.Packed, end = t(22)), Friday, places, events)
+        val visits = plan.stops.filter { !it.isEvent }.map { it.placeId }.toSet()
+        assertEquals(setOf("tari1", "gam1"), visits)
+        assertEquals(1, plan.stops.count { it.isEvent })
+    }
+
+    @Test
+    fun semuaSelectsEveryCategoryAndPlansAShow() {
+        val places = PlaceCategory.entries.mapIndexed { i, c ->
+            place("p${c.name}", c, lat = -7.800 - i * 0.0005, hours = open821)
+        }
+        val events = listOf(show("e1", "p${PlaceCategory.Candi.name}"))
+        val ch = choices(setOf(Interest.Semua), pace = Pace.Packed, end = t(22))
+        val plan = builder.build(ch, Friday, places, events)
+        assertTrue(plan.stops.any { it.isEvent })
+        // Every category is a candidate: each place is planned or reported as not fitting the day.
+        val visits = plan.stops.filter { !it.isEvent }.map { it.placeId }
+        val reported = plan.skipped.map { it.placeId }
+        assertEquals(places.map { it.id }.toSet(), (visits + reported).toSet())
+        assertTrue(Interest.Semua.categories.containsAll(listOf(PlaceCategory.Lainnya, PlaceCategory.Kerajinan)))
+        val lainnya = builder.build(
+            choices(setOf(Interest.Semua), end = t(22)), Friday,
+            listOf(place("k1", PlaceCategory.Lainnya, hours = open821), place("kr1", PlaceCategory.Kerajinan, hours = open821)),
+            emptyList(),
+        )
+        assertEquals(setOf("k1", "kr1"), lainnya.stops.map { it.placeId }.toSet())
+    }
+
+    @Test
+    fun multiDayNeverRepeatsAPlaceAndPaceLimitsEachDay() {
+        val relaxed = trip(choices(pace = Pace.Relaxed, end = t(22)), sevenMuseums())
+        assertEquals(listOf(3, 3, 1), relaxed.days.map { it.stops.size })
+        val ids = relaxed.days.flatMap { d -> d.stops.map { it.placeId } }
+        assertEquals(ids.size, ids.toSet().size)
+    }
+
+    @Test
+    fun multiDayPlansADailyShowOnTheFirstDayOnly() {
+        val places = sevenMuseums() + place("pram", PlaceCategory.Candi, hours = open821)
+        val ch = choices(setOf(Interest.Museum, Interest.Pentas), pace = Pace.Relaxed, end = t(22))
+        val plan = trip(ch, places, listOf(dailyShow("daily", "pram")))
+        // Day 1: the show takes one of the three stops of the pace.
+        assertEquals(listOf(3, 3, 2), plan.days.map { it.stops.size })
+        assertEquals(listOf(1, 0, 0), plan.days.map { d -> d.stops.count { it.isEvent } })
+        assertEquals(listOf(false, true, true), plan.days.map { it.noShowFound })
+        val ids = plan.days.flatMap { d -> d.stops.filter { !it.isEvent }.map { it.placeId } }
+        assertEquals(ids.size, ids.toSet().size)
+    }
+
+    @Test
+    fun multiDayPaceIsPerDayAndOneDayEqualsDayOneOfTheTrip() {
+        val relaxed = trip(choices(pace = Pace.Relaxed, end = t(22)), sevenMuseums())
+        val packed = trip(choices(pace = Pace.Packed, end = t(22)), sevenMuseums())
+        assertEquals(listOf(5, 2, 0), packed.days.map { it.stops.size })
+        assertTrue(relaxed.days.map { it.stops.size } != packed.days.map { it.stops.size })
+        val oneDay = builder.build(choices(pace = Pace.Relaxed, end = t(22)), Friday, sevenMuseums(), emptyList())
+        assertEquals(oneDay, relaxed.days.first())
+    }
+
+    @Test
+    fun buildTripIsDeterministicOnShuffledInput() {
+        val places = sevenMuseums() + place("pram", PlaceCategory.Candi, hours = open821)
+        val events = listOf(dailyShow("daily", "pram"), show("fri", "pram", start = t(18)))
+        val ch = choices(setOf(Interest.Museum, Interest.Pentas), pace = Pace.Moderate, end = t(22))
+        val a = trip(ch, places, events)
+        val b = trip(ch, places.shuffled(java.util.Random(7)), events.reversed())
+        assertEquals(a, b)
+    }
+
+    @Test
+    fun replanWithExcludedPlacesNeverProposesThem() {
+        val places = listOf(place("a", lat = -7.800), place("b", lat = -7.801), place("c", lat = -7.802), place("d", lat = -7.803))
+        val ch = choices(pace = Pace.Relaxed, end = t(22))
+        val original = builder.build(ch, Friday, places, emptyList())
+        val result = builder.replan(
+            original, ch.copy(pace = Pace.Moderate), "b", places, emptyList(),
+            excludedPlaceIds = setOf("d"),
+        )
+        assertTrue(result.plan.stops.none { it.placeId == "d" || it.placeId == "b" })
+        assertNull(result.replacement)
     }
 }

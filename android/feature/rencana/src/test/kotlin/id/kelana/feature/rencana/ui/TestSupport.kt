@@ -17,6 +17,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.test.UnconfinedTestDispatcher
@@ -66,7 +67,11 @@ internal class FakeCache(initial: TripPlan? = null) : PlanCache {
 }
 
 internal class FakePlaces(var all: List<Place>) : PlaceRepository {
-    override fun places(): Flow<List<Place>> = flowOf(all)
+    /** When true, [places] throws when collected (simulates a broken cache read). */
+    var failing = false
+
+    override fun places(): Flow<List<Place>> =
+        if (failing) flow { throw IllegalStateException("places unavailable") } else flowOf(all)
     override fun place(id: String): Flow<Place?> = flowOf(all.firstOrNull { it.id == id })
     override fun placesByCategory(category: PlaceCategory): Flow<List<Place>> = flowOf(all.filter { it.category == category })
     override fun search(query: String): Flow<List<Place>> = flowOf(emptyList())
@@ -85,9 +90,8 @@ internal class FakeEvents(private val all: List<Event>) : EventRepository {
 internal fun repo(
     places: FakePlaces,
     events: FakeEvents = FakeEvents(emptyList()),
-    cache: FakeCache = FakeCache(),
-    connectivity: FakeConnectivity = FakeConnectivity(),
-) = LocalPlanRepository(places, events, cache, connectivity, PlanBuilder(), TestClock)
+    cache: PlanCache = FakeCache(),
+) = LocalPlanRepository(places, events, cache, PlanBuilder(), TestClock)
 
 /** Records the calls of the notifikasi scheduler (the real one lives in :feature:notifikasi). */
 internal class FakeReminderScheduler : ReminderScheduler {

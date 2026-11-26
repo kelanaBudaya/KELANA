@@ -14,6 +14,7 @@ import id.kelana.core.model.Vehicle
 import id.kelana.feature.rencana.domain.BuildResult
 import id.kelana.feature.rencana.domain.PlanBuilder
 import id.kelana.feature.rencana.domain.PlanRepository
+import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -30,7 +31,7 @@ import java.time.temporal.ChronoUnit
 import javax.inject.Inject
 
 /** What happened to the last build request. */
-enum class BuildOutcome { Built, NothingFits, Offline }
+enum class BuildOutcome { Built, NothingFits, NoData, Failed }
 
 @Immutable
 data class SusunUiState(
@@ -50,6 +51,8 @@ data class SusunUiState(
     /** Index of the checklist item shown as running on the Menyusun screen. */
     val stage: Int = 0,
     val outcome: BuildOutcome? = null,
+    /** Whether the device had no signal when [outcome] was set; only picks the copy of the NoData state. */
+    val outcomeOffline: Boolean = false,
 ) {
     val lastDate: LocalDate get() = endDate ?: startDate
     val dayCount: Int get() = (ChronoUnit.DAYS.between(startDate, lastDate) + 1).toInt()
@@ -59,12 +62,15 @@ data class SusunUiState(
     val canContinueTeman: Boolean get() = companion != null
     val canContinueMinat: Boolean get() = interests.isNotEmpty()
     val canContinueWaktu: Boolean get() = minutesBetween(windowStart, windowEnd) >= MinWindowMinutes
+
+    /** The wheels move freely, so the window can end up shorter than [MinWindowMinutes]; the screen then warns. */
+    val windowTooShort: Boolean get() = !canContinueWaktu
     val canSubmit: Boolean get() = canContinueTanggal && canContinueTeman && canContinueMinat && canContinueWaktu && !isBuilding
 
     val canGoPreviousMonth: Boolean get() = visibleMonth.isAfter(YearMonth.from(today))
 
     /** Which optional checklist items of the Menyusun screen apply to the answers. */
-    val showsShowStage: Boolean get() = Interest.Pentas in interests
+    val showsShowStage: Boolean get() = interests.any { it.includesShows }
     val showsRestStage: Boolean get() = companion == TravelGroup.Family || SpecialNeed.MoreRests in needs
     val showsAccessStage: Boolean get() = SpecialNeed.Wheelchair in needs || SpecialNeed.AvoidStairs in needs
 
@@ -89,9 +95,9 @@ data class SusunUiState(
         val DefaultStart: LocalTime = LocalTime.of(8, 0)
         val DefaultEnd: LocalTime = LocalTime.of(21, 0)
         const val MinWindowMinutes = 120
-        const val StepMinutes = 30
+        const val MinuteStep = 5
         val EarliestStart: LocalTime = LocalTime.of(5, 0)
-        val LatestEnd: LocalTime = LocalTime.of(23, 30)
+        val LatestEnd: LocalTime = LocalTime.of(23, 55)
 
         private fun minutesBetween(a: LocalTime, b: LocalTime): Int = (b.toSecondOfDay() - a.toSecondOfDay()) / 60
     }
@@ -151,26 +157,35 @@ class SusunViewModel(
 
     // ---- 3/6 interests ----
 
+    /**
+     * "Semua jenis" is exclusive: choosing it replaces every other interest, and choosing any other interest removes it.
+     */
     fun toggleInterest(interest: Interest) = _state.update {
-        it.copy(interests = if (interest in it.interests) it.interests - interest else it.interests + interest)
+        val next = when {
+            interest in it.interests -> it.interests - interest
+            interest == Interest.Semua -> setOf(Interest.Semua)
+            else -> it.interests - Interest.Semua + interest
+        }
+        it.copy(interests = next)
     }
 
     // ---- 4/6 time window and pace ----
 
-    /** Moves the start by [steps] x 30 minutes, keeping at least [SusunUiState.MinWindowMinutes] before the end. */
-    fun shiftStart(steps: Int) = _state.update { s ->
-        val moved = minutesOf(s.windowStart) + steps * SusunUiState.StepMinutes
-        val ok = moved >= minutesOf(SusunUiState.EarliestStart) &&
-            moved <= minutesOf(s.windowEnd) - SusunUiState.MinWindowMinutes
-        if (ok) s.copy(windowStart = timeOf(moved)) else s
-    }
+    /**
+     * Sets the start, rounded down to [SusunUiState.MinuteStep] minutes and clamped to the day. A window shorter than
+     * [SusunUiState.MinWindowMinutes] is kept (the wheel must move freely); [SusunUiState.canContinueWaktu] blocks it.
+     */
+    fun setStart(time: LocalTime) = _state.update { it.copy(windowStart = snapToStep(time)) }
 
-    /** Moves the end by [steps] x 30 minutes, keeping at least [SusunUiState.MinWindowMinutes] after the start. */
-    fun shiftEnd(steps: Int) = _state.update { s ->
-        val moved = minutesOf(s.windowEnd) + steps * SusunUiState.StepMinutes
-        val ok = moved <= minutesOf(SusunUiState.LatestEnd) &&
-            moved >= minutesOf(s.windowStart) + SusunUiState.MinWindowMinutes
-        if (ok) s.copy(windowEnd = timeOf(moved)) else s
+    /** Sets the end, same rules as [setStart]. */
+    fun setEnd(time: LocalTime) = _state.update { it.copy(windowEnd = snapToStep(time)) }
+
+    private fun snapToStep(time: LocalTime): LocalTime {
+        val step = SusunUiState.MinuteStep
+        val minutes = minutesOf(time) / step * step
+        val low = minutesOf(SusunUiState.EarliestStart)
+        val high = minutesOf(SusunUiState.LatestEnd)
+        return timeOf(minutes.coerceIn(low, high))
     }
 
     fun selectPace(pace: Pace) = _state.update { it.copy(pace = pace) }
@@ -190,9 +205,6 @@ class SusunViewModel(
 
     // ---- build ----
 
-    /** Whether building may start. Without signal the caller shows the offline screen instead of Menyusun. */
-    fun canBuildNow(): Boolean = connectivity.isOnlineNow()
-
     /** Builds the plan from the answers. Safe to call again while a build runs (ignored). */
     fun startBuild() {
         if (buildJob?.isActive == true) return
@@ -204,7 +216,14 @@ class SusunViewModel(
                 if (stageDelayMs > 0) delay(stageDelayMs)
                 _state.update { it.copy(stage = i) }
             }
-            val result = plans.build(choices)
+            val result = try {
+                plans.build(choices)
+            } catch (e: CancellationException) {
+                throw e
+            } catch (_: Exception) {
+                BuildResult.Failed
+            }
+            val offline = !connectivity.isOnlineNow()
             _state.update {
                 it.copy(
                     isBuilding = false,
@@ -212,11 +231,20 @@ class SusunViewModel(
                     outcome = when (result) {
                         is BuildResult.Built -> BuildOutcome.Built
                         BuildResult.NothingFits -> BuildOutcome.NothingFits
-                        BuildResult.Offline -> BuildOutcome.Offline
+                        BuildResult.NoData -> BuildOutcome.NoData
+                        BuildResult.Failed -> BuildOutcome.Failed
                     },
+                    outcomeOffline = offline,
                 )
             }
         }
+    }
+
+    /** "Coba lagi" on the Menyusun error states: clears the outcome and builds again. */
+    fun retryBuild() {
+        if (buildJob?.isActive == true) return
+        consumeOutcome()
+        startBuild()
     }
 
     /** The screen handled [SusunUiState.outcome]. */

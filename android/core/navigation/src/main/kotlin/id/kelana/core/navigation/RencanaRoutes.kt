@@ -37,8 +37,6 @@ import kotlinx.serialization.Serializable
 /** A place in the plan of [date] (ISO yyyy-MM-dd) turned out closed (TempatTutup). */
 @Serializable data class TempatTutupRoute(val placeId: String, val date: String)
 
-/** "Internetmu sedang putus" (TanpaInternet), shown when building or re-planning needs the server. */
-@Serializable data object RencanaOfflineRoute
 
 /** Route view of the plan of today (PetaRute). */
 @Serializable data object PetaRuteRoute

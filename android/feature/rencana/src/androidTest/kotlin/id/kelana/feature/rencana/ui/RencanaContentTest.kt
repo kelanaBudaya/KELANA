@@ -15,6 +15,8 @@ import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
 import id.kelana.core.designsystem.component.formatCheckedDate
 import id.kelana.core.designsystem.theme.KelanaTheme
+import id.kelana.core.model.SkipReason
+import id.kelana.core.model.SkippedPlace
 import id.kelana.core.model.TravelGroup
 import id.kelana.core.ui.formatRupiah
 import id.kelana.core.ui.formatTimeRange
@@ -111,27 +113,76 @@ class RencanaContentTest {
     }
 
     @Test
-    fun tanpaInternet_withPlan_offersCachedPlanAndPassport() {
-        var plan = 0
-        var paspor = 0
-        rule.setContent {
-            KelanaTheme { RencanaOfflineContent(hasPlan = true, onOpenPlan = { plan++ }, onOpenPaspor = { paspor++ }) }
-        }
-        rule.onNodeWithText(str(R.string.rencana_offline_title)).assertIsDisplayed()
-        rule.onNodeWithText(str(R.string.rencana_offline_body)).assertIsDisplayed()
-        rule.onNodeWithText(str(R.string.rencana_offline_link_plan)).performClick()
-        rule.onNodeWithText(str(R.string.rencana_offline_link_paspor)).performClick()
-        assertEquals(1, plan)
-        assertEquals(1, paspor)
+    fun offline_emptyStateAlsoShowsTheOfflineBanner() {
+        setRencana(PreviewRencana.empty().copy(isOffline = true))
+        rule.onNodeWithText(str(R.string.rencana_offline_banner)).assertIsDisplayed()
+        rule.onNodeWithText(str(R.string.rencana_empty_title)).assertIsDisplayed()
     }
 
     @Test
-    fun tanpaInternet_withoutPlan_hidesPlanLink() {
+    fun statusContent_showsTitleAndRetryCallsBack() {
+        var retried = 0
+        var back = 0
         rule.setContent {
-            KelanaTheme { RencanaOfflineContent(hasPlan = false, onOpenPlan = {}, onOpenPaspor = {}) }
+            KelanaTheme {
+                RencanaStatusContent(
+                    title = str(R.string.rencana_loaderror_title),
+                    body = str(R.string.rencana_loaderror_body),
+                    primaryText = str(R.string.rencana_retry),
+                    onPrimary = { retried++ },
+                    secondaryText = str(R.string.rencana_status_back),
+                    onSecondary = { back++ },
+                )
+            }
         }
-        rule.onNodeWithText(str(R.string.rencana_offline_body_no_plan)).assertIsDisplayed()
-        rule.onNodeWithText(str(R.string.rencana_offline_link_plan)).assertDoesNotExist()
+        rule.onNodeWithText(str(R.string.rencana_loaderror_title)).assertIsDisplayed()
+        rule.onNodeWithText(str(R.string.rencana_loaderror_body)).assertIsDisplayed()
+        rule.onNodeWithText(str(R.string.rencana_retry)).performClick()
+        rule.onNodeWithText(str(R.string.rencana_status_back)).performClick()
+        assertEquals(1, retried)
+        assertEquals(1, back)
+    }
+
+    @Test
+    fun statusContent_withoutSecondaryHidesBack() {
+        rule.setContent {
+            KelanaTheme {
+                RencanaStatusContent(
+                    title = str(R.string.rencana_buildfail_title),
+                    body = str(R.string.rencana_buildfail_body),
+                    primaryText = str(R.string.rencana_retry),
+                    onPrimary = {},
+                )
+            }
+        }
+        rule.onNodeWithText(str(R.string.rencana_buildfail_title)).assertIsDisplayed()
+        rule.onNodeWithText(str(R.string.rencana_status_back)).assertDoesNotExist()
+    }
+
+    @Test
+    fun rencanaLoadError_showsErrorWithRetry() {
+        var retried = 0
+        rule.setContent {
+            KelanaTheme {
+                RencanaContent(
+                    PreviewRencana.empty().copy(loadError = true), onEdit = {}, onOpenRoute = {}, onOpenClosed = {},
+                    onTakeStamp = {}, onRemind = {}, onOpenEvent = {}, onRetry = { retried++ },
+                )
+            }
+        }
+        rule.onNodeWithText(str(R.string.rencana_loaderror_title)).assertIsDisplayed()
+        rule.onNodeWithText(str(R.string.rencana_retry)).performClick()
+        assertEquals(1, retried)
+    }
+
+    @Test
+    fun filledPlan_doesNotListSkippedPlaces() {
+        val filled = PreviewRencana.filled()
+        val skipped = listOf(SkippedPlace("gone", "Museum Tidak Muat", SkipReason.NoRoomInDay))
+        setRencana(filled.copy(plan = filled.plan!!.copy(skipped = skipped)))
+        rule.onNodeWithText("Keraton Yogyakarta").assertExists()
+        rule.onNodeWithText("Tidak masuk rencana").assertDoesNotExist()
+        rule.onNodeWithText("Museum Tidak Muat", substring = true).assertDoesNotExist()
     }
 
     // ---- Susun 1/6 Tanggal ----

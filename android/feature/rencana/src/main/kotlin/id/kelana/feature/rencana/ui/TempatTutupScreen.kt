@@ -55,7 +55,6 @@ internal fun TempatTutupScreen(
     onBack: () -> Unit,
     onDone: () -> Unit,
     onChooseOtherDay: () -> Unit,
-    onOpenPaspor: () -> Unit,
     viewModel: TempatTutupViewModel = hiltViewModel(),
 ) {
     val state by viewModel.uiState.collectAsState()
@@ -63,14 +62,12 @@ internal fun TempatTutupScreen(
         when (state.outcome) {
             TempatTutupOutcome.Done -> onDone()
             TempatTutupOutcome.GoToWizard -> onChooseOtherDay()
-            // Signal was lost while applying: [TempatTutupUiState.isOffline] flips and the offline state shows.
-            TempatTutupOutcome.GoOffline -> Unit
             null -> Unit
         }
         if (state.outcome != null) viewModel.consumeOutcome()
     }
     LaunchedEffect(state.notFound) { if (state.notFound) onBack() }
-    TempatTutupContent(state, onBack, viewModel::select, viewModel::apply, onOpenPaspor)
+    TempatTutupContent(state, onBack, viewModel::select, viewModel::apply, viewModel::retryLoad)
 }
 
 // Layout from TempatTutupIlustratif.dc.html. The "CONTOH SKENARIO" label of the artifact is dropped: this is real data.
@@ -80,13 +77,20 @@ internal fun TempatTutupContent(
     onBack: () -> Unit,
     onSelect: (ClosedResolution) -> Unit,
     onApply: () -> Unit,
-    onOpenPaspor: () -> Unit,
+    onRetryLoad: () -> Unit,
 ) {
     val colors = KelanaTheme.colors
     val lineColor = colors.outline
-    if (state.isOffline) {
-        // Re-planning needs the server: show the offline state (AGENTS.md).
-        RencanaOfflineContent(hasPlan = true, onOpenPlan = onBack, onOpenPaspor = onOpenPaspor)
+    if (state.loadError) {
+        // Error states reuse the offline screen layout (TanpaInternetIlustratif).
+        RencanaStatusContent(
+            title = stringResource(R.string.rencana_loaderror_title),
+            body = stringResource(R.string.rencana_loaderror_body),
+            primaryText = stringResource(R.string.rencana_retry),
+            onPrimary = onRetryLoad,
+            secondaryText = stringResource(R.string.rencana_status_back),
+            onSecondary = onBack,
+        )
         return
     }
     val stop = state.stop
@@ -178,12 +182,22 @@ internal fun TempatTutupContent(
                 .padding(start = 20.dp, end = 20.dp, top = 12.dp, bottom = 26.dp)
                 .navigationBarsPadding(),
         ) {
-            KelanaButton(
-                text = stringResource(R.string.rencana_closed_apply),
-                onClick = onApply,
-                enabled = stop != null && !state.isApplying,
-                modifier = Modifier.fillMaxWidth(),
-            )
+            Column {
+                if (state.applyError) {
+                    RencanaBanner(
+                        text = stringResource(R.string.rencana_apply_error),
+                        iconRes = R.drawable.rencana_info,
+                        tone = RencanaTone.Warm,
+                        modifier = Modifier.padding(bottom = 10.dp),
+                    )
+                }
+                KelanaButton(
+                    text = stringResource(R.string.rencana_closed_apply),
+                    onClick = onApply,
+                    enabled = stop != null && !state.isApplying,
+                    modifier = Modifier.fillMaxWidth(),
+                )
+            }
         }
     }
 }
@@ -278,6 +292,12 @@ private fun ClosedNoReplacementPreview() = KelanaTheme {
     TempatTutupContent(previewClosed().copy(replacement = null, selected = ClosedResolution.Remove), {}, {}, {}, {})
 }
 
+@Preview(showBackground = true, widthDp = 390, heightDp = 900)
+@Composable
+private fun ClosedApplyErrorPreview() = KelanaTheme { TempatTutupContent(previewClosed().copy(applyError = true), {}, {}, {}, {}) }
+
 @Preview(showBackground = true, widthDp = 390, heightDp = 844)
 @Composable
-private fun ClosedOfflinePreview() = KelanaTheme { TempatTutupContent(previewClosed().copy(isOffline = true), {}, {}, {}, {}) }
+private fun ClosedLoadErrorPreview() = KelanaTheme {
+    TempatTutupContent(TempatTutupUiState(isLoading = false, loadError = true), {}, {}, {}, {})
+}

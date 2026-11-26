@@ -13,18 +13,27 @@ import java.time.LocalTime
 /** Wizard step 2 "Kamu berkelana bersama siapa?". */
 enum class TravelGroup { Solo, Couple, Family, Group }
 
-/** Wizard step 3 "Apa yang paling ingin kamu lihat?". [categories] are the place categories the interest selects. */
-enum class Interest(val categories: Set<PlaceCategory>) {
+/**
+ * Wizard step 3 "Apa yang paling ingin kamu lihat?". [categories] are the place categories the interest selects;
+ * [includesShows] means the interest also selects shows (events). [Semua] ("Semua jenis") selects every category and shows.
+ */
+enum class Interest(val categories: Set<PlaceCategory>, val includesShows: Boolean = false) {
     Museum(setOf(PlaceCategory.Museum)),
     Candi(setOf(PlaceCategory.Candi)),
 
-    /** Shows: selects events, not places. */
-    Pentas(emptySet()),
+    /** Shows (events), plus the venues that host them: tari and gamelan places. */
+    Pentas(setOf(PlaceCategory.Tari, PlaceCategory.Gamelan), includesShows = true),
     Kerajinan(setOf(PlaceCategory.Kerajinan)),
 
-    /** There is no keraton category in the data yet; keraton, puro and taman sit under [PlaceCategory.Lainnya]. */
+    /**
+     * Label "Situs & lainnya" (the constant name is kept for stability). There is no keraton category in the data;
+     * keraton, puro, taman and every other site are filed under [PlaceCategory.Lainnya].
+     */
     Keraton(setOf(PlaceCategory.Lainnya)),
     Topeng(setOf(PlaceCategory.Topeng)),
+
+    /** "Semua jenis": every place category and shows. Must stay the last constant. */
+    Semua(PlaceCategory.entries.toSet(), includesShows = true),
 }
 
 /** Wizard step 4 tempo. */
@@ -35,13 +44,13 @@ enum class Pace(val maxStops: Int, val breakMinutes: Int) {
 }
 
 /** Wizard step 5 "Kamu berkeliling naik apa?". */
-enum class Vehicle { TransitAndWalk, PrivateVehicle, WalkOnly }
+enum class Vehicle { TransitAndWalk, PrivateVehicle, WalkOnly, RideHailing }
 
 /** Wizard step 6. "Tidak ada" is the empty set. */
 enum class SpecialNeed { Wheelchair, AvoidStairs, MoreRests }
 
 /** How the stretch between two stops is travelled (an estimate, never an official fact). */
-enum class TravelMode { Walk, Transit, Car }
+enum class TravelMode { Walk, Transit, Car, RideHailing }
 
 /** Everything the wizard collects. [endDate] equals [startDate] for a single day. */
 data class PlanChoices(

@@ -379,6 +379,34 @@ internal fun SusunMinatContent(
             modifier = Modifier.padding(start = 20.dp, end = 20.dp, top = 18.dp),
             verticalArrangement = Arrangement.spacedBy(10.dp),
         ) {
+            val allChecked = Interest.Semua in state.interests
+            Row(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(72.dp)
+                    .susunCard(allChecked, CardShape)
+                    .multiChoice(allChecked) { onToggle(Interest.Semua) }
+                    .padding(horizontal = 14.dp),
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.spacedBy(12.dp),
+            ) {
+                Image(painterResource(R.drawable.rencana_cat_semua), contentDescription = null, modifier = Modifier.size(40.dp))
+                Column(Modifier.weight(1f)) {
+                    Text(
+                        stringResource(R.string.rencana_minat_semua),
+                        style = MaterialTheme.typography.titleSmall.copy(fontWeight = FontWeight.ExtraBold, fontSize = 15.sp),
+                        color = colors.ink,
+                    )
+                    Text(
+                        stringResource(R.string.rencana_minat_semua_hint),
+                        style = MaterialTheme.typography.labelMedium.copy(fontWeight = FontWeight.Normal),
+                        color = colors.muted,
+                    )
+                }
+                if (allChecked) {
+                    Image(painterResource(R.drawable.rencana_check), contentDescription = null, modifier = Modifier.size(22.dp))
+                }
+            }
             InterestOptions.chunked(3).forEach { rowItems ->
                 Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
                     rowItems.forEach { option ->
@@ -424,8 +452,8 @@ internal fun SusunMinatContent(
 @Composable
 internal fun SusunWaktuContent(
     state: SusunUiState,
-    onShiftStart: (Int) -> Unit,
-    onShiftEnd: (Int) -> Unit,
+    onStart: (LocalTime) -> Unit,
+    onEnd: (LocalTime) -> Unit,
     onPace: (Pace) -> Unit,
     onBack: () -> Unit,
     onContinue: () -> Unit,
@@ -444,8 +472,16 @@ internal fun SusunWaktuContent(
             modifier = Modifier.padding(start = 20.dp, end = 20.dp, top = 18.dp),
             horizontalArrangement = Arrangement.spacedBy(10.dp),
         ) {
-            TimeField(stringResource(R.string.rencana_waktu_start), state.windowStart, onShiftStart, Modifier.weight(1f))
-            TimeField(stringResource(R.string.rencana_waktu_end), state.windowEnd, onShiftEnd, Modifier.weight(1f))
+            TimeCard(stringResource(R.string.rencana_waktu_start), state.windowStart, onStart, Modifier.weight(1f))
+            TimeCard(stringResource(R.string.rencana_waktu_end), state.windowEnd, onEnd, Modifier.weight(1f))
+        }
+        if (state.windowTooShort) {
+            RencanaBanner(
+                text = stringResource(R.string.rencana_waktu_too_short),
+                iconRes = R.drawable.rencana_info,
+                tone = RencanaTone.Warm,
+                modifier = Modifier.padding(start = 20.dp, end = 20.dp, top = 12.dp),
+            )
         }
         Column(Modifier.padding(start = 20.dp, end = 20.dp, top = 20.dp)) {
             Text(
@@ -523,45 +559,19 @@ private fun paceHint(pace: Pace): Int = when (pace) {
     Pace.Packed -> R.string.rencana_pace_packed_hint
 }
 
-/** Label, time 22/800 and two 48 dp step buttons (30 minutes). PROVISIONAL: the artifact uses a native time input. */
+/** Label above two wheels (hour and minute). Wheel picker per user decision; the artifact shows a native time input. */
 @Composable
-private fun TimeField(label: String, time: LocalTime, onShift: (Int) -> Unit, modifier: Modifier) {
+private fun TimeCard(label: String, time: LocalTime, onChange: (LocalTime) -> Unit, modifier: Modifier) {
     val colors = KelanaTheme.colors
     Column(
         modifier = modifier
             .clip(KelanaShapes.card)
             .background(colors.surface)
             .border(BorderStroke(1.5.dp, colors.outline), KelanaShapes.card)
-            .padding(start = 14.dp, end = 6.dp, top = 12.dp, bottom = 6.dp),
+            .padding(start = 14.dp, end = 14.dp, top = 12.dp, bottom = 10.dp),
     ) {
         Text(label, style = MaterialTheme.typography.labelMedium.copy(fontWeight = FontWeight.Bold), color = colors.muted)
-        Text(
-            text = formatClock(time),
-            style = MaterialTheme.typography.headlineSmall,
-            color = colors.ink,
-            modifier = Modifier.semantics(mergeDescendants = true) { contentDescription = "$label ${formatClock(time)}" },
-        )
-        Row(horizontalArrangement = Arrangement.spacedBy(4.dp)) {
-            StepButton("−", stringResource(R.string.rencana_waktu_earlier, label)) { onShift(-1) }
-            StepButton("+", stringResource(R.string.rencana_waktu_later, label)) { onShift(1) }
-        }
-    }
-}
-
-@Composable
-private fun StepButton(symbol: String, description: String, onClick: () -> Unit) {
-    val colors = KelanaTheme.colors
-    Box(
-        modifier = Modifier
-            .size(48.dp)
-            .clip(CircleShape)
-            .clickable(onClick = onClick)
-            .semantics { contentDescription = description },
-        contentAlignment = Alignment.Center,
-    ) {
-        Box(Modifier.size(32.dp).clip(CircleShape).background(colors.backgroundWarm), contentAlignment = Alignment.Center) {
-            Text(symbol, style = MaterialTheme.typography.titleMedium, color = colors.navy)
-        }
+        TimeWheels(time, onChange, label, Modifier.padding(top = 6.dp))
     }
 }
 
@@ -573,6 +583,8 @@ private data class VehicleArt(val vehicle: Vehicle, @param:DrawableRes val art: 
 
 private val VehicleOptions = listOf(
     VehicleArt(Vehicle.TransitAndWalk, R.drawable.rencana_veh_bus, R.string.rencana_vehicle_transit, R.string.rencana_vehicle_transit_hint, 50),
+    // Ojek online: added by user decision, not in SusunKendaraan.dc.html.
+    VehicleArt(Vehicle.RideHailing, R.drawable.rencana_veh_ojek, R.string.rencana_vehicle_ride, R.string.rencana_vehicle_ride_hint, 50),
     VehicleArt(Vehicle.PrivateVehicle, R.drawable.rencana_veh_car, R.string.rencana_vehicle_private, R.string.rencana_vehicle_private_hint, 52),
     VehicleArt(Vehicle.WalkOnly, R.drawable.rencana_veh_walk, R.string.rencana_vehicle_walk, R.string.rencana_vehicle_walk_hint, 46),
 )

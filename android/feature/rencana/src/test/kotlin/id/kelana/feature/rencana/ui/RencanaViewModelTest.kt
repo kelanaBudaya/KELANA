@@ -7,6 +7,7 @@ import id.kelana.core.model.Interest
 import id.kelana.core.model.OfficialFact
 import id.kelana.core.model.Pace
 import id.kelana.core.model.PlaceCategory
+import id.kelana.core.model.PlanCache
 import id.kelana.core.model.TravelGroup
 import id.kelana.core.model.TripPlan
 import id.kelana.feature.rencana.domain.PlanBuilder
@@ -15,6 +16,9 @@ import id.kelana.feature.rencana.domain.choices
 import id.kelana.feature.rencana.domain.hoursFacts
 import id.kelana.feature.rencana.domain.place
 import id.kelana.feature.rencana.domain.show
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.emitAll
+import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.test.runTest
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertFalse
@@ -52,7 +56,7 @@ class RencanaViewModelTest {
         cache: FakeCache,
         connectivity: FakeConnectivity = FakeConnectivity(),
         backpack: FakeBackpack = FakeBackpack(),
-    ) = RencanaViewModel(repo(places, events, cache, connectivity), events, connectivity, places, backpack, TestClock)
+    ) = RencanaViewModel(repo(places, events, cache), events, connectivity, places, backpack, TestClock)
 
     @Test
     fun backpackListsAddedPlacesInOrderAndSkipsUnknownIds() = runTest {
@@ -133,11 +137,50 @@ class RencanaViewModelTest {
     }
 
     @Test
-    fun closedPlacesAreNotOfferedOfflineBecauseReplanningNeedsTheServer() = runTest {
+    fun closedPlacesAreOfferedOfflineFromCachedFacts() = runTest {
+        val cache = FakeCache(trip())
         val closure = OfficialFact(Closure(TestToday, TestToday, "Acara"), null, TestToday)
         places.all = places.all.map { if (it.id == "m1") it.copy(closures = listOf(closure)) else it }
-        viewModel(FakeCache(trip()), FakeConnectivity(online = false)).uiState.test {
-            assertTrue(settled().closedStops.isEmpty())
+        viewModel(cache, FakeConnectivity(online = false)).uiState.test {
+            val state = settled()
+            assertTrue(state.isOffline)
+            assertEquals(listOf("m1"), state.closedStops.map { it.stop.placeId })
+        }
+    }
+
+    @Test
+    fun closedStopsFailureIsNotFatal() = runTest {
+        val cache = FakeCache(trip())
+        places.failing = true
+        viewModel(cache).uiState.test {
+            val state = settled()
+            assertFalse(state.loadError)
+            assertNotNull(state.plan)
+            assertTrue(state.closedStops.isEmpty())
+        }
+    }
+
+    @Test
+    fun loadFailureShowsErrorAndRetryRecovers() = runTest {
+        var fail = true
+        val inner = FakeCache(trip())
+        val cache = object : PlanCache by inner {
+            override val trip: Flow<TripPlan?> = flow {
+                if (fail) throw IllegalStateException("cache unreadable")
+                emitAll(inner.trip)
+            }
+        }
+        val model = RencanaViewModel(repo(places, events, cache), events, FakeConnectivity(), places, FakeBackpack(), TestClock)
+        model.uiState.test {
+            val failed = settled()
+            assertTrue(failed.loadError)
+            assertNull(failed.plan)
+            fail = false
+            model.retry()
+            var state = awaitItem()
+            while (state.loadError) state = awaitItem()
+            assertFalse(state.loadError)
+            assertNotNull(state.plan)
         }
     }
 
