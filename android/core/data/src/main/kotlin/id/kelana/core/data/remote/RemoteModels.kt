@@ -64,6 +64,7 @@ data class TicketPriceDto(
     val label: String,
     @SerialName("price_idr") val priceIdr: Long? = null,
     @SerialName("seller_url") val sellerUrl: String? = null,
+    @SerialName("on_site_available") val onSiteAvailable: Boolean = false,
     @SerialName("source_url") val sourceUrl: String? = null,
     @SerialName("checked_at") val checkedAt: String? = null,
 )
@@ -85,6 +86,7 @@ data class EventDto(
     @SerialName("end_time") val endTime: String? = null,
     @SerialName("price_from_idr") val priceFromIdr: Long? = null,
     @SerialName("seller_url") val sellerUrl: String? = null,
+    @SerialName("on_site_available") val onSiteAvailable: Boolean = false,
     @SerialName("source_url") val sourceUrl: String? = null,
     @SerialName("checked_at") val checkedAt: String? = null,
     val performers: List<String> = emptyList(),

@@ -28,6 +28,8 @@ data class EventSchedule(
 data class EventTicket(
     val priceFromIdr: Long?,
     val sellerUrl: String?,
+    /** True when the ticket can also be bought at the venue. */
+    val onSiteAvailable: Boolean = false,
 )
 
 /** Filter tag of an event. Mirrors the allowed values of `events.tags` (`tari`, `wayang`, `ramah_anak`). */

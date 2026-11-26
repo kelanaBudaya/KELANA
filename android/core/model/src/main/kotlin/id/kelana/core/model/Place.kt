@@ -52,4 +52,6 @@ data class TicketPrice(
     val label: String,
     val priceIdr: Long?,
     val sellerUrl: String?,
+    /** True when the tier can also be bought at the venue. */
+    val onSiteAvailable: Boolean = false,
 )

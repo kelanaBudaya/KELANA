@@ -13,6 +13,7 @@ import id.kelana.core.model.PlaceCategory
 import id.kelana.core.model.PlaceRepository
 import id.kelana.core.model.Recurrence
 import id.kelana.core.model.TicketPrice
+import id.kelana.core.ui.formatRupiah
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.Flow
@@ -47,10 +48,14 @@ private fun place(
     address = "", description = "", coverKey = id, tickets = tickets,
 )
 
-private fun tier(price: Long?, checkedAt: LocalDate?, url: String? = "https://tiket.example.org/$price") =
-    OfficialFact(TicketPrice("Dewasa", price, url), url, checkedAt)
+private fun tier(
+    price: Long?,
+    checkedAt: LocalDate?,
+    url: String? = "https://tiket.example.org/$price",
+    onSite: Boolean = false,
+) = OfficialFact(TicketPrice("Dewasa", price, url, onSite), url, checkedAt)
 
-private fun show(id: String, price: Long?, checkedAt: LocalDate?) = Event(
+private fun show(id: String, price: Long?, checkedAt: LocalDate?, onSite: Boolean = false) = Event(
     id = id, placeId = "p", placeName = "Tempat p", title = "Pentas $id", description = "",
     category = PlaceCategory.Tari,
     schedule = OfficialFact(
@@ -58,7 +63,7 @@ private fun show(id: String, price: Long?, checkedAt: LocalDate?) = Event(
         "https://jadwal.example.org",
         Checked,
     ),
-    ticket = OfficialFact(EventTicket(price, "https://tiket.example.org/e"), "https://tiket.example.org/e", checkedAt),
+    ticket = OfficialFact(EventTicket(price, "https://tiket.example.org/e", onSite), "https://tiket.example.org/e", checkedAt),
 )
 
 private class FakePlaces(private val source: Flow<List<Place>>) : PlaceRepository {
@@ -100,7 +105,7 @@ class TiketViewModelTest {
             val item = loaded().items.single()
             assertEquals(50_000L, item.priceFromIdr)
             assertEquals(Checked, item.checkedAt)
-            assertEquals("tiket.example.org", item.sellerHost)
+            assertFalse(item.onSite)
         }
     }
 
@@ -190,5 +195,39 @@ class TiketViewModelTest {
             while (state.filter != null) state = awaitItem()
             assertEquals(4, state.items.size)
         }
+    }
+
+    @Test
+    fun `a place is on site when any tier is, a show follows its own ticket`() = runTest {
+        val vm = viewModel(
+            flowOf(listOf(place("a", tickets = listOf(tier(50_000, Checked), tier(90_000, Checked, onSite = true))))),
+            listOf(show("s", 60_000, Checked, onSite = true)),
+        )
+        vm.uiState.test {
+            assertTrue(loaded().items.all { it.onSite })
+        }
+    }
+}
+
+class TiketRowRulesTest {
+    private val url = "https://tiket.example.org/x"
+
+    @Test
+    fun `all four on site and seller combinations`() {
+        assertEquals(RowPresentation(TiketNote.AlsoAtCounter, true), rowPresentation(true, url))
+        assertEquals(RowPresentation(TiketNote.BuyAtCounter, false), rowPresentation(true, null))
+        assertEquals(RowPresentation(null, true), rowPresentation(false, url))
+        assertEquals(RowPresentation(null, false), rowPresentation(false, null))
+    }
+
+    private fun item(price: Long?, checked: LocalDate?) =
+        TiketItem("1", TiketKind.Tempat, "T", PlaceCategory.Candi, null, null, price, checked)
+
+    @Test
+    fun `price is shown only with a check date and formatted for id-ID`() {
+        assertEquals(150_000L, visiblePrice(item(150_000, Checked)))
+        assertNull(visiblePrice(item(150_000, null)))
+        assertNull(visiblePrice(item(null, Checked)))
+        assertEquals("Rp150.000", formatRupiah(150_000))
     }
 }
