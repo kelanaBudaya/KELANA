@@ -8,6 +8,7 @@ import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -17,6 +18,7 @@ import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Checkbox
@@ -347,15 +349,18 @@ internal fun SusunTemanContent(
 // 3/6 Minat (SusunMinat.dc.html)
 // ---------------------------------------------------------------------------------------------------------------
 
+private const val InterestColumns = 3
+private val InterestGap = 10.dp
+
 private data class InterestArt(val interest: Interest, @param:DrawableRes val art: Int, val label: Int)
 
 private val InterestOptions = listOf(
+    InterestArt(Interest.Semua, R.drawable.rencana_cat_semua, R.string.rencana_minat_semua),
     InterestArt(Interest.Museum, R.drawable.rencana_cat_museum, R.string.rencana_minat_museum),
     InterestArt(Interest.Candi, R.drawable.rencana_cat_candi, R.string.rencana_minat_candi),
     InterestArt(Interest.Pentas, R.drawable.rencana_cat_pentas, R.string.rencana_minat_pentas),
     InterestArt(Interest.Kerajinan, R.drawable.rencana_cat_kerajinan, R.string.rencana_minat_kerajinan),
     InterestArt(Interest.Keraton, R.drawable.rencana_cat_keraton, R.string.rencana_minat_keraton),
-    InterestArt(Interest.Topeng, R.drawable.rencana_cat_topeng, R.string.rencana_minat_topeng),
 )
 
 @Composable
@@ -379,63 +384,45 @@ internal fun SusunMinatContent(
             modifier = Modifier.padding(start = 20.dp, end = 20.dp, top = 18.dp),
             verticalArrangement = Arrangement.spacedBy(10.dp),
         ) {
-            val allChecked = Interest.Semua in state.interests
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(72.dp)
-                    .susunCard(allChecked, CardShape)
-                    .multiChoice(allChecked) { onToggle(Interest.Semua) }
-                    .padding(horizontal = 14.dp),
-                verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.spacedBy(12.dp),
-            ) {
-                Image(painterResource(R.drawable.rencana_cat_semua), contentDescription = null, modifier = Modifier.size(40.dp))
-                Column(Modifier.weight(1f)) {
-                    Text(
-                        stringResource(R.string.rencana_minat_semua),
-                        style = MaterialTheme.typography.titleSmall.copy(fontWeight = FontWeight.ExtraBold, fontSize = 15.sp),
-                        color = colors.ink,
-                    )
-                    Text(
-                        stringResource(R.string.rencana_minat_semua_hint),
-                        style = MaterialTheme.typography.labelMedium.copy(fontWeight = FontWeight.Normal),
-                        color = colors.muted,
-                    )
-                }
-                if (allChecked) {
-                    Image(painterResource(R.drawable.rencana_check), contentDescription = null, modifier = Modifier.size(22.dp))
-                }
-            }
-            InterestOptions.chunked(3).forEach { rowItems ->
-                Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
-                    rowItems.forEach { option ->
-                        val checked = option.interest in state.interests
-                        Box(
-                            modifier = Modifier
-                                .weight(1f)
-                                .height(112.dp)
-                                .susunCard(checked, CardShape)
-                                .multiChoice(checked) { onToggle(option.interest) },
+            // Six cards in two rows of three, all the same width ("Semua jenis" is the first card).
+            BoxWithConstraints {
+                val cardWidth = (maxWidth - InterestGap * (InterestColumns - 1)) / InterestColumns
+                Column(verticalArrangement = Arrangement.spacedBy(InterestGap)) {
+                    InterestOptions.chunked(InterestColumns).forEach { rowItems ->
+                        Row(
+                            modifier = Modifier.fillMaxWidth(),
+                            horizontalArrangement = Arrangement.spacedBy(InterestGap, Alignment.CenterHorizontally),
                         ) {
-                            Column(
-                                modifier = Modifier.align(Alignment.Center),
-                                horizontalAlignment = Alignment.CenterHorizontally,
-                                verticalArrangement = Arrangement.spacedBy(8.dp),
-                            ) {
-                                Image(painterResource(option.art), contentDescription = null, modifier = Modifier.size(48.dp))
-                                Text(
-                                    stringResource(option.label),
-                                    style = MaterialTheme.typography.titleSmall.copy(fontWeight = FontWeight.ExtraBold),
-                                    color = colors.ink,
-                                )
-                            }
-                            if (checked) {
-                                Image(
-                                    painter = painterResource(R.drawable.rencana_check),
-                                    contentDescription = null,
-                                    modifier = Modifier.align(Alignment.TopEnd).padding(8.dp).size(20.dp),
-                                )
+                            rowItems.forEach { option ->
+                                val checked = option.interest in state.interests
+                                Box(
+                                    modifier = Modifier
+                                        .width(cardWidth)
+                                        .height(112.dp)
+                                        .susunCard(checked, CardShape)
+                                        .multiChoice(checked) { onToggle(option.interest) },
+                                ) {
+                                    Column(
+                                        modifier = Modifier.align(Alignment.Center),
+                                        horizontalAlignment = Alignment.CenterHorizontally,
+                                        verticalArrangement = Arrangement.spacedBy(8.dp),
+                                    ) {
+                                        Image(painterResource(option.art), contentDescription = null, modifier = Modifier.size(48.dp))
+                                        Text(
+                                            stringResource(option.label),
+                                            style = MaterialTheme.typography.titleSmall.copy(fontWeight = FontWeight.ExtraBold),
+                                            color = colors.ink,
+                                            textAlign = TextAlign.Center,
+                                        )
+                                    }
+                                    if (checked) {
+                                        Image(
+                                            painter = painterResource(R.drawable.rencana_check),
+                                            contentDescription = null,
+                                            modifier = Modifier.align(Alignment.TopEnd).padding(8.dp).size(20.dp),
+                                        )
+                                    }
+                                }
                             }
                         }
                     }

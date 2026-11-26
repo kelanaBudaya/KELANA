@@ -45,7 +45,7 @@ class FakeRepositoriesTest {
             places.placesByCategory(PlaceCategory.Museum).first().map { it.name }.toSet(),
         )
         assertEquals(listOf("candi-prambanan"), places.placesByCategory(PlaceCategory.Candi).first().map { it.id })
-        assertTrue(places.placesByCategory(PlaceCategory.Topeng).first().isEmpty())
+        assertTrue(places.placesByCategory(PlaceCategory.Pentas).first().isEmpty())
     }
 
     @Test

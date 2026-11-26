@@ -118,8 +118,8 @@ class AgendaViewModelTest {
 
     private val roro = testEvent("roro", DayOfWeek.FRIDAY, LocalTime.of(19, 30), tags = setOf(EventTag.Tari))
     private val fridayMorning =
-        testEvent("pagi", DayOfWeek.FRIDAY, LocalTime.of(9, 0), PlaceCategory.Gamelan, tags = setOf(EventTag.Wayang))
-    private val macapat = testEvent("macapat", DayOfWeek.SATURDAY, LocalTime.of(9, 0), PlaceCategory.Gamelan)
+        testEvent("pagi", DayOfWeek.FRIDAY, LocalTime.of(9, 0), PlaceCategory.SeniMusik, tags = setOf(EventTag.Wayang))
+    private val macapat = testEvent("macapat", DayOfWeek.SATURDAY, LocalTime.of(9, 0), PlaceCategory.SeniMusik)
     private val unchecked = testEvent("belum", DayOfWeek.SUNDAY, LocalTime.of(10, 0), checkedAt = null)
 
     @Before fun setUp() = Dispatchers.setMain(UnconfinedTestDispatcher())

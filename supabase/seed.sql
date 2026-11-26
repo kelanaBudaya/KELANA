@@ -101,7 +101,7 @@ join (values
   ('candi-prambanan',    'Sendratari Roro Jonggrang', 'Pentas sendratari kisah Roro Jonggrang. (figma)', 'tari', 5, '19:30', '20:30', 150000, 'https://example.org/sample/tiket/roro-jonggrang', '{Lebih dari 200 penari dan pemusik lokal}', 30, 45, '{tari}'),
   ('candi-prambanan',    'Sendratari Ramayana',       'Pentas sendratari Ramayana. Hari tayang invented.', 'tari', 2, '19:30', '21:00', 150000, 'https://example.org/sample/tiket/ramayana', '{}', null, null, '{tari}'),
   ('candi-prambanan',    'Sendratari Ramayana',       'Pentas sendratari Ramayana. Hari tayang invented.', 'tari', 4, '19:30', '21:00', 150000, 'https://example.org/sample/tiket/ramayana', '{}', null, null, '{tari}'),
-  ('keraton-yogyakarta', 'Macapat, Bangsal Srimanganti', 'Tembang macapat di Bangsal Srimanganti. Hari invented.', 'gamelan', 6, '09:00', '11:00', null, null, '{}', null, null, '{}'),
+  ('keraton-yogyakarta', 'Macapat, Bangsal Srimanganti', 'Tembang macapat di Bangsal Srimanganti. Hari invented.', 'seni_musik', 6, '09:00', '11:00', null, null, '{}', null, null, '{}'),
   ('keraton-yogyakarta', 'Fragmen wayang wong, Bangsal Srimanganti', 'Fragmen wayang wong di Bangsal Srimanganti. Hari invented.', 'tari', 7, '09:00', '11:00', null, null, '{}', null, null, '{wayang}')
 ) as v(slug, title, descr, cat, wd, st, et, price, url, performers, amin, amax, tags) on v.slug = p.slug;
 
