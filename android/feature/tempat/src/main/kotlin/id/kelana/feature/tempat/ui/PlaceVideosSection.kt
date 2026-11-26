@@ -2,6 +2,7 @@ package id.kelana.feature.tempat.ui
 
 import android.content.Context
 import androidx.compose.foundation.background
+import kotlinx.coroutines.delay
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -14,7 +15,7 @@ import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyRow
-import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -40,10 +41,13 @@ import id.kelana.core.designsystem.theme.KelanaTheme
 import id.kelana.core.model.PlaceVideo
 import id.kelana.core.ui.openCustomTab
 import id.kelana.core.ui.tiktok.TikTokEmbedPlayer
+import id.kelana.core.ui.tiktok.TikTokPlayerOptions
 import id.kelana.core.ui.tiktok.TikTokPlayerError
 import id.kelana.core.ui.tiktok.TikTokPlayerState
 import id.kelana.core.ui.tiktok.rememberTikTokPlayerController
 import id.kelana.feature.tempat.R
+
+private const val PlayerReadyTimeoutMs = 15_000L
 
 private val CardWidth = 200.dp
 
@@ -93,8 +97,9 @@ internal fun PlaceVideosContent(state: PlaceVideosState, onRetry: () -> Unit, mo
                 contentPadding = PaddingValues(horizontal = KelanaSpacing.gutter),
                 horizontalArrangement = Arrangement.spacedBy(12.dp),
             ) {
-                items(state.items, key = { it.id }) { video ->
-                    VideoCard(video, playingId = playingId, onStarted = { playingId = video.id })
+                itemsIndexed(state.items, key = { _, v -> v.id }) { index, video ->
+                    // Only the first card starts by itself (muted); the rest wait for a tap.
+                    VideoCard(video, index == 0, playingId = playingId, onStarted = { playingId = video.id })
                 }
             }
         }
@@ -137,13 +142,21 @@ private fun MessageCard(title: String, body: String?, onRetry: (() -> Unit)?) {
 
 /** One 9:16 card. The WebView exists only while the card is in composition and is destroyed when it leaves. */
 @Composable
-private fun VideoCard(video: PlaceVideo, playingId: String?, onStarted: () -> Unit) {
+private fun VideoCard(video: PlaceVideo, autoplay: Boolean, playingId: String?, onStarted: () -> Unit) {
     val colors = KelanaTheme.colors
     val context = LocalContext.current
     val controller = rememberTikTokPlayerController()
     var loading by remember(video.id) { mutableStateOf(true) }
     var failed by remember(video.id) { mutableStateOf(false) }
     var error by remember(video.id) { mutableStateOf<TikTokPlayerError?>(null) }
+    // TikTok may never report ready (blocked script, no GPU, rate limit): keep the player but offer the fallback link.
+    var slow by remember(video.id) { mutableStateOf(false) }
+    LaunchedEffect(video.id, loading) {
+        if (loading) {
+            delay(PlayerReadyTimeoutMs)
+            slow = true
+        }
+    }
 
     LaunchedEffect(playingId) {
         if (playingId != null && playingId != video.id) controller.pause()
@@ -161,6 +174,7 @@ private fun VideoCard(video: PlaceVideo, playingId: String?, onStarted: () -> Un
                 videoId = video.tiktokVideoId,
                 modifier = Modifier.fillMaxSize(),
                 controller = controller,
+                options = remember(autoplay) { TikTokPlayerOptions(autoplay = autoplay, forceMuted = autoplay) },
                 onReady = { loading = false },
                 onStateChange = { if (it == TikTokPlayerState.Playing) onStarted() },
                 onError = {
@@ -175,12 +189,17 @@ private fun VideoCard(video: PlaceVideo, playingId: String?, onStarted: () -> Un
             )
         }
         if (loading && !failed) {
-            Text(
-                text = stringResource(R.string.tempat_videos_card_loading),
-                modifier = Modifier.align(Alignment.Center),
-                style = MaterialTheme.typography.bodySmall,
-                color = colors.muted,
-            )
+            Column(
+                Modifier.align(Alignment.Center).padding(KelanaSpacing.gutter),
+                horizontalAlignment = Alignment.CenterHorizontally,
+            ) {
+                Text(
+                    text = stringResource(R.string.tempat_videos_card_loading),
+                    style = MaterialTheme.typography.bodySmall,
+                    color = colors.muted,
+                )
+                if (slow) OpenOnTikTok(video, context)
+            }
         }
         if (failed) {
             Column(
