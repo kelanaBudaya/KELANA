@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Pilih bahasa illustration (drawn for KELANA, not in the artifact): two overlapping speech bubbles. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="200dp"
+    android:height="140dp"
+    android:viewportWidth="200"
+    android:viewportHeight="140">
+    <path android:fillColor="#24458F" android:pathData="M36,15H114a16,16 0 0 1 16,16V59a16,16 0 0 1 -16,16H58L30,95L38,75H36a16,16 0 0 1 -16,-16V31a16,16 0 0 1 16,-16Z" />
+    <path android:fillColor="#FFFFFF" android:pathData="M50,39a6,6 0 1,0 0,12a6,6 0 1,0 0,-12zM75,39a6,6 0 1,0 0,12a6,6 0 1,0 0,-12zM100,39a6,6 0 1,0 0,12a6,6 0 1,0 0,-12z" />
+    <path android:fillColor="#F4B52B" android:strokeColor="#FFFFFF" android:strokeWidth="3" android:pathData="M96,60H164a16,16 0 0 1 16,16V99a16,16 0 0 1 -16,16H160L172,132L140,115H96a16,16 0 0 1 -16,-16V76a16,16 0 0 1 16,-16Z" />
+    <path android:fillColor="#1B3671" android:pathData="M98,76h64a3,3 0 0 1 0,6h-64a3,3 0 0 1 0,-6zM98,90h40a3,3 0 0 1 0,6h-40a3,3 0 0 1 0,-6z" />
+    <path android:fillColor="#E65D22" android:pathData="M165,14L167,19L172,21L167,23L165,28L163,23L158,21L163,19Z" />
+</vector>

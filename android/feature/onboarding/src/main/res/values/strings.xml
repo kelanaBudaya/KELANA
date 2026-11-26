@@ -8,6 +8,9 @@
     <string name="mulai_logo_description">Logo kelana</string>
 
     <!-- Kenalan (01.02 to 01.04) -->
+    <string name="bahasa_title">Pilih bahasa</string>
+    <string name="bahasa_body">Kamu bisa mengubahnya lagi nanti di Profil.</string>
+    <string name="bahasa_illustration">Gambar: dua balon percakapan</string>
     <string name="intro_skip">Lewati</string>
     <string name="intro_next">Lanjut</string>
     <string name="intro_progress">Langkah %1$d dari %2$d</string>

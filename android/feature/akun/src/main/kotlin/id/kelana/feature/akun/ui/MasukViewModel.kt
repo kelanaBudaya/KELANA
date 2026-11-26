@@ -3,6 +3,8 @@ package id.kelana.feature.akun.ui
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
+import id.kelana.core.model.AppLanguage
+import id.kelana.core.model.AppLanguageRepository
 import id.kelana.core.model.AuthConfig
 import id.kelana.core.model.AuthResult
 import id.kelana.core.model.SessionRepository
@@ -11,7 +13,9 @@ import id.kelana.feature.akun.domain.Nonce
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.receiveAsFlow
 import kotlinx.coroutines.launch
@@ -36,6 +40,7 @@ sealed interface MasukEvent {
 class MasukViewModel internal constructor(
     private val sessionRepository: SessionRepository,
     private val authConfig: AuthConfig,
+    private val appLanguage: AppLanguageRepository,
     private val nonceGenerator: () -> String,
 ) : ViewModel() {
 
@@ -43,10 +48,17 @@ class MasukViewModel internal constructor(
     constructor(
         sessionRepository: SessionRepository,
         authConfig: AuthConfig,
-    ) : this(sessionRepository, authConfig, { Nonce.generateRaw() })
+        appLanguage: AppLanguageRepository,
+    ) : this(sessionRepository, authConfig, appLanguage, { Nonce.generateRaw() })
 
     private val _state = MutableStateFlow(MasukUiState())
     val state: StateFlow<MasukUiState> = _state.asStateFlow()
+
+    /** Language choice, kept apart from [state] because [state] is replaced whole on every login step. */
+    val language: StateFlow<AppLanguage> =
+        appLanguage.language.stateIn(viewModelScope, SharingStarted.Eagerly, AppLanguage.ID)
+
+    fun onLanguageSelected(language: AppLanguage) = appLanguage.set(language)
 
     private val _events = Channel<MasukEvent>(Channel.BUFFERED)
     val events: Flow<MasukEvent> = _events.receiveAsFlow()

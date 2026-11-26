@@ -1,6 +1,8 @@
 package id.kelana.feature.onboarding
 
 import app.cash.turbine.test
+import id.kelana.core.model.AppLanguage
+import id.kelana.core.model.AppLanguageRepository
 import id.kelana.core.model.Place
 import id.kelana.core.model.PlaceCategory
 import id.kelana.core.model.PlaceRepository
@@ -39,6 +41,14 @@ private class TestRegions : RegionRepository {
     }
 }
 
+private class TestLanguages(initial: AppLanguage = AppLanguage.ID) : AppLanguageRepository {
+    val current = MutableStateFlow(initial)
+    override val language: Flow<AppLanguage> = current
+    override fun set(language: AppLanguage) {
+        current.value = language
+    }
+}
+
 private class TestPlaces : PlaceRepository {
     private val list = (1..6).map {
         Place(
@@ -55,11 +65,13 @@ private class TestPlaces : PlaceRepository {
 @OptIn(ExperimentalCoroutinesApi::class)
 class OnboardingTest {
     private lateinit var regions: TestRegions
+    private lateinit var languages: TestLanguages
 
     @Before
     fun setUp() {
         Dispatchers.setMain(UnconfinedTestDispatcher())
         regions = TestRegions()
+        languages = TestLanguages()
     }
 
     @After
@@ -72,6 +84,25 @@ class OnboardingTest {
         val state = IntroUiState.forPage(MulaiPage)
         assertTrue(state.isMulai)
         assertNull(state.intro)
+    }
+
+    @Test
+    fun languageStepHasItsOwnPageAndIsNotMulaiOrKenalan() {
+        val state = IntroUiState.forPage(LanguagePage)
+        assertTrue(state.isLanguage)
+        assertFalse(state.isMulai)
+        assertNull(state.intro)
+        assertNull(state.nextPage)
+        assertFalse(IntroUiState.forPage(MulaiPage).isLanguage)
+        assertTrue((1..3).none { IntroUiState.forPage(it).isLanguage })
+    }
+
+    @Test
+    fun stepOrderIsMulaiThenLanguageThenKenalan() {
+        // The screen navigates Mulai -> LanguagePage -> OfficialInfo; Kenalan keeps pages 1..3 and indicator 1..3.
+        assertEquals(listOf(0, 4, 1, 2, 3), listOf(MulaiPage, LanguagePage, IntroPage.OfficialInfo.page, 2, 3))
+        assertEquals(3, IntroUiState.forPage(LanguagePage).stepCount)
+        assertEquals(0, IntroPage.OfficialInfo.step)
     }
 
     @Test
@@ -99,13 +130,30 @@ class OnboardingTest {
 
     @Test
     fun startFromJogjaSelectsDiyAndFinishes() = runTest {
-        val vm = IntroViewModel(regions)
+        val vm = IntroViewModel(regions, languages)
         vm.finished.test {
             assertFalse(awaitItem())
             vm.startFromJogja()
             assertTrue(awaitItem())
         }
         assertEquals("DIY", regions.selectedRegionId.let { (it as MutableStateFlow).value })
+    }
+
+    @Test
+    fun languageStartsFromShownLanguageAndFollowsSelection() = runTest {
+        val vm = IntroViewModel(regions, languages)
+        assertEquals(AppLanguage.ID, vm.language.value)
+        vm.setLanguage(AppLanguage.EN)
+        assertEquals(AppLanguage.EN, vm.language.value)
+        assertEquals(AppLanguage.EN, languages.current.value)
+        vm.setLanguage(AppLanguage.ID)
+        assertEquals(AppLanguage.ID, vm.language.value)
+    }
+
+    @Test
+    fun languageStartsFromTheRememberedChoice() {
+        val vm = IntroViewModel(regions, TestLanguages(AppLanguage.EN))
+        assertEquals(AppLanguage.EN, vm.language.value)
     }
 
     // ----- Pilih daerah -----

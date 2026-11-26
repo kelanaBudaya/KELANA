@@ -5,12 +5,18 @@ import id.kelana.core.model.Region
 import id.kelana.core.model.RegionStatus
 
 /**
- * Page numbering of `IntroRoute(page)`: 0 is Mulai (Figma 01.01), 1..3 are Kenalan 1..3 (01.02 to 01.04).
+ * Page numbering of `IntroRoute(page)`: 0 is Mulai, 4 is Pilih bahasa (Figma 01.01), 1..3 are Kenalan 1..3 (01.02 to 01.04).
  * PROVISIONAL: the route's own KDoc says 0..2; the Mulai frame needs its own page, so pages 0..3 are used.
  * Only this module creates `IntroRoute`s after the first one, so no shared file changes.
  */
 internal const val MulaiPage = 0
 internal const val LastIntroPage = 3
+
+/**
+ * Pilih bahasa step, shown after Mulai and before Kenalan 1. It has its own page id instead of renumbering Kenalan,
+ * so Kenalan keeps pages 1..3 (and its indicator 1..3). The order comes from navigation: Mulai, 4, then 1.
+ */
+internal const val LanguagePage = 4
 
 /** The three Kenalan pages. [step] is 0-based (indicator position). */
 internal enum class IntroPage(
@@ -38,6 +44,7 @@ internal data class IntroUiState(
     val stepCount: Int = IntroPage.entries.size,
 ) {
     val isMulai: Boolean get() = page == MulaiPage
+    val isLanguage: Boolean get() = page == LanguagePage
 
     /** Route page of the "Lanjut" button. The last intro has no next intro. */
     val nextPage: Int? get() = if (intro == null || intro.isLast) null else intro.page + 1

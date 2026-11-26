@@ -38,6 +38,13 @@ class MasukContentTest {
     }
 
     @Test
+    fun guestCanSeeAndOpenLanguageControl() {
+        show()
+        rule.onNodeWithText("Bahasa Indonesia").assertIsDisplayed().performClick()
+        rule.onNodeWithText("English").assertIsDisplayed()
+    }
+
+    @Test
     fun showsTitleGoogleEmailAndGuestOptions() {
         show()
         rule.onNodeWithText(str(R.string.masuk_title)).assertIsDisplayed()

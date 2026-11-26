@@ -4,6 +4,7 @@
     <string name="masuk_subtitle">Masuk supaya cap dan rencanamu tidak hilang saat ganti ponsel.</string>
     <string name="masuk_google">Lanjut dengan Google</string>
     <string name="masuk_google_mark">G</string>
+    <string name="masuk_language_description">Ubah bahasa</string>
     <string name="masuk_guest">Jelajah dulu tanpa akun</string>
     <string name="masuk_error_not_configured">Masuk belum tersedia karena layanan akun belum disiapkan. Coba lagi nanti.</string>
     <string name="masuk_error_cancelled">Masuk dibatalkan.</string>
@@ -45,6 +46,8 @@
     <string name="email_error_generic">Terjadi kesalahan. Coba lagi.</string>
     <string name="profil_back">Kembali</string>
     <string name="profil_section_perjalanan">PERJALANAN</string>
+    <string name="profil_section_pengaturan">PENGATURAN</string>
+    <string name="profil_row_bahasa">Bahasa</string>
     <string name="profil_section_bantuan">BANTUAN</string>
     <string name="profil_row_paspor">Paspor</string>
     <string name="profil_row_daerah">Daerah</string>

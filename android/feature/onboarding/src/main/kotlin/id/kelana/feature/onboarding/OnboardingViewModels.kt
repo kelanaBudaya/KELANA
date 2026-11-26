@@ -3,10 +3,14 @@ package id.kelana.feature.onboarding
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
+import id.kelana.core.model.AppLanguage
+import id.kelana.core.model.AppLanguageRepository
 import id.kelana.core.model.PlaceRepository
 import id.kelana.core.model.RegionRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.SharingStarted
+import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
@@ -23,7 +27,14 @@ internal const val DefaultRegionId = "DIY"
 @HiltViewModel
 internal class IntroViewModel @Inject constructor(
     private val regions: RegionRepository,
+    private val appLanguage: AppLanguageRepository,
 ) : ViewModel() {
+    /** Language choice shown on the Mulai page; picking one applies it at once (the screen is recreated). */
+    val language: StateFlow<AppLanguage> =
+        appLanguage.language.stateIn(viewModelScope, SharingStarted.Eagerly, AppLanguage.ID)
+
+    fun setLanguage(language: AppLanguage) = appLanguage.set(language)
+
     private val _finished = MutableStateFlow(false)
     val finished: StateFlow<Boolean> = _finished.asStateFlow()
 

@@ -1,6 +1,8 @@
 package id.kelana.feature.akun.ui
 
 import app.cash.turbine.test
+import id.kelana.core.model.AppLanguage
+import id.kelana.core.model.AppLanguageRepository
 import id.kelana.core.model.AuthConfig
 import id.kelana.core.model.AuthResult
 import id.kelana.core.model.SessionRepository
@@ -10,6 +12,7 @@ import id.kelana.feature.akun.domain.Nonce
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.test.UnconfinedTestDispatcher
 import kotlinx.coroutines.test.resetMain
@@ -37,11 +40,20 @@ class MasukViewModelTest {
         override suspend fun signOut() = Unit
     }
 
+    private class FakeAppLanguageRepository(initial: AppLanguage = AppLanguage.ID) : AppLanguageRepository {
+        val current = MutableStateFlow(initial)
+        override val language: Flow<AppLanguage> = current
+        override fun set(language: AppLanguage) {
+            current.value = language
+        }
+    }
+
+    private val languages = FakeAppLanguageRepository()
     private val configured = AuthConfig(isSupabaseConfigured = true, googleWebClientId = "web-client-id")
     private val repo = FakeSessionRepository()
 
     private fun viewModel(config: AuthConfig = configured) =
-        MasukViewModel(repo, config) { "fixed-nonce" }
+        MasukViewModel(repo, config, languages) { "fixed-nonce" }
 
     @Before
     fun setUp() = Dispatchers.setMain(UnconfinedTestDispatcher())
@@ -140,5 +152,16 @@ class MasukViewModelTest {
             assertEquals(MasukEvent.ContinueAsGuest, awaitItem())
         }
         assertFalse(vm.state.value.isLoading)
+    }
+
+    @Test
+    fun language_followsRepositoryAndSurvivesStateResets() = runTest {
+        val vm = viewModel()
+        assertEquals(AppLanguage.ID, vm.language.value)
+        vm.onLanguageSelected(AppLanguage.EN)
+        assertEquals(AppLanguage.EN, vm.language.value)
+        assertEquals(AppLanguage.EN, languages.current.value)
+        vm.onGoogleClick() // replaces the whole login state
+        assertEquals(AppLanguage.EN, vm.language.value)
     }
 }

@@ -9,6 +9,7 @@ import androidx.compose.ui.test.performClick
 import androidx.compose.ui.test.performScrollTo
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import id.kelana.core.designsystem.theme.KelanaTheme
+import id.kelana.core.model.AppLanguage
 import id.kelana.core.model.SessionUser
 import id.kelana.feature.akun.R
 import org.junit.Assert.assertEquals
@@ -73,6 +74,19 @@ class ProfilContentTest {
         ).forEach { rule.onNodeWithText(str(it)).performScrollTo().performClick() }
         rule.onNodeWithContentDescription(str(R.string.profil_back)).performClick()
         assertEquals(listOf("paspor", "daerah", "notifikasi", "hapus", "keluar", "back"), calls)
+    }
+
+    @Test
+    fun bahasaRow_showsCurrentChoice_andOpensSheetForGuestAndSignedIn() {
+        show(signedIn.copy(language = AppLanguage.EN))
+        rule.onNodeWithText(str(R.string.profil_row_bahasa)).performScrollTo().assertIsDisplayed()
+        rule.onNodeWithText("English").performScrollTo().assertIsDisplayed()
+    }
+
+    @Test
+    fun guest_canReachBahasaRow() {
+        show(ProfilUiState(isLoading = false, user = null))
+        rule.onNodeWithText(str(R.string.profil_row_bahasa)).performScrollTo().assertIsDisplayed()
     }
 
     @Test

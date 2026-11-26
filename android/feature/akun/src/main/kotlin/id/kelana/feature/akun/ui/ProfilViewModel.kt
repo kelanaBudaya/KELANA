@@ -3,6 +3,8 @@ package id.kelana.feature.akun.ui
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
+import id.kelana.core.model.AppLanguage
+import id.kelana.core.model.AppLanguageRepository
 import id.kelana.core.model.SessionRepository
 import id.kelana.core.model.SessionState
 import id.kelana.core.model.SessionUser
@@ -21,6 +23,7 @@ data class ProfilUiState(
     val isLoading: Boolean = true,
     val user: SessionUser? = null,
     val isSigningOut: Boolean = false,
+    val language: AppLanguage = AppLanguage.ID,
 ) {
     val isGuest: Boolean get() = !isLoading && user == null
 
@@ -44,6 +47,7 @@ sealed interface ProfilEvent {
 @HiltViewModel
 class ProfilViewModel @Inject constructor(
     private val session: SessionRepository,
+    private val appLanguage: AppLanguageRepository,
 ) : ViewModel() {
 
     private val _state = MutableStateFlow(ProfilUiState())
@@ -53,6 +57,9 @@ class ProfilViewModel @Inject constructor(
     val events: Flow<ProfilEvent> = _events.receiveAsFlow()
 
     init {
+        viewModelScope.launch {
+            appLanguage.language.collect { language -> _state.update { it.copy(language = language) } }
+        }
         viewModelScope.launch {
             session.sessionState.collect { sessionState ->
                 _state.update { current ->
@@ -67,6 +74,9 @@ class ProfilViewModel @Inject constructor(
             }
         }
     }
+
+    /** Applies the language at once; the platform recreates the screen in the new language. */
+    fun onLanguageSelected(language: AppLanguage) = appLanguage.set(language)
 
     fun onSignOut() {
         if (_state.value.isSigningOut || _state.value.user == null) return

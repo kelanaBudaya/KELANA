@@ -27,7 +27,18 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
+import androidx.compose.foundation.layout.heightIn
+import androidx.compose.ui.semantics.Role
+import androidx.compose.ui.semantics.contentDescription
+import androidx.compose.ui.semantics.semantics
+import id.kelana.core.model.AppLanguage
+import id.kelana.core.ui.LanguageFlag
+import id.kelana.core.ui.LanguageSheet
+import id.kelana.core.ui.labelRes
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
@@ -58,6 +69,7 @@ internal fun MasukScreen(
     viewModel: MasukViewModel = hiltViewModel(),
 ) {
     val state by viewModel.state.collectAsState()
+    val language by viewModel.language.collectAsState()
     val context = LocalContext.current
     val helper = remember { GoogleCredentialHelper() }
 
@@ -80,6 +92,8 @@ internal fun MasukScreen(
         onGuestClick = viewModel::onGuestClick,
         onEmailClick = onEmail,
         onDaftarClick = onDaftar,
+        language = language,
+        onLanguage = viewModel::onLanguageSelected,
     )
 }
 
@@ -91,8 +105,21 @@ internal fun MasukContent(
     onGuestClick: () -> Unit,
     onEmailClick: () -> Unit = {},
     onDaftarClick: () -> Unit = {},
+    language: AppLanguage = AppLanguage.ID,
+    onLanguage: (AppLanguage) -> Unit = {},
 ) {
     val colors = KelanaTheme.colors
+    var showLanguageSheet by rememberSaveable { mutableStateOf(false) }
+    if (showLanguageSheet) {
+        LanguageSheet(
+            selected = language,
+            onSelect = {
+                onLanguage(it)
+                showLanguageSheet = false
+            },
+            onDismiss = { showLanguageSheet = false },
+        )
+    }
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -164,7 +191,32 @@ internal fun MasukContent(
                 .clickable(onClick = onGuestClick)
                 .padding(horizontal = 16.dp, vertical = 8.dp),
         )
-        Spacer(Modifier.height(16.dp))
+        LanguageLink(language = language, onClick = { showLanguageSheet = true })
+        Spacer(Modifier.height(8.dp))
+    }
+}
+
+/** Quiet tertiary row: current flag, language name and a chevron. Opens the shared language sheet. */
+@Composable
+private fun LanguageLink(language: AppLanguage, onClick: () -> Unit) {
+    val colors = KelanaTheme.colors
+    val description = stringResource(R.string.masuk_language_description)
+    Row(
+        modifier = Modifier
+            .heightIn(min = 48.dp)
+            .clickable(role = Role.Button, onClick = onClick)
+            .semantics { contentDescription = description }
+            .padding(horizontal = 16.dp),
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.spacedBy(KelanaSpacing.sm),
+    ) {
+        LanguageFlag(language)
+        Text(
+            text = stringResource(language.labelRes()),
+            style = MaterialTheme.typography.bodySmall.copy(fontWeight = androidx.compose.ui.text.font.FontWeight.Bold),
+            color = colors.muted,
+        )
+        Image(painter = painterResource(R.drawable.akun_ic_chevron), contentDescription = null, modifier = Modifier.size(14.dp))
     }
 }
 

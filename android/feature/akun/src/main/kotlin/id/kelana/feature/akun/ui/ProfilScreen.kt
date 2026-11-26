@@ -29,6 +29,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
@@ -55,7 +58,11 @@ import id.kelana.core.designsystem.theme.KelanaShapes
 import id.kelana.core.designsystem.theme.KelanaSizes
 import id.kelana.core.designsystem.theme.KelanaSpacing
 import id.kelana.core.designsystem.theme.KelanaTheme
+import id.kelana.core.model.AppLanguage
 import id.kelana.core.model.SessionUser
+import id.kelana.core.ui.LanguageSheet
+import id.kelana.core.ui.flagRes
+import id.kelana.core.ui.labelRes
 import id.kelana.feature.akun.R
 
 @Composable
@@ -85,6 +92,7 @@ internal fun ProfilScreen(
         onMasuk = onMasuk,
         onSignOut = viewModel::onSignOut,
         onNotifikasi = onNotifikasi,
+        onLanguage = viewModel::onLanguageSelected,
         onHapusAkun = onHapusAkun,
     )
 }
@@ -103,8 +111,20 @@ internal fun ProfilContent(
     onSignOut: () -> Unit,
     onNotifikasi: () -> Unit = {},
     onHapusAkun: () -> Unit = {},
+    onLanguage: (AppLanguage) -> Unit = {},
 ) {
     val colors = KelanaTheme.colors
+    var showLanguageSheet by rememberSaveable { mutableStateOf(false) }
+    if (showLanguageSheet) {
+        LanguageSheet(
+            selected = state.language,
+            onSelect = {
+                onLanguage(it)
+                showLanguageSheet = false
+            },
+            onDismiss = { showLanguageSheet = false },
+        )
+    }
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -121,7 +141,11 @@ internal fun ProfilContent(
             ) {
                 CircularProgressIndicator(color = colors.primary)
             }
-            state.isGuest -> GuestBody(onMasuk = onMasuk)
+            state.isGuest -> GuestBody(
+                language = state.language,
+                onMasuk = onMasuk,
+                onLanguage = { showLanguageSheet = true },
+            )
             else -> SignedInBody(
                 state = state,
                 onPaspor = onPaspor,
@@ -129,6 +153,7 @@ internal fun ProfilContent(
                 onSignOut = onSignOut,
                 onNotifikasi = onNotifikasi,
                 onHapusAkun = onHapusAkun,
+                onLanguage = { showLanguageSheet = true },
             )
         }
     }
@@ -213,9 +238,9 @@ private fun ProfilHeader(state: ProfilUiState, onBack: () -> Unit) {
 }
 
 @Composable
-private fun GuestBody(onMasuk: () -> Unit) {
+private fun GuestBody(language: AppLanguage, onMasuk: () -> Unit, onLanguage: () -> Unit) {
     Column(
-        modifier = Modifier.padding(KelanaSpacing.gutterWide),
+        modifier = Modifier.padding(KelanaSpacing.gutterWide).navigationBarsPadding(),
         verticalArrangement = Arrangement.spacedBy(KelanaSpacing.lg),
     ) {
         Text(
@@ -230,6 +255,10 @@ private fun GuestBody(onMasuk: () -> Unit) {
             onClick = onMasuk,
             modifier = Modifier.fillMaxWidth(),
         )
+        Column {
+            SectionLabel(R.string.profil_section_pengaturan, topPadding = 0.dp)
+            LanguageRow(language, onLanguage)
+        }
     }
 }
 
@@ -241,6 +270,7 @@ private fun SignedInBody(
     onSignOut: () -> Unit,
     onNotifikasi: () -> Unit,
     onHapusAkun: () -> Unit,
+    onLanguage: () -> Unit,
 ) {
     Column(
         modifier = Modifier
@@ -264,6 +294,9 @@ private fun SignedInBody(
             R.string.profil_row_notifikasi_sub,
             onClick = onNotifikasi,
         )
+
+        SectionLabel(R.string.profil_section_pengaturan, topPadding = 16.dp)
+        LanguageRow(state.language, onLanguage)
 
         SectionLabel(R.string.profil_section_bantuan, topPadding = 16.dp)
         ProfilRow(R.drawable.akun_ic_cara, R.string.profil_row_cara, R.string.profil_row_cara_sub)
@@ -301,6 +334,12 @@ private fun SectionLabel(@StringRes text: Int, topPadding: Dp) {
         color = KelanaTheme.colors.muted,
         modifier = Modifier.padding(top = topPadding, bottom = 6.dp),
     )
+}
+
+/** Pengaturan > Bahasa: shows the current choice and opens the language sheet. */
+@Composable
+private fun LanguageRow(language: AppLanguage, onClick: () -> Unit) {
+    ProfilRow(language.flagRes(), R.string.profil_row_bahasa, language.labelRes(), onClick = onClick)
 }
 
 /** One list row (artifact: 60 dp min, 40 dp warm icon tile, title 15/700, subtitle 12, chevron). [onClick] null = inert. */
