@@ -16,12 +16,15 @@ import id.kelana.core.model.ReminderChoice
 import id.kelana.feature.rencana.domain.ClosedStop
 import id.kelana.feature.rencana.domain.PlanRepository
 import kotlinx.coroutines.CancellationException
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
 import java.time.Clock
@@ -39,13 +42,15 @@ data class RencanaUiState(
     /** The plan shown: today's day, or the next planned day when nothing is planned for today. Null means empty state. */
     val plan: DayPlan? = null,
     val companion: TravelGroup? = null,
-    /** Stops that current official facts say are closed. Always empty offline (re-planning needs the server). */
+    /** Stops that current official facts say are closed (cached facts, so also offline). */
     val closedStops: List<ClosedStop> = emptyList(),
     val reminders: Map<String, ReminderChoice> = emptyMap(),
     /** First show of today that starts in the evening, for the empty state card. */
     val tonight: EventOccurrence? = null,
     /** Places added with "Masuk rencana", oldest first. Shown in the empty state in place of "Ranselmu masih kosong". */
     val backpack: List<Place> = emptyList(),
+    /** Loading the plan failed unexpectedly: the tab shows an error with retry. */
+    val loadError: Boolean = false,
 ) {
     val isToday: Boolean get() = plan?.date == today
 
@@ -55,8 +60,9 @@ data class RencanaUiState(
 }
 
 /**
- * Rencana tab. "Today" and "now" come from [clock] (read when the state is built, not ticking). The cached plan is
- * read without signal; the closed-place check reads cached official facts and is skipped offline.
+ * Rencana tab. "Today" and "now" come from [clock] (read when the state is built, not ticking). The cached plan and
+ * the closed-place check (cached official facts) work without signal; [RencanaUiState.isOffline] only drives a
+ * non-blocking status banner. An upstream failure sets [RencanaUiState.loadError]; [retry] subscribes again.
  */
 @HiltViewModel
 class RencanaViewModel(
@@ -77,32 +83,54 @@ class RencanaViewModel(
         backpackStore: PlanBackpackRepository,
     ) : this(plans, events, connectivity, places, backpackStore, Clock.system(ZoneId.of("Asia/Jakarta")))
 
-    val uiState: StateFlow<RencanaUiState> = combine(
-        plans.trip,
-        connectivity.isOnline,
-        plans.reminders,
-        tonightFlow(),
-        backpackFlow(),
-    ) { trip, online, reminders, tonight, backpack ->
-        val today = LocalDate.now(clock)
-        val day = trip?.days?.firstOrNull { it.date == today } ?: trip?.days?.firstOrNull { it.date.isAfter(today) }
-        RencanaUiState(
-            isLoading = false,
-            today = today,
-            now = LocalTime.now(clock),
-            isOffline = !online,
-            plan = day,
-            companion = trip?.choices?.companion,
-            closedStops = if (day != null && online) plans.closedStops(day.date) else emptyList(),
-            reminders = reminders,
-            tonight = tonight,
-            backpack = backpack,
-        )
+    private val retryTrigger = MutableStateFlow(0)
+
+    @OptIn(ExperimentalCoroutinesApi::class)
+    val uiState: StateFlow<RencanaUiState> = retryTrigger.flatMapLatest {
+        combine(
+            plans.trip,
+            connectivity.isOnline,
+            plans.reminders,
+            tonightFlow(),
+            backpackFlow(),
+        ) { trip, online, reminders, tonight, backpack ->
+            val today = LocalDate.now(clock)
+            val day = trip?.days?.firstOrNull { it.date == today } ?: trip?.days?.firstOrNull { it.date.isAfter(today) }
+            RencanaUiState(
+                isLoading = false,
+                today = today,
+                now = LocalTime.now(clock),
+                isOffline = !online,
+                plan = day,
+                companion = trip?.choices?.companion,
+                closedStops = if (day != null) closedStopsOrEmpty(day.date) else emptyList(),
+                reminders = reminders,
+                tonight = tonight,
+                backpack = backpack,
+            )
+        }.catch { e ->
+            if (e is CancellationException) throw e
+            emit(RencanaUiState(isLoading = false, today = LocalDate.now(clock), now = LocalTime.now(clock), loadError = true))
+        }
     }.stateIn(
         scope = viewModelScope,
         started = SharingStarted.WhileSubscribed(5_000),
         initialValue = RencanaUiState(today = LocalDate.now(clock), now = LocalTime.now(clock)),
     )
+
+    /** "Coba lagi" on the load error: subscribes to the plan again. */
+    fun retry() {
+        retryTrigger.value += 1
+    }
+
+    /** A failing closed-place check is not fatal: the tab just shows no closed prompt. */
+    private suspend fun closedStopsOrEmpty(date: LocalDate): List<ClosedStop> = try {
+        plans.closedStops(date)
+    } catch (e: CancellationException) {
+        throw e
+    } catch (_: Exception) {
+        emptyList()
+    }
 
     /** Added places in the order they were added; an id whose place is not known (any more) is skipped. */
     private fun backpackFlow(): Flow<List<Place>> =

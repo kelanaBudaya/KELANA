@@ -87,6 +87,7 @@ internal fun RencanaScreen(navigate: (Any) -> Unit, viewModel: RencanaViewModel 
         onOpenEvent = { navigate(DetailPentasRoute(it)) },
         onOpenPlace = { navigate(DetailTempatRoute(it)) },
         onRemoveFromBackpack = viewModel::removeFromBackpack,
+        onRetry = viewModel::retry,
     )
 }
 
@@ -103,9 +104,20 @@ internal fun RencanaContent(
     modifier: Modifier = Modifier,
     onOpenPlace: (String) -> Unit = {},
     onRemoveFromBackpack: (String) -> Unit = {},
+    onRetry: () -> Unit = {},
 ) {
     val colors = KelanaTheme.colors
     val plan = state.plan
+    if (state.loadError) {
+        RencanaStatusContent(
+            title = stringResource(R.string.rencana_loaderror_title),
+            body = stringResource(R.string.rencana_loaderror_body),
+            primaryText = stringResource(R.string.rencana_retry),
+            onPrimary = onRetry,
+            modifier = modifier,
+        )
+        return
+    }
     LazyColumn(
         modifier = modifier
             .fillMaxSize()
@@ -123,20 +135,12 @@ internal fun RencanaContent(
             return@LazyColumn
         }
         if (plan == null) {
+            if (state.isOffline) item { OfflineBanner() }
             item { EmptyPlan(state, onEdit, onOpenEvent, onOpenPlace, onRemoveFromBackpack) }
             return@LazyColumn
         }
         item { PlanHeader(state, onEdit) }
-        if (state.isOffline) {
-            item {
-                RencanaBanner(
-                    text = stringResource(R.string.rencana_offline_banner),
-                    iconRes = R.drawable.rencana_info,
-                    tone = RencanaTone.Sky,
-                    modifier = Modifier.padding(start = 16.dp, end = 16.dp, top = 12.dp),
-                )
-            }
-        }
+        if (state.isOffline) item { OfflineBanner() }
         state.closedStops.firstOrNull()?.let { closed ->
             item { ClosedPrompt(closed, onOpenClosed, Modifier.padding(start = 16.dp, end = 16.dp, top = 12.dp)) }
         }
@@ -183,24 +187,18 @@ internal fun RencanaContent(
                 )
             }
         }
-        if (plan.skipped.isNotEmpty()) {
-            item {
-                Column(Modifier.padding(start = 20.dp, end = 20.dp, top = 20.dp), verticalArrangement = Arrangement.spacedBy(4.dp)) {
-                    Text(
-                        stringResource(R.string.rencana_skipped_title),
-                        style = MaterialTheme.typography.titleSmall.copy(fontWeight = FontWeight.ExtraBold),
-                        color = colors.ink,
-                    )
-                    plan.skipped.forEach { skipped ->
-                        val reason = stringResource(skipReasonRes(skipped.reason))
-                        SmallFact(
-                            if (skipped.detail != null) "${skipped.placeName}: $reason (${skipped.detail})" else "${skipped.placeName}: $reason",
-                        )
-                    }
-                }
-            }
-        }
     }
+}
+
+/** Non-blocking offline status: building and re-planning still work from the on-device cache. */
+@Composable
+private fun OfflineBanner() {
+    RencanaBanner(
+        text = stringResource(R.string.rencana_offline_banner),
+        iconRes = R.drawable.rencana_info,
+        tone = RencanaTone.Sky,
+        modifier = Modifier.padding(start = 16.dp, end = 16.dp, top = 12.dp),
+    )
 }
 
 private fun formatClockText(time: LocalTime): String = formatClock(time)
@@ -611,95 +609,6 @@ private fun TonightCard(occurrence: EventOccurrence, onOpen: (String) -> Unit) {
 }
 
 // ---------------------------------------------------------------------------------------------------------------
-// TanpaInternetIlustratif.dc.html
-// ---------------------------------------------------------------------------------------------------------------
-
-@Composable
-internal fun RencanaOfflineScreen(
-    onOpenPlan: () -> Unit,
-    onOpenPaspor: () -> Unit,
-    viewModel: RencanaViewModel = hiltViewModel(),
-) {
-    val state by viewModel.uiState.collectAsState()
-    RencanaOfflineContent(hasPlan = state.plan != null, onOpenPlan = onOpenPlan, onOpenPaspor = onOpenPaspor)
-}
-
-@Composable
-internal fun RencanaOfflineContent(hasPlan: Boolean, onOpenPlan: () -> Unit, onOpenPaspor: () -> Unit) {
-    val colors = KelanaTheme.colors
-    Column(
-        modifier = Modifier.fillMaxSize().background(colors.background).statusBarsPadding(),
-    ) {
-        Box(
-            modifier = Modifier
-                .padding(start = 16.dp, end = 16.dp, top = 70.dp)
-                .fillMaxWidth()
-                .height(280.dp)
-                .clip(KelanaShapes.imagePanel)
-                .background(colors.backgroundWarm),
-        ) {
-            ArtBlob(R.drawable.rencana_offline_blob)
-            ArtMark(R.drawable.rencana_art_route, 90, 50, 50, -10f)
-            ArtMark(R.drawable.rencana_art_bookmark, 64, 230, 60, 8f)
-            ArtMark(R.drawable.rencana_veh_walk, 40, 170, 180, 190f)
-        }
-        Text(
-            stringResource(R.string.rencana_offline_title),
-            modifier = Modifier.fillMaxWidth().padding(start = 24.dp, end = 24.dp, top = 26.dp),
-            textAlign = TextAlign.Center,
-            style = MaterialTheme.typography.headlineMedium,
-            color = colors.ink,
-        )
-        Text(
-            stringResource(if (hasPlan) R.string.rencana_offline_body else R.string.rencana_offline_body_no_plan),
-            modifier = Modifier.fillMaxWidth().padding(start = 28.dp, end = 28.dp, top = 8.dp),
-            textAlign = TextAlign.Center,
-            style = MaterialTheme.typography.bodyLarge.copy(fontSize = 15.sp, lineHeight = 23.sp),
-            color = colors.muted,
-        )
-        Column(Modifier.padding(start = 20.dp, end = 20.dp, top = 16.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
-            if (hasPlan) {
-                OfflineLink(R.drawable.rencana_art_route, colors.skyText, stringResource(R.string.rencana_offline_link_plan), stringResource(R.string.rencana_offline_link_plan_hint), onOpenPlan)
-            }
-            OfflineLink(R.drawable.rencana_check, colors.successSurface, stringResource(R.string.rencana_offline_link_paspor), stringResource(R.string.rencana_offline_link_paspor_hint), onOpenPaspor)
-        }
-        Text(
-            stringResource(R.string.rencana_offline_stamp_note),
-            modifier = Modifier.fillMaxWidth().padding(start = 24.dp, end = 24.dp, top = 14.dp),
-            textAlign = TextAlign.Center,
-            style = MaterialTheme.typography.labelMedium.copy(fontWeight = FontWeight.Normal),
-            color = colors.muted,
-        )
-    }
-}
-
-@Composable
-private fun OfflineLink(art: Int, tile: Color, title: String, hint: String, onClick: () -> Unit) {
-    val colors = KelanaTheme.colors
-    val shape = RoundedCornerShape(20.dp)
-    Row(
-        modifier = Modifier
-            .fillMaxWidth()
-            .clip(shape)
-            .background(colors.surface)
-            .border(1.dp, colors.outline, shape)
-            .clickable(role = Role.Button, onClick = onClick)
-            .padding(12.dp),
-        verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.spacedBy(12.dp),
-    ) {
-        Box(Modifier.size(KelanaSizes.listThumb).clip(KelanaShapes.card).background(tile), contentAlignment = Alignment.Center) {
-            Image(painterResource(art), contentDescription = null, modifier = Modifier.size(40.dp))
-        }
-        Column(Modifier.weight(1f), verticalArrangement = Arrangement.spacedBy(3.dp)) {
-            Text(title, style = MaterialTheme.typography.titleMedium, color = colors.ink)
-            Text(hint, style = MaterialTheme.typography.bodySmall, color = colors.muted)
-        }
-        Image(painterResource(R.drawable.rencana_ic_chevron), contentDescription = null, modifier = Modifier.size(18.dp), colorFilter = ColorFilter.tint(colors.muted))
-    }
-}
-
-// ---------------------------------------------------------------------------------------------------------------
 // Previews (PROVISIONAL sample data, never shown in the app)
 // ---------------------------------------------------------------------------------------------------------------
 
@@ -715,9 +624,13 @@ private fun OfflinePlanPreview() = KelanaTheme { RencanaContent(PreviewRencana.f
 @Composable
 private fun EmptyPreview() = KelanaTheme { RencanaContent(PreviewRencana.empty(), {}, {}, {}, {}, {}, {}) }
 
+@Preview(showBackground = true, widthDp = 390, heightDp = 1000)
+@Composable
+private fun OfflineEmptyPreview() = KelanaTheme { RencanaContent(PreviewRencana.empty().copy(isOffline = true), {}, {}, {}, {}, {}, {}) }
+
 @Preview(showBackground = true, widthDp = 390, heightDp = 844)
 @Composable
-private fun OfflineScreenPreview() = KelanaTheme { RencanaOfflineContent(hasPlan = true, {}, {}) }
+private fun LoadErrorPreview() = KelanaTheme { RencanaContent(PreviewRencana.empty().copy(loadError = true), {}, {}, {}, {}, {}, {}) }
 
 @Preview(showBackground = true, widthDp = 390, heightDp = 400)
 @Composable

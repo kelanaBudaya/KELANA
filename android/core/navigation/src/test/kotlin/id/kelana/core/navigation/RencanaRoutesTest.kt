@@ -20,7 +20,6 @@ class RencanaRoutesTest {
         roundTrip(SusunKendaraanRoute.serializer(), SusunKendaraanRoute)
         roundTrip(SusunKebutuhanRoute.serializer(), SusunKebutuhanRoute)
         roundTrip(MenyusunRoute.serializer(), MenyusunRoute)
-        roundTrip(RencanaOfflineRoute.serializer(), RencanaOfflineRoute)
         roundTrip(PetaRuteRoute.serializer(), PetaRuteRoute)
         roundTrip(PengingatRoute.serializer(), PengingatRoute("roro-jonggrang-jumat"))
         roundTrip(TempatTutupRoute.serializer(), TempatTutupRoute("keraton-yogyakarta", "2026-11-20"))

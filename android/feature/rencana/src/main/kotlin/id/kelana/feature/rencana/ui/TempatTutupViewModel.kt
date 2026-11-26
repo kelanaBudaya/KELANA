@@ -5,16 +5,14 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
-import id.kelana.core.model.ConnectivityMonitor
 import id.kelana.core.model.PlanStop
 import id.kelana.feature.rencana.domain.Availability
 import id.kelana.feature.rencana.domain.PlanRepository
 import id.kelana.feature.rencana.domain.ReplanOutcome
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.SharingStarted
+import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.combine
-import kotlinx.coroutines.flow.stateIn
+import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import java.time.LocalDate
@@ -24,14 +22,17 @@ import javax.inject.Inject
 enum class ClosedResolution { ReplaceWithOther, MoveToOtherDay, Remove }
 
 /** What the screen does next. */
-enum class TempatTutupOutcome { Done, GoToWizard, GoOffline }
+enum class TempatTutupOutcome { Done, GoToWizard }
 
 @Immutable
 data class TempatTutupUiState(
     val isLoading: Boolean = true,
     /** The place is not (or no longer) closed in the plan: the screen just leaves. */
     val notFound: Boolean = false,
-    val isOffline: Boolean = false,
+    /** Loading the closed stop or its replacement threw: the screen shows an error with retry. */
+    val loadError: Boolean = false,
+    /** Applying threw or failed: the screen shows an inline banner and keeps the apply button enabled. */
+    val applyError: Boolean = false,
     val stop: PlanStop? = null,
     val availability: Availability? = null,
     /** What the builder offers instead, or null when nothing else fits. */
@@ -42,53 +43,60 @@ data class TempatTutupUiState(
 )
 
 /**
- * Live re-plan prompt for one closed place of the plan of [date]. Offline, the screen shows the offline state: re-planning
- * needs the server (AGENTS.md). Detection and the preview read cached facts only.
+ * Live re-plan prompt for one closed place of the plan of [date]. Detection, the preview and applying all work offline
+ * from cached data (AGENTS.md); a thrown error shows [TempatTutupUiState.loadError] or [TempatTutupUiState.applyError].
  */
 @HiltViewModel
 class TempatTutupViewModel(
     private val plans: PlanRepository,
-    connectivity: ConnectivityMonitor,
     private val placeId: String,
     private val date: LocalDate?,
 ) : ViewModel() {
 
     /** Route arguments are stored in the handle under the field names of `TempatTutupRoute`. */
     @Inject
-    constructor(plans: PlanRepository, connectivity: ConnectivityMonitor, savedStateHandle: SavedStateHandle) :
+    constructor(plans: PlanRepository, savedStateHandle: SavedStateHandle) :
         this(
             plans,
-            connectivity,
             savedStateHandle.get<String>("placeId").orEmpty(),
             parseIsoDate(savedStateHandle.get<String>("date")),
         )
 
     private val local = MutableStateFlow(TempatTutupUiState())
-
-    val uiState: StateFlow<TempatTutupUiState> = combine(local, connectivity.isOnline) { state, online ->
-        state.copy(isOffline = !online)
-    }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), TempatTutupUiState())
+    val uiState: StateFlow<TempatTutupUiState> = local.asStateFlow()
 
     init {
         viewModelScope.launch { load() }
     }
 
+    /** "Coba lagi" on the load error. */
+    fun retryLoad() {
+        local.update { it.copy(isLoading = true, loadError = false) }
+        viewModelScope.launch { load() }
+    }
+
     private suspend fun load() {
         val day = date
-        val closed = day?.let { plans.closedStops(it).firstOrNull { c -> c.stop.placeId == placeId } }
-        if (day == null || closed == null) {
-            local.update { it.copy(isLoading = false, notFound = true) }
-            return
-        }
-        val replacement = plans.previewReplacement(day, placeId)
-        local.update {
-            it.copy(
-                isLoading = false,
-                stop = closed.stop,
-                availability = closed.availability,
-                replacement = replacement,
-                selected = if (replacement != null) ClosedResolution.ReplaceWithOther else ClosedResolution.Remove,
-            )
+        try {
+            val closed = day?.let { plans.closedStops(it).firstOrNull { c -> c.stop.placeId == placeId } }
+            if (day == null || closed == null) {
+                local.update { it.copy(isLoading = false, notFound = true) }
+                return
+            }
+            val replacement = plans.previewReplacement(day, placeId)
+            local.update {
+                it.copy(
+                    isLoading = false,
+                    stop = closed.stop,
+                    availability = closed.availability,
+                    replacement = replacement,
+                    selected = if (replacement != null) ClosedResolution.ReplaceWithOther else ClosedResolution.Remove,
+                )
+            }
+        } catch (e: CancellationException) {
+            throw e
+        } catch (_: Exception) {
+            local.update { it.copy(isLoading = false, loadError = true) }
         }
     }
 
@@ -106,17 +114,21 @@ class TempatTutupViewModel(
             local.update { it.copy(outcome = TempatTutupOutcome.GoToWizard) }
             return
         }
-        local.update { it.copy(isApplying = true) }
+        local.update { it.copy(isApplying = true, applyError = false) }
         viewModelScope.launch {
-            val result = plans.applyReplan(day, placeId, replace = state.selected == ClosedResolution.ReplaceWithOther)
+            val result = try {
+                plans.applyReplan(day, placeId, replace = state.selected == ClosedResolution.ReplaceWithOther)
+            } catch (e: CancellationException) {
+                throw e
+            } catch (_: Exception) {
+                ReplanOutcome.Failed
+            }
             local.update {
-                it.copy(
-                    isApplying = false,
-                    outcome = when (result) {
-                        is ReplanOutcome.Applied, ReplanOutcome.NotFound -> TempatTutupOutcome.Done
-                        ReplanOutcome.Offline -> TempatTutupOutcome.GoOffline
-                    },
-                )
+                when (result) {
+                    is ReplanOutcome.Applied, ReplanOutcome.NotFound ->
+                        it.copy(isApplying = false, outcome = TempatTutupOutcome.Done)
+                    ReplanOutcome.Failed -> it.copy(isApplying = false, applyError = true)
+                }
             }
         }
     }

@@ -3,10 +3,13 @@ package id.kelana.feature.rencana.ui
 import id.kelana.core.model.Interest
 import id.kelana.core.model.Pace
 import id.kelana.core.model.PlaceCategory
+import id.kelana.core.model.PlanChoices
 import id.kelana.core.model.SpecialNeed
 import id.kelana.core.model.TravelGroup
 import id.kelana.core.model.Vehicle
+import id.kelana.feature.rencana.domain.BuildResult
 import id.kelana.feature.rencana.domain.PlanBuilder
+import id.kelana.feature.rencana.domain.PlanRepository
 import id.kelana.feature.rencana.domain.hoursFacts
 import id.kelana.feature.rencana.domain.place
 import kotlinx.coroutines.test.runTest
@@ -29,7 +32,7 @@ class SusunViewModelTest {
     private val cache = FakeCache()
     private val connectivity = FakeConnectivity()
 
-    private fun viewModel() = SusunViewModel(repo(places, FakeEvents(emptyList()), cache, connectivity), connectivity, TestClock, stageDelayMs = 0)
+    private fun viewModel() = SusunViewModel(repo(places, FakeEvents(emptyList()), cache), connectivity, TestClock, stageDelayMs = 0)
 
     private fun SusunViewModel.fillAnswers() {
         selectCompanion(TravelGroup.Solo)
@@ -175,14 +178,6 @@ class SusunViewModelTest {
     }
 
     @Test
-    fun canBuildNowFollowsConnectivity() {
-        val vm = viewModel()
-        assertTrue(vm.canBuildNow())
-        connectivity.state.value = false
-        assertFalse(vm.canBuildNow())
-    }
-
-    @Test
     fun buildWithMissingAnswersDoesNothing() {
         val vm = viewModel()
         vm.startBuild()
@@ -208,13 +203,54 @@ class SusunViewModelTest {
     }
 
     @Test
-    fun buildOfflineReportsOfflineAndChangesNothing() = runTest {
+    fun buildOfflineBuildsFromCache() = runTest {
         val vm = viewModel()
         vm.fillAnswers()
         connectivity.state.value = false
         vm.startBuild()
-        assertEquals(BuildOutcome.Offline, vm.uiState.value.outcome)
+        assertEquals(BuildOutcome.Built, vm.uiState.value.outcome)
+        assertNotNull(cache.tripState.value)
+    }
+
+    @Test
+    fun buildFailureReportsFailed() = runTest {
+        val throwing = object : PlanRepository by repo(places, FakeEvents(emptyList()), cache) {
+            override suspend fun build(choices: PlanChoices): BuildResult = throw IllegalStateException("boom")
+        }
+        val vm = SusunViewModel(throwing, connectivity, TestClock, stageDelayMs = 0)
+        vm.fillAnswers()
+        vm.startBuild()
+        assertEquals(BuildOutcome.Failed, vm.uiState.value.outcome)
+        assertFalse(vm.uiState.value.isBuilding)
         assertNull(cache.tripState.value)
+    }
+
+    @Test
+    fun noDataRemembersOfflineForCopy() = runTest {
+        val empty = FakePlaces(emptyList())
+        val vm = SusunViewModel(repo(empty, FakeEvents(emptyList()), cache), connectivity, TestClock, stageDelayMs = 0)
+        vm.fillAnswers()
+        vm.startBuild()
+        assertEquals(BuildOutcome.NoData, vm.uiState.value.outcome)
+        assertFalse(vm.uiState.value.outcomeOffline)
+        vm.consumeOutcome()
+        connectivity.state.value = false
+        vm.startBuild()
+        assertEquals(BuildOutcome.NoData, vm.uiState.value.outcome)
+        assertTrue(vm.uiState.value.outcomeOffline)
+    }
+
+    @Test
+    fun retryBuildRunsAgain() = runTest {
+        val late = FakePlaces(emptyList())
+        val vm = SusunViewModel(repo(late, FakeEvents(emptyList()), cache), connectivity, TestClock, stageDelayMs = 0)
+        vm.fillAnswers()
+        vm.startBuild()
+        assertEquals(BuildOutcome.NoData, vm.uiState.value.outcome)
+        late.all = places.all
+        vm.retryBuild()
+        assertEquals(BuildOutcome.Built, vm.uiState.value.outcome)
+        assertNotNull(cache.tripState.value)
     }
 
     @Test
