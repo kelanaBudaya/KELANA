@@ -70,4 +70,9 @@
     <string name="laporkan_sent_title">Terima kasih, laporanmu sampai</string>
     <string name="laporkan_sent_body">Tim kami mencocokkannya dengan sumber resmi. Hasilnya kami kabari lewat notifikasi.</string>
     <string name="laporkan_sent_back">Kembali ke %1$s</string>
+    <string name="tempat_events_title">Pertunjukan di sini</string>
+    <string name="tempat_events_daily">Setiap hari · %1$s</string>
+    <string name="tempat_events_weekly">Setiap %1$s · %2$s</string>
+    <string name="tempat_events_once">%1$s · %2$s</string>
+    <string name="tempat_events_price_from">mulai %1$s</string>
 </resources>

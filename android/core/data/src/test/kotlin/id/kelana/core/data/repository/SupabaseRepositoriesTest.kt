@@ -159,6 +159,16 @@ class SupabaseRepositoriesTest {
     }
 
     @Test
+    fun eventsAt_returnsOnlyEventsOfThatPlace() = runTest {
+        val remote = FakeRemote().apply {
+            events = EventsPayload(events = listOf(eventDto(weekday = 5)), closures = emptyList())
+        }
+        val repo = eventRepo(remote)
+        assertEquals(listOf("e1"), repo.eventsAt("p1").first().map { it.id })
+        assertTrue(repo.eventsAt("other").first().isEmpty())
+    }
+
+    @Test
     fun events_onceAndDaily_orderedByDateThenStart() = runTest {
         val remote = FakeRemote().apply {
             events = EventsPayload(

@@ -115,6 +115,9 @@ class SupabaseEventRepository internal constructor(
     override fun event(id: String): Flow<Event?> =
         rows.map { r -> r.events.firstOrNull { it.id == id }?.toEvent() }.distinctUntilChanged()
 
+    override fun eventsAt(placeId: String): Flow<List<Event>> =
+        rows.map { r -> r.events.mapNotNull { it.toEvent() }.filter { it.placeId == placeId } }.distinctUntilChanged()
+
     private suspend fun refresh() {
         val payload = remote.fetchEvents()
         dao.replaceAll(

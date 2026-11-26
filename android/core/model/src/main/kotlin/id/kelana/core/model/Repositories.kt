@@ -1,6 +1,7 @@
 package id.kelana.core.model
 
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.map
 import java.time.LocalDate
 
 interface PlaceRepository {
@@ -25,6 +26,18 @@ interface EventRepository {
 
     /** Null when no event has this id. */
     fun event(id: String): Flow<Event?>
+
+    /**
+     * Events hosted at the place [placeId], any recurrence (past one-time events included: the caller filters by
+     * date). The default derives them from [eventsBetween] over the next year; implementations backed by a store
+     * should override it with a direct query.
+     */
+    fun eventsAt(placeId: String): Flow<List<Event>> {
+        val from = LocalDate.now()
+        return eventsBetween(from, from.plusDays(365)).map { list ->
+            list.filter { it.event.placeId == placeId }.map { it.event }.distinctBy { it.id }
+        }
+    }
 }
 
 interface RegionRepository {
