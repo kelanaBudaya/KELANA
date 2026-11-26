@@ -214,10 +214,24 @@ class TiketRowRulesTest {
 
     @Test
     fun `all four on site and seller combinations`() {
-        assertEquals(RowPresentation(TiketNote.AlsoAtCounter, true), rowPresentation(true, url))
-        assertEquals(RowPresentation(TiketNote.BuyAtCounter, false), rowPresentation(true, null))
-        assertEquals(RowPresentation(null, true), rowPresentation(false, url))
-        assertEquals(RowPresentation(null, false), rowPresentation(false, null))
+        assertEquals(RowPresentation(TiketNote.AlsoAtCounter, true), rowPresentation(true, url, 50_000))
+        assertEquals(RowPresentation(TiketNote.BuyAtCounter, false), rowPresentation(true, null, 50_000))
+        assertEquals(RowPresentation(null, true), rowPresentation(false, url, 50_000))
+        assertEquals(RowPresentation(null, false), rowPresentation(false, null, 50_000))
+    }
+
+    @Test
+    fun `free entry never gets a counter note`() {
+        assertEquals(RowPresentation(null, true), rowPresentation(true, url, 0))
+        assertEquals(RowPresentation(null, false), rowPresentation(true, null, 0))
+        assertEquals(RowPresentation(null, false), rowPresentation(false, null, 0))
+        assertEquals(RowPresentation(null, true), rowPresentation(false, url, 0))
+    }
+
+    @Test
+    fun `unknown price is not free`() {
+        assertEquals(RowPresentation(TiketNote.BuyAtCounter, false), rowPresentation(true, null, null))
+        assertEquals(RowPresentation(TiketNote.AlsoAtCounter, true), rowPresentation(true, url, null))
     }
 
     private fun item(price: Long?, checked: LocalDate?) =

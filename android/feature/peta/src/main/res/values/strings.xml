@@ -5,7 +5,6 @@
     <string name="peta_filter_open_today">Buka hari ini</string>
     <string name="peta_filter_has_cap">Ada cap</string>
     <string name="peta_hint">Ketuk titik untuk melihat info tempat.</string>
-    <string name="peta_footnote">Peta dari OpenStreetMap.</string>
     <string name="peta_filter_no_match">Tidak ada tempat untuk filter ini. Pilih filter lain.</string>
     <string name="peta_card_hours_from">Buka %1$s</string>
     <string name="peta_card_hours_closed">Tutup hari ini</string>

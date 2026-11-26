@@ -261,7 +261,7 @@ private fun TiketRow(
 ) {
     val colors = KelanaTheme.colors
     val art = rowArt(item.category)
-    val presentation = rowPresentation(item.onSite, item.sellerUrl)
+    val presentation = rowPresentation(item.onSite, item.sellerUrl, visiblePrice(item))
     val url = item.sellerUrl.takeIf { presentation.opensSeller }
     val rowShape = KelanaShapes.listCard
     val openLabel = stringResource(R.string.tiket_open_action)

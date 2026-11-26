@@ -2,6 +2,9 @@ package id.kelana.core.ui.map
 
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.calculateEndPadding
+import androidx.compose.foundation.layout.calculateStartPadding
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.offset
 import androidx.compose.runtime.key
@@ -21,7 +24,10 @@ import androidx.compose.ui.graphics.Path
 import androidx.compose.ui.graphics.StrokeCap
 import androidx.compose.ui.graphics.StrokeJoin
 import androidx.compose.ui.graphics.drawscope.Stroke
+import androidx.compose.ui.layout.onSizeChanged
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.unit.LayoutDirection
+import androidx.compose.ui.unit.IntSize
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
@@ -32,7 +38,6 @@ import okhttp3.OkHttpClient
 import org.maplibre.android.MapLibre
 import org.maplibre.android.camera.CameraUpdateFactory
 import org.maplibre.android.geometry.LatLng
-import org.maplibre.android.geometry.LatLngBounds
 import org.maplibre.android.maps.MapLibreMap
 import org.maplibre.android.maps.MapView
 import org.maplibre.android.maps.Style
@@ -41,10 +46,20 @@ import org.maplibre.android.module.http.HttpRequestUtil
 /** Distance from the top of the pin column to the drop's tip (rotated square: centre + half diagonal). */
 private val TipOffset = PinTopInset + DropSize / 2 + DropSize * 0.7071f
 
-private const val MAP_PADDING_TOP_PX = 220
-private const val MAP_PADDING_SIDE_PX = 100
-private const val MAP_PADDING_BOTTOM_PX = 560
-private const val MIN_ZOOM = 8.0
+/** Side margin kept free of pins when framing. */
+private val FRAME_SIDE_MARGIN = 24.dp
+
+/** Default overlay room for screens that give no [contentPadding] (top bar, bottom card). */
+private val DefaultContentPadding = PaddingValues(top = 80.dp, bottom = 200.dp)
+
+/** Room a pin takes around its tip: the label hangs below it, the selected pin is scaled 1.12. */
+private val PinBelowTip = 24.dp
+
+/**
+ * Lowest zoom. Must be low enough to fit the widest region on a phone: Jawa Timur needs about 6.7 and Jawa Tengah 6.4, so
+ * a minimum of 8 (the old value) clamped the camera too close and pushed the outer pins off screen.
+ */
+private const val MIN_ZOOM = 5.0
 internal const val MAX_ZOOM = 18.0
 private const val CLUSTER_ANIM_MS = 350
 
@@ -55,7 +70,8 @@ internal val PinCollisionHeight = 72.dp
  * The OpenStreetMap view (MapLibre, bundled muted OpenFreeMap style, see [mutedStyleJson]) with one pin per marker, shared by every
  * screen that shows a map. Pins are Compose nodes laid over the map and repositioned from the map projection whenever
  * the camera moves, so they keep the design's marker look and accessibility semantics. The camera frames
- * [framedPoints] (lat, lng pairs) once. Markers are tappable only when [onMarkerTap] is given. When [routePath] (lat, lng
+ * [framedPoints] (lat, lng pairs) once, so that every pin (label included) is inside the view and clear of [contentPadding]
+ * (the room taken by overlays such as the top chips and the bottom card), measured from the map's own size. Markers are tappable only when [onMarkerTap] is given. When [routePath] (lat, lng
  * points, any number) has two or more points, a [routeColor] line follows it, under the pins. Pins whose boxes overlap are fanned out with leader lines ([MarkerOverlap.Spread], the default) or merged into tappable count bubbles ([MarkerOverlap.Cluster]). No location component is used:
  * the map shows places only (location is read only from "Ambil cap"). The credit is shown by [MapCreditDialog], reached from Profil.
  */
@@ -69,6 +85,7 @@ fun OsmMap(
     routePath: List<Pair<Double, Double>> = emptyList(),
     routeColor: Color = Color.Unspecified,
     overlap: MarkerOverlap = MarkerOverlap.Spread,
+    contentPadding: PaddingValues = DefaultContentPadding,
 ) {
     val context = LocalContext.current
     val density = LocalDensity.current
@@ -84,7 +101,29 @@ fun OsmMap(
     var sheetMembers by remember { mutableStateOf<List<MapMarker>?>(null) }
     var fitted by remember { mutableStateOf(false) }
     var routeScreenPoints by remember { mutableStateOf<List<Offset>>(emptyList()) }
+    var viewSize by remember { mutableStateOf(IntSize.Zero) }
+    val currentPadding by rememberUpdatedState(contentPadding)
     val currentMarkers by rememberUpdatedState(markers)
+
+    /** Camera that fits [points] in the measured map view, or null while it has no size yet. */
+    fun fitFor(points: List<Pair<Double, Double>>): CameraFit? {
+        if (viewSize.width <= 0 || viewSize.height <= 0) return null
+        val pad = currentPadding
+        val viewport = with(density) {
+            FramingViewport(
+                widthDp = viewSize.width.toDp().value.toDouble(),
+                heightDp = viewSize.height.toDp().value.toDouble(),
+                padLeftDp = (pad.calculateStartPadding(LayoutDirection.Ltr).coerceAtLeast(0.dp) + FRAME_SIDE_MARGIN).value.toDouble(),
+                padTopDp = pad.calculateTopPadding().value.toDouble(),
+                padRightDp = (pad.calculateEndPadding(LayoutDirection.Ltr).coerceAtLeast(0.dp) + FRAME_SIDE_MARGIN).value.toDouble(),
+                padBottomDp = pad.calculateBottomPadding().value.toDouble(),
+                pinHalfWidthDp = (PinWidth / 2).value.toDouble(),
+                pinAboveDp = (TipOffset + 4.dp).value.toDouble(),
+                pinBelowDp = PinBelowTip.value.toDouble(),
+            )
+        }
+        return fitCamera(points, viewport, MIN_ZOOM, MAX_ZOOM)
+    }
     val currentRoute by rememberUpdatedState(thinPath(routePath))
 
     fun refreshPoints() {
@@ -142,23 +181,13 @@ fun OsmMap(
         }
     }
 
-    // Frame the points once, when the map and the points are both ready.
-    LaunchedEffect(map, framedPoints.isNotEmpty()) {
+    // Frame the points once, when the map, the points and the measured size of the view are all ready.
+    val hasSize = viewSize.width > 0 && viewSize.height > 0
+    LaunchedEffect(map, framedPoints.isNotEmpty(), hasSize) {
         val m = map ?: return@LaunchedEffect
         if (fitted || framedPoints.isEmpty()) return@LaunchedEffect
-        val bounds = boundsOf(framedPoints) ?: return@LaunchedEffect
-        val update = if (bounds.isPoint()) {
-            CameraUpdateFactory.newLatLngZoom(LatLng(bounds.centerLat, bounds.centerLng), SINGLE_PLACE_ZOOM)
-        } else {
-            CameraUpdateFactory.newLatLngBounds(
-                LatLngBounds.Builder()
-                    .include(LatLng(bounds.north, bounds.east))
-                    .include(LatLng(bounds.south, bounds.west))
-                    .build(),
-                MAP_PADDING_SIDE_PX, MAP_PADDING_TOP_PX, MAP_PADDING_SIDE_PX, MAP_PADDING_BOTTOM_PX,
-            )
-        }
-        m.moveCamera(update)
+        val fit = fitFor(framedPoints) ?: return@LaunchedEffect
+        m.moveCamera(CameraUpdateFactory.newLatLngZoom(LatLng(fit.lat, fit.lng), fit.zoom))
         fitted = true
         refreshPoints()
     }
@@ -178,22 +207,13 @@ fun OsmMap(
             return
         }
         val m = map ?: return
-        val bounds = boundsOf(members.map { it.lat to it.lng }) ?: return
-        val update = if (bounds.isPoint()) {
-            CameraUpdateFactory.newLatLngZoom(LatLng(bounds.centerLat, bounds.centerLng), MAX_ZOOM)
-        } else {
-            CameraUpdateFactory.newLatLngBounds(
-                LatLngBounds.Builder()
-                    .include(LatLng(bounds.north, bounds.east))
-                    .include(LatLng(bounds.south, bounds.west))
-                    .build(),
-                MAP_PADDING_SIDE_PX, MAP_PADDING_TOP_PX, MAP_PADDING_SIDE_PX, MAP_PADDING_BOTTOM_PX,
-            )
-        }
+        val fit = fitFor(members.map { it.lat to it.lng }) ?: return
+        val zoom = if (boundsOf(members.map { it.lat to it.lng })?.isPoint() == true) MAX_ZOOM else fit.zoom
+        val update = CameraUpdateFactory.newLatLngZoom(LatLng(fit.lat, fit.lng), zoom)
         m.animateCamera(update, CLUSTER_ANIM_MS)
     }
 
-    Box(modifier.fillMaxSize().clipToBounds()) {
+    Box(modifier.fillMaxSize().clipToBounds().onSizeChanged { viewSize = it }) {
         AndroidView(factory = { mapView }, modifier = Modifier.fillMaxSize())
         if (routeScreenPoints.size >= 2) {
             Canvas(Modifier.fillMaxSize()) {
