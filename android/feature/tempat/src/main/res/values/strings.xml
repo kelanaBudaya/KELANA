@@ -6,7 +6,7 @@
     <string name="tempat_open_map">Buka di Google Maps</string>
     <string name="tempat_unsave">Hapus dari simpanan</string>
     <string name="tempat_header_cover">Ilustrasi sampul %1$s</string>
-    <string name="tempat_photos_chip">Lihat %1$d foto resmi</string>
+    <string name="tempat_photos_chip">Lihat %1$d foto</string>
     <string name="tempat_cap_badge">Cap %1$s</string>
     <string name="tempat_cap_label">CAP %1$s MENUNGGUMU</string>
     <string name="tempat_cap_headline">Datang ke lokasi, lalu ambil capnya di sini</string>
@@ -57,14 +57,18 @@
     <string name="tempat_error_title">Tempat belum bisa dimuat</string>
     <string name="tempat_error_body">Ada masalah saat memuat. Coba lagi.</string>
     <string name="tempat_retry">Coba lagi</string>
-    <!-- Foto resmi -->
-    <string name="foto_resmi_title">Foto resmi · %1$d dari %2$d</string>
+    <!-- Galeri foto -->
+    <string name="foto_resmi_title">Galeri foto · %1$d dari %2$d</string>
+    <string name="foto_resmi_title_plain">Galeri foto</string>
     <string name="foto_resmi_close">Tutup</string>
-    <string name="foto_resmi_hero">Foto %1$d dari pengelola</string>
-    <string name="foto_resmi_badge">Dokumentasi resmi</string>
-    <string name="foto_resmi_caption_pending">Keterangan foto sedang dicek</string>
+    <string name="foto_resmi_hero">Foto %1$d</string>
     <string name="foto_resmi_thumb">Foto %1$d</string>
-    <string name="foto_resmi_note">Foto pengunjung ada di postcard dan video. Bagian ini khusus foto dari pengelola.</string>
+    <string name="foto_resmi_source">Lihat sumber</string>
+    <string name="foto_resmi_empty">Belum ada foto untuk tempat ini</string>
+    <string name="foto_resmi_error_title">Foto belum bisa dimuat</string>
+    <string name="foto_resmi_error_body">Periksa sambunganmu, lalu coba lagi.</string>
+    <string name="foto_resmi_retry">Coba lagi</string>
+    <string name="foto_resmi_note">Foto berlisensi terbuka dari Wikimedia Commons. Foto pengunjung ada di postcard dan video.</string>
     <!-- Laporkan -->
     <string name="laporkan_title">Laporkan</string>
     <string name="laporkan_question">Apa yang perlu kami periksa?</string>

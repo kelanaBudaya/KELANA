@@ -59,7 +59,6 @@ class PlaceFactsTest {
         val unchecked = OfficialFact(TicketPrice("Dewasa", 1, "https://tiket.example"), null, null)
         assertEquals("https://tiket.example", officialSellerUrl(place(emptyList(), listOf(checked))))
         assertNull(officialSellerUrl(place(emptyList(), listOf(unchecked))))
-        assertTrue(OFFICIAL_PHOTO_COUNT > 0)
     }
 
     @Test
