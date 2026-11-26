@@ -35,9 +35,6 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
-import androidx.compose.ui.text.SpanStyle
-import androidx.compose.ui.text.buildAnnotatedString
-import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -217,20 +214,11 @@ private fun HintBar(noMatch: Boolean) {
             contentDescription = null,
             modifier = Modifier.size(26.dp),
         )
-        val footnote = stringResource(R.string.peta_footnote)
         Text(
             text = if (noMatch) {
-                buildAnnotatedString {
-                    append(stringResource(R.string.peta_filter_no_match))
-                    append(" ")
-                    withStyle(SpanStyle(color = colors.muted)) { append(footnote) }
-                }
+                stringResource(R.string.peta_filter_no_match)
             } else {
-                buildAnnotatedString {
-                    append(stringResource(R.string.peta_hint))
-                    append(" ")
-                    withStyle(SpanStyle(color = colors.muted)) { append(footnote) }
-                }
+                stringResource(R.string.peta_hint)
             },
             style = MaterialTheme.typography.bodySmall,
             color = colors.ink,
