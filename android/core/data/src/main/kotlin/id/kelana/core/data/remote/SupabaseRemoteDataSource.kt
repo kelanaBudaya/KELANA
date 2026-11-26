@@ -29,7 +29,7 @@ class SupabaseRemoteDataSource @Inject constructor(
         val c = client()
         // `lat` and `lng` are generated columns; `location` (PostGIS) is deliberately not selected.
         val places = c.from("places")
-            .select(Columns.raw("id,slug,name,category,cap_code,lat,lng,address,description,cover_path,passport_order")) {
+            .select(Columns.raw("id,slug,name,category,cap_code,lat,lng,address,description,cover_path,passport_order,regions(code)")) {
                 order("passport_order", Order.ASCENDING)
             }
             .decodeList<PlaceDto>()
@@ -52,7 +52,7 @@ class SupabaseRemoteDataSource @Inject constructor(
                 Columns.raw(
                     "id,place_id,title,description,category,recurrence,event_date,weekday,start_time,end_time," +
                         "price_from_idr,seller_url,source_url,checked_at,performers,arrival_advice_min," +
-                        "arrival_advice_max,tags,places(name)",
+                        "arrival_advice_max,tags,places(name,regions(code))",
                 ),
             )
             .decodeList<EventDto>()

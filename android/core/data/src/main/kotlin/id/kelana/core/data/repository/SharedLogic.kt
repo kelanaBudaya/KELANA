@@ -24,6 +24,13 @@ internal fun expandOccurrences(
             .map { EventOccurrence(event, it) }
     }.sortedWith(compareBy({ it.date }, { it.event.schedule.value.start }, { it.event.title }))
 
+/**
+ * The one scoping rule: with no selected region everything is returned (onboarding, Pilih daerah); with one, only
+ * items whose [regionOf] equals it. An item with an unknown region (null) is not shown in a region.
+ */
+internal fun <T> List<T>.inRegion(selected: String?, regionOf: (T) -> String?): List<T> =
+    if (selected == null) this else filter { regionOf(it) == selected }
+
 /** Case-insensitive match on name, address and description. A blank query matches nothing. */
 internal fun List<Place>.searchPlaces(query: String): List<Place> {
     val q = query.trim()

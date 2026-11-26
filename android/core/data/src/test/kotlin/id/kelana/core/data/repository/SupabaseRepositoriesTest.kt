@@ -48,8 +48,8 @@ class SupabaseRepositoriesTest {
         tickets = listOf(ticketDto("p1")),
     )
 
-    private fun placeRepo(remote: FakeRemote, dao: FakePlaceDao = FakePlaceDao()) =
-        SupabasePlaceRepository(remote, dao, testGate())
+    private fun placeRepo(remote: FakeRemote, dao: FakePlaceDao = FakePlaceDao(), regions: StubRegions = StubRegions()) =
+        SupabasePlaceRepository(remote, dao, regions, testGate())
 
     // ---------- places ----------
 
@@ -137,8 +137,79 @@ class SupabaseRepositoriesTest {
 
     // ---------- events ----------
 
-    private fun eventRepo(remote: FakeRemote, dao: FakeEventDao = FakeEventDao()) =
-        SupabaseEventRepository(remote, dao, testGate())
+    private fun eventRepo(remote: FakeRemote, dao: FakeEventDao = FakeEventDao(), regions: StubRegions = StubRegions()) =
+        SupabaseEventRepository(remote, dao, regions, testGate())
+
+    @Test
+    fun places_scopedToSelectedRegion_butPlaceByIdResolvesAcrossRegions() = runTest {
+        val remote = FakeRemote().apply {
+            places = PlacesPayload(
+                listOf(
+                    placeDto("diy1", "Candi Prambanan", 1, "DIY"),
+                    placeDto("jkt1", "Museum Nasional", 2, "JKT"),
+                    placeDto("none", "Tanpa Wilayah", 3, null),
+                ),
+                emptyList(), emptyList(), emptyList(),
+            )
+        }
+        val regions = StubRegions(null)
+        val repo = placeRepo(remote, regions = regions)
+        // No selection: everything (Pilih daerah path).
+        assertEquals(listOf("diy1", "jkt1", "none"), repo.places().first().map { it.id })
+
+        regions.selected.value = "DIY"
+        assertEquals(listOf("diy1"), repo.places().first().map { it.id })
+        assertEquals("DIY", repo.places().first().single().regionId)
+        assertEquals("jkt1", repo.place("jkt1").first()?.id)
+        assertTrue(repo.search("museum").first().isEmpty())
+        assertEquals(listOf("diy1"), repo.search("candi").first().map { it.id })
+        assertTrue(repo.placesByCategory(PlaceCategory.Candi).first().all { it.regionId == "DIY" })
+    }
+
+    @Test
+    fun places_regionSwitch_reEmits() = runTest {
+        val remote = FakeRemote().apply {
+            places = PlacesPayload(
+                listOf(placeDto("diy1", "A", 1, "DIY"), placeDto("jkt1", "B", 2, "JKT")),
+                emptyList(), emptyList(), emptyList(),
+            )
+        }
+        val regions = StubRegions("DIY")
+        placeRepo(remote, regions = regions).places().test {
+            assertEquals(listOf("diy1"), awaitItem().map { it.id })
+            regions.selected.value = "JKT"
+            assertEquals(listOf("jkt1"), awaitItem().map { it.id })
+            cancelAndIgnoreRemainingEvents()
+        }
+    }
+
+    @Test
+    fun events_scopedToHostPlaceRegion_andReEmitOnSwitch() = runTest {
+        val remote = FakeRemote().apply {
+            events = EventsPayload(
+                listOf(
+                    eventDto("e-diy", placeId = "diy1", region = "DIY"),
+                    eventDto("e-jkt", placeId = "jkt1", region = "JKT"),
+                ),
+                emptyList(),
+            )
+        }
+        val regions = StubRegions(null)
+        val repo = eventRepo(remote, regions = regions)
+        val from = LocalDate.of(2026, 11, 20)
+        val to = from.plusDays(6)
+        assertEquals(setOf("e-diy", "e-jkt"), repo.eventsBetween(from, to).first().map { it.event.id }.toSet())
+
+        regions.selected.value = "DIY"
+        repo.eventsBetween(from, to).test {
+            assertEquals(setOf("e-diy"), awaitItem().map { it.event.id }.toSet())
+            regions.selected.value = "JKT"
+            assertEquals(setOf("e-jkt"), awaitItem().map { it.event.id }.toSet())
+            cancelAndIgnoreRemainingEvents()
+        }
+        // Lookups by id are not scoped.
+        assertEquals("e-diy", repo.event("e-diy").first()?.id)
+    }
 
     @Test
     fun events_weeklyExpandsOnIsoWeekday_andRespectsClosures() = runTest {

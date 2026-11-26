@@ -99,6 +99,7 @@ internal fun PlaceDto.toEntity(): PlaceEntity? {
         description = description.orEmpty(),
         coverKey = coverPath?.takeIf { it.isNotBlank() } ?: slug,
         passportOrder = passportOrder,
+        regionCode = regions?.code,
     )
 }
 
@@ -154,6 +155,7 @@ internal fun toPlaces(places: List<PlaceEntity>, facts: List<PlaceFactEntity>): 
             address = p.address,
             description = p.description,
             coverKey = p.coverKey,
+            regionId = p.regionCode,
             hours = rows.filter { it.kind == KIND_HOURS }
                 .mapNotNull { decode(OpeningHoursDto.serializer(), it.json)?.toFact() }
                 .sortedBy { it.value.weekday },
@@ -220,6 +222,9 @@ internal fun EventDto.toEvent(): Event? {
 }
 
 internal fun EventEntity.toEvent(): Event? = decode(EventDto.serializer(), json)?.toEvent()
+
+/** Region code of the host place, embedded when the events were fetched. Null when unknown. */
+internal fun EventEntity.hostRegionCode(): String? = decode(EventDto.serializer(), json)?.places?.regions?.code
 
 /** Closures per place that count as a cancelled day. A closure without a check date is not trusted, so it is ignored. */
 internal fun toCancelledDays(rows: List<EventClosureEntity>): Map<String, List<Closure>> =

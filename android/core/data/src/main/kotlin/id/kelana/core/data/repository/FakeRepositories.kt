@@ -19,6 +19,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.map
 import java.time.LocalDate
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -29,29 +30,39 @@ import javax.inject.Singleton
  */
 
 @Singleton
-class FakePlaceRepository @Inject constructor() : PlaceRepository {
+class FakePlaceRepository @Inject constructor(private val regions: RegionRepository) : PlaceRepository {
+    constructor() : this(FakeRegionRepository())
+
     private val all: List<Place> = SampleData.places
 
-    override fun places(): Flow<List<Place>> = flowOf(all)
+    private val scoped: Flow<List<Place>> =
+        regions.selectedRegionId.map { selected -> all.inRegion(selected) { it.regionId } }
 
+    override fun places(): Flow<List<Place>> = scoped
+
+    /** Not scoped: a place resolves by id from any region (deep links, earlier visits). */
     override fun place(id: String): Flow<Place?> = flowOf(all.firstOrNull { it.id == id })
 
     override fun placesByCategory(category: PlaceCategory): Flow<List<Place>> =
-        flowOf(all.filter { it.category == category })
+        scoped.map { list -> list.filter { it.category == category } }
 
-    override fun search(query: String): Flow<List<Place>> {
-        return flowOf(all.searchPlaces(query))
-    }
+    override fun search(query: String): Flow<List<Place>> = scoped.map { it.searchPlaces(query) }
 }
 
 @Singleton
-class FakeEventRepository @Inject constructor() : EventRepository {
+class FakeEventRepository @Inject constructor(private val regions: RegionRepository) : EventRepository {
+    constructor() : this(FakeRegionRepository())
+
     private val all: List<Event> = SampleData.events
+    private val regionOfPlace: Map<String, String?> = SampleData.places.associate { it.id to it.regionId }
+
+    private val scoped: Flow<List<Event>> =
+        regions.selectedRegionId.map { selected -> all.inRegion(selected) { regionOfPlace[it.placeId] } }
 
     override fun eventsOn(date: LocalDate): Flow<List<EventOccurrence>> = eventsBetween(date, date)
 
     override fun eventsBetween(from: LocalDate, to: LocalDate): Flow<List<EventOccurrence>> =
-        flowOf(expandOccurrences(all, from, to))
+        scoped.map { expandOccurrences(it, from, to) }
 
     override fun event(id: String): Flow<Event?> = flowOf(all.firstOrNull { it.id == id })
 

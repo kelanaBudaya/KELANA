@@ -29,7 +29,12 @@ data class PlaceDto(
     val description: String? = null,
     @SerialName("cover_path") val coverPath: String? = null,
     @SerialName("passport_order") val passportOrder: Int? = null,
+    /** Embedded `regions(code)`. */
+    val regions: RegionCodeDto? = null,
 )
+
+@Serializable
+data class RegionCodeDto(val code: String)
 
 @Serializable
 data class OpeningHoursDto(
@@ -64,7 +69,7 @@ data class TicketPriceDto(
 )
 
 @Serializable
-data class PlaceNameDto(val name: String)
+data class PlaceNameDto(val name: String, val regions: RegionCodeDto? = null)
 
 @Serializable
 data class EventDto(
@@ -86,7 +91,7 @@ data class EventDto(
     @SerialName("arrival_advice_min") val arrivalAdviceMin: Int? = null,
     @SerialName("arrival_advice_max") val arrivalAdviceMax: Int? = null,
     val tags: List<String> = emptyList(),
-    /** Embedded `places(name)`. */
+    /** Embedded `places(name,regions(code))`. */
     val places: PlaceNameDto? = null,
 )
 

@@ -15,7 +15,7 @@ import id.kelana.core.database.entity.PlaceEntity
 import id.kelana.core.database.entity.PlaceFactEntity
 import id.kelana.core.database.entity.RegionEntity
 
-/** Version 2 adds the public-content cache, version 3 the pending stamp row and the own-stamp cache. Dropped on upgrade (a pending fix lives 30 minutes at most). */
+/** Version 2 adds the public-content cache, version 3 the pending stamp row and the own-stamp cache, version 4 the place region code. Dropped on upgrade (a pending fix lives 30 minutes at most). */
 @Database(
     entities = [
         PlaceholderEntity::class,
@@ -27,7 +27,7 @@ import id.kelana.core.database.entity.RegionEntity
         PendingStampEntity::class,
         OwnStampEntity::class,
     ],
-    version = 3,
+    version = 4,
     exportSchema = false,
 )
 abstract class KelanaDatabase : RoomDatabase() {
