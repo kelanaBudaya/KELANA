@@ -1,38 +1,14 @@
 package id.kelana.feature.peta
 
 import androidx.annotation.DrawableRes
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
-import androidx.compose.foundation.border
-import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.defaultMinSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
-import androidx.compose.ui.draw.scale
-import androidx.compose.ui.graphics.graphicsLayer
-import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.semantics.Role
-import androidx.compose.ui.semantics.contentDescription
-import androidx.compose.ui.semantics.role
-import androidx.compose.ui.semantics.selected
-import androidx.compose.ui.semantics.semantics
-import androidx.compose.ui.semantics.stateDescription
-import androidx.compose.ui.text.style.TextOverflow
-import androidx.compose.ui.unit.dp
-import id.kelana.core.designsystem.theme.KelanaRadii
 import id.kelana.core.designsystem.theme.KelanaTheme
 import id.kelana.core.model.PlaceCategory
+import id.kelana.core.ui.map.MapMarker
+import id.kelana.core.ui.map.OsmMap
+import id.kelana.core.ui.map.pinLabel
 
 @DrawableRes
 private fun PinGlyph.drawable(): Int = when (this) {
@@ -42,68 +18,39 @@ private fun PinGlyph.drawable(): Int = when (this) {
     PinGlyph.Building -> R.drawable.peta_glyph_keraton
 }
 
-/** Teardrop pin (44 dp, 3 dp border, tip down) with a short label under it, as in KatPeta.dc.html. */
+/**
+ * The shared OpenStreetMap view ([OsmMap], owned by :core:ui) with one tappable pin per place. The camera frames
+ * [allPlaces] once, so a filter that hides places does not move the map.
+ */
 @Composable
-internal fun MapPin(
-    place: PetaPlace,
-    selected: Boolean,
-    onClick: () -> Unit,
+internal fun PetaMap(
+    allPlaces: List<PetaPlace>,
+    pins: List<PetaPlace>,
+    selectedId: String?,
+    onPinTap: (String) -> Unit,
     modifier: Modifier = Modifier,
 ) {
     val colors = KelanaTheme.colors
-    val accent = if (place.place.category == PlaceCategory.Candi) colors.accentOrange else colors.primary
-    val selectedText = stringResource(R.string.peta_pin_selected)
-    Column(
-        modifier = modifier
-            .width(PinWidth)
-            .defaultMinSize(minHeight = 48.dp)
-            .scale(if (selected) 1.12f else 1f)
-            .clip(RoundedCornerShape(KelanaRadii.card))
-            .clickable(onClick = onClick)
-            .semantics(mergeDescendants = true) {
-                role = Role.Button
-                contentDescription = place.place.name
-                this.selected = selected
-                if (selected) stateDescription = selectedText
-            },
-        horizontalAlignment = Alignment.CenterHorizontally,
-    ) {
-        Box(
-            modifier = Modifier
-                .size(DropSize)
-                .graphicsLayer { rotationZ = -45f }
-                .clip(DropShape)
-                .background(if (selected) colors.skyText else colors.white)
-                .border(3.dp, accent, DropShape),
-            contentAlignment = Alignment.Center,
-        ) {
-            Image(
-                painter = painterResource(place.place.category.glyph().drawable()),
-                contentDescription = null,
-                modifier = Modifier
-                    .size(24.dp)
-                    .graphicsLayer { rotationZ = 45f },
+    val markers = remember(pins, colors) {
+        pins.map { pin ->
+            val place = pin.place
+            MapMarker(
+                key = place.id,
+                lat = place.lat,
+                lng = place.lng,
+                label = pinLabel(place.name),
+                description = place.name,
+                glyph = place.category.glyph().drawable(),
+                accent = if (place.category == PlaceCategory.Candi) colors.accentOrange else colors.primary,
             )
         }
-        Text(
-            text = pinLabel(place.place.name),
-            style = MaterialTheme.typography.labelSmall,
-            color = colors.white,
-            maxLines = 1,
-            overflow = TextOverflow.Ellipsis,
-            modifier = Modifier
-                .padding(top = 6.dp)
-                .clip(RoundedCornerShape(KelanaRadii.pill))
-                .background(accent)
-                .padding(horizontal = 8.dp, vertical = 2.dp),
-        )
     }
+    val framed = remember(allPlaces) { allPlaces.map { it.place.lat to it.place.lng } }
+    OsmMap(
+        markers = markers,
+        framedPoints = framed,
+        selectedKey = selectedId,
+        modifier = modifier,
+        onMarkerTap = onPinTap,
+    )
 }
-
-/** CSS `border-radius: 999px 999px 999px 4px`: round except the bottom-left corner, which becomes the tip. */
-private val DropShape = RoundedCornerShape(
-    topStart = 999.dp,
-    topEnd = 999.dp,
-    bottomEnd = 999.dp,
-    bottomStart = 4.dp,
-)

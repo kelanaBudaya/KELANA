@@ -1,4 +1,4 @@
-package id.kelana.feature.peta
+package id.kelana.core.ui.map
 
 import kotlin.math.max
 
@@ -13,11 +13,7 @@ internal data class GeoBounds(val north: Double, val south: Double, val west: Do
     val centerLng: Double get() = (west + east) / 2
 }
 
-/** Fallback centre (Yogyakarta) when there are no places. */
-internal const val FALLBACK_LAT = -7.80
-internal const val FALLBACK_LNG = 110.37
 internal const val SINGLE_PLACE_ZOOM = 14.0
-internal const val FALLBACK_ZOOM = 11.0
 
 /** Bounds of all [places] (lat, lng pairs); null when empty. */
 internal fun boundsOf(places: List<Pair<Double, Double>>): GeoBounds? {
@@ -39,7 +35,7 @@ internal fun GeoBounds.isPoint(epsilon: Double = 1e-4): Boolean =
  * leading "Museum Benteng ", "Museum ", "Candi " or "Puro ", e.g. "Museum Benteng Vredeburg" becomes "Vredeburg".
  * Falls back to the full name when nothing is left.
  */
-internal fun pinLabel(name: String): String {
+fun pinLabel(name: String): String {
     var label = name.trim().removeSuffix(" Yogyakarta")
     for (prefix in listOf("Museum Benteng ", "Museum ", "Candi ", "Puro ")) {
         if (label.startsWith(prefix)) {

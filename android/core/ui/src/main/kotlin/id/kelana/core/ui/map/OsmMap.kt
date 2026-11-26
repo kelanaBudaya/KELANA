@@ -1,5 +1,6 @@
-package id.kelana.feature.peta
+package id.kelana.core.ui.map
 
+import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.offset
@@ -14,6 +15,11 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clipToBounds
 import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Path
+import androidx.compose.ui.graphics.StrokeCap
+import androidx.compose.ui.graphics.StrokeJoin
+import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.dp
@@ -31,10 +37,6 @@ import org.maplibre.android.maps.MapView
 import org.maplibre.android.maps.Style
 import org.maplibre.android.module.http.HttpRequestUtil
 
-/** Width of the pin box (drop plus label). */
-internal val PinWidth = 76.dp
-internal val DropSize = 44.dp
-
 /** Distance from the top of the pin column to the drop's tip (rotated square: centre + half diagonal). */
 private val TipOffset = DropSize / 2 + DropSize * 0.7071f
 
@@ -43,18 +45,22 @@ private const val MAP_PADDING_SIDE_PX = 100
 private const val MAP_PADDING_BOTTOM_PX = 560
 
 /**
- * The OpenStreetMap view (MapLibre, raster tiles from [TILE_URL_TEMPLATE]) with one tappable pin per place. Pins are
- * Compose nodes laid over the map and repositioned from the map projection whenever the camera moves, so they keep the
- * design's marker look and accessibility semantics. The camera frames [allPlaces] once. No location component is used:
- * the map shows places only (location is read only from "Ambil cap").
+ * The OpenStreetMap view (MapLibre, raster tiles from [TILE_URL_TEMPLATE]) with one pin per marker, shared by every
+ * screen that shows a map. Pins are Compose nodes laid over the map and repositioned from the map projection whenever
+ * the camera moves, so they keep the design's marker look and accessibility semantics. The camera frames
+ * [framedPoints] (lat, lng pairs) once. Markers are tappable only when [onMarkerTap] is given. When [routeKeys] has two
+ * or more keys, a [routeColor] line joins those markers in that order, under the pins. No location component is used:
+ * the map shows places only (location is read only from "Ambil cap"). Show a [MapAttribution] next to it.
  */
 @Composable
-internal fun PetaMap(
-    allPlaces: List<PetaPlace>,
-    pins: List<PetaPlace>,
-    selectedId: String?,
-    onPinTap: (String) -> Unit,
+fun OsmMap(
+    markers: List<MapMarker>,
+    framedPoints: List<Pair<Double, Double>>,
+    selectedKey: String?,
     modifier: Modifier = Modifier,
+    onMarkerTap: ((String) -> Unit)? = null,
+    routeKeys: List<String> = emptyList(),
+    routeColor: Color = Color.Unspecified,
 ) {
     val context = LocalContext.current
     val density = LocalDensity.current
@@ -67,13 +73,13 @@ internal fun PetaMap(
     var map by remember { mutableStateOf<MapLibreMap?>(null) }
     var screenPoints by remember { mutableStateOf<Map<String, Offset>>(emptyMap()) }
     var fitted by remember { mutableStateOf(false) }
-    val currentPins by rememberUpdatedState(pins)
+    val currentMarkers by rememberUpdatedState(markers)
 
     fun refreshPoints() {
         val m = map ?: return
-        screenPoints = currentPins.associate {
-            val pt = m.projection.toScreenLocation(LatLng(it.place.lat, it.place.lng))
-            it.place.id to Offset(pt.x, pt.y)
+        screenPoints = currentMarkers.associate {
+            val pt = m.projection.toScreenLocation(LatLng(it.lat, it.lng))
+            it.key to Offset(pt.x, pt.y)
         }
     }
 
@@ -105,7 +111,7 @@ internal fun PetaMap(
     LaunchedEffect(mapView) {
         mapView.getMapAsync { m ->
             m.uiSettings.apply {
-                isAttributionEnabled = false // replaced by our own visible text, see PetaScreen
+                isAttributionEnabled = false // replaced by our own visible text, see MapAttribution
                 isLogoEnabled = false
                 isRotateGesturesEnabled = false
                 isTiltGesturesEnabled = false
@@ -119,11 +125,11 @@ internal fun PetaMap(
         }
     }
 
-    // Frame the region's places once, when the map and the places are both ready.
-    LaunchedEffect(map, allPlaces.isNotEmpty()) {
+    // Frame the points once, when the map and the points are both ready.
+    LaunchedEffect(map, framedPoints.isNotEmpty()) {
         val m = map ?: return@LaunchedEffect
-        if (fitted || allPlaces.isEmpty()) return@LaunchedEffect
-        val bounds = boundsOf(allPlaces.map { it.place.lat to it.place.lng }) ?: return@LaunchedEffect
+        if (fitted || framedPoints.isEmpty()) return@LaunchedEffect
+        val bounds = boundsOf(framedPoints) ?: return@LaunchedEffect
         val update = if (bounds.isPoint()) {
             CameraUpdateFactory.newLatLngZoom(LatLng(bounds.centerLat, bounds.centerLng), SINGLE_PLACE_ZOOM)
         } else {
@@ -139,18 +145,30 @@ internal fun PetaMap(
         fitted = true
         refreshPoints()
     }
-    LaunchedEffect(map, pins) { refreshPoints() }
+    LaunchedEffect(map, markers) { refreshPoints() }
 
     Box(modifier.fillMaxSize().clipToBounds()) {
         AndroidView(factory = { mapView }, modifier = Modifier.fillMaxSize())
+        if (routeKeys.size >= 2) {
+            Canvas(Modifier.fillMaxSize()) {
+                val path = Path()
+                var started = false
+                for (key in routeKeys) {
+                    val pt = screenPoints[key] ?: continue
+                    if (started) path.lineTo(pt.x, pt.y) else path.moveTo(pt.x, pt.y)
+                    started = true
+                }
+                drawPath(path, routeColor, style = Stroke(width = 4.dp.toPx(), cap = StrokeCap.Round, join = StrokeJoin.Round))
+            }
+        }
         // The selected pin is drawn last so it stays on top of its neighbours.
-        for (pin in pins.sortedBy { it.place.id == selectedId }) {
-            val pt = screenPoints[pin.place.id] ?: continue
+        for (marker in markers.sortedBy { it.key == selectedKey }) {
+            val pt = screenPoints[marker.key] ?: continue
             with(density) {
                 MapPin(
-                    place = pin,
-                    selected = pin.place.id == selectedId,
-                    onClick = { onPinTap(pin.place.id) },
+                    marker = marker,
+                    selected = marker.key == selectedKey,
+                    onClick = onMarkerTap?.let { tap -> { tap(marker.key) } },
                     modifier = Modifier.offset(x = pt.x.toDp() - PinWidth / 2, y = pt.y.toDp() - TipOffset),
                 )
             }

@@ -15,4 +15,7 @@
     <string name="language_name_id">Bahasa Indonesia</string>
     <string name="language_name_en">English</string>
     <string name="language_sheet_title">Language</string>
+    <string name="map_pin_selected">Selected</string>
+    <string name="map_attribution">&#169; OpenStreetMap contributors</string>
+    <string name="map_attribution_cd">Map copyright: OpenStreetMap contributors. Open the copyright page.</string>
 </resources>

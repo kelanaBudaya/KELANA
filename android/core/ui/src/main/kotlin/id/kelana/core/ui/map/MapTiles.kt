@@ -1,4 +1,4 @@
-package id.kelana.feature.peta
+package id.kelana.core.ui.map
 
 /*
  * Map tile configuration. Everything that names a tile provider lives here, so the provider can be swapped in one
@@ -13,7 +13,7 @@ internal const val TILE_URL_TEMPLATE = "https://tile.openstreetmap.org/{z}/{x}/{
 internal const val TILE_SIZE_PX = 256
 internal const val TILE_MAX_ZOOM = 19
 
-/** Attribution required by the OpenStreetMap licence; shown on the map screen (see string `peta_attribution`). */
+/** Attribution required by the OpenStreetMap licence; shown with every map (see [MapAttribution]). */
 internal const val ATTRIBUTION_URL = "https://www.openstreetmap.org/copyright"
 
 /** Identifies the app to the tile server, as the OSM tile usage policy requires. */
