@@ -17,6 +17,8 @@ data class RegionEntity(
     /** Contract value of `region_status`: available, upcoming or not_open. */
     val status: String,
     val sortOrder: Int,
+    /** Casual short name from `regions.short_name`, null when the server row had none. */
+    val shortName: String? = null,
 )
 
 @Entity(tableName = "cache_place")

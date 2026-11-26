@@ -5,16 +5,16 @@
 -- overviews; the rest are invented but plausible placeholders.
 
 insert into public.regions (code, name, status, sort_order, is_sample) values
-  ('DIY', 'DI Yogyakarta',       'available', 1, true),
-  ('JTG', 'Jawa Tengah',         'upcoming',  2, true),
-  ('BALI','Bali',                'upcoming',  3, true),
-  ('JTM', 'Jawa Timur',          'not_open',  4, true),
-  ('JBR', 'Jawa Barat',          'not_open',  5, true),
-  ('SUMBAR','Sumatera Barat',    'not_open',  6, true),
-  ('SULSEL','Sulawesi Selatan',  'not_open',  7, true),
-  ('NTT', 'Nusa Tenggara Timur', 'not_open',  8, true),
-  ('KALTIM','Kalimantan Timur',  'not_open',  9, true),
-  ('PAPUA','Papua',              'not_open', 10, true);
+  ('DIY', 'DI Yogyakarta', 'Jogja',       'available', 1, true),
+  ('JTG', 'Jawa Tengah', 'Jateng',         'upcoming',  2, true),
+  ('BALI','Bali', 'Bali',                'upcoming',  3, true),
+  ('JTM', 'Jawa Timur', 'Jatim',          'not_open',  4, true),
+  ('JBR', 'Jawa Barat', 'Jabar',          'not_open',  5, true),
+  ('SUMBAR','Sumatera Barat', 'Sumbar',    'not_open',  6, true),
+  ('SULSEL','Sulawesi Selatan', 'Sulsel',  'not_open',  7, true),
+  ('NTT', 'Nusa Tenggara Timur', 'NTT', 'not_open',  8, true),
+  ('KALTIM','Kalimantan Timur', 'Kaltim',  'not_open',  9, true),
+  ('PAPUA','Papua', 'Papua',              'not_open', 10, true);
 
 -- Passport order: YK-01 .. YK-10. Coordinates are approximate.
 insert into public.places (region_id, slug, name, category, cap_code, passport_order, location, address, description, is_sample)

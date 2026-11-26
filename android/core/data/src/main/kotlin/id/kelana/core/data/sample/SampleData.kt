@@ -220,15 +220,15 @@ internal object SampleData {
     )
 
     val regions: List<Region> = listOf(
-        Region("DIY", "DI Yogyakarta", RegionStatus.Available, 1),
-        Region("JTG", "Jawa Tengah", RegionStatus.Upcoming, 2),
-        Region("BALI", "Bali", RegionStatus.Upcoming, 3),
-        Region("JTM", "Jawa Timur", RegionStatus.NotOpen, 4),
-        Region("JBR", "Jawa Barat", RegionStatus.NotOpen, 5),
-        Region("SUMBAR", "Sumatera Barat", RegionStatus.NotOpen, 6),
-        Region("SULSEL", "Sulawesi Selatan", RegionStatus.NotOpen, 7),
-        Region("NTT", "Nusa Tenggara Timur", RegionStatus.NotOpen, 8),
-        Region("KALTIM", "Kalimantan Timur", RegionStatus.NotOpen, 9),
-        Region("PAPUA", "Papua", RegionStatus.NotOpen, 10),
+        Region("DIY", "DI Yogyakarta", RegionStatus.Available, 1, "Jogja"),
+        Region("JTG", "Jawa Tengah", RegionStatus.Upcoming, 2, "Jateng"),
+        Region("BALI", "Bali", RegionStatus.Upcoming, 3, "Bali"),
+        Region("JTM", "Jawa Timur", RegionStatus.NotOpen, 4, "Jatim"),
+        Region("JBR", "Jawa Barat", RegionStatus.NotOpen, 5, "Jabar"),
+        Region("SUMBAR", "Sumatera Barat", RegionStatus.NotOpen, 6, "Sumbar"),
+        Region("SULSEL", "Sulawesi Selatan", RegionStatus.NotOpen, 7, "Sulsel"),
+        Region("NTT", "Nusa Tenggara Timur", RegionStatus.NotOpen, 8, "NTT"),
+        Region("KALTIM", "Kalimantan Timur", RegionStatus.NotOpen, 9, "Kaltim"),
+        Region("PAPUA", "Papua", RegionStatus.NotOpen, 10, "Papua"),
     )
 }

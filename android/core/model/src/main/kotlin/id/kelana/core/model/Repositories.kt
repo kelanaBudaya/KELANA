@@ -1,6 +1,7 @@
 package id.kelana.core.model
 
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.map
 import java.time.LocalDate
 
@@ -45,6 +46,10 @@ interface RegionRepository {
 
     /** The region picked in Pilih daerah, or null before the choice. PROVISIONAL: the fake keeps it in memory only. */
     val selectedRegionId: Flow<String?>
+
+    /** The selected [Region] object: null when nothing is selected or the id is not in [regions]. Single owner of this logic. */
+    fun selectedRegion(): Flow<Region?> =
+        combine(regions(), selectedRegionId) { list, id -> id?.let { sel -> list.firstOrNull { it.id == sel } } }
 
     /** Only an available region can be selected; others are ignored. */
     suspend fun select(regionId: String)

@@ -18,3 +18,12 @@ val MIGRATION_4_5 = object : Migration(4, 5) {
         db.execSQL("CREATE INDEX IF NOT EXISTS `index_cache_place_photo_placeId` ON `cache_place_photo` (`placeId`)")
     }
 }
+
+/** 5 to 6 adds the region short name. Keeps the pending stamp queue; the region cache is refreshed from the server. */
+val MIGRATION_5_6 = object : Migration(5, 6) {
+    override fun migrate(db: SupportSQLiteDatabase) {
+        db.execSQL(MIGRATION_5_6_SQL)
+    }
+}
+
+const val MIGRATION_5_6_SQL = "ALTER TABLE `cache_region` ADD COLUMN `shortName` TEXT"

@@ -124,6 +124,14 @@ class FakeRepositoriesTest {
         assertEquals("DIY", repo.selectedRegionId.first())
     }
 
+    @Test
+    fun selectedRegion_followsSelection() = runTest {
+        val repo = FakeRegionRepository()
+        assertNull(repo.selectedRegion().first())
+        repo.select("DIY")
+        assertEquals("Jogja", repo.selectedRegion().first()?.shortName)
+    }
+
     private class FakeSession(initial: SessionState) : SessionRepository {
         val state = MutableStateFlow(initial)
         override val sessionState: Flow<SessionState> = state

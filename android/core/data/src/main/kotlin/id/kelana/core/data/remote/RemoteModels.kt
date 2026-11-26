@@ -14,6 +14,7 @@ data class RegionDto(
     val name: String,
     val status: String,
     @SerialName("sort_order") val sortOrder: Int = 0,
+    @SerialName("short_name") val shortName: String? = null,
 )
 
 @Serializable
