@@ -57,10 +57,13 @@ internal data class RowPresentation(val note: TiketNote?, val opensSeller: Boole
 /**
  * Pure display rule: on-site with a seller -> "also sold at the counter" (site action stays); on-site without a
  * seller -> "buy at the counter" and no action; seller only -> action; neither -> price only.
+ * Free entry ([shownPrice] == 0) is not bought at a counter, so it never gets a counter note. An unknown or
+ * unchecked price (null) is not free.
  */
-internal fun rowPresentation(onSite: Boolean, sellerUrl: String?): RowPresentation {
+internal fun rowPresentation(onSite: Boolean, sellerUrl: String?, shownPrice: Long?): RowPresentation {
     val hasSeller = sellerUrl != null
     val note = when {
+        shownPrice == 0L -> null
         onSite && hasSeller -> TiketNote.AlsoAtCounter
         onSite -> TiketNote.BuyAtCounter
         else -> null
