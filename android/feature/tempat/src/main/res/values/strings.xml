@@ -51,6 +51,9 @@
     <string name="tempat_report_action">Laporkan</string>
     <string name="tempat_postcard">Postcard</string>
     <string name="tempat_add_plan">Masuk rencana</string>
+    <string name="tempat_in_plan">Sudah di rencana</string>
+    <string name="tempat_plan_added">Ditambahkan ke rencana</string>
+    <string name="tempat_plan_removed">Dihapus dari rencana</string>
     <string name="tempat_loading">Memuat tempat…</string>
     <string name="tempat_not_found_title">Tempat tidak ditemukan</string>
     <string name="tempat_not_found_body">Tempat ini mungkin sudah dihapus atau tautannya salah.</string>

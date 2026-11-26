@@ -5,6 +5,13 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.selection.toggleable
+import androidx.compose.material3.SnackbarHost
+import androidx.compose.material3.SnackbarHostState
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.ui.graphics.ColorFilter
+import kotlinx.coroutines.launch
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -80,7 +87,6 @@ import id.kelana.core.navigation.FotoResmiRoute
 import id.kelana.core.navigation.LaporkanRoute
 import id.kelana.core.navigation.OfficialSiteRoute
 import id.kelana.core.navigation.PostcardRoute
-import id.kelana.core.navigation.RencanaRoute
 import id.kelana.core.ui.formatTimeRange
 import id.kelana.core.ui.label
 import id.kelana.core.ui.session.rememberRequireLogin
@@ -129,14 +135,28 @@ internal fun DetailTempatScreen(
         )
         PlaceLoadStatus.Loaded -> {
             val place = state.place ?: return
+            val inPlan by viewModel.inPlan.collectAsState()
+            val snackbar = remember { SnackbarHostState() }
+            val scope = rememberCoroutineScope()
+            val addedMessage = stringResource(R.string.tempat_plan_added)
+            val removedMessage = stringResource(R.string.tempat_plan_removed)
             Scaffold(
+                snackbarHost = { SnackbarHost(snackbar) },
                 containerColor = KelanaTheme.colors.background,
                 contentWindowInsets = WindowInsets(0, 0, 0, 0),
                 bottomBar = {
                     BottomActions(
                         // Postcard needs an account (product rule); "Masuk rencana" is open to guests.
                         onPostcard = { requireLogin { navigate(PostcardRoute(place.id)) } },
-                        onAddPlan = { navigate(RencanaRoute) },
+                        inPlan = inPlan,
+                        onAddPlan = {
+                            val message = if (inPlan) removedMessage else addedMessage
+                            viewModel.togglePlan()
+                            scope.launch {
+                                snackbar.currentSnackbarData?.dismiss()
+                                snackbar.showSnackbar(message)
+                            }
+                        },
                     )
                 },
             ) { padding ->
@@ -670,7 +690,7 @@ private fun ReportRow(onReport: () -> Unit) {
 
 /** Fixed bottom bar: outlined "Postcard" and the orange "Masuk rencana" (52 dp pills). */
 @Composable
-private fun BottomActions(onPostcard: () -> Unit, onAddPlan: () -> Unit) {
+private fun BottomActions(onPostcard: () -> Unit, inPlan: Boolean, onAddPlan: () -> Unit) {
     val colors = KelanaTheme.colors
     val label = MaterialTheme.typography.labelLarge.copy(fontSize = 15.sp)
     Column(Modifier.background(colors.surface)) {
@@ -699,14 +719,24 @@ private fun BottomActions(onPostcard: () -> Unit, onAddPlan: () -> Unit) {
                     .weight(1f)
                     .height(KelanaSizes.buttonHeight)
                     .clip(KelanaShapes.button)
-                    .background(colors.accentOrange)
-                    .clickable(role = Role.Button, onClick = onAddPlan),
+                    .background(if (inPlan) colors.successSurface else colors.accentOrange)
+                    .then(if (inPlan) Modifier.border(1.5.dp, colors.success, KelanaShapes.button) else Modifier)
+                    .toggleable(value = inPlan, role = Role.Switch, onValueChange = { onAddPlan() }),
                 verticalAlignment = Alignment.CenterVertically,
                 horizontalArrangement = Arrangement.Center,
             ) {
-                Image(painterResource(R.drawable.tempat_ic_plus), contentDescription = null, Modifier.size(20.dp))
+                Image(
+                    painterResource(if (inPlan) R.drawable.tempat_ic_check else R.drawable.tempat_ic_plus),
+                    contentDescription = null,
+                    Modifier.size(20.dp),
+                    colorFilter = if (inPlan) ColorFilter.tint(colors.successTextDeep) else null,
+                )
                 Spacer(Modifier.width(6.dp))
-                Text(text = stringResource(R.string.tempat_add_plan), style = label, color = colors.white)
+                Text(
+                    text = stringResource(if (inPlan) R.string.tempat_in_plan else R.string.tempat_add_plan),
+                    style = label,
+                    color = if (inPlan) colors.successTextDeep else colors.white,
+                )
             }
         }
     }

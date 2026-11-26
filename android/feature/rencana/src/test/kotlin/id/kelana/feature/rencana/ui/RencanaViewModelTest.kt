@@ -48,8 +48,33 @@ class RencanaViewModelTest {
         places.all, listOf(show("roro", "pram")), builtOn = TestToday,
     )
 
-    private fun viewModel(cache: FakeCache, connectivity: FakeConnectivity = FakeConnectivity()) =
-        RencanaViewModel(repo(places, events, cache, connectivity), events, connectivity, TestClock)
+    private fun viewModel(
+        cache: FakeCache,
+        connectivity: FakeConnectivity = FakeConnectivity(),
+        backpack: FakeBackpack = FakeBackpack(),
+    ) = RencanaViewModel(repo(places, events, cache, connectivity), events, connectivity, places, backpack, TestClock)
+
+    @Test
+    fun backpackListsAddedPlacesInOrderAndSkipsUnknownIds() = runTest {
+        viewModel(FakeCache(), backpack = FakeBackpack(listOf("pram", "gone", "m1"))).uiState.test {
+            val state = settled()
+            assertEquals(listOf("pram", "m1"), state.backpack.map { it.id })
+        }
+    }
+
+    @Test
+    fun removeFromBackpackDropsThePlace() = runTest {
+        val backpack = FakeBackpack(listOf("pram", "m1"))
+        val model = viewModel(FakeCache(), backpack = backpack)
+        model.uiState.test {
+            settled()
+            model.removeFromBackpack("pram")
+            var state = awaitItem()
+            while (state.backpack.size != 1) state = awaitItem()
+            assertEquals(listOf("m1"), state.backpack.map { it.id })
+            assertEquals(listOf("m1"), backpack.ids.value)
+        }
+    }
 
     @Test
     fun noPlanIsTheEmptyStateAndOffersTonightsShow() = runTest {
