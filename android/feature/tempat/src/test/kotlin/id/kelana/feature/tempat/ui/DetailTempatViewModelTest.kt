@@ -246,4 +246,26 @@ class DetailTempatViewModelTest {
             cancelAndIgnoreRemainingEvents()
         }
     }
+
+    @Test
+    fun cover_is_first_photo_url() = runTest {
+        vm(FakePlaces(place(date)), photos = FakePhotos(count = 3)).uiState.test {
+            var item = awaitLoaded()
+            while (item.coverUrl == null) item = awaitItem()
+            assertEquals(testPhoto(1).url, item.coverUrl)
+            cancelAndIgnoreRemainingEvents()
+        }
+    }
+
+    @Test
+    fun cover_is_null_without_photos_or_on_error() = runTest {
+        vm(FakePlaces(place(date)), photos = FakePhotos(count = 0)).uiState.test {
+            assertEquals(null, awaitLoaded().coverUrl)
+            cancelAndIgnoreRemainingEvents()
+        }
+        vm(FakePlaces(place(date)), photos = FakePhotos(fail = true)).uiState.test {
+            assertEquals(null, awaitLoaded().coverUrl)
+            cancelAndIgnoreRemainingEvents()
+        }
+    }
 }
