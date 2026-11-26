@@ -65,7 +65,7 @@ import id.kelana.core.designsystem.R as DsR
 
 private val IdLocale: Locale = Locale.forLanguageTag("id-ID")
 private val StickerWidth = 96.dp
-private val StickerHeight = 70.dp
+private val StickerHeight = 80.dp
 
 internal class PasporActions(
     val onBack: () -> Unit,
@@ -285,7 +285,7 @@ private fun StampCell(item: PassportItem, index: Int, modifier: Modifier, onClic
         if (item.isCollected) {
             CapSticker(
                 label = stampLabel(place.name, IdLocale),
-                code = place.capCode,
+                code = stringResource(R.string.paspor_sticker_number, place.capCode),
                 icon = place.category.stampIcon(),
                 tone = stickerToneFor(index),
                 width = StickerWidth,

@@ -97,7 +97,7 @@ internal fun CapBerhasilContent(
                     if (place != null) {
                         CapSticker(
                             label = stampLabel(place.name, IdLocale),
-                            code = place.capCode,
+                            code = stringResource(R.string.paspor_sticker_number, place.capCode),
                             icon = place.category.stampIcon(),
                             tone = StickerTone.Blue,
                             width = s.dp(210f),

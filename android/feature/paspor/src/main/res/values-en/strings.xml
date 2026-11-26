@@ -28,6 +28,7 @@
     <string name="paspor_retry">Try again</string>
     <string name="paspor_close">Close</string>
     <string name="paspor_sticker_word">STAMP</string>
+    <string name="paspor_sticker_number">No. %1$s</string>
     <string name="paspor_place_missing_title">Place not found</string>
     <string name="paspor_place_missing_body">This place is not in the list. Go back and pick another place.</string>
 

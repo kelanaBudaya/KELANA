@@ -270,7 +270,7 @@ internal fun CapSticker(
                 ),
                 color = ink,
                 textAlign = TextAlign.Center,
-                maxLines = 1,
+                maxLines = 2,
                 overflow = TextOverflow.Ellipsis,
             )
             Text(

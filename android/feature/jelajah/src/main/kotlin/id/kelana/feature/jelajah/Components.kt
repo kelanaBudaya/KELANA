@@ -12,6 +12,8 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import id.kelana.core.ui.photo.LocalPlaceCovers
+import id.kelana.core.ui.photo.PlacePhoto
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -92,6 +94,17 @@ internal fun PlaceCover(category: PlaceCategory, compact: Boolean = true, modifi
     }
 }
 
+/** Real cover photo of [place] when it has one; the category illustration otherwise, while loading and on error. */
+@Composable
+internal fun PlaceCoverPhoto(place: Place, compact: Boolean, modifier: Modifier = Modifier) {
+    PlacePhoto(
+        thumbUrl = LocalPlaceCovers.current[place.id],
+        fallback = { PlaceCover(place.category, compact = compact) },
+        contentDescription = place.name,
+        modifier = modifier.fillMaxSize(),
+    )
+}
+
 /** Green "Kunjungi Hari Ini" pill, shown only when the checked hours say the place is open today. */
 @Composable
 internal fun VisitTodayPill(modifier: Modifier = Modifier) {
@@ -104,24 +117,26 @@ internal fun VisitTodayPill(modifier: Modifier = Modifier) {
     )
 }
 
-/** Brown "Cap YK-02" pill (KatMuseum). */
+/** Brown "Cap <place name>" pill (KatMuseum). */
 @Composable
-internal fun CapPill(code: String, modifier: Modifier = Modifier) {
+internal fun CapPill(placeName: String, modifier: Modifier = Modifier) {
     val colors = KelanaTheme.colors
     Text(
-        text = stringResource(R.string.badge_cap, code),
+        text = stringResource(R.string.badge_cap, placeName),
         modifier = modifier.clip(KelanaShapes.badge).background(colors.backgroundWarm).padding(horizontal = 8.dp, vertical = 3.dp),
         style = MaterialTheme.typography.labelMedium,
         color = colors.stampBrown,
+        maxLines = 1,
+        overflow = androidx.compose.ui.text.style.TextOverflow.Ellipsis,
     )
 }
 
-/** "Kunjungi Hari Ini" when open on [today] (checked hours only), plus the stamp code. No status pill otherwise. */
+/** "Kunjungi Hari Ini" when open on [today] (checked hours only), plus the stamp pill. No status pill otherwise. */
 @Composable
 internal fun PlaceCheckedBadge(place: Place, today: LocalDate?) {
     Row(horizontalArrangement = androidx.compose.foundation.layout.Arrangement.spacedBy(6.dp)) {
         if (isVisitToday(place, today)) VisitTodayPill()
-        if (place.capCode.isNotBlank()) CapPill(place.capCode)
+        if (place.capCode.isNotBlank()) CapPill(place.name, Modifier.weight(1f, fill = false))
     }
 }
 
@@ -140,6 +155,6 @@ internal fun PlaceItem(
         modifier = modifier,
         size = size,
         badge = { PlaceCheckedBadge(place, today) },
-        cover = { PlaceCover(place.category, compact = size == PlaceCardSize.List) },
+        cover = { PlaceCoverPhoto(place, compact = size == PlaceCardSize.List) },
     )
 }

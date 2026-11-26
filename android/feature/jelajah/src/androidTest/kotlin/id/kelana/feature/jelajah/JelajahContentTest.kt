@@ -4,6 +4,9 @@ import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
+import androidx.compose.ui.test.performScrollToNode
+import androidx.compose.ui.test.hasScrollAction
+import androidx.compose.ui.test.hasText
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
 import id.kelana.core.designsystem.theme.KelanaTheme
@@ -65,6 +68,23 @@ class JelajahContentTest {
         rule.setContent { KelanaTheme { HomeContent(PreviewData.homeState(), "", callbacks(onPassport = { opened++ })) } }
         rule.onNodeWithText(str(R.string.home_passport_title)).performClick()
         assertEquals(1, opened)
+    }
+
+    @Test
+    fun home_challengeCard_opensSheetWithRealProgressAndActions() {
+        val actions = mutableListOf<QuickAction>()
+        var passport = 0
+        val state = PreviewData.homeState().copy(weekly = WeeklyProgress(done = 2, target = 3))
+        rule.setContent {
+            KelanaTheme {
+                HomeContent(state, "", callbacks(onPassport = { passport++ }, onQuickAction = { actions += it }))
+            }
+        }
+        rule.onNode(hasScrollAction()).performScrollToNode(hasText(str(R.string.challenge_label).uppercase()))
+        rule.onNodeWithText(str(R.string.challenge_label).uppercase()).performClick()
+        rule.onNodeWithText(str(R.string.challenge_sheet_progress, 2, 3)).assertIsDisplayed()
+        rule.onNodeWithText(str(R.string.challenge_sheet_passport)).performClick()
+        assertEquals(1, passport)
     }
 
     @Test

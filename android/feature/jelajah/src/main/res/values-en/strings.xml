@@ -29,7 +29,10 @@
     <string name="home_picks_title">Picks for your family</string>
     <string name="home_see_all">See all</string>
     <string name="challenge_label">This week’s challenge</string>
-    <string name="challenge_title">Collect %1$d stamps, unlock the Jurnal edition stamp</string>
+    <string name="challenge_title">Collect %1$d cultural stamps this week</string>
+    <string name="challenge_sheet_progress">%1$d of %2$d stamps</string>
+    <string name="challenge_sheet_passport">View passport</string>
+    <string name="challenge_sheet_done">This week’s challenge is complete</string>
     <string name="challenge_progress">%1$d of %2$d · ends Sunday</string>
     <string name="badge_visit_today">Visit Today</string>
     <string name="cari_hint">Search places or shows</string>

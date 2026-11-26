@@ -59,7 +59,7 @@ internal fun BackpackSection(
                 Column(Modifier.weight(1f).padding(vertical = 8.dp)) {
                     Text(place.name, style = MaterialTheme.typography.titleSmall, color = colors.ink)
                     Text(
-                        "${place.category.label()} · ${place.capCode}",
+                        place.category.label(),
                         style = MaterialTheme.typography.labelMedium,
                         color = colors.muted,
                     )

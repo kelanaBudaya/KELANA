@@ -13,6 +13,7 @@ dependencies {
     implementation(libs.androidx.browser)
     implementation(libs.maplibre.android)
     implementation(libs.okhttp)
+    implementation(libs.coil.compose)
 
     testImplementation(libs.kotlinx.coroutines.test)
     testImplementation(libs.turbine)

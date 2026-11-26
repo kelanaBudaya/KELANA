@@ -14,13 +14,10 @@ import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.stateIn
+import java.time.Clock
 import java.time.LocalDate
 import java.time.LocalDateTime
 import javax.inject.Inject
-
-/** PROVISIONAL: the weekly challenge still shows these numbers (the Paspor card shows real counts). */
-internal const val PLACEHOLDER_CHALLENGE_DONE = 1
-internal const val PLACEHOLDER_CHALLENGE_GOAL = 3
 
 data class JelajahUiState(
     val isLoading: Boolean = true,
@@ -33,6 +30,8 @@ data class JelajahUiState(
     val stampCount: Int = 0,
     /** Places in the passport; 0 until the places are loaded (the card then shows no number). */
     val stampTotal: Int = 0,
+    /** Server-confirmed stamps this week (Jakarta) against the weekly target; 0 of the target for a guest. */
+    val weekly: WeeklyProgress = WeeklyProgress(),
 )
 
 @HiltViewModel
@@ -41,12 +40,13 @@ class JelajahViewModel internal constructor(
     events: EventRepository,
     regions: RegionRepository,
     stamps: StampRepository,
+    clock: Clock = Clock.system(ChallengeZone),
     now: () -> LocalDateTime,
 ) : ViewModel() {
 
     @Inject
     constructor(places: PlaceRepository, events: EventRepository, regions: RegionRepository, stamps: StampRepository) :
-        this(places, events, regions, stamps, { LocalDateTime.now() })
+        this(places, events, regions, stamps, Clock.system(ChallengeZone), { LocalDateTime.now() })
 
     private val start = now()
 
@@ -66,6 +66,7 @@ class JelajahViewModel internal constructor(
             featuredPlaces = allPlaces,
             stampCount = ownStamps.map { it.placeId.lowercase() }.distinct().count { it in placeIds },
             stampTotal = allPlaces.size,
+            weekly = weeklyProgress(ownStamps, clock),
         )
     }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), JelajahUiState())
 }
