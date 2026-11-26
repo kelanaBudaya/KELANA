@@ -70,10 +70,8 @@
     <string name="postcard_card_style_jurnal">JOURNAL</string>
     <string name="postcard_card_style_cap">STAMP</string>
     <string name="postcard_card_style_peta">MAP</string>
-    <string name="postcard_card_region">YOGYAKARTA</string>
-    <string name="postcard_card_region_code">DIY</string>
     <string name="postcard_card_visited">VISITED · %1$s</string>
-    <string name="postcard_card_headline">A piece of Jogja.</string>
+    <string name="postcard_card_headline">A piece of %1$s.</string>
     <string name="postcard_card_quote">“%1$s”</string>
     <string name="postcard_card_tagline">YOUR CULTURAL JOURNEY</string>
 

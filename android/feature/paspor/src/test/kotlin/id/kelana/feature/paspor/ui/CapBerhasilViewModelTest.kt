@@ -5,7 +5,10 @@ import app.cash.turbine.test
 import id.kelana.core.data.repository.FakePlaceRepository
 import id.kelana.core.data.repository.FakeRegionRepository
 import id.kelana.core.model.Stamp
+import id.kelana.feature.paspor.FakeRegions
+import id.kelana.feature.paspor.ListPlaces
 import id.kelana.feature.paspor.ScriptedStampRepository
+import id.kelana.feature.paspor.testPlace
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.UnconfinedTestDispatcher
@@ -78,6 +81,28 @@ class CapBerhasilViewModelTest {
             while (s.isLoading) s = awaitItem()
             assertEquals(10, s.collected)
             assertEquals(0, s.remaining)
+            cancelAndIgnoreRemainingEvents()
+        }
+    }
+
+    @Test fun region_texts_follow_the_stamped_place_not_the_selected_region() = runTest {
+        val jtm = testPlace("bromo", "JT-01").copy(regionId = "JTM")
+        val diy = testPlace("sono", "YK-02").copy(regionId = "DIY")
+        fun vmFor(placeId: String, selected: String) = CapBerhasilViewModel(
+            SavedStateHandle(mapOf("placeId" to placeId)), ListPlaces(listOf(jtm, diy)), ScriptedStampRepository(), FakeRegions(selected),
+        )
+        vmFor("bromo", "DIY").uiState.test {
+            var s = awaitItem()
+            while (s.isLoading) s = awaitItem()
+            assertEquals("JTM", s.regionCode)
+            assertEquals("Jatim", s.regionShortName)
+            cancelAndIgnoreRemainingEvents()
+        }
+        vmFor("sono", "JTM").uiState.test {
+            var s = awaitItem()
+            while (s.isLoading) s = awaitItem()
+            assertEquals("DIY", s.regionCode)
+            assertEquals("Jogja", s.regionShortName)
             cancelAndIgnoreRemainingEvents()
         }
     }

@@ -42,10 +42,11 @@ class CapBerhasilContentTest {
                 total = 10,
                 stampedAt = Instant.parse("2026-11-20T03:00:00Z"),
                 regionCode = "DIY",
+                regionShortName = "Jogja",
             ),
         )
         rule.onNodeWithText(str(R.string.paspor_berhasil_title, place.name)).assertExists()
-        rule.onNodeWithText(str(R.string.paspor_berhasil_kicker, 3, 7)).assertExists()
+        rule.onNodeWithText(str(R.string.paspor_berhasil_kicker, 3, 7, "JOGJA")).assertExists()
         rule.onNodeWithText(str(R.string.paspor_berhasil_postcard)).assertIsDisplayed().performClick()
         rule.onNodeWithText(str(R.string.paspor_berhasil_passport)).assertIsDisplayed().performClick()
         assertEquals(listOf("postcard", "paspor"), calls)
@@ -53,8 +54,8 @@ class CapBerhasilContentTest {
 
     @Test
     fun completePassport_showsCompleteKicker() {
-        show(CapBerhasilUiState(isLoading = false, place = testPlace("a", "Candi Prambanan"), collected = 10, total = 10))
-        rule.onNodeWithText(str(R.string.paspor_berhasil_kicker_complete, 10)).assertExists()
+        show(CapBerhasilUiState(isLoading = false, place = testPlace("a", "Candi Prambanan"), collected = 10, total = 10, regionShortName = "Jogja"))
+        rule.onNodeWithText(str(R.string.paspor_berhasil_kicker_complete, 10, "JOGJA")).assertExists()
     }
 
     @Test

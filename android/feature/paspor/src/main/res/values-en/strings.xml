@@ -7,8 +7,8 @@
     <string name="paspor_profile_cd">Profile</string>
     <string name="paspor_seal_name">KELANA</string>
     <string name="paspor_count_title">%1$d of %2$d stamps</string>
-    <string name="paspor_remaining">%1$d more places to complete Jogja.</string>
-    <string name="paspor_complete">All Jogja stamps collected.</string>
+    <string name="paspor_remaining">%1$d more places to complete %2$s.</string>
+    <string name="paspor_complete">All %1$s stamps collected.</string>
     <string name="paspor_progress_cd">Stamps collected: %1$d of %2$d</string>
     <string name="paspor_section_title">Collected stamps</string>
     <string name="paspor_section_hint">Tap a stamp to see your postcard and video there.</string>
@@ -100,8 +100,8 @@
     <string name="paspor_err_unconfirmed_body">The server answered, but your stamp was not recorded. Take the stamp again.</string>
 
     <!-- 6.3 Stamp collected -->
-    <string name="paspor_berhasil_kicker">STAMP %1$d · %2$d MORE IN JOGJA</string>
-    <string name="paspor_berhasil_kicker_complete">STAMP %1$d · JOGJA PASSPORT COMPLETE</string>
+    <string name="paspor_berhasil_kicker">STAMP %1$d · %2$d MORE IN %3$s</string>
+    <string name="paspor_berhasil_kicker_complete">STAMP %1$d · %2$s PASSPORT COMPLETE</string>
     <string name="paspor_berhasil_kicker_plain">NEW STAMP</string>
     <string name="paspor_berhasil_title">You have explored %1$s!</string>
     <string name="paspor_berhasil_title_plain">Your stamp is recorded!</string>

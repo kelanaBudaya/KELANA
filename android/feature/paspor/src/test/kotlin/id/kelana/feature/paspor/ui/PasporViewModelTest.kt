@@ -168,4 +168,20 @@ class PasporViewModelTest {
         assertEquals(StampOutcome.Failed(StampFailure.NotConfigured), StampResult.NotConfigured.toOutcome())
         assertEquals(StampOutcome.Failed(StampFailure.Expired), StampResult.Expired.toOutcome())
     }
+
+    @Test fun region_short_name_follows_the_selected_region() = runTest {
+        val regions = id.kelana.feature.paspor.FakeRegions("DIY")
+        PasporViewModel(Places(places), ScriptedStampRepository(), regions, FakeSession(signedIn)).uiState.test {
+            var s = awaitItem()
+            while (s.isLoading || s.regionShortName == null) s = awaitItem()
+            assertEquals("Jogja", s.regionShortName)
+            assertEquals("DIY", s.regionCode)
+            regions.select("JTM")
+            s = awaitItem()
+            while (s.regionCode != "JTM") s = awaitItem()
+            assertEquals("Jatim", s.regionShortName)
+            assertEquals("Jawa Timur", s.regionName)
+            cancelAndIgnoreRemainingEvents()
+        }
+    }
 }

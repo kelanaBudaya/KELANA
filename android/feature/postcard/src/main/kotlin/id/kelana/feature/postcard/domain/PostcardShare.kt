@@ -3,6 +3,7 @@ package id.kelana.feature.postcard.domain
 import androidx.compose.runtime.Immutable
 import id.kelana.core.model.PostcardStyle
 import java.time.Instant
+import java.util.Locale
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -18,6 +19,8 @@ enum class ShareFormat(val widthPx: Int, val heightPx: Int) {
 /**
  * Everything the card shows. [photoJpeg] is the already re-encoded photo (no EXIF). [stampedAt] is the stamp
  * date from the stamp list, or null when the stamp is not in the list (the card then hides the dates).
+ * [regionName], [regionCode] and [regionShortName] describe the region of the stamped place ("Jawa Tengah",
+ * "JTG", "Jateng"), never a fixed region.
  */
 @Immutable
 class CardContent(
@@ -28,7 +31,22 @@ class CardContent(
     val style: PostcardStyle,
     val stampedAt: Instant?,
     val photoJpeg: ByteArray?,
-)
+    val regionName: String,
+    val regionCode: String,
+    val regionShortName: String,
+) {
+    /** Header label, in capitals as in the design: "JAWA TENGAH". */
+    val regionLabel: String get() = regionName.uppercase(CardLocale)
+}
+
+private val CardLocale: Locale = Locale.forLanguageTag("id-ID")
+
+/**
+ * Font size that makes text fit: [base] when the text measured at [base] is [measured] wide and fits in
+ * [available], otherwise scaled down in proportion, never below [min].
+ */
+fun fitFontSize(base: Float, measured: Float, available: Float, min: Float): Float =
+    if (measured <= available || measured <= 0f) base else maxOf(min, base * available / measured)
 
 /**
  * Hands the card from Tulis to Bagikan. In memory only: the read side of postcards (Cerita) is not built yet,

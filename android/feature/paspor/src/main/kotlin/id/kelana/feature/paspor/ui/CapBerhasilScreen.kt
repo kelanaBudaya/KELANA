@@ -176,12 +176,17 @@ internal fun CapBerhasilContent(
     }
 }
 
+private val KickerLocale: java.util.Locale = java.util.Locale.forLanguageTag("id-ID")
+
 /** "CAP KE-3 · TINGGAL 7 LAGI DI JOGJA", with the real numbers; no numbers when they are not known. */
 @Composable
 private fun kicker(state: CapBerhasilUiState): String = when {
     state.place == null || state.collected <= 0 -> stringResource(R.string.paspor_berhasil_kicker_plain)
-    state.remaining == 0 -> stringResource(R.string.paspor_berhasil_kicker_complete, state.collected)
-    else -> stringResource(R.string.paspor_berhasil_kicker, state.collected, state.remaining)
+    state.regionShortName == null -> stringResource(R.string.paspor_berhasil_kicker_plain)
+    state.remaining == 0 ->
+        stringResource(R.string.paspor_berhasil_kicker_complete, state.collected, state.regionShortName.uppercase(KickerLocale))
+    else ->
+        stringResource(R.string.paspor_berhasil_kicker, state.collected, state.remaining, state.regionShortName.uppercase(KickerLocale))
 }
 
 @Preview(widthDp = 390, heightDp = 844, name = "6.3 Cap berhasil")
@@ -199,6 +204,7 @@ private fun PreviewCapBerhasil() {
                 total = 10,
                 stampedAt = Instant.parse("2026-11-20T03:00:00Z"),
                 regionCode = "DIY",
+                regionShortName = "Jogja",
             ),
             onPostcard = {},
             onPassport = {},

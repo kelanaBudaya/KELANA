@@ -25,6 +25,8 @@ data class PasporUiState(
     val initials: String = "",
     val regionName: String? = null,
     val regionCode: String? = null,
+    /** Casual name for running text ("Jogja"); null until a region is selected. */
+    val regionShortName: String? = null,
     val items: List<PassportItem> = emptyList(),
 ) {
     val total: Int get() = items.size
@@ -56,6 +58,7 @@ class PasporViewModel @Inject constructor(
             initials = initialsOf(sessionState),
             regionName = region?.name,
             regionCode = region?.id,
+            regionShortName = region?.shortName,
             // A guest has no stamps: the repository already answers with an empty list.
             items = buildPassport(allPlaces, ownStamps),
         )

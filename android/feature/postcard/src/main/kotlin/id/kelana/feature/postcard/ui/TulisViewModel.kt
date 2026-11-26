@@ -13,6 +13,7 @@ import id.kelana.core.model.PostcardPhoto
 import id.kelana.core.model.PostcardPublishResult
 import id.kelana.core.model.PostcardRepository
 import id.kelana.core.model.PostcardStyle
+import id.kelana.core.model.RegionRepository
 import id.kelana.core.model.SessionRepository
 import id.kelana.core.model.SessionState
 import id.kelana.core.model.Stamp
@@ -121,6 +122,7 @@ class TulisViewModel @Inject constructor(
     private val postcards: PostcardRepository,
     private val photos: PhotoProcessor,
     private val shareSession: PostcardShareSession,
+    private val regions: RegionRepository,
 ) : ViewModel() {
     private val routePlaceId: String? = savedStateHandle.get<String>("placeId")
 
@@ -226,6 +228,10 @@ class TulisViewModel @Inject constructor(
 
     private suspend fun cardOf(place: Place, draft: PostcardDraft): CardContent {
         val stampedAt = stampedPlaces(listOf(place), ownStamps.first()).firstOrNull()?.stampedAt
+        // The region of the stamped place; the selected region only when the place has none.
+        val all = regions.regions().catch { emit(emptyList()) }.first()
+        val region = place.regionId?.let { id -> all.firstOrNull { it.id == id } }
+            ?: regions.selectedRegion().catch { emit(null) }.first()
         return CardContent(
             placeName = place.name,
             capCode = place.capCode,
@@ -234,6 +240,9 @@ class TulisViewModel @Inject constructor(
             style = draft.style,
             stampedAt = stampedAt,
             photoJpeg = draft.photo?.bytes,
+            regionName = region?.name.orEmpty(),
+            regionCode = region?.id.orEmpty(),
+            regionShortName = region?.shortName ?: place.name,
         )
     }
 }
