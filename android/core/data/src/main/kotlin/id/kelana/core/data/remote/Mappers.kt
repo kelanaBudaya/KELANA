@@ -134,7 +134,7 @@ internal fun ClosureDto.toFact(): OfficialFact<Closure>? {
 }
 
 internal fun TicketPriceDto.toFact() = OfficialFact(
-    value = TicketPrice(label = label, priceIdr = priceIdr, sellerUrl = sellerUrl),
+    value = TicketPrice(label = label, priceIdr = priceIdr, sellerUrl = sellerUrl, onSiteAvailable = onSiteAvailable),
     sourceUrl = sourceUrl,
     checkedAt = parseCheckedAt(checkedAt),
 )
@@ -213,7 +213,7 @@ internal fun EventDto.toEvent(): Event? {
             sourceUrl,
             checked,
         ),
-        ticket = OfficialFact(EventTicket(priceFromIdr, sellerUrl), sourceUrl, checked),
+        ticket = OfficialFact(EventTicket(priceFromIdr, sellerUrl, onSiteAvailable), sourceUrl, checked),
         performers = performers,
         arrivalAdviceMin = arrivalAdviceMin,
         arrivalAdviceMax = arrivalAdviceMax,

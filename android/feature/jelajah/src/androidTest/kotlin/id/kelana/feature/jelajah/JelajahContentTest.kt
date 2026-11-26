@@ -76,6 +76,21 @@ class JelajahContentTest {
     }
 
     @Test
+    fun home_greeting_showsNameForSignedInAndNothingForGuest() {
+        rule.setContent {
+            KelanaTheme { HomeContent(PreviewData.homeState(), "BS", callbacks(), greeting = GreetingName.Named("Budi")) }
+        }
+        rule.onNodeWithText(str(R.string.home_greeting_name, "Budi")).assertIsDisplayed()
+    }
+
+    @Test
+    fun home_greeting_absentForGuest() {
+        rule.setContent { KelanaTheme { HomeContent(PreviewData.homeState(), "", callbacks(), greeting = GreetingName.None) } }
+        rule.onNodeWithText(str(R.string.home_greeting_name, "Budi")).assertDoesNotExist()
+        rule.onNodeWithText(str(R.string.home_greeting)).assertDoesNotExist()
+    }
+
+    @Test
     fun cari_noQuery_showsPrompt() {
         rule.setContent {
             KelanaTheme { CariContent(CariUiState(), onBack = {}, onQueryChange = {}, onFilterChange = {}, onPlace = {}, onEvent = {}) }

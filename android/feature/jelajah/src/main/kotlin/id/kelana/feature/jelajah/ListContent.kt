@@ -114,12 +114,12 @@ private fun ListScaffold(
 }
 
 @Composable
-private fun PlaceList(places: List<Place>, onPlace: (Place) -> Unit) {
+private fun PlaceList(places: List<Place>, today: java.time.LocalDate?, onPlace: (Place) -> Unit) {
     LazyColumn(
         contentPadding = PaddingValues(start = 16.dp, end = 16.dp, top = 14.dp, bottom = 16.dp),
         verticalArrangement = Arrangement.spacedBy(10.dp),
     ) {
-        items(places, key = { it.id }) { place -> PlaceItem(place = place, onClick = { onPlace(place) }) }
+        items(places, key = { it.id }) { place -> PlaceItem(place = place, onClick = { onPlace(place) }, today = today) }
     }
 }
 
@@ -231,7 +231,7 @@ internal fun KategoriContent(
                 title = stringResource(R.string.filter_empty_title),
                 body = stringResource(R.string.filter_empty_body),
             )
-            else -> PlaceList(state.places, onPlace)
+            else -> PlaceList(state.places, state.today, onPlace)
         }
     }
 }
@@ -285,7 +285,7 @@ internal fun SemuaTempatContent(
                 body = stringResource(R.string.filter_empty_body),
             )
         } else {
-            PlaceList(state.places, onPlace)
+            PlaceList(state.places, state.today, onPlace)
         }
     }
 }

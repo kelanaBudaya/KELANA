@@ -27,6 +27,8 @@ data class CariUiState(
     val isLoading: Boolean = false,
     val places: List<Place> = emptyList(),
     val events: List<EventOccurrence> = emptyList(),
+    /** Jakarta date for the "Kunjungi Hari Ini" badge; null shows no badge. */
+    val today: LocalDate? = null,
 ) {
     val hasQuery: Boolean get() = query.isNotBlank()
     val isEmptyResult: Boolean get() = hasQuery && !isLoading && places.isEmpty() && events.isEmpty()
@@ -44,7 +46,7 @@ class CariViewModel internal constructor(
 
     @Inject
     constructor(places: PlaceRepository, events: EventRepository) :
-        this(places, events, { LocalDate.now() })
+        this(places, events, { todayInJakarta() })
 
     private val query = MutableStateFlow("")
     private val filter = MutableStateFlow(CariFilter.Semua)
@@ -56,7 +58,7 @@ class CariViewModel internal constructor(
                 flowOf(CariUiState(query = q, filter = f))
             } else {
                 combine(placeResults(q, f), eventResults(q, f)) { p, e ->
-                    CariUiState(query = q, filter = f, places = p, events = e)
+                    CariUiState(query = q, filter = f, places = p, events = e, today = today())
                 }
             }
         }

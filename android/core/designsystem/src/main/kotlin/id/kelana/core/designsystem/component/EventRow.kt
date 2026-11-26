@@ -38,7 +38,7 @@ import id.kelana.core.designsystem.theme.KelanaTheme
 fun EventRow(
     title: String,
     place: String,
-    whenText: String,
+    whenText: String?,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
     badge: (@Composable () -> Unit)? = null,
@@ -83,13 +83,16 @@ fun EventRow(
                     maxLines = 1,
                     overflow = TextOverflow.Ellipsis,
                 )
-                Text(
-                    text = whenText,
-                    style = MaterialTheme.typography.bodySmall,
-                    color = colors.muted,
-                    maxLines = 1,
-                    overflow = TextOverflow.Ellipsis,
-                )
+                // Null when the schedule has no check date: no time text is rendered.
+                if (whenText != null) {
+                    Text(
+                        text = whenText,
+                        style = MaterialTheme.typography.bodySmall,
+                        color = colors.muted,
+                        maxLines = 1,
+                        overflow = TextOverflow.Ellipsis,
+                    )
+                }
                 if (badge != null) Box(Modifier.padding(top = KelanaSpacing.sm)) { badge() }
             }
             Image(

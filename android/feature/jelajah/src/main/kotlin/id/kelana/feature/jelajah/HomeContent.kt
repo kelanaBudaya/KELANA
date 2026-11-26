@@ -58,6 +58,7 @@ import id.kelana.core.designsystem.theme.SerifHeadline
 import id.kelana.core.model.EventOccurrence
 import id.kelana.core.model.FactDisplay
 import id.kelana.core.model.Place
+import id.kelana.core.model.SessionState
 import id.kelana.core.ui.formatTimeRange
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
@@ -80,6 +81,22 @@ internal enum class QuickAction(@StringRes val label: Int, val needsAccount: Boo
     Rencana(R.string.action_plan, false),
     Agenda(R.string.action_agenda, false),
     Postcard(R.string.action_postcard, true),
+}
+
+/** The greeting line above the headline. Guests and a session still loading get no greeting at all. */
+internal sealed interface GreetingName {
+    data object None : GreetingName
+    /** Signed in without a usable display name: plain "Halo!" (the email is never used). */
+    data object Anonymous : GreetingName
+    data class Named(val firstName: String) : GreetingName
+}
+
+/** First word of the display name of a signed-in user. */
+internal fun greetingNameOf(state: SessionState): GreetingName = when (state) {
+    is SessionState.SignedIn -> state.user.displayName
+        ?.trim()?.split(Regex("""\s+"""))?.firstOrNull { it.isNotEmpty() }
+        ?.let { GreetingName.Named(it) } ?: GreetingName.Anonymous
+    else -> GreetingName.None
 }
 
 private val IdLocale: Locale = Locale.forLanguageTag("id-ID")
@@ -120,10 +137,11 @@ internal fun HomeContent(
     avatarInitials: String,
     callbacks: HomeCallbacks,
     modifier: Modifier = Modifier,
+    greeting: GreetingName = GreetingName.None,
 ) {
     val colors = KelanaTheme.colors
     LazyColumn(modifier = modifier.fillMaxWidth().background(colors.background)) {
-        item { HomeHeader(state, avatarInitials, callbacks) }
+        item { HomeHeader(state, avatarInitials, greeting, callbacks) }
         item { PassportCard(state, callbacks, Modifier.pullUp(Overlap).padding(horizontal = 16.dp)) }
         item { TileGrid(onTile = callbacks.onTile, modifier = Modifier) }
         state.tonightEvent?.let { occurrence ->
@@ -145,7 +163,7 @@ internal fun HomeContent(
 }
 
 @Composable
-private fun HomeHeader(state: JelajahUiState, avatarInitials: String, callbacks: HomeCallbacks) {
+private fun HomeHeader(state: JelajahUiState, avatarInitials: String, greeting: GreetingName, callbacks: HomeCallbacks) {
     val colors = KelanaTheme.colors
     Box(Modifier.fillMaxWidth().background(colors.primary)) {
         Image(
@@ -155,6 +173,8 @@ private fun HomeHeader(state: JelajahUiState, avatarInitials: String, callbacks:
             contentScale = ContentScale.FillWidth,
             alignment = Alignment.TopStart,
         )
+        // The header grows with the content (the greeting line adds height), so the passport card, pulled up 48 dp over
+        // the 64 dp bottom padding, always clears the headline.
         Column(Modifier.fillMaxWidth().padding(start = 20.dp, end = 20.dp, top = 16.dp, bottom = 64.dp)) {
             Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(10.dp)) {
                 Surface(
@@ -218,6 +238,21 @@ private fun HomeHeader(state: JelajahUiState, avatarInitials: String, callbacks:
                 else -> date
             }
             Column(Modifier.padding(top = 16.dp)) {
+                val greetingText = when (greeting) {
+                    GreetingName.None -> null
+                    GreetingName.Anonymous -> stringResource(R.string.home_greeting)
+                    is GreetingName.Named -> stringResource(R.string.home_greeting_name, greeting.firstName)
+                }
+                if (greetingText != null) {
+                    Text(
+                        text = greetingText,
+                        modifier = Modifier.padding(bottom = 4.dp),
+                        style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.ExtraBold),
+                        color = colors.white,
+                        maxLines = 1,
+                        overflow = TextOverflow.Ellipsis,
+                    )
+                }
                 if (dateLine != null) {
                     Text(dateLine, style = MaterialTheme.typography.bodySmall, color = colors.skyText)
                 }

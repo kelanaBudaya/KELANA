@@ -261,7 +261,8 @@ private fun TiketRow(
 ) {
     val colors = KelanaTheme.colors
     val art = rowArt(item.category)
-    val url = item.sellerUrl
+    val presentation = rowPresentation(item.onSite, item.sellerUrl)
+    val url = item.sellerUrl.takeIf { presentation.opensSeller }
     val rowShape = KelanaShapes.listCard
     val openLabel = stringResource(R.string.tiket_open_action)
     Row(
@@ -298,12 +299,22 @@ private fun TiketRow(
                 maxLines = 2,
                 overflow = TextOverflow.Ellipsis,
             )
-            val price = item.priceFromIdr?.takeIf { item.checkedAt != null }
-                ?.let { stringResource(R.string.tiket_price_from, formatRupiah(it)) }
-            val subtitle = listOfNotNull(item.placeName, item.sellerHost, price).joinToString(" · ")
+            val price = visiblePrice(item)?.let {
+                if (it == 0L) stringResource(R.string.tiket_price_free) else stringResource(R.string.tiket_price_from, formatRupiah(it))
+            }
+            val subtitle = listOfNotNull(item.placeName, price).joinToString(" · ")
             if (subtitle.isNotEmpty()) {
                 Text(
                     text = subtitle,
+                    style = MaterialTheme.typography.bodySmall,
+                    color = colors.muted,
+                )
+            }
+            presentation.note?.let { note ->
+                Text(
+                    text = stringResource(
+                        if (note == TiketNote.AlsoAtCounter) R.string.tiket_note_also_counter else R.string.tiket_note_buy_counter,
+                    ),
                     style = MaterialTheme.typography.bodySmall,
                     color = colors.muted,
                 )
@@ -340,7 +351,9 @@ private val PreviewItems = listOf(
     TiketItem("2", TiketKind.Tempat, "Keraton Yogyakarta", PlaceCategory.Candi, null,
         "https://tiket.example.org/y", null, null),
     TiketItem("3", TiketKind.Kelas, "Kelas membatik", PlaceCategory.Kerajinan, null,
-        "https://tiket.example.org/z", 90_000, PreviewChecked),
+        "https://tiket.example.org/z", 90_000, PreviewChecked, onSite = true),
+    TiketItem("4", TiketKind.Tempat, "Museum Sonobudoyo", PlaceCategory.Museum, null,
+        null, 15_000, PreviewChecked, onSite = true),
 )
 
 @Preview(showBackground = true, widthDp = 390, heightDp = 780)

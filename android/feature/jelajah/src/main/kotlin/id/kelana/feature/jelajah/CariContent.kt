@@ -177,7 +177,7 @@ internal fun CariContent(
                 if (state.places.isNotEmpty()) {
                     item { SectionLabel(R.string.cari_section_places) }
                     items(state.places, key = { "p-" + it.id }) { place ->
-                        PlaceItem(place = place, onClick = { onPlace(place) })
+                        PlaceItem(place = place, onClick = { onPlace(place) }, today = state.today)
                     }
                 }
             }
@@ -200,18 +200,19 @@ private fun SectionLabel(res: Int) {
     )
 }
 
-/** Event row. The show time is an official fact: without a check date it shows "Jadwal sedang dicek", no time. */
+/** Event row. The show time is an official fact: without a check date no time is shown. */
 @Composable
 private fun EventResult(occurrence: EventOccurrence, onClick: () -> Unit) {
     val event = occurrence.event
     val shown = event.schedule.display()
+    // Without a check date no time text is rendered at all (the row itself stays).
     val whenText = when (shown) {
         is FactDisplay.Checked -> stringResource(
             R.string.event_when,
             occurrence.date.dayOfWeek.getDisplayName(TextStyle.FULL, IdLocale),
             formatTimeRange(shown.value.start, shown.value.end),
         )
-        FactDisplay.Checking -> stringResource(R.string.event_checking)
+        FactDisplay.Checking -> null
     }
     EventRow(
         title = event.title,

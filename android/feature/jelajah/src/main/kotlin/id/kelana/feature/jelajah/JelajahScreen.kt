@@ -3,15 +3,10 @@ package id.kelana.feature.jelajah
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.SnackbarHost
-import androidx.compose.material3.SnackbarHostState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
@@ -28,11 +23,12 @@ import id.kelana.core.navigation.KategoriRoute
 import id.kelana.core.navigation.NotifikasiRoute
 import id.kelana.core.navigation.PasporRoute
 import id.kelana.core.navigation.PetaRoute
+import id.kelana.core.navigation.PostcardRoute
+import id.kelana.core.navigation.RencanaRoute
 import id.kelana.core.navigation.SemuaTempatRoute
 import id.kelana.core.navigation.TiketRoute
 import id.kelana.core.ui.session.SessionViewModel
 import id.kelana.core.ui.session.rememberRequireLogin
-import kotlinx.coroutines.launch
 
 /**
  * Registers this feature's destinations: Jelajah (tab home), Cari, Kategori, Semua tempat. Called by :app only.
@@ -62,6 +58,14 @@ internal fun tileRoute(tile: HomeTile): Any = when (tile) {
     HomeTile.Peta -> PetaRoute
 }
 
+/** Where a quick action of the passport card goes. Ambil cap starts from the passport; Rencana is a tab destination. */
+internal fun quickActionRoute(action: QuickAction): Any = when (action) {
+    QuickAction.Agenda -> AgendaRoute
+    QuickAction.AmbilCap -> passportRoute
+    QuickAction.Rencana -> RencanaRoute
+    QuickAction.Postcard -> PostcardRoute()
+}
+
 private fun initialsOf(state: SessionState): String = when (state) {
     is SessionState.SignedIn -> (state.user.displayName ?: state.user.email).orEmpty()
         .split(' ', '@').filter { it.isNotBlank() }.take(2).joinToString("") { it.first().uppercase() }
@@ -75,18 +79,14 @@ internal fun JelajahScreen(navigate: (Any) -> Unit) {
     val state by viewModel.state.collectAsState()
     val sessionState by session.sessionState.collectAsState()
     val requireLogin = rememberRequireLogin(navigate, session)
-    val snackbar = remember { SnackbarHostState() }
-    val scope = rememberCoroutineScope()
-    val comingSoon = stringResource(R.string.coming_soon)
-    val showComingSoon: () -> Unit = { scope.launch { snackbar.showSnackbar(comingSoon) } }
 
     Scaffold(
-        snackbarHost = { SnackbarHost(snackbar) },
         contentWindowInsets = WindowInsets(0, 0, 0, 0),
     ) { padding ->
         HomeContent(
             state = state,
             avatarInitials = initialsOf(sessionState),
+            greeting = greetingNameOf(sessionState),
             modifier = Modifier.padding(padding),
             callbacks = HomeCallbacks(
                 onSearch = { navigate(CariRoute) },
@@ -96,13 +96,10 @@ internal fun JelajahScreen(navigate: (Any) -> Unit) {
                 // The passport needs an account: a guest goes to Masuk first.
                 onPassport = { requireLogin { navigate(passportRoute) } },
                 onQuickAction = { action ->
-                    when (action) {
-                        QuickAction.Agenda -> navigate(AgendaRoute)
-                        // "Ambil cap" starts from a place; the passport lists the places (Detail tempat has the button).
-                        QuickAction.AmbilCap -> requireLogin { navigate(passportRoute) }
-                        // Phase 3 (PROVISIONAL): guests are routed to login first, then "segera hadir".
-                        else -> if (action.needsAccount) requireLogin(showComingSoon) else showComingSoon()
-                    }
+                    // "Ambil cap" starts from the passport (Detail tempat has the button). Rencana is a tab: a plain
+                    // navigate puts it on top of Jelajah and the bottom bar selects it; back returns to Jelajah.
+                    val route = quickActionRoute(action)
+                    if (action.needsAccount) requireLogin { navigate(route) } else navigate(route)
                 },
                 onTile = { tile -> navigate(tileRoute(tile)) },
                 onEvent = { navigate(DetailPentasRoute(it.event.id)) },
