@@ -28,3 +28,12 @@ interface PlacePhotoRepository {
      */
     fun photos(placeId: String): Flow<List<PlacePhoto>>
 }
+
+/**
+ * Cover photos for list cards: place id to the thumbnail URL of the place's first published photo.
+ * Places without a photo are absent from the map. Credit is not shown on the card (the place gallery shows it).
+ */
+interface PlaceCoverRepository {
+    /** Emits the known covers (possibly empty), then the refreshed ones. Never fails; offline keeps what it has. */
+    fun covers(): Flow<Map<String, String>>
+}
