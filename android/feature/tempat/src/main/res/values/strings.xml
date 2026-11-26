@@ -38,6 +38,8 @@
     <string name="tempat_videos_retry">Coba lagi</string>
     <string name="tempat_videos_card_loading">Memuat…</string>
     <string name="tempat_videos_card_error">Video tidak bisa ditampilkan di sini.</string>
+    <string name="tempat_videos_card_error_unavailable">Video tidak tersedia.</string>
+    <string name="tempat_videos_card_error_playback">Gagal memutar video.</string>
     <string name="tempat_videos_open_tiktok">Buka di TikTok</string>
     <string name="tempat_stories_title">Cerita pengunjung</string>
     <string name="tempat_stories_all">Lihat semua</string>

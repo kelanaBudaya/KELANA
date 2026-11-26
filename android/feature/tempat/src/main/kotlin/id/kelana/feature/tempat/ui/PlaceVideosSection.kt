@@ -1,13 +1,6 @@
 package id.kelana.feature.tempat.ui
 
-import android.annotation.SuppressLint
 import android.content.Context
-import android.graphics.Bitmap
-import android.webkit.WebResourceError
-import android.webkit.WebResourceRequest
-import android.webkit.WebSettings
-import android.webkit.WebView
-import android.webkit.WebViewClient
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -25,12 +18,12 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.DisposableEffect
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
-import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -40,25 +33,25 @@ import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.viewinterop.AndroidView
 import androidx.hilt.navigation.compose.hiltViewModel
 import id.kelana.core.designsystem.theme.KelanaShapes
 import id.kelana.core.designsystem.theme.KelanaSpacing
 import id.kelana.core.designsystem.theme.KelanaTheme
 import id.kelana.core.model.PlaceVideo
 import id.kelana.core.ui.openCustomTab
+import id.kelana.core.ui.tiktok.TikTokEmbedPlayer
+import id.kelana.core.ui.tiktok.TikTokPlayerError
+import id.kelana.core.ui.tiktok.TikTokPlayerState
+import id.kelana.core.ui.tiktok.rememberTikTokPlayerController
 import id.kelana.feature.tempat.R
-import java.net.URI
 
 private val CardWidth = 200.dp
 
-internal fun tiktokEmbedUrl(videoId: String) = "https://www.tiktok.com/embed/v2/$videoId"
-
-/** True only for https links on tiktok.com or one of its subdomains. Everything else leaves the WebView. */
-internal fun isTikTokUrl(url: String): Boolean {
-    val uri = runCatching { URI(url) }.getOrNull() ?: return false
-    val host = uri.host?.lowercase() ?: return false
-    return uri.scheme.equals("https", ignoreCase = true) && (host == "tiktok.com" || host.endsWith(".tiktok.com"))
+/** Short message for a player error (1001 unavailable, 2001/3001 playback failure, anything else generic). */
+internal fun videoErrorMessageRes(error: TikTokPlayerError?): Int = when (error) {
+    TikTokPlayerError.InvalidVideo -> R.string.tempat_videos_card_error_unavailable
+    TikTokPlayerError.ServerError, TikTokPlayerError.PlaybackError -> R.string.tempat_videos_card_error_playback
+    else -> R.string.tempat_videos_card_error
 }
 
 /**
@@ -74,6 +67,8 @@ internal fun PlaceVideosSection(modifier: Modifier = Modifier, viewModel: PlaceV
 @Composable
 internal fun PlaceVideosContent(state: PlaceVideosState, onRetry: () -> Unit, modifier: Modifier = Modifier) {
     val colors = KelanaTheme.colors
+    // Only one card plays at a time: the card that started last wins, the others are paused.
+    var playingId by remember { mutableStateOf<String?>(null) }
     Column(modifier.padding(top = 26.dp)) {
         Text(
             text = stringResource(R.string.tempat_videos_title),
@@ -98,7 +93,9 @@ internal fun PlaceVideosContent(state: PlaceVideosState, onRetry: () -> Unit, mo
                 contentPadding = PaddingValues(horizontal = KelanaSpacing.gutter),
                 horizontalArrangement = Arrangement.spacedBy(12.dp),
             ) {
-                items(state.items, key = { it.id }) { VideoCard(it) }
+                items(state.items, key = { it.id }) { video ->
+                    VideoCard(video, playingId = playingId, onStarted = { playingId = video.id })
+                }
             }
         }
     }
@@ -139,23 +136,17 @@ private fun MessageCard(title: String, body: String?, onRetry: (() -> Unit)?) {
 }
 
 /** One 9:16 card. The WebView exists only while the card is in composition and is destroyed when it leaves. */
-@SuppressLint("SetJavaScriptEnabled")
 @Composable
-private fun VideoCard(video: PlaceVideo) {
+private fun VideoCard(video: PlaceVideo, playingId: String?, onStarted: () -> Unit) {
     val colors = KelanaTheme.colors
     val context = LocalContext.current
+    val controller = rememberTikTokPlayerController()
     var loading by remember(video.id) { mutableStateOf(true) }
     var failed by remember(video.id) { mutableStateOf(false) }
-    var webView by remember(video.id) { mutableStateOf<WebView?>(null) }
+    var error by remember(video.id) { mutableStateOf<TikTokPlayerError?>(null) }
 
-    DisposableEffect(video.id) {
-        onDispose {
-            webView?.let {
-                it.stopLoading()
-                it.destroy()
-            }
-            webView = null
-        }
+    LaunchedEffect(playingId) {
+        if (playingId != null && playingId != video.id) controller.pause()
     }
 
     Box(
@@ -166,41 +157,20 @@ private fun VideoCard(video: PlaceVideo) {
             .background(colors.backgroundWarm),
     ) {
         if (!failed) {
-            AndroidView(
+            TikTokEmbedPlayer(
+                videoId = video.tiktokVideoId,
                 modifier = Modifier.fillMaxSize(),
-                factory = { ctx ->
-                    WebView(ctx).apply {
-                        settings.javaScriptEnabled = true
-                        settings.allowFileAccess = false
-                        settings.allowContentAccess = false
-                        settings.mediaPlaybackRequiresUserGesture = true
-                        settings.mixedContentMode = WebSettings.MIXED_CONTENT_NEVER_ALLOW
-                        webViewClient = object : WebViewClient() {
-                            override fun shouldOverrideUrlLoading(view: WebView, request: WebResourceRequest): Boolean {
-                                val url = request.url.toString()
-                                if (isTikTokUrl(url)) return false
-                                openCustomTab(context, url)
-                                return true
-                            }
-
-                            override fun onPageStarted(view: WebView, url: String?, favicon: Bitmap?) {
-                                loading = true
-                            }
-
-                            override fun onPageFinished(view: WebView, url: String?) {
-                                loading = false
-                            }
-
-                            override fun onReceivedError(view: WebView, request: WebResourceRequest, error: WebResourceError) {
-                                if (request.isForMainFrame) {
-                                    failed = true
-                                    loading = false
-                                }
-                            }
-                        }
-                        webView = this
-                        loadUrl(tiktokEmbedUrl(video.tiktokVideoId))
-                    }
+                controller = controller,
+                onReady = { loading = false },
+                onStateChange = { if (it == TikTokPlayerState.Playing) onStarted() },
+                onError = {
+                    error = it
+                    failed = true
+                    loading = false
+                },
+                onLoadFailed = {
+                    failed = true
+                    loading = false
                 },
             )
         }
@@ -219,7 +189,7 @@ private fun VideoCard(video: PlaceVideo) {
                 horizontalAlignment = Alignment.CenterHorizontally,
             ) {
                 Text(
-                    text = stringResource(R.string.tempat_videos_card_error),
+                    text = stringResource(videoErrorMessageRes(error)),
                     style = MaterialTheme.typography.bodySmall,
                     color = colors.muted,
                     textAlign = TextAlign.Center,

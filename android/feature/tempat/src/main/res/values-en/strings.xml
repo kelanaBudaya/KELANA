@@ -38,6 +38,8 @@
     <string name="tempat_videos_retry">Try again</string>
     <string name="tempat_videos_card_loading">Loading…</string>
     <string name="tempat_videos_card_error">This video cannot be shown here.</string>
+    <string name="tempat_videos_card_error_unavailable">This video is not available.</string>
+    <string name="tempat_videos_card_error_playback">Could not play this video.</string>
     <string name="tempat_videos_open_tiktok">Open on TikTok</string>
     <string name="tempat_stories_title">Visitor stories</string>
     <string name="tempat_stories_all">See all</string>
