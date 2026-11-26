@@ -1,0 +1,811 @@
+{
+ "sekar-rinonce": {
+  "selected": [],
+  "rejected_viewed": [],
+  "gap_note": "No candidates at all in candidates.jsonl (harvest found 4 files, all PDF). Needs new search."
+ },
+ "workshop-perak-kotagede": {
+  "selected": [
+   {
+    "sort_order": 0,
+    "caption_id": "Hiasan perak buatan pengrajin Kotagede di atas nampan anyaman",
+    "license_code": "CC-BY-SA-4.0",
+    "attribution_text": "Foto: Astari28 · CC BY-SA 4.0 · Wikimedia Commons",
+    "source": "wikimedia_commons",
+    "file_title": "File:Kerajinan perak 2.jpg",
+    "page_url": "https://commons.wikimedia.org/wiki/File:Kerajinan_perak_2.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Kerajinan_perak_2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "url_1600": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0c/Kerajinan_perak_2.jpg/1920px-Kerajinan_perak_2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "url_400": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0c/Kerajinan_perak_2.jpg/500px-Kerajinan_perak_2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "width": 3298,
+    "height": 3965,
+    "sha1": "04971d2484a3697070e1dbed60cfe85e48fec1d5",
+    "author_text": "Astari28",
+    "author_url": "https://commons.wikimedia.org/wiki/User:Astari28",
+    "license_short": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "view_note": "Sharp closeup of silver ornaments on a woven tray, portrait, shaded setting; subject is Kotagede silverwork."
+   }
+  ],
+  "rejected_viewed": [
+   {
+    "file_title": "File:Kotagede silversmiths.jpg",
+    "reason": "Mainly a person (silversmith face/torso close-up), not the place"
+   },
+   {
+    "file_title": "File:Kerajinan perak 1.jpg",
+    "reason": "Near-duplicate of Kerajinan perak 1 and second portrait"
+   }
+  ],
+  "gap_note": "Only 3 distinct usable files (2 Openverse copies are duplicates of Commons files); only one passes the portrait limit and people rule. Photos show craft products, not a workshop/shop building."
+ },
+ "desa-wisata-tlatar": {
+  "selected": [],
+  "rejected_viewed": [
+   {
+    "file_title": "File:Tlatar Water Park.jpg",
+    "reason": "Water park in a garden; file is Taman Wisata Air Tlatar with no GPS. Tlatar water park is commonly located in Boyolali (Central Java), so a match with this DIY village place cannot be confirmed; not padded."
+   }
+  ],
+  "gap_note": "Only 1 candidate, and its location is unverified. Needs new search."
+ },
+ "desa-wisata-kasongan": {
+  "selected": [
+   {
+    "sort_order": 0,
+    "caption_id": "Gerabah terakota di sebuah toko kerajinan Kasongan",
+    "license_code": "CC-BY-SA-4.0",
+    "attribution_text": "Foto: Asri Nurhayati · CC BY-SA 4.0 · Wikimedia Commons",
+    "source": "wikimedia_commons",
+    "file_title": "File:Kerajinan Gerabah.jpg",
+    "page_url": "https://commons.wikimedia.org/wiki/File:Kerajinan_Gerabah.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/f/f8/Kerajinan_Gerabah.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "url_1600": "https://upload.wikimedia.org/wikipedia/commons/f/f8/Kerajinan_Gerabah.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+    "url_400": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f8/Kerajinan_Gerabah.jpg/500px-Kerajinan_Gerabah.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "width": 1280,
+    "height": 960,
+    "sha1": "2cdc35e9e5c12f60c353583b965bf3c88fbbf2c6",
+    "author_text": "Asri Nurhayati",
+    "author_url": "https://commons.wikimedia.org/w/index.php?title=User:Asri_Nurhayati&action=edit&redlink=1",
+    "license_short": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "view_note": "Colourful display of terracotta pots and animal figures in a shop; clear, landscape."
+   },
+   {
+    "sort_order": 1,
+    "caption_id": "Pengrajin membuat patung tanah liat di bengkel Kasongan, Bantul",
+    "license_code": "CC-BY-SA-4.0",
+    "attribution_text": "Foto: Beny AS · CC BY-SA 4.0 · Wikimedia Commons",
+    "source": "wikimedia_commons",
+    "file_title": "File:BENGKEL PATUNG.jpg",
+    "page_url": "https://commons.wikimedia.org/wiki/File:BENGKEL_PATUNG.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/e/e2/BENGKEL_PATUNG.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "url_1600": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e2/BENGKEL_PATUNG.jpg/1920px-BENGKEL_PATUNG.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "url_400": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e2/BENGKEL_PATUNG.jpg/500px-BENGKEL_PATUNG.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "width": 2000,
+    "height": 1416,
+    "sha1": "da5abdaf91e9d1d9ac6a7274f59313af1ccd3c68",
+    "author_text": "Beny AS",
+    "author_url": "https://commons.wikimedia.org/w/index.php?title=User:MacanLawu&action=edit&redlink=1",
+    "license_short": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "view_note": "Workshop full of terracotta figures with an artisan at work; person present but workshop and sculptures dominate."
+   }
+  ],
+  "rejected_viewed": [
+   {
+    "file_title": "File:Trans Jogja Kasongan Bus Stop in 2023.jpg",
+    "reason": "Bus stop with text sign; GPS 1.0 km away; not representative of the village"
+   }
+  ],
+  "gap_note": "Only 2 relevant files. Most of the 44 candidates are Kasongan in Katingan, Central Kalimantan (GPS ~742 km away) and were dropped by metadata. Gerabah dari Kasongan (portrait 0.56) fails the aspect rule. Suggested search: Category:Kasongan (tourist attraction), Kasongan pottery, Gerabah Kasongan."
+ },
+ "desa-wisata-krebet": {
+  "selected": [],
+  "rejected_viewed": [
+   {
+    "file_title": "File:Curug Pulosari (8).jpg",
+    "reason": "Curug Pulosari waterfall, a different attraction, not the batik-kayu village; whole set is the same waterfall (16 of 17 files)"
+   },
+   {
+    "file_title": "File:Curug Pulosari (4).jpg",
+    "reason": "Same waterfall (by metadata, preview downloaded but not viewed); not about Krebet"
+   }
+  ],
+  "gap_note": "No candidate is about Krebet itself (batik kayu, wooden mask crafts). Needs new search: Krebet, Batik kayu Krebet, Topeng kayu Krebet, Category:Krebet, Pajangan."
+ },
+ "desa-wisata-nglanggeran": {
+  "selected": [
+   {
+    "sort_order": 0,
+    "caption_id": "Gunung api purba Nglanggeran terlihat dari Embung Nglanggeran",
+    "license_code": "CC-BY-SA-4.0",
+    "attribution_text": "Foto: Sarwono.sf · CC BY-SA 4.0 · Wikimedia Commons",
+    "source": "wikimedia_commons",
+    "file_title": "File:Bukit purba dibalik embung nglanggeran.jpg",
+    "page_url": "https://commons.wikimedia.org/wiki/File:Bukit_purba_dibalik_embung_nglanggeran.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/1/15/Bukit_purba_dibalik_embung_nglanggeran.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "url_1600": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/15/Bukit_purba_dibalik_embung_nglanggeran.jpg/1920px-Bukit_purba_dibalik_embung_nglanggeran.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "url_400": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/15/Bukit_purba_dibalik_embung_nglanggeran.jpg/500px-Bukit_purba_dibalik_embung_nglanggeran.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "width": 4128,
+    "height": 3096,
+    "sha1": "7e9cabc7d4117d453bb6cf8002b270710f7a2ffc",
+    "author_text": "Sarwono.sf",
+    "author_url": "https://commons.wikimedia.org/w/index.php?title=User:Sarwono.sf&action=edit&redlink=1",
+    "license_short": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "view_note": "Embung with ancient-volcano rock outcrops behind, clear daytime landscape."
+   },
+   {
+    "sort_order": 1,
+    "caption_id": "Tebing batuan vulkanik Gunung api purba Nglanggeran",
+    "license_code": "CC-BY-3.0",
+    "attribution_text": "Foto: Erwin Prastowo · CC BY 3.0 · Wikimedia Commons",
+    "source": "wikimedia_commons",
+    "file_title": "File:Nglanggeran volcano in Yogyakarta in Indonesia.jpg",
+    "page_url": "https://commons.wikimedia.org/wiki/File:Nglanggeran_volcano_in_Yogyakarta_in_Indonesia.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/8/8a/Nglanggeran_volcano_in_Yogyakarta_in_Indonesia.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "url_1600": "https://upload.wikimedia.org/wikipedia/commons/8/8a/Nglanggeran_volcano_in_Yogyakarta_in_Indonesia.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+    "url_400": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8a/Nglanggeran_volcano_in_Yogyakarta_in_Indonesia.jpg/500px-Nglanggeran_volcano_in_Yogyakarta_in_Indonesia.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "width": 1600,
+    "height": 1200,
+    "sha1": "6fda1728687730549c79a86459655e37b63efe19",
+    "author_text": "Erwin Prastowo",
+    "author_url": "https://imaggeo.egu.eu/user/eprastowo/",
+    "license_short": "CC BY 3.0",
+    "license_url": "https://creativecommons.org/licenses/by/3.0",
+    "view_note": "Close view of a large volcanic rock face with vegetation, sharp."
+   },
+   {
+    "sort_order": 2,
+    "caption_id": "Puncak Gunung api purba Nglanggeran, Gunungkidul",
+    "license_code": "CC-BY-4.0",
+    "attribution_text": "Foto: Kennf1 · CC BY 4.0 · Wikimedia Commons",
+    "source": "wikimedia_commons",
+    "file_title": "File:Puncak G Api Purba Nglanggeran (Pathuk Gunungkidul).jpg",
+    "page_url": "https://commons.wikimedia.org/wiki/File:Puncak_G_Api_Purba_Nglanggeran_%28Pathuk_Gunungkidul%29.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/3/35/Puncak_G_Api_Purba_Nglanggeran_%28Pathuk_Gunungkidul%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "url_1600": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/35/Puncak_G_Api_Purba_Nglanggeran_%28Pathuk_Gunungkidul%29.jpg/1920px-Puncak_G_Api_Purba_Nglanggeran_%28Pathuk_Gunungkidul%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "url_400": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/35/Puncak_G_Api_Purba_Nglanggeran_%28Pathuk_Gunungkidul%29.jpg/500px-Puncak_G_Api_Purba_Nglanggeran_%28Pathuk_Gunungkidul%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "width": 3024,
+    "height": 4032,
+    "sha1": "e3ac9eaf1086146cc5d605b55cc7289acdee49f4",
+    "author_text": "Kennf1",
+    "author_url": "https://commons.wikimedia.org/w/index.php?title=User:Kennf1&action=edit&redlink=1",
+    "license_short": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0",
+    "view_note": "Rocky peak viewed from a summit, portrait, overcast sky."
+   }
+  ],
+  "rejected_viewed": [
+   {
+    "file_title": "File:Bukit Nglanggeran.jpg",
+    "reason": "Hazy low-quality phone shot at dusk"
+   },
+   {
+    "file_title": "File:Desa-Nglanggeran.jpg",
+    "reason": "Aspect 2.39 panorama (over 2.0)"
+   },
+   {
+    "file_title": "File:Sunrise di bukit nglanggeran.jpg",
+    "reason": "Very dark sunrise shot, silhouette only"
+   }
+  ],
+  "gap_note": "Dropped GPS > 2 km candidates (idx 2, 3, 7, 10, 11). Plant photo (Selaginella) not about the place. Needs more: Category:Nglanggeran, Gunung Api Purba Nglanggeran, Embung Nglanggeran, Kampung Pitu."
+ },
+ "desa-wisata-widosari": {
+  "selected": [],
+  "rejected_viewed": [],
+  "gap_note": "No candidates at all (harvest found 2 files, both PDF). Needs new search."
+ },
+ "makam-raja-imogiri": {
+  "selected": [
+   {
+    "sort_order": 0,
+    "caption_id": "Tangga batu menuju kompleks Pemakaman Imogiri",
+    "license_code": "CC-BY-SA-4.0",
+    "attribution_text": "Foto: Fandy Aprianto Rohman · CC BY-SA 4.0 · Wikimedia Commons",
+    "source": "wikimedia_commons",
+    "file_title": "File:Tangga ke Pemakaman Imogiri.jpg",
+    "page_url": "https://commons.wikimedia.org/wiki/File:Tangga_ke_Pemakaman_Imogiri.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/5/53/Tangga_ke_Pemakaman_Imogiri.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "url_1600": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/53/Tangga_ke_Pemakaman_Imogiri.jpg/1920px-Tangga_ke_Pemakaman_Imogiri.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "url_400": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/53/Tangga_ke_Pemakaman_Imogiri.jpg/500px-Tangga_ke_Pemakaman_Imogiri.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "width": 3953,
+    "height": 2965,
+    "sha1": "6dba305cf918fb638a944a1cf99ba3aaf660d753",
+    "author_text": "Fandy Aprianto Rohman",
+    "author_url": "https://commons.wikimedia.org/wiki/User:Fandy_Aprianto_Rohman",
+    "license_short": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "view_note": "Long stone staircase with side walls and trees, clear daylight."
+   }
+  ],
+  "rejected_viewed": [
+   {
+    "file_title": "File:Tradisi Nguras Enceh.jpg",
+    "reason": "Nguras Enceh ritual crowd, people are the subject"
+   },
+   {
+    "file_title": "File:Selamat Jalan Rajaku.jpg",
+    "reason": "Funeral procession, people subject (by metadata; not downloaded)"
+   },
+   {
+    "file_title": "File:Jokowi Melayat.jpg",
+    "reason": "Ceremony with a person as subject (by metadata; not downloaded)"
+   },
+   {
+    "file_title": null,
+    "reason": "Aspect 2.17 (over 2.0) (by metadata; not downloaded)"
+   },
+   {
+    "file_title": null,
+    "reason": "Perkutut pole stand, not about the site (Openverse-only listing)"
+   }
+  ],
+  "gap_note": "Only 1 usable. Openverse items are mirrors of Commons files (thumbnails unavailable). Suggested: Category:Imogiri Royal Cemetery, Pemakaman Imogiri, Masjid Pajimatan, Pajimatan Imogiri."
+ },
+ "candi-sambisari": {
+  "selected": [
+   {
+    "sort_order": 0,
+    "caption_id": "Kompleks Candi Sambisari dilihat dari atas, candi induk di tengah",
+    "license_code": "CC-BY-SA-3.0",
+    "attribution_text": "Foto: TeshTesh · CC BY-SA 3.0 · Wikimedia Commons",
+    "source": "wikimedia_commons",
+    "file_title": "File:Candi Sambisari, Hindu Temple of Java Indonesia 2013 b.jpg",
+    "page_url": "https://commons.wikimedia.org/wiki/File:Candi_Sambisari%2C_Hindu_Temple_of_Java_Indonesia_2013_b.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/3/3f/Candi_Sambisari%2C_Hindu_Temple_of_Java_Indonesia_2013_b.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "url_1600": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3f/Candi_Sambisari%2C_Hindu_Temple_of_Java_Indonesia_2013_b.jpg/1920px-Candi_Sambisari%2C_Hindu_Temple_of_Java_Indonesia_2013_b.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "url_400": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3f/Candi_Sambisari%2C_Hindu_Temple_of_Java_Indonesia_2013_b.jpg/500px-Candi_Sambisari%2C_Hindu_Temple_of_Java_Indonesia_2013_b.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "width": 5184,
+    "height": 3456,
+    "sha1": "c3ca428fba5c5204aba6294c6ad4763ace165846",
+    "author_text": "TeshTesh",
+    "author_url": "https://commons.wikimedia.org/w/index.php?title=User:TeshTesh&action=edit&redlink=1",
+    "license_short": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "view_note": "Wide, bright overview of the sunken complex and main temple under blue sky."
+   },
+   {
+    "sort_order": 1,
+    "caption_id": "Candi induk Sambisari, Sleman",
+    "license_code": "CC-BY-SA-3.0",
+    "attribution_text": "Foto: Crisco 1492 · CC BY-SA 3.0 · Wikimedia Commons",
+    "source": "wikimedia_commons",
+    "file_title": "File:Candi Sambisari main temple 2013-11-28 03.jpg",
+    "page_url": "https://commons.wikimedia.org/wiki/File:Candi_Sambisari_main_temple_2013-11-28_03.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/d/dc/Candi_Sambisari_main_temple_2013-11-28_03.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "url_1600": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dc/Candi_Sambisari_main_temple_2013-11-28_03.jpg/1920px-Candi_Sambisari_main_temple_2013-11-28_03.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "url_400": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/dc/Candi_Sambisari_main_temple_2013-11-28_03.jpg/500px-Candi_Sambisari_main_temple_2013-11-28_03.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "width": 5184,
+    "height": 3291,
+    "sha1": "8ff88dce4a8f1c01f3de2449c1b0582156920d1d",
+    "author_text": "Crisco 1492",
+    "author_url": "https://commons.wikimedia.org/wiki/User:Crisco_1492",
+    "license_short": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "view_note": "Corner view of the main temple, clear."
+   },
+   {
+    "sort_order": 2,
+    "caption_id": "Relung dengan arca pada dinding Candi Sambisari",
+    "license_code": "CC-BY-SA-3.0",
+    "attribution_text": "Foto: TeshTesh · CC BY-SA 3.0 · Wikimedia Commons",
+    "source": "wikimedia_commons",
+    "file_title": "File:Candi Sambisari, Hindu Temple of Java Indonesia 2013 j.jpg",
+    "page_url": "https://commons.wikimedia.org/wiki/File:Candi_Sambisari%2C_Hindu_Temple_of_Java_Indonesia_2013_j.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/0/00/Candi_Sambisari%2C_Hindu_Temple_of_Java_Indonesia_2013_j.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "url_1600": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/00/Candi_Sambisari%2C_Hindu_Temple_of_Java_Indonesia_2013_j.jpg/1920px-Candi_Sambisari%2C_Hindu_Temple_of_Java_Indonesia_2013_j.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "url_400": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/00/Candi_Sambisari%2C_Hindu_Temple_of_Java_Indonesia_2013_j.jpg/500px-Candi_Sambisari%2C_Hindu_Temple_of_Java_Indonesia_2013_j.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "width": 5040,
+    "height": 3360,
+    "sha1": "d91026bcbb4abfe130f02e2b6e8e507c7eb80396",
+    "author_text": "TeshTesh",
+    "author_url": "https://commons.wikimedia.org/w/index.php?title=User:TeshTesh&action=edit&redlink=1",
+    "license_short": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "view_note": "Detail of a carved niche with statue and kala lintel, sharp."
+   },
+   {
+    "sort_order": 3,
+    "caption_id": "Candi induk Sambisari tampak depan dengan tangga",
+    "license_code": "CC-BY-SA-3.0",
+    "attribution_text": "Foto: Crisco 1492 · CC BY-SA 3.0 · Wikimedia Commons",
+    "source": "wikimedia_commons",
+    "file_title": "File:Candi Sambisari main temple 2013-11-28 01.jpg",
+    "page_url": "https://commons.wikimedia.org/wiki/File:Candi_Sambisari_main_temple_2013-11-28_01.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/e/e6/Candi_Sambisari_main_temple_2013-11-28_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "url_1600": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e6/Candi_Sambisari_main_temple_2013-11-28_01.jpg/1920px-Candi_Sambisari_main_temple_2013-11-28_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "url_400": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e6/Candi_Sambisari_main_temple_2013-11-28_01.jpg/500px-Candi_Sambisari_main_temple_2013-11-28_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "width": 5053,
+    "height": 2777,
+    "sha1": "bd88963a4266fba16f9dfa7a3337d314aed6ae6d",
+    "author_text": "Crisco 1492",
+    "author_url": "https://commons.wikimedia.org/wiki/User:Crisco_1492",
+    "license_short": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "view_note": "Frontal view of the main temple with stairs, sky."
+   }
+  ],
+  "rejected_viewed": [
+   {
+    "file_title": "File:Candi Sambisari 01.jpg",
+    "reason": "Dim dusk close-up, grainy"
+   },
+   {
+    "file_title": "File:Candi Sambisari 02.jpg",
+    "reason": "Flat lighting, dull; weaker than selected"
+   },
+   {
+    "file_title": "File:Candi Sambisari (2).jpg",
+    "reason": "Grey sky overview; similar to selected overview"
+   },
+   {
+    "file_title": "File:Candi Sambisari (1).jpg",
+    "reason": "Two people prominent in frame"
+   },
+   {
+    "file_title": "File:Candi Sambisari (3).jpg",
+    "reason": "Two people walking in frame"
+   },
+   {
+    "file_title": "File:Half-buried wall, Candi Sambisari complex, Sleman, Yogyakarta 02.jpg",
+    "reason": "Half-buried wall, mostly grass slope"
+   },
+   {
+    "file_title": "File:Candi Sambisari 2013-11-14 07.jpg",
+    "reason": "Good but similar to selected main-temple shots"
+   },
+   {
+    "file_title": "File:Candi Sambisari 2013-11-14 01.jpg",
+    "reason": "Overview similar to selected idx14, greyer sky"
+   }
+  ],
+  "gap_note": ""
+ },
+ "candi-ijo": {
+  "selected": [
+   {
+    "sort_order": 0,
+    "caption_id": "Candi induk Candi Ijo di Sleman, 2014",
+    "license_code": "CC-BY-SA-3.0",
+    "attribution_text": "Foto: Crisco 1492 · CC BY-SA 3.0 · Wikimedia Commons",
+    "source": "wikimedia_commons",
+    "file_title": "File:Main temple at Candi Ijo, Sleman, Yogyakarta, 2014-05-31.jpg",
+    "page_url": "https://commons.wikimedia.org/wiki/File:Main_temple_at_Candi_Ijo%2C_Sleman%2C_Yogyakarta%2C_2014-05-31.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/1/10/Main_temple_at_Candi_Ijo%2C_Sleman%2C_Yogyakarta%2C_2014-05-31.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "url_1600": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/10/Main_temple_at_Candi_Ijo%2C_Sleman%2C_Yogyakarta%2C_2014-05-31.jpg/1920px-Main_temple_at_Candi_Ijo%2C_Sleman%2C_Yogyakarta%2C_2014-05-31.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "url_400": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/10/Main_temple_at_Candi_Ijo%2C_Sleman%2C_Yogyakarta%2C_2014-05-31.jpg/500px-Main_temple_at_Candi_Ijo%2C_Sleman%2C_Yogyakarta%2C_2014-05-31.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "width": 5522,
+    "height": 3815,
+    "sha1": "a48595e647fd22755e0dbb6f36ef6e601be26419",
+    "author_text": "Crisco 1492",
+    "author_url": "https://commons.wikimedia.org/wiki/User:Crisco_1492",
+    "license_short": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "view_note": "Main temple with a perwara temple, blue sky, excellent cover."
+   },
+   {
+    "sort_order": 1,
+    "caption_id": "Candi perwara Candi Ijo",
+    "license_code": "CC-BY-SA-4.0",
+    "attribution_text": "Foto: Haikal-Heine · CC BY-SA 4.0 · Wikimedia Commons",
+    "source": "wikimedia_commons",
+    "file_title": "File:Candi Perwara Candi Ijo.jpg",
+    "page_url": "https://commons.wikimedia.org/wiki/File:Candi_Perwara_Candi_Ijo.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/4/48/Candi_Perwara_Candi_Ijo.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "url_1600": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/48/Candi_Perwara_Candi_Ijo.jpg/1920px-Candi_Perwara_Candi_Ijo.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "url_400": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/48/Candi_Perwara_Candi_Ijo.jpg/500px-Candi_Perwara_Candi_Ijo.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "width": 4032,
+    "height": 3024,
+    "sha1": "a23b0e3517d1aded49831701d0dea39f2ab42889",
+    "author_text": "Haikal-Heine",
+    "author_url": "https://commons.wikimedia.org/wiki/User:Haikal-Heine",
+    "license_short": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "view_note": "Perwara temples on green lawn, warm light, sharp."
+   },
+   {
+    "sort_order": 2,
+    "caption_id": "Ukiran makara pada Candi Ijo",
+    "license_code": "CC-BY-SA-3.0",
+    "attribution_text": "Foto: Crisco 1492 · CC BY-SA 3.0 · Wikimedia Commons",
+    "source": "wikimedia_commons",
+    "file_title": "File:Carvings on Candi Ijo, 2014-05-31.jpg",
+    "page_url": "https://commons.wikimedia.org/wiki/File:Carvings_on_Candi_Ijo%2C_2014-05-31.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/4/4a/Carvings_on_Candi_Ijo%2C_2014-05-31.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "url_1600": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4a/Carvings_on_Candi_Ijo%2C_2014-05-31.jpg/1920px-Carvings_on_Candi_Ijo%2C_2014-05-31.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "url_400": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4a/Carvings_on_Candi_Ijo%2C_2014-05-31.jpg/500px-Carvings_on_Candi_Ijo%2C_2014-05-31.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "width": 5184,
+    "height": 3456,
+    "sha1": "15f2df85b58181c2ef1d0eb9abe3e5f410809588",
+    "author_text": "Crisco 1492",
+    "author_url": "https://commons.wikimedia.org/wiki/User:Crisco_1492",
+    "license_short": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "view_note": "Closeup of stone carving (makara) against blue sky."
+   },
+   {
+    "sort_order": 3,
+    "caption_id": "Candi Ijo pada malam hari dengan langit berbintang",
+    "license_code": "CC-BY-SA-3.0",
+    "attribution_text": "Foto: GusJuned · CC BY-SA 3.0 · Wikimedia Commons",
+    "source": "wikimedia_commons",
+    "file_title": "File:Candi Ijo (1).jpg",
+    "page_url": "https://commons.wikimedia.org/wiki/File:Candi_Ijo_%281%29.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/3/30/Candi_Ijo_%281%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "url_1600": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/30/Candi_Ijo_%281%29.jpg/1920px-Candi_Ijo_%281%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "url_400": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/30/Candi_Ijo_%281%29.jpg/500px-Candi_Ijo_%281%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "width": 4080,
+    "height": 2284,
+    "sha1": "8f00670dfd0fad2a18365f3ee2a4d507f450dcf2",
+    "author_text": "GusJuned",
+    "author_url": "https://web.archive.org/web/20161101164738/http://www.panoramio.com/user/6972749?with_photo_id=120596422",
+    "license_short": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "view_note": "Night view of main temple lit warmly under a starry sky; exposure good, not blurry."
+   }
+  ],
+  "rejected_viewed": [
+   {
+    "file_title": "File:Candi Ijo (3).jpg",
+    "reason": "A person walking is the focus"
+   },
+   {
+    "file_title": "File:Candi Ijo.JPG",
+    "reason": "Overexposed, dirt pile in foreground, weaker than selected"
+   },
+   {
+    "file_title": "File:Courtyard of Ijo Temple Complex.jpg",
+    "reason": "Grassy field, temple barely visible"
+   },
+   {
+    "file_title": "File:Entrance Gate of Ijo Temple Complex.jpg",
+    "reason": "Entrance gate with sign text, not temple"
+   },
+   {
+    "file_title": "File:Front Side of Ijo Temple Complex.jpg",
+    "reason": "Temple tiny, mostly fence/road"
+   },
+   {
+    "file_title": "File:Ijo Temple (2).jpg",
+    "reason": "Overexposed silhouette behind trees"
+   },
+   {
+    "file_title": "File:Parking lot and scenery near Candi Ijo, 2014-05-31.jpg",
+    "reason": "Parking lot and scenery, no temple"
+   },
+   {
+    "file_title": "File:Senja di Candi Ijo.jpg",
+    "reason": "Sunset silhouette, no temple"
+   }
+  ],
+  "gap_note": ""
+ },
+ "candi-banyunibo": {
+  "selected": [
+   {
+    "sort_order": 0,
+    "caption_id": "Candi Banyunibo, candi Buddha di Prambanan, 2014",
+    "license_code": "CC-BY-SA-3.0",
+    "attribution_text": "Foto: Crisco 1492 · CC BY-SA 3.0 · Wikimedia Commons",
+    "source": "wikimedia_commons",
+    "file_title": "File:Banyunibo Temple, 2014-05-31 01.jpg",
+    "page_url": "https://commons.wikimedia.org/wiki/File:Banyunibo_Temple%2C_2014-05-31_01.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/1/18/Banyunibo_Temple%2C_2014-05-31_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "url_1600": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/18/Banyunibo_Temple%2C_2014-05-31_01.jpg/1920px-Banyunibo_Temple%2C_2014-05-31_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "url_400": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/18/Banyunibo_Temple%2C_2014-05-31_01.jpg/500px-Banyunibo_Temple%2C_2014-05-31_01.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "width": 8823,
+    "height": 6332,
+    "sha1": "9c3fbe9bf698832ba874642fdf4cd66e0213a6ca",
+    "author_text": "Crisco 1492",
+    "author_url": "https://commons.wikimedia.org/wiki/User:Crisco_1492",
+    "license_short": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "view_note": "Main temple under blue sky, sharp, ideal cover."
+   },
+   {
+    "sort_order": 1,
+    "caption_id": "Candi induk kompleks Candi Banyunibo",
+    "license_code": "CC-BY-SA-4.0",
+    "attribution_text": "Foto: Sabjan Badio · CC BY-SA 4.0 · Wikimedia Commons",
+    "source": "wikimedia_commons",
+    "file_title": "File:The main temple of Banyunibo.jpg",
+    "page_url": "https://commons.wikimedia.org/wiki/File:The_main_temple_of_Banyunibo.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/b/b0/The_main_temple_of_Banyunibo.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "url_1600": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b0/The_main_temple_of_Banyunibo.jpg/1920px-The_main_temple_of_Banyunibo.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "url_400": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b0/The_main_temple_of_Banyunibo.jpg/500px-The_main_temple_of_Banyunibo.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "width": 4067,
+    "height": 2287,
+    "sha1": "6cfb0f46e4f677ca539303bf862cb4acf163f1b0",
+    "author_text": "Sabjan Badio",
+    "author_url": "https://commons.wikimedia.org/wiki/User:Sabjan_Badio",
+    "license_short": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "view_note": "Frontal view of the main temple with courtyard."
+   },
+   {
+    "sort_order": 2,
+    "caption_id": "Relief pada dinding Candi Banyunibo",
+    "license_code": "CC-BY-SA-3.0",
+    "attribution_text": "Foto: Crisco 1492 · CC BY-SA 3.0 · Wikimedia Commons",
+    "source": "wikimedia_commons",
+    "file_title": "File:Relief on Banyunibo Temple, 2014-05-31.jpg",
+    "page_url": "https://commons.wikimedia.org/wiki/File:Relief_on_Banyunibo_Temple%2C_2014-05-31.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/3/3f/Relief_on_Banyunibo_Temple%2C_2014-05-31.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "url_1600": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3f/Relief_on_Banyunibo_Temple%2C_2014-05-31.jpg/1920px-Relief_on_Banyunibo_Temple%2C_2014-05-31.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "url_400": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3f/Relief_on_Banyunibo_Temple%2C_2014-05-31.jpg/500px-Relief_on_Banyunibo_Temple%2C_2014-05-31.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "width": 3273,
+    "height": 2689,
+    "sha1": "d50f064d642493fea000b88c1a3b53de37e3e7fb",
+    "author_text": "Crisco 1492",
+    "author_url": "https://commons.wikimedia.org/wiki/User:Crisco_1492",
+    "license_short": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "view_note": "Detail of relief figure between pilasters, sharp."
+   },
+   {
+    "sort_order": 3,
+    "caption_id": "Reruntuhan candi perwara di kompleks Candi Banyunibo",
+    "license_code": "CC-BY-SA-4.0",
+    "attribution_text": "Foto: Haikal-Heine · CC BY-SA 4.0 · Wikimedia Commons",
+    "source": "wikimedia_commons",
+    "file_title": "File:Reruntuhan candi perwara Candi Banyuniba, Mei 2022.jpg",
+    "page_url": "https://commons.wikimedia.org/wiki/File:Reruntuhan_candi_perwara_Candi_Banyuniba%2C_Mei_2022.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/3/3c/Reruntuhan_candi_perwara_Candi_Banyuniba%2C_Mei_2022.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "url_1600": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3c/Reruntuhan_candi_perwara_Candi_Banyuniba%2C_Mei_2022.jpg/1920px-Reruntuhan_candi_perwara_Candi_Banyuniba%2C_Mei_2022.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "url_400": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3c/Reruntuhan_candi_perwara_Candi_Banyuniba%2C_Mei_2022.jpg/500px-Reruntuhan_candi_perwara_Candi_Banyuniba%2C_Mei_2022.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "width": 3023,
+    "height": 2267,
+    "sha1": "b0e61d809c0413ab4677b385646095e49ea54cab",
+    "author_text": "Haikal-Heine",
+    "author_url": "https://commons.wikimedia.org/wiki/User:Haikal-Heine",
+    "license_short": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "view_note": "Stone ruins of perwara temples with the main temple at left."
+   }
+  ],
+  "rejected_viewed": [
+   {
+    "file_title": "File:Banyunibo Temple.jpg",
+    "reason": "Grey overcast, similar to selected"
+   },
+   {
+    "file_title": "File:Candi Banyunibo.JPG",
+    "reason": "Foliage covers half the frame"
+   },
+   {
+    "file_title": "File:Banyunibo Temple, 2014-05-31 02.jpg",
+    "reason": "Near-duplicate of idx0 (same session/angle)"
+   },
+   {
+    "file_title": "File:Candi Banyunibo Yogyakarta.jpg",
+    "reason": "Very dark night shot"
+   },
+   {
+    "file_title": "File:Temple Ruins in Banyunibo Temple Complex.jpg",
+    "reason": "Tree and ruins dominate, weaker"
+   },
+   {
+    "file_title": "File:East Side of Banyunibo Temple.jpg",
+    "reason": "Overexposed white sky"
+   },
+   {
+    "file_title": "File:South Side of Banyunibo Temple.jpg",
+    "reason": "Large text sign in foreground, people near temple"
+   },
+   {
+    "file_title": "File:Relief Dewi Hariti Candi Banyunibo, Mei 2022.jpg",
+    "reason": "Weathered relief closeup, grey and unclear"
+   }
+  ],
+  "gap_note": ""
+ },
+ "museum-affandi": {
+  "selected": [
+   {
+    "sort_order": 0,
+    "caption_id": "Deretan lukisan di galeri Museum Affandi",
+    "license_code": "CC-BY-SA-4.0",
+    "attribution_text": "Foto: Khusna Safira · CC BY-SA 4.0 · Wikimedia Commons",
+    "source": "wikimedia_commons",
+    "file_title": "File:Karya Pameran Lukisan di Museum Affandi.jpg",
+    "page_url": "https://commons.wikimedia.org/wiki/File:Karya_Pameran_Lukisan_di_Museum_Affandi.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/e/e6/Karya_Pameran_Lukisan_di_Museum_Affandi.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "url_1600": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e6/Karya_Pameran_Lukisan_di_Museum_Affandi.jpg/1920px-Karya_Pameran_Lukisan_di_Museum_Affandi.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "url_400": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e6/Karya_Pameran_Lukisan_di_Museum_Affandi.jpg/500px-Karya_Pameran_Lukisan_di_Museum_Affandi.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "width": 4096,
+    "height": 3072,
+    "sha1": "3776976ce4e077f0f9c499b7aab2b80ffa40740c",
+    "author_text": "Khusna Safira",
+    "author_url": "https://commons.wikimedia.org/wiki/User:Khusna_Safira",
+    "license_short": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "view_note": "Long gallery wall of lit paintings with patterned floor; rich and clear."
+   },
+   {
+    "sort_order": 1,
+    "caption_id": "Mobil sedan GTO kesayangan Affandi di dalam museum",
+    "license_code": "CC-BY-SA-4.0",
+    "attribution_text": "Foto: Kurniawn.bagas · CC BY-SA 4.0 · Wikimedia Commons",
+    "source": "wikimedia_commons",
+    "file_title": "File:Barang koleksi berupa mobil dan sepeda onthel yang terpajang di dalam Galeri I Museum Affandi.jpg",
+    "page_url": "https://commons.wikimedia.org/wiki/File:Barang_koleksi_berupa_mobil_dan_sepeda_onthel_yang_terpajang_di_dalam_Galeri_I_Museum_Affandi.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/7/73/Barang_koleksi_berupa_mobil_dan_sepeda_onthel_yang_terpajang_di_dalam_Galeri_I_Museum_Affandi.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "url_1600": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/73/Barang_koleksi_berupa_mobil_dan_sepeda_onthel_yang_terpajang_di_dalam_Galeri_I_Museum_Affandi.jpg/1920px-Barang_koleksi_berupa_mobil_dan_sepeda_onthel_yang_terpajang_di_dalam_Galeri_I_Museum_Affandi.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "url_400": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/73/Barang_koleksi_berupa_mobil_dan_sepeda_onthel_yang_terpajang_di_dalam_Galeri_I_Museum_Affandi.jpg/500px-Barang_koleksi_berupa_mobil_dan_sepeda_onthel_yang_terpajang_di_dalam_Galeri_I_Museum_Affandi.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "width": 3264,
+    "height": 2448,
+    "sha1": "a79500e79fc92b5755f517ac4bedca81034c836e",
+    "author_text": "Kurniawn.bagas",
+    "author_url": "https://commons.wikimedia.org/w/index.php?title=User:Kurniawn.bagas&action=edit&redlink=1",
+    "license_short": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "view_note": "Yellow GTO car and bicycles in a gallery room; clear interior."
+   },
+   {
+    "sort_order": 2,
+    "caption_id": "Bagian depan salah satu gedung Museum Affandi",
+    "license_code": "CC-BY-SA-4.0",
+    "attribution_text": "Foto: PenaTulip · CC BY-SA 4.0 · Wikimedia Commons",
+    "source": "wikimedia_commons",
+    "file_title": "File:Museum Affandi-Gedung 2.jpg",
+    "page_url": "https://commons.wikimedia.org/wiki/File:Museum_Affandi-Gedung_2.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/f/f3/Museum_Affandi-Gedung_2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "url_1600": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f3/Museum_Affandi-Gedung_2.jpg/1920px-Museum_Affandi-Gedung_2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "url_400": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f3/Museum_Affandi-Gedung_2.jpg/500px-Museum_Affandi-Gedung_2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "width": 6912,
+    "height": 9216,
+    "sha1": "41c110d72eb7e4f49d874473df5fc7152e176633",
+    "author_text": "PenaTulip",
+    "author_url": "https://commons.wikimedia.org/wiki/User:PenaTulip",
+    "license_short": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "view_note": "Curved building front with relief and sculptures, portrait (the only one), overcast."
+   },
+   {
+    "sort_order": 3,
+    "caption_id": "Tiga lukisan di ruang pameran Museum Affandi",
+    "license_code": "CC-BY-SA-4.0",
+    "attribution_text": "Foto: Khusna Safira · CC BY-SA 4.0 · Wikimedia Commons",
+    "source": "wikimedia_commons",
+    "file_title": "File:3 Karya Lukisan di Museum Affandi Yogyakarta.jpg",
+    "page_url": "https://commons.wikimedia.org/wiki/File:3_Karya_Lukisan_di_Museum_Affandi_Yogyakarta.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/c/ca/3_Karya_Lukisan_di_Museum_Affandi_Yogyakarta.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "url_1600": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ca/3_Karya_Lukisan_di_Museum_Affandi_Yogyakarta.jpg/1920px-3_Karya_Lukisan_di_Museum_Affandi_Yogyakarta.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "url_400": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ca/3_Karya_Lukisan_di_Museum_Affandi_Yogyakarta.jpg/500px-3_Karya_Lukisan_di_Museum_Affandi_Yogyakarta.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "width": 4096,
+    "height": 3072,
+    "sha1": "1207aff3cd0db9555c7f8205f8c0c8555160026a",
+    "author_text": "Khusna Safira",
+    "author_url": "https://commons.wikimedia.org/wiki/User:Khusna_Safira",
+    "license_short": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "view_note": "Large framed paintings on teal wall at an angle."
+   }
+  ],
+  "rejected_viewed": [
+   {
+    "file_title": "File:Affandi Museum Exhibition Room.jpg",
+    "reason": "Visitor prominent, small TV room"
+   },
+   {
+    "file_title": "File:Affandi Museum Sketch.jpg",
+    "reason": "Souvenir print/notepad, not the museum"
+   },
+   {
+    "file_title": "File:Lukisan-lukisan Affandi.jpg",
+    "reason": "Similar to selected gallery shot"
+   },
+   {
+    "file_title": "File:Mobil kesayangan Affandi.jpg",
+    "reason": "Duplicate scene of the car (idx0)"
+   },
+   {
+    "file_title": "File:Cone-Shaped Roof of Affandi Museum.jpg",
+    "reason": "Roof detail through foliage, second portrait"
+   },
+   {
+    "file_title": "File:The Western Roof of Affandi Musuem.jpg",
+    "reason": "Portrait; one portrait already selected"
+   },
+   {
+    "file_title": "File:Koleksi lukisan Affandi di Museum Affandi.jpg",
+    "reason": "Closeup of paintings with labels, similar to selected"
+   }
+  ],
+  "gap_note": ""
+ },
+ "museum-gunungapi-merapi": {
+  "selected": [
+   {
+    "sort_order": 0,
+    "caption_id": "Gedung Museum Gunungapi Merapi tampak depan",
+    "license_code": "CC-BY-SA-4.0",
+    "attribution_text": "Foto: Erlyndita Setyawardani dan Fandy Aprianto Rohman · CC BY-SA 4.0 · Wikimedia Commons",
+    "source": "wikimedia_commons",
+    "file_title": "File:Museum Gunungapi Merapi.jpg",
+    "page_url": "https://commons.wikimedia.org/wiki/File:Museum_Gunungapi_Merapi.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/f/f0/Museum_Gunungapi_Merapi.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "url_1600": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f0/Museum_Gunungapi_Merapi.jpg/1920px-Museum_Gunungapi_Merapi.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "url_400": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f0/Museum_Gunungapi_Merapi.jpg/500px-Museum_Gunungapi_Merapi.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "width": 4080,
+    "height": 3060,
+    "sha1": "fa7b12e1226b953737e57f207086fcbcf909ea94",
+    "author_text": "Erlyndita Setyawardani dan Fandy Aprianto Rohman",
+    "author_url": "https://commons.wikimedia.org/wiki/User:Nerissa_Lyra",
+    "license_short": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "view_note": "Straight-on view of the pyramid-shaped museum and entrance, sunny."
+   },
+   {
+    "sort_order": 1,
+    "caption_id": "Tangga masuk Museum Gunungapi Merapi",
+    "license_code": "CC-BY-SA-4.0",
+    "attribution_text": "Foto: Erlyndita Setyawardani dan Fandy Aprianto Rohman · CC BY-SA 4.0 · Wikimedia Commons",
+    "source": "wikimedia_commons",
+    "file_title": "File:Museum Gunungapi Merapi (1).jpg",
+    "page_url": "https://commons.wikimedia.org/wiki/File:Museum_Gunungapi_Merapi_%281%29.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/f/f8/Museum_Gunungapi_Merapi_%281%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "url_1600": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f8/Museum_Gunungapi_Merapi_%281%29.jpg/1920px-Museum_Gunungapi_Merapi_%281%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "url_400": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f8/Museum_Gunungapi_Merapi_%281%29.jpg/500px-Museum_Gunungapi_Merapi_%281%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "width": 4080,
+    "height": 3060,
+    "sha1": "528988fbdee5ea3e57078fc96c221e78b35b86ea",
+    "author_text": "Erlyndita Setyawardani dan Fandy Aprianto Rohman",
+    "author_url": "https://commons.wikimedia.org/wiki/User:Nerissa_Lyra",
+    "license_short": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "view_note": "Stairs leading to the red entrance under blue sky."
+   },
+   {
+    "sort_order": 2,
+    "caption_id": "Panel Morfologi Puncak Gunungapi Merapi di dalam museum",
+    "license_code": "CC-BY-SA-4.0",
+    "attribution_text": "Foto: Nerissa Lyra · CC BY-SA 4.0 · Wikimedia Commons",
+    "source": "wikimedia_commons",
+    "file_title": "File:Morfologi Puncak Gunungapi Merapi.jpg",
+    "page_url": "https://commons.wikimedia.org/wiki/File:Morfologi_Puncak_Gunungapi_Merapi.jpg",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/f/f1/Morfologi_Puncak_Gunungapi_Merapi.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "url_1600": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f1/Morfologi_Puncak_Gunungapi_Merapi.jpg/1920px-Morfologi_Puncak_Gunungapi_Merapi.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "url_400": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f1/Morfologi_Puncak_Gunungapi_Merapi.jpg/500px-Morfologi_Puncak_Gunungapi_Merapi.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "width": 4080,
+    "height": 3060,
+    "sha1": "7b41ccddde73dba46ed69b9f56dbc1f8c8c83b17",
+    "author_text": "Nerissa Lyra",
+    "author_url": "https://commons.wikimedia.org/wiki/User:Nerissa_Lyra",
+    "license_short": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "view_note": "Interior wall display of Merapi summit photos by year."
+   },
+   {
+    "sort_order": 3,
+    "caption_id": "Pajangan kubus foto jejak erupsi Merapi 2006",
+    "license_code": "CC-BY-SA-4.0",
+    "attribution_text": "Foto: Nerissa Lyra · CC BY-SA 4.0 · Wikimedia Commons",
+    "source": "wikimedia_commons",
+    "file_title": "File:Museum Gunungapi Merapi.png",
+    "page_url": "https://commons.wikimedia.org/wiki/File:Museum_Gunungapi_Merapi.png",
+    "original_url": "https://upload.wikimedia.org/wikipedia/commons/3/33/Museum_Gunungapi_Merapi.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "url_1600": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/33/Museum_Gunungapi_Merapi.png/1920px-Museum_Gunungapi_Merapi.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "url_400": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/33/Museum_Gunungapi_Merapi.png/500px-Museum_Gunungapi_Merapi.png?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+    "width": 3060,
+    "height": 3825,
+    "sha1": "e1bcdfeff52d57207dcd43132ade93fde494d59a",
+    "author_text": "Nerissa Lyra",
+    "author_url": "https://commons.wikimedia.org/wiki/User:Nerissa_Lyra",
+    "license_short": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "view_note": "Cube display with eruption photographs, portrait."
+   }
+  ],
+  "rejected_viewed": [
+   {
+    "file_title": "File:Museum Gunungapi Merapi (2).jpg",
+    "reason": "Similar to selected exteriors, slight overlap"
+   }
+  ],
+  "gap_note": "Only 5 of 7 candidates relevant (2 ANIEM Tridadi poles are not this museum)."
+ }
+}
