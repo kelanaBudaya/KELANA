@@ -807,7 +807,7 @@ private fun RegionTooltip(
             }
             Spacer(Modifier.height(6.dp))
             val body = when (region.status) {
-                RegionStatus.Available -> placesText(state)
+                RegionStatus.Available -> placesText(state.placesOf(region.id))
                 RegionStatus.Upcoming -> stringResource(R.string.status_upcoming_text)
                 RegionStatus.NotOpen -> stringResource(R.string.status_not_open_text)
             }
@@ -882,14 +882,14 @@ private fun AvailableRegionCard(region: Region, state: PilihDaerahUiState, onCho
                 val island = islandLabel(region)
                 if (island != null) {
                     Text(
-                        stringResource(R.string.region_places_meta, island, state.placeCount),
+                        stringResource(R.string.region_places_meta, island, state.placesOf(region.id).count),
                         color = colors.skyText,
                         style = MaterialTheme.typography.labelMedium.copy(fontWeight = FontWeight.Normal),
                     )
                 }
             }
         }
-        placesText(state)?.let { Text(it, color = colors.skyText, style = MaterialTheme.typography.bodyMedium.copy(lineHeight = 20.sp)) }
+        placesText(state.placesOf(region.id))?.let { Text(it, color = colors.skyText, style = MaterialTheme.typography.bodyMedium.copy(lineHeight = 20.sp)) }
         Button(
             onClick = { onChoose(region.id) },
             modifier = Modifier.fillMaxWidth().heightIn(min = 48.dp),
@@ -929,11 +929,11 @@ private fun SuggestCard() {
 }
 
 @Composable
-private fun placesText(state: PilihDaerahUiState): String? {
-    if (state.placeNames.isEmpty()) return null
-    val names = state.placeNames.joinToString(", ")
-    return if (state.moreCount > 0) {
-        stringResource(R.string.region_places_list, names, state.moreCount)
+private fun placesText(places: RegionPlaces): String? {
+    if (places.names.isEmpty()) return null
+    val names = places.names.joinToString(", ")
+    return if (places.moreCount > 0) {
+        stringResource(R.string.region_places_list, names, places.moreCount)
     } else {
         stringResource(R.string.region_places_list_all, names)
     }
@@ -955,8 +955,9 @@ private fun previewState(selected: String) = PilihDaerahUiState(
     loading = false,
     regions = previewRegions,
     selectedRegionId = selected,
-    placeNames = listOf("Keraton Yogyakarta", "Taman Sari", "Museum Sonobudoyo", "Candi Prambanan"),
-    placeCount = 10,
+    placesByRegion = mapOf(
+        "DIY" to RegionPlaces(listOf("Keraton Yogyakarta", "Taman Sari", "Museum Sonobudoyo", "Candi Prambanan"), 10),
+    ),
 )
 
 @Preview(showBackground = true, widthDp = 390, heightDp = 844)

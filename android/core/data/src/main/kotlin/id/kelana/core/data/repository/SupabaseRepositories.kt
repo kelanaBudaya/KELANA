@@ -83,6 +83,10 @@ class SupabasePlaceRepository internal constructor(
 
     override fun places(): Flow<List<Place>> = scoped
 
+    /** Not scoped to the selected region: the region picker shows every region's count at once. */
+    override fun placesIn(regionId: String): Flow<List<Place>> =
+        all.map { list -> list.filter { it.regionId == regionId } }.distinctUntilChanged()
+
     /** Not scoped: a place resolves by id from any region (deep links, passport of earlier visits). */
     override fun place(id: String): Flow<Place?> = all.map { list -> list.firstOrNull { it.id == id } }.distinctUntilChanged()
 

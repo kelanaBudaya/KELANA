@@ -9,6 +9,14 @@ interface PlaceRepository {
     /** All places, in passport order. */
     fun places(): Flow<List<Place>>
 
+    /**
+     * Places of one region, whatever region is currently selected (the region picker lists every region at once).
+     * The default filters [places] and is only right for an implementation that is not scoped to the selection;
+     * scoped implementations override it.
+     */
+    fun placesIn(regionId: String): Flow<List<Place>> =
+        places().map { list -> list.filter { it.regionId == regionId } }
+
     /** Null when no place has this id. */
     fun place(id: String): Flow<Place?>
 

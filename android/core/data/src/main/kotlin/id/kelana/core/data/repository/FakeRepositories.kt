@@ -40,6 +40,8 @@ class FakePlaceRepository @Inject constructor(private val regions: RegionReposit
 
     override fun places(): Flow<List<Place>> = scoped
 
+    override fun placesIn(regionId: String): Flow<List<Place>> = flowOf(all.filter { it.regionId == regionId })
+
     /** Not scoped: a place resolves by id from any region (deep links, earlier visits). */
     override fun place(id: String): Flow<Place?> = flowOf(all.firstOrNull { it.id == id })
 
