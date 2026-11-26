@@ -12,12 +12,17 @@ import javax.inject.Singleton
 class PlatformAppLanguageRepository @Inject constructor(
     private val controller: AppLocaleController,
 ) : AppLanguageRepository {
-    private val state = MutableStateFlow(AppLanguage.fromTag(controller.currentTags()))
+    private var explicit = controller.currentTags().isNotEmpty()
+    private val state = MutableStateFlow(
+        AppLanguage.fromTag(controller.currentTags().ifEmpty { controller.deviceTag() }),
+    )
 
     override val language: Flow<AppLanguage> = state.asStateFlow()
 
     override fun set(language: AppLanguage) {
-        if (state.value == language) return
+        // Picking the language that is already shown still stores it, so a later device change does not move the app.
+        if (explicit && state.value == language) return
+        explicit = true
         state.value = language
         controller.apply(language.tag)
     }

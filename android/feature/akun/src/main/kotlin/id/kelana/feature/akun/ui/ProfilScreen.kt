@@ -61,6 +61,7 @@ import id.kelana.core.designsystem.theme.KelanaTheme
 import id.kelana.core.model.AppLanguage
 import id.kelana.core.model.SessionUser
 import id.kelana.core.ui.LanguageSheet
+import id.kelana.core.ui.flagRes
 import id.kelana.core.ui.labelRes
 import id.kelana.feature.akun.R
 
@@ -338,7 +339,7 @@ private fun SectionLabel(@StringRes text: Int, topPadding: Dp) {
 /** Pengaturan > Bahasa: shows the current choice and opens the language sheet. */
 @Composable
 private fun LanguageRow(language: AppLanguage, onClick: () -> Unit) {
-    ProfilRow(R.drawable.akun_ic_bahasa, R.string.profil_row_bahasa, language.labelRes(), onClick = onClick)
+    ProfilRow(language.flagRes(), R.string.profil_row_bahasa, language.labelRes(), onClick = onClick)
 }
 
 /** One list row (artifact: 60 dp min, 40 dp warm icon tile, title 15/700, subtitle 12, chevron). [onClick] null = inert. */

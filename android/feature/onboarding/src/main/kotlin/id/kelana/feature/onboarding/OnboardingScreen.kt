@@ -147,7 +147,7 @@ internal fun IntroContent(
     onStartFromJogja: () -> Unit,
     onOtherRegion: () -> Unit,
     onHaveAccount: () -> Unit,
-    language: AppLanguage = AppLanguage.SYSTEM,
+    language: AppLanguage = AppLanguage.ID,
     onLanguage: (AppLanguage) -> Unit = {},
 ) {
     val intro = state.intro

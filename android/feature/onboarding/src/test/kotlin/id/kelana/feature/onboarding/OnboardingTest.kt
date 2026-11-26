@@ -41,7 +41,7 @@ private class TestRegions : RegionRepository {
     }
 }
 
-private class TestLanguages(initial: AppLanguage = AppLanguage.SYSTEM) : AppLanguageRepository {
+private class TestLanguages(initial: AppLanguage = AppLanguage.ID) : AppLanguageRepository {
     val current = MutableStateFlow(initial)
     override val language: Flow<AppLanguage> = current
     override fun set(language: AppLanguage) {
@@ -140,9 +140,9 @@ class OnboardingTest {
     }
 
     @Test
-    fun languageDefaultsToSystemAndFollowsSelection() = runTest {
+    fun languageStartsFromShownLanguageAndFollowsSelection() = runTest {
         val vm = IntroViewModel(regions, languages)
-        assertEquals(AppLanguage.SYSTEM, vm.language.value)
+        assertEquals(AppLanguage.ID, vm.language.value)
         vm.setLanguage(AppLanguage.EN)
         assertEquals(AppLanguage.EN, vm.language.value)
         assertEquals(AppLanguage.EN, languages.current.value)

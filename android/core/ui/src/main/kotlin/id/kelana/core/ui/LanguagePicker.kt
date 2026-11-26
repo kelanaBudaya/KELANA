@@ -1,6 +1,14 @@
 package id.kelana.core.ui
 
+import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.border
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -28,17 +36,35 @@ import id.kelana.core.model.AppLanguage
 
 /**
  * Label of a language choice. "Bahasa Indonesia" and "English" are written in their own language in every locale
- * (same text in both string files); only "Ikuti sistem" is translated.
+ * (same text in both string files).
  */
 @StringRes
 fun AppLanguage.labelRes(): Int = when (this) {
-    AppLanguage.SYSTEM -> R.string.language_system
     AppLanguage.ID -> R.string.language_name_id
     AppLanguage.EN -> R.string.language_name_en
 }
 
+/** Flag drawable of a language: Indonesia (red over white) or the United Kingdom. */
+@DrawableRes
+fun AppLanguage.flagRes(): Int = when (this) {
+    AppLanguage.ID -> R.drawable.ic_flag_id
+    AppLanguage.EN -> R.drawable.ic_flag_gb
+}
+
+/** Small rounded flag, decorative (the label next to it is text). */
+@Composable
+fun LanguageFlag(language: AppLanguage, modifier: Modifier = Modifier) {
+    val shape = RoundedCornerShape(4.dp)
+    Image(
+        painter = painterResource(language.flagRes()),
+        contentDescription = null,
+        modifier = modifier.size(width = 28.dp, height = 19.dp).clip(shape).border(1.dp, KelanaTheme.colors.outline, shape),
+        contentScale = ContentScale.Crop,
+    )
+}
+
 /**
- * Bottom sheet with the three language options as radio rows (Profil > Bahasa). Picking an option applies
+ * Bottom sheet with the two language options as radio rows (Profil > Bahasa). Picking an option applies
  * it at once, so the sheet closes right after [onSelect].
  */
 @OptIn(ExperimentalMaterial3Api::class)
@@ -74,6 +100,7 @@ fun LanguageSheet(
                             onClick = null,
                             colors = RadioButtonDefaults.colors(selectedColor = colors.primary, unselectedColor = colors.muted),
                         )
+                        LanguageFlag(option)
                         Text(stringResource(option.labelRes()), style = MaterialTheme.typography.titleSmall, color = colors.ink)
                     }
                 }

@@ -36,7 +36,7 @@ class ProfilViewModelTest {
         }
     }
 
-    private class FakeAppLanguageRepository(initial: AppLanguage = AppLanguage.SYSTEM) : AppLanguageRepository {
+    private class FakeAppLanguageRepository(initial: AppLanguage = AppLanguage.ID) : AppLanguageRepository {
         val current = MutableStateFlow(initial)
         override val language: Flow<AppLanguage> = current
         override fun set(language: AppLanguage) {

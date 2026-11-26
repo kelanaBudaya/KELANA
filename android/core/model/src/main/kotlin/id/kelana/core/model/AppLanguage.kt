@@ -1,17 +1,19 @@
 package id.kelana.core.model
 
-/** App language choice. [SYSTEM] follows the device language (the default). */
+/** The two app languages. There is no "system" choice: until one is picked, the language the app shows is used. */
 enum class AppLanguage(val tag: String) {
-    SYSTEM(""),
     ID("id"),
     EN("en"),
     ;
 
     companion object {
-        /** Maps a stored BCP 47 tag ("" = none) to a choice; unknown languages fall back to [SYSTEM]. */
+        /**
+         * Maps a BCP 47 tag to the language the app shows: English for "en", Indonesian for anything else
+         * (the default resources in `values/` are Indonesian).
+         */
         fun fromTag(tag: String?): AppLanguage {
             val language = tag?.substringBefore(',')?.substringBefore('-')?.lowercase().orEmpty()
-            return entries.firstOrNull { it != SYSTEM && it.tag == language } ?: SYSTEM
+            return if (language == EN.tag) EN else ID
         }
     }
 }
@@ -21,8 +23,9 @@ enum class AppLanguage(val tag: String) {
  * account. Applying a language recreates the visible Activity, so the UI shows the new language right away.
  */
 interface AppLanguageRepository {
-    /** The current choice; emits again after [set]. */
+    /** The language the app currently shows: the explicit choice, or the device language while nothing was chosen. */
     val language: kotlinx.coroutines.flow.Flow<AppLanguage>
 
+    /** Stores an explicit language. */
     fun set(language: AppLanguage)
 }

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Flag of Indonesia: red over white. National colours, hard-coded like the other illustrations. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="28dp"
+    android:height="19dp"
+    android:viewportWidth="60"
+    android:viewportHeight="40">
+    <path android:fillColor="#CE1126" android:pathData="M0,0h60v20h-60z" />
+    <path android:fillColor="#FFFFFF" android:pathData="M0,20h60v20h-60z" />
+</vector>

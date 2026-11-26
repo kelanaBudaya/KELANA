@@ -58,7 +58,7 @@ docs/design/  overview PNGs (context only)
 
 - **All user-facing text lives in `strings.xml`, never hardcoded.** Bahasa Indonesia in `values/`, English in `values-en/`. A new string needs both.
 - **Every ViewModel has a unit test** (JUnit + Turbine for Flows).
-- **App language** is the platform per-app locale (`AppLanguage`: system, id, en), changed through `AppLanguageRepository` only (`:core:data` wraps `AppCompatDelegate`). Onboarding (Mulai) and Profil > Pengaturan > Bahasa share the picker in `:core:ui`. Language names stay in their own language in both string files.
+- **App language** is the platform per-app locale (`AppLanguage`: id, en; no system choice, the language being shown is pre-selected until one is picked), changed through `AppLanguageRepository` only (`:core:data` wraps `AppCompatDelegate`). Onboarding (Mulai) and Profil > Pengaturan > Bahasa share the picker in `:core:ui`. Language names stay in their own language in both string files.
 - UI follows the Figma frame; use design tokens from `:core:designsystem`, no ad-hoc colors, sizes or fonts in feature code.
 - Dates and prices are formatted for `id-ID` (e.g. "Jumat, 20 November", "Rp150.000").
 - Keep secrets (Supabase keys, `google-services.json`, signing keys) out of git.

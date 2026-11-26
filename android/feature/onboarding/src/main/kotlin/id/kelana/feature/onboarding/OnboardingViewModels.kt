@@ -31,7 +31,7 @@ internal class IntroViewModel @Inject constructor(
 ) : ViewModel() {
     /** Language choice shown on the Mulai page; picking one applies it at once (the screen is recreated). */
     val language: StateFlow<AppLanguage> =
-        appLanguage.language.stateIn(viewModelScope, SharingStarted.Eagerly, AppLanguage.SYSTEM)
+        appLanguage.language.stateIn(viewModelScope, SharingStarted.Eagerly, AppLanguage.ID)
 
     fun setLanguage(language: AppLanguage) = appLanguage.set(language)
 

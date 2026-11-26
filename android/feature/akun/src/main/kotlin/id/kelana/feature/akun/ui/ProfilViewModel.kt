@@ -23,7 +23,7 @@ data class ProfilUiState(
     val isLoading: Boolean = true,
     val user: SessionUser? = null,
     val isSigningOut: Boolean = false,
-    val language: AppLanguage = AppLanguage.SYSTEM,
+    val language: AppLanguage = AppLanguage.ID,
 ) {
     val isGuest: Boolean get() = !isLoading && user == null
 

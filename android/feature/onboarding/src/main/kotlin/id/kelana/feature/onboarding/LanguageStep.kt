@@ -42,6 +42,7 @@ import id.kelana.core.designsystem.theme.KelanaShapes
 import id.kelana.core.designsystem.theme.KelanaSpacing
 import id.kelana.core.designsystem.theme.KelanaTheme
 import id.kelana.core.model.AppLanguage
+import id.kelana.core.ui.LanguageFlag
 import id.kelana.core.ui.labelRes
 
 /**
@@ -119,6 +120,7 @@ private fun LanguageOptionCard(language: AppLanguage, selected: Boolean, onClick
             onClick = null,
             colors = RadioButtonDefaults.colors(selectedColor = colors.primary, unselectedColor = colors.muted),
         )
+        LanguageFlag(language)
         Text(stringResource(language.labelRes()), style = MaterialTheme.typography.titleSmall, color = colors.ink)
     }
 }
@@ -126,5 +128,5 @@ private fun LanguageOptionCard(language: AppLanguage, selected: Boolean, onClick
 @Preview(showBackground = true, widthDp = 390, heightDp = 844)
 @Composable
 private fun LanguageStepPreview() {
-    KelanaTheme { LanguageStepContent(AppLanguage.SYSTEM, {}, {}) }
+    KelanaTheme { LanguageStepContent(AppLanguage.ID, {}, {}) }
 }
