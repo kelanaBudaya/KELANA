@@ -72,13 +72,14 @@ internal fun parseRegionStatus(raw: String): RegionStatus = when (raw) {
 
 // ---------- regions ----------
 
-internal fun RegionDto.toEntity() = RegionEntity(code = code, name = name, status = status, sortOrder = sortOrder)
+internal fun RegionDto.toEntity() = RegionEntity(code = code, name = name, status = status, sortOrder = sortOrder, shortName = shortName)
 
 internal fun RegionEntity.toModel() = Region(
     id = code,
     name = name,
     status = parseRegionStatus(status),
     sortOrder = sortOrder,
+    shortName = shortName?.takeIf { it.isNotBlank() } ?: name,
 )
 
 // ---------- places ----------

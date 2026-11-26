@@ -159,4 +159,11 @@ class MappersTest {
         assertEquals(RegionStatus.NotOpen, parseRegionStatus("not_open"))
         assertEquals("DIY", RegionDto("DIY", "DI Yogyakarta", "available", 1).toEntity().toModel().id)
     }
+
+    @Test
+    fun regionShortName_presentNullBlank() {
+        assertEquals("Jogja", RegionDto("DIY", "DI Yogyakarta", "available", 1, "Jogja").toEntity().toModel().shortName)
+        assertEquals("DI Yogyakarta", RegionDto("DIY", "DI Yogyakarta", "available", 1, null).toEntity().toModel().shortName)
+        assertEquals("DI Yogyakarta", RegionDto("DIY", "DI Yogyakarta", "available", 1, "  ").toEntity().toModel().shortName)
+    }
 }

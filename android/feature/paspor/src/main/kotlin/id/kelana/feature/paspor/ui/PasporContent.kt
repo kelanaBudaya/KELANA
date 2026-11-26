@@ -192,9 +192,9 @@ private fun Header(state: PasporUiState, actions: PasporActions) {
                     )
                     Text(
                         text = if (state.remaining > 0) {
-                            stringResource(R.string.paspor_remaining, state.remaining)
+                            stringResource(R.string.paspor_remaining, state.remaining, state.regionShortName.orEmpty())
                         } else {
-                            stringResource(R.string.paspor_complete)
+                            stringResource(R.string.paspor_complete, state.regionShortName.orEmpty())
                         },
                         modifier = Modifier.padding(top = 4.dp),
                         style = MaterialTheme.typography.bodySmall.copy(lineHeight = 19.sp),
@@ -399,6 +399,7 @@ private fun PreviewPaspor() {
                 initials = "MH",
                 regionName = "DI Yogyakarta",
                 regionCode = "DIY",
+                regionShortName = "Jogja",
                 items = PreviewPlaces.mapIndexed { i, p -> PassportItem(p, if (i < 3) stamped.plusSeconds(i * 60L) else null) },
             ),
             NoActions,
@@ -411,7 +412,7 @@ private fun PreviewPaspor() {
 private fun PreviewPasporEmpty() {
     KelanaTheme {
         PasporContent(
-            PasporUiState(isLoading = false, initials = "MH", regionName = "DI Yogyakarta", regionCode = "DIY",
+            PasporUiState(isLoading = false, initials = "MH", regionName = "DI Yogyakarta", regionCode = "DIY", regionShortName = "Jogja",
                 items = PreviewPlaces.map { PassportItem(it, null) }),
             NoActions,
         )

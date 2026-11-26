@@ -12,6 +12,8 @@ data class Region(
     val name: String,
     val status: RegionStatus,
     val sortOrder: Int = 0,
+    /** Casual short name for running text ("stamps in Jogja"). Falls back to [name]. */
+    val shortName: String = name,
 ) {
     val isAvailable: Boolean get() = status == RegionStatus.Available
 }

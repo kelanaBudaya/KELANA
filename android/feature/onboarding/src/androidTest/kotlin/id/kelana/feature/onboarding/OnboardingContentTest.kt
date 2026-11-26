@@ -37,8 +37,7 @@ class OnboardingContentTest {
         loading = false,
         regions = regions,
         selectedRegionId = selected,
-        placeNames = listOf("Keraton Yogyakarta", "Candi Prambanan"),
-        placeCount = 2,
+        placesByRegion = mapOf("DIY" to RegionPlaces(listOf("Keraton Yogyakarta", "Candi Prambanan"), 2)),
     )
 
     /** Hosts IntroContent the way the nav graph does: onNext(page) moves to that page. */

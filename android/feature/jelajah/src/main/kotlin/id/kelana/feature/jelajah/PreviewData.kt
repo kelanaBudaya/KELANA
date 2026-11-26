@@ -48,6 +48,8 @@ internal object PreviewData {
         isLoading = false,
         date = LocalDate.of(2026, 11, 20),
         regionName = "DI Yogyakarta",
+        regionShortName = "Jogja",
+        stampCode = "YK",
         tonightEvent = EventOccurrence(event, LocalDate.of(2026, 11, 20)),
         featuredPlaces = places,
     )

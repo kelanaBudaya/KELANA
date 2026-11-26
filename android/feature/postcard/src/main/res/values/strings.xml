@@ -70,10 +70,8 @@
     <string name="postcard_card_style_jurnal">JURNAL</string>
     <string name="postcard_card_style_cap">CAP</string>
     <string name="postcard_card_style_peta">PETA</string>
-    <string name="postcard_card_region">YOGYAKARTA</string>
-    <string name="postcard_card_region_code">DIY</string>
     <string name="postcard_card_visited">DIKUNJUNGI · %1$s</string>
-    <string name="postcard_card_headline">Sepenggal Jogja.</string>
+    <string name="postcard_card_headline">Sepenggal %1$s.</string>
     <string name="postcard_card_quote">“%1$s”</string>
     <string name="postcard_card_tagline">JALAN BUDAYAMU</string>
 

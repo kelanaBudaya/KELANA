@@ -3,10 +3,12 @@ package id.kelana.feature.akun.ui
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.test.assertCountEquals
 import androidx.compose.ui.test.assertIsDisplayed
 import androidx.compose.ui.test.assertIsNotEnabled
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.test.onNodeWithContentDescription
+import androidx.compose.ui.test.onAllNodesWithText
 import androidx.compose.ui.test.onNodeWithText
 import androidx.compose.ui.test.performClick
 import androidx.compose.ui.test.performScrollTo
@@ -51,7 +53,9 @@ class ProfilContentTest {
     @Test
     fun signedIn_showsNameEmailAndAllRows() {
         show(signedIn)
-        rule.onNodeWithText("Sari Dewi").assertIsDisplayed()
+        // The name shows in the header and in the "Nama" row.
+        rule.onAllNodesWithText("Sari Dewi").assertCountEquals(2)
+        rule.onAllNodesWithText("Sari Dewi")[0].assertIsDisplayed()
         rule.onNodeWithText("sari@example.com").assertIsDisplayed()
         listOf(
             R.string.profil_row_paspor,

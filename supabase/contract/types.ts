@@ -342,6 +342,7 @@ export type Database = {
           id: number
           is_sample: boolean
           name: string
+          short_name: string | null
           sort_order: number
           status: Database["public"]["Enums"]["region_status"]
         }
@@ -351,6 +352,7 @@ export type Database = {
           id?: never
           is_sample?: boolean
           name: string
+          short_name?: string | null
           sort_order?: number
           status?: Database["public"]["Enums"]["region_status"]
         }
@@ -360,6 +362,7 @@ export type Database = {
           id?: never
           is_sample?: boolean
           name?: string
+          short_name?: string | null
           sort_order?: number
           status?: Database["public"]["Enums"]["region_status"]
         }

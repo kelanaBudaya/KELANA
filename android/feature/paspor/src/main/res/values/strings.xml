@@ -7,8 +7,8 @@
     <string name="paspor_profile_cd">Profil</string>
     <string name="paspor_seal_name">KELANA</string>
     <string name="paspor_count_title">%1$d dari %2$d cap</string>
-    <string name="paspor_remaining">Tinggal %1$d tempat lagi untuk melengkapi Jogja.</string>
-    <string name="paspor_complete">Semua cap Jogja sudah terkumpul.</string>
+    <string name="paspor_remaining">Tinggal %1$d tempat lagi untuk melengkapi %2$s.</string>
+    <string name="paspor_complete">Semua cap %1$s sudah terkumpul.</string>
     <string name="paspor_progress_cd">Cap terkumpul: %1$d dari %2$d</string>
     <string name="paspor_section_title">Cap terkumpul</string>
     <string name="paspor_section_hint">Ketuk cap untuk melihat postcard dan videomu di sana.</string>
@@ -99,8 +99,8 @@
     <string name="paspor_err_unconfirmed_body">Server sudah menjawab, tetapi capmu belum tercatat. Ambil cap lagi.</string>
 
     <!-- 6.3 Cap berhasil -->
-    <string name="paspor_berhasil_kicker">CAP KE-%1$d · TINGGAL %2$d LAGI DI JOGJA</string>
-    <string name="paspor_berhasil_kicker_complete">CAP KE-%1$d · PASPOR JOGJA LENGKAP</string>
+    <string name="paspor_berhasil_kicker">CAP KE-%1$d · TINGGAL %2$d LAGI DI %3$s</string>
+    <string name="paspor_berhasil_kicker_complete">CAP KE-%1$d · PASPOR %2$s LENGKAP</string>
     <string name="paspor_berhasil_kicker_plain">CAP BARU</string>
     <string name="paspor_berhasil_title">Kamu sudah berkelana ke %1$s!</string>
     <string name="paspor_berhasil_title_plain">Capmu sudah tercatat!</string>

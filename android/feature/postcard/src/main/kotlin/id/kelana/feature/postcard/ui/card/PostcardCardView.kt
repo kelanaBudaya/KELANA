@@ -36,13 +36,13 @@ internal fun cardTexts(context: Context, content: CardContent): CardTexts {
     )
     return CardTexts(
         kicker = context.getString(R.string.postcard_card_kicker, styleName),
-        region = context.getString(R.string.postcard_card_region),
-        regionCode = context.getString(R.string.postcard_card_region_code),
+        region = content.regionLabel,
+        regionCode = content.regionCode,
         visitedBadge = content.stampedAt?.let {
             context.getString(R.string.postcard_card_visited, formatVisitedDate(it))
         },
         stampDate = content.stampedAt?.let { formatStampDate(it) },
-        headline = context.getString(R.string.postcard_card_headline),
+        headline = context.getString(R.string.postcard_card_headline, content.regionShortName),
         quote = context.getString(R.string.postcard_card_quote, content.message.trim()),
         tagline = context.getString(R.string.postcard_card_tagline),
     )

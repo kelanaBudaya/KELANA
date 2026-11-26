@@ -9,8 +9,10 @@
     <string name="home_headline">Where do you want to explore today?</string>
     <string name="home_date_line">%1$s · %2$s</string>
     <string name="home_passport_title">Your cultural passport</string>
-    <string name="home_passport_count">%1$d of %2$d stamps in Jogja</string>
-    <string name="home_passport_empty">Collect your stamps in Jogja</string>
+    <string name="home_passport_count">%1$d of %2$d stamps in %3$s</string>
+    <string name="home_passport_count_noregion">%1$d of %2$d stamps</string>
+    <string name="home_passport_empty">Collect your stamps in %1$s</string>
+    <string name="home_passport_empty_noregion">Collect your stamps</string>
     <string name="action_stamp">Get stamp</string>
     <string name="action_plan">Plan</string>
     <string name="action_agenda">Agenda</string>
@@ -46,7 +48,8 @@
     <string name="cari_empty_title">No results</string>
     <string name="cari_empty_body">Try another keyword or browse by category.</string>
     <string name="event_when">%1$s %2$s</string>
-    <string name="kategori_subtitle_museum">%1$d museums in Yogyakarta</string>
+    <string name="kategori_subtitle_museum">%1$d museums in %2$s</string>
+    <string name="kategori_subtitle_museum_noregion">%1$d museums</string>
     <string name="kategori_subtitle_candi">Sites, reliefs and their stories</string>
     <string name="kategori_subtitle_tari">Performances with official schedules</string>
     <string name="kategori_subtitle_pentas">Traditional performances and cultural stage shows</string>
@@ -61,10 +64,10 @@
     <string name="filter_empty_title">No matching places yet</string>
     <string name="filter_empty_body">Try turning off a filter or picking another category.</string>
     <string name="semua_title">All places</string>
-    <string name="semua_subtitle">%1$d places in DI Yogyakarta</string>
+    <string name="semua_subtitle">%1$d places in %2$s</string>
+    <string name="semua_subtitle_noregion">%1$d places</string>
     <string name="back_cd">Back</string>
-    <string name="home_stamp_code">YK</string>
-    <string name="home_stamp_cd">YK sticker</string>
+    <string name="home_stamp_cd">%1$s sticker</string>
     <string name="challenge_progress_cd">Challenge progress</string>
     <string name="badge_cap">Stamp %1$s</string>
 </resources>

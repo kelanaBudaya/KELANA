@@ -33,6 +33,13 @@ class FakeRepositoriesTest {
     }
 
     @Test
+    fun placesIn_returnsOnlyThatRegionsPlaces() = runTest {
+        val diy = places.placesIn("DIY").first()
+        assertTrue(diy.isNotEmpty() && diy.all { it.regionId == "DIY" })
+        assertTrue(places.placesIn("TIDAK-ADA").first().isEmpty())
+    }
+
+    @Test
     fun placeById_returnsPlaceOrNull() = runTest {
         assertEquals("Candi Prambanan", places.place("candi-prambanan").first()?.name)
         assertNull(places.place("tidak-ada").first())
@@ -122,6 +129,14 @@ class FakeRepositoriesTest {
         assertNull(repo.selectedRegionId.first())
         repo.select("DIY")
         assertEquals("DIY", repo.selectedRegionId.first())
+    }
+
+    @Test
+    fun selectedRegion_followsSelection() = runTest {
+        val repo = FakeRegionRepository()
+        assertNull(repo.selectedRegion().first())
+        repo.select("DIY")
+        assertEquals("Jogja", repo.selectedRegion().first()?.shortName)
     }
 
     private class FakeSession(initial: SessionState) : SessionRepository {

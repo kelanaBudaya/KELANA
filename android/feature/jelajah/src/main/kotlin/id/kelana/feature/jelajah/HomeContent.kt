@@ -305,7 +305,7 @@ private fun PassportCard(state: JelajahUiState, callbacks: HomeCallbacks, modifi
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.spacedBy(12.dp),
         ) {
-            StampSticker(state.stampCount, state.stampTotal, Modifier.rotate(-6f))
+            StampSticker(state.stampCode, state.stampCount, state.stampTotal, Modifier.rotate(-6f))
             Column(Modifier.weight(1f)) {
                 Text(
                     stringResource(R.string.home_passport_title),
@@ -314,11 +314,7 @@ private fun PassportCard(state: JelajahUiState, callbacks: HomeCallbacks, modifi
                 )
                 // Real counts from the user's confirmed stamps; no number until the places are loaded.
                 Text(
-                    if (state.stampTotal > 0) {
-                        stringResource(R.string.home_passport_count, state.stampCount, state.stampTotal)
-                    } else {
-                        stringResource(R.string.home_passport_empty)
-                    },
+                    passportLine(state),
                     style = MaterialTheme.typography.titleMedium.copy(fontSize = 17.sp),
                     color = colors.white,
                 )
@@ -362,11 +358,24 @@ private val QuickAction.art: Int
         QuickAction.Postcard -> R.drawable.jelajah_art_postcard
     }
 
+@Composable
+private fun passportLine(state: JelajahUiState): String {
+    val region = state.regionShortName
+    return when {
+        state.stampTotal > 0 && region != null ->
+            stringResource(R.string.home_passport_count, state.stampCount, state.stampTotal, region)
+        state.stampTotal > 0 ->
+            stringResource(R.string.home_passport_count_noregion, state.stampCount, state.stampTotal)
+        region != null -> stringResource(R.string.home_passport_empty, region)
+        else -> stringResource(R.string.home_passport_empty_noregion)
+    }
+}
+
 /** Yellow passport sticker with a white outline, 56 x 42 dp. */
 @Composable
-private fun StampSticker(count: Int, total: Int, modifier: Modifier = Modifier) {
+private fun StampSticker(code: String, count: Int, total: Int, modifier: Modifier = Modifier) {
     val colors = KelanaTheme.colors
-    val cd = stringResource(R.string.home_stamp_cd)
+    val cd = stringResource(R.string.home_stamp_cd, code)
     Box(
         modifier.size(width = 56.dp, height = 42.dp).semantics { contentDescription = cd },
         contentAlignment = Alignment.Center,
@@ -380,7 +389,7 @@ private fun StampSticker(count: Int, total: Int, modifier: Modifier = Modifier) 
         Column(horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.spacedBy(3.dp)) {
             Art(R.drawable.jelajah_art_museum_navy, 16.dp)
             Text(
-                stringResource(R.string.home_stamp_code),
+                code,
                 style = MaterialTheme.typography.labelSmall.copy(fontWeight = FontWeight.ExtraBold, letterSpacing = 0.8.sp),
                 color = colors.navy,
             )

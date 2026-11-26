@@ -20,7 +20,7 @@ class SupabaseRemoteDataSource @Inject constructor(
 
     override suspend fun fetchRegions(): List<RegionDto> =
         client().from("regions")
-            .select(Columns.raw("code,name,status,sort_order")) {
+            .select(Columns.raw("code,name,short_name,status,sort_order")) {
                 order("sort_order", Order.ASCENDING)
             }
             .decodeList<RegionDto>()

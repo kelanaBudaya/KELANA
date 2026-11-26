@@ -44,14 +44,14 @@ class JelajahContentTest {
     fun home_guestWithoutStamps_showsPassportEmptyText() {
         val guest = PreviewData.homeState().copy(stampCount = 0, stampTotal = 0)
         rule.setContent { KelanaTheme { HomeContent(guest, "", callbacks()) } }
-        rule.onNodeWithText(str(R.string.home_passport_empty)).assertIsDisplayed()
+        rule.onNodeWithText(str(R.string.home_passport_empty, "Jogja")).assertIsDisplayed()
     }
 
     @Test
     fun home_passportWithStamps_showsRealCounts() {
         val state = PreviewData.homeState().copy(stampCount = 2, stampTotal = 3)
         rule.setContent { KelanaTheme { HomeContent(state, "AB", callbacks()) } }
-        rule.onNodeWithText(str(R.string.home_passport_count, 2, 3)).assertIsDisplayed()
+        rule.onNodeWithText(str(R.string.home_passport_count, 2, 3, "Jogja")).assertIsDisplayed()
     }
 
     @Test
@@ -80,7 +80,7 @@ class JelajahContentTest {
                 HomeContent(state, "", callbacks(onPassport = { passport++ }, onQuickAction = { actions += it }))
             }
         }
-        rule.onNode(hasScrollAction()).performScrollToNode(hasText(str(R.string.challenge_label).uppercase()))
+        rule.onAllNodes(hasScrollAction())[0].performScrollToNode(hasText(str(R.string.challenge_label).uppercase()))
         rule.onNodeWithText(str(R.string.challenge_label).uppercase()).performClick()
         rule.onNodeWithText(str(R.string.challenge_sheet_progress, 2, 3)).assertIsDisplayed()
         rule.onNodeWithText(str(R.string.challenge_sheet_passport)).performClick()

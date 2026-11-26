@@ -1,12 +1,21 @@
 package id.kelana.core.model
 
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.map
 import java.time.LocalDate
 
 interface PlaceRepository {
     /** All places, in passport order. */
     fun places(): Flow<List<Place>>
+
+    /**
+     * Places of one region, whatever region is currently selected (the region picker lists every region at once).
+     * The default filters [places] and is only right for an implementation that is not scoped to the selection;
+     * scoped implementations override it.
+     */
+    fun placesIn(regionId: String): Flow<List<Place>> =
+        places().map { list -> list.filter { it.regionId == regionId } }
 
     /** Null when no place has this id. */
     fun place(id: String): Flow<Place?>
@@ -45,6 +54,10 @@ interface RegionRepository {
 
     /** The region picked in Pilih daerah, or null before the choice. PROVISIONAL: the fake keeps it in memory only. */
     val selectedRegionId: Flow<String?>
+
+    /** The selected [Region] object: null when nothing is selected or the id is not in [regions]. Single owner of this logic. */
+    fun selectedRegion(): Flow<Region?> =
+        combine(regions(), selectedRegionId) { list, id -> id?.let { sel -> list.firstOrNull { it.id == sel } } }
 
     /** Only an available region can be selected; others are ignored. */
     suspend fun select(regionId: String)

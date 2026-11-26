@@ -8,8 +8,8 @@ begin;
 
 -- wilayah: buka (available) karena data sudah ada
 update public.regions set status = 'available', is_sample = false where code in ('JTG','JTM','JBR');
-insert into public.regions (code, name, status, sort_order, is_sample) values ('JKT','DKI Jakarta','available',11,false),('BTN','Banten','available',12,false)
-on conflict (code) do update set status = 'available', name = excluded.name, is_sample = false;
+insert into public.regions (code, name, short_name, status, sort_order, is_sample) values ('JKT','DKI Jakarta','Jakarta','available',11,false),('BTN','Banten','Banten','available',12,false)
+on conflict (code) do update set status = 'available', name = excluded.name, short_name = excluded.short_name, is_sample = false;
 
 -- ===== Banten =====
 -- Keraton Surosowan

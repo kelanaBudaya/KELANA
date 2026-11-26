@@ -7,6 +7,7 @@ import id.kelana.core.model.AppLanguage
 import id.kelana.core.model.AppLanguageRepository
 import id.kelana.core.model.AuthResult
 import id.kelana.core.model.AuthValidation
+import id.kelana.core.model.RegionRepository
 import id.kelana.core.model.SessionRepository
 import id.kelana.core.model.SessionState
 import id.kelana.core.model.SessionUser
@@ -26,6 +27,8 @@ data class ProfilUiState(
     val user: SessionUser? = null,
     val isSigningOut: Boolean = false,
     val language: AppLanguage = AppLanguage.ID,
+    /** Full name of the selected region ("Jawa Timur"); null when none is selected. */
+    val regionName: String? = null,
     /** Text in the "Nama" dialog; null while the dialog is closed. */
     val nameDraft: String? = null,
     val nameError: NameError? = null,
@@ -60,6 +63,7 @@ sealed interface ProfilEvent {
 class ProfilViewModel @Inject constructor(
     private val session: SessionRepository,
     private val appLanguage: AppLanguageRepository,
+    private val regions: RegionRepository,
 ) : ViewModel() {
 
     private val _state = MutableStateFlow(ProfilUiState())
@@ -69,6 +73,9 @@ class ProfilViewModel @Inject constructor(
     val events: Flow<ProfilEvent> = _events.receiveAsFlow()
 
     init {
+        viewModelScope.launch {
+            regions.selectedRegion().collect { region -> _state.update { it.copy(regionName = region?.name) } }
+        }
         viewModelScope.launch {
             appLanguage.language.collect { language -> _state.update { it.copy(language = language) } }
         }
