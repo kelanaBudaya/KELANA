@@ -4,6 +4,7 @@ import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.offset
+import androidx.compose.runtime.key
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
@@ -43,13 +44,19 @@ private val TipOffset = PinTopInset + DropSize / 2 + DropSize * 0.7071f
 private const val MAP_PADDING_TOP_PX = 220
 private const val MAP_PADDING_SIDE_PX = 100
 private const val MAP_PADDING_BOTTOM_PX = 560
+private const val MIN_ZOOM = 8.0
+internal const val MAX_ZOOM = 18.0
+private const val CLUSTER_ANIM_MS = 350
+
+/** Height of the box a pin occupies for overlap tests (the pin's visible height, label included). */
+internal val PinCollisionHeight = 72.dp
 
 /**
  * The OpenStreetMap view (MapLibre, bundled muted OpenFreeMap style, see [mutedStyleJson]) with one pin per marker, shared by every
  * screen that shows a map. Pins are Compose nodes laid over the map and repositioned from the map projection whenever
  * the camera moves, so they keep the design's marker look and accessibility semantics. The camera frames
  * [framedPoints] (lat, lng pairs) once. Markers are tappable only when [onMarkerTap] is given. When [routePath] (lat, lng
- * points, any number) has two or more points, a [routeColor] line follows it, under the pins. No location component is used:
+ * points, any number) has two or more points, a [routeColor] line follows it, under the pins. Pins whose boxes overlap are fanned out with leader lines ([MarkerOverlap.Spread], the default) or merged into tappable count bubbles ([MarkerOverlap.Cluster]). No location component is used:
  * the map shows places only (location is read only from "Ambil cap"). Show a [MapAttribution] next to it.
  */
 @Composable
@@ -61,6 +68,7 @@ fun OsmMap(
     onMarkerTap: ((String) -> Unit)? = null,
     routePath: List<Pair<Double, Double>> = emptyList(),
     routeColor: Color = Color.Unspecified,
+    overlap: MarkerOverlap = MarkerOverlap.Spread,
 ) {
     val context = LocalContext.current
     val density = LocalDensity.current
@@ -72,6 +80,8 @@ fun OsmMap(
     }
     var map by remember { mutableStateOf<MapLibreMap?>(null) }
     var screenPoints by remember { mutableStateOf<Map<String, Offset>>(emptyMap()) }
+    var zoom by remember { mutableStateOf(0.0) }
+    var sheetMembers by remember { mutableStateOf<List<MapMarker>?>(null) }
     var fitted by remember { mutableStateOf(false) }
     var routeScreenPoints by remember { mutableStateOf<List<Offset>>(emptyList()) }
     val currentMarkers by rememberUpdatedState(markers)
@@ -79,6 +89,7 @@ fun OsmMap(
 
     fun refreshPoints() {
         val m = map ?: return
+        zoom = m.cameraPosition.zoom
         screenPoints = currentMarkers.associate {
             val pt = m.projection.toScreenLocation(LatLng(it.lat, it.lng))
             it.key to Offset(pt.x, pt.y)
@@ -122,8 +133,8 @@ fun OsmMap(
                 isRotateGesturesEnabled = false
                 isTiltGesturesEnabled = false
             }
-            m.setMinZoomPreference(8.0)
-            m.setMaxZoomPreference(18.0)
+            m.setMinZoomPreference(MIN_ZOOM)
+            m.setMaxZoomPreference(MAX_ZOOM)
             m.setStyle(Style.Builder().fromJson(mutedStyleJson(context)))
             m.addOnCameraMoveListener { refreshPoints() }
             m.addOnCameraIdleListener { refreshPoints() }
@@ -153,6 +164,35 @@ fun OsmMap(
     }
     LaunchedEffect(map, markers, routePath) { refreshPoints() }
 
+    val items = remember(screenPoints, markers, selectedKey, overlap, density) {
+        val pts = markers.mapNotNull { mk -> screenPoints[mk.key]?.let { ScreenPoint(mk.key, it.x, it.y) } }
+        with(density) {
+            layoutMarkers(pts, selectedKey, overlap, PinWidth.toPx(), PinCollisionHeight.toPx(), PinWidth.toPx())
+        }
+    }
+    val byKey = remember(markers) { markers.associateBy { it.key } }
+
+    fun onClusterTap(members: List<MapMarker>, opensList: Boolean) {
+        if (opensList) {
+            sheetMembers = members
+            return
+        }
+        val m = map ?: return
+        val bounds = boundsOf(members.map { it.lat to it.lng }) ?: return
+        val update = if (bounds.isPoint()) {
+            CameraUpdateFactory.newLatLngZoom(LatLng(bounds.centerLat, bounds.centerLng), MAX_ZOOM)
+        } else {
+            CameraUpdateFactory.newLatLngBounds(
+                LatLngBounds.Builder()
+                    .include(LatLng(bounds.north, bounds.east))
+                    .include(LatLng(bounds.south, bounds.west))
+                    .build(),
+                MAP_PADDING_SIDE_PX, MAP_PADDING_TOP_PX, MAP_PADDING_SIDE_PX, MAP_PADDING_BOTTOM_PX,
+            )
+        }
+        m.animateCamera(update, CLUSTER_ANIM_MS)
+    }
+
     Box(modifier.fillMaxSize().clipToBounds()) {
         AndroidView(factory = { mapView }, modifier = Modifier.fillMaxSize())
         if (routeScreenPoints.size >= 2) {
@@ -164,18 +204,60 @@ fun OsmMap(
                 drawPath(path, routeColor, style = Stroke(width = 4.dp.toPx(), cap = StrokeCap.Round, join = StrokeJoin.Round))
             }
         }
-        // The selected pin is drawn last so it stays on top of its neighbours.
-        for (marker in markers.sortedBy { it.key == selectedKey }) {
-            val pt = screenPoints[marker.key] ?: continue
-            with(density) {
-                MapPin(
-                    marker = marker,
-                    selected = marker.key == selectedKey,
-                    onClick = onMarkerTap?.let { tap -> { tap(marker.key) } },
-                    modifier = Modifier.offset(x = pt.x.toDp() - PinWidth / 2, y = pt.y.toDp() - TipOffset),
-                )
+        if (items.any { it is PlacedItem.Single && it.displaced }) {
+            Canvas(Modifier.fillMaxSize()) {
+                val lineWidth = 2.dp.toPx()
+                val dotRadius = 4.dp.toPx()
+                for (item in items) {
+                    if (item !is PlacedItem.Single || !item.displaced) continue
+                    val accent = byKey[item.key]?.accent ?: continue
+                    val anchor = Offset(item.anchorX, item.anchorY)
+                    drawLine(accent, anchor, Offset(item.x, item.y), strokeWidth = lineWidth, cap = StrokeCap.Round)
+                    drawCircle(accent, dotRadius, anchor)
+                }
             }
         }
+        // The selected pin is drawn last so it stays on top of its neighbours.
+        for (item in items.sortedBy { it is PlacedItem.Single && it.key == selectedKey }) {
+            when (item) {
+                is PlacedItem.Single -> key(item.key) {
+                    val marker = byKey[item.key]
+                    if (marker != null) with(density) {
+                        MapPin(
+                            marker = marker,
+                            selected = marker.key == selectedKey,
+                            onClick = onMarkerTap?.let { tap -> { tap(marker.key) } },
+                            modifier = Modifier.offset(x = item.x.toDp() - PinWidth / 2, y = item.y.toDp() - TipOffset),
+                        )
+                    }
+                }
+                is PlacedItem.Group -> key("cluster:" + item.keys.first()) {
+                    val members = item.keys.mapNotNull { k -> byKey[k] }
+                    val opensList = onMarkerTap != null && shouldListCluster(members.map { it.lat to it.lng }, zoom)
+                    if (members.size >= 2) with(density) {
+                        ClusterBubble(
+                            members = members,
+                            opensList = opensList,
+                            onClick = { onClusterTap(members, opensList) },
+                            modifier = Modifier.offset(
+                                x = item.x.toDp() - ClusterTouchSize / 2,
+                                y = item.y.toDp() - ClusterTouchSize / 2,
+                            ),
+                        )
+                    }
+                }
+            }
+        }
+    }
+    sheetMembers?.let { members ->
+        ClusterListSheet(
+            members = members,
+            onPick = { k ->
+                sheetMembers = null
+                onMarkerTap?.invoke(k)
+            },
+            onDismiss = { sheetMembers = null },
+        )
     }
 }
 

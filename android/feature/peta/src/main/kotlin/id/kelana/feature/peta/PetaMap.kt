@@ -7,6 +7,7 @@ import androidx.compose.ui.Modifier
 import id.kelana.core.designsystem.theme.KelanaTheme
 import id.kelana.core.model.PlaceCategory
 import id.kelana.core.ui.map.MapMarker
+import id.kelana.core.ui.map.MarkerOverlap
 import id.kelana.core.ui.map.OsmMap
 import id.kelana.core.ui.map.pinLabel
 
@@ -52,5 +53,6 @@ internal fun PetaMap(
         selectedKey = selectedId,
         modifier = modifier,
         onMarkerTap = onPinTap,
+        overlap = MarkerOverlap.Cluster,
     )
 }
