@@ -9,10 +9,16 @@ import id.kelana.core.model.ConnectivityMonitor
 import id.kelana.core.model.DayPlan
 import id.kelana.core.model.EventOccurrence
 import id.kelana.core.model.EventRepository
+import id.kelana.core.model.Place
+import id.kelana.core.model.PlaceRepository
+import id.kelana.core.model.PlanBackpackRepository
 import id.kelana.core.model.ReminderChoice
 import id.kelana.feature.rencana.domain.ClosedStop
 import id.kelana.feature.rencana.domain.PlanRepository
+import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.catch
+import kotlinx.coroutines.launch
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.combine
@@ -38,6 +44,8 @@ data class RencanaUiState(
     val reminders: Map<String, ReminderChoice> = emptyMap(),
     /** First show of today that starts in the evening, for the empty state card. */
     val tonight: EventOccurrence? = null,
+    /** Places added with "Masuk rencana", oldest first. Shown in the empty state in place of "Ranselmu masih kosong". */
+    val backpack: List<Place> = emptyList(),
 ) {
     val isToday: Boolean get() = plan?.date == today
 
@@ -55,19 +63,27 @@ class RencanaViewModel(
     private val plans: PlanRepository,
     private val events: EventRepository,
     private val connectivity: ConnectivityMonitor,
+    private val places: PlaceRepository,
+    private val backpackStore: PlanBackpackRepository,
     private val clock: Clock,
 ) : ViewModel() {
 
     @Inject
-    constructor(plans: PlanRepository, events: EventRepository, connectivity: ConnectivityMonitor) :
-        this(plans, events, connectivity, Clock.system(ZoneId.of("Asia/Jakarta")))
+    constructor(
+        plans: PlanRepository,
+        events: EventRepository,
+        connectivity: ConnectivityMonitor,
+        places: PlaceRepository,
+        backpackStore: PlanBackpackRepository,
+    ) : this(plans, events, connectivity, places, backpackStore, Clock.system(ZoneId.of("Asia/Jakarta")))
 
     val uiState: StateFlow<RencanaUiState> = combine(
         plans.trip,
         connectivity.isOnline,
         plans.reminders,
         tonightFlow(),
-    ) { trip, online, reminders, tonight ->
+        backpackFlow(),
+    ) { trip, online, reminders, tonight, backpack ->
         val today = LocalDate.now(clock)
         val day = trip?.days?.firstOrNull { it.date == today } ?: trip?.days?.firstOrNull { it.date.isAfter(today) }
         RencanaUiState(
@@ -80,12 +96,35 @@ class RencanaViewModel(
             closedStops = if (day != null && online) plans.closedStops(day.date) else emptyList(),
             reminders = reminders,
             tonight = tonight,
+            backpack = backpack,
         )
     }.stateIn(
         scope = viewModelScope,
         started = SharingStarted.WhileSubscribed(5_000),
         initialValue = RencanaUiState(today = LocalDate.now(clock), now = LocalTime.now(clock)),
     )
+
+    /** Added places in the order they were added; an id whose place is not known (any more) is skipped. */
+    private fun backpackFlow(): Flow<List<Place>> =
+        combine(backpackStore.placeIds(), places.places()) { ids, all ->
+            val byId = all.associateBy { it.id }
+            ids.mapNotNull { byId[it] }
+        }.catch { e ->
+            if (e is CancellationException) throw e
+            emit(emptyList())
+        }
+
+    fun removeFromBackpack(placeId: String) {
+        viewModelScope.launch {
+            try {
+                backpackStore.removePlace(placeId)
+            } catch (e: CancellationException) {
+                throw e
+            } catch (_: Exception) {
+                // Local write failed: the list keeps showing the stored state.
+            }
+        }
+    }
 
     private fun tonightFlow(): Flow<EventOccurrence?> {
         val today = LocalDate.now(clock)

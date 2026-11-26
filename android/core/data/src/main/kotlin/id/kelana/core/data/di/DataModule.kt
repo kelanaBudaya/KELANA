@@ -27,6 +27,8 @@ import java.time.Clock
 import id.kelana.core.model.AuthConfig
 import id.kelana.core.model.EmailAuthRepository
 import id.kelana.core.model.OnboardingRepository
+import id.kelana.core.model.PlanBackpackRepository
+import id.kelana.core.data.plan.DataStorePlanBackpackRepository
 import id.kelana.core.model.SessionRepository
 
 @Module
@@ -44,6 +46,9 @@ abstract class DataModule {
 
     @Binds
     abstract fun bindOnboardingRepository(impl: DataStoreOnboardingRepository): OnboardingRepository
+
+    @Binds
+    abstract fun bindPlanBackpackRepository(impl: DataStorePlanBackpackRepository): PlanBackpackRepository
 
     @Binds
     abstract fun bindStampRemote(impl: SupabaseStampRemote): StampRemote

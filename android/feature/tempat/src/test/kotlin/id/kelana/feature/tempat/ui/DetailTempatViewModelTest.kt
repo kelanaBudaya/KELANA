@@ -14,11 +14,13 @@ import id.kelana.core.model.PlaceCategory
 import id.kelana.core.model.PlacePhoto
 import id.kelana.core.model.PlacePhotoRepository
 import id.kelana.core.model.PlaceRepository
+import id.kelana.core.model.PlanBackpackRepository
 import id.kelana.core.model.Recurrence
 import id.kelana.core.model.TicketPrice
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.test.UnconfinedTestDispatcher
@@ -104,8 +106,49 @@ class DetailTempatViewModelTest {
             if (fail) flow { error("boom") } else flowOf((1..count).map { testPhoto(it) })
     }
 
-    private fun vm(repo: PlaceRepository, events: EventRepository = FakeEvents(), photos: PlacePhotoRepository = FakePhotos()) =
-        DetailTempatViewModel(SavedStateHandle(mapOf("placeId" to "p1")), repo, events, photos, clock)
+    private class FakeBackpack(initial: List<String> = emptyList()) : PlanBackpackRepository {
+        val ids = MutableStateFlow(initial)
+        override fun placeIds(): Flow<List<String>> = ids
+        override suspend fun addPlace(placeId: String) {
+            if (placeId !in ids.value) ids.value = ids.value + placeId
+        }
+        override suspend fun removePlace(placeId: String) {
+            ids.value = ids.value - placeId
+        }
+    }
+
+    private fun vm(
+        repo: PlaceRepository,
+        events: EventRepository = FakeEvents(),
+        photos: PlacePhotoRepository = FakePhotos(),
+        backpack: PlanBackpackRepository = FakeBackpack(),
+    ) = DetailTempatViewModel(SavedStateHandle(mapOf("placeId" to "p1")), repo, events, photos, backpack, clock)
+
+    @Test
+    fun togglePlan_addsThenRemovesThePlace() = runTest {
+        val backpack = FakeBackpack()
+        val model = vm(FakePlaces(place(date)), backpack = backpack)
+        model.inPlan.test {
+            assertEquals(false, awaitItem())
+            model.togglePlan()
+            assertEquals(true, awaitItem())
+            assertEquals(listOf("p1"), backpack.ids.value)
+            model.togglePlan()
+            assertEquals(false, awaitItem())
+            assertEquals(emptyList<String>(), backpack.ids.value)
+        }
+    }
+
+    @Test
+    fun inPlan_isTrueWhenPlaceWasAlreadyAdded() = runTest {
+        val model = vm(FakePlaces(place(date)), backpack = FakeBackpack(listOf("x", "p1")))
+        model.inPlan.test {
+            var item = awaitItem()
+            if (!item) item = awaitItem()
+            assertEquals(true, item)
+            cancelAndIgnoreRemainingEvents()
+        }
+    }
 
     private suspend fun app.cash.turbine.ReceiveTurbine<DetailTempatUiState>.awaitLoaded(): DetailTempatUiState {
         var item = awaitItem()

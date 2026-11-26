@@ -102,3 +102,15 @@ internal class FakeReminderScheduler : ReminderScheduler {
         cancelCalls += eventId
     }
 }
+
+internal class FakeBackpack(initial: List<String> = emptyList()) : id.kelana.core.model.PlanBackpackRepository {
+    val ids = MutableStateFlow(initial)
+    override fun placeIds(): Flow<List<String>> = ids
+    override suspend fun addPlace(placeId: String) {
+        if (placeId !in ids.value) ids.value = ids.value + placeId
+    }
+
+    override suspend fun removePlace(placeId: String) {
+        ids.value = ids.value - placeId
+    }
+}

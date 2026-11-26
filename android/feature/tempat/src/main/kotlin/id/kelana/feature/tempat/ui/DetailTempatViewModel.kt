@@ -8,6 +8,7 @@ import id.kelana.core.model.Event
 import id.kelana.core.model.EventRepository
 import id.kelana.core.model.Place
 import id.kelana.core.model.PlacePhotoRepository
+import id.kelana.core.model.PlanBackpackRepository
 import id.kelana.core.model.PlaceRepository
 import id.kelana.core.model.Recurrence
 import kotlinx.coroutines.CancellationException
@@ -22,6 +23,7 @@ import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.flow.stateIn
+import kotlinx.coroutines.launch
 import java.time.Clock
 import java.time.LocalDate
 import java.time.ZoneId
@@ -51,11 +53,17 @@ class DetailTempatViewModel(
     private val places: PlaceRepository,
     private val events: EventRepository,
     private val photos: PlacePhotoRepository,
+    private val backpack: PlanBackpackRepository,
     private val clock: Clock,
 ) : ViewModel() {
     @Inject
-    constructor(savedStateHandle: SavedStateHandle, places: PlaceRepository, events: EventRepository, photos: PlacePhotoRepository) :
-        this(savedStateHandle, places, events, photos, Clock.system(ZoneId.of("Asia/Jakarta")))
+    constructor(
+        savedStateHandle: SavedStateHandle,
+        places: PlaceRepository,
+        events: EventRepository,
+        photos: PlacePhotoRepository,
+        backpack: PlanBackpackRepository,
+    ) : this(savedStateHandle, places, events, photos, backpack, Clock.system(ZoneId.of("Asia/Jakarta")))
 
     private val placeId: String = savedStateHandle.get<String>("placeId").orEmpty()
     private val reload = MutableStateFlow(0)
@@ -76,6 +84,28 @@ class DetailTempatViewModel(
                 }
         }
         .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), DetailTempatUiState())
+
+    /** True while this place is in the plan backpack ("Sudah di rencana"). Comes from the repository, so it survives reopening. */
+    val inPlan: StateFlow<Boolean> = backpack.placeIds()
+        .map { placeId in it }
+        .catch { e ->
+            if (e is CancellationException) throw e
+            emit(false)
+        }
+        .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), false)
+
+    /** "Masuk rencana" is a toggle: adds the place, or removes it when it is already there. */
+    fun togglePlan() {
+        viewModelScope.launch {
+            try {
+                if (inPlan.value) backpack.removePlace(placeId) else backpack.addPlace(placeId)
+            } catch (e: CancellationException) {
+                throw e
+            } catch (_: Exception) {
+                // Local write failed: the button keeps showing the stored state.
+            }
+        }
+    }
 
     /** Shown events: schedule checked (an official fact), no one-time event in the past, soonest first. */
     private fun hostedEvents(): Flow<List<Event>> {

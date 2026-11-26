@@ -60,6 +60,7 @@ import id.kelana.core.model.ReminderTiming
 import id.kelana.core.model.TravelGroup
 import id.kelana.core.model.TravelMode
 import id.kelana.core.navigation.DetailPentasRoute
+import id.kelana.core.navigation.DetailTempatRoute
 import id.kelana.core.navigation.PasporRoute
 import id.kelana.core.navigation.PengingatRoute
 import id.kelana.core.navigation.PetaRuteRoute
@@ -85,6 +86,8 @@ internal fun RencanaScreen(navigate: (Any) -> Unit, viewModel: RencanaViewModel 
         onTakeStamp = { requireLogin { navigate(PasporRoute) } },
         onRemind = { eventId -> requireLogin { navigate(PengingatRoute(eventId)) } },
         onOpenEvent = { navigate(DetailPentasRoute(it)) },
+        onOpenPlace = { navigate(DetailTempatRoute(it)) },
+        onRemoveFromBackpack = viewModel::removeFromBackpack,
     )
 }
 
@@ -99,6 +102,8 @@ internal fun RencanaContent(
     onRemind: (String) -> Unit,
     onOpenEvent: (String) -> Unit,
     modifier: Modifier = Modifier,
+    onOpenPlace: (String) -> Unit = {},
+    onRemoveFromBackpack: (String) -> Unit = {},
 ) {
     val colors = KelanaTheme.colors
     val plan = state.plan
@@ -119,7 +124,7 @@ internal fun RencanaContent(
             return@LazyColumn
         }
         if (plan == null) {
-            item { EmptyPlan(state, onEdit, onOpenEvent) }
+            item { EmptyPlan(state, onEdit, onOpenEvent, onOpenPlace, onRemoveFromBackpack) }
             return@LazyColumn
         }
         item { PlanHeader(state, onEdit) }
@@ -502,7 +507,13 @@ internal fun reminderLabelRes(timing: ReminderTiming): Int = when (timing) {
 }
 
 @Composable
-private fun EmptyPlan(state: RencanaUiState, onStart: () -> Unit, onOpenEvent: (String) -> Unit) {
+private fun EmptyPlan(
+    state: RencanaUiState,
+    onStart: () -> Unit,
+    onOpenEvent: (String) -> Unit,
+    onOpenPlace: (String) -> Unit,
+    onRemove: (String) -> Unit,
+) {
     val colors = KelanaTheme.colors
     Column(Modifier.fillMaxWidth()) {
         Text(
@@ -511,34 +522,38 @@ private fun EmptyPlan(state: RencanaUiState, onStart: () -> Unit, onOpenEvent: (
             style = MaterialTheme.typography.headlineMedium,
             color = colors.ink,
         )
-        Box(
-            modifier = Modifier
-                .padding(start = 16.dp, end = 16.dp, top = 16.dp)
-                .fillMaxWidth()
-                .height(280.dp)
-                .clip(RoundedCornerShapeBig)
-                .background(colors.peach),
-        ) {
-            ArtBlob(R.drawable.rencana_kosong_blob)
-            ArtMark(R.drawable.rencana_art_route, 92, 30, 40, -10f)
-            ArtMark(R.drawable.rencana_cat_candi, 96, 146, 74)
-            ArtMark(R.drawable.rencana_art_ticket, 58, 256, 40, 14f)
-            ArtMark(R.drawable.rencana_veh_walk, 46, 256, 180, 170f)
+        if (state.backpack.isEmpty()) {
+            Box(
+                modifier = Modifier
+                    .padding(start = 16.dp, end = 16.dp, top = 16.dp)
+                    .fillMaxWidth()
+                    .height(280.dp)
+                    .clip(RoundedCornerShapeBig)
+                    .background(colors.peach),
+            ) {
+                ArtBlob(R.drawable.rencana_kosong_blob)
+                ArtMark(R.drawable.rencana_art_route, 92, 30, 40, -10f)
+                ArtMark(R.drawable.rencana_cat_candi, 96, 146, 74)
+                ArtMark(R.drawable.rencana_art_ticket, 58, 256, 40, 14f)
+                ArtMark(R.drawable.rencana_veh_walk, 46, 256, 180, 170f)
+            }
+            Text(
+                stringResource(R.string.rencana_empty_title),
+                modifier = Modifier.fillMaxWidth().padding(start = 24.dp, end = 24.dp, top = 22.dp),
+                textAlign = TextAlign.Center,
+                style = MaterialTheme.typography.headlineSmall.copy(fontSize = 24.sp, lineHeight = 30.sp),
+                color = colors.ink,
+            )
+            Text(
+                stringResource(R.string.rencana_empty_body),
+                modifier = Modifier.fillMaxWidth().padding(start = 28.dp, end = 28.dp, top = 8.dp),
+                textAlign = TextAlign.Center,
+                style = MaterialTheme.typography.bodyLarge.copy(fontSize = 15.sp, lineHeight = 22.sp),
+                color = colors.muted,
+            )
+        } else {
+            BackpackSection(state.backpack, onOpenPlace, onRemove)
         }
-        Text(
-            stringResource(R.string.rencana_empty_title),
-            modifier = Modifier.fillMaxWidth().padding(start = 24.dp, end = 24.dp, top = 22.dp),
-            textAlign = TextAlign.Center,
-            style = MaterialTheme.typography.headlineSmall.copy(fontSize = 24.sp, lineHeight = 30.sp),
-            color = colors.ink,
-        )
-        Text(
-            stringResource(R.string.rencana_empty_body),
-            modifier = Modifier.fillMaxWidth().padding(start = 28.dp, end = 28.dp, top = 8.dp),
-            textAlign = TextAlign.Center,
-            style = MaterialTheme.typography.bodyLarge.copy(fontSize = 15.sp, lineHeight = 22.sp),
-            color = colors.muted,
-        )
         Row(
             modifier = Modifier
                 .padding(start = 20.dp, end = 20.dp, top = 20.dp)

@@ -51,6 +51,9 @@
     <string name="tempat_report_action">Report it</string>
     <string name="tempat_postcard">Postcard</string>
     <string name="tempat_add_plan">Add to plan</string>
+    <string name="tempat_in_plan">In your plan</string>
+    <string name="tempat_plan_added">Added to your plan</string>
+    <string name="tempat_plan_removed">Removed from your plan</string>
     <string name="tempat_loading">Loading place…</string>
     <string name="tempat_not_found_title">Place not found</string>
     <string name="tempat_not_found_body">This place may have been removed or the link is wrong.</string>
