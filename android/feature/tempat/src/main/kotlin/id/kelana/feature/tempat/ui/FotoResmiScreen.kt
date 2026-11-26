@@ -125,7 +125,7 @@ internal fun FotoResmiContent(state: FotoResmiUiState, onBack: () -> Unit, modif
                     )
                 }
             }
-            // Caption and source are not verified yet, so the app says "sedang dicek" instead of inventing them.
+            // The caption is not verified yet, so the app says "sedang dicek" instead of inventing it.
             Column(
                 Modifier.padding(start = KelanaSpacing.gutterWide, end = KelanaSpacing.gutterWide, top = KelanaSpacing.gutter),
             ) {
@@ -133,12 +133,6 @@ internal fun FotoResmiContent(state: FotoResmiUiState, onBack: () -> Unit, modif
                     text = stringResource(R.string.foto_resmi_caption_pending),
                     style = MaterialTheme.typography.titleMedium,
                     color = colors.white,
-                )
-                Text(
-                    text = stringResource(R.string.foto_resmi_source_pending),
-                    modifier = Modifier.padding(top = KelanaSpacing.xs),
-                    style = MaterialTheme.typography.labelMedium.copy(fontWeight = FontWeight.Normal, lineHeight = 18.sp),
-                    color = colors.dashMuted,
                 )
             }
             // Thumbnails.
