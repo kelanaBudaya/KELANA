@@ -30,6 +30,17 @@
     <string name="tempat_closure_with_reason">%1$s (%2$s)</string>
     <string name="tempat_source">Source: %1$s</string>
     <string name="tempat_ticket_site">Open official ticket site</string>
+    <!-- Visitor videos (TikTok embed) -->
+    <string name="tempat_videos_title">Visitor videos</string>
+    <string name="tempat_videos_loading">Loading videos…</string>
+    <string name="tempat_videos_empty_title">Visitor videos coming soon</string>
+    <string name="tempat_videos_empty_body">We are collecting videos from visitors to this place.</string>
+    <string name="tempat_videos_error_title">Videos could not be loaded</string>
+    <string name="tempat_videos_error_body">Check your signal, then try again.</string>
+    <string name="tempat_videos_retry">Try again</string>
+    <string name="tempat_videos_card_loading">Loading…</string>
+    <string name="tempat_videos_card_error">This video cannot be shown here.</string>
+    <string name="tempat_videos_open_tiktok">Open on TikTok</string>
     <string name="tempat_stories_title">Visitor stories</string>
     <string name="tempat_stories_all">See all</string>
     <string name="tempat_stories_note">Only from visitors who have collected the stamp here.</string>

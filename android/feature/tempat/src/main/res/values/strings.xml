@@ -30,6 +30,17 @@
     <string name="tempat_closure_with_reason">%1$s (%2$s)</string>
     <string name="tempat_source">Sumber: %1$s</string>
     <string name="tempat_ticket_site">Buka situs tiket resmi</string>
+    <!-- Video pengunjung (TikTok embed) -->
+    <string name="tempat_videos_title">Video pengunjung</string>
+    <string name="tempat_videos_loading">Memuat video…</string>
+    <string name="tempat_videos_empty_title">Video pengunjung segera hadir</string>
+    <string name="tempat_videos_empty_body">Kami sedang mengumpulkan video dari pengunjung tempat ini.</string>
+    <string name="tempat_videos_error_title">Video belum bisa dimuat</string>
+    <string name="tempat_videos_error_body">Periksa sinyalmu, lalu coba lagi.</string>
+    <string name="tempat_videos_retry">Coba lagi</string>
+    <string name="tempat_videos_card_loading">Memuat…</string>
+    <string name="tempat_videos_card_error">Video tidak bisa ditampilkan di sini.</string>
+    <string name="tempat_videos_open_tiktok">Buka di TikTok</string>
     <string name="tempat_stories_title">Cerita pengunjung</string>
     <string name="tempat_stories_all">Lihat semua</string>
     <string name="tempat_stories_note">Hanya dari pengunjung yang sudah mengambil cap di sini.</string>

@@ -148,6 +148,7 @@ internal fun DetailTempatScreen(
                     onTicketSite = { url -> navigate(OfficialSiteRoute(url, place.name)) },
                     onReport = { navigate(LaporkanRoute(place.id)) },
                     onAllStories = { requireLogin { navigate(CeritaRoute) } },
+                    videosSlot = { PlaceVideosSection() },
                     modifier = Modifier.padding(padding),
                 )
             }
@@ -166,6 +167,7 @@ internal fun DetailTempatContent(
     onReport: () -> Unit,
     onAllStories: () -> Unit,
     modifier: Modifier = Modifier,
+    videosSlot: @Composable () -> Unit = {},
 ) {
     Column(modifier.fillMaxSize().verticalScroll(rememberScrollState())) {
         PlaceHeader(place = place, onBack = onBack, onPhotos = onPhotos)
@@ -173,6 +175,7 @@ internal fun DetailTempatContent(
         CapBanner(capCode = place.capCode, onStamp = onStamp)
         InfoResmiCard(place = place, today = today, onTicketSite = onTicketSite)
         StoriesSection(onAllStories = onAllStories)
+        videosSlot()
         ReportRow(onReport = onReport)
         Spacer(Modifier.height(KelanaSpacing.lg))
     }

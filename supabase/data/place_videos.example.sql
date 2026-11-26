@@ -1,0 +1,18 @@
+-- Example only: how to add a visitor video to a place. Nothing here runs automatically and it contains no real data.
+-- Run it in the Supabase SQL editor (as the postgres role); clients cannot write to place_videos.
+--
+-- tiktok_video_id is the numeric id at the end of the video URL:
+--   https://www.tiktok.com/@<account>/video/<DIGITS>   ->   <DIGITS>
+-- Short links (vm.tiktok.com/...) must be opened once to get the full URL first.
+--
+-- insert into public.place_videos (place_id, tiktok_url, tiktok_video_id, caption, sort_order)
+-- select id,
+--        'https://www.tiktok.com/@akun_contoh/video/0000000000000000000',
+--        '0000000000000000000',
+--        'Keterangan singkat (boleh dikosongkan)',
+--        0
+-- from public.places
+-- where slug = 'tamansari';
+--
+-- Hide a video without deleting it:
+-- update public.place_videos set is_published = false where tiktok_video_id = '0000000000000000000';
