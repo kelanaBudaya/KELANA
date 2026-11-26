@@ -29,7 +29,6 @@
     </plurals>
     <string name="map_cluster_count_overflow">99+</string>
     <string name="map_attribution">OpenFreeMap &#169; OpenMapTiles Data from OpenStreetMap</string>
-    <string name="map_attribution_cd">Map info and copyright</string>
     <string name="map_attribution_title">Map copyright</string>
     <string name="map_attribution_open">Open OpenStreetMap copyright</string>
     <string name="map_attribution_close">Close</string>

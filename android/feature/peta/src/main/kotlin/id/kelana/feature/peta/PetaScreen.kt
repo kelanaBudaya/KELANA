@@ -54,7 +54,6 @@ import id.kelana.core.model.Place
 import id.kelana.core.model.PlaceCategory
 import id.kelana.core.navigation.DetailTempatRoute
 import id.kelana.core.navigation.PetaRoute
-import id.kelana.core.ui.map.MapAttribution
 import java.time.DayOfWeek
 import java.time.LocalDate
 import java.time.LocalTime
@@ -129,7 +128,6 @@ internal fun PetaScreen(
                             onOpenInMaps = { openInMapsApp(context, selected.place) },
                         )
                     }
-                    MapAttribution(Modifier.align(Alignment.End))
                     HintBar(noMatch = state.pins.isEmpty())
                 }
             }

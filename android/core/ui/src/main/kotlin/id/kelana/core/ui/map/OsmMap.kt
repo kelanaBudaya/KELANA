@@ -57,7 +57,7 @@ internal val PinCollisionHeight = 72.dp
  * the camera moves, so they keep the design's marker look and accessibility semantics. The camera frames
  * [framedPoints] (lat, lng pairs) once. Markers are tappable only when [onMarkerTap] is given. When [routePath] (lat, lng
  * points, any number) has two or more points, a [routeColor] line follows it, under the pins. Pins whose boxes overlap are fanned out with leader lines ([MarkerOverlap.Spread], the default) or merged into tappable count bubbles ([MarkerOverlap.Cluster]). No location component is used:
- * the map shows places only (location is read only from "Ambil cap"). Show a [MapAttribution] next to it.
+ * the map shows places only (location is read only from "Ambil cap"). The credit is shown by [MapCreditDialog], reached from Profil.
  */
 @Composable
 fun OsmMap(
@@ -128,7 +128,7 @@ fun OsmMap(
     LaunchedEffect(mapView) {
         mapView.getMapAsync { m ->
             m.uiSettings.apply {
-                isAttributionEnabled = false // replaced by our own visible text, see MapAttribution
+                isAttributionEnabled = false // the credit is in MapCreditDialog
                 isLogoEnabled = false
                 isRotateGesturesEnabled = false
                 isTiltGesturesEnabled = false

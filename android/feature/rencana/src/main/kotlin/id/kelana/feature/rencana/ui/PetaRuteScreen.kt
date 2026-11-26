@@ -44,7 +44,6 @@ import id.kelana.core.designsystem.theme.KelanaSizes
 import id.kelana.core.designsystem.theme.KelanaTheme
 import id.kelana.core.model.PlanStop
 import id.kelana.core.ui.formatClock
-import id.kelana.core.ui.map.MapAttribution
 import id.kelana.core.ui.map.MapMarker
 import id.kelana.core.ui.map.OsmMap
 import id.kelana.core.ui.map.pinLabel
@@ -205,12 +204,6 @@ private fun RouteMap(state: PetaRuteUiState, modifier: Modifier) {
             selectedKey = nextKey,
             routePath = routePath,
             routeColor = colors.accentOrange,
-        )
-        MapAttribution(
-            Modifier
-                .align(Alignment.TopEnd)
-                .statusBarsPadding()
-                .padding(top = 20.dp, end = 12.dp),
         )
     }
 }

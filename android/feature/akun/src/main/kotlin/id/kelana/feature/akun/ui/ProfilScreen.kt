@@ -30,6 +30,7 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
@@ -63,6 +64,7 @@ import id.kelana.core.model.SessionUser
 import id.kelana.core.ui.LanguageSheet
 import id.kelana.core.ui.flagRes
 import id.kelana.core.ui.labelRes
+import id.kelana.core.ui.map.MapCreditDialog
 import id.kelana.feature.akun.R
 
 @Composable
@@ -258,6 +260,7 @@ private fun GuestBody(language: AppLanguage, onMasuk: () -> Unit, onLanguage: ()
         Column {
             SectionLabel(R.string.profil_section_pengaturan, topPadding = 0.dp)
             LanguageRow(language, onLanguage)
+            MapCreditRow()
         }
     }
 }
@@ -297,6 +300,7 @@ private fun SignedInBody(
 
         SectionLabel(R.string.profil_section_pengaturan, topPadding = 16.dp)
         LanguageRow(state.language, onLanguage)
+        MapCreditRow()
 
         SectionLabel(R.string.profil_section_bantuan, topPadding = 16.dp)
         ProfilRow(R.drawable.akun_ic_cara, R.string.profil_row_cara, R.string.profil_row_cara_sub)
@@ -340,6 +344,14 @@ private fun SectionLabel(@StringRes text: Int, topPadding: Dp) {
 @Composable
 private fun LanguageRow(language: AppLanguage, onClick: () -> Unit) {
     ProfilRow(language.flagRes(), R.string.profil_row_bahasa, language.labelRes(), onClick = onClick)
+}
+
+/** Pengaturan > Tentang peta: the map credit the licences require, shown in a dialog. */
+@Composable
+private fun MapCreditRow() {
+    var open by remember { mutableStateOf(false) }
+    ProfilRow(R.drawable.akun_ic_daerah, R.string.profil_row_peta, R.string.profil_row_peta_sub, onClick = { open = true })
+    if (open) MapCreditDialog(onDismiss = { open = false })
 }
 
 /** One list row (artifact: 60 dp min, 40 dp warm icon tile, title 15/700, subtitle 12, chevron). [onClick] null = inert. */

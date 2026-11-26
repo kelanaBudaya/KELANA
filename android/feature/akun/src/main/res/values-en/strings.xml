@@ -48,6 +48,8 @@
     <string name="profil_section_perjalanan">JOURNEY</string>
     <string name="profil_section_pengaturan">SETTINGS</string>
     <string name="profil_row_bahasa">Language</string>
+    <string name="profil_row_peta">About the map</string>
+    <string name="profil_row_peta_sub">Map sources and copyright</string>
     <string name="profil_section_bantuan">HELP</string>
     <string name="profil_row_paspor">Passport</string>
     <string name="profil_row_daerah">Region</string>

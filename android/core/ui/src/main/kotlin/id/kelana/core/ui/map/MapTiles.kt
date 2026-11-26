@@ -8,7 +8,7 @@ import id.kelana.core.ui.R
  * (sprite, glyphs and the vector source stay absolute https://tiles.openfreemap.org URLs). Only paint/visibility were edited.
  *
  * POLICY: OpenFreeMap is free, keyless and best-effort, with NO SLA. It asks clients to identify themselves
- * ([TILE_USER_AGENT]) and to show attribution (see MapAttribution). Fallback plan if it becomes unreliable or the
+ * ([TILE_USER_AGENT]) and to show attribution (see MapCreditDialog). Fallback plan if it becomes unreliable or the
  * traffic grows: serve a self-hosted Protomaps PMTiles extract of Java and point the style's "openmaptiles" source at it.
  *
  * Muting decisions (so our pins and the route line stand out; brand blue #1F3F8F, accent orange, cream #FFFBF3):
