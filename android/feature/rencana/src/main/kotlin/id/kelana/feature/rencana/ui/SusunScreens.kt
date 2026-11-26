@@ -573,6 +573,8 @@ private data class VehicleArt(val vehicle: Vehicle, @param:DrawableRes val art: 
 
 private val VehicleOptions = listOf(
     VehicleArt(Vehicle.TransitAndWalk, R.drawable.rencana_veh_bus, R.string.rencana_vehicle_transit, R.string.rencana_vehicle_transit_hint, 50),
+    // Ojek online: added by user decision, not in SusunKendaraan.dc.html.
+    VehicleArt(Vehicle.RideHailing, R.drawable.rencana_veh_ojek, R.string.rencana_vehicle_ride, R.string.rencana_vehicle_ride_hint, 50),
     VehicleArt(Vehicle.PrivateVehicle, R.drawable.rencana_veh_car, R.string.rencana_vehicle_private, R.string.rencana_vehicle_private_hint, 52),
     VehicleArt(Vehicle.WalkOnly, R.drawable.rencana_veh_walk, R.string.rencana_vehicle_walk, R.string.rencana_vehicle_walk_hint, 46),
 )
