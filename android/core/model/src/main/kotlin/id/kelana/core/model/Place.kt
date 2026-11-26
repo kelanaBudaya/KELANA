@@ -27,15 +27,7 @@ data class Place(
     val closures: List<OfficialFact<Closure>> = emptyList(),
     /** Code of the region the place belongs to (e.g. "DIY"); null when unknown. Repositories scope lists by it. */
     val regionId: String? = null,
-    /** Catchy name of the stamp collected here ("Penjaga Ramayana"); null or blank falls back to [capCode]. */
-    val stampName: String? = null,
-) {
-    /** What the UI shows as the stamp identity: [stampName] when present, otherwise [capCode]. */
-    val stampLabel: String get() = stampLabelOf(stampName, capCode)
-}
-
-/** Shared by every model that mirrors a place's stamp identity (Place, PlanStop, postcard content). */
-fun stampLabelOf(stampName: String?, capCode: String): String = stampName?.takeIf { it.isNotBlank() } ?: capCode
+)
 
 /** Opening hours for one weekday. When [isClosed] is true, [opens] and [closes] are null. */
 data class OpeningHours(

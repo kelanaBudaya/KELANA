@@ -23,8 +23,6 @@ enum class ShareFormat(val widthPx: Int, val heightPx: Int) {
 class CardContent(
     val placeName: String,
     val capCode: String,
-    /** Catchy stamp name; the sticker prints it instead of [capCode] when present. */
-    val stampName: String? = null,
     val message: String,
     val rating: Int?,
     val style: PostcardStyle,

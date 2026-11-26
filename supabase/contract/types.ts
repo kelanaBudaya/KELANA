@@ -206,7 +206,6 @@ export type Database = {
           passport_order: number | null
           region_id: number
           slug: string
-          stamp_name: string | null
         }
         Insert: {
           address?: string | null
@@ -225,7 +224,6 @@ export type Database = {
           passport_order?: number | null
           region_id: number
           slug: string
-          stamp_name?: string | null
         }
         Update: {
           address?: string | null
@@ -244,7 +242,6 @@ export type Database = {
           passport_order?: number | null
           region_id?: number
           slug?: string
-          stamp_name?: string | null
         }
         Relationships: [
           {

@@ -104,24 +104,26 @@ internal fun VisitTodayPill(modifier: Modifier = Modifier) {
     )
 }
 
-/** Brown "Cap YK-02" pill (KatMuseum). */
+/** Brown "Cap <place name>" pill (KatMuseum). */
 @Composable
-internal fun CapPill(code: String, modifier: Modifier = Modifier) {
+internal fun CapPill(placeName: String, modifier: Modifier = Modifier) {
     val colors = KelanaTheme.colors
     Text(
-        text = stringResource(R.string.badge_cap, code),
+        text = stringResource(R.string.badge_cap, placeName),
         modifier = modifier.clip(KelanaShapes.badge).background(colors.backgroundWarm).padding(horizontal = 8.dp, vertical = 3.dp),
         style = MaterialTheme.typography.labelMedium,
         color = colors.stampBrown,
+        maxLines = 1,
+        overflow = androidx.compose.ui.text.style.TextOverflow.Ellipsis,
     )
 }
 
-/** "Kunjungi Hari Ini" when open on [today] (checked hours only), plus the stamp code. No status pill otherwise. */
+/** "Kunjungi Hari Ini" when open on [today] (checked hours only), plus the stamp pill. No status pill otherwise. */
 @Composable
 internal fun PlaceCheckedBadge(place: Place, today: LocalDate?) {
     Row(horizontalArrangement = androidx.compose.foundation.layout.Arrangement.spacedBy(6.dp)) {
         if (isVisitToday(place, today)) VisitTodayPill()
-        if (place.capCode.isNotBlank()) CapPill(place.stampLabel)
+        if (place.capCode.isNotBlank()) CapPill(place.name, Modifier.weight(1f, fill = false))
     }
 }
 

@@ -34,8 +34,6 @@ data class PlaceEntity(
     val passportOrder: Int?,
     /** Region code (`regions.code`), null when the server row had none. */
     val regionCode: String? = null,
-    /** Catchy stamp name (`places.stamp_name`), null when the server row had none. */
-    val stampName: String? = null,
 )
 
 /** One official fact row of a place. [kind] is `hours`, `closure` or `ticket`; [json] is the server row. */

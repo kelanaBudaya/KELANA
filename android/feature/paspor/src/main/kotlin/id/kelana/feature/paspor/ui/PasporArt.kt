@@ -305,10 +305,6 @@ internal fun stampLabel(name: String, locale: java.util.Locale): String {
     return short.uppercase(locale)
 }
 
-/** Sticker title: the catchy stamp name when the place has one, otherwise the short place name. */
-internal fun id.kelana.core.model.Place.stickerTitle(locale: java.util.Locale): String =
-    stampName?.takeIf { it.isNotBlank() }?.uppercase(locale) ?: stampLabel(name, locale)
-
 private val GenericLeadWords = setOf("museum", "candi")
 
 /** Artifact prints labels at 11 sp; longer ones are shrunk so they stay on one line. */

@@ -202,7 +202,7 @@ internal fun DetailTempatContent(
     Column(modifier.fillMaxSize().verticalScroll(rememberScrollState())) {
         PlaceHeader(place = place, photoCount = photoCount, coverUrl = coverUrl, onBack = onBack, onPhotos = onPhotos)
         TitleCard(place)
-        CapBanner(capCode = place.capCode, stampLabel = place.stampLabel, onStamp = onStamp)
+        CapBanner(capCode = place.capCode, placeName = place.name, onStamp = onStamp)
         InfoResmiCard(place = place, today = today, onTicketSite = onTicketSite)
         PlaceEventsSection(events = events, onOpenEvent = onOpenEvent)
         StoriesSection(onAllStories = onAllStories)
@@ -342,7 +342,8 @@ private fun TitleCard(place: Place) {
         Row(horizontalArrangement = Arrangement.spacedBy(6.dp)) {
             Badge(text = place.category.label(), background = colors.skyText, content = colors.navy)
             Badge(
-                text = stringResource(R.string.tempat_cap_badge, place.stampLabel),
+                text = stringResource(R.string.tempat_cap_badge, place.name),
+                modifier = Modifier.weight(1f, fill = false),
                 background = colors.backgroundWarm,
                 content = colors.stampBrown,
             )
@@ -370,10 +371,12 @@ private fun TitleCard(place: Place) {
 }
 
 @Composable
-private fun Badge(text: String, background: Color, content: Color) {
+private fun Badge(text: String, background: Color, content: Color, modifier: Modifier = Modifier) {
     Text(
         text = text,
-        modifier = Modifier
+        maxLines = 1,
+        overflow = androidx.compose.ui.text.style.TextOverflow.Ellipsis,
+        modifier = modifier
             .clip(KelanaShapes.badge)
             .background(background)
             .padding(horizontal = KelanaSpacing.sm, vertical = 3.dp),
@@ -387,7 +390,7 @@ private fun Badge(text: String, background: Color, content: Color) {
  * "Ambil cap" button. The sticker drop shadow is skipped.
  */
 @Composable
-private fun CapBanner(capCode: String, stampLabel: String, onStamp: () -> Unit) {
+private fun CapBanner(capCode: String, placeName: String, onStamp: () -> Unit) {
     val colors = KelanaTheme.colors
     val stampButtonLabel = stringResource(R.string.tempat_cap_button)
     Box(
@@ -408,7 +411,9 @@ private fun CapBanner(capCode: String, stampLabel: String, onStamp: () -> Unit) 
         Row(Modifier.fillMaxSize().padding(KelanaSpacing.gutter)) {
             Column(Modifier.width(192.dp)) {
                 Text(
-                    text = stringResource(R.string.tempat_cap_label, stampLabel),
+                    text = stringResource(R.string.tempat_cap_label, placeName).uppercase(),
+                    maxLines = 2,
+                    overflow = androidx.compose.ui.text.style.TextOverflow.Ellipsis,
                     style = MaterialTheme.typography.labelSmall.copy(
                         fontWeight = FontWeight.ExtraBold,
                         letterSpacing = 0.6.sp,

@@ -68,7 +68,7 @@ class LocalNotificationRepositoryTest {
         repo.post(NotificationEvent.StampConfirmed("sonobudoyo"))
         val e = repo.notifications().first().single()
         assertEquals(NotificationCategory.Paspor, e.category)
-        assertEquals("${R.string.notif_stamp_title}|YK-02", e.title)
+        assertEquals("${R.string.notif_stamp_title}|Museum Sonobudoyo", e.title)
         assertEquals("${R.string.notif_stamp_body}|Museum Sonobudoyo", e.body)
         assertEquals("sonobudoyo", e.placeId)
         assertNull(e.eventId)

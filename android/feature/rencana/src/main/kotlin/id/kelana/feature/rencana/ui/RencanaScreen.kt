@@ -487,7 +487,10 @@ private fun StopRow(
                     Row(verticalAlignment = Alignment.CenterVertically, horizontalArrangement = Arrangement.spacedBy(6.dp)) {
                         Image(painterResource(R.drawable.rencana_check), contentDescription = null, modifier = Modifier.size(20.dp))
                         Text(
-                            stringResource(R.string.rencana_take_stamp, stop.stampLabel),
+                            stringResource(R.string.rencana_take_stamp, stop.placeName),
+                            modifier = Modifier.weight(1f, fill = false),
+                            maxLines = 1,
+                            overflow = androidx.compose.ui.text.style.TextOverflow.Ellipsis,
                             style = MaterialTheme.typography.titleSmall.copy(fontWeight = FontWeight.ExtraBold),
                             color = colors.white,
                         )

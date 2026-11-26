@@ -81,8 +81,6 @@ data class PlanStop(
     val placeName: String,
     val capCode: String,
     val category: PlaceCategory,
-    /** Catchy stamp name; null falls back to [capCode]. */
-    val stampName: String? = null,
     val lat: Double,
     val lng: Double,
     val start: LocalTime,
@@ -98,9 +96,6 @@ data class PlanStop(
     val accessUnverified: Boolean = false,
 ) {
     val isEvent: Boolean get() = eventId != null
-
-    /** Stamp identity to show: [stampName] when present, otherwise [capCode]. */
-    val stampLabel: String get() = stampLabelOf(stampName, capCode)
 
     /** Unique within a plan: a place can appear once as a visit and once as the show held there. */
     val key: String get() = eventId ?: placeId

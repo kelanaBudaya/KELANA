@@ -250,7 +250,7 @@ private fun PlacePicker(places: List<StampedPlace>, onPlace: (String) -> Unit) {
             ) {
                 Column(Modifier.weight(1f)) {
                     Text(item.place.name, style = MaterialTheme.typography.titleMedium, color = colors.ink)
-                    Text(item.place.stampLabel, style = MaterialTheme.typography.bodySmall, color = colors.muted)
+                    Text(item.place.capCode, style = MaterialTheme.typography.bodySmall, color = colors.muted)
                 }
             }
         }
@@ -266,7 +266,7 @@ private fun FormBody(state: TulisUiState, place: Place, actions: TulisActions) {
                 .weight(1f)
                 .verticalScroll(rememberScrollState()),
         ) {
-            PhotoBox(state = state, stampLabel = place.stampLabel, actions = actions)
+            PhotoBox(state = state, stampLabel = place.name, actions = actions)
 
             // Seberapa berkesan?
             Column(Modifier.padding(start = 20.dp, end = 20.dp, top = 18.dp)) {
@@ -489,7 +489,7 @@ private fun CapSticker(stampLabel: String, modifier: Modifier = Modifier) {
             }
         }
         Text(
-            text = stampLabel,
+            text = stampLabel.uppercase(),
             style = TextStyle(
                 fontFamily = JakartaFontFamily,
                 fontSize = if (stampLabel.length > 8) 8.sp else 11.sp,
@@ -500,6 +500,7 @@ private fun CapSticker(stampLabel: String, modifier: Modifier = Modifier) {
             ),
             color = colors.skyText,
             maxLines = 2,
+            overflow = androidx.compose.ui.text.style.TextOverflow.Ellipsis,
         )
         Text(
             text = stringResource(R.string.postcard_sticker_cap),

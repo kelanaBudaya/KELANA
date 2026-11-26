@@ -40,7 +40,6 @@ import id.kelana.core.designsystem.theme.FrauncesFontFamily
 import id.kelana.core.designsystem.theme.JakartaFontFamily
 import id.kelana.core.designsystem.theme.KelanaColors
 import id.kelana.core.model.PostcardStyle
-import id.kelana.core.model.stampLabelOf
 import id.kelana.feature.postcard.domain.CardContent
 import id.kelana.feature.postcard.domain.ShareFormat
 import kotlin.math.PI
@@ -389,25 +388,24 @@ private fun DrawScope.drawSticker(
             val icon = TOWER_PATHS
             val iconH = 18f
             val iconScale = iconH / 60f
-            val stampText = stampLabelOf(content.stampName, content.capCode)
+            // The sticker carries the place name once: 11 sp on one line when short, 8 sp on up to two lines
+            // (ellipsized) when long, so a name like "Keraton Ngayogyakarta Hadiningrat" never overflows.
+            val stampText = content.placeName.uppercase()
             val longStamp = stampText.length > 8
-            val code = if (longStamp) {
+            val label = if (longStamp) {
                 measurer.layout(stampText, jakarta(8f, FontWeight.ExtraBold, palette.stickerText, line = 9f, spacing = 0.3f).copy(textAlign = TextAlign.Center), w - 16f, maxLines = 2)
             } else {
                 measurer.layout(stampText, jakarta(11f, FontWeight.ExtraBold, palette.stickerText, line = 13f, spacing = 0.8f), w - 16f)
             }
-            val name = measurer.layout(content.placeName.uppercase(), jakarta(8f, FontWeight.Bold, palette.stickerText, line = 10f), w - 16f)
-            val stampH = code.lineCount * (if (longStamp) 9f else 13f)
-            val total = iconH + 2f + stampH + 2f + 10f
+            val labelH = label.lineCount * (if (longStamp) 9f else 13f)
+            val total = iconH + 2f + labelH
             var y = (h - total) / 2f
             withTransform({
                 translate((w - 57.85f * iconScale) / 2f, y)
                 scale(iconScale, iconScale, Offset.Zero)
             }) { icon.forEach { drawPath(it, palette.stickerText) } }
             y += iconH + 2f
-            drawText(code, topLeft = Offset((w - code.textWidth()) / 2f, y))
-            y += stampH + 2f
-            drawText(name, topLeft = Offset((w - name.textWidth()) / 2f, y))
+            drawText(label, topLeft = Offset((w - label.textWidth()) / 2f, y))
         }
     }
 }

@@ -229,7 +229,6 @@ class TulisViewModel @Inject constructor(
         return CardContent(
             placeName = place.name,
             capCode = place.capCode,
-            stampName = place.stampName,
             message = draft.message,
             rating = draft.rating,
             style = draft.style,

@@ -180,7 +180,7 @@ private fun IzinLokasiSheet(place: Place, actions: AmbilCapActions, modifier: Mo
                     ScenePiece(s, R.drawable.paspor_art_footprint, 150f, 150f, 58f, 170f)
                     ScenePiece(s, R.drawable.paspor_art_museum, 214f, 36f, 92f, 5f)
                     CapSticker(
-                        label = place.stampLabel,
+                        label = stampLabel(place.name, IdLocale),
                         code = stringResource(R.string.paspor_sticker_word),
                         icon = place.category.stampIcon(),
                         tone = StickerTone.Blue,
@@ -321,7 +321,7 @@ private fun ReadyContent(place: Place, working: CapStep.Working?, actions: Ambil
             horizontalArrangement = Arrangement.spacedBy(16.dp),
         ) {
             CapSticker(
-                label = place.stickerTitle(IdLocale),
+                label = stampLabel(place.name, IdLocale),
                 code = stringResource(R.string.paspor_sticker_number, place.capCode),
                 icon = place.category.stampIcon(),
                 tone = StickerTone.Blue,
@@ -329,11 +329,13 @@ private fun ReadyContent(place: Place, working: CapStep.Working?, actions: Ambil
                 height = 82.dp,
                 iconSize = 24.dp,
                 modifier = Modifier.rotate(-5f),
-                labelSize = stampLabelSize(place.stickerTitle(IdLocale)),
+                labelSize = stampLabelSize(stampLabel(place.name, IdLocale)),
             )
-            Column {
+            Column(Modifier.weight(1f)) {
                 Text(
-                    stringResource(R.string.paspor_ambil_sticker_title, place.stampLabel),
+                    stringResource(R.string.paspor_ambil_sticker_title, place.name),
+                    maxLines = 2,
+                    overflow = androidx.compose.ui.text.style.TextOverflow.Ellipsis,
                     style = MaterialTheme.typography.titleLarge,
                     color = colors.ink,
                 )
@@ -616,7 +618,7 @@ private fun PendingContent(place: Place, step: CapStep.WaitingSignal, actions: A
                 ScenePiece(s, R.drawable.paspor_art_footprint, 92f, 90f, 40f, 210f)
                 ScenePiece(s, R.drawable.paspor_art_footprint, 144f, 60f, 40f, 200f)
                 CapSticker(
-                    label = place.stickerTitle(IdLocale),
+                    label = stampLabel(place.name, IdLocale),
                     code = stringResource(R.string.paspor_sticker_number, place.capCode),
                     icon = place.category.stampIcon(),
                     tone = StickerTone.Blue,
@@ -624,7 +626,7 @@ private fun PendingContent(place: Place, step: CapStep.WaitingSignal, actions: A
                     height = s.dp(82f),
                     iconSize = 24.dp,
                     modifier = Modifier.offset(s.dp(210f), s.dp(60f)).rotate(6f),
-                    labelSize = stampLabelSize(place.stickerTitle(IdLocale)),
+                    labelSize = stampLabelSize(stampLabel(place.name, IdLocale)),
                 )
             }
         }
