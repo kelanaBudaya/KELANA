@@ -8,6 +8,7 @@ import id.kelana.core.data.remote.OpeningHoursDto
 import id.kelana.core.data.remote.PlaceDto
 import id.kelana.core.data.remote.PlaceNameDto
 import id.kelana.core.data.remote.PlacesPayload
+import id.kelana.core.data.remote.RegionCodeDto
 import id.kelana.core.data.remote.RegionDto
 import id.kelana.core.data.remote.ReportInsertDto
 import id.kelana.core.data.remote.TicketPriceDto
@@ -91,9 +92,10 @@ class FakeEventDao : EventDao() {
 /** A gate that never skips a refresh, so tests control exactly when the network is hit. */
 internal fun testGate() = RefreshGate(minIntervalMs = 0L)
 
-fun placeDto(id: String = "p1", name: String = "Candi Prambanan", order: Int? = 1) = PlaceDto(
+fun placeDto(id: String = "p1", name: String = "Candi Prambanan", order: Int? = 1, region: String? = null) = PlaceDto(
     id = id, slug = "slug-$id", name = name, category = "candi", capCode = "YK-01",
     lat = -7.75, lng = 110.49, address = "Jl. Raya", description = "Kompleks candi", coverPath = null, passportOrder = order,
+    regions = region?.let { RegionCodeDto(it) },
 )
 
 fun hoursDto(placeId: String = "p1", weekday: Int = 1, checkedAt: String? = "2026-11-20T03:00:00+00:00") = OpeningHoursDto(
@@ -116,12 +118,21 @@ fun eventDto(
     date: String? = null,
     placeId: String = "p1",
     start: String = "19:30:00",
+    region: String? = null,
 ) = EventDto(
     id = id, placeId = placeId, title = "Sendratari Ramayana", description = null, category = "tari",
     recurrence = recurrence, eventDate = date, weekday = weekday, startTime = start, endTime = "21:30:00",
     priceFromIdr = 150000, sellerUrl = "https://example.test/beli", sourceUrl = "https://example.test/jadwal",
     checkedAt = "2026-11-20T03:00:00+00:00", performers = listOf("Penari lokal"), arrivalAdviceMin = 30,
-    arrivalAdviceMax = 45, tags = listOf("tari", "bukan_tag"), places = PlaceNameDto("Candi Prambanan"),
+    arrivalAdviceMax = 45, tags = listOf("tari", "bukan_tag"), places = PlaceNameDto("Candi Prambanan", region?.let { RegionCodeDto(it) }),
 )
 
 fun regionDto(code: String, status: String, order: Int) = RegionDto(code, "Wilayah $code", status, order)
+
+/** Region selection controlled by the test; [select] is unused by the scoped repositories. */
+class StubRegions(initial: String? = null) : id.kelana.core.model.RegionRepository {
+    val selected = MutableStateFlow(initial)
+    override fun regions(): Flow<List<id.kelana.core.model.Region>> = MutableStateFlow(emptyList())
+    override val selectedRegionId: Flow<String?> = selected
+    override suspend fun select(regionId: String) { selected.value = regionId }
+}

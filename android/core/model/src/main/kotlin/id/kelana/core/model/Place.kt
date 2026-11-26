@@ -25,6 +25,8 @@ data class Place(
     val hours: List<OfficialFact<OpeningHours>> = emptyList(),
     val tickets: List<OfficialFact<TicketPrice>> = emptyList(),
     val closures: List<OfficialFact<Closure>> = emptyList(),
+    /** Code of the region the place belongs to (e.g. "DIY"); null when unknown. Repositories scope lists by it. */
+    val regionId: String? = null,
 )
 
 /** Opening hours for one weekday. When [isClosed] is true, [opens] and [closes] are null. */

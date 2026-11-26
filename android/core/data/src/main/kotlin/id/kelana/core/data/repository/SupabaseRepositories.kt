@@ -1,3 +1,5 @@
+@file:OptIn(kotlinx.coroutines.ExperimentalCoroutinesApi::class)
+
 package id.kelana.core.data.repository
 
 import androidx.datastore.core.DataStore
@@ -8,6 +10,7 @@ import id.kelana.core.data.remote.KelanaRemoteDataSource
 import id.kelana.core.data.remote.ReportInsertDto
 import id.kelana.core.data.remote.toCancelledDays
 import id.kelana.core.data.remote.toEntity
+import id.kelana.core.data.remote.hostRegionCode
 import id.kelana.core.data.remote.toEvent
 import id.kelana.core.data.remote.toEventClosureEntity
 import id.kelana.core.data.remote.toFactEntities
@@ -38,6 +41,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.map
 import java.time.LocalDate
 import javax.inject.Inject
@@ -55,11 +59,13 @@ private class PlaceRows(val places: List<PlaceEntity>, val facts: List<PlaceFact
 class SupabasePlaceRepository internal constructor(
     private val remote: KelanaRemoteDataSource,
     private val dao: PlaceDao,
+    private val regions: RegionRepository,
     private val gate: RefreshGate,
 ) : PlaceRepository {
 
     @Inject
-    constructor(remote: KelanaRemoteDataSource, dao: PlaceDao) : this(remote, dao, RefreshGate())
+    constructor(remote: KelanaRemoteDataSource, dao: PlaceDao, regions: RegionRepository) :
+        this(remote, dao, regions, RefreshGate())
 
     private val all: Flow<List<Place>> = cacheThenNetwork(
         cache = combine(dao.observePlaces(), dao.observeFacts()) { p, f -> PlaceRows(p, f) },
@@ -69,14 +75,21 @@ class SupabasePlaceRepository internal constructor(
         map = { toPlaces(it.places, it.facts) },
     ).distinctUntilChanged()
 
-    override fun places(): Flow<List<Place>> = all
+    /** The one owner of the region invariant: every list below is scoped to the selected region (null = all). */
+    private val scoped: Flow<List<Place>> =
+        regions.selectedRegionId.flatMapLatest { selected ->
+            all.map { list -> list.inRegion(selected) { it.regionId } }
+        }.distinctUntilChanged()
 
+    override fun places(): Flow<List<Place>> = scoped
+
+    /** Not scoped: a place resolves by id from any region (deep links, passport of earlier visits). */
     override fun place(id: String): Flow<Place?> = all.map { list -> list.firstOrNull { it.id == id } }.distinctUntilChanged()
 
     override fun placesByCategory(category: PlaceCategory): Flow<List<Place>> =
-        all.map { list -> list.filter { it.category == category } }
+        scoped.map { list -> list.filter { it.category == category } }
 
-    override fun search(query: String): Flow<List<Place>> = all.map { it.searchPlaces(query) }
+    override fun search(query: String): Flow<List<Place>> = scoped.map { it.searchPlaces(query) }
 
     /** Fetches everything first and writes once, so a failure halfway leaves the old cache untouched. */
     private suspend fun refresh() {
@@ -91,11 +104,13 @@ private class EventRows(val events: List<EventEntity>, val closures: List<EventC
 class SupabaseEventRepository internal constructor(
     private val remote: KelanaRemoteDataSource,
     private val dao: EventDao,
+    private val regions: RegionRepository,
     private val gate: RefreshGate,
 ) : EventRepository {
 
     @Inject
-    constructor(remote: KelanaRemoteDataSource, dao: EventDao) : this(remote, dao, RefreshGate())
+    constructor(remote: KelanaRemoteDataSource, dao: EventDao, regions: RegionRepository) :
+        this(remote, dao, regions, RefreshGate())
 
     private val rows: Flow<EventRows> = cacheThenNetwork(
         cache = combine(dao.observeEvents(), dao.observeClosures()) { e, c -> EventRows(e, c) },
@@ -108,12 +123,19 @@ class SupabaseEventRepository internal constructor(
     override fun eventsOn(date: LocalDate): Flow<List<EventOccurrence>> = eventsBetween(date, date)
 
     override fun eventsBetween(from: LocalDate, to: LocalDate): Flow<List<EventOccurrence>> =
-        rows.map { r ->
-            expandOccurrences(r.events.mapNotNull { it.toEvent() }, from, to, toCancelledDays(r.closures))
+        // flatMapLatest, not combine: combine would conflate the cache and network emissions.
+        regions.selectedRegionId.flatMapLatest { selected ->
+            rows.map { r ->
+                val events = r.events.inRegion(selected) { it.hostRegionCode() }.mapNotNull { it.toEvent() }
+                expandOccurrences(events, from, to, toCancelledDays(r.closures))
+            }
         }.distinctUntilChanged()
 
     override fun event(id: String): Flow<Event?> =
         rows.map { r -> r.events.firstOrNull { it.id == id }?.toEvent() }.distinctUntilChanged()
+
+    override fun eventsAt(placeId: String): Flow<List<Event>> =
+        rows.map { r -> r.events.mapNotNull { it.toEvent() }.filter { it.placeId == placeId } }.distinctUntilChanged()
 
     private suspend fun refresh() {
         val payload = remote.fetchEvents()

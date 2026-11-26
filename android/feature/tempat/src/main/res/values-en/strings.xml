@@ -3,9 +3,10 @@
     <!-- Place detail -->
     <string name="tempat_back">Back</string>
     <string name="tempat_save">Save place</string>
+    <string name="tempat_open_map">Open in Google Maps</string>
     <string name="tempat_unsave">Remove from saved</string>
     <string name="tempat_header_cover">Cover illustration of %1$s</string>
-    <string name="tempat_photos_chip">See %1$d official photos</string>
+    <string name="tempat_photos_chip">See %1$d photos</string>
     <string name="tempat_cap_badge">Stamp %1$s</string>
     <string name="tempat_cap_label">STAMP %1$s IS WAITING</string>
     <string name="tempat_cap_headline">Visit the place, then collect the stamp here</string>
@@ -21,15 +22,26 @@
     <string name="tempat_open_every_day">Open every day</string>
     <string name="tempat_ticket_label">Admission</string>
     <string name="tempat_ticket_item">%1$s %2$s</string>
-    <string name="tempat_ticket_item_pending">%1$s: price being checked</string>
     <string name="tempat_ticket_pending">Price being checked</string>
-    <string name="tempat_ticket_join">" · "</string>
+    <string name="tempat_ticket_free">Free</string>
     <string name="tempat_closed_days">Closed days</string>
     <string name="tempat_closure">Temporarily closed</string>
     <string name="tempat_closure_range">%1$s – %2$s</string>
     <string name="tempat_closure_with_reason">%1$s (%2$s)</string>
-    <string name="tempat_source">Source: %1$s</string>
     <string name="tempat_ticket_site">Open official ticket site</string>
+    <!-- Visitor videos (TikTok embed) -->
+    <string name="tempat_videos_title">Visitor videos</string>
+    <string name="tempat_videos_loading">Loading videos…</string>
+    <string name="tempat_videos_empty_title">Visitor videos coming soon</string>
+    <string name="tempat_videos_empty_body">We are collecting videos from visitors to this place.</string>
+    <string name="tempat_videos_error_title">Videos could not be loaded</string>
+    <string name="tempat_videos_error_body">Check your signal, then try again.</string>
+    <string name="tempat_videos_retry">Try again</string>
+    <string name="tempat_videos_card_loading">Loading…</string>
+    <string name="tempat_videos_card_error">This video cannot be shown here.</string>
+    <string name="tempat_videos_card_error_unavailable">This video is not available.</string>
+    <string name="tempat_videos_card_error_playback">Could not play this video.</string>
+    <string name="tempat_videos_open_tiktok">Open on TikTok</string>
     <string name="tempat_stories_title">Visitor stories</string>
     <string name="tempat_stories_all">See all</string>
     <string name="tempat_stories_note">Only from visitors who have collected the stamp here.</string>
@@ -39,21 +51,27 @@
     <string name="tempat_report_action">Report it</string>
     <string name="tempat_postcard">Postcard</string>
     <string name="tempat_add_plan">Add to plan</string>
+    <string name="tempat_in_plan">In your plan</string>
+    <string name="tempat_plan_added">Added to your plan</string>
+    <string name="tempat_plan_removed">Removed from your plan</string>
     <string name="tempat_loading">Loading place…</string>
     <string name="tempat_not_found_title">Place not found</string>
     <string name="tempat_not_found_body">This place may have been removed or the link is wrong.</string>
     <string name="tempat_error_title">The place could not be loaded</string>
     <string name="tempat_error_body">Something went wrong while loading. Try again.</string>
     <string name="tempat_retry">Try again</string>
-    <!-- Official photos -->
-    <string name="foto_resmi_title">Official photos · %1$d of %2$d</string>
+    <!-- Photo gallery -->
+    <string name="foto_resmi_title">Photo gallery · %1$d of %2$d</string>
+    <string name="foto_resmi_title_plain">Photo gallery</string>
     <string name="foto_resmi_close">Close</string>
-    <string name="foto_resmi_hero">Photo %1$d from the site manager</string>
-    <string name="foto_resmi_badge">Official documentation</string>
-    <string name="foto_resmi_caption_pending">Photo caption being checked</string>
-    <string name="foto_resmi_source_pending">Photo from the site manager · being checked</string>
+    <string name="foto_resmi_hero">Photo %1$d</string>
     <string name="foto_resmi_thumb">Photo %1$d</string>
-    <string name="foto_resmi_note">Visitor photos live in postcards and videos. This section is for photos from the site manager only.</string>
+    <string name="foto_resmi_source">View source</string>
+    <string name="foto_resmi_empty">No photos for this place yet</string>
+    <string name="foto_resmi_error_title">Photos could not be loaded</string>
+    <string name="foto_resmi_error_body">Check your connection and try again.</string>
+    <string name="foto_resmi_retry">Try again</string>
+    <string name="foto_resmi_note">Openly licensed photos from Wikimedia Commons. Visitor photos live in postcards and videos.</string>
     <!-- Report -->
     <string name="laporkan_title">Report</string>
     <string name="laporkan_question">What should we check?</string>
@@ -73,4 +91,9 @@
     <string name="laporkan_sent_title">Thank you, your report arrived</string>
     <string name="laporkan_sent_body">Our team checks it against the official source. We will tell you the result through a notification.</string>
     <string name="laporkan_sent_back">Back to %1$s</string>
+    <string name="tempat_events_title">Shows here</string>
+    <string name="tempat_events_daily">Every day · %1$s</string>
+    <string name="tempat_events_weekly">Every %1$s · %2$s</string>
+    <string name="tempat_events_once">%1$s · %2$s</string>
+    <string name="tempat_events_price_from">from %1$s</string>
 </resources>

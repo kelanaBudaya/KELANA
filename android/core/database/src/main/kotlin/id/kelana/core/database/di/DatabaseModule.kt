@@ -15,7 +15,9 @@ import id.kelana.core.database.KelanaDatabase
 import id.kelana.core.database.dao.EventDao
 import id.kelana.core.database.dao.OwnStampDao
 import id.kelana.core.database.dao.PendingStampDao
+import id.kelana.core.database.MIGRATION_4_5
 import id.kelana.core.database.dao.PlaceDao
+import id.kelana.core.database.dao.PlacePhotoDao
 import id.kelana.core.database.dao.RegionDao
 import javax.inject.Singleton
 
@@ -27,6 +29,7 @@ object DatabaseModule {
     @Singleton
     fun provideDatabase(@ApplicationContext context: Context): KelanaDatabase =
         Room.databaseBuilder(context, KelanaDatabase::class.java, "kelana.db")
+            .addMigrations(MIGRATION_4_5)
             // Only public content is cached and it is re-downloaded, so dropping it on upgrade is safe.
             .fallbackToDestructiveMigration(dropAllTables = true)
             .build()
@@ -39,6 +42,9 @@ object DatabaseModule {
 
     @Provides
     fun provideEventDao(db: KelanaDatabase): EventDao = db.eventDao()
+
+    @Provides
+    fun providePlacePhotoDao(db: KelanaDatabase): PlacePhotoDao = db.placePhotoDao()
 
     @Provides
     fun providePendingStampDao(db: KelanaDatabase): PendingStampDao = db.pendingStampDao()

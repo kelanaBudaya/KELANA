@@ -95,6 +95,13 @@ class FakeRepositoriesTest {
     }
 
     @Test
+    fun eventsAt_filtersByPlace() = runTest {
+        val result = events.eventsAt("candi-prambanan").first()
+        assertTrue(result.isNotEmpty())
+        assertTrue(result.all { it.placeId == "candi-prambanan" })
+    }
+
+    @Test
     fun eventsOnMonday_isEmpty() = runTest {
         assertTrue(events.eventsOn(LocalDate.of(2026, 11, 23)).first().isEmpty())
     }

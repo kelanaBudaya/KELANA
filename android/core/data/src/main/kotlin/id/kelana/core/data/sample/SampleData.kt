@@ -68,7 +68,7 @@ internal object SampleData {
     ) = Place(
         id = slug, slug = slug, name = name, category = category, capCode = capCode,
         lat = lat, lng = lng, address = address, description = description,
-        coverKey = slug, hours = hours, tickets = tickets,
+        coverKey = slug, regionId = "DIY", hours = hours, tickets = tickets,
     )
 
     private val standardHours = { slug: String -> hoursFor(slug, LocalTime.of(9, 0), LocalTime.of(15, 0), DayOfWeek.MONDAY) }

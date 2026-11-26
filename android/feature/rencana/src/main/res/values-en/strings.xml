@@ -148,4 +148,10 @@
     <string name="rencana_map_open_app">Open in map app</string>
     <string name="rencana_map_empty">No route yet. Build a plan first.</string>
     <string name="rencana_map_arrive_before">arrive before %1$s</string>
+    <plurals name="rencana_backpack_title">
+        <item quantity="one">Your backpack: %d place</item>
+        <item quantity="other">Your backpack: %d places</item>
+    </plurals>
+    <string name="rencana_backpack_remove">Remove</string>
+    <string name="rencana_backpack_remove_cd">Remove %1$s from backpack</string>
 </resources>

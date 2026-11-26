@@ -10,12 +10,12 @@ import androidx.compose.ui.test.performClick
 import androidx.compose.ui.test.performScrollTo
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
-import id.kelana.core.designsystem.component.formatCheckedDate
 import id.kelana.core.designsystem.theme.KelanaTheme
 import id.kelana.core.model.OfficialFact
 import id.kelana.core.model.OpeningHours
 import id.kelana.core.model.Place
 import id.kelana.core.model.PlaceCategory
+import id.kelana.core.model.Recurrence
 import id.kelana.core.model.ReportReason
 import id.kelana.core.model.TicketPrice
 import id.kelana.core.ui.formatRupiah
@@ -27,7 +27,6 @@ import org.junit.runner.RunWith
 import java.time.DayOfWeek
 import java.time.LocalDate
 import java.time.LocalTime
-import id.kelana.core.designsystem.R as DsR
 
 /** Stateless Detail tempat and Laporkan content with fixed states: no Hilt, no network. */
 @RunWith(AndroidJUnit4::class)
@@ -77,13 +76,14 @@ class TempatContentTest {
     }
 
     @Test
-    fun detail_checkedFact_showsDiperiksaDateAndValues() {
+    fun detail_checkedFact_showsValuesAndNoCheckDate() {
         setDetail(place(checked = true))
-        val badge = str(DsR.string.ds_verified_checked, formatCheckedDate(checkedDate))
-        rule.onNodeWithText(badge).assertExists()
-        val tickets = listOf("Dewasa ${formatRupiah(10_000)}", "Anak-anak ${formatRupiah(5_000)}")
-            .joinToString(str(R.string.tempat_ticket_join))
-        rule.onNodeWithText(tickets).assertExists()
+        rule.onNodeWithText("Diperiksa", substring = true).assertDoesNotExist()
+        rule.onNodeWithText("example.org", substring = true).assertDoesNotExist()
+        rule.onNodeWithText("Dewasa").assertExists()
+        rule.onNodeWithText(formatRupiah(10_000)).assertExists()
+        rule.onNodeWithText("Anak-anak").assertExists()
+        rule.onNodeWithText(formatRupiah(5_000)).assertExists()
         rule.onNodeWithText(str(R.string.tempat_ticket_pending)).assertDoesNotExist()
         rule.onNodeWithText("08.00", substring = true).assertExists()
     }
@@ -91,8 +91,8 @@ class TempatContentTest {
     @Test
     fun detail_uncheckedFact_showsSedangDicekAndNoValue() {
         setDetail(place(checked = false))
-        // Header badge, opening hours row and closed-days row.
-        rule.onAllNodesWithText(str(R.string.tempat_info_checking), ignoreCase = true).assertCountEquals(3)
+        // Opening hours row and closed-days row.
+        rule.onAllNodesWithText(str(R.string.tempat_info_checking), ignoreCase = true).assertCountEquals(2)
         rule.onNodeWithText(str(R.string.tempat_ticket_pending)).assertExists()
         rule.onNodeWithText(formatRupiah(10_000), substring = true).assertDoesNotExist()
         rule.onNodeWithText(formatRupiah(5_000), substring = true).assertDoesNotExist()
@@ -124,6 +124,31 @@ class TempatContentTest {
         rule.onNodeWithText(str(R.string.tempat_report_action)).performScrollTo().performClick()
         assertEquals(1, stamped)
         assertEquals(1, reported)
+    }
+
+    @Test
+    fun detail_eventsSection_showsRowsAndOpensEvent() {
+        val opened = mutableListOf<String>()
+        rule.setContent {
+            KelanaTheme {
+                DetailTempatContent(
+                    place = place(checked = true), today = DayOfWeek.TUESDAY, onBack = {}, onPhotos = {}, onStamp = {},
+                    onTicketSite = {}, onReport = {}, onAllStories = {},
+                    events = listOf(sampleHostedEvent("e1", "Wayang kulit semalam", Recurrence.Weekly(DayOfWeek.SATURDAY), 60_000)),
+                    onOpenEvent = { opened += it },
+                )
+            }
+        }
+        rule.onNodeWithText(str(R.string.tempat_events_title)).performScrollTo().assertExists()
+        rule.onNodeWithText(str(R.string.tempat_events_price_from, formatRupiah(60_000))).assertExists()
+        rule.onNodeWithText("Wayang kulit semalam").performScrollTo().performClick()
+        assertEquals(listOf("e1"), opened)
+    }
+
+    @Test
+    fun detail_noEvents_hidesEventsSection() {
+        setDetail(place(checked = true))
+        rule.onNodeWithText(str(R.string.tempat_events_title)).assertDoesNotExist()
     }
 
     @Test

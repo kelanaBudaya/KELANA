@@ -148,4 +148,9 @@
     <string name="rencana_map_open_app">Buka di aplikasi peta</string>
     <string name="rencana_map_empty">Belum ada rute. Susun rencana dulu.</string>
     <string name="rencana_map_arrive_before">tiba sebelum %1$s</string>
+    <plurals name="rencana_backpack_title">
+        <item quantity="other">Ranselmu: %d tempat</item>
+    </plurals>
+    <string name="rencana_backpack_remove">Hapus</string>
+    <string name="rencana_backpack_remove_cd">Hapus %1$s dari ransel</string>
 </resources>

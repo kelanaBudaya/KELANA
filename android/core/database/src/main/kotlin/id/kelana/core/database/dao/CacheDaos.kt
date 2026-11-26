@@ -9,6 +9,7 @@ import id.kelana.core.database.entity.EventClosureEntity
 import id.kelana.core.database.entity.EventEntity
 import id.kelana.core.database.entity.PlaceEntity
 import id.kelana.core.database.entity.PlaceFactEntity
+import id.kelana.core.database.entity.PlacePhotoEntity
 import id.kelana.core.database.entity.RegionEntity
 import kotlinx.coroutines.flow.Flow
 
@@ -90,5 +91,27 @@ abstract class EventDao {
         clearClosures()
         insertEvents(events)
         insertClosures(closures)
+    }
+}
+
+@Dao
+abstract class PlacePhotoDao {
+    @Query("SELECT * FROM cache_place_photo WHERE placeId = :placeId ORDER BY position")
+    abstract fun observe(placeId: String): Flow<List<PlacePhotoEntity>>
+
+    @Query("SELECT * FROM cache_place_photo WHERE placeId = :placeId ORDER BY position")
+    abstract suspend fun get(placeId: String): List<PlacePhotoEntity>
+
+    @Query("DELETE FROM cache_place_photo WHERE placeId = :placeId")
+    protected abstract suspend fun clear(placeId: String)
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    protected abstract suspend fun insertAll(rows: List<PlacePhotoEntity>)
+
+    /** Replaces the photos of one place in a single transaction; other places are untouched. */
+    @Transaction
+    open suspend fun replaceForPlace(placeId: String, rows: List<PlacePhotoEntity>) {
+        clear(placeId)
+        insertAll(rows)
     }
 }

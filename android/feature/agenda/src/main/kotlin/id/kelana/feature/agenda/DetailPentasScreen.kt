@@ -51,7 +51,6 @@ import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import id.kelana.core.designsystem.component.EmptyState
 import id.kelana.core.designsystem.component.KelanaBackTopBar
-import id.kelana.core.designsystem.component.formatCheckedDate
 import id.kelana.core.designsystem.theme.FrauncesFontFamily
 import id.kelana.core.designsystem.theme.KelanaRadii
 import id.kelana.core.designsystem.theme.KelanaShapes
@@ -69,7 +68,6 @@ import id.kelana.core.ui.formatClock
 import id.kelana.core.ui.formatRupiah
 import id.kelana.core.ui.label
 import java.time.Duration
-import java.time.LocalDate
 
 @Composable
 internal fun DetailPentasScreen(
@@ -224,7 +222,6 @@ private fun InfoSheet(state: DetailPentasUiState.Found, modifier: Modifier = Mod
                 style = MaterialTheme.typography.labelMedium,
                 color = colors.warnText,
             )
-            event.schedule.checkedAt?.let { CheckedBadge(it) }
         }
         Text(
             event.title,
@@ -237,19 +234,11 @@ private fun InfoSheet(state: DetailPentasUiState.Found, modifier: Modifier = Mod
         FactRow(R.drawable.agenda_ic_calendar, stringResource(R.string.detail_schedule_label), event.schedule) {
             scheduleText(it)
         }
-        FactRow(R.drawable.agenda_ic_ticket, stringResource(R.string.detail_price_label), event.ticket, alsoDated = event.schedule.checkedAt) {
+        FactRow(R.drawable.agenda_ic_ticket, stringResource(R.string.detail_price_label), event.ticket) {
             priceText(it)
         }
         if (event.performers.isNotEmpty()) {
             PlainRow(R.drawable.agenda_art_tari, stringResource(R.string.detail_performers_label), event.performers.joinToString(", "))
-        }
-        state.sourceNote?.let {
-            Text(
-                text = stringResource(R.string.detail_source_note, it.host, formatCheckedDate(it.openedAt)),
-                modifier = Modifier.fillMaxWidth().divider().padding(top = 10.dp),
-                style = MaterialTheme.typography.bodySmall.copy(fontSize = 12.sp, lineHeight = 17.sp),
-                color = colors.muted,
-            )
         }
     }
 }
@@ -266,15 +255,13 @@ private fun Modifier.drawTopLine(): Modifier {
 
 /**
  * Label/value row. The value is built only when the fact has a check date; otherwise "Sedang dicek" is shown.
- * [alsoDated] is the check date already shown in the header badge: when this fact was checked on another day,
- * its own date is printed under the value.
+ * The check date itself is not rendered (product decision: no "Diperiksa" label, no source line).
  */
 @Composable
 private fun <T> FactRow(
     @DrawableRes icon: Int,
     label: String,
     fact: OfficialFact<T>,
-    alsoDated: LocalDate? = null,
     format: @Composable (T) -> String,
 ) {
     val colors = KelanaTheme.colors
@@ -288,21 +275,12 @@ private fun <T> FactRow(
         Text(label, modifier = Modifier.weight(1f), style = MaterialTheme.typography.bodySmall, color = colors.muted)
         Column(Modifier.weight(1.4f), horizontalAlignment = Alignment.End) {
             when (display) {
-                is FactDisplay.Checked -> {
-                    Text(
-                        format(display.value),
-                        style = MaterialTheme.typography.titleSmall,
-                        color = colors.ink,
-                        textAlign = TextAlign.End,
-                    )
-                    if (display.checkedAt != alsoDated) {
-                        Text(
-                            stringResource(R.string.agenda_checked, formatCheckedDate(display.checkedAt)),
-                            style = MaterialTheme.typography.bodySmall.copy(fontSize = 12.sp, lineHeight = 16.sp),
-                            color = colors.muted,
-                        )
-                    }
-                }
+                is FactDisplay.Checked -> Text(
+                    format(display.value),
+                    style = MaterialTheme.typography.titleSmall,
+                    color = colors.ink,
+                    textAlign = TextAlign.End,
+                )
                 FactDisplay.Checking -> Text(
                     stringResource(R.string.detail_checking),
                     style = MaterialTheme.typography.titleSmall,

@@ -32,6 +32,8 @@ data class PlaceEntity(
     val description: String,
     val coverKey: String,
     val passportOrder: Int?,
+    /** Region code (`regions.code`), null when the server row had none. */
+    val regionCode: String? = null,
 )
 
 /** One official fact row of a place. [kind] is `hours`, `closure` or `ticket`; [json] is the server row. */
@@ -55,4 +57,22 @@ data class EventClosureEntity(
     @PrimaryKey val rowKey: String,
     val placeId: String,
     val json: String,
+)
+
+/** A published, validated official photo row of a place. Image bytes live in Coil's disk cache, not here. */
+@Entity(tableName = "cache_place_photo", indices = [Index("placeId")])
+data class PlacePhotoEntity(
+    @PrimaryKey val id: String,
+    val placeId: String,
+    /** Position in the server order (sort_order, created_at). */
+    val position: Int,
+    val url: String,
+    val thumbUrl: String,
+    val width: Int,
+    val height: Int,
+    val caption: String?,
+    val attributionText: String,
+    val licenseCode: String,
+    val licenseUrl: String,
+    val sourcePageUrl: String,
 )

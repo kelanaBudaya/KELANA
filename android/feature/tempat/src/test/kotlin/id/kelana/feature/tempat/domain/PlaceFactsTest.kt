@@ -54,18 +54,11 @@ class PlaceFactsTest {
     }
 
     @Test
-    fun sourceHost_only_from_checked_facts() {
-        assertEquals("example.org", sourceHost(place(listOf(hours(DayOfWeek.MONDAY, true, d1)))))
-        assertNull(sourceHost(place(listOf(hours(DayOfWeek.MONDAY, true, null)))))
-    }
-
-    @Test
     fun sellerUrl_only_from_checked_tickets() {
         val checked = OfficialFact(TicketPrice("Dewasa", 1, "https://tiket.example"), null, d1)
         val unchecked = OfficialFact(TicketPrice("Dewasa", 1, "https://tiket.example"), null, null)
         assertEquals("https://tiket.example", officialSellerUrl(place(emptyList(), listOf(checked))))
         assertNull(officialSellerUrl(place(emptyList(), listOf(unchecked))))
-        assertTrue(OFFICIAL_PHOTO_COUNT > 0)
     }
 
     @Test
@@ -94,12 +87,5 @@ class PlaceFactsTest {
         assertNull(hoursSummary(gap))
         assertNull(hoursSummary(listOf(hours(DayOfWeek.MONDAY, true, d1))))
         assertNull(hoursSummary(emptyList()))
-    }
-
-    @Test
-    fun infoCheckedAt_is_oldest_checked_date_or_null() {
-        val list = listOf(hours(DayOfWeek.MONDAY, true, d1), hours(DayOfWeek.TUESDAY, false, d0), hours(DayOfWeek.FRIDAY, false, null))
-        assertEquals(d0, infoCheckedAt(place(list)))
-        assertNull(infoCheckedAt(place(listOf(hours(DayOfWeek.MONDAY, true, null)))))
     }
 }

@@ -25,7 +25,7 @@ import java.time.DayOfWeek
 import java.time.LocalDate
 import java.time.LocalTime
 
-/** Peta screen with fixed states: no Hilt, no network. The map is the drawn illustration, not MapLibre tiles. */
+/** Peta screen with fixed states: no Hilt, no network. The MapLibre view renders without network here; pins are Compose nodes over it. */
 @RunWith(AndroidJUnit4::class)
 class PetaScreenTest {
     @get:Rule val rule = createComposeRule()

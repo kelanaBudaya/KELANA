@@ -3,9 +3,10 @@
     <!-- Detail tempat -->
     <string name="tempat_back">Kembali</string>
     <string name="tempat_save">Simpan tempat</string>
+    <string name="tempat_open_map">Buka di Google Maps</string>
     <string name="tempat_unsave">Hapus dari simpanan</string>
     <string name="tempat_header_cover">Ilustrasi sampul %1$s</string>
-    <string name="tempat_photos_chip">Lihat %1$d foto resmi</string>
+    <string name="tempat_photos_chip">Lihat %1$d foto</string>
     <string name="tempat_cap_badge">Cap %1$s</string>
     <string name="tempat_cap_label">CAP %1$s MENUNGGUMU</string>
     <string name="tempat_cap_headline">Datang ke lokasi, lalu ambil capnya di sini</string>
@@ -21,15 +22,26 @@
     <string name="tempat_open_every_day">Buka setiap hari</string>
     <string name="tempat_ticket_label">Tiket masuk</string>
     <string name="tempat_ticket_item">%1$s %2$s</string>
-    <string name="tempat_ticket_item_pending">%1$s: harga sedang dicek</string>
     <string name="tempat_ticket_pending">Harga sedang dicek</string>
-    <string name="tempat_ticket_join">" · "</string>
+    <string name="tempat_ticket_free">Gratis</string>
     <string name="tempat_closed_days">Hari tutup</string>
     <string name="tempat_closure">Tutup sementara</string>
     <string name="tempat_closure_range">%1$s – %2$s</string>
     <string name="tempat_closure_with_reason">%1$s (%2$s)</string>
-    <string name="tempat_source">Sumber: %1$s</string>
     <string name="tempat_ticket_site">Buka situs tiket resmi</string>
+    <!-- Video pengunjung (TikTok embed) -->
+    <string name="tempat_videos_title">Video pengunjung</string>
+    <string name="tempat_videos_loading">Memuat video…</string>
+    <string name="tempat_videos_empty_title">Video pengunjung segera hadir</string>
+    <string name="tempat_videos_empty_body">Kami sedang mengumpulkan video dari pengunjung tempat ini.</string>
+    <string name="tempat_videos_error_title">Video belum bisa dimuat</string>
+    <string name="tempat_videos_error_body">Periksa sinyalmu, lalu coba lagi.</string>
+    <string name="tempat_videos_retry">Coba lagi</string>
+    <string name="tempat_videos_card_loading">Memuat…</string>
+    <string name="tempat_videos_card_error">Video tidak bisa ditampilkan di sini.</string>
+    <string name="tempat_videos_card_error_unavailable">Video tidak tersedia.</string>
+    <string name="tempat_videos_card_error_playback">Gagal memutar video.</string>
+    <string name="tempat_videos_open_tiktok">Buka di TikTok</string>
     <string name="tempat_stories_title">Cerita pengunjung</string>
     <string name="tempat_stories_all">Lihat semua</string>
     <string name="tempat_stories_note">Hanya dari pengunjung yang sudah mengambil cap di sini.</string>
@@ -39,21 +51,27 @@
     <string name="tempat_report_action">Laporkan</string>
     <string name="tempat_postcard">Postcard</string>
     <string name="tempat_add_plan">Masuk rencana</string>
+    <string name="tempat_in_plan">Sudah di rencana</string>
+    <string name="tempat_plan_added">Ditambahkan ke rencana</string>
+    <string name="tempat_plan_removed">Dihapus dari rencana</string>
     <string name="tempat_loading">Memuat tempat…</string>
     <string name="tempat_not_found_title">Tempat tidak ditemukan</string>
     <string name="tempat_not_found_body">Tempat ini mungkin sudah dihapus atau tautannya salah.</string>
     <string name="tempat_error_title">Tempat belum bisa dimuat</string>
     <string name="tempat_error_body">Ada masalah saat memuat. Coba lagi.</string>
     <string name="tempat_retry">Coba lagi</string>
-    <!-- Foto resmi -->
-    <string name="foto_resmi_title">Foto resmi · %1$d dari %2$d</string>
+    <!-- Galeri foto -->
+    <string name="foto_resmi_title">Galeri foto · %1$d dari %2$d</string>
+    <string name="foto_resmi_title_plain">Galeri foto</string>
     <string name="foto_resmi_close">Tutup</string>
-    <string name="foto_resmi_hero">Foto %1$d dari pengelola</string>
-    <string name="foto_resmi_badge">Dokumentasi resmi</string>
-    <string name="foto_resmi_caption_pending">Keterangan foto sedang dicek</string>
-    <string name="foto_resmi_source_pending">Foto dari pengelola · sedang dicek</string>
+    <string name="foto_resmi_hero">Foto %1$d</string>
     <string name="foto_resmi_thumb">Foto %1$d</string>
-    <string name="foto_resmi_note">Foto pengunjung ada di postcard dan video. Bagian ini khusus foto dari pengelola.</string>
+    <string name="foto_resmi_source">Lihat sumber</string>
+    <string name="foto_resmi_empty">Belum ada foto untuk tempat ini</string>
+    <string name="foto_resmi_error_title">Foto belum bisa dimuat</string>
+    <string name="foto_resmi_error_body">Periksa sambunganmu, lalu coba lagi.</string>
+    <string name="foto_resmi_retry">Coba lagi</string>
+    <string name="foto_resmi_note">Foto berlisensi terbuka dari Wikimedia Commons. Foto pengunjung ada di postcard dan video.</string>
     <!-- Laporkan -->
     <string name="laporkan_title">Laporkan</string>
     <string name="laporkan_question">Apa yang perlu kami periksa?</string>
@@ -73,4 +91,9 @@
     <string name="laporkan_sent_title">Terima kasih, laporanmu sampai</string>
     <string name="laporkan_sent_body">Tim kami mencocokkannya dengan sumber resmi. Hasilnya kami kabari lewat notifikasi.</string>
     <string name="laporkan_sent_back">Kembali ke %1$s</string>
+    <string name="tempat_events_title">Pertunjukan di sini</string>
+    <string name="tempat_events_daily">Setiap hari · %1$s</string>
+    <string name="tempat_events_weekly">Setiap %1$s · %2$s</string>
+    <string name="tempat_events_once">%1$s · %2$s</string>
+    <string name="tempat_events_price_from">mulai %1$s</string>
 </resources>
