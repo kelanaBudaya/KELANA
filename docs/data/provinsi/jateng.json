@@ -11,7 +11,7 @@
       "provinsi": "Jawa Tengah",
       "induk_lokasi": null,
       "kabupaten": "Magelang",
-      "alamat": "Desa Borobudur, Kabupaten Magelang, Jawa Tengah (alamat dari OpenStreetMap/Nominatim, belum dari halaman resmi)",
+      "alamat": "Desa Borobudur, Kabupaten Magelang, Jawa Tengah",
       "lat": -7.6064052,
       "lng": 110.2045392,
       "deskripsi": "Candi Borobudur adalah candi Buddha bertingkat yang berdiri di Magelang, Jawa Tengah, dan termasuk situs warisan dunia UNESCO. Bangunan ini menjadi salah satu tujuan wisata budaya dan religi paling dikenal di Indonesia.",
@@ -66,7 +66,7 @@
       "provinsi": "Jawa Tengah",
       "induk_lokasi": null,
       "kabupaten": "Surakarta",
-      "alamat": "Kelurahan Keprabon, Kecamatan Banjarsari, Surakarta, Jawa Tengah (alamat dari Wikipedia dan OpenStreetMap)",
+      "alamat": "Kelurahan Keprabon, Kecamatan Banjarsari, Surakarta, Jawa Tengah",
       "lat": -7.56639,
       "lng": 110.82306,
       "deskripsi": "Pura Mangkunegaran adalah kompleks istana di Kota Surakarta, Jawa Tengah, yang menjadi kediaman resmi Adipati Mangkunegara dan keluarganya. Di dalam kompleks ini terdapat museum yang memamerkan benda-benda kerajaan Mangkunegaran dan menjadi salah satu pusat budaya Jawa.",
@@ -678,7 +678,7 @@
       "provinsi": "Jawa Tengah",
       "induk_lokasi": null,
       "kabupaten": "Cilacap",
-      "alamat": "Jalan Karang, Kelurahan Cilacap, Kecamatan Cilacap, Kabupaten Cilacap, Jawa Tengah (alamat dari OSM Nominatim, belum dari sumber resmi)",
+      "alamat": "Jalan Karang, Kelurahan Cilacap, Kecamatan Cilacap, Kabupaten Cilacap, Jawa Tengah",
       "lat": -7.7491116,
       "lng": 109.0172596,
       "deskripsi": "Benteng Pendem adalah benteng berbentuk segi lima peninggalan Belanda di Kabupaten Cilacap, dibangun pada 1861-1879 untuk melindungi pelabuhan Cilacap. Di dalamnya masih ada barak, klinik, dan bangunan penjara, serta parit yang digali ulang. Sejak dibuka untuk umum pada 1987, benteng ini menjadi objek wisata utama di Cilacap.",
@@ -726,13 +726,6 @@
           "label": "Tiket masuk per orang (termasuk akses benteng, kereta mini di area, kolam renang)",
           "harga_idr": 25000,
           "catatan": "Per orang. Sumber media, belum dikonfirmasi ke pengelola.",
-          "source_url": "https://www.goodnewsfromindonesia.id/2026/05/13/benteng-van-der-wijck-kebumen-satu-satunya-benteng-oktagon-di-indonesia-dengan-kereta-di-atasnya",
-          "checked_at": "2026-11-26"
-        },
-        {
-          "label": "Kereta mini di atas benteng (sekitar 15 menit per sesi)",
-          "harga_idr": 5000,
-          "catatan": "Artikel menulis 'sekitar Rp5.000 per orang'. Tarif terpisah dari tiket masuk.",
           "source_url": "https://www.goodnewsfromindonesia.id/2026/05/13/benteng-van-der-wijck-kebumen-satu-satunya-benteng-oktagon-di-indonesia-dengan-kereta-di-atasnya",
           "checked_at": "2026-11-26"
         }

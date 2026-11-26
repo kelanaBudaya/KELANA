@@ -1,4 +1,4 @@
-# Data tempat budaya DIY (draft, 30 tempat)
+# Data tempat budaya DIY (draft, 29 tempat + 2 event)
 
 Dikumpulkan lewat pencarian web (2026-11-25 dan 2026-11-26; pembacaan halaman putaran 2 memakai Firecrawl self-host). Semua entri **pending**: belum disetujui manusia. Entri **ditahan** tidak boleh dimuat. `checked_at` kosong berarti sumbernya bertanggal lebih dari 2 tahun atau tidak terbaca, sehingga di app tampil "sedang dicek". Data per fakta dengan `source_url` ada di `tempat-diy.json`.
 
@@ -12,7 +12,6 @@ Dikumpulkan lewat pencarian web (2026-11-25 dan 2026-11-26; pembacaan halaman pu
 | Museum Ullen Sentalu | permanen | museum | Sleman | ya | ya | ya | pending |
 | Situs Ratu Boko | permanen | lainnya | Sleman | sedang dicek | sedang dicek | ya | pending |
 | Kampung Batik Giriloyo | pengalaman | kerajinan | Bantul | sedang dicek | sedang dicek | belum | pending |
-| Sendratari Ramayana Prambanan | pengalaman | tari | Sleman | jadwal ya | sedang dicek | ya | pending |
 | Jamu Ginggang | permanen | lainnya | Kota Yogyakarta | sedang dicek | sedang dicek | belum | pending |
 | Masjid Gedhe Kauman | permanen | lainnya | Kota Yogyakarta | sedang dicek | sedang dicek | ya | pending |
 | Plengkung Gading | permanen | lainnya | Kota Yogyakarta | sedang dicek | sedang dicek | ya | pending |
@@ -61,8 +60,9 @@ Dikumpulkan lewat pencarian web (2026-11-25 dan 2026-11-26; pembacaan halaman pu
 ### Kampung Batik Giriloyo
 - Tarif dari artikel 2020-2023 dan skemanya tidak konsisten (per peserta vs per paket), checked_at dikosongkan. Jam workshop, kontak, dan koordinat belum ada; situs batikgiriloyo.co.id error.
 
-### Sendratari Ramayana Prambanan
-- Koordinat dan alamat mengikuti Candi Prambanan. Harga per kelas belum ada. Jadwal bertentangan antara header dan tabel di halaman tiket resmi; konfirmasi ke pengelola.
+### Event di tempat yang ada
+- Sendratari Ramayana Prambanan (dulu tempat YK-08) kini event di Candi Prambanan: Selasa, Kamis, Sabtu 19.30-21.00. Harga mulai Rp150.000 hanya dari artikel 2023; jadwal bertentangan antara header dan tabel halaman tiket; konfirmasi ke pengelola.
+- Pagelaran Wayang Sonobudoyo: event di Museum Negeri Sonobudoyo, Selasa-Sabtu 20.00-22.00 (Wikipedia EN), mulai Rp20.000 (Telkomsel); belum diverifikasi resmi.
 
 ### Jamu Ginggang
 - Tidak ada bukti program pengalaman/workshop, jadi dicatat sebagai tempat permanen. Jam dari artikel 2021 (checked_at dikosongkan). Nomor alamat hanya satu sumber. Koordinat belum ditemukan.
