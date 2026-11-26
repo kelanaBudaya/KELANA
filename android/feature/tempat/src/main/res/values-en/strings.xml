@@ -73,4 +73,9 @@
     <string name="laporkan_sent_title">Thank you, your report arrived</string>
     <string name="laporkan_sent_body">Our team checks it against the official source. We will tell you the result through a notification.</string>
     <string name="laporkan_sent_back">Back to %1$s</string>
+    <string name="tempat_events_title">Shows here</string>
+    <string name="tempat_events_daily">Every day · %1$s</string>
+    <string name="tempat_events_weekly">Every %1$s · %2$s</string>
+    <string name="tempat_events_once">%1$s · %2$s</string>
+    <string name="tempat_events_price_from">from %1$s</string>
 </resources>

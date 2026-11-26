@@ -60,6 +60,7 @@ import id.kelana.core.designsystem.theme.KelanaSizes
 import id.kelana.core.designsystem.theme.KelanaSpacing
 import id.kelana.core.designsystem.theme.KelanaTheme
 import id.kelana.core.model.Closure
+import id.kelana.core.model.Event
 import id.kelana.core.model.FactDisplay
 import id.kelana.core.model.OfficialFact
 import id.kelana.core.model.OpeningHours
@@ -68,6 +69,7 @@ import id.kelana.core.model.PlaceCategory
 import id.kelana.core.model.TicketPrice
 import id.kelana.core.navigation.AmbilCapRoute
 import id.kelana.core.navigation.CeritaRoute
+import id.kelana.core.navigation.DetailPentasRoute
 import id.kelana.core.navigation.DetailTempatRoute
 import id.kelana.core.navigation.FotoResmiRoute
 import id.kelana.core.navigation.LaporkanRoute
@@ -148,6 +150,8 @@ internal fun DetailTempatScreen(
                     onTicketSite = { url -> navigate(OfficialSiteRoute(url, place.name)) },
                     onReport = { navigate(LaporkanRoute(place.id)) },
                     onAllStories = { requireLogin { navigate(CeritaRoute) } },
+                    events = state.events,
+                    onOpenEvent = { navigate(DetailPentasRoute(it)) },
                     modifier = Modifier.padding(padding),
                 )
             }
@@ -166,12 +170,15 @@ internal fun DetailTempatContent(
     onReport: () -> Unit,
     onAllStories: () -> Unit,
     modifier: Modifier = Modifier,
+    events: List<Event> = emptyList(),
+    onOpenEvent: (String) -> Unit = {},
 ) {
     Column(modifier.fillMaxSize().verticalScroll(rememberScrollState())) {
         PlaceHeader(place = place, onBack = onBack, onPhotos = onPhotos)
         TitleCard(place)
         CapBanner(capCode = place.capCode, onStamp = onStamp)
         InfoResmiCard(place = place, today = today, onTicketSite = onTicketSite)
+        PlaceEventsSection(events = events, onOpenEvent = onOpenEvent)
         StoriesSection(onAllStories = onAllStories)
         ReportRow(onReport = onReport)
         Spacer(Modifier.height(KelanaSpacing.lg))

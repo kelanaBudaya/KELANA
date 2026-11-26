@@ -16,6 +16,7 @@ import id.kelana.core.model.OfficialFact
 import id.kelana.core.model.OpeningHours
 import id.kelana.core.model.Place
 import id.kelana.core.model.PlaceCategory
+import id.kelana.core.model.Recurrence
 import id.kelana.core.model.ReportReason
 import id.kelana.core.model.TicketPrice
 import id.kelana.core.ui.formatRupiah
@@ -124,6 +125,31 @@ class TempatContentTest {
         rule.onNodeWithText(str(R.string.tempat_report_action)).performScrollTo().performClick()
         assertEquals(1, stamped)
         assertEquals(1, reported)
+    }
+
+    @Test
+    fun detail_eventsSection_showsRowsAndOpensEvent() {
+        val opened = mutableListOf<String>()
+        rule.setContent {
+            KelanaTheme {
+                DetailTempatContent(
+                    place = place(checked = true), today = DayOfWeek.TUESDAY, onBack = {}, onPhotos = {}, onStamp = {},
+                    onTicketSite = {}, onReport = {}, onAllStories = {},
+                    events = listOf(sampleHostedEvent("e1", "Wayang kulit semalam", Recurrence.Weekly(DayOfWeek.SATURDAY), 60_000)),
+                    onOpenEvent = { opened += it },
+                )
+            }
+        }
+        rule.onNodeWithText(str(R.string.tempat_events_title)).performScrollTo().assertExists()
+        rule.onNodeWithText(str(R.string.tempat_events_price_from, formatRupiah(60_000))).assertExists()
+        rule.onNodeWithText("Wayang kulit semalam").performScrollTo().performClick()
+        assertEquals(listOf("e1"), opened)
+    }
+
+    @Test
+    fun detail_noEvents_hidesEventsSection() {
+        setDetail(place(checked = true))
+        rule.onNodeWithText(str(R.string.tempat_events_title)).assertDoesNotExist()
     }
 
     @Test

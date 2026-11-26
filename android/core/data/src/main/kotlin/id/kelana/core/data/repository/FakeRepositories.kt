@@ -54,6 +54,8 @@ class FakeEventRepository @Inject constructor() : EventRepository {
         flowOf(expandOccurrences(all, from, to))
 
     override fun event(id: String): Flow<Event?> = flowOf(all.firstOrNull { it.id == id })
+
+    override fun eventsAt(placeId: String): Flow<List<Event>> = flowOf(all.filter { it.placeId == placeId })
 }
 
 @Singleton
