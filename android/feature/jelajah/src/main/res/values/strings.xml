@@ -29,7 +29,10 @@
     <string name="home_picks_title">Pilihan buat keluargamu</string>
     <string name="home_see_all">Lihat semua</string>
     <string name="challenge_label">Tantangan pekan ini</string>
-    <string name="challenge_title">Kumpulkan %1$d cap, buka cap edisi Jurnal</string>
+    <string name="challenge_title">Kumpulkan %1$d cap budaya pekan ini</string>
+    <string name="challenge_sheet_progress">%1$d dari %2$d cap</string>
+    <string name="challenge_sheet_passport">Lihat paspor</string>
+    <string name="challenge_sheet_done">Tantangan pekan ini selesai</string>
     <string name="challenge_progress">%1$d dari %2$d · berakhir Minggu</string>
     <string name="badge_visit_today">Kunjungi Hari Ini</string>
     <string name="cari_hint">Cari tempat atau pentas</string>

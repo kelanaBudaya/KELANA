@@ -85,6 +85,31 @@ class ViewModelTests {
         }
     }
 
+    @Test fun weeklyProgressCountsOnlyStampsOfThisWeek() = runTest {
+        val clock = java.time.Clock.fixed(java.time.Instant.parse("2026-11-20T11:00:00Z"), java.time.ZoneOffset.UTC)
+        val stamps = FakeStampRepository(
+            initialStamps = listOf(
+                Stamp("museum-sonobudoyo", java.time.Instant.parse("2026-11-20T03:00:00Z")), // Friday: this week
+                Stamp("tamansari", java.time.Instant.parse("2026-11-22T17:00:00Z")), // next Monday 00:00 Jakarta: not yet
+                Stamp("kotagede", java.time.Instant.parse("2026-11-15T03:00:00Z")), // last week
+            ),
+        )
+        val vm = JelajahViewModel(places, events, regions, stamps, clock) { LocalDateTime.of(friday, java.time.LocalTime.of(18, 0)) }
+        vm.state.test {
+            val s = awaitUntil { !it.isLoading }
+            assertEquals(WeeklyProgress(done = 1, target = WEEKLY_STAMP_TARGET), s.weekly)
+            cancelAndIgnoreRemainingEvents()
+        }
+    }
+
+    @Test fun weeklyProgressIsZeroForGuestWithoutStamps() = runTest {
+        val vm = JelajahViewModel(places, events, regions, FakeStampRepository()) { LocalDateTime.of(friday, java.time.LocalTime.of(18, 0)) }
+        vm.state.test {
+            assertEquals(WeeklyProgress(0, WEEKLY_STAMP_TARGET), awaitUntil { !it.isLoading }.weekly)
+            cancelAndIgnoreRemainingEvents()
+        }
+    }
+
     @Test fun homeHidesBannerWhenEventAlreadyStarted() = runTest {
         val vm = JelajahViewModel(places, events, regions, FakeStampRepository()) { LocalDateTime.of(friday, java.time.LocalTime.of(21, 0)) }
         vm.state.test {
