@@ -72,14 +72,14 @@
     <string name="rencana_minat_candi">Candi</string>
     <string name="rencana_minat_pentas">Pentas</string>
     <string name="rencana_minat_kerajinan">Kerajinan</string>
-    <string name="rencana_minat_keraton">Keraton</string>
+    <string name="rencana_minat_keraton">Situs &amp; lainnya</string>
     <string name="rencana_minat_topeng">Topeng</string>
     <string name="rencana_waktu_title">Jam berapa kamu mulai dan selesai?</string>
     <string name="rencana_waktu_hint">Pentas malam ikut masuk kalau masih dalam rentang ini.</string>
     <string name="rencana_waktu_start">Mulai</string>
     <string name="rencana_waktu_end">Selesai</string>
-    <string name="rencana_waktu_earlier">%1$s 30 menit lebih awal</string>
-    <string name="rencana_waktu_later">%1$s 30 menit lebih lambat</string>
+    <string name="rencana_waktu_earlier">%1$s lebih awal</string>
+    <string name="rencana_waktu_later">%1$s lebih lambat</string>
     <string name="rencana_waktu_pace_title">Mau berjalan dengan tempo apa?</string>
     <string name="rencana_pace_relaxed">Santai</string>
     <string name="rencana_pace_moderate">Sedang</string>
