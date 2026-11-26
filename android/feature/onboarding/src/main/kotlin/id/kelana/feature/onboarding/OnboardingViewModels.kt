@@ -8,6 +8,9 @@ import id.kelana.core.model.AppLanguageRepository
 import id.kelana.core.model.PlaceRepository
 import id.kelana.core.model.RegionRepository
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.flatMapLatest
+import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.stateIn
@@ -72,10 +75,21 @@ internal class PilihDaerahViewModel @Inject constructor(
             }
         }
         viewModelScope.launch {
-            // PROVISIONAL: PlaceRepository has no region filter; all places belong to the available region for now.
-            placeRepository.places().collect { places ->
-                _state.update { it.copy(placeNames = places.take(4).map { p -> p.name }, placeCount = places.size) }
-            }
+            // Places per available region (never the selected-region scope), so every card has its own count and names.
+            regionRepository.regions()
+                .flatMapLatest { list ->
+                    val open = list.filter { it.isAvailable }
+                    if (open.isEmpty()) {
+                        flowOf(emptyMap())
+                    } else {
+                        combine(open.map { r -> placeRepository.placesIn(r.id) }) { lists ->
+                            open.indices.associate { i ->
+                                open[i].id to RegionPlaces(lists[i].take(HighlightCount).map { it.name }, lists[i].size)
+                            }
+                        }
+                    }
+                }
+                .collect { byRegion -> _state.update { it.copy(placesByRegion = byRegion) } }
         }
     }
 

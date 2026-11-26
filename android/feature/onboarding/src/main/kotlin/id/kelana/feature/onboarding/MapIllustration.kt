@@ -37,7 +37,6 @@ private val Spots = mapOf(
     "BALI" to PinPosition(153.6f, 148.6f),
     "SUMUT" to PinPosition(32.5f, 67.1f),
     "JKT" to PinPosition(92f, 132.2f, left = true),
-    "BDG" to PinPosition(97.6f, 137.5f),
     "JTM" to PinPosition(135.5f, 140f),
     "SULSEL" to PinPosition(184.9f, 124.3f),
     "KALTIM" to PinPosition(168f, 90f),
@@ -45,6 +44,8 @@ private val Spots = mapOf(
     "PAPUA" to PinPosition(342f, 105.2f, left = true),
     // PROVISIONAL: these sample regions are not in the artifact's list, so they sit near their neighbours.
     "JBR" to PinPosition(97.6f, 137.5f),
+    // Banten: west of Jakarta (92, 132.2), same row as Jawa Barat; Jakarta's label opens left, so it stays clear.
+    "BTN" to PinPosition(79f, 137f, left = true),
     "JTG" to PinPosition(126f, 141f),
     "SUMBAR" to PinPosition(26f, 80f),
     "NTT" to PinPosition(172f, 152f),
@@ -56,7 +57,7 @@ internal fun pinPositionFor(regionId: String, index: Int): PinPosition =
 
 /** Island of a region (artifact "Pulau ..." line), or null when unknown. PROVISIONAL until Region has an island. */
 internal fun islandNameRes(regionId: String): Int? = when (regionId) {
-    "DIY", "JTG", "JTM", "JBR", "JKT", "BDG" -> R.string.island_jawa
+    "DIY", "JTG", "JTM", "JBR", "JKT", "BTN" -> R.string.island_jawa
     "BALI", "NTT" -> R.string.island_bali_nusa
     "SUMUT", "SUMBAR" -> R.string.island_sumatera
     "SULSEL" -> R.string.island_sulawesi

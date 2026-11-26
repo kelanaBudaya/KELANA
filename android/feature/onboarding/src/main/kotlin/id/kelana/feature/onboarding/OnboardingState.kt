@@ -72,9 +72,8 @@ internal data class PilihDaerahUiState(
     val loading: Boolean = true,
     val regions: List<Region> = emptyList(),
     val selectedRegionId: String? = null,
-    /** Names of the places shown in the "Sudah bisa dijelajahi" card, first four. */
-    val placeNames: List<String> = emptyList(),
-    val placeCount: Int = 0,
+    /** Places of each available region by region id. Regions that are not open have no entry. */
+    val placesByRegion: Map<String, RegionPlaces> = emptyMap(),
     /** Set once an available region was chosen; the screen then calls `onFinished`. */
     val finished: Boolean = false,
 ) {
@@ -82,5 +81,15 @@ internal data class PilihDaerahUiState(
     val availableRegions: List<Region> get() = regions.filter { it.status == RegionStatus.Available }
     val upcomingCount: Int get() = regions.count { it.status == RegionStatus.Upcoming }
     val notOpenCount: Int get() = regions.count { it.status == RegionStatus.NotOpen }
-    val moreCount: Int get() = (placeCount - placeNames.size).coerceAtLeast(0)
+
+    /** Places of [regionId]; empty (no names, zero count) for a region without data. */
+    fun placesOf(regionId: String): RegionPlaces = placesByRegion[regionId] ?: RegionPlaces()
+}
+
+/** Highlight names shown per region card. */
+internal const val HighlightCount = 4
+
+/** Published places of one region: [count] is the real total, [names] the first [HighlightCount]. */
+internal data class RegionPlaces(val names: List<String> = emptyList(), val count: Int = 0) {
+    val moreCount: Int get() = (count - names.size).coerceAtLeast(0)
 }

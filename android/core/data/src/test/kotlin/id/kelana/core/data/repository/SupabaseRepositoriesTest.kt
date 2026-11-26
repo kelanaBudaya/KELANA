@@ -167,6 +167,24 @@ class SupabaseRepositoriesTest {
     }
 
     @Test
+    fun placesIn_ignoresSelectedRegion() = runTest {
+        val remote = FakeRemote().apply {
+            places = PlacesPayload(
+                listOf(
+                    placeDto("diy1", "Candi Prambanan", 1, "DIY"),
+                    placeDto("jkt1", "Museum Nasional", 2, "JKT"),
+                    placeDto("jkt2", "Monas", 3, "JKT"),
+                ),
+                emptyList(), emptyList(), emptyList(),
+            )
+        }
+        val repo = placeRepo(remote, regions = StubRegions("DIY"))
+        assertEquals(listOf("jkt1", "jkt2"), repo.placesIn("JKT").first().map { it.id })
+        assertEquals(listOf("diy1"), repo.placesIn("DIY").first().map { it.id })
+        assertTrue(repo.placesIn("BTN").first().isEmpty())
+    }
+
+    @Test
     fun places_regionSwitch_reEmits() = runTest {
         val remote = FakeRemote().apply {
             places = PlacesPayload(

@@ -32,6 +32,7 @@ private class TestRegions : RegionRepository {
         Region("JTG", "Jawa Tengah", RegionStatus.Upcoming, 2),
         Region("BALI", "Bali", RegionStatus.Upcoming, 3),
         Region("PAPUA", "Papua", RegionStatus.NotOpen, 4),
+        Region("JTM", "Jawa Timur", RegionStatus.Available, 5),
     )
     private val selected = MutableStateFlow<String?>(null)
     override fun regions(): Flow<List<Region>> = flowOf(all)
@@ -50,13 +51,18 @@ private class TestLanguages(initial: AppLanguage = AppLanguage.ID) : AppLanguage
 }
 
 private class TestPlaces : PlaceRepository {
-    private val list = (1..6).map {
-        Place(
-            id = "p$it", slug = "p$it", name = "Tempat $it", category = PlaceCategory.Museum, capCode = "YK-0$it",
-            lat = 0.0, lng = 0.0, address = "", description = "", coverKey = "",
+    /** Six DIY places, three JTM places with other names. */
+    private val list = (1..6).map { place("p$it", "Tempat $it", "DIY") } +
+        (1..3).map { place("j$it", "Jatim $it", "JTM") }
+
+    private companion object {
+        fun place(id: String, name: String, regionId: String) = Place(
+            id = id, slug = id, name = name, category = PlaceCategory.Museum, capCode = "X-$id",
+            lat = 0.0, lng = 0.0, address = "", description = "", coverKey = "", regionId = regionId,
         )
     }
     override fun places(): Flow<List<Place>> = flowOf(list)
+    override fun placesIn(regionId: String): Flow<List<Place>> = flowOf(list.filter { it.regionId == regionId })
     override fun place(id: String): Flow<Place?> = flowOf(list.firstOrNull { it.id == id })
     override fun placesByCategory(category: PlaceCategory): Flow<List<Place>> = flowOf(list)
     override fun search(query: String): Flow<List<Place>> = flowOf(emptyList())
@@ -163,12 +169,42 @@ class OnboardingTest {
         val vm = PilihDaerahViewModel(regions, TestPlaces())
         val s = vm.state.value
         assertFalse(s.loading)
-        assertEquals(4, s.regions.size)
+        assertEquals(5, s.regions.size)
         assertEquals("DIY", s.selectedRegionId)
         assertEquals(2, s.upcomingCount)
         assertEquals(1, s.notOpenCount)
-        assertEquals(4, s.placeNames.size)
-        assertEquals(2, s.moreCount)
+    }
+
+    @Test
+    fun eachAvailableRegionCardGetsItsOwnCountAndNames() = runTest {
+        val s = PilihDaerahViewModel(regions, TestPlaces()).state.value
+        val diy = s.placesOf("DIY")
+        assertEquals(6, diy.count)
+        assertEquals(listOf("Tempat 1", "Tempat 2", "Tempat 3", "Tempat 4"), diy.names)
+        assertEquals(2, diy.moreCount)
+        val jtm = s.placesOf("JTM")
+        assertEquals(3, jtm.count)
+        assertEquals(listOf("Jatim 1", "Jatim 2", "Jatim 3"), jtm.names)
+        assertEquals(0, jtm.moreCount)
+    }
+
+    @Test
+    fun unavailableRegionsGetNoPlaces() = runTest {
+        val s = PilihDaerahViewModel(regions, TestPlaces()).state.value
+        assertEquals(setOf("DIY", "JTM"), s.placesByRegion.keys)
+        for (id in listOf("JTG", "BALI", "PAPUA", "TIDAK-ADA")) {
+            assertEquals(id, RegionPlaces(), s.placesOf(id))
+        }
+    }
+
+    @Test
+    fun placeCountsDoNotFollowTheSelectedRegion() = runTest {
+        val vm = PilihDaerahViewModel(regions, TestPlaces())
+        vm.state.test {
+            val before = awaitItem().placesByRegion
+            vm.onPinTapped("JTM")
+            assertEquals(before, awaitItem().placesByRegion)
+        }
     }
 
     @Test
@@ -209,6 +245,23 @@ class OnboardingTest {
             assertTrue(region.id, pos.x in 0f..MapUnitsWidth && pos.y in 0f..MapUnitsHeight)
             assertTrue(region.id, islandNameRes(region.id) != null)
         }
+    }
+
+    @Test
+    fun islandCodesCoverAllJavaRegionsAndBantenHasADot() {
+        listOf("DIY", "JTG", "JTM", "JBR", "JKT", "BTN").forEachIndexed { i, code ->
+            assertEquals(code, R.string.island_jawa, islandNameRes(code))
+            val pos = pinPositionFor(code, i)
+            assertTrue(code, pos.x in 0f..MapUnitsWidth && pos.y in 0f..MapUnitsHeight)
+        }
+        assertNull(islandNameRes("BDG"))
+        // Banten has its own spot, not the fallback row and not on top of a neighbour.
+        val btn = pinPositionFor("BTN", 0)
+        for (other in listOf("JKT", "JBR", "DIY")) {
+            val o = pinPositionFor(other, 0)
+            assertTrue(other, kotlin.math.hypot(btn.x - o.x, btn.y - o.y) >= 10f)
+        }
+        assertTrue(btn.y != 175f)
     }
 
     @Test
