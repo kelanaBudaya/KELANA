@@ -408,7 +408,7 @@ private fun NameDialog(
                     supportingText = {
                         Text(
                             text = stringResource(
-                                error?.messageRes() ?: R.string.email_nickname_hint,
+                                error?.messageRes() ?: R.string.profil_name_hint,
                                 AuthValidation.MAX_DISPLAY_NAME_LENGTH,
                             ),
                             color = if (error != null) colors.danger else colors.muted,

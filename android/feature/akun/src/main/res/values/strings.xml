@@ -104,6 +104,7 @@
     <string name="hapus_akun_error_not_signed_in">Kamu perlu masuk dulu untuk menghapus akun.</string>
     <string name="email_field_nickname">Nama panggilan</string>
     <string name="email_nickname_hint">Opsional, maksimal %1$d karakter. Dipakai untuk sapaan.</string>
+    <string name="profil_name_hint">Maksimal %1$d karakter. Dipakai untuk sapaan.</string>
     <string name="nickname_error_too_long">Terlalu panjang, maksimal %1$d karakter.</string>
     <string name="profil_section_akun">AKUN</string>
     <string name="profil_row_nama">Nama</string>
