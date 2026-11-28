@@ -14,7 +14,7 @@ class AndroidApplicationConventionPlugin : Plugin<Project> {
                 namespace = "id.kelana.app"
                 configureKotlinAndroid(target, this)
                 defaultConfig {
-                    applicationId = "id.kelana.app"
+                    applicationId = "com.gajahbasudara.kelana"
                     targetSdk = KELANA_COMPILE_SDK
                 }
                 testOptions.unitTests.isReturnDefaultValues = true

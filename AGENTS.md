@@ -24,7 +24,7 @@ Design source of truth: the Claude Design artifact https://claude.ai/artifact/9C
 
 ## Stack
 
-- Kotlin, Jetpack Compose + Material 3, Navigation Compose (type-safe routes), minSdk 26, applicationId `id.kelana.app`
+- Kotlin, Jetpack Compose + Material 3, Navigation Compose (type-safe routes), minSdk 26, applicationId `com.gajahbasudara.kelana` (Play Console package; code namespace stays `id.kelana.app`)
 - MVVM + Clean Architecture; Coroutines + Flow; Hilt
 - Retrofit + OkHttp + kotlinx.serialization; Room + DataStore (offline cache for places, today's plan, passport)
 - Coil (images), Media3 ExoPlayer (visitor video), CameraX or Photo Picker (postcards)
