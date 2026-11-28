@@ -1,6 +1,6 @@
 # KELANA Android
 
-Kotlin, Jetpack Compose, Material 3, Hilt (KSP), Room, Retrofit. JDK 17, minSdk 26, applicationId `id.kelana.app`.
+Kotlin, Jetpack Compose, Material 3, Hilt (KSP), Room, Retrofit. JDK 17, minSdk 26, applicationId `com.gajahbasudara.kelana` (namespace `id.kelana.app`).
 
 ## Build
 
