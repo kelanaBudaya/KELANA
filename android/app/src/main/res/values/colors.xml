@@ -4,4 +4,6 @@
     <color name="kelana_cream">#FFFCF6</color>
     <color name="kelana_navy">#1B3671</color>
     <color name="kelana_stamp_yellow">#F4B52B</color>
+    <color name="kelana_stamp_brown">#A84E2B</color>
+    <color name="kelana_icon_background">#FCF7EC</color>
 </resources>

@@ -90,7 +90,7 @@ PROVISIONAL constants (all in `verify.ts`, change only there):
 | `MAX_CAPTURE_AGE_MS` | 30 min | older fix is `expired` (exactly 30 min is accepted) |
 | `MAX_FUTURE_SKEW_MS` | 2 min | later capture time is `future_timestamp` |
 | `MAX_ACCURACY_M` | 100 | worse accuracy, or negative/non-finite, is `low_accuracy` |
-| `EXPECTED_PACKAGE_NAME` | `id.kelana.app` | package the integrity token must belong to |
+| `EXPECTED_PACKAGE_NAME` | `com.gajahbasudara.kelana` | package the integrity token must belong to |
 
 The cap radius is not a constant: it is `places.cap_radius_m`, still to be decided per place.
 

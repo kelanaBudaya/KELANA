@@ -9,7 +9,7 @@ export const MAX_FUTURE_SKEW_MS = 2 * 60 * 1000;
 /** Fixes with accuracy worse (greater) than this many metres are rejected ("low_accuracy"). */
 export const MAX_ACCURACY_M = 100;
 /** Android package name the Play Integrity token must belong to. */
-export const EXPECTED_PACKAGE_NAME = "id.kelana.app";
+export const EXPECTED_PACKAGE_NAME = "com.gajahbasudara.kelana";
 
 export type Reason =
   | "too_far"

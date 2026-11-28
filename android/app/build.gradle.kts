@@ -1,17 +1,37 @@
+import java.util.Properties
+
 plugins {
     id("kelana.android.application")
     id("kelana.android.compose")
     id("kelana.android.hilt")
 }
 
+// Release signing: android/keystore.properties (gitignored) with storeFile, storePassword, keyAlias, keyPassword.
+// Without it, release builds are unsigned and cannot be uploaded to Play.
+val keystoreProperties = Properties().apply {
+    val file = rootProject.file("keystore.properties")
+    if (file.exists()) file.inputStream().use { load(it) }
+}
+
 android {
     defaultConfig {
-        versionCode = 1
+        versionCode = 2
         versionName = "0.1.0"
+    }
+    signingConfigs {
+        if (keystoreProperties.containsKey("storeFile")) {
+            create("release") {
+                storeFile = file(keystoreProperties.getProperty("storeFile"))
+                storePassword = keystoreProperties.getProperty("storePassword")
+                keyAlias = keystoreProperties.getProperty("keyAlias")
+                keyPassword = keystoreProperties.getProperty("keyPassword")
+            }
+        }
     }
     buildTypes {
         release {
             isMinifyEnabled = false
+            signingConfig = signingConfigs.findByName("release")
         }
     }
 }

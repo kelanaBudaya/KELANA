@@ -247,8 +247,8 @@ Deno.test("fail closed without secret; stub only with KELANA_ENV=dev", async () 
 
 Deno.test("payloadIsValid checks nonce, package and verdicts", () => {
   const ok = {
-    requestDetails: { nonce: "N", requestPackageName: "id.kelana.app" },
-    appIntegrity: { appRecognitionVerdict: "PLAY_RECOGNIZED", packageName: "id.kelana.app" },
+    requestDetails: { nonce: "N", requestPackageName: "com.gajahbasudara.kelana" },
+    appIntegrity: { appRecognitionVerdict: "PLAY_RECOGNIZED", packageName: "com.gajahbasudara.kelana" },
     deviceIntegrity: { deviceRecognitionVerdict: ["MEETS_DEVICE_INTEGRITY"] },
   };
   assert.equal(payloadIsValid(ok, "N"), true);
@@ -263,7 +263,7 @@ Deno.test("payloadIsValid checks nonce, package and verdicts", () => {
 });
 
 Deno.test("GoogleIntegrityVerifier fails closed when the network call fails (fake fetch)", async () => {
-  const v = new GoogleIntegrityVerifier("not json", "id.kelana.app", () => Promise.reject(new Error("no net")));
+  const v = new GoogleIntegrityVerifier("not json", "com.gajahbasudara.kelana", () => Promise.reject(new Error("no net")));
   assert.equal(await v.verify("t", "n"), false);
 });
 
